@@ -19,7 +19,7 @@ The site is automatically built and deployed to GitHub Pages using the `gh-pages
 
 `npm run deploy`
 
-The build output (dist/) is pushed to the gh-pages branch.
+The build output (`dist/`) is pushed to the `gh-pages` branch.
 
 ## 🔧 Development
 
