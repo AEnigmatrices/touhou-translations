@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# Touhou Translations
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a personal archive of English translations of **Touhou Project** fan art. The site is built with [React](https://react.dev/) and [Vite](https://vitejs.dev/), and deployed via [GitHub Pages](https://pages.github.com/).
 
-Currently, two official plugins are available:
+## 📌 Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Touhou Translations is a static web project that hosts translated Touhou fan comics and illustrations. All content is translated manually and presented with attribution to original artists where possible.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   **Vite** – fast frontend build tool
+-   **React** – component-based UI framework
+-   **gh-pages** – deployment to GitHub Pages
+-   **GitHub Pages** – static site hosting
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+## 🚀 Deployment
+
+The site is automatically built and deployed to GitHub Pages using the `gh-pages` branch. To deploy locally:
+
+`npm run deploy`
+
+The build output (dist/) is pushed to the gh-pages branch.
+
+## 🔧 Development
+
+To start the development server:
+
+```
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 Live Site
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+Visit the live site here:
+https://aenigmatrices.github.io/touhou-translations/
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+## 📄 License
+
+This project is for non-commercial, fan translation purposes only. All rights to the original artworks belong to their respective creators. If you are an artist and wish to have your work removed or credited differently, please open an issue or contact me.
+
+© AEnigmatrices, 2025
