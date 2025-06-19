@@ -8,6 +8,25 @@
             name="description"
             content="An archive of fan-translated Touhou Project comics and illustrations."
         />
+
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
+                default-src 'self';
+                script-src 'self';
+                style-src 'self' 'unsafe-inline';
+                img-src 'self' https://*.redditmedia.com https://www.reddit.com data:;
+                font-src 'self';
+                connect-src 'self' https://www.reddit.com;
+                frame-ancestors 'none';
+                base-uri 'self';
+            "
+        />
+
+        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+        <meta http-equiv="X-Frame-Options" content="DENY" />
+        <meta name="referrer" content="strict-origin" />
+
         <title>Touhou Translations</title>
       <script type="module" crossorigin src="/touhou-translations/assets/index-O0bJggnm.js"></script>
       <link rel="stylesheet" crossorigin href="/touhou-translations/assets/index-D8b4DHJx.css">
