@@ -25,11 +25,32 @@ const App = () => {
 
 
 
+    const fetchRedditImage = async () => {
+        resetState();
+        try {
+            const response = await fetch(post.url);
+            const data = await response.json();
+
+            const redditPost = data[0]?.data?.children[0]?.data;
+            const url = redditPost?.url;
+
+            if (url && /\.(jpg|jpeg|png|gif)$/i.test(url)) {
+                setImageUrl(url);
+            } else {
+                setError('No direct image URL found.');
+            }
+        } catch {
+            setError('Failed to fetch image.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const resetState = () => {
         setLoading(true); setError(null); setImageUrl(null);
     };
 
-    const setErrorState = (message: string) => {
+    const setNoUrl = (message: string) => {
         setError(message); setLoading(false); setImageUrl(null);
     };
 
@@ -37,31 +58,8 @@ const App = () => {
 
     useEffect(() => {
         if (!post?.url) {
-            setErrorState('No post link found.');
-            return;
+            setNoUrl('No post link found.'); return;
         }
-
-        const fetchRedditImage = async () => {
-            resetState();
-            try {
-                const response = await fetch(post.url);
-                const data = await response.json();
-
-                const redditPost = data[0]?.data?.children[0]?.data;
-                const url = redditPost?.url;
-
-                if (url && /\.(jpg|jpeg|png|gif)$/i.test(url)) {
-                    setImageUrl(url);
-                } else {
-                    setError('No direct image URL found.');
-                }
-            } catch {
-                setError('Failed to fetch image.');
-            } finally {
-                setLoading(false);
-            }
-        };
-
         fetchRedditImage();
     }, [post]);
 
