@@ -32,19 +32,16 @@ const App = () => {
         try {
             const response = await fetch(post.url);
             const data = await response.json();
+            const postData = data[0]?.data?.children[0]?.data;
 
-            const redditPost = data[0]?.data?.children[0]?.data;
-            const title = redditPost?.title;
-            const url = redditPost?.url;
-
-            if (title) {
-                setPostTitle(title);
+            if (postData?.title) {
+                setPostTitle(postData.title);
             } else {
                 setError('No title found.');
             }
 
-            if (url && /\.(jpg|jpeg|png|gif)$/i.test(url)) {
-                setImageUrl(url);
+            if (postData?.url?.match(/\.(jpg|jpeg|png|gif)$/i)) {
+                setImageUrl(postData.url);
             } else {
                 setError('No direct image URL found.');
             }
