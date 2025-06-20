@@ -65,12 +65,7 @@ const App = () => {
 
 
 
-    useEffect(() => {
-        if (!post?.url) {
-            setNoUrl('No post link found.'); return;
-        }
-        fetchRedditImage();
-    }, [post]);
+    useEffect(() => { post?.url ? fetchRedditImage() : setNoUrl('No post link found.'); }, [post]);
 
 
 
