@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ImageViewer from './components/ImageViewer';
 import postsData from './assets/data/posts.json';
 import artistsData from './assets/data/artists.json';
 import charactersData from './assets/data/characters.json';
@@ -12,6 +13,7 @@ const typedCharacters = charactersData as Record<string, Character>;
 
 
 const App = () => {
+    const [postTitle, setPostTitle] = useState<string | null>(null);
     const [imageUrl, setImageUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
@@ -32,7 +34,14 @@ const App = () => {
             const data = await response.json();
 
             const redditPost = data[0]?.data?.children[0]?.data;
+            const title = redditPost?.title;
             const url = redditPost?.url;
+
+            if (title) {
+                setPostTitle(title);
+            } else {
+                setError('No title found.');
+            }
 
             if (url && /\.(jpg|jpeg|png|gif)$/i.test(url)) {
                 setImageUrl(url);
@@ -47,11 +56,11 @@ const App = () => {
     };
 
     const resetState = () => {
-        setLoading(true); setError(null); setImageUrl(null);
+        setLoading(true); setError(null); setImageUrl(null); setPostTitle(null);
     };
 
     const setNoUrl = (message: string) => {
-        setError(message); setLoading(false); setImageUrl(null);
+        setError(message); setLoading(false); setImageUrl(null); setPostTitle(null);
     };
 
 
@@ -70,20 +79,8 @@ const App = () => {
             <h1>Reddit Image Viewer</h1>
             {loading && <p>Loading...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            {imageUrl && (
-                <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
-                    <div style={{ flex: '1' }}>
-                        <img src={imageUrl} alt="Reddit Post" style={{ width: '100%', maxWidth: '600px' }} />
-                    </div>
-                    <div style={{ flex: '1' }}>
-                        {artist && <p><strong>Artist:</strong> {artist.name}</p>}
-                        {characterList && characterList.length > 0 && (
-                            <p><strong>Characters:</strong> {characterList.map(c => c.name).join(', ')}</p>
-                        )}
-                        <p><strong>Source:</strong>{' '}<a href={post.src} target="_blank" rel="noopener noreferrer">{post.src}</a></p>
-                        <p><strong>Commentary:</strong> {post.desc}</p>
-                    </div>
-                </div>
+            {postTitle && imageUrl && (
+                <ImageViewer postTitle={postTitle} imageUrl={imageUrl} artist={artist} characters={characterList} post={post} />
             )}
             <div style={{ marginTop: '1.5rem' }}>
                 <button
