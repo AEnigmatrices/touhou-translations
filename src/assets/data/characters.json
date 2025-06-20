@@ -1,5 +1,11 @@
 {
     "reimu": {
         "name": "Hakurei Reimu"
+    },
+    "marisa": {
+        "name": "Kirisame Marisa"
+    },
+    "rumia": {
+        "name": "Rumia"
     }
 }

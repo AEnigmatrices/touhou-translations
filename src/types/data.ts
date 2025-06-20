@@ -1,5 +1,7 @@
 export interface Post {
     url: string;
+    src: string;
+    desc: string;
     artistId: string;
     characterIds: string[];
 }
