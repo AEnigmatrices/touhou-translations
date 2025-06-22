@@ -39,8 +39,39 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
-    color: #222;
     text-align: center;
+    color: #222;
+}
+
+.post-title a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.post-title a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #0066cc;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.post-title a:hover {
+    color: #004999;
+}
+
+.post-title a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .info-section {
