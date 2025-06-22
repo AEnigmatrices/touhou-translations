@@ -27,6 +27,7 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
         if (!href) return null;
+        console.log(iconSrc)
         return (
             <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={`icon-button ${altText.toLowerCase()}`}>
                 <img src={iconSrc} alt={altText} />
