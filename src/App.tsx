@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ImageViewer from './components/ImageViewer';
 import postsData from './assets/data/posts.json';
 import type { Post } from './types/data';
-import './App.css';
+import './App.scss';
 
 const typedPosts = postsData as Post[];
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { Artist, Character, Post } from '../../types/data';
 import artistsData from '../../assets/data/artists.json';
 import charactersData from '../../assets/data/characters.json';
-import './ImageViewer.css';
+import './ImageViewer.scss';
 
 type Props = { post: Post };
 

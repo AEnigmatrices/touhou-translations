@@ -1,0 +1,137 @@
+.image-viewer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 1rem;
+    }
+}
+
+.image-section {
+    flex: 1 1 320px;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
+
+.post-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    color: #222;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 2px;
+        transition: color 0.3s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #0066cc;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            color: #004999;
+
+            &::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+        }
+    }
+}
+
+.info-section {
+    flex: 1 1 320px;
+    max-width: 600px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+
+    p {
+        margin: 0.75rem 0;
+        line-height: 1.6;
+        font-size: 1.05rem;
+    }
+
+    strong {
+        color: #222;
+    }
+
+    a {
+        color: #0066cc;
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 2px;
+        transition: color 0.3s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #0066cc;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            color: #004999;
+
+            &::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
