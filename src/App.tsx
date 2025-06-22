@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import ImageViewer from './components/ImageViewer';
 import postsData from './data/posts.json';
 import type { Post } from './types/data';
@@ -12,7 +11,6 @@ const App = () => {
     const post = typedPosts[currentPostIndex];
 
     const isLocal = import.meta.env.MODE === 'development';
-
     const csp = `
         default-src 'self';
         script-src 'self';
@@ -26,10 +24,7 @@ const App = () => {
 
     return (
         <>
-            <Helmet>
-                <meta httpEquiv="Content-Security-Policy" content={csp} />
-            </Helmet>
-
+            <meta httpEquiv="Content-Security-Policy" content={csp} />
             <h1>Reddit Image Viewer</h1>
             <div style={{ marginTop: '1.5rem' }}>
                 <button disabled={currentPostIndex === 0} onClick={() => setCurrentPostIndex(i => i - 1)}>Previous</button>
