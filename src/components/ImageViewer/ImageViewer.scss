@@ -114,32 +114,37 @@
 
             .value {
                 display: flex;
-                gap: 0.75rem;
+                gap: 1.5rem;
                 text-align: left;
                 font-size: 1.05rem;
                 line-height: 1.6;
 
-                .icon-button {
-                    display: inline-flex;
-                    align-items: center;
-                    cursor: pointer;
-                    transition: transform 0.15s ease, filter 0.15s ease;
+                .info-icons {
+                    display: flex;
+                    gap: 0.5rem;
 
-                    img {
-                        width: 1.5rem;
-                        border-radius: 6px;
-                        transition: inherit;
-                        display: block;
-                    }
+                    .icon-button {
+                        display: inline-flex;
+                        align-items: center;
+                        cursor: pointer;
+                        transition: transform 0.15s ease, filter 0.15s ease;
 
-                    &:hover img {
-                        transform: scale(1.1);
-                        filter: brightness(1.1);
-                    }
+                        img {
+                            width: 1.5rem;
+                            border-radius: 6px;
+                            transition: inherit;
+                            display: block;
+                        }
 
-                    &:active img {
-                        transform: scale(0.95);
-                        filter: brightness(0.9);
+                        &:hover img {
+                            transform: scale(1.1);
+                            filter: brightness(1.1);
+                        }
+
+                        &:active img {
+                            transform: scale(0.95);
+                            filter: brightness(0.9);
+                        }
                     }
                 }
             }

@@ -82,28 +82,30 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
                             <div className="label">Artist:</div>
                             <div className="value">
                                 {artist.name}
-                                {artist.linkTwitter && (
-                                    <a
-                                        href={artist.linkTwitter}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Twitter profile"
-                                        className="icon-button twitter"
-                                    >
-                                        <img src="icons/twitter.png" alt="Twitter" />
-                                    </a>
-                                )}
-                                {artist.linkPixiv && (
-                                    <a
-                                        href={artist.linkPixiv}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Pixiv profile"
-                                        className="icon-button pixiv"
-                                    >
-                                        <img src="icons/pixiv.png" alt="Pixiv" />
-                                    </a>
-                                )}
+                                <div className="info-icons">
+                                    {artist.linkTwitter && (
+                                        <a
+                                            href={artist.linkTwitter}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Twitter profile"
+                                            className="icon-button twitter"
+                                        >
+                                            <img src="icons/twitter.png" alt="Twitter" />
+                                        </a>
+                                    )}
+                                    {artist.linkPixiv && (
+                                        <a
+                                            href={artist.linkPixiv}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Pixiv profile"
+                                            className="icon-button pixiv"
+                                        >
+                                            <img src="icons/pixiv.png" alt="Pixiv" />
+                                        </a>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     )}
