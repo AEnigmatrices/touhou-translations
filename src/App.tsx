@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ImageViewer from './components/ImageViewer';
-import postsData from './assets/data/posts.json';
+import postsData from './data/posts.json';
 import type { Post } from './types/data';
 import './App.scss';
 

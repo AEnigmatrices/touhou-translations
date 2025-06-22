@@ -8,8 +8,8 @@ export interface Post {
 
 export interface Artist {
     name: string;
-    profile1?: string;
-    profile2?: string;
+    linkTwitter?: string;
+    linkPixiv?: string;
 }
 
 export interface Character {
