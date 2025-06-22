@@ -3,7 +3,7 @@ import type { Artist, Character, Post } from '../../types/data';
 import ReactMarkdown from 'react-markdown';
 import artistsData from '../../data/artists.json';
 import charactersData from '../../data/characters.json';
-import './ImageViewer.scss';
+import '../../styles/ImageViewer.scss';
 
 interface Props { selectedPost: Post };
 
