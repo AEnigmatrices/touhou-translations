@@ -5,7 +5,7 @@ import artistsData from '../../data/artists.json';
 import charactersData from '../../data/characters.json';
 import './ImageViewer.scss';
 
-type Props = { selectedPost: Post };
+interface Props { selectedPost: Post };
 
 const typedArtists = artistsData as Record<string, Artist>;
 const typedCharacters = charactersData as Record<string, Character>;
@@ -28,13 +28,7 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
         if (!href) return null;
         return (
-            <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={ariaLabel}
-                className={`icon-button ${altText.toLowerCase()}`}
-            >
+            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={`icon-button ${altText.toLowerCase()}`}>
                 <img src={iconSrc} alt={altText} />
             </a>
         );
