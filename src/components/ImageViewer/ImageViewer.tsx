@@ -4,22 +4,23 @@ import artistsData from '../../assets/data/artists.json';
 import charactersData from '../../assets/data/characters.json';
 import './ImageViewer.scss';
 
-type Props = { post: Post };
+type Props = { selectedPost: Post };
 
 const typedArtists = artistsData as Record<string, Artist>;
 const typedCharacters = charactersData as Record<string, Character>;
 
 
 
-const ImageViewer: React.FC<Props> = ({ post }) => {
-    const [postTitle, setPostTitle] = useState<string | null>(null);
-    const [postLink, setPostLink] = useState<string | null>(null);
-    const [imageUrl, setImageUrl] = useState<string | null>(null);
+const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
-    const artist = typedArtists[post.artistId] ?? null;
-    const characters = post.characterIds.map(id => typedCharacters[id]).filter(Boolean) as Character[];
+    const [postTitle, setPostTitle] = useState<string | null>(null);
+    const [postLink, setPostLink] = useState<string | null>(null);
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+    const artist = typedArtists[selectedPost.artistId] ?? null;
+    const characters = selectedPost.characterIds.map(id => typedCharacters[id]).filter(Boolean) as Character[];
 
 
 
@@ -31,7 +32,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
             setPostTitle(null);
 
             try {
-                const response = await fetch(post.url);
+                const response = await fetch(selectedPost.url);
                 const data = await response.json();
                 const postData = data[0]?.data?.children[0]?.data;
 
@@ -51,7 +52,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
         };
 
         fetchRedditImage();
-    }, [post]);
+    }, [selectedPost]);
 
 
 
@@ -63,12 +64,12 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
         <div className="image-viewer">
             <div>
                 <h1 className="post-title">
-                    <a href={postLink} target="_blank" rel="noopener noreferrer">
+                    <a href={postLink} target="_blank" rel="noopener noreferrer" aria-label="View Reddit post">
                         {postTitle}
                     </a>
                 </h1>
                 <div className="image-section">
-                    <a href={post.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
+                    <a href={selectedPost.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
                         <img src={imageUrl} alt="Reddit Post" className="image" />
                     </a>
                 </div>
@@ -76,7 +77,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
             <div className="info-section">
                 {artist && <p><strong>Artist:</strong> {artist.name}</p>}
                 {characters.length > 0 && <p><strong>Characters:</strong> {characters.map(c => c.name).join(', ')}</p>}
-                <p><strong>TL Commentary:</strong> {post.desc}</p>
+                <p><strong>TL Commentary:</strong> {selectedPost.desc}</p>
             </div>
         </div>
     );

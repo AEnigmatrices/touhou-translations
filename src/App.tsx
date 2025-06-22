@@ -17,7 +17,7 @@ const App = () => {
                 <button disabled={currentPostIndex === 0} onClick={() => setCurrentPostIndex(i => i - 1)}>Previous</button>
                 <button disabled={currentPostIndex === typedPosts.length - 1} onClick={() => setCurrentPostIndex(i => i + 1)} style={{ marginLeft: '1rem' }}>Next</button>
             </div>
-            <ImageViewer post={post} />
+            <ImageViewer selectedPost={post} />
         </>
     );
 };
