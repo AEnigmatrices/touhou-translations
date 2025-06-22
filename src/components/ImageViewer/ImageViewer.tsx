@@ -76,9 +76,7 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
         <div className="image-viewer">
             <div>
                 <h1 className="post-title">
-                    <a href={postLink} target="_blank" rel="noopener noreferrer" aria-label="View Reddit post">
-                        {postTitle}
-                    </a>
+                    {postTitle}
                 </h1>
                 <div className="image-section">
                     <a href={selectedPost.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
@@ -108,8 +106,13 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
                     )}
                 </div>
                 <div className="info-comment">
-                    <div className="label">TL Commentary:</div>
-                    <div className="value"><ReactMarkdown>{selectedPost.desc}</ReactMarkdown></div>
+                    <div className="label">
+                        {renderIconLink(postLink, "Reddit post", "icons/reddit.png", "Reddit")}
+                        TL Commentary:
+                    </div>
+                    <div className="value">
+                        <ReactMarkdown>{selectedPost.desc}</ReactMarkdown>
+                    </div>
                 </div>
             </div>
         </div>
