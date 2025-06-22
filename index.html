@@ -9,6 +9,18 @@
         />
         <meta http-equiv="X-Content-Type-Options" content="nosniff" />
         <meta http-equiv="X-Frame-Options" content="DENY" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="
+                default-src 'self';
+                script-src 'self';
+                style-src 'self' https://fonts.googleapis.com %VITE_CSP_STYLE_SRC%;
+                img-src 'self' https://i.redd.it;
+                font-src 'self' https://fonts.gstatic.com;
+                connect-src 'self' https://www.reddit.com;
+                base-uri 'self';
+            "
+        />
         <meta name="referrer" content="strict-origin" />
         <link rel="icon" type="image/png" href="icons/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
