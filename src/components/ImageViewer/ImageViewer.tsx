@@ -25,6 +25,23 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
 
 
 
+    const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
+        if (!href) return null;
+        return (
+            <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={ariaLabel}
+                className={`icon-button ${altText.toLowerCase()}`}
+            >
+                <img src={iconSrc} alt={altText} />
+            </a>
+        );
+    };
+
+
+
     useEffect(() => {
         const fetchRedditImage = async () => {
             setLoading(true);
@@ -83,28 +100,8 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
                             <div className="value">
                                 {artist.name}
                                 <div className="info-icons">
-                                    {artist.linkTwitter && (
-                                        <a
-                                            href={artist.linkTwitter}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            aria-label="Twitter profile"
-                                            className="icon-button twitter"
-                                        >
-                                            <img src="icons/twitter.png" alt="Twitter" />
-                                        </a>
-                                    )}
-                                    {artist.linkPixiv && (
-                                        <a
-                                            href={artist.linkPixiv}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            aria-label="Pixiv profile"
-                                            className="icon-button pixiv"
-                                        >
-                                            <img src="icons/pixiv.png" alt="Pixiv" />
-                                        </a>
-                                    )}
+                                    {renderIconLink(artist.linkTwitter, "Twitter profile", "icons/twitter.png", "Twitter")}
+                                    {renderIconLink(artist.linkPixiv, "Pixiv profile", "icons/pixiv.png", "Pixiv")}
                                 </div>
                             </div>
                         </div>
