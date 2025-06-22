@@ -62,11 +62,11 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     return (
         <div className="image-viewer">
             <div>
-                <h2 className="post-title">
+                <h1 className="post-title">
                     <a href={postLink} target="_blank" rel="noopener noreferrer">
                         {postTitle}
                     </a>
-                </h2>
+                </h1>
                 <div className="image-section">
                     <a href={post.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
                         <img src={imageUrl} alt="Reddit Post" className="image" />
