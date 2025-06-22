@@ -63,4 +63,13 @@ Error generating stack: `+n.message+`
 
 If I were to guess, maybe the most uncomfortable aspect of the Forest of Magic is its very first description – it is the most **humid** place in Gensōkyō. Probably hell-on-earth in summer. 🔥🔥🔥 
 
-Okay, this is definitely my Japanese-hard moment. What Marisa's saying in the end is literally "***Even if die, there is still a little more, right?***" which I guess means that???`,artistId:"shichimi",characterIds:["marisa","rumia"]}],Dp=oS,fS=()=>{const[u,a]=Zn.useState(0),r=Dp[u];return Tt.jsxs(Tt.Fragment,{children:[Tt.jsx("h1",{children:"Reddit Image Viewer"}),Tt.jsxs("div",{style:{marginTop:"1.5rem"},children:[Tt.jsx("button",{disabled:u===0,onClick:()=>a(c=>c-1),children:"Previous"}),Tt.jsx("button",{disabled:u===Dp.length-1,onClick:()=>a(c=>c+1),style:{marginLeft:"1rem"},children:"Next"})]}),Tt.jsx(cS,{selectedPost:r})]})};ky.createRoot(document.getElementById("root")).render(Tt.jsx(Zn.StrictMode,{children:Tt.jsx(fS,{})}));
+Okay, this is definitely my Japanese-hard moment. What Marisa's saying in the end is literally "***Even if die, there is still a little more, right?***" which I guess means that???`,artistId:"shichimi",characterIds:["marisa","rumia"]}],Dp=oS,fS=()=>{const[u,a]=Zn.useState(0),r=Dp[u],c=`
+        default-src 'self';
+        script-src 'self';
+        style-src 'self' ;
+        img-src 'self' https://i.redd.it;
+        font-src 'self' https://fonts.gstatic.com;
+        connect-src 'self' https://www.reddit.com;
+        frame-ancestors 'none';
+        base-uri 'self';
+    `.trim();return Tt.jsxs(Tt.Fragment,{children:[Tt.jsx("meta",{httpEquiv:"Content-Security-Policy",content:c}),Tt.jsx("h1",{children:"Reddit Image Viewer"}),Tt.jsxs("div",{style:{marginTop:"1.5rem"},children:[Tt.jsx("button",{disabled:u===0,onClick:()=>a(f=>f-1),children:"Previous"}),Tt.jsx("button",{disabled:u===Dp.length-1,onClick:()=>a(f=>f+1),style:{marginLeft:"1rem"},children:"Next"})]}),Tt.jsx(cS,{selectedPost:r})]})};ky.createRoot(document.getElementById("root")).render(Tt.jsx(Zn.StrictMode,{children:Tt.jsx(fS,{})}));
