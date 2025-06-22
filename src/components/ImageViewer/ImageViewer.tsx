@@ -75,9 +75,22 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
                 </div>
             </div>
             <div className="info-section">
-                {artist && <p><strong>Artist:</strong> {artist.name}</p>}
-                {characters.length > 0 && <p><strong>Characters:</strong> {characters.map(c => c.name).join(', ')}</p>}
-                <p><strong>TL Commentary:</strong> {selectedPost.desc}</p>
+                {artist && (
+                    <div className="info-item">
+                        <div className="label">Artist:</div>
+                        <div className="value">{artist.name}</div>
+                    </div>
+                )}
+                {characters.length > 0 && (
+                    <div className="info-item">
+                        <div className="label">Characters:</div>
+                        <div className="value">{characters.map(c => c.name).join(', ')}</div>
+                    </div>
+                )}
+                <div className="info-item full-width">
+                    <div className="label">TL Commentary:</div>
+                    <div className="value"><span>{selectedPost.desc}</span></div>
+                </div>
             </div>
         </div>
     );
