@@ -68,7 +68,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                     </a>
                 </h2>
                 <div className="image-section">
-                    <a href={imageUrl} target="_blank" rel="noopener noreferrer" aria-label="View source">
+                    <a href={post.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
                         <img src={imageUrl} alt="Reddit Post" className="image" />
                     </a>
                 </div>
