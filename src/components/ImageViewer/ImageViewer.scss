@@ -33,6 +33,10 @@
         transform: scale(1.03);
     }
 
+    &:active {
+        transform: scale(0.97);
+    }
+
     .image {
         width: 100%;
         height: auto;
@@ -122,12 +126,15 @@
         gap: 0.25rem;
 
         .label {
+            text-align: left;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #222;
-            margin-bottom: 0.25rem;
+            margin-bottom: -0.75rem;
         }
 
         .value {
+            text-align: left;
             font-size: 1.05rem;
             line-height: 1.6;
         }

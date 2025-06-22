@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Artist, Character, Post } from '../../types/data';
+import ReactMarkdown from 'react-markdown';
 import artistsData from '../../assets/data/artists.json';
 import charactersData from '../../assets/data/characters.json';
 import './ImageViewer.scss';
@@ -91,7 +92,7 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
                 </div>
                 <div className="info-comment">
                     <div className="label">TL Commentary:</div>
-                    <div className="value"> <span>{selectedPost.desc}</span></div>
+                    <div className="value"><ReactMarkdown>{selectedPost.desc}</ReactMarkdown></div>
                 </div>
             </div>
         </div>
