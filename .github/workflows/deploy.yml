@@ -5,6 +5,9 @@ on:
         branches:
             - main
 
+permissions:
+    contents: write
+
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -16,7 +19,7 @@ jobs:
             - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: "22.16.0"
+                  node-version: "22"
 
             - name: Install dependencies
               run: npm ci
@@ -25,9 +28,7 @@ jobs:
               run: npm run build
 
             - name: Deploy to GitHub Pages
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                  git config --global user.name "github-actions[bot]"
-                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
-                  npx gh-pages -d dist --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist
