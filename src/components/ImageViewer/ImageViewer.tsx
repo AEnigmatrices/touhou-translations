@@ -4,6 +4,9 @@ import ReactMarkdown from 'react-markdown';
 import artistsData from '../../data/artists.json';
 import charactersData from '../../data/characters.json';
 import './ImageViewer.scss';
+import twitterIcon from '../../icons/twitter.png';
+import pixivIcon from '../../icons/pixiv.png';
+import redditIcon from '../../icons/reddit.png';
 
 interface Props { selectedPost: Post };
 
@@ -92,8 +95,8 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
                             <div className="value">
                                 {artist.name}
                                 <div className="info-icons">
-                                    {renderIconLink(artist.linkTwitter, "Twitter profile", "icons/twitter.png", "Twitter")}
-                                    {renderIconLink(artist.linkPixiv, "Pixiv profile", "icons/pixiv.png", "Pixiv")}
+                                    {renderIconLink(artist.linkTwitter, "Twitter profile", twitterIcon, "Twitter")}
+                                    {renderIconLink(artist.linkPixiv, "Pixiv profile", pixivIcon, "Pixiv")}
                                 </div>
                             </div>
                         </div>
@@ -107,7 +110,7 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
                 </div>
                 <div className="info-comment">
                     <div className="label">
-                        {renderIconLink(postLink, "Reddit post", "icons/reddit.png", "Reddit")}
+                        {renderIconLink(postLink, "Reddit post", redditIcon, "Reddit")}
                         TL Commentary:
                     </div>
                     <div className="value">
