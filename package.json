@@ -4,6 +4,13 @@
     "version": "0.0.0",
     "type": "module",
     "homepage": "https://aenigmatrices.github.io/touhou-translations",
+    "description": "Touhou translations viewer built with React and Vite",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AEnigmatrices/touhou-translations.git"
+    },
+    "license": "MIT",
+    "author": "AEnigmatrices",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
