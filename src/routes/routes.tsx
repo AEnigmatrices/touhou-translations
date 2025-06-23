@@ -1,7 +1,7 @@
 import type { RouteObject } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import Placeholder from "./components/Placeholder";
-import type { Post } from "./types/data";
+import Home from "../pages/Home/Home";
+import Placeholder from "../components/Placeholder";
+import type { Post } from "../types/data";
 
 
 
