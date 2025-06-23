@@ -6,17 +6,7 @@ import type { Post } from "../types/data";
 
 
 export const createRoutes = (post: Post, currentPostIndex: number, setCurrentPostIndex: React.Dispatch<React.SetStateAction<number>>, totalPosts: number): RouteObject[] => [
-    {
-        path: "/",
-        element: (
-            <Home
-                post={post}
-                currentPostIndex={currentPostIndex}
-                setCurrentPostIndex={setCurrentPostIndex}
-                totalPosts={totalPosts}
-            />
-        ),
-    },
+    { path: "/", element: (<Home post={post} currentPostIndex={currentPostIndex} setCurrentPostIndex={setCurrentPostIndex} totalPosts={totalPosts} />), },
     { path: "/search", element: <Placeholder title="Search" /> },
     { path: "/characters", element: <Placeholder title="Characters" /> },
     { path: "/artists", element: <Placeholder title="Artists" /> },
