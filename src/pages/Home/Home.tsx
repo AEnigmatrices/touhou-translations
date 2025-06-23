@@ -11,8 +11,7 @@ interface HomeProps {
 const Home = ({ post, currentPostIndex, setCurrentPostIndex, totalPosts }: HomeProps) => {
     return (
         <>
-            <h1>Reddit Image Viewer</h1>
-            <div style={{ marginTop: '1.5rem' }}>
+            <div>
                 <button
                     disabled={currentPostIndex === 0}
                     onClick={() => setCurrentPostIndex(i => i - 1)}
@@ -22,7 +21,6 @@ const Home = ({ post, currentPostIndex, setCurrentPostIndex, totalPosts }: HomeP
                 <button
                     disabled={currentPostIndex === totalPosts - 1}
                     onClick={() => setCurrentPostIndex(i => i + 1)}
-                    style={{ marginLeft: '1rem' }}
                 >
                     Next
                 </button>

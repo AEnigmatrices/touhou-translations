@@ -4,11 +4,13 @@ import './Navbar.scss';
 const Navbar: React.FC = () => {
     return (
         <nav className="navbar">
-            <Link to="/">Home</Link>
-            <Link to="/search">Search</Link>
-            <Link to="/characters">Characters</Link>
-            <Link to="/artists">Artists</Link>
-            <Link to="/gallery">Gallery</Link>
+            <div className="navbar__container">
+                <Link to="/" className="navbar__link">Home</Link>
+                <Link to="/search" className="navbar__link">Search</Link>
+                <Link to="/characters" className="navbar__link">Characters</Link>
+                <Link to="/artists" className="navbar__link">Artists</Link>
+                <Link to="/gallery" className="navbar__link">Gallery</Link>
+            </div>
         </nav>
     );
 };
