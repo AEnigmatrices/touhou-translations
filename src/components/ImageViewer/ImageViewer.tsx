@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import type { Artist, Character, Post } from '../../types/data';
 import ReactMarkdown from 'react-markdown';
 import artistsData from '../../data/artists.json';
@@ -8,20 +7,21 @@ import twitterIcon from '../../icons/twitter.png';
 import pixivIcon from '../../icons/pixiv.png';
 import redditIcon from '../../icons/reddit.png';
 
-interface Props { selectedPost: Post };
+interface Props {
+    selectedPost: Post;
+    postTitle: string | null;
+    postLink: string | null;
+    imageUrl: string | null;
+    loading: boolean;
+    error: string | null;
+}
 
 const typedArtists = artistsData as Record<string, Artist>;
 const typedCharacters = charactersData as Record<string, Character>;
 
 
 
-const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
-    const [error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-
-    const [postTitle, setPostTitle] = useState<string | null>(null);
-    const [postLink, setPostLink] = useState<string | null>(null);
-    const [imageUrl, setImageUrl] = useState<string | null>(null);
+const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, imageUrl, loading, error }) => {
 
     const artist = typedArtists[selectedPost.artistId] ?? null;
     const characters = selectedPost.characterIds.map(id => typedCharacters[id]).filter(Boolean) as Character[];
@@ -36,38 +36,6 @@ const ImageViewer: React.FC<Props> = ({ selectedPost }) => {
             </a>
         );
     };
-
-
-
-    useEffect(() => {
-        const fetchRedditImage = async () => {
-            setLoading(true);
-            setError(null);
-            setImageUrl(null);
-            setPostTitle(null);
-
-            try {
-                const response = await fetch(selectedPost.url);
-                const data = await response.json();
-                const postData = data[0]?.data?.children[0]?.data;
-
-                if (postData?.title) setPostTitle(postData.title);
-                else setError('No title found.');
-
-                if (postData?.permalink) setPostLink(`https://www.reddit.com${postData.permalink}`);
-                else setError('No permalink found.');
-
-                if (postData?.url?.match(/\.(jpg|jpeg|png|gif)$/i)) setImageUrl(postData.url);
-                else setError('No direct image URL found.');
-            } catch {
-                setError('Failed to fetch image.');
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchRedditImage();
-    }, [selectedPost]);
 
 
 
