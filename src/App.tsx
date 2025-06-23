@@ -1,19 +1,12 @@
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
+import Navbar from './components/Navbar/Navbar';
 import './App.scss';
 
-
-
-const App = () => {
+const App: React.FC = () => {
     return (
         <Router basename="/touhou-translations/">
-            <nav className="navbar">
-                <Link to="/">Home</Link>
-                <Link to="/search">Search</Link>
-                <Link to="/characters">Characters</Link>
-                <Link to="/artists">Artists</Link>
-                <Link to="/gallery">Gallery</Link>
-            </nav>
+            <Navbar />
             <main style={{ padding: '1.5rem' }}>
                 <AppRoutes />
             </main>
