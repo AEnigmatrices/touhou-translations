@@ -28,14 +28,14 @@ const Item = () => {
 
 
 
-    const resetState = useCallback(() => {
+    const resetStateForLoading = useCallback(() => {
         setLoading(true); setError(null); setImageUrl(null); setPostTitle(null); setPostLink(null);
     }, []);
 
 
     const fetchRedditImage = useCallback(async () => {
         if (!post || !post.url) return;
-        resetState();
+        resetStateForLoading();
         try {
             const response = await fetch(post.url);
             if (!response.ok) throw new Error('Failed to fetch');
@@ -58,7 +58,7 @@ const Item = () => {
         } finally {
             setLoading(false);
         }
-    }, [post, resetState]);
+    }, [post, resetStateForLoading]);
 
 
 
