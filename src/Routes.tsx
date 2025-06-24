@@ -7,7 +7,7 @@ import Placeholder from './components/Placeholder';
 const Routes = () => {
 
     const routes = useMemo(() => [
-        { path: '/', element: <Home title="Home" /> },
+        { path: '/', element: <Home /> },
         { path: '/search', element: <Placeholder title="Search" /> },
         { path: '/characters', element: <Placeholder title="Characters" /> },
         { path: '/artists', element: <Placeholder title="Artists" /> },

@@ -1,29 +1,10 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { fetchRedditImageData } from '../../utils/redditApi';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 import postsData from '../../data/posts.json';
 import type { Post } from '../../types/data';
-
-const REDDIT_BASE_URL = 'https://www.reddit.com';
-
-const fetchRedditPostData = async (url: string) => {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Failed to fetch');
-    const data = await response.json();
-    const postData = data[0]?.data?.children[0]?.data;
-
-    if (!postData) throw new Error('Invalid post data');
-
-    const imageUrl = postData.url?.match(/\.(jpg|jpeg|png|gif)$/i) ? postData.url : null;
-    if (!imageUrl) throw new Error('No direct image URL found');
-
-    return {
-        title: postData.title || null,
-        permalink: postData.permalink ? `${REDDIT_BASE_URL}${postData.permalink}` : null,
-        imageUrl
-    };
-};
 
 
 
@@ -42,7 +23,7 @@ const Item = () => {
 
     const { data, error, isLoading } = useQuery({
         queryKey: ['redditPost', post?.url],
-        queryFn: () => fetchRedditPostData(post!.url),
+        queryFn: () => fetchRedditImageData(post!.url),
         enabled: !!post?.url && !isNaN(numericIndex),
         retry: 1,
     });
