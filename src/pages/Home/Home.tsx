@@ -1,19 +1,13 @@
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { usePostsContext } from '../../context/PostsContext';
 import { fetchRedditImageData } from '../../utils/redditApi';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
-import postsData from '../../data/posts.json';
-import type { Post } from '../../types/data';
 
 
 
 const Home = () => {
-    const sortedPosts = useMemo(() => {
-        const postsWithDate = (postsData as Post[]).filter(p => p.date);
-        return [...postsWithDate].sort(
-            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-        );
-    }, []);
+    const { sortedPosts } = usePostsContext();
 
     const randomIndex = useMemo(() => {
         if (sortedPosts.length === 0) return -1;
