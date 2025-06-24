@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 import postsData from '../../data/posts.json';
 import type { Post } from '../../types/data';
+
+const REDDIT_BASE_URL = 'https://www.reddit.com';
+
+
 
 const Item = () => {
     const { id } = useParams();
@@ -14,58 +18,67 @@ const Item = () => {
     const [postLink, setPostLink] = useState<string | null>(null);
     const [imageUrl, setImageUrl] = useState<string | null>(null);
 
-    const postsWithDate: Post[] = (postsData as Post[]).filter(p => p.date);
-    const sortedPosts = postsWithDate.sort(
-        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-    );
+    const sortedPosts = useMemo(() => {
+        const postsWithDate = (postsData as Post[]).filter(p => p.date);
+        return [...postsWithDate].sort(
+            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+        );
+    }, []);
     const post = sortedPosts[numericIndex - 1];
 
 
 
-    useEffect(() => {
-        if (!post) return;
-        const fetchRedditImage = async () => {
-            setLoading(true);
-            setError(null);
-            setImageUrl(null);
-            setPostTitle(null);
-            setPostLink(null);
+    const resetState = useCallback(() => {
+        setLoading(true); setError(null); setImageUrl(null); setPostTitle(null); setPostLink(null);
+    }, []);
 
-            try {
-                const response = await fetch(post.url);
-                const data = await response.json();
-                const postData = data[0]?.data?.children[0]?.data;
 
-                if (postData?.title) setPostTitle(postData.title);
-                else setError('No title found.');
+    const fetchRedditImage = useCallback(async () => {
+        if (!post || !post.url) return;
+        resetState();
+        try {
+            const response = await fetch(post.url);
+            if (!response.ok) throw new Error('Failed to fetch');
 
-                if (postData?.permalink) setPostLink(`https://www.reddit.com${postData.permalink}`);
-                else setError('No permalink found.');
+            const data = await response.json();
+            const postData = data[0]?.data?.children[0]?.data;
 
-                if (postData?.url?.match(/\.(jpg|jpeg|png|gif)$/i)) setImageUrl(postData.url);
-                else setError('No direct image URL found.');
-            } catch {
-                setError('Failed to fetch image.');
-            } finally {
-                setLoading(false);
+            if (!postData) throw new Error('Invalid post data');
+
+            setPostTitle(postData.title || null);
+            setPostLink(postData.permalink ? `${REDDIT_BASE_URL}${postData.permalink}` : null);
+
+            if (postData.url?.match(/\.(jpg|jpeg|png|gif)$/i)) {
+                setImageUrl(postData.url);
+            } else {
+                throw new Error('No direct image URL found');
             }
-        };
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Failed to fetch image');
+        } finally {
+            setLoading(false);
+        }
+    }, [post, resetState]);
 
+
+
+    useEffect(() => {
+        if (isNaN(numericIndex)) {
+            setError('Invalid post ID');
+            return;
+        }
+        if (!post) return;
         fetchRedditImage();
-    }, [post]);
+    }, [numericIndex, post, fetchRedditImage]);
 
 
 
+    if (isNaN(numericIndex)) return <p style={{ color: 'red' }}>Invalid post ID.</p>;
     if (!post) return <p style={{ color: 'red' }}>Post not found.</p>;
 
     return (
         <ImageViewer
-            selectedPost={post}
-            imageUrl={imageUrl}
-            postTitle={postTitle}
-            postLink={postLink}
-            loading={loading}
-            error={error}
+            selectedPost={post} imageUrl={imageUrl} postTitle={postTitle} postLink={postLink} loading={loading} error={error}
         />
     );
 };
