@@ -1,13 +1,14 @@
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { usePostsContext } from '../../context/PostsContext';
+import { useSortedPosts } from '../../context/PostsContext';
 import { fetchRedditImageData } from '../../utils/redditApi';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
 
 
 const Home = () => {
-    const { sortedPosts } = usePostsContext();
+
+    const sortedPosts = useSortedPosts();
 
     const randomIndex = useMemo(() => {
         if (sortedPosts.length === 0) return -1;

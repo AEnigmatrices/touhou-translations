@@ -14,3 +14,18 @@ export const usePostsContext = () => {
     if (!context) throw new Error('usePostsContext must be used within a PostsProvider');
     return context;
 };
+
+export const useSortedPosts = (): Post[] => {
+    const { sortedPosts } = usePostsContext();
+    return sortedPosts;
+};
+
+export const useGetArtist = (): ((id: string) => Artist | null) => {
+    const { artists } = usePostsContext();
+    return (id: string) => artists[id] ?? null;
+};
+
+export const useGetCharacters = (): ((ids: string[]) => Character[]) => {
+    const { characters } = usePostsContext();
+    return (ids: string[]) => ids.map((id) => characters[id]).filter(Boolean) as Character[];
+};

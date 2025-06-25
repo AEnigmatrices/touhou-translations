@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQueries } from '@tanstack/react-query';
-import { fetchPosts, fetchArtists, fetchCharacters } from '../data/fetchData';
+import { fetchPosts, fetchArtists, fetchCharacters } from './fetchData';
 import { PostsContext } from './PostsContext';
 
 const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

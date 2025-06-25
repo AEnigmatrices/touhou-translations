@@ -1,7 +1,7 @@
 import type { Post } from '../../types/data';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { useGetArtist, useGetCharacters } from '../../data/data';
+import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import './ImageViewer.scss';
 import twitterIcon from '../../icons/twitter.png';
 import pixivIcon from '../../icons/pixiv.png';

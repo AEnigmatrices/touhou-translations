@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { usePostsContext } from '../../context/PostsContext';
+import { useSortedPosts } from '../../context/PostsContext';
 import { fetchRedditImageData } from '../../utils/redditApi';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
@@ -10,7 +10,7 @@ const Item = () => {
     const { id } = useParams();
     const numericIndex = parseInt(id ?? '', 10);
 
-    const { sortedPosts } = usePostsContext();
+    const sortedPosts = useSortedPosts();
     const post = sortedPosts[numericIndex - 1];
 
     const { data, error, isLoading } = useQuery({
