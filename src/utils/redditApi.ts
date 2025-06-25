@@ -1,4 +1,5 @@
 const REDDIT_BASE_URL = "https://www.reddit.com";
+const REDDIT_MEDIA_URL = "https://i.redd.it";
 
 const isDirectImageUrl = (url: string): boolean => {
     return /\.(jpg|jpeg|png|gif)$/i.test(url);
@@ -20,7 +21,7 @@ const getGalleryImages = (
             else if (media.m === "image/gif") ext = "gif";
             else if (media.m === "image/jpeg") ext = "jpg";
 
-            return `https://i.redd.it/${item.media_id}.${ext}`;
+            return `${REDDIT_MEDIA_URL}/${item.media_id}.${ext}`;
         })
         .filter(Boolean);
 };

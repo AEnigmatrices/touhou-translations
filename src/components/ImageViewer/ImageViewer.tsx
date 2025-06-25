@@ -60,20 +60,20 @@ const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, image
 
     return (
         <div className="image-viewer">
-            <div>
+            <div className="image-section">
                 <h1 className="post-title">{postTitle}</h1>
-                <div className="image-section">
+                <div className="image-display">
                     <a href={selectedPost.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
                         <img src={currentImage} alt="Reddit Post" className="image" />
                     </a>
-                    {isGallery && (
-                        <div className="gallery-controls">
-                            <button onClick={handlePrev} aria-label="Previous image">◀</button>
-                            <span className="gallery-index">{`${currentIndex + 1} / ${galleryUrls.length}`}</span>
-                            <button onClick={handleNext} aria-label="Next image">▶</button>
-                        </div>
-                    )}
                 </div>
+                {isGallery && (
+                    <div className="gallery-controls">
+                        <button onClick={handlePrev} aria-label="Previous image">◀</button>
+                        <span className="gallery-index">{`${currentIndex + 1} / ${galleryUrls.length}`}</span>
+                        <button onClick={handleNext} aria-label="Next image">▶</button>
+                    </div>
+                )}
             </div>
             <div className="info-section">
                 <div className="info-grid">
