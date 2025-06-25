@@ -1,7 +1,7 @@
 import type { Post } from '../../types/data';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { getArtist, getCharacters } from '../../data/data';
+import { useGetArtist, useGetCharacters } from '../../data/data';
 import './ImageViewer.scss';
 import twitterIcon from '../../icons/twitter.png';
 import pixivIcon from '../../icons/pixiv.png';
@@ -20,6 +20,9 @@ interface Props {
 
 
 const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, imageUrl, galleryUrls, loading, error, }) => {
+
+    const getArtist = useGetArtist();
+    const getCharacters = useGetCharacters();
 
     const artist = getArtist(selectedPost.artistId);
     const characters = getCharacters(selectedPost.characterIds);
