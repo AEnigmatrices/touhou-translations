@@ -1,4 +1,5 @@
 import type { Artist, Character, Post } from '../../types/data';
+import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import artistsData from '../../data/artists.json';
 import charactersData from '../../data/characters.json';
@@ -12,6 +13,7 @@ interface Props {
     postTitle: string | null;
     postLink: string | null;
     imageUrl: string | null;
+    galleryUrls: string[] | null;
     loading: boolean;
     error: string | null;
 }
@@ -21,12 +23,25 @@ const typedCharacters = charactersData as Record<string, Character>;
 
 
 
-const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, imageUrl, loading, error }) => {
-
+const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, imageUrl, galleryUrls, loading, error }) => {
     const artist = typedArtists[selectedPost.artistId] ?? null;
     const characters = selectedPost.characterIds.map(id => typedCharacters[id]).filter(Boolean) as Character[];
 
+    const isGallery = Array.isArray(galleryUrls) && galleryUrls.length > 0;
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const currentImage = isGallery ? galleryUrls[currentIndex] : imageUrl;
 
+
+
+    const handlePrev = () => {
+        if (!isGallery) return;
+        setCurrentIndex(prev => (prev === 0 ? galleryUrls.length - 1 : prev - 1));
+    };
+
+    const handleNext = () => {
+        if (!isGallery) return;
+        setCurrentIndex(prev => (prev === galleryUrls.length - 1 ? 0 : prev + 1));
+    };
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
         if (!href) return null;
@@ -37,22 +52,27 @@ const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, image
         );
     };
 
-
-
     if (loading) return <p>Loading...</p>;
     if (error) return <p style={{ color: 'red' }}>{error}</p>;
-    if (!imageUrl || !postTitle || !postLink) return null;
+    if (!currentImage || !postTitle || !postLink) return null;
+
+
 
     return (
         <div className="image-viewer">
             <div>
-                <h1 className="post-title">
-                    {postTitle}
-                </h1>
+                <h1 className="post-title">{postTitle}</h1>
                 <div className="image-section">
                     <a href={selectedPost.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
-                        <img src={imageUrl} alt="Reddit Post" className="image" />
+                        <img src={currentImage} alt="Reddit Post" className="image" />
                     </a>
+                    {isGallery && (
+                        <div className="gallery-controls">
+                            <button onClick={handlePrev} aria-label="Previous image">◀</button>
+                            <span className="gallery-index">{`${currentIndex + 1} / ${galleryUrls.length}`}</span>
+                            <button onClick={handleNext} aria-label="Next image">▶</button>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="info-section">

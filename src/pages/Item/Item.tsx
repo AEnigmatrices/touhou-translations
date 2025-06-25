@@ -27,6 +27,7 @@ const Item = () => {
         <ImageViewer
             selectedPost={post}
             imageUrl={data?.imageUrl ?? null}
+            galleryUrls={data?.galleryImages ?? null}
             postTitle={data?.title ?? null}
             postLink={data?.permalink ?? null}
             loading={isLoading}
