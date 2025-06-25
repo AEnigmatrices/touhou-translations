@@ -1,8 +1,7 @@
-import type { Artist, Character, Post } from '../../types/data';
+import type { Post } from '../../types/data';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import artistsData from '../../data/artists.json';
-import charactersData from '../../data/characters.json';
+import { getArtist, getCharacters } from '../../data/data';
 import './ImageViewer.scss';
 import twitterIcon from '../../icons/twitter.png';
 import pixivIcon from '../../icons/pixiv.png';
@@ -18,14 +17,12 @@ interface Props {
     error: string | null;
 }
 
-const typedArtists = artistsData as Record<string, Artist>;
-const typedCharacters = charactersData as Record<string, Character>;
 
 
+const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, imageUrl, galleryUrls, loading, error, }) => {
 
-const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, imageUrl, galleryUrls, loading, error }) => {
-    const artist = typedArtists[selectedPost.artistId] ?? null;
-    const characters = selectedPost.characterIds.map(id => typedCharacters[id]).filter(Boolean) as Character[];
+    const artist = getArtist(selectedPost.artistId);
+    const characters = getCharacters(selectedPost.characterIds);
 
     const isGallery = Array.isArray(galleryUrls) && galleryUrls.length > 0;
     const [currentIndex, setCurrentIndex] = useState(0);
