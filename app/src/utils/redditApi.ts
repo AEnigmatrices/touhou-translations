@@ -1,51 +1,32 @@
-const REDDIT_BASE_URL = "https://www.reddit.com";
-const REDDIT_MEDIA_URL = "https://i.redd.it";
+const REDDIT_BASE_URL = import.meta.env.VITE_REDDIT_BASE_URL;
+const REDDIT_MEDIA_URL = import.meta.env.VITE_REDDIT_MEDIA_URL;
 
-const isDirectImageUrl = (url: string): boolean => {
-    return /\.(jpg|jpeg|png|gif)$/i.test(url);
-};
+const isDirectImageUrl = (url: string): boolean => /\.(jpg|jpeg|png|gif)$/i.test(url);
 
-const getGalleryImages = (
-    galleryData: any,
-    mediaMetadata: any
-): string[] | null => {
+const getGalleryImages = (galleryData: any, mediaMetadata: any): string[] | null => {
     if (!galleryData || !mediaMetadata) return null;
-
     return galleryData.items
         .map((item: any) => {
             const media = mediaMetadata[item.media_id];
             if (!media) return null;
-
-            let ext = "jpg";
-            if (media.m === "image/png") ext = "png";
-            else if (media.m === "image/gif") ext = "gif";
-            else if (media.m === "image/jpeg") ext = "jpg";
-
+            const type = media.m.split("/")[1];
+            const ext = type === "jpeg" ? "jpg" : type;
             return `${REDDIT_MEDIA_URL}/${item.media_id}.${ext}`;
         })
         .filter(Boolean);
 };
 
 export const fetchRedditImageData = async (url: string) => {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Failed to fetch");
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("Failed to fetch");
 
-    const data = await response.json();
-    const postData = data[0]?.data?.children[0]?.data;
-    if (!postData) throw new Error("Invalid post data");
-
-    const directImageUrl = isDirectImageUrl(postData.url) ? postData.url : null;
-    const galleryImages = getGalleryImages(
-        postData.gallery_data,
-        postData.media_metadata
-    );
+    const post = (await res.json())[0]?.data?.children[0]?.data;
+    if (!post) throw new Error("Invalid post data");
 
     return {
-        title: postData.title || null,
-        permalink: postData.permalink
-            ? `${REDDIT_BASE_URL}${postData.permalink}`
-            : null,
-        imageUrl: directImageUrl,
-        galleryImages,
+        title: post.title ?? null,
+        permalink: post.permalink ? `${REDDIT_BASE_URL}${post.permalink}` : null,
+        imageUrl: isDirectImageUrl(post.url) ? post.url : null,
+        galleryImages: getGalleryImages(post.gallery_data, post.media_metadata),
     };
 };
