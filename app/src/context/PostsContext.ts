@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useCallback, useContext } from 'react';
 import type { Post, Artist, Character } from '../types/data';
 
 interface PostsContextType {
@@ -22,10 +22,14 @@ export const useSortedPosts = (): Post[] => {
 
 export const useGetArtist = (): ((id: string) => Artist | null) => {
     const { artists } = usePostsContext();
-    return (id: string) => artists[id] ?? null;
+    return useCallback(
+        (id: string) => artists[id] ?? null, [artists]
+    );
 };
 
 export const useGetCharacters = (): ((ids: string[]) => Character[]) => {
     const { characters } = usePostsContext();
-    return (ids: string[]) => ids.map((id) => characters[id]).filter(Boolean) as Character[];
+    return useCallback(
+        (ids: string[]) => ids.map(id => characters[id]).filter(Boolean) as Character[], [characters]
+    );
 };
