@@ -6,13 +6,7 @@ on:
             - main
         paths:
             - "app/**"
-            - "package.json"
-            - "pnpm-lock.yaml"
-            - "yarn.lock"
             - ".github/workflows/**"
-            - "tsconfig.json"
-            - "vite.config.ts"
-            - "eslint.config.js"
 
 permissions:
     contents: write
