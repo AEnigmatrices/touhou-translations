@@ -19,7 +19,7 @@ const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         createSuspenseQueryOptions({ queryKey: ['characters'], queryFn: fetchCharacters })
     );
 
-    const contextValue = useMemo(() => ({ sortedPosts: posts, artists, characters, }), [posts, artists, characters]);
+    const contextValue = useMemo(() => ({ posts, artists, characters }), [posts, artists, characters]);
 
     return (
         <PostsContext.Provider value={contextValue}>

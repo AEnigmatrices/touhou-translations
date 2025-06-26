@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useSortedPosts } from '../../context/PostsContext';
+import { useGetPosts } from '../../context/PostsContext';
 import { fetchRedditImageData } from '../../utils/redditApi';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
@@ -8,14 +8,14 @@ import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
 const Home = () => {
 
-    const sortedPosts = useSortedPosts();
+    const posts = useGetPosts();
 
     const randomIndex = useMemo(() => {
-        if (sortedPosts.length === 0) return -1;
-        return Math.floor(Math.random() * sortedPosts.length);
-    }, [sortedPosts]);
+        if (posts.length === 0) return -1;
+        return Math.floor(Math.random() * posts.length);
+    }, [posts]);
 
-    const post = randomIndex === -1 ? null : sortedPosts[randomIndex];
+    const post = randomIndex === -1 ? null : posts[randomIndex];
 
     const { data, error, isLoading } = useQuery({
         queryKey: ['redditPost', post?.url],

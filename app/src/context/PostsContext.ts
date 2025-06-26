@@ -2,23 +2,24 @@ import { createContext, useCallback, useContext } from 'react';
 import type { Post, Artist, Character } from '../types/data';
 
 interface PostsContextType {
-    sortedPosts: Post[];
+    posts: Post[];
     artists: Record<string, Artist>;
     characters: Record<string, Character>;
 }
 
-export const PostsContext = createContext<PostsContextType | undefined>(undefined);
 
-export const usePostsContext = () => {
+
+const usePostsContext = () => {
     const context = useContext(PostsContext);
     if (!context) throw new Error('usePostsContext must be used within a PostsProvider');
     return context;
 };
 
-export const useSortedPosts = (): Post[] => {
-    const { sortedPosts } = usePostsContext();
-    return sortedPosts;
-};
+
+
+export const PostsContext = createContext<PostsContextType | undefined>(undefined);
+
+export const useGetPosts = (): Post[] => usePostsContext().posts;
 
 export const useGetArtist = (): ((id: string) => Artist | null) => {
     const { artists } = usePostsContext();
