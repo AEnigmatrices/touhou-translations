@@ -2,7 +2,7 @@ import type { Post, Artist, Character } from "../types/data";
 
 
 
-const baseUrl = "https://raw.githubusercontent.com/AEnigmatrices/touhou-translations/main/data";
+const baseUrl = import.meta.env.VITE_DATA_BASE_URL;
 
 const fetchJson = async <T>(path: string): Promise<T> => {
     const res = await fetch(`${baseUrl}/${path}`);
