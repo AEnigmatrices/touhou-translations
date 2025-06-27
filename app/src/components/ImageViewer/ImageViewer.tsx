@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import './ImageViewer.scss';
-import twitterIcon from '../../icons/twitter.png';
-import pixivIcon from '../../icons/pixiv.png';
-import redditIcon from '../../icons/reddit.png';
+import twitterIcon from '../../icons/twitter.webp';
+import pixivIcon from '../../icons/pixiv.webp';
+import redditIcon from '../../icons/reddit.webp';
 
 interface Props {
     selectedPost: Post;
