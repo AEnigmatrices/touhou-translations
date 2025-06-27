@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import { useGetPosts } from '../../context/PostsContext';
-import { fetchRedditImageData } from '../../utils/redditApi';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
 
@@ -13,24 +11,21 @@ const Item = () => {
     const posts = useGetPosts();
     const post = posts[numericIndex - 1];
 
-    const { data, error, isLoading } = useQuery({
-        queryKey: ['redditPost', post?.url],
-        queryFn: () => fetchRedditImageData(post!.url),
-        enabled: !!post?.url && !isNaN(numericIndex),
-        retry: 1,
-    });
-
     if (isNaN(numericIndex)) return <p style={{ color: 'red' }}>Invalid post ID.</p>;
     if (!post) return <p style={{ color: 'red' }}>Post not found.</p>;
+
+    const isGallery = post.url.length > 1;
+    const imageUrl = !isGallery ? post.url[0] : null;
+    const galleryUrls = isGallery ? post.url : null;
 
     return (
         <ImageViewer
             selectedPost={post}
-            imageUrl={data?.imageUrl ?? null}
-            galleryUrls={data?.galleryImages ?? null}
-            postLink={data?.permalink ?? null}
-            loading={isLoading}
-            error={error instanceof Error ? error.message : null}
+            imageUrl={imageUrl}
+            galleryUrls={galleryUrls}
+            postLink={post.src ?? null}
+            loading={false}
+            error={null}
         />
     );
 };

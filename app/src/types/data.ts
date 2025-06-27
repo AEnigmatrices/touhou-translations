@@ -1,6 +1,6 @@
 export interface Post {
     date: string;
-    url: string;
+    url: string[];
     src: string;
     desc: string;
     artistId: string;

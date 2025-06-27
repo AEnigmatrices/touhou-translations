@@ -1,7 +1,5 @@
 import { useMemo } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { useGetPosts } from '../../context/PostsContext';
-import { fetchRedditImageData } from '../../utils/redditApi';
 import { hashDateToIndex } from '../../utils/dateUtils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
@@ -19,25 +17,22 @@ const Home = () => {
 
     const post = selectedIndex === -1 ? null : posts[selectedIndex];
 
-    const { data, error, isLoading } = useQuery({
-        queryKey: ['redditPost', post?.url],
-        queryFn: () => fetchRedditImageData(post!.url),
-        enabled: !!post?.url,
-        retry: 1,
-    });
-
     if (!post) return <p style={{ color: 'red' }}>No posts available.</p>;
+
+    const isGallery = post.url.length > 1;
+    const imageUrl = !isGallery ? post.url[0] : null;
+    const galleryUrls = isGallery ? post.url : null;
 
     return (
         <div>
             <h2>Post of the Day</h2>
             <ImageViewer
                 selectedPost={post}
-                imageUrl={data?.imageUrl ?? null}
-                galleryUrls={data?.galleryImages ?? null}
-                postLink={data?.permalink ?? null}
-                loading={isLoading}
-                error={error instanceof Error ? error.message : null}
+                imageUrl={imageUrl}
+                galleryUrls={galleryUrls}
+                postLink={post.src ?? null}
+                loading={false}
+                error={null}
             />
         </div>
     );
