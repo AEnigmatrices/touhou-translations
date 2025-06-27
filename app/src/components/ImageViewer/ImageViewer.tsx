@@ -7,20 +7,18 @@ import twitterIcon from '../../icons/twitter.webp';
 import pixivIcon from '../../icons/pixiv.webp';
 import redditIcon from '../../icons/reddit.webp';
 
-interface Props {
-    post: Post;
-    imageUrls: string[];
-}
+interface Props { post: Post; }
 
 
 
-const ImageViewer: React.FC<Props> = ({ post, imageUrls }) => {
+const ImageViewer: React.FC<Props> = ({ post }) => {
 
     const getArtist = useGetArtist();
     const getCharacters = useGetCharacters();
 
     const artist = getArtist(post.artistId);
     const characters = getCharacters(post.characterIds);
+    const imageUrls = post.url
 
     const isGallery = imageUrls.length > 1;
     const [currentIndex, setCurrentIndex] = useState(0);

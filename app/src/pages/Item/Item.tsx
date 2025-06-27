@@ -15,10 +15,7 @@ const Item = () => {
     if (!post) return <p style={{ color: 'red' }}>Post not found.</p>;
 
     return (
-        <ImageViewer
-            post={post}
-            imageUrls={post.url}
-        />
+        <ImageViewer post={post} />
     );
 };
 

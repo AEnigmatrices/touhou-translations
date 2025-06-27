@@ -22,10 +22,7 @@ const Home = () => {
     return (
         <div>
             <h2>Post of the Day</h2>
-            <ImageViewer
-                post={post}
-                imageUrls={post.url}
-            />
+            <ImageViewer post={post} />
         </div>
     );
 };
