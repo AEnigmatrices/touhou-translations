@@ -93,7 +93,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                 </div>
                 <div className="info-comment">
                     <div className="label">
-                        {renderIconLink(post.src, "Reddit post", redditIcon, "Reddit")}
+                        {renderIconLink(post.reddit, "Reddit post", redditIcon, "Reddit")}
                         TL Commentary:
                     </div>
                     <div className="value">
