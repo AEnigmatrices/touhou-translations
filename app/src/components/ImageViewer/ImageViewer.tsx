@@ -18,22 +18,23 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
 
     const artist = getArtist(post.artistId);
     const characters = getCharacters(post.characterIds);
-    const imageUrls = post.url
 
-    const isGallery = imageUrls.length > 1;
+    const isGallery = post.url.length > 1;
     const [currentIndex, setCurrentIndex] = useState(0);
-    const currentImage = imageUrls[currentIndex];
+    const currentImage = post.url[currentIndex];
+
+    const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', { timeZone: 'UTC', dateStyle: 'long', timeStyle: 'short' }) : 'Unknown date';
 
 
 
     const handlePrev = () => {
         if (!isGallery) return;
-        setCurrentIndex(prev => (prev === 0 ? imageUrls.length - 1 : prev - 1));
+        setCurrentIndex(prev => (prev === 0 ? post.url.length - 1 : prev - 1));
     };
 
     const handleNext = () => {
         if (!isGallery) return;
-        setCurrentIndex(prev => (prev === imageUrls.length - 1 ? 0 : prev + 1));
+        setCurrentIndex(prev => (prev === post.url.length - 1 ? 0 : prev + 1));
     };
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
@@ -60,7 +61,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                 {isGallery && (
                     <div className="gallery-controls">
                         <button onClick={handlePrev} aria-label="Previous image">◀</button>
-                        <span className="gallery-index">{`${currentIndex + 1} / ${imageUrls.length}`}</span>
+                        <span className="gallery-index">{`${currentIndex + 1} / ${post.url.length}`}</span>
                         <button onClick={handleNext} aria-label="Next image">▶</button>
                     </div>
                 )}
@@ -85,6 +86,10 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                             <div className="value">{characters.map(c => c.name).join(', ')}</div>
                         </div>
                     )}
+                    <div className="info-item">
+                        <div className="label">Posted:</div>
+                        <div className="value">{formattedDate}</div>
+                    </div>
                 </div>
                 <div className="info-comment">
                     <div className="label">
