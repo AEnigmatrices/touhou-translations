@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useQueries } from '@tanstack/react-query';
 import { useGetPosts } from '../../context/PostsContext';
 import { fetchRedditImageData } from '../../utils/redditApi';
@@ -35,17 +36,19 @@ const Gallery = () => {
                     const data = queries[index]?.data;
                     const imageUrl = Array.isArray(data?.galleryImages) ? data.galleryImages[0] : data?.imageUrl;
                     if (!imageUrl) return null;
+
+                    const postIndex = posts.findIndex(p => p.url === post.url);
+                    if (postIndex === -1) return null;
+
                     return (
-                        <a
+                        <Link
                             key={post.url}
-                            href={post.src}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            to={`/post/${postIndex + 1}`}
                             className="gallery-item"
-                            aria-label="Open source post"
+                            aria-label="View post details"
                         >
                             <img src={imageUrl} alt="Gallery Post" loading="lazy" />
-                        </a>
+                        </Link>
                     );
                 })}
             </div>
