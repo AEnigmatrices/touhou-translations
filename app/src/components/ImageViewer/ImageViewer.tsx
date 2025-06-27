@@ -8,23 +8,20 @@ import pixivIcon from '../../icons/pixiv.webp';
 import redditIcon from '../../icons/reddit.webp';
 
 interface Props {
-    selectedPost: Post;
-    postLink: string | null;
+    post: Post;
     imageUrl: string | null;
     galleryUrls: string[] | null;
-    loading: boolean;
-    error: string | null;
 }
 
 
 
-const ImageViewer: React.FC<Props> = ({ selectedPost, postLink, imageUrl, galleryUrls, loading, error, }) => {
+const ImageViewer: React.FC<Props> = ({ post, imageUrl, galleryUrls }) => {
 
     const getArtist = useGetArtist();
     const getCharacters = useGetCharacters();
 
-    const artist = getArtist(selectedPost.artistId);
-    const characters = getCharacters(selectedPost.characterIds);
+    const artist = getArtist(post.artistId);
+    const characters = getCharacters(post.characterIds);
 
     const isGallery = Array.isArray(galleryUrls) && galleryUrls.length > 0;
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,9 +48,7 @@ const ImageViewer: React.FC<Props> = ({ selectedPost, postLink, imageUrl, galler
         );
     };
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p style={{ color: 'red' }}>{error}</p>;
-    if (!currentImage || !postLink) return null;
+    if (!currentImage || !post.src) return null;
 
 
 
@@ -61,7 +56,7 @@ const ImageViewer: React.FC<Props> = ({ selectedPost, postLink, imageUrl, galler
         <div className="image-viewer">
             <div className="image-section">
                 <div className="image-display">
-                    <a href={selectedPost.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
+                    <a href={post.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
                         <img src={currentImage} alt="Reddit Post" className="image" />
                     </a>
                 </div>
@@ -96,11 +91,11 @@ const ImageViewer: React.FC<Props> = ({ selectedPost, postLink, imageUrl, galler
                 </div>
                 <div className="info-comment">
                     <div className="label">
-                        {renderIconLink(postLink, "Reddit post", redditIcon, "Reddit")}
+                        {renderIconLink(post.src, "Reddit post", redditIcon, "Reddit")}
                         TL Commentary:
                     </div>
                     <div className="value">
-                        <ReactMarkdown>{selectedPost.desc}</ReactMarkdown>
+                        <ReactMarkdown>{post.desc}</ReactMarkdown>
                     </div>
                 </div>
             </div>

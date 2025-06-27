@@ -27,12 +27,9 @@ const Home = () => {
         <div>
             <h2>Post of the Day</h2>
             <ImageViewer
-                selectedPost={post}
+                post={post}
                 imageUrl={imageUrl}
                 galleryUrls={galleryUrls}
-                postLink={post.src ?? null}
-                loading={false}
-                error={null}
             />
         </div>
     );

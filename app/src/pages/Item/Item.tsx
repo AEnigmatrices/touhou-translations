@@ -20,12 +20,9 @@ const Item = () => {
 
     return (
         <ImageViewer
-            selectedPost={post}
+            post={post}
             imageUrl={imageUrl}
             galleryUrls={galleryUrls}
-            postLink={post.src ?? null}
-            loading={false}
-            error={null}
         />
     );
 };
