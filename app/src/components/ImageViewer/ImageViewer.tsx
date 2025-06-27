@@ -9,7 +9,6 @@ import redditIcon from '../../icons/reddit.webp';
 
 interface Props {
     selectedPost: Post;
-    postTitle: string | null;
     postLink: string | null;
     imageUrl: string | null;
     galleryUrls: string[] | null;
@@ -19,7 +18,7 @@ interface Props {
 
 
 
-const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, imageUrl, galleryUrls, loading, error, }) => {
+const ImageViewer: React.FC<Props> = ({ selectedPost, postLink, imageUrl, galleryUrls, loading, error, }) => {
 
     const getArtist = useGetArtist();
     const getCharacters = useGetCharacters();
@@ -54,14 +53,13 @@ const ImageViewer: React.FC<Props> = ({ selectedPost, postTitle, postLink, image
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p style={{ color: 'red' }}>{error}</p>;
-    if (!currentImage || !postTitle || !postLink) return null;
+    if (!currentImage || !postLink) return null;
 
 
 
     return (
         <div className="image-viewer">
             <div className="image-section">
-                <h1 className="post-title">{postTitle}</h1>
                 <div className="image-display">
                     <a href={selectedPost.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
                         <img src={currentImage} alt="Reddit Post" className="image" />

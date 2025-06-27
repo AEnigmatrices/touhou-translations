@@ -24,9 +24,8 @@ export const fetchRedditImageData = async (url: string) => {
     if (!post) throw new Error("Invalid post data");
 
     return {
-        title: post.title ?? null,
         permalink: post.permalink ? `${REDDIT_BASE_URL}${post.permalink}` : null,
         imageUrl: isDirectImageUrl(post.url) ? post.url : null,
-        galleryImages: getGalleryImages(post.gallery_data, post.media_metadata),
+        galleryImages: getGalleryImages(post.gallery_data, post.media_metadata)
     };
 };
