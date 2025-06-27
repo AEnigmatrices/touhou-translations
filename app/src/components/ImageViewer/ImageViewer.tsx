@@ -9,13 +9,12 @@ import redditIcon from '../../icons/reddit.webp';
 
 interface Props {
     post: Post;
-    imageUrl: string | null;
-    galleryUrls: string[] | null;
+    imageUrls: string[];
 }
 
 
 
-const ImageViewer: React.FC<Props> = ({ post, imageUrl, galleryUrls }) => {
+const ImageViewer: React.FC<Props> = ({ post, imageUrls }) => {
 
     const getArtist = useGetArtist();
     const getCharacters = useGetCharacters();
@@ -23,20 +22,20 @@ const ImageViewer: React.FC<Props> = ({ post, imageUrl, galleryUrls }) => {
     const artist = getArtist(post.artistId);
     const characters = getCharacters(post.characterIds);
 
-    const isGallery = Array.isArray(galleryUrls) && galleryUrls.length > 0;
+    const isGallery = imageUrls.length > 1;
     const [currentIndex, setCurrentIndex] = useState(0);
-    const currentImage = isGallery ? galleryUrls[currentIndex] : imageUrl;
+    const currentImage = imageUrls[currentIndex];
 
 
 
     const handlePrev = () => {
         if (!isGallery) return;
-        setCurrentIndex(prev => (prev === 0 ? galleryUrls.length - 1 : prev - 1));
+        setCurrentIndex(prev => (prev === 0 ? imageUrls.length - 1 : prev - 1));
     };
 
     const handleNext = () => {
         if (!isGallery) return;
-        setCurrentIndex(prev => (prev === galleryUrls.length - 1 ? 0 : prev + 1));
+        setCurrentIndex(prev => (prev === imageUrls.length - 1 ? 0 : prev + 1));
     };
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
@@ -63,7 +62,7 @@ const ImageViewer: React.FC<Props> = ({ post, imageUrl, galleryUrls }) => {
                 {isGallery && (
                     <div className="gallery-controls">
                         <button onClick={handlePrev} aria-label="Previous image">◀</button>
-                        <span className="gallery-index">{`${currentIndex + 1} / ${galleryUrls.length}`}</span>
+                        <span className="gallery-index">{`${currentIndex + 1} / ${imageUrls.length}`}</span>
                         <button onClick={handleNext} aria-label="Next image">▶</button>
                     </div>
                 )}

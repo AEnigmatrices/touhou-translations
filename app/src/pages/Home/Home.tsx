@@ -19,17 +19,12 @@ const Home = () => {
 
     if (!post) return <p style={{ color: 'red' }}>No posts available.</p>;
 
-    const isGallery = post.url.length > 1;
-    const imageUrl = !isGallery ? post.url[0] : null;
-    const galleryUrls = isGallery ? post.url : null;
-
     return (
         <div>
             <h2>Post of the Day</h2>
             <ImageViewer
                 post={post}
-                imageUrl={imageUrl}
-                galleryUrls={galleryUrls}
+                imageUrls={post.url}
             />
         </div>
     );

@@ -14,15 +14,10 @@ const Item = () => {
     if (isNaN(numericIndex)) return <p style={{ color: 'red' }}>Invalid post ID.</p>;
     if (!post) return <p style={{ color: 'red' }}>Post not found.</p>;
 
-    const isGallery = post.url.length > 1;
-    const imageUrl = !isGallery ? post.url[0] : null;
-    const galleryUrls = isGallery ? post.url : null;
-
     return (
         <ImageViewer
             post={post}
-            imageUrl={imageUrl}
-            galleryUrls={galleryUrls}
+            imageUrls={post.url}
         />
     );
 };
