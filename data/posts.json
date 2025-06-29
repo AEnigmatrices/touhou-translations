@@ -70,5 +70,18 @@
             "marisa",
             "cirno"
         ]
+    },
+    {
+        "date": 1745416265,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1k5zokn",
+        "url": [
+            "https://i.redd.it/qheorcdoalwe1.png"
+        ],
+        "src": "https://x.com/OWATA12129/status/1904843324537594269",
+        "desc": "And her hips too, it seems...\n\nHmm... while [**Dai's sprite**](https://en.touhouwiki.net/wiki/Daiyousei) has feathers in *EoSD*, they seem to be missing in *GFW* ? The default for most artists seems to be the usual translucent wings. But wow – [**Risui's rendition**](https://en.touhouwiki.net/wiki/File:WOoHSDaiyousei.png) with the feathers looks really good.\n\n&gt; Illustrator is [**Owata**](https://x.com/OWATA12129/status/1904843324537594269).",
+        "artistId": "owata",
+        "characterIds": [
+            "daiyousei"
+        ]
     }
 ]
