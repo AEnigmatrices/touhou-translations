@@ -1,5 +1,7 @@
 import type { PostEntryForm } from "../types/data";
 
+const splitClean = (input: string) => input.split(',').map(s => s.trim()).filter(Boolean);
+
 
 
 export const extractBaseRedditUrl = (url?: string): string => {
@@ -20,17 +22,15 @@ export const extractBaseRedditUrl = (url?: string): string => {
 
 
 
-export const buildPostEntry = (data: PostEntryForm) => {
-    return {
-        date: data.date,
-        reddit: extractBaseRedditUrl(data.reddit),
-        url: data.urls.split(',').map((u) => u.trim()).filter(Boolean),
-        src: data.src,
-        desc: data.desc,
-        artistId: data.artistId,
-        characterIds: data.characterIds.split(',').map((c) => c.trim()).filter(Boolean),
-    };
-}
+export const buildPostEntry = ({ date, reddit, urls, src, desc, artistId, characterIds }: PostEntryForm) => ({
+    date,
+    reddit: extractBaseRedditUrl(reddit),
+    url: splitClean(urls),
+    src,
+    desc,
+    artistId,
+    characterIds: splitClean(characterIds),
+});
 
 
 
