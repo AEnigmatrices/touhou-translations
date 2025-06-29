@@ -1,5 +1,5 @@
 export interface Post {
-    date: string;
+    date: number;
     reddit: string;
     url: string[];
     src: string;

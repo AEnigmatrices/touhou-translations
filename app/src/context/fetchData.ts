@@ -15,7 +15,8 @@ const fetchJson = async <T>(path: string): Promise<T> => {
 export const fetchPosts = async (): Promise<Post[]> =>
     (await fetchJson<Post[]>("posts.json"))
         .filter(p => p.date)
-        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        .map(p => ({ ...p, date: p.date * 1000, }))
+        .sort((a, b) => a.date - b.date);
 
 export const fetchArtists = (): Promise<Record<string, Artist>> => fetchJson("artists.json");
 
