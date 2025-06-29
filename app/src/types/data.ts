@@ -15,6 +15,7 @@ export interface Artist {
 }
 
 export interface Character {
+    id: string;
     name: string;
 }
 
