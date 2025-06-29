@@ -1,5 +1,6 @@
 import React from "react";
 import { useGetCharacters } from "../../context/PostsContext";
+import CharacterList from "../../components/CharacterList/CharacterList";
 import "./CharacterPage.scss";
 
 const characterImages: Record<string, string> = import.meta.glob(
@@ -18,24 +19,8 @@ const CharacterPage: React.FC = () => {
 
     return (
         <div className="character-page">
-            <h1>Character List</h1>
-            <ul>
-                {characters.map((character) => {
-                    const imageUrl = getCharacterImage(character.id);
-                    return (
-                        <li key={character.id} className="character-item">
-                            {imageUrl && (
-                                <img
-                                    src={imageUrl}
-                                    alt={character.name}
-                                    className="character-image"
-                                />
-                            )}
-                            <span className="character-name">{character.name}</span>
-                        </li>
-                    );
-                })}
-            </ul>
+            <h2>Character List</h2>
+            <CharacterList characters={characters} getCharacterImage={getCharacterImage} />
         </div>
     );
 };
