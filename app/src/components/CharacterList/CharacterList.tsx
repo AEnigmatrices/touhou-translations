@@ -13,12 +13,7 @@ const CharacterList: React.FC<Props> = ({ characters, getCharacterImage }) => {
                     <li key={character.id} className="character-item" tabIndex={0} aria-label={`Character: ${character.name}`}>
                         <div className="character-image-wrapper">
                             {imageUrl ? (
-                                <img
-                                    src={imageUrl}
-                                    alt={character.name}
-                                    className="character-image"
-                                    loading="lazy"
-                                />
+                                <img src={imageUrl} alt={character.name} className="character-image" loading="lazy" />
                             ) : (
                                 <div className="character-image-placeholder" aria-hidden="true" />
                             )}
