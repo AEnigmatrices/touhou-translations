@@ -1,8 +1,8 @@
 import { useRoutes } from 'react-router-dom';
-import Layout from './pages/Layout/Layout';
-import Home from './pages/Home/Home';
-import GalleryPage from './pages/Gallery/GalleryPage';
-import Item from './pages/Item/Item';
+import Layout from './pages/Layout';
+import Home from './pages/HomePage/HomePage';
+import GalleryPage from './pages/GalleryPage/GalleryPage';
+import Item from './pages/ItemPage/Item';
 import Placeholder from './components/Placeholder';
 
 const routes = [
