@@ -2,8 +2,7 @@ import { useMemo } from 'react';
 import { useGetPosts } from '../../context/PostsContext';
 import { hashDateToIndex } from '../../utils/dateUtils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
-
-
+import PostForm from '../../components/PostForm/PostForm';
 
 const Home = () => {
 
@@ -17,12 +16,17 @@ const Home = () => {
 
     const post = selectedIndex === -1 ? null : posts[selectedIndex];
 
-    if (!post) return <p style={{ color: 'red' }}>No posts available.</p>;
+    const enablePostForm = import.meta.env.VITE_ENABLE_POST_FORM === "true";
 
     return (
         <div>
+            {enablePostForm && (<>
+                <h3>Add New Post (Local Dev Only)</h3>
+                <PostForm />
+                <hr />
+            </>)}
             <h2>Post of the Day</h2>
-            <ImageViewer post={post} />
+            {post ? <ImageViewer post={post} /> : <p style={{ color: 'red' }}>No posts available.</p>}
         </div>
     );
 };
