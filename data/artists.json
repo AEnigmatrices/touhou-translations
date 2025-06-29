@@ -1,46 +1,56 @@
-{
-    "gyoza": {
+[
+    {
+        "id": "gyoza",
         "name": "ギョーザ",
         "linkTwitter": "https://x.com/ThGyouza"
     },
-    "shichimi": {
+    {
+        "id": "shichimi",
         "name": "しちみ",
         "linkTwitter": "https://x.com/roll08081227",
         "linkPixiv": "https://www.pixiv.net/en/users/6083003"
     },
-    "ebi": {
+    {
+        "id": "ebi",
         "name": "えび",
         "linkTwitter": "https://x.com/hua88331"
     },
-    "youyume": {
+    {
+        "id": "youyume",
         "name": "妖夢くん",
         "linkTwitter": "https://x.com/youmu0225",
         "linkPixiv": "https://www.pixiv.net/en/users/68480688"
     },
-    "owata": {
+    {
+        "id": "owata",
         "name": "おわーー⁉️",
         "linkTwitter": "https://x.com/OWATA12129"
     },
-    "tatekae": {
+    {
+        "id": "tatekae",
         "name": "盾返",
         "linkTwitter": "https://x.com/Aeginflash"
     },
-    "gokuu": {
+    {
+        "id": "gokuu",
         "name": "ごくう",
         "linkTwitter": "https://x.com/acoloredpencil",
         "linkPixiv": "https://www.pixiv.net/en/users/4006924"
     },
-    "oegaki_daisuki": {
+    {
+        "id": "oegaki_daisuki",
         "name": "♡お絵描き大好き♡",
         "linkPixiv": "https://www.pixiv.net/en/users/46836693"
     },
-    "deetamu": {
+    {
+        "id": "deetamu",
         "name": "で～たむ",
         "linkTwitter": "https://x.com/simerike5",
         "linkPixiv": "https://www.pixiv.net/en/users/3079181"
     },
-    "enoki": {
+    {
+        "id": "enoki",
         "name": "えのき",
         "linkTwitter": "https://x.com/enoki_5689"
     }
-}
+]

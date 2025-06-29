@@ -15,6 +15,6 @@ export const fetchPosts = async (): Promise<Post[]> =>
         .filter(p => p.date)
         .sort((a, b) => a.date - b.date);
 
-export const fetchArtists = (): Promise<Record<string, Artist>> => fetchJson("artists.json");
+export const fetchArtists = (): Promise<Artist[]> => fetchJson<Artist[]>("artists.json");
 
 export const fetchCharacters = (): Promise<Character[]> => fetchJson("characters.json");

@@ -9,6 +9,7 @@ export interface Post {
 }
 
 export interface Artist {
+    id: string;
     name: string;
     linkTwitter?: string;
     linkPixiv?: string;

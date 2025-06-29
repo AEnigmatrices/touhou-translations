@@ -3,7 +3,7 @@ import type { Post, Artist, Character } from '../types/data';
 
 interface PostsContextType {
     posts: Post[];
-    artists: Record<string, Artist>;
+    artists: Artist[];
     characters: Character[];
 }
 
@@ -23,7 +23,7 @@ export const useGetPosts = (): Post[] => usePostsContext().posts;
 
 export const useGetArtist = (): ((id: string) => Artist | null) => {
     const { artists } = usePostsContext();
-    return useCallback((id) => artists[id] ?? null, [artists]);
+    return useCallback((id) => artists.find(artist => artist.id === id) ?? null, [artists]);
 };
 
 export const useGetCharacters = (): ((ids?: string[]) => Character[]) => {
