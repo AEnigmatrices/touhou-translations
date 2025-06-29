@@ -1,38 +1,72 @@
 [
     {
         "id": "reimu",
-        "name": "Hakurei Reimu"
+        "name": "Hakurei Reimu",
+        "work": [
+            "eosd"
+        ]
     },
     {
         "id": "marisa",
-        "name": "Kirisame Marisa"
+        "name": "Kirisame Marisa",
+        "work": [
+            "eosd"
+        ]
     },
     {
         "id": "rumia",
-        "name": "Rumia"
+        "name": "Rumia",
+        "work": [
+            "eosd"
+        ]
     },
     {
         "id": "cirno",
-        "name": "Cirno"
+        "name": "Cirno",
+        "work": [
+            "eosd"
+        ]
     },
     {
         "id": "daiyousei",
-        "name": "Daiyousei"
+        "name": "Daiyousei",
+        "work": [
+            "eosd"
+        ]
     },
     {
         "id": "meiling",
-        "name": "Hong Meiling"
+        "name": "Hong Meiling",
+        "work": [
+            "eosd"
+        ]
+    },
+    {
+        "id": "patchouli",
+        "name": "Patchouli Knowledge",
+        "work": [
+            "eosd"
+        ]
     },
     {
         "id": "sakuya",
-        "name": "Izayoi Sakuya"
+        "name": "Izayoi Sakuya",
+        "work": [
+            "eosd"
+        ]
     },
     {
         "id": "remilia",
-        "name": "Remilia Scarlet"
+        "name": "Remilia Scarlet",
+        "work": [
+            "eosd"
+        ]
     },
     {
         "id": "flandre",
-        "name": "Flandre Scarlet"
+        "name": "Flandre Scarlet",
+        "work": [
+            "eosd"
+        ]
     }
 ]

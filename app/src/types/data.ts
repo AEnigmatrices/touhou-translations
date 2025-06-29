@@ -18,6 +18,7 @@ export interface Artist {
 export interface Character {
     id: string;
     name: string;
+    work: string;
 }
 
 export interface PostEntryForm {
