@@ -81,15 +81,6 @@ const PostForm: React.FC = () => {
 
                 <div className="form-row">
                     <label>
-                        Reddit URL:
-                        <input type="text" {...register('reddit', { required: 'Reddit URL is required' })} />
-                        {errors.reddit && <span>{errors.reddit.message}</span>}
-                        <button type="button" onClick={handleFetchRedditData} disabled={loadingRedditData}>
-                            {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
-                        </button>
-                    </label>
-
-                    <label>
                         Source URL:
                         <input type="text" {...register('src', { required: 'Source URL is required' })} />
                         {errors.src && <span>{errors.src.message}</span>}
@@ -120,9 +111,22 @@ const PostForm: React.FC = () => {
                     </label>
                 </div>
 
-                <button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? 'Submitting...' : 'Add Post'}
-                </button>
+                <div className="form-row">
+                    <label>
+                        Reddit URL:
+                        <input type="text" {...register('reddit', { required: 'Reddit URL is required' })} />
+                        {errors.reddit && <span>{errors.reddit.message}</span>}
+                    </label>
+                </div>
+
+                <div className="form-row buttons-row">
+                    <button type="button" onClick={handleFetchRedditData} disabled={loadingRedditData}>
+                        {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
+                    </button>
+                    <button type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? 'Submitting...' : 'Add Post'}
+                    </button>
+                </div>
             </form>
         </div>
     );

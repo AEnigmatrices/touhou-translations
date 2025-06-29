@@ -56,25 +56,30 @@
             }
         }
 
-        button {
-            align-self: center;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            background-color: #007acc;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
+        .buttons-row {
+            display: flex;
+            justify-content: center;
 
-            &:hover {
-                background-color: #005fa3;
-            }
+            button {
+                align-self: center;
+                padding: 0.5rem 0.75rem;
+                font-size: 0.95rem;
+                font-weight: 600;
+                background-color: #007acc;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.2s;
 
-            &:disabled {
-                background-color: #a0a0a0;
-                cursor: not-allowed;
+                &:hover {
+                    background-color: #005fa3;
+                }
+
+                &:disabled {
+                    background-color: #a0a0a0;
+                    cursor: not-allowed;
+                }
             }
         }
     }
