@@ -20,11 +20,7 @@ const Home = () => {
 
     return (
         <div>
-            {enablePostForm && (<>
-                <h3>Add New Post (Local Dev Only)</h3>
-                <PostForm />
-                <hr />
-            </>)}
+            {enablePostForm && (<PostForm />)}
             <h2>Post of the Day</h2>
             {post ? <ImageViewer post={post} /> : <p style={{ color: 'red' }}>No posts available.</p>}
         </div>
