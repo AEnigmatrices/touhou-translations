@@ -111,5 +111,19 @@
             "reimu",
             "marisa"
         ]
+    },
+    {
+        "date": 1717850784000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1db26hm",
+        "url": [
+            "https://i.redd.it/tbupkap0gc5d1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/118864680",
+        "desc": "It doesn't always have to be human with Rumia ~",
+        "artistId": "oegaki_daisuki",
+        "characterIds": [
+            "reimu",
+            "rumia"
+        ]
     }
 ]
