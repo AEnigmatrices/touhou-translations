@@ -28,14 +28,9 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
 
 
 
-    const handlePrev = () => {
+    const handleChangeIndex = (direction: number) => {
         if (!isGallery) return;
-        setCurrentIndex(prev => (prev === 0 ? post.url.length - 1 : prev - 1));
-    };
-
-    const handleNext = () => {
-        if (!isGallery) return;
-        setCurrentIndex(prev => (prev === post.url.length - 1 ? 0 : prev + 1));
+        setCurrentIndex(prev => (prev + direction + post.url.length) % post.url.length);
     };
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
@@ -61,9 +56,9 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                 </div>
                 {isGallery && (
                     <div className="gallery-controls">
-                        <button onClick={handlePrev} aria-label="Previous image">◀</button>
+                        <button onClick={() => handleChangeIndex(-1)} aria-label="Previous image">◀</button>
                         <span className="gallery-index">{`${currentIndex + 1} / ${post.url.length}`}</span>
-                        <button onClick={handleNext} aria-label="Next image">▶</button>
+                        <button onClick={() => handleChangeIndex(1)} aria-label="Next image">▶</button>
                     </div>
                 )}
             </div>
