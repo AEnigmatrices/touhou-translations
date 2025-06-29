@@ -77,9 +77,7 @@ const PostForm: React.FC = () => {
                         <input type="text" {...register('artistId', { required: 'Artist ID is required' })} />
                         {errors.artistId && <span>{errors.artistId.message}</span>}
                     </label>
-                </div>
 
-                <div className="form-row">
                     <label>
                         Source URL:
                         <input type="text" {...register('src', { required: 'Source URL is required' })} />
