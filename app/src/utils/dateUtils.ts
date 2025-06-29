@@ -6,3 +6,5 @@ export const hashDateToIndex = (dateStr: string, max: number): number => {
     }
     return Math.abs(hash) % max;
 };
+
+export const dateFormatOptions: Intl.DateTimeFormatOptions = { timeZone: 'UTC', dateStyle: 'long', timeStyle: 'short' };

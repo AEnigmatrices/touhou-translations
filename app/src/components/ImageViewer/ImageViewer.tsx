@@ -1,6 +1,7 @@
 import type { Post } from '../../types/data';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { dateFormatOptions } from '../../utils/dateUtils';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import './ImageViewer.scss';
 import twitterIcon from '../../icons/twitter.webp';
@@ -23,7 +24,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const currentImage = post.url[currentIndex];
 
-    const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', { timeZone: 'UTC', dateStyle: 'long', timeStyle: 'short' }) : 'Unknown date';
+    const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
 
 
