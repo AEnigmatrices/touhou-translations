@@ -84,7 +84,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                     )}
                     {characters.length > 0 && (
                         <div className="info-item">
-                            <div className="label">Characters:</div>
+                            <div className="label">{characters.length === 1 ? 'Character:' : 'Characters:'}</div>
                             <div className="value">{characters.map(c => c.name).join(', ')}</div>
                         </div>
                     )}
