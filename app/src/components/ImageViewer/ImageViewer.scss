@@ -69,9 +69,11 @@
 
         .info-item {
             display: contents;
+            text-align: left;
+            font-size: 1.05rem;
+            line-height: 1.6;
 
             .label {
-                text-align: left;
                 color: #222;
                 font-weight: 600;
                 white-space: nowrap;
@@ -80,9 +82,6 @@
             .value {
                 display: flex;
                 gap: 1.5rem;
-                text-align: left;
-                font-size: 1.05rem;
-                line-height: 1.6;
 
                 .info-icons {
                     display: flex;
