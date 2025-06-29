@@ -29,19 +29,19 @@ const PostForm: React.FC = () => {
     const handleFetchRedditData = async () => {
         const redditUrl = getValues('reddit');
         if (!redditUrl) {
-            alert('Please enter a Reddit URL first.');
-            return;
+            alert('Please enter a Reddit URL first.'); return;
         }
         setLoadingRedditData(true);
-        const data = await fetchRedditData(extractBaseRedditUrl(redditUrl));
-        setLoadingRedditData(false);
-
-        if (data) {
+        try {
+            const data = await fetchRedditData(extractBaseRedditUrl(redditUrl));
+            if (!data) {
+                alert('Failed to load Reddit data'); return;
+            }
             if (data.createdDate) setValue('date', data.createdDate, { shouldValidate: true });
             if (data.description) setValue('desc', data.description, { shouldValidate: true });
-            if (data.imageUrls.length > 0) setValue('urls', data.imageUrls.join(', '), { shouldValidate: true });
-        } else {
-            alert('Failed to load Reddit data');
+            if (data.imageUrls?.length) setValue('urls', data.imageUrls.join(', '), { shouldValidate: true });
+        } finally {
+            setLoadingRedditData(false);
         }
     };
 
