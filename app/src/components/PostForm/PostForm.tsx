@@ -3,9 +3,7 @@ import { useForm } from 'react-hook-form';
 import { extractBaseRedditUrl, fetchRedditData } from '../../utils/redditUtils';
 import "./PostForm.scss";
 
-interface PostEntryForm {
-    date: number; reddit?: string; urls?: string; src?: string; desc?: string; artistId: string; characterIds?: string;
-}
+interface PostEntryForm { date: number; reddit: string; urls: string; src: string; desc: string; artistId: string; characterIds: string; }
 
 const PostForm: React.FC = () => {
     const { register, handleSubmit, reset, setValue, getValues, formState: { errors, isSubmitting } } = useForm<PostEntryForm>();
@@ -17,12 +15,13 @@ const PostForm: React.FC = () => {
         const entry = {
             date: data.date,
             reddit: extractBaseRedditUrl(data.reddit),
-            url: data.urls?.split(',').map((u) => u.trim()).filter(Boolean) || [],
-            src: data.src || '',
-            desc: data.desc || '',
-            artistId: data.artistId || '',
-            characterIds: data.characterIds?.split(',').map((c) => c.trim()).filter(Boolean) || [],
+            url: data.urls.split(',').map((u) => u.trim()).filter(Boolean),
+            src: data.src,
+            desc: data.desc,
+            artistId: data.artistId,
+            characterIds: data.characterIds.split(',').map((c) => c.trim()).filter(Boolean),
         };
+
         try {
             const res = await fetch('/api/posts', {
                 method: 'POST',
@@ -53,8 +52,8 @@ const PostForm: React.FC = () => {
 
         if (data) {
             if (data.createdDate) setValue('date', data.createdDate, { shouldValidate: true });
-            if (data.description) setValue('desc', data.description);
-            if (data.imageUrls.length > 0) setValue('urls', data.imageUrls.join(', '));
+            if (data.description) setValue('desc', data.description, { shouldValidate: true });
+            if (data.imageUrls.length > 0) setValue('urls', data.imageUrls.join(', '), { shouldValidate: true });
         } else {
             alert('Failed to load Reddit data');
         }
@@ -83,7 +82,8 @@ const PostForm: React.FC = () => {
                 <div className="form-row">
                     <label>
                         Reddit URL:
-                        <input type="text" {...register('reddit')} />
+                        <input type="text" {...register('reddit', { required: 'Reddit URL is required' })} />
+                        {errors.reddit && <span>{errors.reddit.message}</span>}
                         <button type="button" onClick={handleFetchRedditData} disabled={loadingRedditData}>
                             {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
                         </button>
@@ -91,28 +91,32 @@ const PostForm: React.FC = () => {
 
                     <label>
                         Source URL:
-                        <input type="text" {...register('src')} />
+                        <input type="text" {...register('src', { required: 'Source URL is required' })} />
+                        {errors.src && <span>{errors.src.message}</span>}
                     </label>
                 </div>
 
                 <div className="form-row">
                     <label>
                         Image URLs (comma separated):
-                        <input type="text" {...register('urls')} />
+                        <input type="text" {...register('urls', { required: 'Image URLs are required' })} />
+                        {errors.urls && <span>{errors.urls.message}</span>}
                     </label>
                 </div>
 
                 <div className="form-row">
                     <label>
                         Character IDs (comma separated):
-                        <input type="text" {...register('characterIds')} />
+                        <input type="text" {...register('characterIds', { required: 'Character IDs are required' })} />
+                        {errors.characterIds && <span>{errors.characterIds.message}</span>}
                     </label>
                 </div>
 
                 <div className="form-row">
                     <label>
                         Description:
-                        <textarea rows={6} {...register('desc')} />
+                        <textarea rows={6} {...register('desc', { required: 'Description is required' })} />
+                        {errors.desc && <span>{errors.desc.message}</span>}
                     </label>
                 </div>
 
