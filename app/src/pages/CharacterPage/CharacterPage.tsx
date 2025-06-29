@@ -3,10 +3,7 @@ import { useGetCharacters } from "../../context/PostsContext";
 import CharacterList from "../../components/CharacterList/CharacterList";
 import "./CharacterPage.scss";
 
-const characterImages: Record<string, string> = import.meta.glob(
-    "../../icons/characters/*.webp",
-    { eager: true, query: "?url", import: "default" }
-);
+const characterImages: Record<string, string> = import.meta.glob("../../icons/characters/*.webp", { eager: true, query: "?url", import: "default" });
 
 const CharacterPage: React.FC = () => {
     const getCharacters = useGetCharacters();
