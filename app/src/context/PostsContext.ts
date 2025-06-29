@@ -23,13 +23,10 @@ export const useGetPosts = (): Post[] => usePostsContext().posts;
 
 export const useGetArtist = (): ((id: string) => Artist | null) => {
     const { artists } = usePostsContext();
-    return useCallback((id: string) => artists[id] ?? null, [artists]);
+    return useCallback((id) => artists[id] ?? null, [artists]);
 };
 
 export const useGetCharacters = (): ((ids?: string[]) => Character[]) => {
     const { characters } = usePostsContext();
-    return useCallback((ids?: string[]) => {
-        if (!ids) return characters;
-        return characters.filter(character => ids.includes(character.id));
-    }, [characters]);
+    return useCallback((ids) => (ids ? characters.filter(c => ids.includes(c.id)) : characters), [characters]);
 };
