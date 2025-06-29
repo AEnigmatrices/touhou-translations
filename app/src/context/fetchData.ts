@@ -17,4 +17,4 @@ export const fetchPosts = async (): Promise<Post[]> =>
 
 export const fetchArtists = (): Promise<Record<string, Artist>> => fetchJson("artists.json");
 
-export const fetchCharacters = (): Promise<Record<string, Character>> => fetchJson("characters.json");
+export const fetchCharacters = (): Promise<Character[]> => fetchJson("characters.json");

@@ -1,29 +1,38 @@
-{
-    "reimu": {
+[
+    {
+        "id": "reimu",
         "name": "Hakurei Reimu"
     },
-    "marisa": {
+    {
+        "id": "marisa",
         "name": "Kirisame Marisa"
     },
-    "rumia": {
+    {
+        "id": "rumia",
         "name": "Rumia"
     },
-    "cirno": {
+    {
+        "id": "cirno",
         "name": "Cirno"
     },
-    "daiyousei": {
+    {
+        "id": "daiyousei",
         "name": "Daiyousei"
     },
-    "meiling": {
+    {
+        "id": "meiling",
         "name": "Hong Meiling"
     },
-    "sakuya": {
+    {
+        "id": "sakuya",
         "name": "Izayoi Sakuya"
     },
-    "remilia": {
+    {
+        "id": "remilia",
         "name": "Remilia Scarlet"
     },
-    "flandre": {
+    {
+        "id": "flandre",
         "name": "Flandre Scarlet"
     }
-}
+]

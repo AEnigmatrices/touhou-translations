@@ -15,7 +15,7 @@ const PostsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         createSuspenseQueryOptions({ queryKey: ['artists'], queryFn: fetchArtists })
     );
 
-    const { data: characters } = useSuspenseQuery<Record<string, Character>>(
+    const { data: characters } = useSuspenseQuery<Character[]>(
         createSuspenseQueryOptions({ queryKey: ['characters'], queryFn: fetchCharacters })
     );
 
