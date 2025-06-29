@@ -2,6 +2,19 @@ import type { PostEntryForm } from "../types/data";
 
 const splitClean = (input: string) => input.split(',').map(s => s.trim()).filter(Boolean);
 
+const getApiUrl = (url: string) => url.endsWith('.json') ? url : `${url}.json`;
+
+const buildImageUrls = (postData: any): string[] => {
+    if (postData.media_metadata) {
+        const metadata = postData.media_metadata as Record<string, { m?: string }>;
+        return Object.entries(metadata).map(([id, media]) => {
+            const ext = media.m?.includes('png') ? 'png' : 'jpg';
+            return `https://i.redd.it/${id}.${ext}`;
+        });
+    }
+    return postData.url ? [postData.url] : [];
+};
+
 
 
 export const extractBaseRedditUrl = (url?: string): string => {
@@ -36,28 +49,18 @@ export const buildPostEntry = ({ date, reddit, urls, src, desc, artistId, charac
 
 export const fetchRedditData = async (redditUrl: string) => {
     if (!redditUrl) return null;
-    const apiUrl = redditUrl.endsWith('.json') ? redditUrl : `${redditUrl}.json`;
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(getApiUrl(redditUrl));
         if (!response.ok) throw new Error('Failed to fetch Reddit data');
         const jsonData = await response.json();
 
         const postData = jsonData[0]?.data?.children[0]?.data;
         if (!postData) throw new Error('Invalid Reddit data structure');
 
-        const createdDate = postData.created ? postData.created * 1000 : null;
-        const description = postData.selftext || '';
+        const createdDate = postData.created_utc ? postData.created_utc * 1000 : null;
+        const description = postData.selftext ?? '';
+        const imageUrls = buildImageUrls(postData);
 
-        let imageUrls: string[] = [];
-        if (postData.media_metadata) {
-            imageUrls = Object.keys(postData.media_metadata).map((id) => {
-                const mediaInfo = postData.media_metadata[id];
-                const ext = mediaInfo?.m?.includes('png') ? 'png' : 'jpg';
-                return `https://i.redd.it/${id}.${ext}`;
-            });
-        } else if (postData.url) {
-            imageUrls = [postData.url];
-        }
         return { createdDate, description, imageUrls };
     } catch (error) {
         console.error('Error fetching Reddit data:', error);
