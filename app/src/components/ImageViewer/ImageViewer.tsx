@@ -4,9 +4,9 @@ import ReactMarkdown from 'react-markdown';
 import { dateFormatOptions } from '../../utils/dateUtils';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import './ImageViewer.scss';
-import twitterIcon from '../../icons/twitter.webp';
-import pixivIcon from '../../icons/pixiv.webp';
-import redditIcon from '../../icons/reddit.webp';
+import twitterIcon from '../../icons/social/twitter.webp';
+import pixivIcon from '../../icons/social/pixiv.webp';
+import redditIcon from '../../icons/social/reddit.webp';
 
 interface Props { post: Post; }
 
