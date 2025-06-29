@@ -23,7 +23,7 @@ const CharacterPage: React.FC = () => {
                 {characters.map((character) => {
                     const imageUrl = getCharacterImage(character.id);
                     return (
-                        <li key={character.id}>
+                        <li key={character.id} className="character-item">
                             {imageUrl && (
                                 <img
                                     src={imageUrl}
@@ -31,7 +31,7 @@ const CharacterPage: React.FC = () => {
                                     className="character-image"
                                 />
                             )}
-                            {character.name}
+                            <span className="character-name">{character.name}</span>
                         </li>
                     );
                 })}

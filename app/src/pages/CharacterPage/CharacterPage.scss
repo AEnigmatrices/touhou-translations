@@ -10,9 +10,26 @@
         list-style: none;
         padding: 0;
 
-        li {
+        .character-item {
+            display: flex;
+            align-items: center;
             padding: 0.5rem 0;
             border-bottom: 1px solid #ccc;
+            gap: 1rem;
+        }
+
+        .character-image {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .character-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
         }
     }
 }
