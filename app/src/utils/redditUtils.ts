@@ -5,20 +5,17 @@ import type { PostEntryForm } from "../types/data";
 export const extractBaseRedditUrl = (url?: string): string => {
     if (!url) return '';
     try {
-        const parsedUrl = new URL(url);
-        const pathSegments = parsedUrl.pathname.split('/').filter(Boolean);
-        if (
-            pathSegments.length >= 4 &&
-            pathSegments[0] === 'r' &&
-            pathSegments[2] === 'comments'
-        ) {
-            const truncatedPath = `/${pathSegments.slice(0, 4).join('/')}`;
-            return `${parsedUrl.origin}${truncatedPath}`;
-        }
+        const { origin, pathname } = new URL(url);
+        const segments = pathname.split('/').filter(Boolean);
+        const isValidRedditPostPath =
+            segments.length >= 4 &&
+            segments[0] === 'r' &&
+            segments[2] === 'comments';
+
+        return isValidRedditPostPath ? `${origin}/${segments.slice(0, 4).join('/')}` : '';
     } catch {
         return '';
     }
-    return '';
 };
 
 
