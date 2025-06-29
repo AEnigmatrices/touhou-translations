@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useGetPosts } from '../../context/PostsContext';
-import './Gallery.scss';
+import './GalleryPage.scss';
 
 
 
-const Gallery = () => {
+const GalleryPage = () => {
 
     const posts = useGetPosts();
 
@@ -43,4 +43,4 @@ const Gallery = () => {
     );
 };
 
-export default Gallery;
+export default GalleryPage;
