@@ -25,7 +25,7 @@ const vitePostsApiPlugin = {
                         return;
                     }
 
-                    const postsPath = path.resolve(__dirname, "data/posts.json");
+                    const postsPath = path.resolve(__dirname, "../data/posts.json");
                     let posts = [];
                     try {
                         const data = fs.readFileSync(postsPath, "utf-8");
