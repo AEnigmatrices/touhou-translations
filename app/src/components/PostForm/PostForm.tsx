@@ -13,16 +13,14 @@ const PostForm: React.FC = () => {
 
 
     const onSubmit = async (data: PostEntryForm) => {
-        const entry = buildPostEntry(data);
         try {
-            const res = await fetch('/api/posts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(entry) });
+            const res = await fetch('/api/posts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(buildPostEntry(data)) });
             const result = await res.json();
-            if (res.ok) {
-                alert('Post added successfully!');
-                reset();
-            } else {
-                alert(`Error: ${result.error || 'Failed to add post'}`);
+            if (!res.ok) {
+                alert(`Error: ${result.error || 'Failed to add post'}`); return;
             }
+            alert('Post added successfully!');
+            reset();
         } catch (error) {
             alert(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
