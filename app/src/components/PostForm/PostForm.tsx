@@ -69,21 +69,21 @@ const PostForm: React.FC = () => {
                 </div>
 
                 <div className="form-row">
-                    <label style={{ flex: '1 1 100%' }}>
+                    <label>
                         Image URLs (comma separated):
                         <input type="text" {...register('urls')} />
                     </label>
                 </div>
 
                 <div className="form-row">
-                    <label style={{ flex: '1 1 100%' }}>
+                    <label>
                         Character IDs (comma separated):
                         <input type="text" {...register('characterIds')} />
                     </label>
                 </div>
 
                 <div className="form-row">
-                    <label style={{ flex: '1 1 100%' }}>
+                    <label>
                         Description:
                         <textarea rows={6} {...register('desc')} />
                     </label>
