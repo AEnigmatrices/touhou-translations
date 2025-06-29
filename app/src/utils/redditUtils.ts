@@ -1,3 +1,7 @@
+import type { PostEntryForm } from "../types/data";
+
+
+
 export const extractBaseRedditUrl = (url?: string): string => {
     if (!url) return '';
     try {
@@ -16,6 +20,20 @@ export const extractBaseRedditUrl = (url?: string): string => {
     }
     return '';
 };
+
+
+
+export const buildPostEntry = (data: PostEntryForm) => {
+    return {
+        date: data.date,
+        reddit: extractBaseRedditUrl(data.reddit),
+        url: data.urls.split(',').map((u) => u.trim()).filter(Boolean),
+        src: data.src,
+        desc: data.desc,
+        artistId: data.artistId,
+        characterIds: data.characterIds.split(',').map((c) => c.trim()).filter(Boolean),
+    };
+}
 
 
 

@@ -17,3 +17,13 @@ export interface Artist {
 export interface Character {
     name: string;
 }
+
+export interface PostEntryForm {
+    date: number;
+    reddit: string;
+    urls: string;
+    src: string;
+    desc: string;
+    artistId: string;
+    characterIds: string;
+}

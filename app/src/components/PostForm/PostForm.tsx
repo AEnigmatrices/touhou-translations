@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { extractBaseRedditUrl, fetchRedditData } from '../../utils/redditUtils';
+import { extractBaseRedditUrl, buildPostEntry, fetchRedditData } from '../../utils/redditUtils';
+import type { PostEntryForm } from "../../types/data";
 import "./PostForm.scss";
 
-interface PostEntryForm { date: number; reddit: string; urls: string; src: string; desc: string; artistId: string; characterIds: string; }
+
 
 const PostForm: React.FC = () => {
     const { register, handleSubmit, reset, setValue, getValues, formState: { errors, isSubmitting } } = useForm<PostEntryForm>();
@@ -12,22 +13,9 @@ const PostForm: React.FC = () => {
 
 
     const onSubmit = async (data: PostEntryForm) => {
-        const entry = {
-            date: data.date,
-            reddit: extractBaseRedditUrl(data.reddit),
-            url: data.urls.split(',').map((u) => u.trim()).filter(Boolean),
-            src: data.src,
-            desc: data.desc,
-            artistId: data.artistId,
-            characterIds: data.characterIds.split(',').map((c) => c.trim()).filter(Boolean),
-        };
-
+        const entry = buildPostEntry(data);
         try {
-            const res = await fetch('/api/posts', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(entry),
-            });
+            const res = await fetch('/api/posts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(entry) });
             const result = await res.json();
             if (res.ok) {
                 alert('Post added successfully!');
