@@ -50,9 +50,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
         <div className="image-viewer">
             <div className="image-section">
                 <div className="image-display">
-                    <a href={post.src} target="_blank" rel="noopener noreferrer" aria-label="View source">
-                        <img src={currentImage} alt="Reddit Post" className="image" />
-                    </a>
+                    <img src={currentImage} alt="Reddit Post" className="image" />
                 </div>
                 {isGallery && (
                     <div className="gallery-controls">
@@ -76,16 +74,26 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                             </div>
                         </div>
                     )}
+                    {post.src && (
+                        <div className="info-item">
+                            <div className="label">Source:</div>
+                            <div className="value">
+                                <a href={post.src} target="_blank" rel="noopener noreferrer" className="source-link" title={post.src}>{post.src}</a>
+                            </div>
+                        </div>
+                    )}
                     {characters.length > 0 && (
                         <div className="info-item">
                             <div className="label">Characters:</div>
                             <div className="value">{characters.map(c => c.name).join(', ')}</div>
                         </div>
                     )}
-                    <div className="info-item">
-                        <div className="label">Posted:</div>
-                        <div className="value">{formattedDate}</div>
-                    </div>
+                    {post.date && (
+                        <div className="info-item">
+                            <div className="label">Posted:</div>
+                            <div className="value">{formattedDate}</div>
+                        </div>
+                    )}
                 </div>
                 <div className="info-comment">
                     <div className="label">
