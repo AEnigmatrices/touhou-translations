@@ -1,30 +1,33 @@
 import React from "react";
+import { getCharacterImages } from "../../utils/characterImages";
 import { getGradient } from "../../utils/gradientUtils";
-import type { Character } from "../../types/data";
+import { useGetCharacters } from "../../context/PostsContext";
 import "./CharacterList.scss";
 
-interface Props { characters: Character[]; getCharacterImage: (id: string) => string | null; }
+const CharacterList: React.FC = () => {
 
-const CharacterList: React.FC<Props> = ({ characters, getCharacterImage }) => {
+    const getCharacters = useGetCharacters();
+    const characters = getCharacters();
     const baseHue = Math.floor(Math.random() * 360);
+
     return (
         <ul className="character-list">
             {characters.map((character, index) => {
                 const hue = Math.round(baseHue + (240 * index) / Math.max(characters.length - 1, 1)) % 360;
                 const gradient = getGradient(hue, 25, 87);
                 const gradientPlaceholder = getGradient(hue, 25, 73);
-                const imageUrl = getCharacterImage(character.id);
+                const imageUrl = getCharacterImages(character.id);
                 return (
-                    <li key={character.id} className="character-list__item" tabIndex={0} aria-label={`Character: ${character.name}`}  >
-                        <div className="character-list__image-wrapper" style={{ background: gradient }} >
+                    <li key={character.id} className="character-list__item character-list__item--mobile-row" tabIndex={0} aria-label={`Character: ${character.name}`}  >
+                        <div className="character-list__image-wrapper character-list__image-wrapper--mobile" style={{ background: gradient }} >
                             {imageUrl ? (
                                 <img src={imageUrl} alt={character.name} className="character-list__image" loading="lazy" />
                             ) : (
                                 <div className="character-list__image-placeholder" aria-hidden="true" style={{ background: gradientPlaceholder }} />
                             )}
                         </div>
-                        <div className="character-list__info">
-                            <span className="character-list__name">
+                        <div className="character-list__info character-list__info--mobile">
+                            <span className="character-list__name character-list__name--mobile-left">
                                 {character.name}
                             </span>
                         </div>
