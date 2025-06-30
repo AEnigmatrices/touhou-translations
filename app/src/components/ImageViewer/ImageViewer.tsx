@@ -1,6 +1,7 @@
 import type { Post } from '../../types/data';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import ImageModal from '../ImageModal/ImageModal';
 import { dateFormatOptions } from '../../utils/dateUtils';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import './ImageViewer.scss';
@@ -20,8 +21,10 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     const artist = getArtist(post.artistId);
     const characters = getCharacters(post.characterIds);
 
-    const isGallery = post.url.length > 1;
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const isGallery = post.url.length > 1;
     const currentImage = post.url[currentIndex];
 
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
@@ -50,7 +53,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
         <div className="image-viewer">
             <div className="image-section">
                 <div className="image-display">
-                    <img src={currentImage} alt="Reddit Post" className="image" />
+                    <img src={currentImage} alt="Translated Image" className="image" onClick={() => setIsModalOpen(true)} />
                 </div>
                 {isGallery && (
                     <div className="gallery-controls">
@@ -107,6 +110,8 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                     </div>
                 </div>
             </div>
+
+            {isModalOpen && (<ImageModal imageUrl={currentImage} onClose={() => setIsModalOpen(false)} />)}
         </div>
     );
 };
