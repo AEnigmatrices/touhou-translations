@@ -165,5 +165,19 @@
         "characterIds": [
             "patchouli"
         ]
+    },
+    {
+        "date": 1714826751000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1cjzio9",
+        "url": [
+            "https://i.redd.it/173elhfboeyc1.png"
+        ],
+        "src": "x.com/enoki_5689/status/1786701148164145435",
+        "desc": "Patch, my boy. Why are you reading that book? Your own familiar right there is (presumably) a succubus, practically a walking tome of dating advice.",
+        "artistId": "enoki",
+        "characterIds": [
+            "patchouli",
+            "koakuma"
+        ]
     }
 ]

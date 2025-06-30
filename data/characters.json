@@ -21,13 +21,6 @@
         ]
     },
     {
-        "id": "cirno",
-        "name": "Cirno",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
         "id": "daiyousei",
         "name": "Daiyōsei",
         "work": [
@@ -35,8 +28,22 @@
         ]
     },
     {
+        "id": "cirno",
+        "name": "Cirno",
+        "work": [
+            "eosd"
+        ]
+    },
+    {
         "id": "meiling",
         "name": "Hong Meiling",
+        "work": [
+            "eosd"
+        ]
+    },
+    {
+        "id": "koakuma",
+        "name": "Koakuma",
         "work": [
             "eosd"
         ]
