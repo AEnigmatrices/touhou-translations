@@ -27,6 +27,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     const isGallery = post.url.length > 1;
     const currentImage = post.url[currentIndex];
 
+    const nitterUrl = post.src?.includes('x.com') ? post.src.replace('x.com', 'nitter.net') : null;
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
 
@@ -38,8 +39,9 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
         if (!href) return null;
+        const name = `image-viewer__icon-button image-viewer__icon-button-link--${altText.toLowerCase()}`
         return (
-            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={`icon-button ${altText.toLowerCase()}`}>
+            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={name}>
                 <img src={iconSrc} alt={altText} />
             </a>
         );
@@ -71,8 +73,9 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                             <div className="image-viewer__value">
                                 {artist.name}
                                 <div className="image-viewer__info-icons">
-                                    {renderIconLink(artist.linkTwitter, "Twitter profile", twitterIcon, "Twitter")}
-                                    {renderIconLink(artist.linkPixiv, "Pixiv profile", pixivIcon, "Pixiv")}
+                                    {artist.linkTwitter && renderIconLink(artist.linkTwitter, "Twitter profile", twitterIcon, "Twitter")}
+                                    {artist.linkTwitter && renderIconLink(artist.linkTwitter.replace('x.com', 'nitter.net'), "Nitter profile", twitterIcon, "Nitter")}
+                                    {artist.linkPixiv && renderIconLink(artist.linkPixiv, "Pixiv profile", pixivIcon, "Pixiv")}
                                 </div>
                             </div>
                         </div>
@@ -83,6 +86,16 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                             <div className="image-viewer__value">
                                 <a href={post.src} target="_blank" rel="noopener noreferrer" className="image-viewer__source-link" title={post.src}  >
                                     {post.src}
+                                </a>
+                            </div>
+                        </div>
+                    )}
+                    {nitterUrl && (
+                        <div className="image-viewer__info-item">
+                            <div className="image-viewer__label">Nitter Mirror:</div>
+                            <div className="image-viewer__value">
+                                <a href={nitterUrl} target="_blank" rel="noopener noreferrer" className="image-viewer__source-link" title={nitterUrl}>
+                                    {nitterUrl}
                                 </a>
                             </div>
                         </div>
@@ -107,7 +120,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                 <div className="image-viewer__info-comment">
                     <div className="image-viewer__label image-viewer__label--comment">
                         <div className="image-viewer__info-icons image-viewer__info-icons--label">
-                            {renderIconLink(post.reddit, "Reddit post", redditIcon, "Reddit")}
+                            {post.reddit && renderIconLink(post.reddit, "Reddit post", redditIcon, "Reddit")}
                         </div>
                         TL Commentary:
                     </div>
