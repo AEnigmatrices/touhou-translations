@@ -14,11 +14,9 @@
         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
-    &--mobile {
-        @media (max-width: 768px) {
-            flex-direction: column;
-            padding: 1rem;
-        }
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 1rem;
     }
 
     &__image-section {
@@ -99,10 +97,8 @@
         grid-template-columns: auto 1fr;
         gap: 0.5rem 1rem;
 
-        &--mobile {
-            @media (max-width: 768px) {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
         }
     }
 

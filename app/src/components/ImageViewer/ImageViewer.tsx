@@ -50,7 +50,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
 
 
     return (
-        <div className="image-viewer image-viewer--mobile">
+        <div className="image-viewer">
             <div className="image-viewer__image-section">
                 <div className="image-viewer__image-display image-viewer__image-display--full-width">
                     <img src={currentImage} alt="Translated Image" className="image-viewer__image" onClick={() => setIsModalOpen(true)} />
@@ -64,7 +64,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                 )}
             </div>
             <div className="image-viewer__info-section">
-                <div className="image-viewer__info-grid image-viewer__info-grid--mobile">
+                <div className="image-viewer__info-grid">
                     {artist && (
                         <div className="image-viewer__info-item">
                             <div className="image-viewer__label">Artist:</div>
