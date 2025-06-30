@@ -6,7 +6,6 @@ import "./CharacterList.scss";
 interface Props { characters: Character[]; getCharacterImage: (id: string) => string | null; }
 
 const CharacterList: React.FC<Props> = ({ characters, getCharacterImage }) => {
-
     const baseHue = Math.floor(Math.random() * 360);
 
     return (
@@ -15,9 +14,7 @@ const CharacterList: React.FC<Props> = ({ characters, getCharacterImage }) => {
                 const hue = Math.round(baseHue + (240 * index) / Math.max(characters.length - 1, 1)) % 360;
                 const gradient = getGradient(hue, 25, 87);
                 const gradientPlaceholder = getGradient(hue, 25, 73);
-
                 const imageUrl = getCharacterImage(character.id);
-
                 return (
                     <li key={character.id} className="character-item" tabIndex={0} aria-label={`Character: ${character.name}`}>
                         <div className="character-image-wrapper" style={{ background: gradient }}>
