@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 const Layout: React.FC = () => (
     <>
         <Navbar />
-        <main style={{ padding: "1.5rem" }}>
+        <main>
             <Outlet />
         </main>
     </>
