@@ -55,7 +55,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     return (
         <div className="image-viewer">
             <div className="image-viewer__image-section">
-                <div className="image-viewer__image-display image-viewer__image-display--full-width">
+                <div className="image-viewer__image-display">
                     <img src={currentImage} alt="Translated Image" className="image-viewer__image" onClick={() => setIsModalOpen(true)} />
                 </div>
                 {isGallery && (

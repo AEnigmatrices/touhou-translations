@@ -40,11 +40,9 @@
             transform: scale(0.97);
         }
 
-        &--full-width {
-            @media (max-width: 768px) {
-                max-width: 100%;
-                flex: 1 1 100%;
-            }
+        @media (max-width: 768px) {
+            max-width: 100%;
+            flex: 1 1 100%;
         }
     }
 
