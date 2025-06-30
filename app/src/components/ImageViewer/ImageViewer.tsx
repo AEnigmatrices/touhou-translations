@@ -6,6 +6,7 @@ import { dateFormatOptions } from '../../utils/dateUtils';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import './ImageViewer.scss';
 import twitterIcon from '../../icons/social/twitter.webp';
+import nitterIcon from '../../icons/social/nitter.webp';
 import pixivIcon from '../../icons/social/pixiv.webp';
 import redditIcon from '../../icons/social/reddit.webp';
 
@@ -74,7 +75,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                                 {artist.name}
                                 <div className="image-viewer__info-icons">
                                     {artist.linkTwitter && renderIconLink(artist.linkTwitter, "Twitter profile", twitterIcon, "Twitter")}
-                                    {artist.linkTwitter && renderIconLink(artist.linkTwitter.replace('x.com', 'nitter.net'), "Nitter profile", twitterIcon, "Nitter")}
+                                    {artist.linkTwitter && renderIconLink(artist.linkTwitter.replace('x.com', 'nitter.net'), "Nitter profile", nitterIcon, "Nitter")}
                                     {artist.linkPixiv && renderIconLink(artist.linkPixiv, "Pixiv profile", pixivIcon, "Pixiv")}
                                 </div>
                             </div>
