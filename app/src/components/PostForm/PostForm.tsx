@@ -48,66 +48,66 @@ const PostForm: React.FC = () => {
 
 
     return (
-        <div className="post-form-container">
-            <h3>Add New Post (Local Dev Only)</h3>
-            <form className="post-form" onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-row">
-                    <label>
+        <div className="post-form__container">
+            <h3 className="post-form__title">Add New Post (Local Dev Only)</h3>
+            <form className="post-form__form" onSubmit={handleSubmit(onSubmit)}>
+                <div className="post-form__row">
+                    <label className="post-form__label">
                         UNIX Timestamp:
-                        <input type="number" {...register('date', { required: 'Date is required', valueAsNumber: true })} />
-                        {errors.date && <span>{errors.date.message}</span>}
+                        <input type="number" className="post-form__input" {...register('date', { required: 'Date is required', valueAsNumber: true })} />
+                        {errors.date && <span className="post-form__error">{errors.date.message}</span>}
                     </label>
 
-                    <label>
+                    <label className="post-form__label">
                         Artist ID:
-                        <input type="text" {...register('artistId', { required: 'Artist ID is required' })} />
-                        {errors.artistId && <span>{errors.artistId.message}</span>}
+                        <input type="text" className="post-form__input" {...register('artistId', { required: 'Artist ID is required' })} />
+                        {errors.artistId && <span className="post-form__error">{errors.artistId.message}</span>}
                     </label>
 
-                    <label>
+                    <label className="post-form__label">
                         Source URL:
-                        <input type="text" {...register('src', { required: 'Source URL is required' })} />
-                        {errors.src && <span>{errors.src.message}</span>}
+                        <input type="text" className="post-form__input" {...register('src', { required: 'Source URL is required' })} />
+                        {errors.src && <span className="post-form__error">{errors.src.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-row">
-                    <label>
+                <div className="post-form__row">
+                    <label className="post-form__label">
                         Image URLs (comma separated):
-                        <input type="text" {...register('urls', { required: 'Image URLs are required' })} />
-                        {errors.urls && <span>{errors.urls.message}</span>}
+                        <input type="text" className="post-form__input" {...register('urls', { required: 'Image URLs are required' })} />
+                        {errors.urls && <span className="post-form__error">{errors.urls.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-row">
-                    <label>
+                <div className="post-form__row">
+                    <label className="post-form__label">
                         Character IDs (comma separated):
-                        <input type="text" {...register('characterIds', { required: 'Character IDs are required' })} />
-                        {errors.characterIds && <span>{errors.characterIds.message}</span>}
+                        <input type="text" className="post-form__input" {...register('characterIds', { required: 'Character IDs are required' })} />
+                        {errors.characterIds && <span className="post-form__error">{errors.characterIds.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-row">
-                    <label>
+                <div className="post-form__row">
+                    <label className="post-form__label">
                         Description:
-                        <textarea rows={6} {...register('desc', { required: 'Description is required' })} />
-                        {errors.desc && <span>{errors.desc.message}</span>}
+                        <textarea rows={6} className="post-form__input post-form__input--textarea" {...register('desc', { required: 'Description is required' })} />
+                        {errors.desc && <span className="post-form__error">{errors.desc.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-row">
-                    <label>
+                <div className="post-form__row">
+                    <label className="post-form__label">
                         Reddit URL:
-                        <input type="text" {...register('reddit', { required: 'Reddit URL is required' })} />
-                        {errors.reddit && <span>{errors.reddit.message}</span>}
+                        <input type="text" className="post-form__input" {...register('reddit', { required: 'Reddit URL is required' })} />
+                        {errors.reddit && <span className="post-form__error">{errors.reddit.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-row buttons-row">
-                    <button type="button" onClick={handleFetchRedditData} disabled={loadingRedditData}>
+                <div className="post-form__row post-form__row--buttons">
+                    <button type="button" className={`post-form__button ${loadingRedditData ? 'post-form__button--disabled' : ''}`} onClick={handleFetchRedditData}>
                         {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
                     </button>
-                    <button type="submit" disabled={isSubmitting}>
+                    <button type="submit" className={`post-form__button ${isSubmitting ? 'post-form__button--disabled' : ''}`}>
                         {isSubmitting ? 'Submitting...' : 'Add Post'}
                     </button>
                 </div>

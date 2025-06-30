@@ -50,27 +50,27 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
 
 
     return (
-        <div className="image-viewer">
-            <div className="image-section">
-                <div className="image-display">
-                    <img src={currentImage} alt="Translated Image" className="image" onClick={() => setIsModalOpen(true)} />
+        <div className="image-viewer image-viewer--mobile">
+            <div className="image-viewer__image-section">
+                <div className="image-viewer__image-display image-viewer__image-display--full-width">
+                    <img src={currentImage} alt="Translated Image" className="image-viewer__image" onClick={() => setIsModalOpen(true)} />
                 </div>
                 {isGallery && (
-                    <div className="gallery-controls">
+                    <div className="image-viewer__gallery-controls">
                         <button onClick={() => handleChangeIndex(-1)} aria-label="Previous image">◀</button>
-                        <span className="gallery-index">{`${currentIndex + 1} / ${post.url.length}`}</span>
+                        <span className="image-viewer__gallery-index">{`${currentIndex + 1} / ${post.url.length}`}</span>
                         <button onClick={() => handleChangeIndex(1)} aria-label="Next image">▶</button>
                     </div>
                 )}
             </div>
-            <div className="info-section">
-                <div className="info-grid">
+            <div className="image-viewer__info-section">
+                <div className="image-viewer__info-grid image-viewer__info-grid--mobile">
                     {artist && (
-                        <div className="info-item">
-                            <div className="label">Artist:</div>
-                            <div className="value">
+                        <div className="image-viewer__info-item">
+                            <div className="image-viewer__label">Artist:</div>
+                            <div className="image-viewer__value">
                                 {artist.name}
-                                <div className="info-icons">
+                                <div className="image-viewer__info-icons">
                                     {renderIconLink(artist.linkTwitter, "Twitter profile", twitterIcon, "Twitter")}
                                     {renderIconLink(artist.linkPixiv, "Pixiv profile", pixivIcon, "Pixiv")}
                                 </div>
@@ -78,34 +78,40 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                         </div>
                     )}
                     {post.src && (
-                        <div className="info-item">
-                            <div className="label">Source:</div>
-                            <div className="value">
-                                <a href={post.src} target="_blank" rel="noopener noreferrer" className="source-link" title={post.src}>{post.src}</a>
+                        <div className="image-viewer__info-item">
+                            <div className="image-viewer__label">Source:</div>
+                            <div className="image-viewer__value">
+                                <a href={post.src} target="_blank" rel="noopener noreferrer" className="image-viewer__source-link" title={post.src}  >
+                                    {post.src}
+                                </a>
                             </div>
                         </div>
                     )}
                     {characters.length > 0 && (
-                        <div className="info-item">
-                            <div className="label">{characters.length === 1 ? 'Character:' : 'Characters:'}</div>
-                            <div className="value">{characters.map(c => c.name).join(', ')}</div>
+                        <div className="image-viewer__info-item">
+                            <div className="image-viewer__label">
+                                {characters.length === 1 ? 'Character:' : 'Characters:'}
+                            </div>
+                            <div className="image-viewer__value">
+                                {characters.map(c => c.name).join(', ')}
+                            </div>
                         </div>
                     )}
                     {post.date && (
-                        <div className="info-item">
-                            <div className="label">Translated:</div>
-                            <div className="value">{formattedDate}</div>
+                        <div className="image-viewer__info-item">
+                            <div className="image-viewer__label">Translated:</div>
+                            <div className="image-viewer__value">{formattedDate}</div>
                         </div>
                     )}
                 </div>
-                <div className="info-comment">
-                    <div className="label">
-                        <div className="info-icons">
+                <div className="image-viewer__info-comment">
+                    <div className="image-viewer__label image-viewer__label--comment">
+                        <div className="image-viewer__info-icons image-viewer__info-icons--label">
                             {renderIconLink(post.reddit, "Reddit post", redditIcon, "Reddit")}
                         </div>
                         TL Commentary:
                     </div>
-                    <div className="value">
+                    <div className="image-viewer__value--comment">
                         <ReactMarkdown>{post.desc}</ReactMarkdown>
                     </div>
                 </div>

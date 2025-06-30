@@ -7,7 +7,6 @@ interface Props { characters: Character[]; getCharacterImage: (id: string) => st
 
 const CharacterList: React.FC<Props> = ({ characters, getCharacterImage }) => {
     const baseHue = Math.floor(Math.random() * 360);
-
     return (
         <ul className="character-list">
             {characters.map((character, index) => {
@@ -16,16 +15,18 @@ const CharacterList: React.FC<Props> = ({ characters, getCharacterImage }) => {
                 const gradientPlaceholder = getGradient(hue, 25, 73);
                 const imageUrl = getCharacterImage(character.id);
                 return (
-                    <li key={character.id} className="character-item" tabIndex={0} aria-label={`Character: ${character.name}`}>
-                        <div className="character-image-wrapper" style={{ background: gradient }}>
+                    <li key={character.id} className="character-list__item character-list__item--mobile-row" tabIndex={0} aria-label={`Character: ${character.name}`}  >
+                        <div className="character-list__image-wrapper character-list__image-wrapper--mobile" style={{ background: gradient }} >
                             {imageUrl ? (
-                                <img src={imageUrl} alt={character.name} className="character-image" loading="lazy" />
+                                <img src={imageUrl} alt={character.name} className="character-list__image" loading="lazy" />
                             ) : (
-                                <div className="character-image-placeholder" aria-hidden="true" style={{ background: gradientPlaceholder }} />
+                                <div className="character-list__image-placeholder" aria-hidden="true" style={{ background: gradientPlaceholder }} />
                             )}
                         </div>
-                        <div className="character-info">
-                            <span className="character-name">{character.name}</span>
+                        <div className="character-list__info character-list__info--mobile">
+                            <span className="character-list__name character-list__name--mobile-left">
+                                {character.name}
+                            </span>
                         </div>
                     </li>
                 );
