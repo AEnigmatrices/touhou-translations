@@ -90,7 +90,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                     )}
                     {post.date && (
                         <div className="info-item">
-                            <div className="label">Posted:</div>
+                            <div className="label">Translated:</div>
                             <div className="value">{formattedDate}</div>
                         </div>
                     )}
