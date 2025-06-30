@@ -1,14 +1,18 @@
 .character-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
     list-style: none;
     padding: 0;
     margin: 0;
 
     .character-item {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid #e0e0e0;
-        gap: 1rem;
+        padding: 0.75rem;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
         cursor: pointer;
         transition: background-color 0.2s ease;
 
@@ -21,8 +25,8 @@
 
     .character-image-wrapper {
         flex-shrink: 0;
-        width: 56px;
-        height: 56px;
+        width: 100%;
+        aspect-ratio: 1 / 1;
         border-radius: 12px;
         overflow: hidden;
         background-color: #ddd;
@@ -39,8 +43,8 @@
     }
 
     .character-image-placeholder {
-        width: 40px;
-        height: 40px;
+        width: 40%;
+        height: 40%;
         background-color: #bbb;
         border-radius: 50%;
     }
@@ -49,11 +53,14 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        margin-top: 0.5rem;
     }
 
     .character-name {
-        font-size: 1.2rem;
-        font-weight: 700;
+        font-size: 1rem;
+        font-weight: 600;
         color: #222;
+        text-align: center;
     }
 }
