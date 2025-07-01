@@ -11,19 +11,28 @@
         align-items: center;
         z-index: 1000;
         overflow: hidden;
+        padding: env(safe-area-inset);
     }
 
     &__content {
         position: relative;
         width: 90vw;
-        height: 90vh;
+        max-width: 600px;
+        height: auto;
+        max-height: 90vh;
+        aspect-ratio: auto;
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     &__image {
         display: block;
-        max-width: initial;
-        max-height: initial;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
         object-fit: contain;
     }
 }
