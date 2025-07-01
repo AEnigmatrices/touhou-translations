@@ -1,6 +1,6 @@
 import { useGetPosts } from '../../context/PostsContext';
 import { Link, useLocation } from 'react-router-dom';
-import { filterPostsByCharacters } from '../../utils/filterPosts';
+import { filterPosts } from '../../utils/filterPosts';
 import type { Post } from '../../types/data';
 import './Gallery.scss';
 
@@ -11,9 +11,10 @@ const Gallery: React.FC<Props> = ({ posts }) => {
 
     const searchParams = new URLSearchParams(useLocation().search);
     const characterQueries = searchParams.getAll('character');
+    const artistQueries = searchParams.getAll('artist');
     const mode = searchParams.get('mode') === 'or' ? 'or' : 'and';
 
-    const filteredPosts = filterPostsByCharacters(posts, characterQueries, mode);
+    const filteredPosts = filterPosts(posts, characterQueries, artistQueries, mode);
 
     if (!filteredPosts || filteredPosts.length === 0) return <p>No posts available.</p>;
     return (
