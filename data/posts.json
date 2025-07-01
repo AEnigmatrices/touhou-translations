@@ -209,5 +209,160 @@
             "cirno",
             "daiyousei"
         ]
+    },
+    {
+        "date": 1706361080000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1acaj3l",
+        "url": [
+            "https://i.redd.it/3nq2o57bfzec1.png"
+        ],
+        "src": "https://x.com/campagne_9/status/1751192660822651075",
+        "desc": "Do we... do we actually pay them money if we subscribe to their newspapers? 🤔",
+        "artistId": "kanpa",
+        "characterIds": [
+            "aya"
+        ]
+    },
+    {
+        "date": 1707049876000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1aimvhq",
+        "url": [
+            "https://i.redd.it/vmh5rj4nbkgc1.png"
+        ],
+        "src": "https://x.com/urizaku3/status/1754057426041790582",
+        "desc": "TIL, the kind of credit that is used in credit cards is called **revolving credit.**",
+        "artistId": "urizaku",
+        "characterIds": [
+            "tsukasa"
+        ]
+    },
+    {
+        "date": 1707569951000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1anfs80",
+        "url": [
+            "https://i.redd.it/z71slg02arhc1.png"
+        ],
+        "src": "https://x.com/Oekaki_Onyasai/status/1755877651586433421",
+        "desc": "I suppose this is one way to compromise short- and long-hair Koakuma 🤨",
+        "artistId": "onyasai",
+        "characterIds": [
+            "koakuma"
+        ]
+    },
+    {
+        "date": 1707917131000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1aqmtc2",
+        "url": [
+            "https://i.redd.it/0yyrns6gyjic1.png"
+        ],
+        "src": "https://x.com/zounose/status/1757713344201695640",
+        "desc": "I really can't get tired of seeing Remilia with her napkin on while eating.",
+        "artistId": "zounose",
+        "characterIds": [
+            "sakuya",
+            "meiling",
+            "remilia",
+            "flandre",
+            "marisa",
+            "patchouli"
+        ]
+    },
+    {
+        "date": 1708001164000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1aremvl",
+        "url": [
+            "https://i.redd.it/gp95qkbcwqic1.png"
+        ],
+        "src": "https://x.com/simerike5/status/1758066647863337396",
+        "desc": "That day Reimu discovered that Sanae has always been eating imported rice. Or Youkai Mountain has rice polishers.",
+        "artistId": "deetamu",
+        "characterIds": [
+            "sanae",
+            "reimu"
+        ]
+    },
+    {
+        "date": 1708605554000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ax5fzj",
+        "url": [
+            "https://i.redd.it/75xtdca7t4kc1.png"
+        ],
+        "src": "https://x.com/simerike5/status/1760621233509704060",
+        "desc": "Given that the Hakurei shrine maiden is a pretty important position, I think Reimu does receive rations in the form of, well, just rice.\n\nHell, maybe back then the shrine maidens practically didn't have to do groceries. But since Reimu is so goddamn lazy, the sages reduced her rations to this bare minimum.",
+        "artistId": "deetamu",
+        "characterIds": [
+            "reimu"
+        ]
+    },
+    {
+        "date": 1708692536000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1axzo1o",
+        "url": [
+            "https://i.redd.it/s8tqt2n50ckc1.png"
+        ],
+        "src": "https://x.com/ratenbo/status/1760380138892701789",
+        "desc": "Come to think of it, maybe not in terms of danmaku, but in terms of raw power, Chen is on the same level as Orin if we go by the number of tails. Well, Orin's tips are on fire, so that's probably the one-step-above Chen – or that just comes with being a kasha. Ngl, I find the idea of Chen(!) being able to go toe-to-toe with Orin to be very interesting.\n\nIf I were to speculate, I'd say Chen's power has actually been limited, while the shikigami itself grows accustomed to the bakeneko it's possessing. As the compatibility increases, more power is unlocked. But now? She's at the \"Gotta stay away from water\" kind of weak. But if the shikigami's out of the equation, that bakeneko is a Stage 5 boss material.",
+        "artistId": "ratenbo",
+        "characterIds": [
+            "reimu",
+            "chen",
+            "orin",
+            "mike"
+        ]
+    },
+    {
+        "date": 1708864839000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1azn05s",
+        "url": [
+            "https://i.redd.it/9f9jxfog8qkc1.png"
+        ],
+        "src": "https://x.com/nodg671/status/1761707643310387631",
+        "desc": "That clean split on the fortune teller had to start from somewhere.",
+        "artistId": "nodoguro",
+        "characterIds": [
+            "reimu",
+            "yukari"
+        ]
+    },
+    {
+        "date": 1709383461000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1b4ngik",
+        "url": [
+            "https://i.redd.it/dn2kj9yl2xlc1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/115789975",
+        "desc": "Being a Hakurei shrine maiden is stressful. You don't know who you might end up having to kill. It might be a total stranger, or it might be...\n\nIt just occurred to me that if Marisa were to get the Jinyou treatment, she might just be another best friend Reimu had to put down – **and not the first one.** Expanding on that, I think it's likely that quite a few in Reimu's body count were her close friends. ~~*Maybe the most recent before eventually Marisa was Rin.*~~",
+        "artistId": "dokudoku_kanja",
+        "characterIds": [
+            "yukari",
+            "reimu"
+        ]
+    },
+    {
+        "date": 1709728465000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1b7yl4t",
+        "url": [
+            "https://i.redd.it/hwy3bzzhkpmc1.png"
+        ],
+        "src": "https://x.com/xyzspjp/status/1466797359283970048",
+        "desc": "[**THERE CAN BE ONLY ONE!**](https://youtu.be/JFTZqin0SqE) Anyway, we pray for your swift recovery, u/Sendai_Hakurei_Miko.",
+        "artistId": "nunnun",
+        "characterIds": [
+            "kasen",
+            "hakurei"
+        ]
+    },
+    {
+        "date": 1709814844000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1b8tk6b",
+        "url": [
+            "https://i.redd.it/lsg5y342pwmc1.png"
+        ],
+        "src": "https://x.com/MATEO2023_ex/status/1764620216947143049",
+        "desc": "Or the aftermath from a hangover of catastrophic magnitude.",
+        "artistId": "teoi",
+        "characterIds": [
+            "suika"
+        ]
     }
 ]

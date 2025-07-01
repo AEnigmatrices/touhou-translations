@@ -75,5 +75,93 @@
         "work": [
             "eosd"
         ]
+    },
+    {
+        "id": "chen",
+        "name": "Chen",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "yukari",
+        "name": "Yakumo Yukari",
+        "work": [
+            "pcb",
+            "iamp",
+            "in",
+            "swr",
+            "sa",
+            "soku",
+            "aocf"
+        ]
+    },
+    {
+        "id": "suika",
+        "name": "Ibuki Suika",
+        "work": [
+            "iamp",
+            "swr",
+            "sa",
+            "soku",
+            "udoalg"
+        ]
+    },
+    {
+        "id": "aya",
+        "name": "Shameimaru Aya",
+        "work": [
+            "pofv",
+            "sa",
+            "mof"
+        ]
+    },
+    {
+        "id": "sanae",
+        "name": "Kochiya Sanae",
+        "work": [
+            "mof",
+            "sa",
+            "ufo",
+            "soku",
+            "td",
+            "lolk",
+            "um",
+            "udoalg"
+        ]
+    },
+    {
+        "id": "orin",
+        "name": "Kaenbyō Rin",
+        "work": [
+            "sa",
+            "udoalg"
+        ]
+    },
+    {
+        "id": "hakurei",
+        "name": "Hakurei Miko"
+    },
+    {
+        "id": "kasen",
+        "name": "Ibaraki Kasen",
+        "work": [
+            "aocf"
+        ]
+    },
+    {
+        "id": "tsukasa",
+        "name": "Kudamaki Tsukasa",
+        "work": [
+            "um",
+            "udoalg"
+        ]
+    },
+    {
+        "id": "mike",
+        "name": "Gōtokuji Mike",
+        "work": [
+            "um"
+        ]
     }
 ]

@@ -64,5 +64,56 @@
         "name": "乙張",
         "linkTwitter": "https://x.com/merihari07",
         "linkPixiv": "https://www.pixiv.net/en/users/69758640"
+    },
+    {
+        "id": "kanpa",
+        "name": "カンパ",
+        "linkTwitter": "https://x.com/campagne_9",
+        "linkPixiv": "https://www.pixiv.net/en/users/2520952"
+    },
+    {
+        "id": "urizaku",
+        "name": "ウリザク",
+        "linkTwitter": "https://x.com/urizaku3",
+        "linkPixiv": "https://www.pixiv.net/en/users/14322558"
+    },
+    {
+        "id": "onyasai",
+        "name": "おんやさい",
+        "linkTwitter": "https://x.com/Oekaki_Onyasai",
+        "linkPixiv": "https://www.pixiv.net/en/users/64531357"
+    },
+    {
+        "id": "zounose",
+        "name": "ゾウノセ",
+        "linkTwitter": "https://x.com/zounose",
+        "linkPixiv": "https://www.pixiv.net/en/users/2622803"
+    },
+    {
+        "id": "ratenbo",
+        "name": "ラテンボ",
+        "linkTwitter": "https://x.com/ratenbo"
+    },
+    {
+        "id": "nodoguro",
+        "name": "ノドグロ",
+        "linkTwitter": "https://x.com/nodg671"
+    },
+    {
+        "id": "dokudoku_kanja",
+        "name": "毒毒患者",
+        "linkTwitter": "https://x.com/dk2_patient",
+        "linkPixiv": "https://www.pixiv.net/en/users/86228831"
+    },
+    {
+        "id": "nunnun",
+        "name": "ぬんぬん",
+        "linkTwitter": "https://x.com/xyzspjp",
+        "linkPixiv": "https://www.pixiv.net/en/users/450246"
+    },
+    {
+        "id": "teoi",
+        "name": "健康な手負い",
+        "linkTwitter": "https://x.com/MATEO2023_ex"
     }
 ]
