@@ -20,7 +20,10 @@ const buildImageUrls = (postData: any): string[] => {
 export const extractBaseRedditUrl = (url?: string): string => {
     if (!url) return '';
     try {
-        const { origin, pathname } = new URL(url);
+        const parsedUrl = new URL(url);
+        if (parsedUrl.hostname === 'old.reddit.com') parsedUrl.hostname = 'www.reddit.com';
+
+        const { origin, pathname } = parsedUrl;
         const segments = pathname.split('/').filter(Boolean);
         const isValidRedditPostPath =
             segments.length >= 4 &&
