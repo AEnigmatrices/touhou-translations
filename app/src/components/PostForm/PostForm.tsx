@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { extractBaseRedditUrl, buildPostEntry, fetchRedditData } from '../../utils/redditUtils';
+import { useGetPosts } from '../../context/PostsContext';
 import type { PostEntryForm } from "../../types/data";
 import "./PostForm.scss";
 
@@ -9,6 +10,7 @@ import "./PostForm.scss";
 const PostForm: React.FC = () => {
     const { register, handleSubmit, reset, setValue, getValues, formState: { errors, isSubmitting } } = useForm<PostEntryForm>();
     const [loadingRedditData, setLoadingRedditData] = useState(false);
+    const allPosts = useGetPosts();
 
 
 
@@ -98,7 +100,15 @@ const PostForm: React.FC = () => {
                 <div className="post-form__row">
                     <label className="post-form__label">
                         Reddit URL:
-                        <input type="text" className="post-form__input" {...register('reddit', { required: 'Reddit URL is required' })} />
+                        <input type="text" className="post-form__input"
+                            {...register('reddit', {
+                                required: 'Reddit URL is required',
+                                validate: (value) => {
+                                    const normalizedValue = extractBaseRedditUrl(value.trim());
+                                    if (allPosts?.some(post => extractBaseRedditUrl(post.reddit) === normalizedValue)) return 'This Reddit URL already exists.';
+                                    return true;
+                                }
+                            })} />
                         {errors.reddit && <span className="post-form__error">{errors.reddit.message}</span>}
                     </label>
                 </div>
