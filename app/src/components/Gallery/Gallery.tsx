@@ -1,5 +1,6 @@
 import { useGetPosts } from '../../context/PostsContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { filterPostsByCharacters } from '../../utils/filterPosts';
 import type { Post } from '../../types/data';
 import './Gallery.scss';
 
@@ -7,10 +8,17 @@ interface Props { posts: Post[]; }
 
 const Gallery: React.FC<Props> = ({ posts }) => {
     const allPosts = useGetPosts();
-    if (!posts || posts.length === 0) return <p>No posts available.</p>;
+
+    const searchParams = new URLSearchParams(useLocation().search);
+    const characterQueries = searchParams.getAll('character');
+    const mode = searchParams.get('mode') === 'or' ? 'or' : 'and';
+
+    const filteredPosts = filterPostsByCharacters(posts, characterQueries, mode);
+
+    if (!filteredPosts || filteredPosts.length === 0) return <p>No posts available.</p>;
     return (
-        <div className={`gallery__grid`}>
-            {posts.map(post => {
+        <div className="gallery__grid">
+            {filteredPosts.map(post => {
                 if (!post.url || post.url.length === 0) return null;
                 const imageUrl = post.url[0];
 
