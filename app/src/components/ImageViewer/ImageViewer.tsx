@@ -1,7 +1,6 @@
 import type { Post } from '../../types/data';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import ImageModal from '../ImageModal/ImageModal';
 import { replaceXWithNitter } from '../../utils/urlUtils';
 import { dateFormatOptions } from '../../utils/dateUtils';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
@@ -24,7 +23,6 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     const characters = getCharacters(post.characterIds);
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const isGallery = post.url.length > 1;
     const currentImage = post.url[currentIndex];
@@ -57,7 +55,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
         <div className="image-viewer">
             <div className="image-viewer__image-section">
                 <div className="image-viewer__image-display">
-                    <img src={currentImage} alt="Translated Image" className="image-viewer__image" onClick={() => setIsModalOpen(true)} />
+                    <img src={currentImage} alt="Translated Image" className="image-viewer__image" />
                 </div>
                 {isGallery && (
                     <div className="image-viewer__gallery-controls">
@@ -131,8 +129,6 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                     </div>
                 </div>
             </div>
-
-            {isModalOpen && (<ImageModal imageUrl={currentImage} onClose={() => setIsModalOpen(false)} />)}
         </div>
     );
 };
