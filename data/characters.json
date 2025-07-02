@@ -113,7 +113,8 @@
         "work": [
             "pofv",
             "sa",
-            "mof"
+            "mof",
+            "ds"
         ]
     },
     {
@@ -136,6 +137,13 @@
         "work": [
             "sa",
             "udoalg"
+        ]
+    },
+    {
+        "id": "hatate",
+        "name": "Himekaidō Hatate",
+        "work": [
+            "ds"
         ]
     },
     {
