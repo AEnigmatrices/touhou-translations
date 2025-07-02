@@ -77,8 +77,71 @@
         ]
     },
     {
+        "id": "letty",
+        "name": "Letty Whiterock",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
         "id": "chen",
         "name": "Chen",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "alice",
+        "name": "Alice Margatroid",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "lily",
+        "name": "Lily White",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "lunasa",
+        "name": "Lunasa Prismriver",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "merlin",
+        "name": "Merlin Prismriver",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "lyrica",
+        "name": "Lyrica Prismriver",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "youmu",
+        "name": "Konpaku Yōmu",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "yuyuko",
+        "name": "Saigyōji Yuyuko",
+        "work": [
+            "pcb"
+        ]
+    },
+    {
+        "id": "ran",
+        "name": "Yakumo Ran",
         "work": [
             "pcb"
         ]
