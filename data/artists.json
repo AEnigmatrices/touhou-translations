@@ -115,5 +115,29 @@
         "id": "teoi",
         "name": "健康な手負い",
         "linkTwitter": "https://x.com/MATEO2023_ex"
+    },
+    {
+        "id": "nantara",
+        "name": "#なんたら#",
+        "linkTwitter": "https://x.com/nantara3080",
+        "linkPixiv": "https://www.pixiv.net/en/users/17879222"
+    },
+    {
+        "id": "shirosato",
+        "name": "シロサト",
+        "linkTwitter": "https://x.com/shirosato_town",
+        "linkPixiv": "https://www.pixiv.net/en/users/358646"
+    },
+    {
+        "id": "mendou15",
+        "name": "めんどう１５",
+        "linkTwitter": "https://x.com/mendo_15___",
+        "linkPixiv": "https://www.pixiv.net/en/users/83944581"
+    },
+    {
+        "id": "nekobatake",
+        "name": "ネコバタケ",
+        "linkTwitter": "https://x.com/catfiield",
+        "linkPixiv": "https://www.pixiv.net/en/users/561777"
     }
 ]
