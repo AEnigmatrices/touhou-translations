@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { normalizeCommas } from '../../utils/dataUtils';
 import { extractBaseRedditUrl, buildPostEntry, fetchRedditData } from '../../utils/redditUtils';
 import { useGetPosts } from '../../context/PostsContext';
 import type { PostEntryForm } from "../../types/data";
@@ -77,47 +76,18 @@ const PostForm: React.FC = () => {
                 <div className="post-form__row">
                     <label className="post-form__label">
                         Image URLs (comma separated):
-                        <input
-                            type="text"
-                            className="post-form__input"
-                            {...register('urls', {
-                                required: 'Image URLs are required',
-                                validate: (value) => {
-                                    const normalized = normalizeCommas(value);
-                                    if (normalized !== value) return 'Image URLs must be comma-separated with no extra spaces. Please correct.';
-                                    return true;
-                                },
-                                onChange: (e) => {
-                                    const normalized = normalizeCommas(e.target.value);
-                                    setValue('urls', normalized, { shouldValidate: true });
-                                },
-                            })}
-                        />
+                        <input type="text" className="post-form__input" {...register('urls', { required: 'Image URLs are required' })} />
                         {errors.urls && <span className="post-form__error">{errors.urls.message}</span>}
                     </label>
                 </div>
 
-
-                <label className="post-form__label">
-                    Character IDs (comma separated):
-                    <input
-                        type="text"
-                        className="post-form__input"
-                        {...register('characterIds', {
-                            required: 'Character IDs are required',
-                            validate: (value) => {
-                                const normalized = normalizeCommas(value);
-                                if (normalized !== value) return 'Character IDs must be comma-separated with no extra spaces. Please correct.';
-                                return true;
-                            },
-                            onChange: (e) => {
-                                const normalized = normalizeCommas(e.target.value);
-                                setValue('characterIds', normalized, { shouldValidate: true });
-                            },
-                        })}
-                    />
-                    {errors.characterIds && <span className="post-form__error">{errors.characterIds.message}</span>}
-                </label>
+                <div className="post-form__row">
+                    <label className="post-form__label">
+                        Character IDs (comma separated):
+                        <input type="text" className="post-form__input" {...register('characterIds', { required: 'Character IDs are required' })} />
+                        {errors.characterIds && <span className="post-form__error">{errors.characterIds.message}</span>}
+                    </label>
+                </div>
 
                 <div className="post-form__row">
                     <label className="post-form__label">
