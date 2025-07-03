@@ -19,6 +19,7 @@ export interface Character {
     id: string;
     name: string;
     work: string;
+    artworkCount: number;
 }
 
 export interface PostEntryForm {
