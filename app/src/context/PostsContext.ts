@@ -15,6 +15,16 @@ const usePostsContext = () => {
     return context;
 };
 
+const getCharacterArtworkCounts = (posts: Post[]): Record<string, number> => {
+    const countMap: Record<string, number> = {};
+    for (const post of posts) {
+        for (const id of post.characterIds) {
+            countMap[id] = (countMap[id] ?? 0) + 1;
+        }
+    }
+    return countMap;
+};
+
 
 
 export const PostsContext = createContext<PostsContextType | undefined>(undefined);
@@ -26,7 +36,12 @@ export const useGetArtist = (): ((id: string) => Artist | null) => {
     return useCallback((id) => artists.find(artist => artist.id === id) ?? null, [artists]);
 };
 
-export const useGetCharacters = (): ((ids?: string[]) => Character[]) => {
-    const { characters } = usePostsContext();
-    return useCallback((ids) => (ids ? characters.filter(c => ids.includes(c.id)) : characters), [characters]);
+export const useGetCharacters = (): ((ids?: string[]) => (Character & { artworkCount: number })[]) => {
+    const { characters, posts } = usePostsContext();
+    return useCallback((ids) => {
+        const countMap = getCharacterArtworkCounts(posts);
+        return characters
+            .filter(c => !ids || ids.includes(c.id))
+            .map(c => ({ ...c, artworkCount: countMap[c.id] ?? 0 }));
+    }, [characters, posts]);
 };

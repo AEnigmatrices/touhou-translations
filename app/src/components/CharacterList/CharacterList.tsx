@@ -31,7 +31,9 @@ const CharacterList: React.FC = () => {
                             </div>
                             <div className="character-list__info">
                                 <span className="character-list__name">{character.name}</span>
-                                <span className="character-list__description">Additional info coming soon</span>
+                                <span className="character-list__description">
+                                    {character.artworkCount} artwork{character.artworkCount !== 1 ? 's' : ''}
+                                </span>
                             </div>
                         </Link>
                     </li>
