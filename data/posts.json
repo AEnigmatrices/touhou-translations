@@ -449,5 +449,87 @@
             "joon",
             "byakuren"
         ]
+    },
+    {
+        "date": 1707222668000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ak8nt7",
+        "url": [
+            "https://i.redd.it/248jo3jglygc1.png"
+        ],
+        "src": "https://x.com/zounose/status/1754452830528946356",
+        "desc": "**\"You're the same as me.\"** took a very wrong turn.",
+        "artistId": "zounose",
+        "characterIds": [
+            "youmu"
+        ]
+    },
+    {
+        "date": 1712234644000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1bvm6t5",
+        "url": [
+            "https://i.redd.it/9iycxt8nkgsc1.png"
+        ],
+        "src": "https://x.com/murabito3d2dVer/status/1775525667108708626",
+        "desc": "Man, I can almost smell what a toxic hellscape Gensokyo Twitter will be like.\n\nI was about to come up with a name for the Twitter equivalent with a Gensokyo flair, and then I realized. Twitter definitely exists in Gensokyo, because as we all know, it has already... [***passed into fantasy.***](https://twitter.com/akarinomiya_a/status/1683480673594621953)",
+        "artistId": "shundou_heishirou",
+        "characterIds": [
+            "kaguya",
+            "mokou"
+        ]
+    },
+    {
+        "date": 1712321078000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1bwh3vr",
+        "url": [
+            "https://i.redd.it/k413mkeepnsc1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/92907224",
+        "desc": "I just wanna go browse for some bike parts...",
+        "artistId": "fusu",
+        "characterIds": [
+            "miko"
+        ]
+    },
+    {
+        "date": 1712403231000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1bx9doc",
+        "url": [
+            "https://i.redd.it/b2tr9kiyhusc1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/116595530",
+        "desc": "I bet she goes out on a manhunt every night for Medicine and/or Yamame.\n\nBut man... just imagine all the shenanigans Maomao will do in Gensokyo! Girl will probably make herself Eirin's apprentice, for starters. Eientei's medicine cabinet would probably be locked down and put on guard, so that mad scientist wouldn't be able to perform some truly catastrophic experiments.\n\nAnd assuming the lack of blurring in the language barrier, Maomao will only know Chinese, and at best it'll take her quite a while the figure out Japanese. And on the other hand, I don't think our local Touhou characters knowing kanji characters would translate smoothly to knowing Chinese.\n\nThis also brings up the question about the Lunarians. Since there is Chang'e, I think they speak Chinese up there too – so in this case, Reisen, Eirin, and even Kaguya can probably communicate with Maomao. Meiling might be a good interpreter when she travels around Gensokyo. And then there's Seiga... whose alchemy will be definitely catch her interest. Might even move out to live at Shinreibyou instead, even. That palatial place has more of her element anyway.\n\nA better question would be – aside from Meiling and Seiga – who else would know Chinese? The whole Shinreibyou crew, I think. Yoshika is Seiga's familiar, not to mention being an outright Chinese youkai. And those three probably studied Taoist texts from Seiga's books and scrolls, which would likely be in Chinese. The Myourenji crew might as well, I think – 'cause Buddhist texts were also imported from China. The final candidates based on literature would be Akyuu and Keine. Patchouli's too young for that context – however, her magic does use Chinese elements...\n\nAnd back to Yoshika, I think we will also get a few more people if we base this on whether the youkai origin is Chinese. Yoshika is a jiangshi... Yachie is a jidiao... Yuuma is a taotie... And Son Biten if she does manage to mantle Sun Wukong... Oh yeah, and Junko is Xuan Qi.",
+        "artistId": "suwaneko",
+        "characterIds": [
+            "reisen"
+        ]
+    },
+    {
+        "date": 1712490119000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1by2hdr",
+        "url": [
+            "https://i.redd.it/hdlt2nh9o1tc1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/116226282",
+        "desc": "Is this myon worth a citation?",
+        "artistId": "youyume",
+        "characterIds": [
+            "youmu"
+        ]
+    },
+    {
+        "date": 1712576788000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1byvt4p",
+        "url": [
+            "https://i.redd.it/d5wlw510u8tc1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/10867032",
+        "desc": "A human chief maid for a demon butler – or a god for a demon if we're really, really going to assume she's **Konohanasakuya-hime.**",
+        "artistId": "mun",
+        "characterIds": [
+            "remilia",
+            "patchouli",
+            "meiling",
+            "koakuma"
+        ]
     }
 ]

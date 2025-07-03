@@ -139,5 +139,27 @@
         "name": "ネコバタケ",
         "linkTwitter": "https://x.com/catfiield",
         "linkPixiv": "https://www.pixiv.net/en/users/561777"
+    },
+    {
+        "id": "shundou_heishirou",
+        "name": "春藤平四郎",
+        "linkTwitter": "https://x.com/murabito3d2dVer",
+        "linkPixiv": "https://www.pixiv.net/en/users/18584869"
+    },
+    {
+        "id": "fusu",
+        "name": "ふす",
+        "linkPixiv": "https://www.pixiv.net/en/users/30675161"
+    },
+    {
+        "id": "suwaneko",
+        "name": "すわ猫",
+        "linkTwitter": "https://x.com/suwaneko10",
+        "linkPixiv": "https://www.pixiv.net/en/users/31855616"
+    },
+    {
+        "id": "mun",
+        "name": "MUN",
+        "linkPixiv": "https://www.pixiv.net/en/users/259570"
     }
 ]
