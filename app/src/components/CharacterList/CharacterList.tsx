@@ -30,9 +30,8 @@ const CharacterList: React.FC = () => {
                                 )}
                             </div>
                             <div className="character-list__info">
-                                <span className="character-list__name">
-                                    {character.name}
-                                </span>
+                                <span className="character-list__name">{character.name}</span>
+                                <span className="character-list__description">Additional info coming soon</span>
                             </div>
                         </Link>
                     </li>
