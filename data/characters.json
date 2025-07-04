@@ -143,7 +143,8 @@
         "id": "ran",
         "name": "Yakumo Ran",
         "work": [
-            "pcb"
+            "pcb",
+            "udoalg"
         ]
     },
     {
@@ -168,6 +169,62 @@
             "sa",
             "soku",
             "udoalg"
+        ]
+    },
+    {
+        "id": "wriggle",
+        "name": "Wriggle Nightbug",
+        "work": [
+            "in"
+        ]
+    },
+    {
+        "id": "mystia",
+        "name": "Mystia Lorelei",
+        "work": [
+            "in"
+        ]
+    },
+    {
+        "id": "keine",
+        "name": "Kamishirasawa Keine",
+        "work": [
+            "in"
+        ]
+    },
+    {
+        "id": "tewi",
+        "name": "Inaba Tewi",
+        "work": [
+            "in"
+        ]
+    },
+    {
+        "id": "reisen",
+        "name": "Reisen Udondein Inaba",
+        "work": [
+            "in"
+        ]
+    },
+    {
+        "id": "eirin",
+        "name": "Yagokoro Eirin",
+        "work": [
+            "in"
+        ]
+    },
+    {
+        "id": "kaguya",
+        "name": "Hōraisan Kaguya",
+        "work": [
+            "in"
+        ]
+    },
+    {
+        "id": "mokou",
+        "name": "Fujiwara no Mokō",
+        "work": [
+            "in"
         ]
     },
     {
