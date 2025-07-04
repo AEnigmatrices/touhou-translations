@@ -161,5 +161,40 @@
         "id": "mun",
         "name": "MUN",
         "linkPixiv": "https://www.pixiv.net/en/users/259570"
+    },
+    {
+        "id": "6hp",
+        "name": "6HP",
+        "linkTwitter": "https://x.com/S_Mika2000"
+    },
+    {
+        "id": "chuumukade",
+        "name": "チュウムカデ",
+        "linkTwitter": "https://x.com/TYUMUKADE",
+        "linkPixiv": "https://www.pixiv.net/en/users/19115802"
+    },
+    {
+        "id": "poyo",
+        "name": "ぽよすけ・ポークハム。",
+        "linkTwitter": "https://x.com/PoyosukePorkham",
+        "linkPixiv": "https://www.pixiv.net/en/users/9300932"
+    },
+    {
+        "id": "konna_reshiki",
+        "name": "紺奈れしき",
+        "linkTwitter": "https://x.com/konna_reshiki",
+        "linkPixiv": "https://www.pixiv.net/en/users/79577634"
+    },
+    {
+        "id": "zannen_na_hito",
+        "name": "残念な人",
+        "linkTwitter": "https://x.com/Zannnenn1",
+        "linkPixiv": "https://www.pixiv.net/en/users/1710240"
+    },
+    {
+        "id": "hidaruma",
+        "name": "ヒダルマ",
+        "linkTwitter": "https://x.com/hidaruma_",
+        "linkPixiv": "https://www.pixiv.net/en/users/369449"
     }
 ]
