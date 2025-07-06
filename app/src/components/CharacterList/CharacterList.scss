@@ -53,6 +53,7 @@
         width: 100%;
         text-decoration: none;
         color: inherit;
+        gap: 0.6rem;
     }
 
     &__image-wrapper {
@@ -92,17 +93,15 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 1.1rem;
         flex-grow: 1;
 
         @media (max-width: 480px) {
             margin-top: 0;
-            margin-left: 1rem;
         }
     }
 
     &__name {
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 600;
         color: #222;
         margin-bottom: 0.25rem;
