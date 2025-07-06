@@ -45,3 +45,11 @@ export const useGetCharacters = (): ((ids?: string[]) => (Character & { artworkC
             .map(c => ({ ...c, artworkCount: countMap[c.id] ?? 0 }));
     }, [characters, posts]);
 };
+
+export const useGetArtists = (): ((ids?: string[]) => Artist[]) => {
+    const { artists } = usePostsContext();
+    return useCallback((ids) => {
+        const filtered = ids ? artists.filter(a => ids.includes(a.id)) : artists;
+        return [...filtered].sort((a, b) => a.id.localeCompare(b.id));
+    }, [artists]);
+};

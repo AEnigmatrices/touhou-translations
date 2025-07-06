@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom';
 import Layout from './pages/Layout';
 import Home from './pages/HomePage/HomePage';
 import CharacterPage from './pages/CharacterPage/CharacterPage';
+import ArtistPage from './pages/ArtistPage/ArtistPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import Item from './pages/ItemPage/Item';
 import Placeholder from './components/Placeholder';
@@ -14,7 +15,7 @@ const routes = [
             { index: true, element: <Home /> },
             { path: 'search', element: <Placeholder title="Search" /> },
             { path: 'characters', element: <CharacterPage /> },
-            { path: 'artists', element: <Placeholder title="Artists" /> },
+            { path: 'artists', element: <ArtistPage /> },
             { path: 'gallery', element: <GalleryPage /> },
             { path: 'post/:id', element: <Item /> }
         ],
