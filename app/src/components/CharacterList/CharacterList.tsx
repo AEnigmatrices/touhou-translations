@@ -9,9 +9,9 @@ interface Props { characters: Character[]; }
 
 
 
-const CharacterList: React.FC<Props> = ({ characters }) => {
+const baseHue = Math.floor(Math.random() * 360);
 
-    const baseHue = React.useMemo(() => Math.floor(Math.random() * 360), []);
+const CharacterList: React.FC<Props> = ({ characters }) => {
     return (
         <ul className="character-list">
             {characters.map((character, index) => {
