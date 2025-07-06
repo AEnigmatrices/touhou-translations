@@ -250,5 +250,64 @@
         "name": "雪屋ナギ",
         "linkTwitter": "https://x.com/saimu_taju",
         "linkPixiv": "https://www.pixiv.net/en/users/88451057"
+    },
+    {
+        "id": "purabird",
+        "name": "ぷらばーど",
+        "linkTwitter": "https://x.com/purabird0370"
+    },
+    {
+        "id": "masaki",
+        "name": "正木",
+        "linkTwitter": "https://x.com/koge_masaki"
+    },
+    {
+        "id": "kappy",
+        "name": "カッピ",
+        "linkTwitter": "https://x.com/kappy745"
+    },
+    {
+        "id": "mikazukimo",
+        "name": "カッピ",
+        "linkTwitter": "https://x.com/mikadukimo777"
+    },
+    {
+        "id": "yudepii",
+        "name": "茹でピー",
+        "linkTwitter": "https://x.com/Arachis_hypogae",
+        "linkPixiv": "https://www.pixiv.net/en/users/264281"
+    },
+    {
+        "id": "soeo",
+        "name": "そえお",
+        "linkTwitter": "https://x.com/nuru_sawa",
+        "linkPixiv": "https://www.pixiv.net/en/users/62901658"
+    },
+    {
+        "id": "lpis26",
+        "name": "ルピス26",
+        "linkTwitter": "https://x.com/Lpis26106",
+        "linkPixiv": "https://www.pixiv.net/en/users/26971100"
+    },
+    {
+        "id": "nakache",
+        "name": "なかちぇ",
+        "linkTwitter": "https://x.com/na_ka_che"
+    },
+    {
+        "id": "sobayu_to_tempura",
+        "name": "そばゆとてんぷら",
+        "linkTwitter": "https://x.com/Sobayuto"
+    },
+    {
+        "id": "gohan_tabe",
+        "name": "ごはんたべ",
+        "linkTwitter": "https://x.com/haniwa_kue"
+    },
+    {
+        "id": "solidus",
+        "name": "SOLIDUS",
+        "linkTwitter": "https://x.com/sword_cube",
+        "linkPixiv": "https://www.pixiv.net/en/users/14819041"
     }
 ]
