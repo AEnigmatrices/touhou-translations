@@ -14,6 +14,13 @@
         ]
     },
     {
+        "id": "rin",
+        "name": "Satsuki Rin",
+        "work": [
+            "eosd"
+        ]
+    },
+    {
         "id": "rumia",
         "name": "Rumia",
         "work": [
@@ -161,6 +168,34 @@
         ]
     },
     {
+        "id": "renko",
+        "name": "Usami Renko",
+        "work": [
+            "hifuu"
+        ]
+    },
+    {
+        "id": "merry",
+        "name": "Maëlivérie Hearn",
+        "work": [
+            "hifuu"
+        ]
+    },
+    {
+        "id": "rinnosuke",
+        "name": "Morichika Rinnosuke",
+        "work": [
+            "cola"
+        ]
+    },
+    {
+        "id": "tokiko",
+        "name": "Tokiko",
+        "work": [
+            "cola"
+        ]
+    },
+    {
         "id": "suika",
         "name": "Ibuki Suika",
         "work": [
@@ -225,6 +260,27 @@
         "name": "Fujiwara no Mokō",
         "work": [
             "in"
+        ]
+    },
+    {
+        "id": "sunny",
+        "name": "Sunny Milk",
+        "work": [
+            "sgs"
+        ]
+    },
+    {
+        "id": "luna",
+        "name": "Luna Child",
+        "work": [
+            "sgs"
+        ]
+    },
+    {
+        "id": "star",
+        "name": "Star Sapphire",
+        "work": [
+            "sgs"
         ]
     },
     {
