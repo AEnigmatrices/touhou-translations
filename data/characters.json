@@ -294,6 +294,62 @@
         ]
     },
     {
+        "id": "medicine",
+        "name": "Medicine Melancholy",
+        "work": [
+            "pofv"
+        ]
+    },
+    {
+        "id": "yuuka",
+        "name": "Kazami Yūka",
+        "work": [
+            "pofv"
+        ]
+    },
+    {
+        "id": "komachi",
+        "name": "Onozuka Komachi",
+        "work": [
+            "pofv"
+        ]
+    },
+    {
+        "id": "eiki",
+        "name": "Shiki Eiki, Yamaxanadu",
+        "work": [
+            "pofv"
+        ]
+    },
+    {
+        "id": "reisen2",
+        "name": "Reisen",
+        "work": [
+            "ssib"
+        ]
+    },
+    {
+        "id": "toyohime",
+        "name": "Watasuki no Toyohime",
+        "work": [
+            "ssib"
+        ]
+    },
+    {
+        "id": "yorihime",
+        "name": "Watatsuki no Yorihime",
+        "work": [
+            "ssib"
+        ]
+    },
+    {
+        "id": "akyuu",
+        "name": "Hieda no Akyū",
+        "work": [
+            "pmiss"
+        ]
+    },
+    {
         "id": "sanae",
         "name": "Kochiya Sanae",
         "work": [
