@@ -1,16 +1,20 @@
 import { defineConfig } from "vite";
+import type { Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import fs from "fs";
 import path from "path";
-import type { Post } from "./src/types/data";
+import type { Post, Artist } from "./src/types/data";
 
 const postsPath = path.resolve(__dirname, "../data/posts.json");
+const artistsPath = path.resolve(__dirname, "../data/artists.json");
 
 const readRequestBody = async (req: any): Promise<string> => {
     const chunks: Uint8Array[] = [];
     for await (const chunk of req) chunks.push(chunk);
     return Buffer.concat(chunks).toString();
 };
+
+
 
 const isValidPost = (entry: any): entry is Post => {
     return (
@@ -26,42 +30,58 @@ const isValidPost = (entry: any): entry is Post => {
     );
 };
 
-const readPosts = (): Post[] => {
+const isValidArtist = (entry: any): entry is Artist => {
+    return (
+        entry &&
+        typeof entry === "object" &&
+        typeof entry.id === "string" &&
+        typeof entry.name === "string"
+    );
+};
+
+
+
+const readJsonFile = (filePath: string): any[] => {
     try {
-        const data = fs.readFileSync(postsPath, "utf-8");
-        const posts = JSON.parse(data);
-        return Array.isArray(posts) ? posts : [];
+        const content = fs.readFileSync(filePath, "utf-8");
+        const data = JSON.parse(content);
+        return Array.isArray(data) ? data : [];
     } catch {
         return [];
     }
 };
 
-const writePosts = (posts: Post[]): void => fs.writeFileSync(postsPath, JSON.stringify(posts, null, 4), "utf-8");
+const writeJsonFile = (filePath: string, data: any[]): void => fs.writeFileSync(filePath, JSON.stringify(data, null, 4), "utf-8");
 
 
 
-const vitePostsApiPlugin = {
-    name: "vite-posts-api",
-    configureServer: (server: any) => {
-        server.middlewares.use(async (req: any, res: any, next: any) => {
-            if (req.method !== "POST" || req.url !== "/api/posts") {
-                next();
-                return;
-            }
+const viteApiPlugin: Plugin = {
+    name: "vite-api-plugin",
+    configureServer(server) {
+        server.middlewares.use(async (req, res, next) => {
+            if (req.method !== "POST") return next();
+
+            const routeMap = {
+                "/api/posts": { path: postsPath, validate: isValidPost },
+                "/api/artists": { path: artistsPath, validate: isValidArtist }
+            } as const;
+
+            const config = routeMap[req.url as keyof typeof routeMap];
+            if (!config) return next();
 
             try {
                 const body = await readRequestBody(req);
                 const entry = JSON.parse(body);
 
-                if (!isValidPost(entry)) {
+                if (!config.validate(entry)) {
                     res.statusCode = 400;
-                    res.end(JSON.stringify({ error: "Invalid post data" }));
+                    res.end(JSON.stringify({ error: "Invalid data format" }));
                     return;
                 }
 
-                const posts = readPosts();
-                posts.push(entry);
-                writePosts(posts);
+                const existing = readJsonFile(config.path);
+                existing.push(entry);
+                writeJsonFile(config.path, existing);
 
                 res.statusCode = 200;
                 res.setHeader("Content-Type", "application/json");
@@ -71,12 +91,9 @@ const vitePostsApiPlugin = {
                 res.end(JSON.stringify({ error: "Internal server error" }));
             }
         });
-    },
+    }
 };
 
 
 
-export default defineConfig({
-    base: "/touhou-translations/",
-    plugins: [react(), vitePostsApiPlugin],
-});
+export default defineConfig({ base: "/touhou-translations/", plugins: [react(), viteApiPlugin] });

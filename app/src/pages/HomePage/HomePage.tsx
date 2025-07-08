@@ -3,6 +3,7 @@ import { useGetPosts } from '../../context/PostsContext';
 import { hashDateToIndex } from '../../utils/dateUtils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 import PostForm from '../../components/PostForm/PostForm';
+import ArtistForm from '../../components/ArtistForm/ArtistForm';
 
 const Home = () => {
 
@@ -21,6 +22,7 @@ const Home = () => {
     return (
         <div>
             {enablePostForm && (<PostForm />)}
+            {enablePostForm && (<ArtistForm />)}
             <h2>Post of the Day</h2>
             {post ? <ImageViewer post={post} /> : <p style={{ color: 'red' }}>No posts available.</p>}
         </div>
