@@ -16,6 +16,7 @@ const GalleryPage = () => {
 
     const [visibleCount, setVisibleCount] = useState(12);
     const loaderRef = useRef<HTMLDivElement | null>(null);
+    const isLoadingRef = useRef(false);
 
     const filteredPosts = useMemo(() => { return filterPosts(posts, characterQueries, artistQueries, mode); }, [posts, characterQueries, artistQueries, mode]);
     const shuffledPosts = useMemo(() => { return [...filteredPosts].sort(() => 0.5 - Math.random()); }, [filteredPosts]);
@@ -24,10 +25,27 @@ const GalleryPage = () => {
 
 
     useEffect(() => {
-        const observer = new IntersectionObserver(entries => { if (entries[0].isIntersecting) setVisibleCount(prev => prev + 12); }, { threshold: 1 });
-        if (loaderRef.current) observer.observe(loaderRef.current);
-        return () => { if (loaderRef.current) observer.unobserve(loaderRef.current); };
-    }, [loaderRef]);
+        const observer = new IntersectionObserver(
+            entries => {
+                if (entries[0].isIntersecting && !isLoadingRef.current && visiblePosts.length < shuffledPosts.length) {
+                    isLoadingRef.current = true;
+                    setVisibleCount(prev => prev + 12);
+                }
+            },
+            { rootMargin: '200px' }
+        );
+
+        const currentLoader = loaderRef.current;
+        if (currentLoader) observer.observe(currentLoader);
+
+        return () => {
+            if (currentLoader) observer.unobserve(currentLoader);
+        };
+    }, [visiblePosts.length, shuffledPosts.length]);
+
+    useEffect(() => {
+        isLoadingRef.current = false;
+    }, [visiblePosts.length]);
 
 
 
@@ -36,7 +54,9 @@ const GalleryPage = () => {
             <h2>Gallery</h2>
             <Gallery posts={visiblePosts} />
             {visiblePosts.length < shuffledPosts.length && (
-                <div ref={loaderRef} style={{ height: '50px' }} />
+                <div ref={loaderRef} className="loader">
+                    <div className="loader-spinner" />
+                </div>
             )}
         </div>
     );
