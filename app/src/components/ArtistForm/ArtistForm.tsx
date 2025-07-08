@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, useDebouncedValidation, submitNewArtist, validateNewArtistId } from '../../utils/formUtils';
+import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId } from '../../utils/formUtils';
 import type { Artist } from '../../types/data';
 import "./ArtistForm.scss";
 
@@ -9,6 +9,19 @@ import "./ArtistForm.scss";
 const ArtistForm: React.FC = () => {
     const { register, handleSubmit, reset, watch, setError, clearErrors, formState: { errors, isSubmitting } } = useForm<Artist>();
     const watchedId = watch('id');
+    const debounceRef = useRef<NodeJS.Timeout | null>(null);
+
+    const debouncedValidate = useCallback((value: string) => {
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+        debounceRef.current = setTimeout(async () => {
+            const errorMsg = await validateNewArtistId(value.trim());
+            if (typeof errorMsg === 'string' && errorMsg.length > 0) {
+                setError('id', { type: 'validate', message: errorMsg });
+            } else {
+                clearErrors('id');
+            }
+        }, 500);
+    }, [setError, clearErrors]);
 
 
 
@@ -29,24 +42,10 @@ const ArtistForm: React.FC = () => {
 
 
 
-    const debouncedValidate = useDebouncedValidation(
-        async (id: string) => {
-            const result = await validateNewArtistId(id);
-            return result === true ? undefined : result;
-        },
-        (message) => setError('id', { type: 'validate', message }),
-        () => clearErrors('id'),
-        500
-    );
-
-
-
     useEffect(() => {
-        if (!watchedId) {
-            clearErrors('id');
-            return;
-        }
+        if (!watchedId) { clearErrors('id'); return; }
         debouncedValidate(watchedId);
+
     }, [watchedId, debouncedValidate, clearErrors]);
 
 

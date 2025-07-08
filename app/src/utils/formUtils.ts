@@ -1,4 +1,3 @@
-import { useCallback, useRef } from 'react';
 import type { Artist } from '../types/data';
 import artists from '../../../data/artists.json';
 
@@ -23,26 +22,6 @@ export const validateNewArtistId = async (id: string): Promise<true | string> =>
         setTimeout(() => { resolve(artists.some(artist => artist.id === trimmed)); }, 200);
     });
     return exists ? 'Artist ID already exists.' : true;
-};
-
-
-
-export const useDebouncedValidation = (
-    validateFn: (value: string) => Promise<string | void>, onError: (message: string) => void,
-    onClear: () => void, delay = 500
-) => {
-    const debounceRef = useRef<NodeJS.Timeout | null>(null);
-    return useCallback((value: string) => {
-        if (debounceRef.current) clearTimeout(debounceRef.current);
-        debounceRef.current = setTimeout(async () => {
-            const errorMsg = await validateFn(value.trim());
-            if (typeof errorMsg === 'string' && errorMsg.length > 0) {
-                onError(errorMsg);
-            } else {
-                onClear();
-            }
-        }, delay);
-    }, [validateFn, onError, onClear, delay]);
 };
 
 
