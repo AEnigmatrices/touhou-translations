@@ -5,3 +5,6 @@ export function normalizeCommas(input: string): string {
         .filter(value => value.length > 0)
         .join(', ');
 }
+
+export const TWITTER_URL_PATTERN = /^(https?:\/\/)?(www\.)?x\.com\/.+$/i;
+export const PIXIV_URL_PATTERN = /^https?:\/\/(www\.)?pixiv\.net\/.+$/i;

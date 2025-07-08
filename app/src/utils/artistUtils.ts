@@ -6,8 +6,10 @@ export const validateArtistId = (id: string): true | string => {
     return exists || 'Artist ID does not exist.';
 }
 
-export const validateNewArtistId = (id: string): true | string => {
+export const validateNewArtistId = async (id: string): Promise<true | string> => {
     const trimmed = id.trim();
-    const exists = artists.some(artist => artist.id === trimmed);
+    const exists = await new Promise<boolean>((resolve) => {
+        setTimeout(() => { resolve(artists.some(artist => artist.id === trimmed)); }, 200);
+    });
     return exists ? 'Artist ID already exists.' : true;
 };
