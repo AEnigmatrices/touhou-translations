@@ -54,7 +54,9 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
         <div className="image-viewer">
             <div className="image-viewer__image-section">
                 <div className="image-viewer__image-display">
-                    <img src={currentImage} alt="Translated Image" className="image-viewer__image" />
+                    <a href={currentImage} target="_blank" rel="noopener noreferrer">
+                        <img src={currentImage} alt="Translated Image" className="image-viewer__image" />
+                    </a>
                 </div>
                 {isGallery && (
                     <div className="image-viewer__gallery-controls">
