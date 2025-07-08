@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { submitPostEntry, validateArtistId } from '../../utils/formUtils';
 import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl } from '../../utils/redditUtils';
@@ -9,9 +9,24 @@ import "./PostForm.scss";
 
 
 const PostForm: React.FC = () => {
-    const { register, handleSubmit, reset, setValue, getValues, formState: { errors, isSubmitting } } = useForm<PostEntryForm>();
+    const { register, handleSubmit, reset, watch, setValue, getValues, setError, clearErrors, formState: { errors, isSubmitting } } = useForm<PostEntryForm>();
     const [loadingRedditData, setLoadingRedditData] = useState(false);
     const allPosts = useGetPosts();
+
+    const debounceRef = useRef<NodeJS.Timeout | null>(null);
+    const watchedReddit = watch('reddit');
+
+    const debouncedValidateReddit = useCallback((value: string) => {
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+        debounceRef.current = setTimeout(() => {
+            const validationResult = validateRedditUrl(value.trim(), allPosts);
+            if (validationResult !== true) {
+                setError('reddit', { type: 'validate', message: validationResult });
+            } else {
+                clearErrors('reddit');
+            }
+        }, 500);
+    }, [setError, clearErrors, allPosts]);
 
 
 
@@ -48,6 +63,14 @@ const PostForm: React.FC = () => {
             setLoadingRedditData(false);
         }
     };
+
+
+
+    useEffect(() => {
+        if (!watchedReddit) { clearErrors('reddit'); return; }
+        debouncedValidateReddit(watchedReddit);
+
+    }, [watchedReddit, debouncedValidateReddit, clearErrors]);
 
 
 
@@ -102,7 +125,7 @@ const PostForm: React.FC = () => {
                 <div className="post-form__row">
                     <label className="post-form__label">
                         Reddit URL:
-                        <input type="text" className="post-form__input"  {...register('reddit', { required: 'Reddit URL is required', validate: (value) => validateRedditUrl(value, allPosts) })} />
+                        <input type="text" className="post-form__input"  {...register('reddit', { required: 'Reddit URL is required' })} />
                         {errors.reddit && <span className="post-form__error">{errors.reddit.message}</span>}
                     </label>
                 </div>
