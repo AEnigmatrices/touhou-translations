@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { validateArtistId } from '../../utils/formUtils';
-import { extractBaseRedditUrl, buildPostEntry, fetchRedditData, validateRedditUrl } from '../../utils/redditUtils';
+import { submitPostEntry, validateArtistId } from '../../utils/formUtils';
+import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl } from '../../utils/redditUtils';
 import { useGetPosts } from '../../context/PostsContext';
 import type { PostEntryForm } from "../../types/data";
 import "./PostForm.scss";
@@ -17,11 +17,7 @@ const PostForm: React.FC = () => {
 
     const onSubmit = async (data: PostEntryForm) => {
         try {
-            const res = await fetch('/api/posts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(buildPostEntry(data)) });
-            const result = await res.json();
-            if (!res.ok) {
-                alert(`Error: ${result.error || 'Failed to add post'}`); return;
-            }
+            await submitPostEntry(data);
             alert('Post added successfully!');
             reset();
         } catch (error) {
