@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId } from '../../utils/formUtils';
-import type { Artist } from '../../types/data';
+import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId } from '../../../utils/formUtils';
+import type { Artist } from '../../../types/data';
 import "./ArtistForm.scss";
 
 

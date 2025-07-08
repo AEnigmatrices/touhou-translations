@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import { useGetPosts } from '../../context/PostsContext';
 import { hashDateToIndex } from '../../utils/postUtils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
-import PostForm from '../../components/PostForm/PostForm';
-import ArtistForm from '../../components/ArtistForm/ArtistForm';
+import PostForm from '../../components/DataForms/PostForm/PostForm';
+import ArtistForm from '../../components/DataForms/ArtistForm/ArtistForm';
 
 const Home = () => {
 
