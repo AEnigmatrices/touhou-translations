@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { validateArtistId } from '../../utils/artistUtils';
 import { extractBaseRedditUrl, buildPostEntry, fetchRedditData } from '../../utils/redditUtils';
 import { useGetPosts } from '../../context/PostsContext';
 import type { PostEntryForm } from "../../types/data";
@@ -62,7 +63,7 @@ const PostForm: React.FC = () => {
 
                     <label className="post-form__label">
                         Artist ID:
-                        <input type="text" className="post-form__input" {...register('artistId', { required: 'Artist ID is required' })} />
+                        <input type="text" className="post-form__input" {...register('artistId', { required: 'Artist ID is required', validate: validateArtistId })} />
                         {errors.artistId && <span className="post-form__error">{errors.artistId.message}</span>}
                     </label>
 
