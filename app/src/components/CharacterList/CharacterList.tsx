@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getCharacterImages } from "../../utils/characterImages";
-import { getGradient } from "../../utils/gradientUtils";
+import { getCharacterImages, getGradient } from "../../utils/galleryUtils";
 import "./CharacterList.scss";
 import type { Character } from "../../types/data";
 

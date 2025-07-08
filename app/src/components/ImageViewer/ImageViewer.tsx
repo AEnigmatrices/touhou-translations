@@ -1,8 +1,7 @@
 import type { Post } from '../../types/data';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { replaceXWithNitter } from '../../utils/urlUtils';
-import { dateFormatOptions } from '../../utils/dateUtils';
+import { dateFormatOptions, replaceXWithNitter } from '../../utils/postUtils';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import './ImageViewer.scss';
 import twitterIcon from '../../icons/social/twitter.webp';

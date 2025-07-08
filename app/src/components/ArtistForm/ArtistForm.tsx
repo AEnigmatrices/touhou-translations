@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { validateNewArtistId } from '../../utils/artistUtils';
-import { submitNewArtist, useDebouncedValidation } from '../../utils/formUtils';
-import { TWITTER_URL_PATTERN, PIXIV_URL_PATTERN } from '../../utils/dataUtils';
+import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, useDebouncedValidation, submitNewArtist, validateNewArtistId } from '../../utils/formUtils';
 import type { Artist } from '../../types/data';
 import "./ArtistForm.scss";
 

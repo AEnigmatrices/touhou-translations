@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { validateArtistId } from '../../utils/artistUtils';
+import { validateArtistId } from '../../utils/formUtils';
 import { extractBaseRedditUrl, buildPostEntry, fetchRedditData, validateRedditUrl } from '../../utils/redditUtils';
 import { useGetPosts } from '../../context/PostsContext';
 import type { PostEntryForm } from "../../types/data";
