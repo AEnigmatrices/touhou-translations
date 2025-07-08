@@ -70,3 +70,12 @@ export const fetchRedditData = async (redditUrl: string) => {
         return null;
     }
 };
+
+
+
+export const validateRedditUrl = (value: string, existingPosts: { reddit: string }[]): string | true => {
+    const normalizedValue = extractBaseRedditUrl(value.trim());
+    const isDuplicate = existingPosts?.some(post => extractBaseRedditUrl(post.reddit) === normalizedValue);
+    if (isDuplicate) return 'This Reddit URL already exists.';
+    return true;
+};
