@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { validateNewArtistId } from '../../utils/artistUtils';
-import { useDebouncedValidation } from '../../utils/formUtils';
+import { submitNewArtist, useDebouncedValidation } from '../../utils/formUtils';
 import { TWITTER_URL_PATTERN, PIXIV_URL_PATTERN } from '../../utils/dataUtils';
 import type { Artist } from '../../types/data';
 import "./ArtistForm.scss";
@@ -20,13 +20,8 @@ const ArtistForm: React.FC = () => {
             ...(data.linkTwitter?.trim() && { linkTwitter: data.linkTwitter.trim() }),
             ...(data.linkPixiv?.trim() && { linkPixiv: data.linkPixiv.trim() }),
         };
-
         try {
-            const res = await fetch('/api/artists', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cleaned) });
-            const result = await res.json();
-            if (!res.ok) {
-                alert(`Error: ${result.error || 'Failed to add artist'}`); return;
-            }
+            await submitNewArtist(cleaned);
             alert('Artist added successfully!');
             reset();
         } catch (error) {
