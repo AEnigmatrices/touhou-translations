@@ -309,5 +309,48 @@
         "name": "SOLIDUS",
         "linkTwitter": "https://x.com/sword_cube",
         "linkPixiv": "https://www.pixiv.net/en/users/14819041"
+    },
+    {
+        "id": "yimu",
+        "name": "依穆_YiMu",
+        "linkTwitter": "https://x.com/yimudesu",
+        "linkPixiv": "https://www.pixiv.net/en/users/26593392"
+    },
+    {
+        "id": "maguton",
+        "name": "まぐとん🐟",
+        "linkTwitter": "https://x.com/dhizegatton"
+    },
+    {
+        "id": "kanonari",
+        "name": "カノナリ❤️💙",
+        "linkTwitter": "https://x.com/siturensindoro"
+    },
+    {
+        "id": "takana",
+        "name": "タカナ",
+        "linkTwitter": "https://x.com/takana957",
+        "linkPixiv": "https://www.pixiv.net/en/users/15785302"
+    },
+    {
+        "id": "soregashi",
+        "name": "それがし",
+        "linkTwitter": "https://x.com/transfooorm"
+    },
+    {
+        "id": "shio",
+        "name": "しお",
+        "linkTwitter": "https://x.com/shioshio1600",
+        "linkPixiv": "https://www.pixiv.net/en/users/2936205"
+    },
+    {
+        "id": "motako",
+        "name": "もた子",
+        "linkTwitter": "https://x.com/motako0103"
+    },
+    {
+        "id": "kunemushi",
+        "name": "クネ虫",
+        "linkTwitter": "https://x.com/tohokune"
     }
 ]
