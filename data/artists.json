@@ -23,7 +23,7 @@
     },
     {
         "id": "owata",
-        "name": "おわーー⁉️",
+        "name": "おわーー",
         "linkTwitter": "https://x.com/OWATA12129"
     },
     {
@@ -39,7 +39,7 @@
     },
     {
         "id": "oegaki_daisuki",
-        "name": "♡お絵描き大好き♡",
+        "name": "お絵描き大好き",
         "linkPixiv": "https://www.pixiv.net/en/users/46836693"
     },
     {
@@ -318,12 +318,12 @@
     },
     {
         "id": "maguton",
-        "name": "まぐとん🐟",
+        "name": "まぐとん",
         "linkTwitter": "https://x.com/dhizegatton"
     },
     {
         "id": "kanonari",
-        "name": "カノナリ❤️💙",
+        "name": "カノナリ",
         "linkTwitter": "https://x.com/siturensindoro"
     },
     {
@@ -352,5 +352,66 @@
         "id": "kunemushi",
         "name": "クネ虫",
         "linkTwitter": "https://x.com/tohokune"
+    },
+    {
+        "id": "shitace",
+        "name": "したせ",
+        "linkTwitter": "https://x.com/shitace1"
+    },
+    {
+        "id": "hashiro_fumi",
+        "name": "葉城ふみ",
+        "linkTwitter": "https://x.com/hashiro_san",
+        "linkPixiv": "https://www.pixiv.net/en/users/23603829"
+    },
+    {
+        "id": "suzume_suzume",
+        "name": "鈴眼すずめ",
+        "linkTwitter": "https://x.com/suzukono_kiwami",
+        "linkPixiv": "https://www.pixiv.net/en/users/89258338"
+    },
+    {
+        "id": "kourou",
+        "name": "紅楼電力",
+        "linkTwitter": "https://x.com/_KOUROU",
+        "linkPixiv": "https://www.pixiv.net/en/users/30396530"
+    },
+    {
+        "id": "fugu_shogun",
+        "name": "河豚将軍",
+        "linkTwitter": "https://x.com/skhdrhcs"
+    },
+    {
+        "id": "zeroko_san",
+        "name": "ぜろこさん",
+        "linkTwitter": "https://x.com/9rtn"
+    },
+    {
+        "id": "rui",
+        "name": "瑠依",
+        "linkTwitter": "https://x.com/rui_ene_k",
+        "linkPixiv": "https://www.pixiv.net/en/users/18533831"
+    },
+    {
+        "id": "zenji",
+        "name": "ぜんじ",
+        "linkTwitter": "https://x.com/zenji029",
+        "linkPixiv": "https://www.pixiv.net/en/users/21114488"
+    },
+    {
+        "id": "tataragami",
+        "name": "タタラガミ",
+        "linkTwitter": "https://x.com/gennso8",
+        "linkPixiv": "https://www.pixiv.net/en/users/16040636"
+    },
+    {
+        "id": "nekoda_maguro",
+        "name": "猫田まぐろ",
+        "linkTwitter": "https://x.com/nek0magur0"
+    },
+    {
+        "id": "kaasura",
+        "name": "かーすら",
+        "linkTwitter": "https://x.com/ihen590373"
     }
 ]
