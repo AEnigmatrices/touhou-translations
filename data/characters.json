@@ -350,6 +350,41 @@
         ]
     },
     {
+        "id": "shizuha",
+        "name": "Aki Shizuha",
+        "work": [
+            "mof"
+        ]
+    },
+    {
+        "id": "minoriko",
+        "name": "Aki Minoriko",
+        "work": [
+            "mof"
+        ]
+    },
+    {
+        "id": "hina",
+        "name": "Kagiyama Hina",
+        "work": [
+            "mof"
+        ]
+    },
+    {
+        "id": "nitori",
+        "name": "Kawashiro Nitori",
+        "work": [
+            "mof"
+        ]
+    },
+    {
+        "id": "momiji",
+        "name": "Inubashiri Momiji",
+        "work": [
+            "mof"
+        ]
+    },
+    {
         "id": "sanae",
         "name": "Kochiya Sanae",
         "work": [
@@ -361,6 +396,20 @@
             "lolk",
             "um",
             "udoalg"
+        ]
+    },
+    {
+        "id": "kanako",
+        "name": "Yasaka Kanako",
+        "work": [
+            "mof"
+        ]
+    },
+    {
+        "id": "suwako",
+        "name": "Moriya Suwako",
+        "work": [
+            "mof"
         ]
     },
     {
