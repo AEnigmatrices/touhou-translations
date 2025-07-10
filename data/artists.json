@@ -413,5 +413,72 @@
         "id": "kaasura",
         "name": "かーすら",
         "linkTwitter": "https://x.com/ihen590373"
+    },
+    {
+        "id": "ayaharu",
+        "name": "あやはる",
+        "linkTwitter": "https://x.com/Ayaharu_12",
+        "linkPixiv": "https://www.pixiv.net/en/users/95929355"
+    },
+    {
+        "id": "kasuya_baian",
+        "name": "粕家梅庵",
+        "linkTwitter": "https://x.com/Kasuya_Baian",
+        "linkPixiv": "https://www.pixiv.net/en/users/78872596"
+    },
+    {
+        "id": "ran",
+        "name": "らん",
+        "linkTwitter": "https://x.com/runker",
+        "linkPixiv": "https://www.pixiv.net/en/users/1105169"
+    },
+    {
+        "id": "zumoten",
+        "name": "ずもてん",
+        "linkTwitter": "https://x.com/nubezon"
+    },
+    {
+        "id": "piaki",
+        "name": "ぴあき",
+        "linkTwitter": "https://x.com/NFWTKDaily",
+        "linkPixiv": "https://www.pixiv.net/en/users/30130030"
+    },
+    {
+        "id": "tusk",
+        "name": "タスク",
+        "linkTwitter": "https://x.com/TUSKtouhou2"
+    },
+    {
+        "id": "yoshiko",
+        "name": "良子",
+        "linkTwitter": "https://x.com/ebihurai1",
+        "linkPixiv": "https://www.pixiv.net/en/users/896208"
+    },
+    {
+        "id": "aka_tawashi",
+        "name": "赤束子",
+        "linkTwitter": "https://x.com/A_tawashi",
+        "linkPixiv": "https://www.pixiv.net/en/users/359082"
+    },
+    {
+        "id": "inari",
+        "name": "いなり",
+        "linkTwitter": "https://x.com/yamadainari_"
+    },
+    {
+        "id": "kiyo_nuts",
+        "name": "キヨナッツ",
+        "linkTwitter": "x.com/stun_oyik"
+    },
+    {
+        "id": "kanisawa_yuuki",
+        "name": "蟹沢ゆうき",
+        "linkTwitter": "https://x.com/kanisawayuuki",
+        "linkPixiv": "https://www.pixiv.net/en/users/16460779"
+    },
+    {
+        "id": "soraban_makura",
+        "name": "そろばんまくら",
+        "linkTwitter": "https://x.com/PxMiOtFnvZCO8bc"
     }
 ]
