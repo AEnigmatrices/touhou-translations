@@ -10,10 +10,16 @@ const fetchJson = async <T>(path: string): Promise<T> => {
 
 
 
-export const fetchPosts = async (): Promise<Post[]> =>
-    (await fetchJson<Post[]>("posts.json"))
+export const fetchPosts = async (): Promise<Post[]> => {
+    const fileList = ["posts-2024.json"];
+    const postsArrays = await Promise.all(
+        fileList.map(filename => fetchJson<Post[]>(`posts/${filename}`))
+    );
+    const allPosts = postsArrays.flat();
+    return allPosts
         .filter(p => p.date)
         .sort((a, b) => a.date - b.date);
+};
 
 export const fetchArtists = (): Promise<Artist[]> => fetchJson<Artist[]>("artists.json");
 
