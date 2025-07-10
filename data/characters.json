@@ -413,11 +413,74 @@
         ]
     },
     {
+        "id": "iku",
+        "name": "Nagae Iku",
+        "work": [
+            "swr"
+        ]
+    },
+    {
+        "id": "tenshi",
+        "name": "Hinanawi Tenshi",
+        "work": [
+            "swr"
+        ]
+    },
+    {
+        "id": "kisume",
+        "name": "Kisume",
+        "work": [
+            "sa"
+        ]
+    },
+    {
+        "id": "yamame",
+        "name": "Kurodani Yamame",
+        "work": [
+            "sa"
+        ]
+    },
+    {
+        "id": "parsee",
+        "name": "Mizuhashi Parsee",
+        "work": [
+            "sa"
+        ]
+    },
+    {
+        "id": "yuugi",
+        "name": "Hoshiguma Yūgi",
+        "work": [
+            "sa"
+        ]
+    },
+    {
+        "id": "satori",
+        "name": "Komeiji Satori",
+        "work": [
+            "sa"
+        ]
+    },
+    {
         "id": "orin",
         "name": "Kaenbyō Rin",
         "work": [
             "sa",
             "udoalg"
+        ]
+    },
+    {
+        "id": "okuu",
+        "name": "Reiuji Utsuho",
+        "work": [
+            "sa"
+        ]
+    },
+    {
+        "id": "koishi",
+        "name": "Komeiji Koishi",
+        "work": [
+            "sa"
         ]
     },
     {
