@@ -480,5 +480,26 @@
         "id": "soraban_makura",
         "name": "そろばんまくら",
         "linkTwitter": "https://x.com/PxMiOtFnvZCO8bc"
+    },
+    {
+        "id": "hiiro",
+        "name": "緋色",
+        "linkTwitter": "https://x.com/hiiro_sp",
+        "linkPixiv": "https://www.pixiv.net/en/users/116779"
+    },
+    {
+        "id": "amagappa",
+        "name": "雨合羽",
+        "linkTwitter": "https://x.com/raincoat_th13"
+    },
+    {
+        "id": "uramyai",
+        "name": "うらみゃいさん",
+        "linkTwitter": "https://x.com/uramyai"
+    },
+    {
+        "id": "sha_re",
+        "name": "洒落",
+        "linkTwitter": "https://x.com/shiya_re04"
     }
 ]
