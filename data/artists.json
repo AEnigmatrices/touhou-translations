@@ -501,5 +501,28 @@
         "id": "sha_re",
         "name": "洒落",
         "linkTwitter": "https://x.com/shiya_re04"
+    },
+    {
+        "id": "kyuukei_usagi",
+        "name": "休憩うさぎ",
+        "linkTwitter": "https://x.com/QK_rabbit_2",
+        "linkPixiv": "https://www.pixiv.net/en/users/15423708"
+    },
+    {
+        "id": "arugon",
+        "name": "有るごん",
+        "linkTwitter": "https://x.com/saint_yohannes",
+        "linkPixiv": "https://www.pixiv.net/en/users/489831"
+    },
+    {
+        "id": "gunjokikai",
+        "name": "鴨居能嵎",
+        "linkTwitter": "https://x.com/harisuwa"
+    },
+    {
+        "id": "arinu",
+        "name": "アリヌ",
+        "linkTwitter": "https://x.com/arinutan",
+        "linkPixiv": "https://www.pixiv.net/en/users/819273"
     }
 ]
