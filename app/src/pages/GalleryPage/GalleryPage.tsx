@@ -24,24 +24,26 @@ const GalleryPage = () => {
     const shuffledPosts = useMemo(() => { return [...filteredPosts].sort(() => 0.5 - Math.random()); }, [filteredPosts]);
     const visiblePosts = useMemo(() => { return shuffledPosts.slice(0, visibleCount); }, [shuffledPosts, visibleCount]);
 
-    const observer = new IntersectionObserver(
-        entries => {
-            if (entries[0].isIntersecting && !isLoadingRef.current && visiblePosts.length < shuffledPosts.length) {
-                isLoadingRef.current = true;
-                setVisibleCount(prev => prev + PAGE_CHUNK_SIZE);
-            }
-        },
-        { rootMargin: '200px' }
-    );
+    const observerRef = useRef<IntersectionObserver | null>(null);
 
 
 
     useEffect(() => {
-        const currentLoader = loaderRef.current;
-        if (currentLoader) observer.observe(currentLoader);
-        return () => { if (currentLoader) observer.unobserve(currentLoader); };
+        if (!loaderRef.current) return;
+        observerRef.current = new IntersectionObserver(
+            entries => {
+                if (entries[0].isIntersecting && !isLoadingRef.current && visiblePosts.length < shuffledPosts.length) {
+                    isLoadingRef.current = true;
+                    setVisibleCount(prev => prev + PAGE_CHUNK_SIZE);
+                }
+            },
+            { rootMargin: '200px' }
+        );
+        const currentObserver = observerRef.current;
+        currentObserver.observe(loaderRef.current);
+        return () => { currentObserver.disconnect(); };
 
-    }, [visiblePosts.length, shuffledPosts.length]);
+    }, []);
 
     useEffect(() => { isLoadingRef.current = false; }, [visiblePosts.length]);
 
