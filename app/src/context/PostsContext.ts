@@ -40,19 +40,11 @@ export const PostsContext = createContext<PostsContextType | undefined>(undefine
 
 export const useGetPosts = (): Post[] => usePostsContext().posts;
 
+
+
 export const useGetArtist = (): ((id: string) => Artist | null) => {
     const { artists } = usePostsContext();
     return useCallback((id) => artists.find(artist => artist.id === id) ?? null, [artists]);
-};
-
-export const useGetCharacters = (): ((ids?: string[]) => (Character & { artworkCount: number })[]) => {
-    const { characters, posts } = usePostsContext();
-    return useCallback((ids) => {
-        const countMap = getCharacterArtworkCounts(posts);
-        return characters
-            .filter(c => !ids || ids.includes(c.id))
-            .map(c => ({ ...c, artworkCount: countMap[c.id] ?? 0 }));
-    }, [characters, posts]);
 };
 
 export const useGetArtists = (): ((ids?: string[]) => (Artist & { artworkCount: number })[]) => {
@@ -63,4 +55,25 @@ export const useGetArtists = (): ((ids?: string[]) => (Artist & { artworkCount: 
             .filter(a => !ids || ids.includes(a.id))
             .map(a => ({ ...a, artworkCount: countMap[a.id] ?? 0 }))
     }, [artists, posts]);
+};
+
+
+
+export const useGetCharacter = (): ((id: string) => (Character & { artworkCount: number }) | null) => {
+    const { characters, posts } = usePostsContext();
+    return useCallback((id) => {
+        const countMap = getCharacterArtworkCounts(posts);
+        const character = characters.find(c => c.id === id);
+        return character ? { ...character, artworkCount: countMap[character.id] ?? 0 } : null;
+    }, [characters, posts]);
+};
+
+export const useGetCharacters = (): ((ids?: string[]) => (Character & { artworkCount: number })[]) => {
+    const { characters, posts } = usePostsContext();
+    return useCallback((ids) => {
+        const countMap = getCharacterArtworkCounts(posts);
+        return characters
+            .filter(c => !ids || ids.includes(c.id))
+            .map(c => ({ ...c, artworkCount: countMap[c.id] ?? 0 }));
+    }, [characters, posts]);
 };

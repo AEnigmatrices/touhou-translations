@@ -1,16 +1,33 @@
 .gallery-page {
-    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem 1rem;
 
     @media (max-width: 768px) {
-        padding: 0;
+        padding: 0 1rem;
     }
 
-    h2 {
-        font-size: 1.75rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        color: #333;
+    &__header {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+
+        .profile-item {
+            max-width: 300px;
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+        }
+    }
+
+    .loader {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0;
     }
 }

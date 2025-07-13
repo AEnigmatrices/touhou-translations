@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useGetPosts } from '../../context/PostsContext';
+import { useGetPosts, useGetCharacter } from '../../context/PostsContext';
 import { filterPosts } from '../../utils/filterPosts';
 import Gallery from '../../components/Gallery/Gallery';
+import GalleryHeaderCharacter from './GalleryHeaderCharacters';
 import './GalleryPage.scss';
 
 const PAGE_CHUNK_SIZE = 12;
@@ -11,10 +12,15 @@ const PAGE_CHUNK_SIZE = 12;
 
 const GalleryPage = () => {
     const posts = useGetPosts();
+    const getCharacter = useGetCharacter();
+
     const searchParams = new URLSearchParams(useLocation().search);
     const characterQueries = searchParams.getAll('character');
     const artistQueries = searchParams.getAll('artist');
     const mode = searchParams.get('mode') === 'or' ? 'or' : 'and';
+
+    const characterId = characterQueries[0] ?? null;
+    const character = characterId ? getCharacter(characterId) : null;
 
     const [visibleCount, setVisibleCount] = useState(PAGE_CHUNK_SIZE);
     const loaderRef = useRef<HTMLDivElement | null>(null);
@@ -51,13 +57,9 @@ const GalleryPage = () => {
 
     return (
         <div className="gallery-page">
-            <h2>Gallery</h2>
+            {character && <GalleryHeaderCharacter character={character} />}
             <Gallery posts={visiblePosts} />
-            {visiblePosts.length < shuffledPosts.length && (
-                <div ref={loaderRef} className="loader">
-                    <div className="loader-spinner" />
-                </div>
-            )}
+            {visiblePosts.length < shuffledPosts.length && (<div ref={loaderRef} className="loader"><div className="loader-spinner" /></div>)}
         </div>
     );
 };
