@@ -1,43 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { getCharacterImages, getGradient } from "../../utils/galleryUtils";
-import "./CharacterList.scss";
+import ProfileItem from "../ProfileItem/ProfileItem";
+import { getCharacterImages } from "../../utils/galleryUtils";
 import type { Character } from "../../types/data";
+import "./CharacterList.scss";
 
 interface Props { characters: Character[]; }
 
 
 
-const baseHue = Math.floor(Math.random() * 360);
-
 const CharacterList: React.FC<Props> = ({ characters }) => {
     return (
         <ul className="character-list">
-            {characters.map((character, index) => {
-                const hue = Math.round(baseHue + (240 * index) / Math.max(characters.length - 1, 1)) % 360;
-                const gradient = getGradient(hue, 25, 87);
-                const gradientPlaceholder = getGradient(hue, 25, 73);
+            {characters.map((character) => {
                 const imageUrl = getCharacterImages(character.id);
                 const toUrl = `/gallery?character=${character.id}`;
-
                 return (
-                    <li key={character.id} className="character-list__item" aria-label={`Character: ${character.name}`}>
-                        <Link to={toUrl} className="character-list__link">
-                            <div className="character-list__image-wrapper" style={{ background: gradient }}>
-                                {imageUrl ? (
-                                    <img src={imageUrl} alt={character.name} className="character-list__image" loading="lazy" />
-                                ) : (
-                                    <div className="character-list__image-placeholder" aria-hidden="true" style={{ background: gradientPlaceholder }} />
-                                )}
-                            </div>
-                            <div className="character-list__info">
-                                <span className="character-list__name">{character.name}</span>
-                                <span className="character-list__description">
-                                    {character.artworkCount} artwork{character.artworkCount !== 1 ? "s" : ""}
-                                </span>
-                            </div>
-                        </Link>
-                    </li>
+                    <ProfileItem
+                        key={character.id}
+                        name={character.name}
+                        imageUrl={imageUrl}
+                        description={`${character.artworkCount} artwork${character.artworkCount !== 1 ? "s" : ""}`}
+                        link={toUrl}
+                    />
                 );
             })}
         </ul>
