@@ -14,12 +14,13 @@ const CharacterList: React.FC<Props> = ({ characters }) => {
             {characters.map((character) => {
                 const imageUrl = getCharacterImages(character.id);
                 const toUrl = `/gallery?character=${character.id}`;
+                const artworkCountText = `${character.artworkCount} artwork${character.artworkCount !== 1 ? "s" : ""}`
                 return (
                     <ProfileItem
                         key={character.id}
                         name={character.name}
                         imageUrl={imageUrl}
-                        description={`${character.artworkCount} artwork${character.artworkCount !== 1 ? "s" : ""}`}
+                        description={artworkCountText}
                         link={toUrl}
                     />
                 );
