@@ -15,7 +15,6 @@ const ArtistList: React.FC<Props> = ({ artists }) => {
                 const imageUrl = getArtistImages(artist.id);
                 const toUrl = `/gallery?artist=${artist.id}`;
                 const artworkCountText = `${artist.artworkCount} artwork${artist.artworkCount !== 1 ? "s" : ""}`;
-
                 return (
                     <ProfileItem
                         key={artist.id}
