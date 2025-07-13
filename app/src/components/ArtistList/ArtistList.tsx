@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getCharacterImages, getGradient } from "../../utils/galleryUtils";
+import { getArtistImages, getGradient } from "../../utils/galleryUtils";
 import "./ArtistList.scss";
 import type { Artist } from "../../types/data";
 
@@ -17,7 +17,7 @@ const ArtistList: React.FC<Props> = ({ artists }) => {
                 const hue = Math.round(baseHue + (240 * index) / Math.max(artists.length - 1, 1)) % 360;
                 const gradient = getGradient(hue, 25, 87);
                 const gradientPlaceholder = getGradient(hue, 25, 73);
-                const imageUrl = getCharacterImages(artist.id);
+                const imageUrl = getArtistImages(artist.id);
                 const toUrl = `/gallery?artist=${artist.id}`;
 
                 return (
@@ -33,6 +33,9 @@ const ArtistList: React.FC<Props> = ({ artists }) => {
                             <div className="artist-list__info">
                                 <span className="artist-list__name">{artist.name}</span>
                                 <span className="artist-list__id">{artist.id}</span>
+                                <span className="artist-list__artwork-count">
+                                    {artist.artworkCount} artwork{artist.artworkCount !== 1 ? "s" : ""}
+                                </span>
                             </div>
                         </Link>
                     </li>

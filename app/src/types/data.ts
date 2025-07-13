@@ -13,6 +13,7 @@ export interface Artist {
     name: string;
     linkTwitter?: string;
     linkPixiv?: string;
+    artworkCount: number;
 }
 
 export interface Character {
