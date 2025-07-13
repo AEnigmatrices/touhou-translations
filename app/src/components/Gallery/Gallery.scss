@@ -42,4 +42,47 @@
         display: block;
         object-fit: cover;
     }
+
+    &__image-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &__placeholder {
+        position: absolute;
+        inset: 0;
+        background: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        color: #999;
+        animation: placeholderPulse 1.5s infinite ease-in-out;
+    }
+
+    &__image.loading {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &__image.loaded {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+}
+
+
+@keyframes placeholderPulse {
+    0% {
+        background-color: #e0e0e0;
+    }
+
+    50% {
+        background-color: #f0f0f0;
+    }
+
+    100% {
+        background-color: #e0e0e0;
+    }
 }
