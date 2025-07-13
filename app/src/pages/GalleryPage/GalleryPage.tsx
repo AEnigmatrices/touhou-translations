@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useGetPosts } from '../../context/PostsContext';
-import Gallery from '../../components/Gallery/Gallery';
-import { filterPosts } from '../../utils/filterPosts';
 import { useLocation } from 'react-router-dom';
+import { useGetPosts } from '../../context/PostsContext';
+import { filterPosts } from '../../utils/filterPosts';
+import Gallery from '../../components/Gallery/Gallery';
 import './GalleryPage.scss';
 
 const PAGE_CHUNK_SIZE = 12;
