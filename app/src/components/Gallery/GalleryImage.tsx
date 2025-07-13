@@ -10,11 +10,7 @@ const GalleryImage: React.FC<Props> = ({ src, alt }) => {
 
     return (
         <div className="gallery__image-wrapper">
-            {!loaded && (
-                <div className="gallery__placeholder" aria-hidden="true">
-                    Loading...
-                </div>
-            )}
+            {!loaded && (<div className="gallery__placeholder" aria-hidden="true" />)}
             <img src={src} alt={alt} loading="lazy" className={`gallery__image ${loaded ? 'loaded' : 'loading'}`} onLoad={() => setLoaded(true)} />
         </div>
     );
