@@ -5,6 +5,8 @@ import { filterPosts } from '../../utils/filterPosts';
 import { useLocation } from 'react-router-dom';
 import './GalleryPage.scss';
 
+const PAGE_CHUNK_SIZE = 12;
+
 
 
 const GalleryPage = () => {
@@ -14,7 +16,7 @@ const GalleryPage = () => {
     const artistQueries = searchParams.getAll('artist');
     const mode = searchParams.get('mode') === 'or' ? 'or' : 'and';
 
-    const [visibleCount, setVisibleCount] = useState(12);
+    const [visibleCount, setVisibleCount] = useState(PAGE_CHUNK_SIZE);
     const loaderRef = useRef<HTMLDivElement | null>(null);
     const isLoadingRef = useRef(false);
 
@@ -29,7 +31,7 @@ const GalleryPage = () => {
             entries => {
                 if (entries[0].isIntersecting && !isLoadingRef.current && visiblePosts.length < shuffledPosts.length) {
                     isLoadingRef.current = true;
-                    setVisibleCount(prev => prev + 12);
+                    setVisibleCount(prev => prev + PAGE_CHUNK_SIZE);
                 }
             },
             { rootMargin: '200px' }
@@ -43,9 +45,7 @@ const GalleryPage = () => {
         };
     }, [visiblePosts.length, shuffledPosts.length]);
 
-    useEffect(() => {
-        isLoadingRef.current = false;
-    }, [visiblePosts.length]);
+    useEffect(() => { isLoadingRef.current = false; }, [visiblePosts.length]);
 
 
 
