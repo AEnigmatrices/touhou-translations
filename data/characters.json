@@ -673,6 +673,69 @@
         ]
     },
     {
+        "id": "seiran",
+        "name": "Seiran",
+        "work": [
+            "lolk"
+        ]
+    },
+    {
+        "id": "ringo",
+        "name": "Ringo",
+        "work": [
+            "lolk"
+        ]
+    },
+    {
+        "id": "doremy",
+        "name": "Doremy Sweet",
+        "work": [
+            "lolk"
+        ]
+    },
+    {
+        "id": "sagume",
+        "name": "Kishin Sagume",
+        "work": [
+            "lolk"
+        ]
+    },
+    {
+        "id": "clownpiece",
+        "name": "Clownpiece",
+        "work": [
+            "lolk"
+        ]
+    },
+    {
+        "id": "junko",
+        "name": "Junko",
+        "work": [
+            "lolk"
+        ]
+    },
+    {
+        "id": "hecatia",
+        "name": "Hecatia Lapislazuli",
+        "work": [
+            "lolk"
+        ]
+    },
+    {
+        "id": "sumireko",
+        "name": "Yorigami Jo'on",
+        "work": [
+            "aocf"
+        ]
+    },
+    {
+        "id": "shion",
+        "name": "Yorigami Shion",
+        "work": [
+            "aocf"
+        ]
+    },
+    {
         "id": "tsukasa",
         "name": "Kudamaki Tsukasa",
         "work": [
