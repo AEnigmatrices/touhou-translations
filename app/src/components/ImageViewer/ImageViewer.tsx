@@ -17,13 +17,11 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     const characters = getCharacters(post.characterIds);
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const isGallery = post.url.length > 1;
-    const currentImage = post.url[currentIndex];
     const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
     const handleChangeIndex = (direction: number) => {
-        if (!isGallery) return;
+        if (post.url.length <= 1) return;
         setCurrentIndex(prev => (prev + direction + post.url.length) % post.url.length);
     };
 
@@ -37,13 +35,11 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
         );
     };
 
-    if (!currentImage || !post.src) return null;
+    if (!post.url.length || !post.src) return null;
 
     return (
         <div className="image-viewer">
             <ImageSection
-                currentImage={currentImage}
-                isGallery={isGallery}
                 currentIndex={currentIndex}
                 urls={post.url}
                 handleChangeIndex={handleChangeIndex}

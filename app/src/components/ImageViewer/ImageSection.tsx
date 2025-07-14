@@ -2,14 +2,15 @@ import React from 'react';
 import './ImageViewer.scss';
 
 interface Props {
-    currentImage: string;
-    isGallery: boolean;
     currentIndex: number;
     urls: string[];
     handleChangeIndex: (direction: number) => void;
 }
 
-const ImageSection: React.FC<Props> = ({ currentImage, isGallery, currentIndex, urls, handleChangeIndex }) => {
+const ImageSection: React.FC<Props> = ({ currentIndex, urls, handleChangeIndex }) => {
+    const currentImage = urls[currentIndex];
+    const isGallery = urls.length > 1;
+
     return (
         <div className="image-viewer__image-section">
             <div className="image-viewer__image-display">
