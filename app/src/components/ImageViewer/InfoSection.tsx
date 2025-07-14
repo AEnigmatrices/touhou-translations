@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Link } from 'react-router-dom';
 import { dateFormatOptions, replaceXWithNitter } from '../../utils/postUtils';
 import './ImageViewer.scss';
 import twitterIcon from '../../icons/social/twitter.webp';
@@ -66,7 +67,18 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                 {characters.length > 0 && (
                     <div className="image-viewer__info-item">
                         <div className="image-viewer__label">{characters.length === 1 ? 'Character:' : 'Characters:'}</div>
-                        <div className="image-viewer__value">{characters.map(c => c.name).join(', ')}</div>
+                        <div className="image-viewer__value">
+                            <div className="image-viewer__characters-wrapper">
+                                {characters.map((c, index) => (
+                                    <React.Fragment key={c.id}>
+                                        <Link to={`/gallery?character=${c.id}`} className="image-viewer__character-link">
+                                            {c.name}
+                                        </Link>
+                                        {index < characters.length - 1 && ', '}
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 )}
                 {post.date && (
