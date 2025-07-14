@@ -621,5 +621,27 @@
         "id": "sannoji",
         "name": "三ノ字",
         "linkTwitter": "https://x.com/3WD_TKM"
+    },
+    {
+        "id": "itatatata",
+        "name": "いたたたた",
+        "linkTwitter": "https://x.com/itatatata6",
+        "linkPixiv": "https://www.pixiv.net/en/users/29434482"
+    },
+    {
+        "id": "kna",
+        "name": "Kna",
+        "linkTwitter": "https://x.com/Kna28064212"
+    },
+    {
+        "id": "kumamoto",
+        "name": "くまもと",
+        "linkTwitter": "https://x.com/skmmt3",
+        "linkPixiv": "https://www.pixiv.net/en/users/235005"
+    },
+    {
+        "id": "mochimugi",
+        "name": "もち麦",
+        "linkTwitter": "https://x.com/rwFt3BpgzZQk634"
     }
 ]
