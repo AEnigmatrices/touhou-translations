@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import type { Post } from '../../types/data';
-import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import ImageSection from './ImageSection';
 import InfoSection from './InfoSection';
+import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
+import type { Post } from '../../types/data';
 import './ImageViewer.scss';
 
 interface Props { post: Post; }
