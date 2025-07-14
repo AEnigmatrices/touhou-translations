@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useGetPosts, useGetCharacter } from '../../context/PostsContext';
 import { filterPosts } from '../../utils/filterPosts';
 import Gallery from '../../components/Gallery/Gallery';
-import GalleryHeaderCharacter from './GalleryHeaderCharacters';
+import GalleryHeaderCharacter from './GalleryHeaderCharacter';
 import './GalleryPage.scss';
 
 const PAGE_CHUNK_SIZE = 12;
