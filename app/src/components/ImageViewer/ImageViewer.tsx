@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import type { Post } from '../../types/data';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
-import { dateFormatOptions, replaceXWithNitter } from '../../utils/postUtils';
 import ImageSection from './ImageSection';
 import InfoSection from './InfoSection';
 import './ImageViewer.scss';
@@ -17,41 +16,18 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     const characters = getCharacters(post.characterIds);
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
-    const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
     const handleChangeIndex = (direction: number) => {
         if (post.url.length <= 1) return;
         setCurrentIndex(prev => (prev + direction + post.url.length) % post.url.length);
     };
 
-    const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
-        if (!href) return null;
-        const name = `image-viewer__icon-button image-viewer__icon-button-link--${altText.toLowerCase()}`;
-        return (
-            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={name}>
-                <img src={iconSrc} alt={altText} />
-            </a>
-        );
-    };
-
     if (!post.url.length || !post.src) return null;
 
     return (
         <div className="image-viewer">
-            <ImageSection
-                currentIndex={currentIndex}
-                urls={post.url}
-                handleChangeIndex={handleChangeIndex}
-            />
-            <InfoSection
-                post={post}
-                artist={artist}
-                characters={characters}
-                nitterUrl={nitterUrl}
-                formattedDate={formattedDate}
-                renderIconLink={renderIconLink}
-            />
+            <ImageSection currentIndex={currentIndex} urls={post.url} handleChangeIndex={handleChangeIndex} />
+            <InfoSection post={post} artist={artist} characters={characters} />
         </div>
     );
 };

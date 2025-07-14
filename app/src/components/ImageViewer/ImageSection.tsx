@@ -7,6 +7,8 @@ interface Props {
     handleChangeIndex: (direction: number) => void;
 }
 
+
+
 const ImageSection: React.FC<Props> = ({ currentIndex, urls, handleChangeIndex }) => {
     const currentImage = urls[currentIndex];
     const isGallery = urls.length > 1;

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { dateFormatOptions, replaceXWithNitter } from '../../utils/postUtils';
 import './ImageViewer.scss';
 import twitterIcon from '../../icons/social/twitter.webp';
 import nitterIcon from '../../icons/social/nitter.webp';
@@ -12,12 +13,24 @@ interface Props {
     post: Post;
     artist: Artist | null;
     characters: Character[];
-    nitterUrl: string | null;
-    formattedDate: string;
-    renderIconLink: (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => React.ReactNode;
 }
 
-const InfoSection: React.FC<Props> = ({ post, artist, characters, nitterUrl, formattedDate, renderIconLink }) => {
+
+
+const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
+    const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
+    const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
+
+    const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
+        if (!href) return null;
+        const name = `image-viewer__icon-button image-viewer__icon-button-link--${altText.toLowerCase()}`;
+        return (
+            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={name}>
+                <img src={iconSrc} alt={altText} />
+            </a>
+        );
+    };
+
     return (
         <div className="image-viewer__info-section">
             <div className="image-viewer__info-grid">
