@@ -1,6 +1,7 @@
 import type { Post } from '../../types/data';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { dateFormatOptions, replaceXWithNitter } from '../../utils/postUtils';
 import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import './ImageViewer.scss';
@@ -126,7 +127,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
                         TL Commentary:
                     </div>
                     <div className="image-viewer__value--comment">
-                        <ReactMarkdown>{post.desc}</ReactMarkdown>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.desc}</ReactMarkdown>
                     </div>
                 </div>
             </div>
