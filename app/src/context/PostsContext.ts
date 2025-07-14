@@ -42,9 +42,13 @@ export const useGetPosts = (): Post[] => usePostsContext().posts;
 
 
 
-export const useGetArtist = (): ((id: string) => Artist | null) => {
-    const { artists } = usePostsContext();
-    return useCallback((id) => artists.find(artist => artist.id === id) ?? null, [artists]);
+export const useGetArtist = (): ((id: string) => (Artist & { artworkCount: number }) | null) => {
+    const { artists, posts } = usePostsContext();
+    return useCallback((id) => {
+        const countMap = getArtistArtworkCounts(posts);
+        const artist = artists.find(a => a.id === id);
+        return artist ? { ...artist, artworkCount: countMap[artist.id] ?? 0 } : null;
+    }, [artists, posts]);
 };
 
 export const useGetArtists = (): ((ids?: string[]) => (Artist & { artworkCount: number })[]) => {
