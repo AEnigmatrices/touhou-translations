@@ -736,6 +736,55 @@
         ]
     },
     {
+        "id": "larva",
+        "name": "Eternity Larva",
+        "work": [
+            "hsifs"
+        ]
+    },
+    {
+        "id": "nemuno",
+        "name": "Sakata Nemuno",
+        "work": [
+            "hsifs"
+        ]
+    },
+    {
+        "id": "aun",
+        "name": "Komano Aun",
+        "work": [
+            "hsifs"
+        ]
+    },
+    {
+        "id": "narumi",
+        "name": "Yatadera Narumi",
+        "work": [
+            "hsifs"
+        ]
+    },
+    {
+        "id": "mai",
+        "name": "Teireida Mai",
+        "work": [
+            "hsifs"
+        ]
+    },
+    {
+        "id": "satono",
+        "name": "Nishida Satono",
+        "work": [
+            "hsifs"
+        ]
+    },
+    {
+        "id": "okina",
+        "name": "Matara Okina",
+        "work": [
+            "hsifs"
+        ]
+    },
+    {
         "id": "tsukasa",
         "name": "Kudamaki Tsukasa",
         "work": [
