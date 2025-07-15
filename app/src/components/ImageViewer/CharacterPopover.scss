@@ -1,0 +1,15 @@
+.character-popover {
+    position: fixed;
+    z-index: 9999;
+    padding: 4px;
+    pointer-events: auto;
+    max-width: 20rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.character-popover.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
