@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import ProfileItem from '../ProfileItem/ProfileItem';
-import { createPortal } from 'react-dom';
+import CharacterPopover from './CharacterPopover';
 import { Link } from 'react-router-dom';
 import { useGetCharacter } from '../../context/PostsContext';
-import { getCharacterImages } from '../../utils/galleryUtils';
 import { dateFormatOptions, replaceXWithNitter } from '../../utils/postUtils';
 import type { Post, Artist, Character } from '../../types/data';
 import './InfoSection.scss';
@@ -31,10 +29,6 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
     const getCharacter = useGetCharacter();
-    const imageUrl = hoveredCharacterData ? getCharacterImages(hoveredCharacterData.id) : undefined;
-    const description = hoveredCharacterData && typeof hoveredCharacterData.artworkCount === 'number'
-        ? `${hoveredCharacterData.artworkCount} artwork${hoveredCharacterData.artworkCount !== 1 ? 's' : ''}`
-        : undefined;
 
 
 
@@ -126,25 +120,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                     </div>
                 </div>
             </div>
-            {hoveredCharacterData && tooltipPosition && createPortal(
-                <div
-                    style={{
-                        position: 'fixed',
-                        top: tooltipPosition.y,
-                        left: tooltipPosition.x,
-                        zIndex: 9999,
-                        pointerEvents: 'none',
-                    }}
-                >
-                    <ProfileItem
-                        name={hoveredCharacterData.name}
-                        imageUrl={imageUrl}
-                        description={description}
-                        link={`/gallery?character=${hoveredCharacterData.id}`}
-                    />
-                </div>,
-                document.body
-            )}
+            <CharacterPopover character={hoveredCharacterData} position={tooltipPosition} />
         </>
     );
 };
