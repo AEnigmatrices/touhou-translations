@@ -643,5 +643,68 @@
         "id": "mochimugi",
         "name": "もち麦",
         "linkTwitter": "https://x.com/rwFt3BpgzZQk634"
+    },
+    {
+        "id": "yado",
+        "name": "やどたいちょう",
+        "linkTwitter": "https://x.com/yado_2b",
+        "linkPixiv": "https://www.pixiv.net/en/users/4236058"
+    },
+    {
+        "id": "coco",
+        "name": "Coco",
+        "linkTwitter": "https://x.com/kokoIllustrator"
+    },
+    {
+        "id": "io",
+        "name": "いお",
+        "linkTwitter": "https://x.com/io_nano",
+        "linkPixiv": "https://www.pixiv.net/en/users/323684"
+    },
+    {
+        "id": "opagi",
+        "name": "opagi",
+        "linkTwitter": "https://x.com/opagi",
+        "linkPixiv": "https://www.pixiv.net/en/users/1872188"
+    },
+    {
+        "id": "satsuki",
+        "name": "皐",
+        "linkTwitter": "https://x.com/Stk________"
+    },
+    {
+        "id": "allcy49",
+        "name": "allcy49",
+        "linkTwitter": "https://x.com/allcy49",
+        "linkPixiv": "https://www.pixiv.net/en/users/9916966"
+    },
+    {
+        "id": "ryoan",
+        "name": "旅庵",
+        "linkTwitter": "https://x.com/voyagehermitage",
+        "linkPixiv": "https://www.pixiv.net/en/users/18849559"
+    },
+    {
+        "id": "k-osu",
+        "name": "Kオス",
+        "linkTwitter": "https://x.com/konton_hakusai",
+        "linkPixiv": "https://www.pixiv.net/en/users/18058067"
+    },
+    {
+        "id": "kuya",
+        "name": "KUYA",
+        "linkTwitter": "https://x.com/hey36253625",
+        "linkPixiv": "https://www.pixiv.net/en/users/22121352"
+    },
+    {
+        "id": "tanasuke",
+        "name": "たなすけ",
+        "linkTwitter": "https://x.com/_tanasuke_",
+        "linkPixiv": "https://www.pixiv.net/en/users/2354684"
+    },
+    {
+        "id": "ratto",
+        "name": "ratto",
+        "linkTwitter": "https://x.com/mobilis_1870"
     }
 ]
