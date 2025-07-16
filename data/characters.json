@@ -858,6 +858,34 @@
         ]
     },
     {
+        "id": "mike",
+        "name": "Gōtokuji Mike",
+        "work": [
+            "um"
+        ]
+    },
+    {
+        "id": "takane",
+        "name": "Yamashiro Takane",
+        "work": [
+            "um"
+        ]
+    },
+    {
+        "id": "sannyo",
+        "name": "Komakusa Sannyo",
+        "work": [
+            "um"
+        ]
+    },
+    {
+        "id": "misumaru",
+        "name": "Tamatsukuri Misumaru",
+        "work": [
+            "um"
+        ]
+    },
+    {
         "id": "tsukasa",
         "name": "Kudamaki Tsukasa",
         "work": [
@@ -866,8 +894,22 @@
         ]
     },
     {
-        "id": "mike",
-        "name": "Gōtokuji Mike",
+        "id": "megumu",
+        "name": "Iizunamaru Megumu",
+        "work": [
+            "um"
+        ]
+    },
+    {
+        "id": "chimata",
+        "name": "Tenkyū Chimata",
+        "work": [
+            "um"
+        ]
+    },
+    {
+        "id": "momoyo",
+        "name": "Himemushi Momoyo",
         "work": [
             "um"
         ]
