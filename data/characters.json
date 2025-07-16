@@ -948,5 +948,26 @@
         "work": [
             "udoalg"
         ]
+    },
+    {
+        "id": "ubame",
+        "name": "Chirizuka Ubame",
+        "work": [
+            "fw"
+        ]
+    },
+    {
+        "id": "chimi",
+        "name": "Hōjū Chimi",
+        "work": [
+            "fw"
+        ]
+    },
+    {
+        "id": "nareko",
+        "name": "Michigami Nareko",
+        "work": [
+            "fw"
+        ]
     }
 ]
