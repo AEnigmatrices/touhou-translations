@@ -913,5 +913,40 @@
         "work": [
             "um"
         ]
+    },
+    {
+        "id": "biten",
+        "name": "Son Biten",
+        "work": [
+            "udoalg"
+        ]
+    },
+    {
+        "id": "enoko",
+        "name": "Mitsugashira Enoko",
+        "work": [
+            "udoalg"
+        ]
+    },
+    {
+        "id": "chiyari",
+        "name": "Tenkajin Chiyari",
+        "work": [
+            "udoalg"
+        ]
+    },
+    {
+        "id": "hisami",
+        "name": "Yomotsu Hisami",
+        "work": [
+            "udoalg"
+        ]
+    },
+    {
+        "id": "zanmu",
+        "name": "Nippaku Zanmu",
+        "work": [
+            "udoalg"
+        ]
     }
 ]
