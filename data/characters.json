@@ -785,6 +785,79 @@
         ]
     },
     {
+        "id": "eika",
+        "name": "Ebisu Eika",
+        "work": [
+            "wbawc"
+        ]
+    },
+    {
+        "id": "kutaka",
+        "name": "Niwatari Kutaka",
+        "work": [
+            "wbawc"
+        ]
+    },
+    {
+        "id": "urumi",
+        "name": "Ushizaki Urumi",
+        "work": [
+            "wbawc"
+        ]
+    },
+    {
+        "id": "yachie",
+        "name": "Kicchō Yachie",
+        "work": [
+            "wbawc",
+            "udoalg"
+        ]
+    },
+    {
+        "id": "mayumi",
+        "name": "Jōtōgū Mayumi",
+        "work": [
+            "wbawc"
+        ]
+    },
+    {
+        "id": "keiki",
+        "name": "Haniyasushin Keiki",
+        "work": [
+            "wbawc"
+        ]
+    },
+    {
+        "id": "saki",
+        "name": "Kurokoma Saki",
+        "work": [
+            "wbawc",
+            "udoalg"
+        ]
+    },
+    {
+        "id": "miyoi",
+        "name": "Okunoda Miyoi",
+        "work": [
+            "le"
+        ]
+    },
+    {
+        "id": "mizuchi",
+        "name": "Miyadeguchi Mizuchi",
+        "work": [
+            "fds"
+        ]
+    },
+    {
+        "id": "yuuma",
+        "name": "Tōtetsu Yūma",
+        "work": [
+            "sfw",
+            "udoalg"
+        ]
+    },
+    {
         "id": "tsukasa",
         "name": "Kudamaki Tsukasa",
         "work": [
