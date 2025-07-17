@@ -706,5 +706,83 @@
         "id": "ratto",
         "name": "ratto",
         "linkTwitter": "https://x.com/mobilis_1870"
+    },
+    {
+        "id": "oriental_zenzai",
+        "name": "オリエンタルぜんざい",
+        "linkTwitter": "https://x.com/orientalzenzai"
+    },
+    {
+        "id": "unk",
+        "name": "UNK教祖",
+        "linkTwitter": "https://x.com/55unkman"
+    },
+    {
+        "id": "garasuno",
+        "name": "がらすの",
+        "linkTwitter": "https://x.com/garasuno_1182",
+        "linkPixiv": "https://www.pixiv.net/en/users/64952535"
+    },
+    {
+        "id": "hidefu_kitayan",
+        "name": "ひでふキタヤン",
+        "linkTwitter": "https://x.com/WVTj73lGXvUJggy",
+        "linkPixiv": "https://www.pixiv.net/en/users/6608305"
+    },
+    {
+        "id": "kongen",
+        "name": "こんげん",
+        "linkTwitter": "https://x.com/konngennnn"
+    },
+    {
+        "id": "muntarou",
+        "name": "むん太郎",
+        "linkTwitter": "https://x.com/nap_muntarou",
+        "linkPixiv": "https://www.pixiv.net/en/users/19476011"
+    },
+    {
+        "id": "jarotan",
+        "name": "じゃろたん",
+        "linkTwitter": "https://x.com/jarotan_kolkol",
+        "linkPixiv": "https://www.pixiv.net/en/users/27395061"
+    },
+    {
+        "id": "sniper",
+        "name": "sniper",
+        "linkTwitter": "https://x.com/sniper16783072"
+    },
+    {
+        "id": "fuuzasa",
+        "name": "フウザサ",
+        "linkTwitter": "https://x.com/fuuzasa",
+        "linkPixiv": "https://www.pixiv.net/en/users/952754"
+    },
+    {
+        "id": "you",
+        "name": "よう",
+        "linkTwitter": "https://x.com/y8m38",
+        "linkPixiv": "https://www.pixiv.net/en/users/3811484"
+    },
+    {
+        "id": "chaahan",
+        "name": "炒飯",
+        "linkTwitter": "https://x.com/fried_rice0614"
+    },
+    {
+        "id": "shigure",
+        "name": "時雨",
+        "linkTwitter": "https://x.com/sigure0210",
+        "linkPixiv": "https://www.pixiv.net/en/users/81295706"
+    },
+    {
+        "id": "jiru",
+        "name": "じる",
+        "linkTwitter": "https://x.com/jirufun",
+        "linkPixiv": "https://www.pixiv.net/en/users/75677"
+    },
+    {
+        "id": "yanotsuki",
+        "name": "ヤノツキ",
+        "linkTwitter": "x.com/yanotsuki8"
     }
 ]
