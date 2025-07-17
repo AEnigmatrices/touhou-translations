@@ -12,13 +12,15 @@ interface Props {
 
 
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
+
+    const image = imageUrl
+        ? <img src={imageUrl} alt={name} className="profile-item__image" loading="lazy" />
+        : <div className="profile-item__image-placeholder" aria-hidden />;
+
     const content = (
         <>
-            <div className={`profile-item__image-wrapper ${imageUrl ? '' : 'profile-item__image-wrapper--placeholder'}`}>
-                {imageUrl
-                    ? <img src={imageUrl} alt={name} className="profile-item__image" loading="lazy" />
-                    : <div className="profile-item__image-placeholder" aria-hidden />
-                }
+            <div className={`profile-item__image-wrapper ${!imageUrl ? "profile-item__image-wrapper--placeholder" : ""}`}>
+                {image}
             </div>
             <div className="profile-item__info">
                 <span className="profile-item__name">{name}</span>
