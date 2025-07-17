@@ -3,10 +3,7 @@ import "./ArtworkCountSortButton.scss";
 import { ariaSortMap, sortSymbols } from "./ArtworkCountSortButton.constants";
 import type { SortOrder } from "../../types/data";
 
-interface Props {
-    sortOrder: SortOrder;
-    onToggleSortOrder: () => void;
-}
+interface Props { sortOrder: SortOrder; onToggleSortOrder: () => void; }
 
 const getAriaSort = (order: SortOrder) => ariaSortMap[order];
 const getSortSymbol = (order: SortOrder): string => sortSymbols[order];
