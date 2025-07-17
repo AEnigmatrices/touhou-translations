@@ -16,6 +16,7 @@ const CharacterPopover: React.FC<Props> = ({ character, position }) => {
     if (!character || !position) return null;
 
     const [visible, setVisible] = useState(false);
+    const [currentPosition, setCurrentPosition] = useState(position);
 
     const imageUrl = getCharacterImages(character.id);
     const description = typeof character.artworkCount === 'number'
@@ -27,6 +28,7 @@ const CharacterPopover: React.FC<Props> = ({ character, position }) => {
     useEffect(() => {
         if (character && position) {
             setVisible(false);
+            setCurrentPosition(position);
             const timer = setTimeout(() => { setVisible(true); }, 10);
             return () => clearTimeout(timer);
         } else {
@@ -34,12 +36,19 @@ const CharacterPopover: React.FC<Props> = ({ character, position }) => {
         }
     }, [character, position]);
 
+    useEffect(() => {
+        if (!character) return;
+        const handleMouseMove = (e: MouseEvent) => setCurrentPosition({ x: e.clientX + 10, y: e.clientY + 10 });
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, [character]);
+
 
 
     return createPortal(
         <div
             className={`character-popover ${visible ? 'visible' : ''}`}
-            style={{ top: position.y, left: position.x }}
+            style={{ top: currentPosition.y, left: currentPosition.x }}
         >
             <ProfileItem
                 name={character.name}
