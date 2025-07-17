@@ -4,6 +4,7 @@ import { searchCharacters, sortArtworkCounts } from "./CharacterPage.utils";
 import CharacterList from "../../components/CharacterList/CharacterList";
 import ArtworkCountSortButton from "../../components/ArtworkCountSortButton/ArtworkCountSortButton";
 import "./CharacterPage.scss";
+import type { SortOrder } from "../../types/data";
 
 
 
@@ -12,7 +13,7 @@ const CharacterPage: React.FC = () => {
 
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
-    const [sortOrder, setSortOrder] = useState<"none" | "asc" | "desc">("none");
+    const [sortOrder, setSortOrder] = useState<SortOrder>("none");
 
     const searchedCharacters = useMemo(() => searchCharacters(characters, searchQuery), [characters, searchQuery]);
     const sortedCharacters = useMemo(() => sortArtworkCounts(searchedCharacters, sortOrder), [searchedCharacters, sortOrder]);
