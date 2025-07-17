@@ -1,26 +1,34 @@
-import React, { useState, useEffect } from "react";
-import ArtistList from "../../components/ArtistList/ArtistList";
+import React, { useEffect, useMemo, useState } from "react";
 import { useGetArtists } from "../../context/PostsContext";
+import { searchArtists, sortArtists } from "./ArtistPage.utils";
+import ArtistList from "../../components/ArtistList/ArtistList";
+import ArtworkCountSortButton from "../../components/ArtworkCountSortButton/ArtworkCountSortButton";
 import "./ArtistPage.scss";
 
 
 
 const ArtistPage: React.FC = () => {
-    const getArtists = useGetArtists();
-    const artists = getArtists();
+    const artists = useGetArtists()();
 
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
+    const [sortOrder, setSortOrder] = useState<"none" | "asc" | "desc">("none");
+
+    const searchedArtists = useMemo(() => searchArtists(artists, searchQuery), [artists, searchQuery]);
+    const sortedArtists = useMemo(() => sortArtists(searchedArtists, sortOrder), [searchedArtists, sortOrder]);
+
+
+
+    const toggleSortOrder = () => setSortOrder(prev => (prev === "none" ? "desc" : prev === "desc" ? "asc" : "none"));
+
+
 
     useEffect(() => {
         const timeout = setTimeout(() => setSearchQuery(searchInput), 300);
         return () => clearTimeout(timeout);
     }, [searchInput]);
 
-    const lowerQuery = searchQuery.toLowerCase();
-    const filteredArtists = artists.filter(({ id, name }) =>
-        id.toLowerCase().includes(lowerQuery) || name.toLowerCase().includes(lowerQuery)
-    );
+
 
     return (
         <div className="artist-page">
@@ -30,8 +38,9 @@ const ArtistPage: React.FC = () => {
                     type="text" placeholder="Search by ID or Name..." aria-label="Search Artists"
                     value={searchInput} onChange={(e) => setSearchInput(e.target.value)}
                 />
+                <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
             </div>
-            <ArtistList artists={filteredArtists} />
+            <ArtistList artists={sortedArtists} />
         </div>
     );
 };

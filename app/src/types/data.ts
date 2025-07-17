@@ -32,3 +32,5 @@ export interface PostEntryForm {
     artistId: string;
     characterIds: string;
 }
+
+export type SortOrder = "none" | "asc" | "desc";

@@ -1,26 +1,34 @@
-import React, { useState, useEffect } from "react";
-import CharacterList from "../../components/CharacterList/CharacterList";
+import React, { useEffect, useMemo, useState } from "react";
 import { useGetCharacters } from "../../context/PostsContext";
+import { searchCharacters, sortArtworkCounts } from "./CharacterPage.utils";
+import CharacterList from "../../components/CharacterList/CharacterList";
+import ArtworkCountSortButton from "../../components/ArtworkCountSortButton/ArtworkCountSortButton";
 import "./CharacterPage.scss";
 
 
 
 const CharacterPage: React.FC = () => {
-    const getCharacters = useGetCharacters();
-    const characters = getCharacters();
+    const characters = useGetCharacters()();
 
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
+    const [sortOrder, setSortOrder] = useState<"none" | "asc" | "desc">("none");
+
+    const searchedCharacters = useMemo(() => searchCharacters(characters, searchQuery), [characters, searchQuery]);
+    const sortedCharacters = useMemo(() => sortArtworkCounts(searchedCharacters, sortOrder), [searchedCharacters, sortOrder]);
+
+
+
+    const toggleSortOrder = () => setSortOrder((prev) => (prev === "none" ? "desc" : prev === "desc" ? "asc" : "none"));
+
+
 
     useEffect(() => {
         const timeout = setTimeout(() => setSearchQuery(searchInput), 300);
         return () => clearTimeout(timeout);
     }, [searchInput]);
 
-    const lowerQuery = searchQuery.toLowerCase();
-    const filteredCharacters = characters.filter(({ id, name }) =>
-        id.toLowerCase().includes(lowerQuery) || name.toLowerCase().includes(lowerQuery)
-    );
+
 
     return (
         <div className="character-page">
@@ -30,8 +38,9 @@ const CharacterPage: React.FC = () => {
                     type="text" placeholder="Search by ID or Name..." aria-label="Search Characters"
                     value={searchInput} onChange={(e) => setSearchInput(e.target.value)}
                 />
+                <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
             </div>
-            <CharacterList characters={filteredCharacters} />
+            <CharacterList characters={sortedCharacters} />
         </div>
     );
 };
