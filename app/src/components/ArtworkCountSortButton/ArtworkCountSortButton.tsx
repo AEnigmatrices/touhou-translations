@@ -2,7 +2,11 @@ import React from "react";
 import "./ArtworkCountSortButton.scss";
 import { ariaSortMap, sortSymbols } from "./ArtworkCountSortButton.constants";
 import type { SortOrder } from "../../types/data";
-import type { Props } from "./ArtworkCountSortButton.types";
+
+interface Props {
+    sortOrder: SortOrder;
+    onToggleSortOrder: () => void;
+}
 
 const getAriaSort = (order: SortOrder) => ariaSortMap[order];
 const getSortSymbol = (order: SortOrder): string => sortSymbols[order];
