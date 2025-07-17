@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import ProfileItem from '../ProfileItem/ProfileItem';
 import { getCharacterImages } from '../../utils/galleryUtils';
@@ -25,6 +25,23 @@ const CharacterPopover: React.FC<Props> = ({ character, position }) => {
 
 
 
+    const handleMouseMove = useCallback((e: MouseEvent) => {
+        const offset = 10;
+        const popoverSize = { width: 320, height: 200 };
+
+        const x = (e.clientX + offset + popoverSize.width > window.innerWidth)
+            ? e.clientX - offset - popoverSize.width
+            : e.clientX + offset;
+
+        const y = (e.clientY + offset + popoverSize.height > window.innerHeight)
+            ? e.clientY - offset - popoverSize.height
+            : e.clientY + offset;
+
+        setCurrentPosition({ x, y });
+    }, []);
+
+
+
     useEffect(() => {
         if (character && position) {
             setVisible(false);
@@ -38,10 +55,9 @@ const CharacterPopover: React.FC<Props> = ({ character, position }) => {
 
     useEffect(() => {
         if (!character) return;
-        const handleMouseMove = (e: MouseEvent) => setCurrentPosition({ x: e.clientX + 10, y: e.clientY + 10 });
         window.addEventListener('mousemove', handleMouseMove);
         return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, [character]);
+    }, [character, handleMouseMove]);
 
 
 
