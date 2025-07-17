@@ -35,10 +35,7 @@ const CharacterPage: React.FC = () => {
         <div className="character-page">
             <div className="character-page__header">
                 <h2>Character List</h2>
-                <input
-                    type="text" placeholder="Search by ID or Name..." aria-label="Search Characters"
-                    value={searchInput} onChange={(e) => setSearchInput(e.target.value)}
-                />
+                <input type="text" placeholder="Search by ID or Name..." aria-label="Search Characters" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
                 <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
             </div>
             <CharacterList characters={sortedCharacters} />

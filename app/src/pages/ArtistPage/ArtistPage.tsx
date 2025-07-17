@@ -35,10 +35,7 @@ const ArtistPage: React.FC = () => {
         <div className="artist-page">
             <div className="artist-page__header">
                 <h2>Artist List</h2>
-                <input
-                    type="text" placeholder="Search by ID or Name..." aria-label="Search Artists"
-                    value={searchInput} onChange={(e) => setSearchInput(e.target.value)}
-                />
+                <input type="text" placeholder="Search by ID or Name..." aria-label="Search Artists" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
                 <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
             </div>
             <ArtistList artists={sortedArtists} />
