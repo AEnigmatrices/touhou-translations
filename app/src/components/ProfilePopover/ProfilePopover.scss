@@ -1,4 +1,4 @@
-.character-popover {
+.profile-popover {
     position: fixed;
     z-index: 9999;
     padding: 4px;
@@ -9,7 +9,7 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.character-popover.visible {
+.profile-popover.visible {
     opacity: 1;
     transform: translateY(0);
 }

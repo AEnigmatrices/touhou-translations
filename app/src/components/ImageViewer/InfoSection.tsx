@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import CharacterPopover from './CharacterPopover';
 import { Link } from 'react-router-dom';
 import { useGetCharacter } from '../../context/PostsContext';
 import { dateFormatOptions, replaceXWithNitter } from '../../utils/postUtils';
-import type { Post, Artist, Character } from '../../types/data';
-import './InfoSection.scss';
+import ProfilePopover from '../ProfilePopover/ProfilePopover';
 import twitterIcon from '../../icons/social/twitter.webp';
 import nitterIcon from '../../icons/social/nitter.webp';
 import pixivIcon from '../../icons/social/pixiv.webp';
 import redditIcon from '../../icons/social/reddit.webp';
+import './InfoSection.scss';
+import type { Post, Artist, Character } from '../../types/data';
 
 interface Props {
     post: Post;
@@ -120,7 +120,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                     </div>
                 </div>
             </div>
-            <CharacterPopover character={hoveredCharacterData} position={tooltipPosition} />
+            <ProfilePopover data={hoveredCharacterData} type="character" position={tooltipPosition} />
         </>
     );
 };
