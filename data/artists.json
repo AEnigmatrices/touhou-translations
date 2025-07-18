@@ -784,5 +784,80 @@
         "id": "yanotsuki",
         "name": "ヤノツキ",
         "linkTwitter": "x.com/yanotsuki8"
+    },
+    {
+        "id": "refuson_man",
+        "name": "れふそんマン",
+        "linkTwitter": "https://x.com/kou114z",
+        "linkPixiv": "https://www.pixiv.net/en/users/45763272"
+    },
+    {
+        "id": "sayoshima",
+        "name": "小夜島",
+        "linkTwitter": "https://x.com/sayoshima"
+    },
+    {
+        "id": "erakokyuu",
+        "name": "鰓呼吸",
+        "linkTwitter": "https://x.com/erakokyu01",
+        "linkPixiv": "https://www.pixiv.net/en/users/67889725"
+    },
+    {
+        "id": "morino_hon",
+        "name": "もりのほん",
+        "linkTwitter": "https://x.com/morinohon",
+        "linkPixiv": "https://www.pixiv.net/en/users/258411"
+    },
+    {
+        "id": "niru",
+        "name": "niru",
+        "linkTwitter": "https://x.com/niru___05",
+        "linkPixiv": "https://www.pixiv.net/en/users/38334959"
+    },
+    {
+        "id": "marinne",
+        "name": "まりんね",
+        "linkTwitter": "https://x.com/marinne_mkmk777",
+        "linkPixiv": "https://www.pixiv.net/en/users/31551243"
+    },
+    {
+        "id": "kinmugi",
+        "name": "きんむぎ",
+        "linkTwitter": "https://x.com/exkagerou8665"
+    },
+    {
+        "id": "john_mcclane",
+        "name": "ぢょん@まくれーん",
+        "linkTwitter": "https://x.com/dyon_McClane",
+        "linkPixiv": "https://www.pixiv.net/en/users/237670"
+    },
+    {
+        "id": "nama",
+        "name": "なま",
+        "linkTwitter": "https://x.com/gyonihara"
+    },
+    {
+        "id": "senmura",
+        "name": "Senmura",
+        "linkTwitter": "https://x.com/main_senmura",
+        "linkPixiv": "https://www.pixiv.net/en/users/82120650"
+    },
+    {
+        "id": "paryan",
+        "name": "ぱーやん",
+        "linkTwitter": "https://x.com/paryan2010",
+        "linkPixiv": "https://www.pixiv.net/en/users/671079"
+    },
+    {
+        "id": "tog.",
+        "name": "tog.",
+        "linkTwitter": "https://x.com/flexible_B",
+        "linkPixiv": "https://www.pixiv.net/en/users/192808"
+    },
+    {
+        "id": "shirai_u",
+        "name": "白柚",
+        "linkTwitter": "https://x.com/Yuzu12188491908",
+        "linkPixiv": "https://www.pixiv.net/en/users/109731912"
     }
 ]
