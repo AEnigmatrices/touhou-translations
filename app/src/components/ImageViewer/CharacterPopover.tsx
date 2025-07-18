@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import ProfileItem from '../ProfileItem/ProfileItem';
 import { getCharacterImages } from '../../utils/galleryUtils';
-import type { Character } from '../../types/data';
+import { calculatePopoverPosition, formatArtworkDescription } from './CharacterPopover.utils';
+import ProfileItem from '../ProfileItem/ProfileItem';
 import './CharacterPopover.scss';
+import type { Character } from '../../types/data';
 
-interface Props {
-    character: Character | null;
-    position: { x: number; y: number } | null;
-}
+interface Props { character: Character | null; position: { x: number; y: number } | null; }
+
+const POPOVER_OFFSET = 10;
+const POPOVER_SIZE = { width: 320, height: 200 };
 
 
 
@@ -19,25 +20,12 @@ const CharacterPopover: React.FC<Props> = ({ character, position }) => {
     const [currentPosition, setCurrentPosition] = useState(position);
 
     const imageUrl = getCharacterImages(character.id);
-    const description = typeof character.artworkCount === 'number'
-        ? `${character.artworkCount} artwork${character.artworkCount !== 1 ? 's' : ''}`
-        : undefined;
+    const description = formatArtworkDescription(character.artworkCount);
 
 
 
     const handleMouseMove = useCallback((e: MouseEvent) => {
-        const offset = 10;
-        const popoverSize = { width: 320, height: 200 };
-
-        const x = (e.clientX + offset + popoverSize.width > window.innerWidth)
-            ? e.clientX - offset - popoverSize.width
-            : e.clientX + offset;
-
-        const y = (e.clientY + offset + popoverSize.height > window.innerHeight)
-            ? e.clientY - offset - popoverSize.height
-            : e.clientY + offset;
-
-        setCurrentPosition({ x, y });
+        setCurrentPosition(calculatePopoverPosition(e, POPOVER_OFFSET, POPOVER_SIZE));
     }, []);
 
 
@@ -57,15 +45,13 @@ const CharacterPopover: React.FC<Props> = ({ character, position }) => {
         if (!character) return;
         window.addEventListener('mousemove', handleMouseMove);
         return () => window.removeEventListener('mousemove', handleMouseMove);
+
     }, [character, handleMouseMove]);
 
 
 
     return createPortal(
-        <div
-            className={`character-popover ${visible ? 'visible' : ''}`}
-            style={{ top: currentPosition.y, left: currentPosition.x }}
-        >
+        <div className={`character-popover ${visible ? 'visible' : ''}`} style={{ top: currentPosition.y, left: currentPosition.x }}>
             <ProfileItem
                 name={character.name}
                 imageUrl={imageUrl}
