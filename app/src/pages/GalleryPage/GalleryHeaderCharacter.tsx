@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ProfileItem from '../../components/ProfileItem/ProfileItem';
-import { getCharacterImages } from '../../utils/galleryUtils';
+import { getCharacterPortraits } from '../../utils/galleryUtils';
 import type { Character } from '../../types/data';
 
 interface Props { character: Character & { artworkCount: number }; }
@@ -16,7 +16,7 @@ const GalleryHeaderCharacter: React.FC<Props> = ({ character }) => {
             <Link to="/characters" className="gallery-page__header-link" aria-label={`Back to characters list`}>
                 <ProfileItem
                     name={character.name}
-                    imageUrl={getCharacterImages(character.id)}
+                    imageUrl={getCharacterPortraits(character.id)}
                     description={description}
                 />
             </Link>

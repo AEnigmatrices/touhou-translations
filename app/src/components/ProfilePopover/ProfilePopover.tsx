@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { getCharacterImages, getArtistImages } from '../../utils/galleryUtils';
+import { getCharacterPortraits, getArtistPortraits } from '../../utils/galleryUtils';
 import { calculatePopoverPosition, formatArtworkDescription } from './ProfilePopover.utils';
 import ProfileItem from '../ProfileItem/ProfileItem';
 import './ProfilePopover.scss';
@@ -19,7 +19,7 @@ const ProfilePopover: React.FC<Props> = ({ data, type, position }) => {
     const [visible, setVisible] = useState(false);
     const [currentPosition, setCurrentPosition] = useState(position);
 
-    const imageUrl = type === 'artist' ? getArtistImages(data.id) : getCharacterImages(data.id);
+    const imageUrl = type === 'artist' ? getArtistPortraits(data.id) : getCharacterPortraits(data.id);
     const description = formatArtworkDescription(data.artworkCount);
 
     const handleMouseMove = useCallback((e: MouseEvent) => { setCurrentPosition(calculatePopoverPosition(e, POPOVER_OFFSET, POPOVER_SIZE)); }, []);
