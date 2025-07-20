@@ -12,7 +12,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { useTheme } from '@mui/material/styles';
 import { containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, checkboxLabelStyles, loaderBoxStyles, } from './GalleryPage.styles';
 
 const PAGE_CHUNK_SIZE = 12;
@@ -23,7 +22,6 @@ const GalleryPage = () => {
     const posts = useGetPosts();
     const getCharacter = useGetCharacter();
     const getArtist = useGetArtist();
-    const theme = useTheme();
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -116,7 +114,6 @@ const GalleryPage = () => {
                 <FormControlLabel
                     control={<Checkbox checked={galleryOnly} onChange={() => toggleGalleryOnly()} color="primary" />}
                     label="Gallery Only"
-                    sx={checkboxLabelStyles(theme)}
                 />
             </Box>
             <Gallery posts={visiblePosts} />
