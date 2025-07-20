@@ -58,6 +58,7 @@ export const useGetArtists = (): ((ids?: string[]) => (Artist & { artworkCount: 
         return artists
             .filter(a => !ids || ids.includes(a.id))
             .map(a => ({ ...a, artworkCount: countMap[a.id] ?? 0 }))
+            .sort((a, b) => a.id.localeCompare(b.id));
     }, [artists, posts]);
 };
 
