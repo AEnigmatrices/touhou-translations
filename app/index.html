@@ -14,12 +14,12 @@
             content="
                 default-src 'self';
                 script-src 'self';
-                style-src 'self' https://fonts.googleapis.com %VITE_CSP_STYLE_SRC%;
-                img-src 'self' https://i.redd.it data:;
+                style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
                 font-src 'self' https://fonts.gstatic.com;
+                img-src 'self' https://i.redd.it data:;
                 connect-src 'self' https://www.reddit.com https://raw.githubusercontent.com;
-                base-uri 'self';
-                object-src 'none';"
+                object-src 'none';
+                base-uri 'self';"
         />
         <meta name="referrer" content="strict-origin" />
         <link rel="icon" type="image/png" href="icons/favicon.png" />
