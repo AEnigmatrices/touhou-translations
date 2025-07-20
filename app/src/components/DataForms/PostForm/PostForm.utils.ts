@@ -12,7 +12,7 @@ const getApiUrl = (url: string) => url.endsWith('.json') ? url : `${url}.json`;
 const buildImageUrls = (postData: any): string[] => {
     if (postData.media_metadata) {
         const metadata = postData.media_metadata as Record<string, { m?: string }>;
-        return Object.entries(metadata).reverse().map(([id, media]) => {
+        return Object.entries(metadata).sort(([idA], [idB]) => idA.localeCompare(idB)).map(([id, media]) => {
             const ext = media.m?.includes('png') ? 'png' : 'jpg';
             return `https://i.redd.it/${id}.${ext}`;
         });
