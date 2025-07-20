@@ -9,7 +9,7 @@ import GalleryHeaderArtist from './GalleryHeaderArtist';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import Switch from '@mui/material/Switch';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, checkboxLabelStyles, loaderBoxStyles, } from './GalleryPage.styles';
@@ -112,7 +112,7 @@ const GalleryPage = () => {
                     </Box>
                 )}
                 <FormControlLabel
-                    control={<Checkbox checked={galleryOnly} onChange={() => toggleGalleryOnly()} color="primary" />}
+                    control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" />}
                     label="Gallery Only"
                 />
             </Box>
