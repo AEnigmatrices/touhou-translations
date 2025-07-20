@@ -30,12 +30,24 @@ const GalleryPage = () => {
     const [visibleCount, setVisibleCount] = useState(PAGE_CHUNK_SIZE);
     const loaderRef = useRef<HTMLDivElement | null>(null);
     const isLoadingRef = useRef(false);
-
-    const filteredPosts = useMemo(() => { return filterPosts(posts, characterQueries, artistQueries, mode); }, [posts, characterQueries, artistQueries, mode]);
-    const shuffledPosts = useMemo(() => { return [...filteredPosts].sort(() => 0.5 - Math.random()); }, [filteredPosts]);
-    const visiblePosts = useMemo(() => { return shuffledPosts.slice(0, visibleCount); }, [shuffledPosts, visibleCount]);
-
     const observerRef = useRef<IntersectionObserver | null>(null);
+
+
+
+    const filteredPosts = useMemo(() => filterPosts(posts, characterQueries, artistQueries, mode), [posts, characterQueries, artistQueries, mode]);
+
+    const filterKey = useMemo(() => {
+        const chars = [...characterQueries].sort().join(',');
+        const artists = [...artistQueries].sort().join(',');
+        return `${chars}|${artists}|${mode}|${filteredPosts.length}`;
+    }, [characterQueries, artistQueries, mode, filteredPosts.length]);
+
+    const shuffledPosts = useMemo(() => {
+        return [...filteredPosts].sort(() => 0.5 - Math.random());
+    }, [filterKey]);
+
+    const visiblePosts = shuffledPosts.slice(0, visibleCount);
+
 
 
 
