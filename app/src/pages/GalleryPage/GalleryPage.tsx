@@ -103,15 +103,15 @@ const GalleryPage = () => {
 
 
     return (
-        <Container maxWidth="lg" sx={containerStyles}>
-            <Stack direction="row" sx={headerWrapperStyles}>
+        <Container maxWidth="lg" sx={containerStyles(theme)}>
+            <Stack direction="row" sx={headerWrapperStyles(theme)}>
                 {character && (
-                    <Box sx={galleryHeaderBoxStyles}>
+                    <Box sx={galleryHeaderBoxStyles(theme)}>
                         <GalleryHeaderCharacter character={character} />
                     </Box>
                 )}
                 {artist && (
-                    <Box sx={galleryHeaderBoxStyles}>
+                    <Box sx={galleryHeaderBoxStyles(theme)}>
                         <GalleryHeaderArtist artist={artist} />
                     </Box>
                 )}
@@ -122,7 +122,7 @@ const GalleryPage = () => {
             </Stack>
             <Gallery posts={visiblePosts} />
             {visiblePosts.length < shuffledPosts.length && (
-                <Box ref={loaderRef} sx={loaderBoxStyles} aria-busy="true">
+                <Box ref={loaderRef} sx={loaderBoxStyles(theme)} aria-busy="true">
                     <CircularProgress />
                 </Box>
             )}
