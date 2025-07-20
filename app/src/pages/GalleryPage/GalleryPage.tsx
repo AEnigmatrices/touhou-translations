@@ -12,7 +12,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, checkboxLabelStyles, loaderBoxStyles, } from './GalleryPage.styles';
+import { useTheme } from '@mui/material/styles';
+import { containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, switchLabelStyles, loaderBoxStyles, } from './GalleryPage.styles';
 
 const PAGE_CHUNK_SIZE = 12;
 
@@ -22,6 +23,7 @@ const GalleryPage = () => {
     const posts = useGetPosts();
     const getCharacter = useGetCharacter();
     const getArtist = useGetArtist();
+    const theme = useTheme();
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -113,7 +115,7 @@ const GalleryPage = () => {
                 )}
                 <FormControlLabel
                     control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" />}
-                    label="Gallery Only"
+                    label="Gallery Only" sx={switchLabelStyles(theme)}
                 />
             </Box>
             <Gallery posts={visiblePosts} />

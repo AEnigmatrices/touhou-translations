@@ -24,7 +24,7 @@ export const galleryHeaderBoxStyles: SxProps<Theme> = {
     flexShrink: 0,
 };
 
-export const checkboxLabelStyles = (theme: Theme): SxProps<Theme> => ({
+export const switchLabelStyles = (theme: Theme): SxProps<Theme> => ({
     ml: 2,
     fontWeight: 500,
     color: theme.palette.text.secondary,
