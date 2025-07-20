@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useGetPosts } from '../../context/PostsContext';
-import { hashDateToIndex } from '../../utils/postUtils';
+import { hashDateToIndex } from './HomePage.utils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 import PostForm from '../../components/DataForms/PostForm/PostForm';
 import ArtistForm from '../../components/DataForms/ArtistForm/ArtistForm';

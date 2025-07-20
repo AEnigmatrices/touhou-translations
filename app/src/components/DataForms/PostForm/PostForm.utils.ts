@@ -1,4 +1,9 @@
-import type { PostEntryForm } from "../types/data";
+import type { PostEntryForm } from "../../../types/data";
+import artists from '../../../../../data/artists.json';
+
+const headers = { 'Content-Type': 'application/json' };
+
+
 
 const splitClean = (input: string) => input.split(',').map(s => s.trim()).filter(Boolean);
 
@@ -15,7 +20,29 @@ const buildImageUrls = (postData: any): string[] => {
     return postData.url ? [postData.url] : [];
 };
 
+const buildPostEntry = ({ date, reddit, urls, src, desc, artistId, characterIds }: PostEntryForm) => ({
+    date,
+    reddit: extractBaseRedditUrl(reddit),
+    url: splitClean(urls),
+    src,
+    desc,
+    artistId,
+    characterIds: splitClean(characterIds),
+});
 
+
+
+export const submitPostEntry = async (data: PostEntryForm): Promise<void> => {
+    const response = await fetch('/api/posts', { method: 'POST', headers, body: JSON.stringify(buildPostEntry(data)) });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Failed to add post');
+};
+
+export const validateArtistId = (id: string): true | string => {
+    const trimmed = id.trim();
+    const exists = artists.some(artist => artist.id === trimmed);
+    return exists || 'Artist ID does not exist.';
+}
 
 export const extractBaseRedditUrl = (url?: string): string => {
     if (!url) return '';
@@ -35,20 +62,6 @@ export const extractBaseRedditUrl = (url?: string): string => {
         return '';
     }
 };
-
-
-
-export const buildPostEntry = ({ date, reddit, urls, src, desc, artistId, characterIds }: PostEntryForm) => ({
-    date,
-    reddit: extractBaseRedditUrl(reddit),
-    url: splitClean(urls),
-    src,
-    desc,
-    artistId,
-    characterIds: splitClean(characterIds),
-});
-
-
 
 export const fetchRedditData = async (redditUrl: string) => {
     if (!redditUrl) return null;
@@ -70,8 +83,6 @@ export const fetchRedditData = async (redditUrl: string) => {
         return null;
     }
 };
-
-
 
 export const validateRedditUrl = (value: string, existingPosts: { reddit: string }[]): string | true => {
     const normalizedValue = extractBaseRedditUrl(value.trim());

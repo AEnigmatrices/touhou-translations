@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { submitPostEntry, validateArtistId } from '../../../utils/formUtils';
-import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl } from '../../../utils/redditUtils';
+import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl, validateArtistId, submitPostEntry } from './PostForm.utils';
 import { useGetPosts } from '../../../context/PostsContext';
 import type { PostEntryForm } from "../../../types/data";
 import "./PostForm.scss";

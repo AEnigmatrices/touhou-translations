@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link } from 'react-router-dom';
 import { useGetCharacter } from '../../context/PostsContext';
-import { dateFormatOptions, replaceXWithNitter } from '../../utils/postUtils';
+import { dateFormatOptions, replaceXWithNitter } from './ImageViewer.utils';
 import ProfilePopover from '../ProfilePopover/ProfilePopover';
 import twitterIcon from '../../icons/social/twitter.webp';
 import nitterIcon from '../../icons/social/nitter.webp';
