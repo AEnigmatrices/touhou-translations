@@ -1,19 +1,8 @@
 import React, { useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useGetPosts } from '../../context/PostsContext';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import IconButton from '@mui/material/IconButton';
+import { AppBar, Toolbar, Tabs, Tab, IconButton, Drawer, List, ListItemButton, ListItemText, Typography, useMediaQuery, Box, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Typography from '@mui/material/Typography';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Box from '@mui/material/Box';
 
 import { ElevationScroll, navLinks } from './Navbar.utils';
 import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from './Navbar.styles';
@@ -23,33 +12,44 @@ import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from
 const Navbar: React.FC = () => {
     const posts = useGetPosts();
     const location = useLocation();
-    const isMobile = useMediaQuery('(max-width:600px)');
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const currentTab = navLinks.findIndex(link => link.to === location.pathname);
+    const currentTab = navLinks.findIndex((link) => link.to === location.pathname);
     const postId = posts.length > 0 ? Math.floor(Math.random() * posts.length) + 1 : 1;
 
+
+
     const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
+    const isCurrent = (to: string) => location.pathname === to;
+
+    const handleDrawerKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+        if (event.key === 'Tab' || event.key === 'Shift') return;
+        setDrawerOpen(false);
+    };
+
+
 
     return (
         <ElevationScroll>
-            <AppBar position="sticky" sx={appBarSx} >
+            <AppBar position="sticky" sx={appBarSx}>
                 <Toolbar sx={toolbarSx}>
-                    <Typography variant="h6" component={RouterLink} to={`/post/${postId}`} sx={titleSx} >
+                    <Typography variant="h6" component={RouterLink} to={`/post/${postId}`} sx={titleSx(theme)}  >
                         Touhou Translations
                     </Typography>
 
                     {isMobile ? (
                         <>
-                            <IconButton edge="end" color="inherit" aria-label="menu" onClick={toggleDrawer(true)} size="large" sx={{ color: '#333' }} >
+                            <IconButton edge="end" color="inherit" aria-label="open navigation menu" onClick={toggleDrawer(true)} size="large" >
                                 <MenuIcon />
                             </IconButton>
 
-                            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)} >
-                                <Box sx={drawerBoxSx} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)} >
+                            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+                                <Box sx={drawerBoxSx} role="presentation" onKeyDown={handleDrawerKeyDown} >
                                     <List>
                                         {navLinks.map(({ label, to }) => (
-                                            <ListItemButton key={to} component={RouterLink} to={to} selected={location.pathname === to} >
+                                            <ListItemButton key={to} component={RouterLink} to={to} selected={isCurrent(to)} aria-current={isCurrent(to) ? 'page' : undefined} onClick={() => setDrawerOpen(false)} >
                                                 <ListItemText primary={label} />
                                             </ListItemButton>
                                         ))}
@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
                     ) : (
                         <Tabs value={currentTab !== -1 ? currentTab : false} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={tabContainerSx} >
                             {navLinks.map(({ label, to }, index) => (
-                                <Tab key={to} label={label} component={RouterLink} to={to} sx={tabSx(currentTab === index)} />
+                                <Tab key={to} label={label} component={RouterLink} to={to} sx={tabSx(currentTab === index)} aria-current={currentTab === index ? 'page' : undefined} />
                             ))}
                         </Tabs>
                     )}

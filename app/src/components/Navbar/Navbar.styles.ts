@@ -16,12 +16,12 @@ export const toolbarSx: SxProps<Theme> = {
     paddingY: 1.5,
 };
 
-export const titleSx: SxProps<Theme> = {
+export const titleSx = (theme: Theme): SxProps<Theme> => ({
     flexGrow: 1,
-    color: '#333',
+    color: theme.palette.text.primary,
     textDecoration: 'none',
     fontWeight: 'bold',
-};
+});
 
 export const drawerBoxSx: SxProps<Theme> = {
     width: 250,

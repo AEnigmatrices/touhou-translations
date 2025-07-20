@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import Routes from './Routes';
 import PostsProvider from './context/PostsProvider';
 import ErrorBoundary from './context/ErrorBoundary';
@@ -13,6 +13,7 @@ const LoadingFallback = () => <div>Loading...</div>;
 
 const App: React.FC = () => (
     <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Router>
             <ErrorBoundary>
                 <PostsProvider>
