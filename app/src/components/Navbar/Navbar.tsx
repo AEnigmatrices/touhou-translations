@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { useGetPosts } from '../../context/PostsContext';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Tabs from '@mui/material/Tabs';
@@ -20,11 +21,13 @@ import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from
 
 
 const Navbar: React.FC = () => {
+    const posts = useGetPosts();
     const location = useLocation();
     const isMobile = useMediaQuery('(max-width:600px)');
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const currentTab = navLinks.findIndex(link => link.to === location.pathname);
+    const postId = posts.length > 0 ? Math.floor(Math.random() * posts.length) + 1 : 1;
 
     const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
 
@@ -32,7 +35,7 @@ const Navbar: React.FC = () => {
         <ElevationScroll>
             <AppBar position="sticky" sx={appBarSx} >
                 <Toolbar sx={toolbarSx}>
-                    <Typography variant="h6" component={RouterLink} to="/" sx={titleSx} >
+                    <Typography variant="h6" component={RouterLink} to={`/post/${postId}`} sx={titleSx} >
                         Touhou Translations
                     </Typography>
 
