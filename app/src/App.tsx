@@ -5,7 +5,9 @@ import Routes from './Routes';
 import PostsProvider from './context/PostsProvider';
 import ErrorBoundary from './context/ErrorBoundary';
 
-const theme = createTheme({});
+const theme = createTheme({
+    typography: { fontFamily: '"Noto Sans JP", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif' }
+});
 
 const LoadingFallback = () => <div>Loading...</div>;
 
