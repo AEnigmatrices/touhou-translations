@@ -37,14 +37,12 @@ const GalleryPage = () => {
     const filteredPosts = useMemo(() => filterPosts(posts, characterQueries, artistQueries, mode), [posts, characterQueries, artistQueries, mode]);
 
     const filterKey = useMemo(() => {
-        const chars = [...characterQueries].sort().join(',');
-        const artists = [...artistQueries].sort().join(',');
+        const chars = characterQueries.slice().sort().join(',');
+        const artists = artistQueries.slice().sort().join(',');
         return `${chars}|${artists}|${mode}|${filteredPosts.length}`;
     }, [characterQueries, artistQueries, mode, filteredPosts.length]);
 
-    const shuffledPosts = useMemo(() => {
-        return [...filteredPosts].sort(() => 0.5 - Math.random());
-    }, [filterKey]);
+    const shuffledPosts = useMemo(() => filteredPosts.slice().sort(() => Math.random() - 0.5), [filterKey]);
 
     const visiblePosts = shuffledPosts.slice(0, visibleCount);
 
