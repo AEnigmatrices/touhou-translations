@@ -1,22 +1,30 @@
 import React from "react";
-import "./ArtworkCountSortButton.scss";
-import { ariaSortMap, sortSymbols } from "./ArtworkCountSortButton.constants";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import { ariaSortMap, iconMap } from "./ArtworkCountSortButton.constants";
 import type { SortOrder } from "../../types/data";
 
 interface Props { sortOrder: SortOrder; onToggleSortOrder: () => void; }
 
 const getAriaSort = (order: SortOrder) => ariaSortMap[order];
-const getSortSymbol = (order: SortOrder): string => sortSymbols[order];
 
-const ArtworkCountSortButton: React.FC<Props> = ({ sortOrder, onToggleSortOrder }) => {
+const ArtworkCountSortIconButton: React.FC<Props> = ({ sortOrder, onToggleSortOrder }) => {
+    const IconComponent = iconMap[sortOrder] ?? iconMap.none;
+
     return (
-        <button
-            aria-label="Sort by Artwork Count" aria-pressed={sortOrder !== "none"} aria-sort={getAriaSort(sortOrder)}
-            onClick={onToggleSortOrder} className={`artwork-count-sort-button sort-${sortOrder}`}
-        >
-            Artwork Count {getSortSymbol(sortOrder)}
-        </button>
+        <Tooltip title="Sort by Artwork Count" arrow>
+            <IconButton
+                aria-label="Sort by Artwork Count"
+                aria-pressed={sortOrder !== "none"}
+                aria-sort={getAriaSort(sortOrder)}
+                onClick={onToggleSortOrder}
+                color={sortOrder === "none" ? "default" : "primary"}
+                size="medium"
+            >
+                <IconComponent />
+            </IconButton>
+        </Tooltip>
     );
 };
 
-export default ArtworkCountSortButton;
+export default ArtworkCountSortIconButton;
