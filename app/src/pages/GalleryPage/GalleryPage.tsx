@@ -7,13 +7,15 @@ import GalleryHeaderCharacter from './GalleryHeaderCharacter';
 import GalleryHeaderArtist from './GalleryHeaderArtist';
 
 import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { useTheme } from '@mui/material/styles';
-import { containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, switchLabelStyles, loaderBoxStyles, } from './GalleryPage.styles';
+import { switchSlotProps, containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, switchLabelStyles, loaderBoxStyles } from './GalleryPage.styles';
 
 const PAGE_CHUNK_SIZE = 12;
 
@@ -61,7 +63,7 @@ const GalleryPage = () => {
     }, [characterQueries, artistQueries, mode, galleryOnly, filteredPosts.length]);
 
     const shuffledPosts = useMemo(() => filteredPosts.slice().sort(() => Math.random() - 0.5), [filterKey]);
-    const visiblePosts = shuffledPosts.slice(0, visibleCount);
+    const visiblePosts = useMemo(() => shuffledPosts.slice(0, visibleCount), [shuffledPosts, visibleCount]);
 
 
 
@@ -92,7 +94,7 @@ const GalleryPage = () => {
         );
         const currentObserver = observerRef.current;
         currentObserver.observe(loaderRef.current);
-        return () => { currentObserver.disconnect(); };
+        return () => currentObserver.disconnect();
 
     }, [visiblePosts.length, shuffledPosts.length]);
 
@@ -102,7 +104,7 @@ const GalleryPage = () => {
 
     return (
         <Container maxWidth="lg" sx={containerStyles}>
-            <Box sx={headerWrapperStyles}>
+            <Stack direction="row" sx={headerWrapperStyles}>
                 {character && (
                     <Box sx={galleryHeaderBoxStyles}>
                         <GalleryHeaderCharacter character={character} />
@@ -114,13 +116,13 @@ const GalleryPage = () => {
                     </Box>
                 )}
                 <FormControlLabel
-                    control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" />}
-                    label="Gallery Only" sx={switchLabelStyles(theme)}
+                    control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" slotProps={switchSlotProps} />}
+                    label={<Typography variant="body1">Gallery Only</Typography>} sx={switchLabelStyles(theme)}
                 />
-            </Box>
+            </Stack>
             <Gallery posts={visiblePosts} />
             {visiblePosts.length < shuffledPosts.length && (
-                <Box ref={loaderRef} sx={loaderBoxStyles}>
+                <Box ref={loaderRef} sx={loaderBoxStyles} aria-busy="true">
                     <CircularProgress />
                 </Box>
             )}

@@ -1,5 +1,9 @@
 import type { SxProps, Theme } from '@mui/material/styles';
 
+export const switchSlotProps = {
+    input: { 'aria-label': 'Toggle gallery only' }
+};
+
 export const containerStyles: SxProps<Theme> = {
     pt: 4,
     pb: 4,
