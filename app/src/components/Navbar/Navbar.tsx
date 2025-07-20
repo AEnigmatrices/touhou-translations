@@ -12,27 +12,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 
+import { ElevationScroll, navLinks } from './Navbar.utils';
 import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from './Navbar.styles';
 
-interface ElevationScrollProps {
-    children: React.ReactElement<{ elevation?: number }>;
-}
 
-const ElevationScroll = (props: ElevationScrollProps) => {
-    const { children } = props;
-    const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
-    return React.cloneElement(children, { elevation: trigger ? 4 : 0 });
-}
-
-const navLinks = [
-    { label: 'Home', to: '/' },
-    { label: 'Characters', to: '/characters' },
-    { label: 'Artists', to: '/artists' },
-    { label: 'Gallery', to: '/gallery' },
-];
 
 const Navbar: React.FC = () => {
     const location = useLocation();
