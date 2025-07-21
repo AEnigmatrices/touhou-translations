@@ -87,8 +87,8 @@ const PostForm: React.FC = () => {
                         <Stack direction="row" spacing={2} flexWrap="wrap">
                             <Box sx={inputBoxSmallSx}>
                                 <TextField
-                                    label="UNIX Timestamp" type="number" error={!!errors.date} helperText={errors.date?.message}
-                                    {...register('date', { required: 'Date is required', valueAsNumber: true })} fullWidth
+                                    label="UNIX Timestamp" type="number" error={!!errors.date} helperText={errors.date?.message} fullWidth
+                                    {...register('date', { required: 'Date is required', valueAsNumber: true })} slotProps={{ inputLabel: { shrink: !!watch('date') } }}
                                 />
                             </Box>
 
@@ -114,8 +114,8 @@ const PostForm: React.FC = () => {
                         </Typography>
                         <Stack spacing={2}>
                             <TextField
-                                label="Image URLs (comma separated)" error={!!errors.urls} helperText={errors.urls?.message}
-                                {...register('urls', { required: 'Image URLs are required' })} fullWidth
+                                label="Image URLs (comma separated)" error={!!errors.urls} helperText={errors.urls?.message} fullWidth
+                                {...register('urls', { required: 'Image URLs are required' })} slotProps={{ inputLabel: { shrink: !!watch('urls') } }}
                             />
                             <TextField
                                 label="Character IDs (comma separated)" error={!!errors.characterIds} helperText={errors.characterIds?.message}
