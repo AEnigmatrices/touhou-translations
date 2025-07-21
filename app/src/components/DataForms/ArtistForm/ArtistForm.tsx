@@ -66,15 +66,15 @@ const ArtistForm: React.FC = () => {
                         <Stack direction="row" spacing={2} flexWrap="wrap">
                             <Box sx={artistIdBoxSx}>
                                 <TextField
-                                    label="Artist ID" error={!!errors.id} helperText={errors.id?.message}
-                                    {...register('id', { required: 'ID is required' })} fullWidth
+                                    label="Artist ID" error={!!errors.id} helperText={errors.id?.message} fullWidth
+                                    {...register('id', { required: 'ID is required' })} slotProps={{ inputLabel: { shrink: !!watch('id') } }}
                                 />
                             </Box>
 
                             <Box sx={nameBoxSx}>
                                 <TextField
-                                    label="Name" error={!!errors.name} helperText={errors.name?.message}
-                                    {...register('name', { required: 'Name is required' })} fullWidth
+                                    label="Name" error={!!errors.name} helperText={errors.name?.message} fullWidth
+                                    {...register('name', { required: 'Name is required' })} slotProps={{ inputLabel: { shrink: !!watch('name') } }}
                                 />
                             </Box>
                         </Stack>
@@ -87,15 +87,17 @@ const ArtistForm: React.FC = () => {
                         <Stack direction="row" spacing={2} flexWrap="wrap">
                             <Box sx={twitterBoxSx}>
                                 <TextField
-                                    label="Twitter Link" error={!!errors.linkTwitter} helperText={errors.linkTwitter?.message}
-                                    {...register('linkTwitter', { pattern: { value: TWITTER_URL_PATTERN, message: 'Invalid Twitter URL' } })} fullWidth
+                                    label="Twitter Link" error={!!errors.linkTwitter} helperText={errors.linkTwitter?.message} fullWidth
+                                    {...register('linkTwitter', { pattern: { value: TWITTER_URL_PATTERN, message: 'Invalid Twitter URL' } })}
+                                    slotProps={{ inputLabel: { shrink: !!watch('linkTwitter') } }}
                                 />
                             </Box>
 
                             <Box sx={pixivBoxSx}>
                                 <TextField
-                                    label="Pixiv Link" error={!!errors.linkPixiv} helperText={errors.linkPixiv?.message}
-                                    {...register('linkPixiv', { pattern: { value: PIXIV_URL_PATTERN, message: 'Invalid Pixiv URL' } })} fullWidth
+                                    label="Pixiv Link" error={!!errors.linkPixiv} helperText={errors.linkPixiv?.message} fullWidth
+                                    {...register('linkPixiv', { pattern: { value: PIXIV_URL_PATTERN, message: 'Invalid Pixiv URL' } })}
+                                    slotProps={{ inputLabel: { shrink: !!watch('linkPixiv') } }}
                                 />
                             </Box>
                         </Stack>

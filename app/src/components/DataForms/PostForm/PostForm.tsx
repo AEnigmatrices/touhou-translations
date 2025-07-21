@@ -94,15 +94,15 @@ const PostForm: React.FC = () => {
 
                             <Box sx={inputBoxSmallSx}>
                                 <TextField
-                                    label="Artist ID" error={!!errors.artistId} helperText={errors.artistId?.message}
-                                    {...register('artistId', { required: 'Artist ID is required', validate: validateArtistId })} fullWidth
+                                    label="Artist ID" error={!!errors.artistId} helperText={errors.artistId?.message} fullWidth
+                                    {...register('artistId', { required: 'Artist ID is required', validate: validateArtistId })} slotProps={{ inputLabel: { shrink: !!watch('artistId') } }}
                                 />
                             </Box>
 
                             <Box sx={inputBoxSmallSx}>
                                 <TextField
-                                    label="Source URL" error={!!errors.src} helperText={errors.src?.message}
-                                    {...register('src', { required: 'Source URL is required' })} fullWidth
+                                    label="Source URL" error={!!errors.src} helperText={errors.src?.message} fullWidth
+                                    {...register('src', { required: 'Source URL is required' })} slotProps={{ inputLabel: { shrink: !!watch('src') } }}
                                 />
                             </Box>
                         </Stack>
@@ -118,8 +118,8 @@ const PostForm: React.FC = () => {
                                 {...register('urls', { required: 'Image URLs are required' })} slotProps={{ inputLabel: { shrink: !!watch('urls') } }}
                             />
                             <TextField
-                                label="Character IDs (comma separated)" error={!!errors.characterIds} helperText={errors.characterIds?.message}
-                                {...register('characterIds', { required: 'Character IDs are required' })} fullWidth
+                                label="Character IDs (comma separated)" error={!!errors.characterIds} helperText={errors.characterIds?.message} fullWidth
+                                {...register('characterIds', { required: 'Character IDs are required' })} slotProps={{ inputLabel: { shrink: !!watch('characterIds') } }}
                             />
                         </Stack>
                     </Box>
@@ -129,8 +129,8 @@ const PostForm: React.FC = () => {
                             Description
                         </Typography>
                         <TextField
-                            label="Description" error={!!errors.desc} helperText={errors.desc?.message}
-                            {...register('desc', { required: 'Description is required' })} multiline minRows={6} fullWidth
+                            label="Description" error={!!errors.desc} helperText={errors.desc?.message} multiline minRows={6} fullWidth
+                            {...register('desc', { required: 'Description is required' })} slotProps={{ inputLabel: { shrink: !!watch('desc') } }}
                         />
                     </Box>
 
@@ -139,8 +139,8 @@ const PostForm: React.FC = () => {
                             Reddit URL
                         </Typography>
                         <TextField
-                            label="Reddit URL" error={!!errors.reddit} helperText={errors.reddit?.message}
-                            {...register('reddit', { required: 'Reddit URL is required' })} fullWidth
+                            label="Reddit URL" error={!!errors.reddit} helperText={errors.reddit?.message} fullWidth
+                            {...register('reddit', { required: 'Reddit URL is required' })} slotProps={{ inputLabel: { shrink: !!watch('reddit') } }}
                         />
                     </Box>
 
