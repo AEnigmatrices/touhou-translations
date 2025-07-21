@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { TextField, Button, Stack, Typography, Box } from '@mui/material';
 import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId } from './ArtistForm.utils';
+import { containerBoxSx, artistIdBoxSx, nameBoxSx, twitterBoxSx, pixivBoxSx, submitButtonSx } from './ArtistForm.styles';
 import type { Artist } from '../../../types/data';
-import "./ArtistForm.scss";
 
 
 
@@ -51,53 +52,63 @@ const ArtistForm: React.FC = () => {
 
 
     return (
-        <div className="artist-form__container">
-            <h3 className="artist-form__title">Add New Artist (Local Dev Only)</h3>
-            <form className="artist-form__form" onSubmit={handleSubmit(onSubmit)}>
-                <div className="artist-form__row">
-                    <label className="artist-form__label">
-                        Artist ID:
-                        <input type="text" className="artist-form__input" {...register('id', { required: 'ID is required' })} />
-                        {errors.id && <span className="artist-form__error">{errors.id.message}</span>}
-                    </label>
+        <Box sx={containerBoxSx}>
+            <Typography variant="h5" mb={3} textAlign="center">
+                Add New Artist (Local Dev Only)
+            </Typography>
 
-                    <label className="artist-form__label">
-                        Name:
-                        <input type="text" className="artist-form__input" {...register('name', { required: 'Name is required' })} />
-                        {errors.name && <span className="artist-form__error">{errors.name.message}</span>}
-                    </label>
-                </div>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                <Stack spacing={3}>
+                    <Box>
+                        <Typography variant="h6" gutterBottom>
+                            Artist Information
+                        </Typography>
+                        <Stack direction="row" spacing={2} flexWrap="wrap">
+                            <Box sx={artistIdBoxSx}>
+                                <TextField
+                                    label="Artist ID" error={!!errors.id} helperText={errors.id?.message}
+                                    {...register('id', { required: 'ID is required' })} fullWidth
+                                />
+                            </Box>
 
-                <div className="artist-form__row">
-                    <label className="artist-form__label">
-                        Twitter Link:
-                        <input
-                            type="text" className="artist-form__input"
-                            {...register('linkTwitter', { pattern: { value: TWITTER_URL_PATTERN, message: 'Invalid Twitter URL' } })}
-                        />
-                        {errors.linkTwitter && <span className="artist-form__error">{errors.linkTwitter.message}</span>}
-                    </label>
+                            <Box sx={nameBoxSx}>
+                                <TextField
+                                    label="Name" error={!!errors.name} helperText={errors.name?.message}
+                                    {...register('name', { required: 'Name is required' })} fullWidth
+                                />
+                            </Box>
+                        </Stack>
+                    </Box>
 
-                    <label className="artist-form__label">
-                        Pixiv Link:
-                        <input
-                            type="text" className="artist-form__input"
-                            {...register('linkPixiv', { pattern: { value: PIXIV_URL_PATTERN, message: 'Invalid Pixiv URL' } })}
-                        />
-                        {errors.linkPixiv && <span className="artist-form__error">{errors.linkPixiv.message}</span>}
-                    </label>
-                </div>
+                    <Box>
+                        <Typography variant="h6" gutterBottom>
+                            Links
+                        </Typography>
+                        <Stack direction="row" spacing={2} flexWrap="wrap">
+                            <Box sx={twitterBoxSx}>
+                                <TextField
+                                    label="Twitter Link" error={!!errors.linkTwitter} helperText={errors.linkTwitter?.message}
+                                    {...register('linkTwitter', { pattern: { value: TWITTER_URL_PATTERN, message: 'Invalid Twitter URL' } })} fullWidth
+                                />
+                            </Box>
 
-                <div className="artist-form__row artist-form__row--buttons">
-                    <button
-                        type="submit" disabled={isSubmitting}
-                        className={`artist-form__button ${isSubmitting ? 'artist-form__button--disabled' : ''}`}
-                    >
-                        {isSubmitting ? 'Submitting...' : 'Add Artist'}
-                    </button>
-                </div>
+                            <Box sx={pixivBoxSx}>
+                                <TextField
+                                    label="Pixiv Link" error={!!errors.linkPixiv} helperText={errors.linkPixiv?.message}
+                                    {...register('linkPixiv', { pattern: { value: PIXIV_URL_PATTERN, message: 'Invalid Pixiv URL' } })} fullWidth
+                                />
+                            </Box>
+                        </Stack>
+                    </Box>
+
+                    <Stack direction="row" justifyContent="center">
+                        <Button type="submit" variant="contained" disabled={isSubmitting} sx={submitButtonSx} >
+                            {isSubmitting ? 'Submitting...' : 'Add Artist'}
+                        </Button>
+                    </Stack>
+                </Stack>
             </form>
-        </div>
+        </Box>
     );
 };
 

@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { TextField, Button, Stack, Typography, Box } from '@mui/material';
 import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl, validateArtistId, submitPostEntry } from './PostForm.utils';
+import { containerBoxSx, inputBoxSmallSx, actionButtonSx } from './PostForm.styles';
 import { useGetPosts } from '../../../context/PostsContext';
 import type { PostEntryForm } from "../../../types/data";
-import "./PostForm.scss";
 
 
 
@@ -42,8 +43,7 @@ const PostForm: React.FC = () => {
     const handleFetchRedditData = async () => {
         const redditUrl = getValues('reddit');
         if (!redditUrl) {
-            alert('Please enter a Reddit URL first.');
-            return;
+            alert('Please enter a Reddit URL first.'); return;
         }
         const validationResult = validateRedditUrl(redditUrl, allPosts);
         if (validationResult !== true) {
@@ -63,82 +63,99 @@ const PostForm: React.FC = () => {
         }
     };
 
-
-
     useEffect(() => {
-        if (!watchedReddit) { clearErrors('reddit'); return; }
+        if (!watchedReddit) {
+            clearErrors('reddit'); return;
+        }
         debouncedValidateReddit(watchedReddit);
-
     }, [watchedReddit, debouncedValidateReddit, clearErrors]);
 
 
 
     return (
-        <div className="post-form__container">
-            <h3 className="post-form__title">Add New Post (Local Dev Only)</h3>
-            <form className="post-form__form" onSubmit={handleSubmit(onSubmit)}>
-                <div className="post-form__row">
-                    <label className="post-form__label">
-                        UNIX Timestamp:
-                        <input type="number" className="post-form__input" {...register('date', { required: 'Date is required', valueAsNumber: true })} />
-                        {errors.date && <span className="post-form__error">{errors.date.message}</span>}
-                    </label>
+        <Box sx={containerBoxSx}>
+            <Typography variant="h5" mb={4} textAlign="center">
+                Add New Post (Local Dev Only)
+            </Typography>
 
-                    <label className="post-form__label">
-                        Artist ID:
-                        <input type="text" className="post-form__input" {...register('artistId', { required: 'Artist ID is required', validate: validateArtistId })} />
-                        {errors.artistId && <span className="post-form__error">{errors.artistId.message}</span>}
-                    </label>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                <Stack spacing={4}>
+                    <Box>
+                        <Typography variant="h6" gutterBottom>
+                            Post Details
+                        </Typography>
+                        <Stack direction="row" spacing={2} flexWrap="wrap">
+                            <Box sx={inputBoxSmallSx}>
+                                <TextField
+                                    label="UNIX Timestamp" type="number" error={!!errors.date} helperText={errors.date?.message}
+                                    {...register('date', { required: 'Date is required', valueAsNumber: true })} fullWidth
+                                />
+                            </Box>
 
-                    <label className="post-form__label">
-                        Source URL:
-                        <input type="text" className="post-form__input" {...register('src', { required: 'Source URL is required' })} />
-                        {errors.src && <span className="post-form__error">{errors.src.message}</span>}
-                    </label>
-                </div>
+                            <Box sx={inputBoxSmallSx}>
+                                <TextField
+                                    label="Artist ID" error={!!errors.artistId} helperText={errors.artistId?.message}
+                                    {...register('artistId', { required: 'Artist ID is required', validate: validateArtistId })} fullWidth
+                                />
+                            </Box>
 
-                <div className="post-form__row">
-                    <label className="post-form__label">
-                        Image URLs (comma separated):
-                        <input type="text" className="post-form__input" {...register('urls', { required: 'Image URLs are required' })} />
-                        {errors.urls && <span className="post-form__error">{errors.urls.message}</span>}
-                    </label>
-                </div>
+                            <Box sx={inputBoxSmallSx}>
+                                <TextField
+                                    label="Source URL" error={!!errors.src} helperText={errors.src?.message}
+                                    {...register('src', { required: 'Source URL is required' })} fullWidth
+                                />
+                            </Box>
+                        </Stack>
+                    </Box>
 
-                <div className="post-form__row">
-                    <label className="post-form__label">
-                        Character IDs (comma separated):
-                        <input type="text" className="post-form__input" {...register('characterIds', { required: 'Character IDs are required' })} />
-                        {errors.characterIds && <span className="post-form__error">{errors.characterIds.message}</span>}
-                    </label>
-                </div>
+                    <Box>
+                        <Typography variant="h6" gutterBottom>
+                            URLs
+                        </Typography>
+                        <Stack spacing={2}>
+                            <TextField
+                                label="Image URLs (comma separated)" error={!!errors.urls} helperText={errors.urls?.message}
+                                {...register('urls', { required: 'Image URLs are required' })} fullWidth
+                            />
+                            <TextField
+                                label="Character IDs (comma separated)" error={!!errors.characterIds} helperText={errors.characterIds?.message}
+                                {...register('characterIds', { required: 'Character IDs are required' })} fullWidth
+                            />
+                        </Stack>
+                    </Box>
 
-                <div className="post-form__row">
-                    <label className="post-form__label">
-                        Description:
-                        <textarea rows={6} className="post-form__input post-form__input--textarea" {...register('desc', { required: 'Description is required' })} />
-                        {errors.desc && <span className="post-form__error">{errors.desc.message}</span>}
-                    </label>
-                </div>
+                    <Box>
+                        <Typography variant="h6" gutterBottom>
+                            Description
+                        </Typography>
+                        <TextField
+                            label="Description" error={!!errors.desc} helperText={errors.desc?.message}
+                            {...register('desc', { required: 'Description is required' })} multiline minRows={6} fullWidth
+                        />
+                    </Box>
 
-                <div className="post-form__row">
-                    <label className="post-form__label">
-                        Reddit URL:
-                        <input type="text" className="post-form__input"  {...register('reddit', { required: 'Reddit URL is required' })} />
-                        {errors.reddit && <span className="post-form__error">{errors.reddit.message}</span>}
-                    </label>
-                </div>
+                    <Box>
+                        <Typography variant="h6" gutterBottom>
+                            Reddit URL
+                        </Typography>
+                        <TextField
+                            label="Reddit URL" error={!!errors.reddit} helperText={errors.reddit?.message}
+                            {...register('reddit', { required: 'Reddit URL is required' })} fullWidth
+                        />
+                    </Box>
 
-                <div className="post-form__row post-form__row--buttons">
-                    <button type="button" className={`post-form__button ${loadingRedditData ? 'post-form__button--disabled' : ''}`} onClick={handleFetchRedditData}>
-                        {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
-                    </button>
-                    <button type="submit" className={`post-form__button ${isSubmitting ? 'post-form__button--disabled' : ''}`}>
-                        {isSubmitting ? 'Submitting...' : 'Add Post'}
-                    </button>
-                </div>
+                    <Stack direction="row" spacing={2} justifyContent="center" flexWrap="wrap">
+                        <Button variant="contained" onClick={handleFetchRedditData} disabled={loadingRedditData} sx={actionButtonSx} >
+                            {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
+                        </Button>
+
+                        <Button type="submit" variant="contained" disabled={isSubmitting} sx={actionButtonSx} >
+                            {isSubmitting ? 'Submitting...' : 'Add Post'}
+                        </Button>
+                    </Stack>
+                </Stack>
             </form>
-        </div>
+        </Box>
     );
 };
 
