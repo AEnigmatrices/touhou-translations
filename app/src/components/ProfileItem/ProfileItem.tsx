@@ -1,41 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./ProfileItem.scss";
+import { Link as RouterLink } from "react-router-dom";
+import { Box, Avatar, Typography, Paper, Link as MuiLink } from "@mui/material";
+import { avatarSx, contentSx, linkBoxSx, paperSx, placeholderSx, textContainerSx } from "./ProfileItem.styles";
 
-interface Props {
-    name: string;
-    imageUrl?: string | null;
-    description?: string;
-    link?: string;
-}
+interface Props { name: string; imageUrl?: string | null; description?: string; link?: string; }
 
 
 
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
 
-    const image = imageUrl
-        ? <img src={imageUrl} alt={name} className="profile-item__image" loading="lazy" />
-        : <div className="profile-item__image-placeholder" aria-hidden />;
+    const ImageContent = imageUrl
+        ? <Avatar src={imageUrl} alt={name} sx={avatarSx} variant="rounded" />
+        : <Box sx={placeholderSx} aria-hidden />
 
-    const content = (
-        <>
-            <div className={`profile-item__image-wrapper ${!imageUrl ? "profile-item__image-wrapper--placeholder" : ""}`}>
-                {image}
-            </div>
-            <div className="profile-item__info">
-                <span className="profile-item__name">{name}</span>
-                {description && <span className="profile-item__description">{description}</span>}
-            </div>
-        </>
+    const Content = (
+        <Box sx={contentSx}>
+            {ImageContent}
+            <Box sx={textContainerSx}>
+                <Typography variant="subtitle1" fontWeight={600}>{name}</Typography>
+                {description && <Typography variant="body2" color="text.secondary">{description}</Typography>}
+            </Box>
+        </Box>
     );
 
     return (
-        <li className="profile-item" role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0}>
+        <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={paperSx} >
             {link
-                ? <Link to={link} className="profile-item__link">{content}</Link>
-                : <div className="profile-item__link">{content}</div>
+                ? <MuiLink component={RouterLink} to={link} underline="none" color="inherit" sx={linkBoxSx} >{Content}</MuiLink>
+                : <Box sx={linkBoxSx}>{Content}</Box>
             }
-        </li>
+        </Paper>
     );
 };
 
