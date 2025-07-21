@@ -13,14 +13,14 @@ export interface Artist {
     name: string;
     linkTwitter?: string;
     linkPixiv?: string;
-    artworkCount?: number;
+    artworkCount: number;
 }
 
 export interface Character {
     id: string;
     name: string;
     work: string;
-    artworkCount?: number;
+    artworkCount: number;
 }
 
 export interface PostEntryForm {
