@@ -29,7 +29,7 @@ The project leverages the following technologies and tools:
 
     -   `components/`, `context/`, `icons/`, `pages/`, `types/`, `utils/`
 
-    -   Key files: `App.tsx`, `main.tsx`, `Routes.tsx`, `index.scss`
+    -   Key files: `App.tsx`, `main.tsx`, `Routes.tsx`, `index.css`
 
 -   `vite.config.ts` – Vite configuration with base path set for GitHub Pages
 
