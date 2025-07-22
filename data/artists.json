@@ -956,5 +956,34 @@
         "name": "野愛におし",
         "linkTwitter": "https://x.com/nioshi_noai",
         "linkPixiv": "https://www.pixiv.net/en/users/246328"
+    },
+    {
+        "id": "shay",
+        "name": "シェイ",
+        "linkTwitter": "https://x.com/ShayyyTeraO",
+        "linkPixiv": "https://www.pixiv.net/en/users/67949568"
+    },
+    {
+        "id": "aotake_seijirou",
+        "name": "青竹せいじろう",
+        "linkTwitter": "https://x.com/aotksejiro",
+        "linkPixiv": "https://www.pixiv.net/en/users/16142952"
+    },
+    {
+        "id": "kontamaruna",
+        "name": "こんたまるな",
+        "linkTwitter": "https://x.com/LoLK_m",
+        "linkPixiv": "https://www.pixiv.net/en/users/104705331"
+    },
+    {
+        "id": "signal_mass",
+        "name": "坂本しぐま",
+        "linkTwitter": "https://x.com/SignalMass"
+    },
+    {
+        "id": "shigefumi",
+        "name": "しげふみ",
+        "linkTwitter": "https://x.com/baystarsapphire",
+        "linkPixiv": "https://www.pixiv.net/en/users/57296736"
     }
 ]
