@@ -4,6 +4,7 @@ import { hashDateToIndex } from './HomePage.utils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 import PostForm from '../../components/DataForms/PostForm/PostForm';
 import ArtistForm from '../../components/DataForms/ArtistForm/ArtistForm';
+import SiteMapGenerator from '../../components/DataForms/SiteMapGenerator/SiteMapGenerator';
 
 const Home = () => {
 
@@ -23,6 +24,7 @@ const Home = () => {
         <div>
             {enablePostForm && (<PostForm />)}
             {enablePostForm && (<ArtistForm />)}
+            {enablePostForm && (<SiteMapGenerator />)}
             <h2>Post of the Day</h2>
             {post ? <ImageViewer post={post} /> : <p style={{ color: 'red' }}>No posts available.</p>}
         </div>
