@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button, Stack, Typography, Box } from '@mui/material';
 import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl, validateArtistId, submitPostEntry } from './PostForm.utils';
-import { containerBoxSx, inputBoxSmallSx, actionButtonSx } from './PostForm.styles';
+import styles from './PostForm.styles';
 import { useGetPosts } from '../../../context/PostsContext';
 import type { PostEntryForm } from "../../../types/data";
 
@@ -73,11 +73,7 @@ const PostForm: React.FC = () => {
 
 
     return (
-        <Box sx={containerBoxSx}>
-            <Typography variant="h5" mb={4} textAlign="center">
-                Add New Post
-            </Typography>
-
+        <Box sx={styles.containerBox}>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <Stack spacing={4}>
                     <Box>
@@ -85,21 +81,21 @@ const PostForm: React.FC = () => {
                             Post Details
                         </Typography>
                         <Stack direction="row" spacing={2} flexWrap="wrap">
-                            <Box sx={inputBoxSmallSx}>
+                            <Box sx={styles.inputBoxSmall}>
                                 <TextField
                                     label="UNIX Timestamp" type="number" error={!!errors.date} helperText={errors.date?.message} fullWidth
                                     {...register('date', { required: 'Date is required', valueAsNumber: true })} slotProps={{ inputLabel: { shrink: !!watch('date') } }}
                                 />
                             </Box>
 
-                            <Box sx={inputBoxSmallSx}>
+                            <Box sx={styles.inputBoxSmall}>
                                 <TextField
                                     label="Artist ID" error={!!errors.artistId} helperText={errors.artistId?.message} fullWidth
                                     {...register('artistId', { required: 'Artist ID is required', validate: validateArtistId })} slotProps={{ inputLabel: { shrink: !!watch('artistId') } }}
                                 />
                             </Box>
 
-                            <Box sx={inputBoxSmallSx}>
+                            <Box sx={styles.inputBoxSmall}>
                                 <TextField
                                     label="Source URL" error={!!errors.src} helperText={errors.src?.message} fullWidth
                                     {...register('src', { required: 'Source URL is required' })} slotProps={{ inputLabel: { shrink: !!watch('src') } }}
@@ -145,11 +141,11 @@ const PostForm: React.FC = () => {
                     </Box>
 
                     <Stack direction="row" spacing={2} justifyContent="center" flexWrap="wrap">
-                        <Button variant="contained" onClick={handleFetchRedditData} disabled={loadingRedditData} sx={actionButtonSx} >
+                        <Button variant="contained" onClick={handleFetchRedditData} disabled={loadingRedditData} sx={styles.actionButton} >
                             {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
                         </Button>
 
-                        <Button type="submit" variant="contained" disabled={isSubmitting} sx={actionButtonSx} >
+                        <Button type="submit" variant="contained" disabled={isSubmitting} sx={styles.actionButton} >
                             {isSubmitting ? 'Submitting...' : 'Add Post'}
                         </Button>
                     </Stack>
