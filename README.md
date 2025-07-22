@@ -70,6 +70,15 @@ Once deployed, users can browse and read translated Touhou fan comics and illust
 
 ## License and Attribution
 
-This project is for non-commercial, fan translation purposes only. All rights to the original artworks belong to their respective creators. If you are an artist and wish to have your work removed or credited differently, please open an issue or contact me.
+This project's software and website code are licensed under the MIT License © AEnigmatrices, 2025.
+
+The Touhou fan comics, illustrations, and translated content hosted here are non-commercial fan works and remain the intellectual property of their original creators.
+
+Third-party assets, including portraits by the artist dairi, are used under the following terms:
+- Non-commercial use only; redistribution and commercial use are prohibited.
+- Touhou character portraits are by [**dairi**](https://www.pixiv.net/en/users/4920496) ([**haruka**](https://www.nicovideo.jp/user/3494232)), used accordingly to the specified permissions.
+- The project complies with the [**Touhou Project fan work guidelines**](https://touhou-project.news/guidelines_en/).
+
+If you are an artist and wish to have your work removed or credited differently, please open an issue or contact me.
 
 © AEnigmatrices, 2025
