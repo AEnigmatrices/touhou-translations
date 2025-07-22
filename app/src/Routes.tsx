@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import Layout from './pages/Layout';
+import Layout from './pages/Layout/Layout';
 import HomePage from './pages/HomePage/HomePage';
 import CharacterPage from './pages/CharacterPage/CharacterPage';
 import ArtistPage from './pages/ArtistPage/ArtistPage';
