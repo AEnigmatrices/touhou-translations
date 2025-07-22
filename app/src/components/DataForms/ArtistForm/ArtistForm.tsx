@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button, Stack, Typography, Box } from '@mui/material';
 import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId } from './ArtistForm.utils';
-import { containerBoxSx, artistIdBoxSx, nameBoxSx, twitterBoxSx, pixivBoxSx, submitButtonSx } from './ArtistForm.styles';
+import styles from './ArtistForm.styles';
 import type { ArtistFormInput } from './ArtistForm.types';
 
 
@@ -52,11 +52,7 @@ const ArtistForm: React.FC = () => {
 
 
     return (
-        <Box sx={containerBoxSx}>
-            <Typography variant="h5" mb={3} textAlign="center">
-                Add New Artist
-            </Typography>
-
+        <Box sx={styles.containerBox}>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <Stack spacing={3}>
                     <Box>
@@ -64,14 +60,14 @@ const ArtistForm: React.FC = () => {
                             Artist Information
                         </Typography>
                         <Stack direction="row" spacing={2} flexWrap="wrap">
-                            <Box sx={artistIdBoxSx}>
+                            <Box sx={styles.artistIdBox}>
                                 <TextField
                                     label="Artist ID" error={!!errors.id} helperText={errors.id?.message} fullWidth
                                     {...register('id', { required: 'ID is required' })} slotProps={{ inputLabel: { shrink: !!watch('id') } }}
                                 />
                             </Box>
 
-                            <Box sx={nameBoxSx}>
+                            <Box sx={styles.nameBox}>
                                 <TextField
                                     label="Name" error={!!errors.name} helperText={errors.name?.message} fullWidth
                                     {...register('name', { required: 'Name is required' })} slotProps={{ inputLabel: { shrink: !!watch('name') } }}
@@ -85,7 +81,7 @@ const ArtistForm: React.FC = () => {
                             Links
                         </Typography>
                         <Stack direction="row" spacing={2} flexWrap="wrap">
-                            <Box sx={twitterBoxSx}>
+                            <Box sx={styles.twitterBox}>
                                 <TextField
                                     label="Twitter Link" error={!!errors.linkTwitter} helperText={errors.linkTwitter?.message} fullWidth
                                     {...register('linkTwitter', { pattern: { value: TWITTER_URL_PATTERN, message: 'Invalid Twitter URL' } })}
@@ -93,7 +89,7 @@ const ArtistForm: React.FC = () => {
                                 />
                             </Box>
 
-                            <Box sx={pixivBoxSx}>
+                            <Box sx={styles.pixivBox}>
                                 <TextField
                                     label="Pixiv Link" error={!!errors.linkPixiv} helperText={errors.linkPixiv?.message} fullWidth
                                     {...register('linkPixiv', { pattern: { value: PIXIV_URL_PATTERN, message: 'Invalid Pixiv URL' } })}
@@ -104,7 +100,7 @@ const ArtistForm: React.FC = () => {
                     </Box>
 
                     <Stack direction="row" justifyContent="center">
-                        <Button type="submit" variant="contained" disabled={isSubmitting} sx={submitButtonSx} >
+                        <Button type="submit" variant="contained" disabled={isSubmitting} sx={styles.submitButton} >
                             {isSubmitting ? 'Submitting...' : 'Add Artist'}
                         </Button>
                     </Stack>
