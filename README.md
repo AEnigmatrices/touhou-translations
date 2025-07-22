@@ -74,7 +74,7 @@ This project's software and website code are licensed under the MIT License © A
 
 The Touhou fan comics, illustrations, and translated content hosted here are non-commercial fan works and remain the intellectual property of their original creators.
 
-Third-party assets, including portraits by the artist dairi, are used under the following terms:
+Third-party assets are used under the following terms:
 - Non-commercial use only; redistribution and commercial use are prohibited.
 - Touhou character portraits are by [**dairi**](https://www.pixiv.net/en/users/4920496) ([**haruka**](https://www.nicovideo.jp/user/3494232)), used accordingly to the specified permissions.
 - The project complies with the [**Touhou Project fan work guidelines**](https://touhou-project.news/guidelines_en/).
