@@ -2,12 +2,8 @@ import { useMemo } from 'react';
 import { useGetPosts } from '../../context/PostsContext';
 import { hashDateToIndex } from './HomePage.utils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
-import PostForm from '../../components/DataForms/PostForm/PostForm';
-import ArtistForm from '../../components/DataForms/ArtistForm/ArtistForm';
-import SiteMapGenerator from '../../components/DataForms/SiteMapGenerator/SiteMapGenerator';
 
-const Home = () => {
-
+const HomePage = () => {
     const posts = useGetPosts();
 
     const selectedIndex = useMemo(() => {
@@ -18,17 +14,12 @@ const Home = () => {
 
     const post = selectedIndex === -1 ? null : posts[selectedIndex];
 
-    const enablePostForm = import.meta.env.VITE_ENABLE_POST_FORM === "true";
-
     return (
         <div>
-            {enablePostForm && (<PostForm />)}
-            {enablePostForm && (<ArtistForm />)}
-            {enablePostForm && (<SiteMapGenerator />)}
             <h2>Post of the Day</h2>
             {post ? <ImageViewer post={post} /> : <p style={{ color: 'red' }}>No posts available.</p>}
         </div>
     );
 };
 
-export default Home;
+export default HomePage;

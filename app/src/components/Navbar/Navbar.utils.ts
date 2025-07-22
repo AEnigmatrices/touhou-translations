@@ -16,4 +16,7 @@ export const navLinks = [
     { label: 'Characters', to: '/characters' },
     { label: 'Artists', to: '/artists' },
     { label: 'Gallery', to: '/gallery' },
+    ...(import.meta.env.VITE_ENABLE_ADMIN === "true"
+        ? [{ label: 'Admin', to: '/admin' }]
+        : []),
 ];

@@ -1,24 +1,26 @@
 import { useRoutes } from 'react-router-dom';
 import Layout from './pages/Layout';
-import Home from './pages/HomePage/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import CharacterPage from './pages/CharacterPage/CharacterPage';
 import ArtistPage from './pages/ArtistPage/ArtistPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import Item from './pages/ItemPage/Item';
-import Placeholder from './components/Placeholder';
+import AdminPage from './pages/AdminPage/AdminPage';
+
+const enableAdmin = import.meta.env.VITE_ENABLE_ADMIN === "true";
 
 const routes = [
     {
         path: '/',
         element: <Layout />,
         children: [
-            { index: true, element: <Home /> },
-            { path: 'search', element: <Placeholder title="Search" /> },
+            { index: true, element: <HomePage /> },
             { path: 'characters', element: <CharacterPage /> },
             { path: 'artists', element: <ArtistPage /> },
             { path: 'gallery', element: <GalleryPage /> },
-            { path: 'post/:id', element: <Item /> }
-        ],
+            { path: 'post/:id', element: <Item /> },
+            ...(enableAdmin ? [{ path: 'admin', element: <AdminPage /> }] : [])
+        ]
     }
 ];
 

@@ -54,7 +54,7 @@ const ArtistForm: React.FC = () => {
     return (
         <Box sx={containerBoxSx}>
             <Typography variant="h5" mb={3} textAlign="center">
-                Add New Artist (Local Dev Only)
+                Add New Artist
             </Typography>
 
             <form onSubmit={handleSubmit(onSubmit)} noValidate>

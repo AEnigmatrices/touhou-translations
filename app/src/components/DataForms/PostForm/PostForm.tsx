@@ -75,7 +75,7 @@ const PostForm: React.FC = () => {
     return (
         <Box sx={containerBoxSx}>
             <Typography variant="h5" mb={4} textAlign="center">
-                Add New Post (Local Dev Only)
+                Add New Post
             </Typography>
 
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
