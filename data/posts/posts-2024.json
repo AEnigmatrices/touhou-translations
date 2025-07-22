@@ -5593,5 +5593,142 @@
             "tenshi",
             "yukari"
         ]
+    },
+    {
+        "date": 1734447006000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hgc8wh",
+        "url": [
+            "https://i.redd.it/7j5d8hif9f7e1.png"
+        ],
+        "src": "https://x.com/whis11/status/1864966348708942180",
+        "desc": "You're a goat, Yūma. Just grow out your winter coat.",
+        "artistId": "whis",
+        "characterIds": [
+            "yuuma"
+        ]
+    },
+    {
+        "date": 1734526147000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hh0uvh",
+        "url": [
+            "https://i.redd.it/0n7w8hrnsl7e1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/124957648",
+        "desc": "The good thing about **Number 3** is that you're sandwiched between the Komeiji sisters. And the ~~bad~~ other good thing is Cirno behind you for the entire eight-hour flight.",
+        "artistId": "tofuya",
+        "characterIds": [
+            "alice",
+            "marisa",
+            "reimu",
+            "sanae",
+            "youmu",
+            "reisen",
+            "kaguya",
+            "mokou",
+            "satori",
+            "koishi",
+            "flandre",
+            "remilia",
+            "mystia",
+            "cirno",
+            "rumia",
+            "meiling",
+            "sakuya",
+            "patchouli"
+        ]
+    },
+    {
+        "date": 1734530844000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hh2bgl",
+        "url": [
+            "https://i.redd.it/79unjdgp6m7e1.png"
+        ],
+        "src": "https://x.com/youmu0225/status/1864595567105429865",
+        "desc": "Welcome to Kōmakan, Mokō. Keep up the good work cleaning the South Wing, and you won't be promoted to Flandre's nanny.\n\nActually, that doujin where [**Mokou becomes Flandre's tutor**](https://mangadex.org/title/98eb98cc-fb6b-42a8-afed-4542fc2147b4/touhou-too-red) is a pretty good read.",
+        "artistId": "youyume",
+        "characterIds": [
+            "mokou"
+        ]
+    },
+    {
+        "date": 1734533499000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hh37v7",
+        "url": [
+            "https://i.redd.it/nbezkb5lem7e1.png"
+        ],
+        "src": "https://x.com/nayutanen/status/1864676365385257262",
+        "desc": "戦犯 is literally \"war criminal.\" And while it definitely – without a shred of doubt – does fit Seiga, it seems the idea of the slang is to just describe \"the person responsible.\"",
+        "artistId": "nayutanen",
+        "characterIds": [
+            "tojiko",
+            "seiga"
+        ]
+    },
+    {
+        "date": 1734612533000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hhs60b",
+        "url": [
+            "https://i.redd.it/h6xdyqakxs7e1.png"
+        ],
+        "src": "https://x.com/momom_pancake/status/1864649218243346935",
+        "desc": "I'm out of the bed now, Medicine! See? So put that pure **caffeine** away. I'll make my own coffee!",
+        "artistId": "sakuraba_medi",
+        "characterIds": [
+            "medicine"
+        ]
+    },
+    {
+        "date": 1734617071000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hhtldi",
+        "url": [
+            "https://i.redd.it/fzsh3rm3bt7e1.png"
+        ],
+        "src": "https://x.com/youmu0225/status/1865086041218269673",
+        "desc": "Shinreibyō does hold an edge when it comes to electricity. Why fuse atoms to boil water when you have freakin' **lightning**?\n\nIt's Nitori and the river kappa who set up that geyser center with Kanako, right? I can already imagine Miko having a similar arrangement with Takane...",
+        "artistId": "youyume",
+        "characterIds": [
+            "futo",
+            "tojiko"
+        ]
+    },
+    {
+        "date": 1734619875000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hhujoa",
+        "url": [
+            "https://i.redd.it/aevi8jtejt7e1.png"
+        ],
+        "src": "https://x.com/Oekaki_Onyasai/status/1865324923725697161",
+        "desc": "I wonder what she's talking about – *\\*glances at my four-digit hours in Team Fortress 2*",
+        "artistId": "onyasai",
+        "characterIds": [
+            "parsee"
+        ]
+    },
+    {
+        "date": 1734699275000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hij6g5",
+        "url": [
+            "https://i.redd.it/5cjykznj308e1.png"
+        ],
+        "src": "https://x.com/TYUMUKADE/status/1865398863064121511",
+        "desc": "\"**Dom Ran, Sub Yukari**\" is something that would have never, ever crossed my mind... Actually come to think of it, I haven't gotten around to reading [**Yukari vs. Ran**](https://mangadex.org/title/ad4b19ad-595d-4232-a85f-5f31398b2887/touhou-yukari-vs-**ran**) yet.",
+        "artistId": "chuumukade",
+        "characterIds": [
+            "ran",
+            "yukari"
+        ]
+    },
+    {
+        "date": 1734702881000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hik9jj",
+        "url": [
+            "https://i.redd.it/8kz0c6b8e08e1.png"
+        ],
+        "src": "https://x.com/nioshi_noai/status/1866316922054148391",
+        "desc": "And Satori wants that belly to be warm.",
+        "artistId": "noai_nioshi",
+        "characterIds": [
+            "orin"
+        ]
     }
 ]
