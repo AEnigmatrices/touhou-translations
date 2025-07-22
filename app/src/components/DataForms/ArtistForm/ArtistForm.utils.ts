@@ -1,4 +1,4 @@
-import type { Artist } from '../../../types/data';
+import type { ArtistFormInput } from './ArtistForm.types';
 import artists from '../../../../../data/artists.json';
 
 const headers = { 'Content-Type': 'application/json' };
@@ -14,7 +14,7 @@ export const validateNewArtistId = async (id: string): Promise<true | string> =>
     return exists ? 'Artist ID already exists.' : true;
 };
 
-export const submitNewArtist = async (artist: Artist): Promise<void> => {
+export const submitNewArtist = async (artist: ArtistFormInput): Promise<void> => {
     const response = await fetch('/api/artists', { method: 'POST', headers, body: JSON.stringify(artist) });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || 'Failed to add artist');

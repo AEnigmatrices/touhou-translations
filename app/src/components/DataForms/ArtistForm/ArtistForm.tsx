@@ -3,12 +3,12 @@ import { useForm } from 'react-hook-form';
 import { TextField, Button, Stack, Typography, Box } from '@mui/material';
 import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId } from './ArtistForm.utils';
 import { containerBoxSx, artistIdBoxSx, nameBoxSx, twitterBoxSx, pixivBoxSx, submitButtonSx } from './ArtistForm.styles';
-import type { Artist } from '../../../types/data';
+import type { ArtistFormInput } from './ArtistForm.types';
 
 
 
 const ArtistForm: React.FC = () => {
-    const { register, handleSubmit, reset, watch, setError, clearErrors, formState: { errors, isSubmitting } } = useForm<Artist>();
+    const { register, handleSubmit, reset, watch, setError, clearErrors, formState: { errors, isSubmitting } } = useForm<ArtistFormInput>();
     const watchedId = watch('id');
     const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -26,8 +26,8 @@ const ArtistForm: React.FC = () => {
 
 
 
-    const onSubmit = async (data: Artist) => {
-        const cleaned: Artist = {
+    const onSubmit = async (data: ArtistFormInput) => {
+        const cleaned = {
             id: data.id.trim(), name: data.name.trim(),
             ...(data.linkTwitter?.trim() && { linkTwitter: data.linkTwitter.trim() }),
             ...(data.linkPixiv?.trim() && { linkPixiv: data.linkPixiv.trim() }),
