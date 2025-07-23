@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { Box, Avatar, Typography, Paper, Link as MuiLink } from "@mui/material";
-import { avatarSx, contentSx, linkBoxSx, paperSx, placeholderSx, textContainerSx } from "./ProfileItem.styles";
+import styles from "./ProfileItem.styles";
 
 interface Props { name: string; imageUrl?: string | null; description?: string; link?: string; }
 
@@ -10,13 +10,13 @@ interface Props { name: string; imageUrl?: string | null; description?: string; 
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
 
     const ImageContent = imageUrl
-        ? <Avatar src={imageUrl} alt={name} sx={avatarSx} variant="rounded" />
-        : <Box sx={placeholderSx} aria-hidden />
+        ? <Avatar src={imageUrl} alt={name} sx={styles.avatar} variant="rounded" />
+        : <Box sx={styles.placeholder} aria-hidden />
 
     const Content = (
-        <Box sx={contentSx}>
+        <Box sx={styles.content}>
             {ImageContent}
-            <Box sx={textContainerSx}>
+            <Box sx={styles.textContainer}>
                 <Typography variant="subtitle1" fontWeight={600}>{name}</Typography>
                 {description && <Typography variant="body2" color="text.secondary">{description}</Typography>}
             </Box>
@@ -24,10 +24,10 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
     );
 
     return (
-        <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={paperSx} >
+        <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper} >
             {link
-                ? <MuiLink component={RouterLink} to={link} underline="none" color="inherit" sx={linkBoxSx} >{Content}</MuiLink>
-                : <Box sx={linkBoxSx}>{Content}</Box>
+                ? <MuiLink component={RouterLink} to={link} underline="none" color="inherit" sx={styles.linkBox} >{Content}</MuiLink>
+                : <Box sx={styles.linkBox}>{Content}</Box>
             }
         </Paper>
     );
