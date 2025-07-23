@@ -4,7 +4,7 @@ import { searchCharacters, sortArtworkCounts } from "./CharacterPage.utils";
 import CharacterList from "../../components/CharacterList/CharacterList";
 import ArtworkCountSortButton from "../../components/ArtworkCountSortButton/ArtworkCountSortButton";
 import { Box, Container, TextField, Typography } from "@mui/material";
-import { containerStyles, boxStyles, typographyStyles, textFieldStyles, textFieldSlotProps } from "./CharacterPage.styles";
+import styles from "./CharacterPage.styles";
 import type { SortOrder } from "../../types/data";
 
 
@@ -33,12 +33,12 @@ const CharacterPage: React.FC = () => {
 
 
     return (
-        <Container maxWidth="lg" sx={containerStyles}>
-            <Box sx={boxStyles}>
-                <Typography variant="h4" component="h2" sx={typographyStyles}>Character List</Typography>
+        <Container maxWidth="lg" sx={styles.container}>
+            <Box sx={styles.box}>
+                <Typography variant="h4" component="h2" sx={styles.typography}>Character List</Typography>
                 <TextField
-                    label="Search by ID or Name" variant="outlined" value={searchInput} sx={textFieldStyles}
-                    onChange={(e) => setSearchInput(e.target.value)} slotProps={textFieldSlotProps}
+                    label="Search by ID or Name" variant="outlined" value={searchInput} sx={styles.textField}
+                    onChange={(e) => setSearchInput(e.target.value)} slotProps={styles.textFieldSlotProps}
                 />
                 <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
             </Box>
