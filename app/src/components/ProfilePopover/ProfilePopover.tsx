@@ -2,8 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { getCharacterPortraits, getArtistPortraits } from '../../utils/galleryUtils';
 import { calculatePopoverPosition, formatArtworkDescription } from './ProfilePopover.utils';
+import Box from '@mui/material/Box';
 import ProfileItem from '../ProfileItem/ProfileItem';
-import './ProfilePopover.scss';
+import getPopoverStyles from './ProfilePopover.styles';
 import type { Character, Artist } from '../../types/data';
 
 interface Props { data: Character | Artist | null; type: 'character' | 'artist'; position: { x: number; y: number } | null; }
@@ -46,9 +47,9 @@ const ProfilePopover: React.FC<Props> = ({ data, type, position }) => {
 
 
     return createPortal(
-        <div className={`profile-popover ${visible ? 'visible' : ''}`} style={{ top: currentPosition.y, left: currentPosition.x }}>
+        <Box sx={getPopoverStyles(visible, currentPosition)}>
             <ProfileItem name={data.name} imageUrl={imageUrl} description={description} />
-        </div>,
+        </Box>,
         document.body
     );
 };
