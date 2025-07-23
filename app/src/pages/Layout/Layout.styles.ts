@@ -1,6 +1,11 @@
 import type { SxProps, Theme } from "@mui/material";
 
-const styles: { [key: string]: SxProps<Theme> } = {
+interface LayoutStyles {
+    layoutContainer: SxProps<Theme>;
+    mainContent: SxProps<Theme>;
+}
+
+const styles: LayoutStyles = {
     layoutContainer: {
         display: "flex",
         flexDirection: "column",
