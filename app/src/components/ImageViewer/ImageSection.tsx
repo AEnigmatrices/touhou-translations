@@ -1,5 +1,8 @@
 import React from 'react';
-import './ImageSection.scss';
+import { Box, IconButton, Typography, Link } from '@mui/material';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import styles from './ImageSection.styles';
 
 interface Props {
     currentIndex: number;
@@ -14,20 +17,29 @@ const ImageSection: React.FC<Props> = ({ currentIndex, urls, handleChangeIndex }
     const isGallery = urls.length > 1;
 
     return (
-        <div className="image-section">
-            <div className="image-section__image-display">
-                <a href={currentImage} target="_blank" rel="noopener noreferrer">
-                    <img src={currentImage} alt="Translated Image" className="image-section__image" />
-                </a>
-            </div>
+        <Box sx={styles.root}>
+            <Box sx={styles.imageDisplay}>
+                <Link href={currentImage} target="_blank" rel="noopener noreferrer" underline="none">
+                    <Box component="img" src={currentImage} alt="Translated Image" sx={styles.image} loading="lazy" />
+                </Link>
+            </Box>
+
             {isGallery && (
-                <div className="image-section__gallery-controls">
-                    <button onClick={() => handleChangeIndex(-1)} aria-label="Previous image">◀</button>
-                    <span className="image-section__gallery-index">{`${currentIndex + 1} / ${urls.length}`}</span>
-                    <button onClick={() => handleChangeIndex(1)} aria-label="Next image">▶</button>
-                </div>
+                <Box sx={styles.galleryControls}>
+                    <IconButton onClick={() => handleChangeIndex(-1)} aria-label="Previous image" sx={styles.galleryButton}>
+                        <NavigateBeforeIcon />
+                    </IconButton>
+
+                    <Typography sx={styles.galleryIndex}>
+                        {`${currentIndex + 1} / ${urls.length}`}
+                    </Typography>
+
+                    <IconButton onClick={() => handleChangeIndex(1)} aria-label="Next image" sx={styles.galleryButton}>
+                        <NavigateNextIcon />
+                    </IconButton>
+                </Box>
             )}
-        </div>
+        </Box>
     );
 };
 
