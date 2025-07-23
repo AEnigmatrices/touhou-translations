@@ -5922,5 +5922,102 @@
         "characterIds": [
             "sakuya"
         ]
+    },
+    {
+        "date": 1735138268000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hm21c6",
+        "url": [
+            "https://i.redd.it/b5e9dk9wc09e1.png"
+        ],
+        "src": "https://x.com/motako0103/status/1867186346428915972",
+        "desc": "I haven't thought about the specifics of the Hōrai immortality, actually. They're not actually immune to ailments. ~~They can and do get sick.~~ They just can't finally die from it. They regenerate.\n\nSo, you know. If somehow all else fails... a **hard reset** for the diaphragm may be the option left on the table – taking the rest of the body along with it too.",
+        "artistId": "soborou",
+        "characterIds": [
+            "mokou"
+        ]
+    },
+    {
+        "date": 1735217365000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hmnpm3",
+        "url": [
+            "https://i.redd.it/ir9xzzo2w69e1.png"
+        ],
+        "src": "https://x.com/increase_konbu/status/1839707747505582417",
+        "desc": "Calling Yūma while she's in a food coma.",
+        "artistId": "increase",
+        "characterIds": [
+            "yachie"
+        ]
+    },
+    {
+        "date": 1735220809000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hmoo1n",
+        "url": [
+            "https://i.redd.it/w1wu9db9679e1.png"
+        ],
+        "src": "https://x.com/suwaneko2/status/1867185837043306778",
+        "desc": "And what Patchouli says is really up to interpretation. The usual ambiguity case. It's unclear whether she means \"***I can't do it.***\" or – the funnier one – \"***You can't do it.***\"",
+        "artistId": "suwaneko",
+        "characterIds": [
+            "remilia"
+        ]
+    },
+    {
+        "date": 1735224736000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hmpuxd",
+        "url": [
+            "https://i.redd.it/nnie3rk0i79e1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/125146013",
+        "desc": "Imagine Mystia defeating you and she just goes: **NEVER GONNA GIVE YOU-**\n\nActually, what would be a Gensōkyō twist to this? 🤔\n\nReference – [***Phantasmagoria of Flower View*, Mystia's Win Dialogues.**](https://en.touhouwiki.net/wiki/Phantasmagoria_of_Flower_View/Story/Mystia's_Script)\n\nAnd yeah. For the Komachi one, there's no way she's singing \"I of the Sanzu\" or whatever. I've looked up the original song. The \"Watashi\" here is definitely not 私 that means \"me,\" but rather 渡し that means \"**ferry**.\" The \"Yagiri no Watashi\" is a famous 400-year-old Edo River ferry.",
+        "artistId": "chitose_hachi",
+        "characterIds": [
+            "mystia",
+            "reimu",
+            "medicine",
+            "komachi",
+            "cirno"
+        ]
+    },
+    {
+        "date": 1735304343000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hnec84",
+        "url": [
+            "https://i.redd.it/5at6q1hq2e9e1.png"
+        ],
+        "src": "https://x.com/hidaruma_/status/1867494677337059577",
+        "desc": "🤔: Sakuya...\n\n🤨: Kasuya..?\n\n😱: **Kazuya?!** Mishima Sakuya?!",
+        "artistId": "hidaruma",
+        "characterIds": [
+            "meiling",
+            "sakuya"
+        ]
+    },
+    {
+        "date": 1735310804000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hngdsh",
+        "url": [
+            "https://i.redd.it/icl1vvevle9e1.png"
+        ],
+        "src": "https://x.com/Oekaki_Onyasai/status/1784869043452666264",
+        "desc": "Note, the original red text is \"**-nanodesu**\". Not sure what that's supposed to imply. The only character I am aware of who says this would be [**Rika**](https://en.touhouwiki.net/wiki/Rika) – but if it's an outside reference, then I suppose it's that other Rika?",
+        "artistId": "onyasai",
+        "characterIds": [
+            "koishi"
+        ]
+    },
+    {
+        "date": 1735390212000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ho51qk",
+        "url": [
+            "https://i.redd.it/abm01jq16l9e1.png"
+        ],
+        "src": "https://x.com/campagne_9/status/1867768880325963997",
+        "desc": "🤨: \"Do your sisters even have friends outside their households?\"\n\nTo clarify, since it may sound misleading in English. Koishi is not quite saying \"**My** sister's friend\" here, but \"**My sister's friend**\" as a whole. She's not referring to Satori or Remilia specifically, but \"sister\" (specifically older sister) in general as the fetish's description.",
+        "artistId": "kanpa",
+        "characterIds": [
+            "koishi",
+            "flandre"
+        ]
     }
 ]
