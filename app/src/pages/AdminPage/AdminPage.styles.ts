@@ -22,13 +22,6 @@ const styles = {
         color: 'primary.main'
     }),
 
-    siteUtilitiesTitle: (theme: Theme): SxProps<Theme> => ({
-        mb: 3,
-        pb: 1,
-        borderBottom: `2px solid ${theme.palette.primary.light}`,
-        color: 'primary.main'
-    }),
-
     paperFullHeight: {
         p: 3,
         height: '100%'

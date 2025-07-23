@@ -1,10 +1,9 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { Box, Typography, Paper, Accordion, AccordionSummary, AccordionDetails, Stack, useTheme } from '@mui/material';
+import { Typography, Paper, Accordion, AccordionSummary, AccordionDetails, Stack, useTheme } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PostForm from '../../components/DataForms/PostForm/PostForm';
 import ArtistForm from '../../components/DataForms/ArtistForm/ArtistForm';
-import SiteMapGenerator from '../../components/DataForms/SiteMapGenerator/SiteMapGenerator';
 import styles from './AdminPage.styles';
 
 
@@ -31,14 +30,6 @@ const AdminPage: React.FC = () => {
                     <AccordionDetails><ArtistForm /></AccordionDetails>
                 </Accordion>
             </Paper>
-
-            <Box>
-                <Typography variant="h6" component="h3" sx={styles.siteUtilitiesTitle(theme)}>Site Utilities</Typography>
-
-                <Stack direction="row" spacing={3} mt={2}>
-                    <Paper elevation={3} sx={styles.paperFullHeight}><SiteMapGenerator /></Paper>
-                </Stack>
-            </Box>
         </Stack>
     );
 };

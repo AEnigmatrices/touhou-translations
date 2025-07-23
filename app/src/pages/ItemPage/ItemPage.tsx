@@ -4,7 +4,7 @@ import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
 
 
-const Item = () => {
+const ItemPage = () => {
     const { id } = useParams();
     const numericIndex = parseInt(id ?? '', 10);
 
@@ -19,4 +19,4 @@ const Item = () => {
     );
 };
 
-export default Item;
+export default ItemPage;

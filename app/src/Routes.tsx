@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage/HomePage';
 import CharacterPage from './pages/CharacterPage/CharacterPage';
 import ArtistPage from './pages/ArtistPage/ArtistPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
-import Item from './pages/ItemPage/Item';
+import ItemPage from './pages/ItemPage/ItemPage';
 import AdminPage from './pages/AdminPage/AdminPage';
 
 const enableAdmin = import.meta.env.VITE_ENABLE_ADMIN === "true";
@@ -18,7 +18,7 @@ const routes = [
             { path: 'characters', element: <CharacterPage /> },
             { path: 'artists', element: <ArtistPage /> },
             { path: 'gallery', element: <GalleryPage /> },
-            { path: 'post/:id', element: <Item /> },
+            { path: 'post/:id', element: <ItemPage /> },
             ...(enableAdmin ? [{ path: 'admin', element: <AdminPage /> }] : [])
         ]
     }
