@@ -6,7 +6,7 @@ const generateSitemapPlugin: Plugin = {
     name: 'generate-sitemap',
     closeBundle() {
         const BASE_URL = 'https://aenigmatrices.github.io/touhou-translations';
-        const postsDir = path.resolve(process.cwd(), 'data/posts');
+        const postsDir = path.resolve(__dirname, '../../data/posts');
 
         let posts: any[] = [];
         try {
