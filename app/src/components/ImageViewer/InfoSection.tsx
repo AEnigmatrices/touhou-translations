@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Box, Typography, Link, IconButton } from '@mui/material';
 import { useGetCharacter } from '../../context/PostsContext';
 import { dateFormatOptions, replaceXWithNitter } from './ImageViewer.utils';
 import ProfilePopover from '../ProfilePopover/ProfilePopover';
@@ -9,7 +10,7 @@ import twitterIcon from '../../icons/social/twitter.webp';
 import nitterIcon from '../../icons/social/nitter.webp';
 import pixivIcon from '../../icons/social/pixiv.webp';
 import redditIcon from '../../icons/social/reddit.webp';
-import './InfoSection.scss';
+import styles from './InfoSection.styles';
 import type { Post, Artist, Character } from '../../types/data';
 
 interface Props {
@@ -23,7 +24,7 @@ interface Props {
 const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
     const [hoveredCharacterData, setHoveredCharacterData] = useState<Character | null>(null);
-    const [tooltipPosition, setTooltipPosition] = useState<{ x: number, y: number } | null>(null);
+    const [tooltipPosition, setTooltipPosition] = useState<{ x: number; y: number } | null>(null);
 
     const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
@@ -34,11 +35,10 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
         if (!href) return null;
-        const name = `info-section__icon-button info-section__icon-button-link--${altText.toLowerCase()}`;
         return (
-            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={name}>
+            <IconButton component="a" href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} sx={styles.iconButton} size="small">
                 <img src={iconSrc} alt={altText} />
-            </a>
+            </IconButton>
         );
     };
 
@@ -53,73 +53,95 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
     return (
         <>
-            <div className="info-section">
-                <div className="info-section__info-grid">
-                    {artist && (<div className="info-section__info-item">
-                        <div className="info-section__label">Artist:</div>
-                        <div className="info-section__value">
-                            {artist.name}
-                            <div className="info-section__info-icons">
-                                {artist.linkTwitter && renderIconLink(artist.linkTwitter, 'Twitter profile', twitterIcon, 'Twitter')}
-                                {artist.linkTwitter && renderIconLink(artist.linkTwitter.replace('x.com', 'nitter.net'), 'Nitter profile', nitterIcon, 'Nitter')}
-                                {artist.linkPixiv && renderIconLink(artist.linkPixiv, 'Pixiv profile', pixivIcon, 'Pixiv')}
-                            </div>
-                        </div>
-                    </div>)}
-                    {post.src && (<div className="info-section__info-item">
-                        <div className="info-section__label">Source:</div>
-                        <div className="info-section__value">
-                            <a href={post.src} target="_blank" rel="noopener noreferrer" className="info-section__source-link" title={post.src}>
-                                {post.src}
-                            </a>
-                        </div>
-                    </div>)}
-                    {nitterUrl && (<div className="info-section__info-item">
-                        <div className="info-section__label">Nitter Mirror:</div>
-                        <div className="info-section__value">
-                            <a href={nitterUrl} target="_blank" rel="noopener noreferrer" className="info-section__source-link" title={nitterUrl}>
-                                {nitterUrl}
-                            </a>
-                        </div>
-                    </div>)}
-                    {characters.length > 0 && (<div className="info-section__info-item">
-                        <div className="info-section__label">
-                            {characters.length === 1 ? 'Character:' : 'Characters:'}
-                        </div>
-                        <div className="info-section__value">
-                            <div className="info-section__characters-wrapper">
-                                {characters.map((c, index) => (
-                                    <React.Fragment key={c.id}>
-                                        <Link
-                                            to={`/gallery?character=${c.id}`} onMouseEnter={(e) => handleCharacterMouseEnter(e, c.id)}
-                                            className="info-section__character-link" onMouseLeave={() => setHoveredCharacterData(null)}
-                                        >
-                                            {c.name}
-                                        </Link>
-                                        {index < characters.length - 1 && ', '}
-                                    </React.Fragment>
-                                ))}
-                            </div>
-                        </div>
-                    </div>)}
-                    {post.date && (<div className="info-section__info-item">
-                        <div className="info-section__label">Translated:</div>
-                        <div className="info-section__value">{formattedDate}</div>
-                    </div>)}
-                </div>
+            <Box sx={styles.root}>
+                <Box sx={styles.infoGrid}>
+                    {artist && (
+                        <>
+                            <Typography component="div" sx={styles.infoItemLabel}>
+                                Artist:
+                            </Typography>
+                            <Box sx={styles.infoItemValue}>
+                                <Typography>{artist.name}</Typography>
+                                <Box sx={styles.infoIcons}>
+                                    {renderIconLink(artist.linkTwitter, 'Twitter profile', twitterIcon, 'Twitter')}
+                                    {renderIconLink(artist.linkTwitter?.replace('x.com', 'nitter.net'), 'Nitter profile', nitterIcon, 'Nitter')}
+                                    {renderIconLink(artist.linkPixiv, 'Pixiv profile', pixivIcon, 'Pixiv')}
+                                </Box>
+                            </Box>
+                        </>
+                    )}
 
-                <div className="info-section__info-comment">
-                    <div className="info-section__label info-section__label--comment">
-                        <div className="info-section__info-icons info-section__info-icons--label">
+                    {post.src && (
+                        <>
+                            <Typography component="div" sx={styles.infoItemLabel}>
+                                Source:
+                            </Typography>
+                            <Link href={post.src} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink} title={post.src}>
+                                {post.src}
+                            </Link>
+                        </>
+                    )}
+
+                    {nitterUrl && (
+                        <>
+                            <Typography component="div" sx={styles.infoItemLabel}>
+                                Nitter Mirror:
+                            </Typography>
+                            <Link href={nitterUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink} title={nitterUrl}>
+                                {nitterUrl}
+                            </Link>
+                        </>
+                    )}
+
+                    {characters.length > 0 && (
+                        <>
+                            <Typography component="div" sx={styles.infoItemLabel}>
+                                {characters.length === 1 ? 'Character:' : 'Characters:'}
+                            </Typography>
+                            <Box sx={styles.infoItemValue}>
+                                <Box sx={styles.charactersWrapper}>
+                                    {characters.map((c, idx) => (
+                                        <React.Fragment key={c.id}>
+                                            <Link
+                                                component={RouterLink}
+                                                to={`/gallery?character=${c.id}`}
+                                                onMouseEnter={(e) => handleCharacterMouseEnter(e, c.id)}
+                                                onMouseLeave={() => setHoveredCharacterData(null)}
+                                                sx={styles.characterLink}
+                                            >
+                                                {c.name}
+                                            </Link>
+                                            {idx < characters.length - 1 && ', '}
+                                        </React.Fragment>
+                                    ))}
+                                </Box>
+                            </Box>
+                        </>
+                    )}
+
+                    {post.date && (
+                        <>
+                            <Typography component="div" sx={styles.infoItemLabel}>
+                                Translated:
+                            </Typography>
+                            <Typography sx={styles.infoItemValue}>{formattedDate}</Typography>
+                        </>
+                    )}
+                </Box>
+
+                <Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: -1 }}>
+                        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
                             {post.reddit && renderIconLink(post.reddit, 'Reddit post', redditIcon, 'Reddit')}
-                        </div>
-                        TL Commentary:
-                    </div>
-                    <div className="info-section__value--comment">
+                        </Box>
+                        <Typography sx={{ fontWeight: 600, fontSize: '1.25rem' }}>TL Commentary:</Typography>
+                    </Box>
+                    <Box sx={styles.infoItemValueComment}>
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.desc}</ReactMarkdown>
-                    </div>
-                </div>
-            </div>
+                    </Box>
+                </Box>
+            </Box>
+
             <ProfilePopover data={hoveredCharacterData} type="character" position={tooltipPosition} />
         </>
     );
