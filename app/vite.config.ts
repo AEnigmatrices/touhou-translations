@@ -96,4 +96,16 @@ const viteApiPlugin: Plugin = {
 
 
 
-export default defineConfig({ base: "/touhou-translations/", plugins: [react(), viteApiPlugin] });
+const copyIndexTo404Plugin = {
+    name: 'copy-index-to-404',
+    closeBundle() {
+        fs.copyFileSync('dist/index.html', 'dist/404.html');
+    }
+};
+
+
+
+export default defineConfig({
+    plugins: [react(), viteApiPlugin, copyIndexTo404Plugin],
+    base: '/touhou-translations/'
+});

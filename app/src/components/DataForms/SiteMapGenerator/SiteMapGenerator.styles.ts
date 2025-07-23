@@ -16,11 +16,6 @@ const styles = {
         display: 'block'
     } as SxProps<Theme>,
 
-    downloadButton: {
-        mx: 'auto',
-        display: 'block'
-    } as SxProps<Theme>,
-
     stackSpacing: 2
 };
 

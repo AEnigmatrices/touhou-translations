@@ -1,21 +1,22 @@
 import { useGetPosts } from '../../../context/PostsContext';
-import { useMemo, useState } from 'react';
 import { Button, Box, Typography, Stack } from '@mui/material';
 import styles from './SiteMapGenerator.styles';
 
-const BASE_URL = 'https://aenigmatrices.github.io/touhou-translations/#';
+const BASE_URL = 'https://aenigmatrices.github.io/touhou-translations';
 
 const staticRoutes = ['', 'search', 'characters', 'artists', 'gallery'];
 
+
+
 const SiteMapGenerator = () => {
     const posts = useGetPosts();
-    const [sitemap, setSitemap] = useState('');
 
-    const buildSitemap = useMemo(() => {
+    const handleDownload = () => {
         const urls: string[] = [];
 
         staticRoutes.forEach(route => {
-            urls.push(`${BASE_URL}/${route}`);
+            const path = route ? `/${route}` : '';
+            urls.push(`${BASE_URL}${path}`);
         });
 
         posts.forEach((post, index) => {
@@ -27,13 +28,7 @@ const SiteMapGenerator = () => {
             urls.map(url => `  <url><loc>${url}</loc></url>`).join('\n') +
             `\n</urlset>`;
 
-        return xml;
-    }, [posts]);
-
-    const handleGenerate = () => setSitemap(buildSitemap);
-
-    const handleDownload = () => {
-        const blob = new Blob([sitemap], { type: 'application/xml' });
+        const blob = new Blob([xml], { type: 'application/xml' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
@@ -45,17 +40,13 @@ const SiteMapGenerator = () => {
     return (
         <Box sx={styles.containerBox}>
             <Typography variant="h5" sx={styles.titleTypography}>
-                Generate Sitemap.xml
+                Download Sitemap.xml
             </Typography>
 
             <Stack spacing={styles.stackSpacing}>
-                <Button variant="contained" onClick={handleGenerate} sx={styles.generateButton}>
-                    Generate Sitemap
+                <Button variant="contained" onClick={handleDownload} sx={styles.generateButton}>
+                    Download Sitemap
                 </Button>
-
-                {sitemap && (<Button variant="outlined" onClick={handleDownload} sx={styles.downloadButton}>
-                    Download sitemap.xml
-                </Button>)}
             </Stack>
         </Box>
     );

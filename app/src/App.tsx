@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import Routes from './Routes';
 import PostsProvider from './context/PostsProvider';
@@ -14,7 +14,7 @@ const LoadingFallback = () => <div>Loading...</div>;
 const App: React.FC = () => (
     <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Router>
+        <Router basename="/touhou-translations">
             <ErrorBoundary>
                 <PostsProvider>
                     <Suspense fallback={<LoadingFallback />}>
