@@ -1,14 +1,15 @@
-import type { SxProps, Theme } from "@mui/material/styles";
+import type { SxProps, Theme } from "@mui/material";
 
-interface ArtistPageStyles {
+interface ListPageStyles {
     container: SxProps<Theme>;
     box: SxProps<Theme>;
     typography: SxProps<Theme>;
     textField: SxProps<Theme>;
     textFieldSlotProps: { htmlInput: { "aria-label": string; }; };
+    listGrid: SxProps<Theme>;
 }
 
-const styles: ArtistPageStyles = {
+const styles: ListPageStyles = {
     container: {
         py: 4
     },
@@ -36,6 +37,23 @@ const styles: ArtistPageStyles = {
     },
     textFieldSlotProps: {
         htmlInput: { "aria-label": "Search Characters" }
+    },
+    listGrid: {
+        display: "grid",
+        gridTemplateColumns: "repeat(4, 1fr)",
+        gap: "1rem",
+        listStyle: "none",
+        padding: 0,
+        margin: 0,
+        '@media (max-width:1024px)': {
+            gridTemplateColumns: "repeat(3, 1fr)"
+        },
+        '@media (max-width:768px)': {
+            gridTemplateColumns: "repeat(2, 1fr)"
+        },
+        '@media (max-width:480px)': {
+            gridTemplateColumns: "1fr"
+        }
     }
 };
 

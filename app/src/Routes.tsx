@@ -1,8 +1,7 @@
 import { useRoutes } from 'react-router-dom';
 import Layout from './pages/Layout/Layout';
 import HomePage from './pages/HomePage/HomePage';
-import CharacterPage from './pages/CharacterPage/CharacterPage';
-import ArtistPage from './pages/ArtistPage/ArtistPage';
+import ListPage from './pages/ListPage/ListPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ItemPage from './pages/ItemPage/ItemPage';
 import AdminPage from './pages/AdminPage/AdminPage';
@@ -15,8 +14,8 @@ const routes = [
         element: <Layout />,
         children: [
             { index: true, element: <HomePage /> },
-            { path: 'characters', element: <CharacterPage /> },
-            { path: 'artists', element: <ArtistPage /> },
+            { path: 'characters', element: <ListPage mode="character" /> },
+            { path: 'artists', element: <ListPage mode="artist" /> },
             { path: 'gallery', element: <GalleryPage /> },
             { path: 'post/:id', element: <ItemPage /> },
             ...(enableAdmin ? [{ path: 'admin', element: <AdminPage /> }] : [])
