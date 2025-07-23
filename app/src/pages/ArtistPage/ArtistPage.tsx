@@ -3,7 +3,8 @@ import { useGetArtists } from "../../context/PostsContext";
 import { searchArtists, sortArtists } from "./ArtistPage.utils";
 import ArtistList from "../../components/ArtistList/ArtistList";
 import ArtworkCountSortButton from "../../components/ArtworkCountSortButton/ArtworkCountSortButton";
-import "./ArtistPage.scss";
+import { Box, Container, TextField, Typography } from "@mui/material";
+import styles from "./ArtistPage.styles";
 import type { SortOrder } from "../../types/data";
 
 
@@ -32,14 +33,17 @@ const ArtistPage: React.FC = () => {
 
 
     return (
-        <div className="artist-page">
-            <div className="artist-page__header">
-                <h2>Artist List</h2>
-                <input type="text" placeholder="Search by ID or Name..." aria-label="Search Artists" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
+        <Container maxWidth="lg" sx={styles.container}>
+            <Box sx={styles.box}>
+                <Typography variant="h4" component="h2" sx={styles.typography}>Artist List</Typography>
+                <TextField
+                    label="Search by ID or Name" variant="outlined" value={searchInput} sx={styles.textField}
+                    onChange={(e) => setSearchInput(e.target.value)} slotProps={styles.textFieldSlotProps}
+                />
                 <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
-            </div>
+            </Box>
             <ArtistList artists={sortedArtists} />
-        </div>
+        </Container>
     );
 };
 
