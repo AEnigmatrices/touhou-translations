@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import Layout from './pages/Layout/Layout';
+
 import HomePage from './pages/HomePage/HomePage';
 import ListPage from './pages/ListPage/ListPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
@@ -11,7 +11,6 @@ const enableAdmin = import.meta.env.VITE_ENABLE_ADMIN === "true";
 const routes = [
     {
         path: '/',
-        element: <Layout />,
         children: [
             { index: true, element: <HomePage /> },
             { path: 'characters', element: <ListPage mode="character" /> },

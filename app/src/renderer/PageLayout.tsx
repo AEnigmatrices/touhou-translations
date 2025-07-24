@@ -1,37 +1,19 @@
-import React from 'react'
-import './PageLayout.css'
+import React from "react";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import { Box } from "@mui/material";
+import styles from "./PageLayout.styles";
 
-const PageLayout = ({ children }: any) => {
+const PageLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <React.StrictMode>
-            <Navigation>
-                <a href="/">Home</a>
-                <a href="/touhou-translations/about">About</a>
-            </Navigation>
-            <Content>{children}</Content>
-        </React.StrictMode>
-    )
-}
+        <Box sx={styles.layoutContainer}>
+            <Navbar />
+            <Box component="main" sx={styles.mainContent}>
+                {children}
+            </Box>
+            <Footer />
+        </Box>
+    );
+};
 
-const Navigation = ({ children }: any) => {
-    return (
-        <div
-            style={{
-                paddingBottom: 25,
-                paddingTop: 5,
-                fontSize: '1.2em',
-                display: 'flex',
-                justifyContent: 'center',
-                gap: 25,
-            }}
-        >
-            {children}
-        </div>
-    )
-}
-
-const Content = ({ children }: any) => {
-    return <div>{children}</div>
-}
-
-export { PageLayout }
+export { PageLayout };
