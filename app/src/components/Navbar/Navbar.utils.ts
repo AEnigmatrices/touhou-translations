@@ -13,10 +13,10 @@ export const ElevationScroll: React.FC<ElevationScrollProps> = (props) => {
 
 export const navLinks = [
     { label: 'Home', to: '/' },
-    { label: 'Characters', to: '/characters' },
-    { label: 'Artists', to: '/artists' },
-    { label: 'Gallery', to: '/gallery' },
+    { label: 'Characters', to: '/touhou-translations/characters' },
+    { label: 'Artists', to: '/touhou-translations/artists' },
+    { label: 'Gallery', to: '/touhou-translations/gallery' },
     ...(import.meta.env.VITE_ENABLE_ADMIN === "true"
-        ? [{ label: 'Admin', to: '/admin' }]
+        ? [{ label: 'Admin', to: '/touhou-translations/admin' }]
         : []),
 ];
