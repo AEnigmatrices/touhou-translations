@@ -1,5 +1,4 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
 import { Box, Avatar, Typography, Paper, Link as MuiLink } from "@mui/material";
 import styles from "./ProfileItem.styles";
 
@@ -26,7 +25,7 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
     return (
         <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper} >
             {link
-                ? <MuiLink component={RouterLink} to={link} underline="none" color="inherit" sx={styles.linkBox} >{Content}</MuiLink>
+                ? <MuiLink component="a" href={link} underline="none" color="inherit" sx={styles.linkBox} >{Content}</MuiLink>
                 : <Box sx={styles.linkBox}>{Content}</Box>
             }
         </Paper>

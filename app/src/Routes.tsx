@@ -1,6 +1,3 @@
-import { useRoutes } from 'react-router-dom';
-
-import HomePage from './pages/HomePage/HomePage';
 import ListPage from './pages/ListPage/ListPage';
 import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ItemPage from './pages/ItemPage/ItemPage';
@@ -12,7 +9,6 @@ const routes = [
     {
         path: '/',
         children: [
-            { index: true, element: <HomePage /> },
             { path: 'characters', element: <ListPage mode="character" /> },
             { path: 'artists', element: <ListPage mode="artist" /> },
             { path: 'gallery', element: <GalleryPage /> },
@@ -21,7 +17,3 @@ const routes = [
         ]
     }
 ];
-
-const Routes = () => useRoutes(routes);
-
-export default Routes;

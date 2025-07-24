@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Link as RouterLink } from 'react-router-dom';
 import { Box, Typography, Link, IconButton } from '@mui/material';
 import { useGetCharacter } from '../../context/PostsContext';
 import { dateFormatOptions, replaceXWithNitter } from './ImageViewer.utils';
@@ -103,10 +102,8 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                                     {characters.map((c, idx) => (
                                         <React.Fragment key={c.id}>
                                             <Link
-                                                component={RouterLink}
-                                                to={`/gallery?character=${c.id}`}
-                                                onMouseEnter={(e) => handleCharacterMouseEnter(e, c.id)}
-                                                onMouseLeave={() => setHoveredCharacterData(null)}
+                                                component="a"
+                                                href={`/gallery?character=${c.id}`}
                                                 sx={styles.characterLink}
                                             >
                                                 {c.name}
