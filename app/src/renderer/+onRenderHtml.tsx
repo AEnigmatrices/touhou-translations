@@ -1,14 +1,6 @@
-import { escapeInject } from 'vike/server'
+import { escapeInject, dangerouslySkipEscape } from "vike/server";
+import htmlTemplate from "./index.html?raw";
 
-const onRenderHtml = async () => {
-    return escapeInject`
-        <!doctype html>
-        <html lang="en">
-        <body>
-            <div id="root"></div>
-        </body>
-        </html>
-    `
-}
+const onRenderHtml = async () => escapeInject`${dangerouslySkipEscape(htmlTemplate)}`;
 
 export { onRenderHtml }
