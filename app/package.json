@@ -12,9 +12,9 @@
     "license": "MIT",
     "author": "AEnigmatrices",
     "scripts": {
-        "dev": "vite --mode development",
-        "build": "vite build --mode production",
-        "preview": "vite preview",
+        "dev": "vike dev --mode development",
+        "build": "vike build --mode production",
+        "preview": "vike preview",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git"
     },
@@ -29,7 +29,8 @@
         "react-hook-form": "^7.60.0",
         "react-markdown": "^10.1.0",
         "react-router-dom": "^7.6.3",
-        "remark-gfm": "^4.0.1"
+        "remark-gfm": "^4.0.1",
+        "vike": "^0.4.236"
     },
     "devDependencies": {
         "@eslint/js": "^9.31.0",
