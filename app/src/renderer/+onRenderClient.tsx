@@ -1,4 +1,4 @@
-import { createRoot } from 'react-dom/client'
+import { hydrateRoot } from 'react-dom/client'
 import { StrictMode, Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
@@ -30,7 +30,8 @@ const onRenderClient = async (pageContext: PageContext) => {
     const container = document.getElementById('root');
     if (!container) throw new Error("Root container not found");
 
-    createRoot(container).render(
+
+    hydrateRoot(container,
         <StrictMode>
             <QueryClientProvider client={queryClient}>
                 <ThemeProvider theme={theme}>
