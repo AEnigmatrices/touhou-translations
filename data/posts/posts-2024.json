@@ -6019,5 +6019,53 @@
             "koishi",
             "flandre"
         ]
+    },
+    {
+        "date": 1735397391000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ho750j",
+        "url": [
+            "https://i.redd.it/wb129leerl9e1.png"
+        ],
+        "src": "https://x.com/h_hawatari/status/1258009507453534208",
+        "desc": "Unwillingly as an apprentice, I might add. Or novice? What's the term for it if it's Buddhism... wait, which Buddhism are we even talking about here?\n\nIf I recall correctly, one of the minor details about Myōrenji oft repeated is that we're not exactly sure which Buddhist sect this temple is. Like, while Shingon Buddhism is a pretty solid guess – it's just as likely that the temple practices Byakuren's own brand of Esoteric Buddhism.\n\nHmm... initially I had a feeling that Ichirin meant it's her garb that she's personally lending to Jo'on's to wear. But the idea that it's temple property that reasonably should be handled with care anyway is also pretty logical.",
+        "artistId": "hawatari",
+        "characterIds": [
+            "joon",
+            "byakuren",
+            "kyouko",
+            "nue",
+            "minamitsu",
+            "kokoro",
+            "koishi",
+            "ichirin",
+            "shou",
+            "nazrin"
+        ]
+    },
+    {
+        "date": 1735401007000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ho8cw1",
+        "url": [
+            "https://i.redd.it/g652ikv52m9e1.png"
+        ],
+        "src": "https://x.com/mendo_15___/status/1863780059037028714",
+        "desc": "Just as planned... [**Demoman. Move up!**](https://youtu.be/-NInivqeIwk&t=268)",
+        "artistId": "mendou15",
+        "characterIds": [
+            "reisen"
+        ]
+    },
+    {
+        "date": 1735476927000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1hovgsb",
+        "url": [
+            "https://i.redd.it/n3wdridwbs9e1.png"
+        ],
+        "src": "https://x.com/594musou/status/1867562649812447303",
+        "desc": "Definitely not a bad person planning to steal my stuff without me knowing. 😊\n\nI think an aspect not often explored about Nazrin is the very fact that she's pretty independent and not quite affiliated with with Myōrenji, just Shō. Aside from serving Bishamonten, she gives zero f#cks about what the monks are doing – and is actually doing her own thing with her mice.\n\nHell, she might possibly even be a player in Gensōkyō's great game as the head of the yōkai mice, similar to Mamizō with the yōkai tanuki.",
+        "artistId": "jiyuu_toppa",
+        "characterIds": [
+            "nazrin"
+        ]
     }
 ]
