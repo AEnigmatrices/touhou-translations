@@ -2,9 +2,9 @@ import { Typography, Paper, Accordion, AccordionSummary, AccordionDetails, Stack
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PostForm from '../../components/DataForms/PostForm/PostForm';
 import ArtistForm from '../../components/DataForms/ArtistForm/ArtistForm';
-import styles from './AdminPage.styles';
+import styles from './styles';
 
-export function Page() {
+export const Page = () => {
     const theme = useTheme();
 
     const isAdminEnabled = import.meta.env.VITE_ENABLE_ADMIN === "true";

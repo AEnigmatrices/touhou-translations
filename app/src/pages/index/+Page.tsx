@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { useGetPosts } from '../../context/PostsContext';
-import { hashDateToIndex } from './HomePage.utils';
+import { hashDateToIndex } from './utils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
-export function Page() {
+export const Page = () => {
     const posts = useGetPosts();
 
     const selectedIndex = useMemo(() => {
