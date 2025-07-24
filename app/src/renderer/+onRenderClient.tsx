@@ -1,13 +1,14 @@
-import { hydrateRoot } from 'react-dom/client'
+import { hydrateRoot, createRoot, type Root } from 'react-dom/client'
 import { StrictMode, Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import type { ComponentType } from 'react';
 
 import "./index.css";
 import PostsProvider from '../context/PostsProvider';
 import ErrorBoundary from '../context/ErrorBoundary';
 import { PageLayout } from './PageLayout';
+
+
 
 const queryClient = new QueryClient();
 
@@ -19,19 +20,16 @@ const theme = createTheme({
 
 const LoadingFallback = () => <div>Loading...</div>;
 
-interface PageContext {
-    Page: ComponentType<any>;
-    pageProps: Record<string, any>;
-}
+let root: Root
 
-const onRenderClient = async (pageContext: PageContext) => {
+const onRenderClient = async (pageContext: any) => {
     const { Page, pageProps = {} } = pageContext;
 
     const container = document.getElementById('root');
     if (!container) throw new Error("Root container not found");
 
 
-    hydrateRoot(container,
+    const page = (
         <StrictMode>
             <QueryClientProvider client={queryClient}>
                 <ThemeProvider theme={theme}>
@@ -49,6 +47,12 @@ const onRenderClient = async (pageContext: PageContext) => {
             </QueryClientProvider>
         </StrictMode>
     );
+    if (pageContext.isHydration) {
+        root = hydrateRoot(container, page)
+    } else {
+        if (!root) root = createRoot(container)
+        root.render(page)
+    }
 }
 
 export { onRenderClient }
