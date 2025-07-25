@@ -14,7 +14,7 @@
     "scripts": {
         "dev": "vike dev --mode development",
         "build": "vike build --mode production",
-        "postbuild": "node scripts/moveDist.js",
+        "postbuild": "node scripts/copyIndexTo404.js && node scripts/moveDist.js",
         "preview": "vike preview",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git"
