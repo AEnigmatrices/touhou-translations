@@ -15,7 +15,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
 
     const stream = await renderToStream(
         <PageLayout pageContext={pageContext}>
-            <Page />
+            <Page {...pageContext} />
         </PageLayout>, { userAgent }
     );
 

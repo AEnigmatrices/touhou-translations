@@ -14,7 +14,7 @@ const onRenderClient: OnRenderClientAsync = async (pageContext: PageContext): Re
 
     const page = (
         <PageLayout pageContext={pageContext}>
-            <Page />
+            <Page {...pageContext} />
         </PageLayout>
     );
 

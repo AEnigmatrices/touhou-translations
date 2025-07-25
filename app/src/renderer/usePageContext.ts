@@ -1,14 +1,9 @@
-import React, { createContext, useContext, type ReactNode } from 'react'
+import React, { createContext, useContext } from 'react'
 import type { PageContext } from 'vike/types'
 
 const Context = createContext<PageContext>(undefined as any)
 
-interface Props {
-    pageContext: PageContext
-    children: ReactNode
-}
-
-const PageContextProvider = ({ pageContext, children }: Props) => {
+const PageContextProvider = ({ pageContext, children }: { pageContext: PageContext; children: React.ReactNode }) => {
     return React.createElement(Context.Provider, { value: pageContext }, children)
 }
 
