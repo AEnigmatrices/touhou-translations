@@ -9,10 +9,11 @@ import ProfileItem from "../ProfileItem/ProfileItem";
 import styles from "./ListPage.styles";
 import type { Artist, Character, SortOrder } from "../../types/data";
 
+interface ListPageProps { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
+
 const MODE_CHARACTER = "character";
 const MODE_ARTIST = "artist";
-
-interface ListPageProps { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
+const BASE_URL = import.meta.env.BASE_URL || '/';
 
 
 
@@ -58,8 +59,8 @@ const ListPage = ({ mode }: ListPageProps): JSX.Element => {
                 ? getCharacterPortraits(id)
                 : getArtistPortraits(id);
             const toUrl = isCharacter
-                ? `/gallery?character=${id}`
-                : `/gallery?artist=${id}`;
+                ? `${BASE_URL}gallery?character=${id}`
+                : `${BASE_URL}gallery?artist=${id}`;
 
             return <ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
         });
