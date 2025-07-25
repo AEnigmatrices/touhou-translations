@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useGetPosts, useGetCharacter, useGetArtist } from '../../context/PostsContext';
 import { filterPosts } from '../../utils/filterPosts';
 import Gallery from '../../components/Gallery/Gallery';
-import GalleryHeaderCharacter from './components/GalleryHeaderCharacter';
-import GalleryHeaderArtist from './components/GalleryHeaderArtist';
+import GalleryHeaderCharacter from '../../components/GalleryHeader/GalleryHeaderCharacter';
+import GalleryHeaderArtist from '../../components/GalleryHeader/GalleryHeaderArtist';
 
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';

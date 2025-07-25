@@ -1,7 +1,7 @@
 import React from 'react';
-import ProfileItem from '../../../components/ProfileItem/ProfileItem';
-import { getCharacterPortraits } from '../../../utils/galleryUtils';
-import type { Character } from '../../../types/data';
+import ProfileItem from '../ProfileItem/ProfileItem';
+import { getCharacterPortraits } from '../../utils/galleryUtils';
+import type { Character } from '../../types/data';
 
 interface Props { character: Character & { artworkCount: number }; }
 
