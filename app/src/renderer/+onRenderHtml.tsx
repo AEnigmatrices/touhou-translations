@@ -1,54 +1,25 @@
-import { StrictMode, Suspense, type ElementType } from 'react';
-import { PassThrough } from 'stream';
+import type { ReactElement } from 'react';
+import { renderToStream } from 'react-streaming/server'
 import { escapeInject } from 'vike/server'
-import { renderToPipeableStream } from 'react-dom/server';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { PageLayout } from '../components/PageLayout/PageLayout'
-import PostsProvider from '../context/PostsProvider';
-import ErrorBoundary from '../context/ErrorBoundary';
 import type { OnRenderHtmlAsync, PageContext } from 'vike/types';
 
+type Page = (pageProps: any) => ReactElement
 
 
-const queryClient = new QueryClient();
 
-const theme = createTheme({ typography: { fontFamily: '"Noto Sans JP", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif' } });
+const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): ReturnType<OnRenderHtmlAsync> => {
+    const { Page } = pageContext as PageContext & { Page: Page }
 
-const LoadingFallback = () => <div>Loading...</div>;
+    const userAgent = pageContext.headers?.['user-agent'] ?? ''
 
-const renderStream = (Page: ElementType) => {
-    const stream = new PassThrough();
-    const { pipe } = renderToPipeableStream(
-        <StrictMode>
-            <QueryClientProvider client={queryClient}>
-                <ThemeProvider theme={theme}>
-                    <CssBaseline />
-                    <ErrorBoundary>
-                        <PostsProvider>
-                            <Suspense fallback={<LoadingFallback />}>
-                                <PageLayout>
-                                    <Page />
-                                </PageLayout>
-                            </Suspense>
-                        </PostsProvider>
-                    </ErrorBoundary>
-                </ThemeProvider>
-            </QueryClientProvider>
-        </StrictMode>,
-        {
-            onShellReady() { pipe(stream); },
-            onError(err) { console.error(err); },
-        }
+    const stream = await renderToStream(
+        <PageLayout pageContext={pageContext}>
+            <Page />
+        </PageLayout>, { userAgent }
     );
-    return stream;
-}
 
-
-
-const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext) => {
-    const Page = pageContext.Page as ElementType;
-    return escapeInject`
+    const documentHtml = escapeInject`
         <!DOCTYPE html>
         <html lang="en">
             <head>
@@ -88,10 +59,12 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext) => {
                 <title>Touhou Translations</title>
             </head>
             <body>
-                 <div id="root">${renderStream(Page)}</div>
+                 <div id="root">${stream}</div>
             </body>
         </html>
     `;
+
+    return { documentHtml }
 };
 
 export { onRenderHtml };

@@ -1,4 +1,6 @@
 export default {
     clientRouting: true,
-    hydrationCanBeAborted: true
+    hydrationCanBeAborted: true,
+    prerender: true,
+    passToClient: ['pageProps']
 }
