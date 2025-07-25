@@ -9,6 +9,6 @@ import generateSitemapPlugin from './plugins/generateSitemapPlugin';
 
 
 export default defineConfig({
-    plugins: [react(), vike({ prerender: true }), postDataPlugin, copyIndexTo404Plugin, generateSitemapPlugin],
+    plugins: [react(), vike(), postDataPlugin, copyIndexTo404Plugin, generateSitemapPlugin],
     base: '/touhou-translations/'
 });

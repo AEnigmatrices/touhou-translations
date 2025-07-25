@@ -2,13 +2,10 @@ import { useGetPosts } from '../../../context/PostsContext';
 import ImageViewer from '../../../components/ImageViewer/ImageViewer';
 import type { PageContext } from 'vike/types';
 
-type PageContextCustom = PageContext & {
-    urlParsed: {
-        pathname: string;
-    };
-};
 
-const Page = (pageContext: PageContextCustom) => {
+
+const Page = (pageContext: PageContext) => {
+    console.log(pageContext)
     const pathname = pageContext.urlParsed.pathname;
     const match = pathname.match(/^\/posts\/(.+)$/);
     const id = match ? match[1] : null;
