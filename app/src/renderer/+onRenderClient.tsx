@@ -23,7 +23,7 @@ const LoadingFallback = () => <div>Loading...</div>;
 let root: Root
 
 const onRenderClient = async (pageContext: any) => {
-    const { Page, pageProps = {} } = pageContext;
+    const { Page, pageProps = {}, urlParsed } = pageContext;
 
     const container = document.getElementById('root');
     if (!container) throw new Error("Root container not found");
@@ -38,7 +38,7 @@ const onRenderClient = async (pageContext: any) => {
                         <PostsProvider>
                             <Suspense fallback={<LoadingFallback />}>
                                 <PageLayout>
-                                    <Page {...pageProps} />
+                                    <Page {...pageProps} urlParsed={urlParsed} />
                                 </PageLayout>
                             </Suspense>
                         </PostsProvider>

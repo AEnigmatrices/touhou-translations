@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { useGetPosts } from '../../context/PostsContext';
 import type { Post } from '../../types/data';
@@ -7,8 +6,6 @@ import GalleryImage from './GalleryImage';
 import styles from './Gallery.styles';
 
 interface Props { posts: Post[]; }
-
-
 
 const Gallery: React.FC<Props> = ({ posts }) => {
     const allPosts = useGetPosts();
@@ -25,11 +22,13 @@ const Gallery: React.FC<Props> = ({ posts }) => {
                 if (postIndex === -1) return null;
 
                 return (
-                    <Box
-                        key={post.date} component={Link} to={`/post/${postIndex + 1}`}
-                        aria-label="View post details" sx={styles.item} tabIndex={0}
-                    >
-                        <GalleryImage src={imageUrl} alt={`Gallery post from ${post.date}`} />
+                    <Box key={post.date} component="div" sx={styles.item}   >
+                        <a
+                            href={`/post/${postIndex + 1}`} aria-label="View post details" tabIndex={0}
+                            style={{ display: 'block', width: '100%', height: '100%' }}
+                        >
+                            <GalleryImage src={imageUrl} alt={`Gallery post from ${post.date}`} />
+                        </a>
                     </Box>
                 );
             })}

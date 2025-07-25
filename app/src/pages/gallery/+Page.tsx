@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useGetPosts, useGetCharacter, useGetArtist } from '../../context/PostsContext';
 import { filterPosts } from '../../utils/filterPosts';
 import Gallery from '../../components/Gallery/Gallery';
-import GalleryHeaderCharacter from './GalleryHeaderCharacter';
-import GalleryHeaderArtist from './GalleryHeaderArtist';
+import GalleryHeaderCharacter from './components/GalleryHeaderCharacter';
+import GalleryHeaderArtist from './components/GalleryHeaderArtist';
 
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -15,21 +14,17 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { useTheme } from '@mui/material/styles';
-import { switchSlotProps, containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, switchLabelStyles, loaderBoxStyles } from './GalleryPage.styles';
+import { switchSlotProps, containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, switchLabelStyles, loaderBoxStyles } from './styles';
 
 const PAGE_CHUNK_SIZE = 12;
 
-
-
-const GalleryPage = () => {
+export default function GalleryPage({ urlParsed }: { urlParsed: { pathname: string, searchOriginal?: string } }) {
     const posts = useGetPosts();
     const getCharacter = useGetCharacter();
     const getArtist = useGetArtist();
     const theme = useTheme();
 
-    const location = useLocation();
-    const navigate = useNavigate();
-    const searchParams = new URLSearchParams(location.search);
+    const searchParams = new URLSearchParams(urlParsed.searchOriginal || '');
 
     const characterQueries = searchParams.getAll('character');
     const artistQueries = searchParams.getAll('artist');
@@ -49,8 +44,6 @@ const GalleryPage = () => {
     const artistId = artistQueries[0] ?? null;
     const artist = artistId ? getArtist(artistId) : null;
 
-
-
     const filteredPosts = useMemo(() => {
         const baseFiltered = filterPosts(posts, characterQueries, artistQueries, mode);
         return galleryOnly ? baseFiltered.filter(post => post.url.length > 1) : baseFiltered;
@@ -65,21 +58,17 @@ const GalleryPage = () => {
     const shuffledPosts = useMemo(() => filteredPosts.slice().sort(() => Math.random() - 0.5), [filterKey]);
     const visiblePosts = useMemo(() => shuffledPosts.slice(0, visibleCount), [shuffledPosts, visibleCount]);
 
-
-
     const toggleGalleryOnly = () => {
         const newGalleryOnly = !galleryOnly;
         setGalleryOnly(newGalleryOnly);
-        const newParams = new URLSearchParams(location.search);
+        const newParams = new URLSearchParams(urlParsed.searchOriginal || '');
         if (newGalleryOnly) {
             newParams.set('galleryOnly', 'true');
         } else {
             newParams.delete('galleryOnly');
         }
-        navigate({ search: newParams.toString() }, { replace: true });
+        window.history.replaceState(null, '', `${urlParsed.pathname}?${newParams.toString()}`);
     };
-
-
 
     useEffect(() => {
         if (!loaderRef.current) return;
@@ -95,12 +84,9 @@ const GalleryPage = () => {
         const currentObserver = observerRef.current;
         currentObserver.observe(loaderRef.current);
         return () => currentObserver.disconnect();
-
     }, [visiblePosts.length, shuffledPosts.length]);
 
     useEffect(() => { isLoadingRef.current = false; }, [visiblePosts.length]);
-
-
 
     return (
         <Container maxWidth="lg" sx={containerStyles(theme)}>
@@ -128,6 +114,4 @@ const GalleryPage = () => {
             )}
         </Container>
     );
-};
-
-export default GalleryPage;
+}
