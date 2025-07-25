@@ -1,33 +1,35 @@
+import { StrictMode, Suspense, type ComponentType } from 'react';
 import { hydrateRoot, createRoot, type Root } from 'react-dom/client'
-import { StrictMode, Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-
-import "./index.css";
+import { PageLayout } from './PageLayout';
 import PostsProvider from '../context/PostsProvider';
 import ErrorBoundary from '../context/ErrorBoundary';
-import { PageLayout } from './PageLayout';
+import "./index.css";
+import type { PageContext } from 'vike/types'
+
+type ExtendedPageContext = PageContext & {
+    Page: ComponentType<any>
+    pageProps?: Record<string, unknown>
+}
 
 
 
 const queryClient = new QueryClient();
 
-const theme = createTheme({
-    typography: {
-        fontFamily: '"Noto Sans JP", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif'
-    }
-});
+const theme = createTheme({ typography: { fontFamily: '"Noto Sans JP", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif' } });
 
 const LoadingFallback = () => <div>Loading...</div>;
 
 let root: Root
 
-const onRenderClient = async (pageContext: any) => {
+
+
+const onRenderClient = async (pageContext: ExtendedPageContext) => {
     const { Page, pageProps = {}, urlParsed, routeParams } = pageContext;
 
     const container = document.getElementById('root');
     if (!container) throw new Error("Root container not found");
-
 
     const page = (
         <StrictMode>
@@ -47,6 +49,7 @@ const onRenderClient = async (pageContext: any) => {
             </QueryClientProvider>
         </StrictMode>
     );
+
     if (pageContext.isHydration) {
         root = hydrateRoot(container, page)
     } else {

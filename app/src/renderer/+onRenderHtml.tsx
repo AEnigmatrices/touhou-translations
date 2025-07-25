@@ -1,29 +1,24 @@
-import { StrictMode, Suspense } from 'react';
-import { renderToPipeableStream } from 'react-dom/server';
+import { StrictMode, Suspense, type ElementType } from 'react';
 import { PassThrough } from 'stream';
-import type { OnRenderHtmlAsync } from 'vike/types';
 import { escapeInject } from 'vike/server'
+import { renderToPipeableStream } from 'react-dom/server';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { PageLayout } from './PageLayout'
 import PostsProvider from '../context/PostsProvider';
 import ErrorBoundary from '../context/ErrorBoundary';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import type { OnRenderHtmlAsync, PageContext } from 'vike/types';
 
 
 
 const queryClient = new QueryClient();
 
-const theme = createTheme({
-    typography: {
-        fontFamily: '"Noto Sans JP", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif'
-    }
-});
+const theme = createTheme({ typography: { fontFamily: '"Noto Sans JP", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif' } });
 
 const LoadingFallback = () => <div>Loading...</div>;
 
-const renderStream = (Page: React.ElementType) => {
+const renderStream = (Page: ElementType) => {
     const stream = new PassThrough();
-
     const { pipe } = renderToPipeableStream(
         <StrictMode>
             <QueryClientProvider client={queryClient}>
@@ -42,22 +37,17 @@ const renderStream = (Page: React.ElementType) => {
             </QueryClientProvider>
         </StrictMode>,
         {
-            onShellReady() {
-                pipe(stream);
-            },
-            onError(err) {
-                console.error(err);
-            },
+            onShellReady() { pipe(stream); },
+            onError(err) { console.error(err); },
         }
     );
-
     return stream;
 }
 
 
 
-const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
-    const Page = pageContext.Page as React.ElementType;
+const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext) => {
+    const Page = pageContext.Page as ElementType;
     return escapeInject`
         <!DOCTYPE html>
         <html lang="en">
