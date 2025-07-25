@@ -5,10 +5,6 @@ import { Box, Typography, Link, IconButton } from '@mui/material';
 import { useGetCharacter } from '../../context/PostsContext';
 import { dateFormatOptions, replaceXWithNitter } from './ImageViewer.utils';
 import ProfilePopover from '../ProfilePopover/ProfilePopover';
-import twitterIcon from '../../icons/social/twitter.webp';
-import nitterIcon from '../../icons/social/nitter.webp';
-import pixivIcon from '../../icons/social/pixiv.webp';
-import redditIcon from '../../icons/social/reddit.webp';
 import styles from './InfoSection.styles';
 import type { Post, Artist, Character } from '../../types/data';
 
@@ -17,6 +13,11 @@ interface Props {
     artist: Artist | null;
     characters: Character[];
 }
+
+const twitterIcon = `${import.meta.env.BASE_URL}icons/social/twitter.webp`;
+const nitterIcon = `${import.meta.env.BASE_URL}icons/social/nitter.webp`;
+const pixivIcon = `${import.meta.env.BASE_URL}icons/social/pixiv.webp`;
+const redditIcon = `${import.meta.env.BASE_URL}icons/social/reddit.webp`;
 
 
 
