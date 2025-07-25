@@ -1,3 +1,4 @@
+import { StrictMode, Suspense } from 'react';
 import { renderToPipeableStream } from 'react-dom/server';
 import { PassThrough } from 'stream';
 import type { OnRenderHtmlAsync } from 'vike/types';
@@ -8,6 +9,8 @@ import ErrorBoundary from '../context/ErrorBoundary';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 
+
+
 const queryClient = new QueryClient();
 
 const theme = createTheme({
@@ -16,22 +19,28 @@ const theme = createTheme({
     }
 });
 
+const LoadingFallback = () => <div>Loading...</div>;
+
 const renderStream = (Page: React.ElementType) => {
     const stream = new PassThrough();
 
     const { pipe } = renderToPipeableStream(
-        <QueryClientProvider client={queryClient}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <ErrorBoundary>
-                    <PostsProvider>
-                        <PageLayout>
-                            <Page />
-                        </PageLayout>
-                    </PostsProvider>
-                </ErrorBoundary>
-            </ThemeProvider>
-        </QueryClientProvider>,
+        <StrictMode>
+            <QueryClientProvider client={queryClient}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <ErrorBoundary>
+                        <PostsProvider>
+                            <Suspense fallback={<LoadingFallback />}>
+                                <PageLayout>
+                                    <Page />
+                                </PageLayout>
+                            </Suspense>
+                        </PostsProvider>
+                    </ErrorBoundary>
+                </ThemeProvider>
+            </QueryClientProvider>
+        </StrictMode>,
         {
             onShellReady() {
                 pipe(stream);
@@ -44,6 +53,7 @@ const renderStream = (Page: React.ElementType) => {
 
     return stream;
 }
+
 
 
 const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {

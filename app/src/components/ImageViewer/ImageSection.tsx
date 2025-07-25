@@ -10,8 +10,6 @@ interface Props {
     handleChangeIndex: (direction: number) => void;
 }
 
-
-
 const ImageSection: React.FC<Props> = ({ currentIndex, urls, handleChangeIndex }) => {
     const currentImage = urls[currentIndex];
     const isGallery = urls.length > 1;
@@ -20,20 +18,17 @@ const ImageSection: React.FC<Props> = ({ currentIndex, urls, handleChangeIndex }
         <Box sx={styles.root}>
             <Box sx={styles.imageDisplay}>
                 <Link href={currentImage} target="_blank" rel="noopener noreferrer" underline="none">
-                    <Box component="img" src={currentImage} alt="Translated Image" sx={styles.image} loading="lazy" />
+                    <Box component="img" src={currentImage} alt="Translated Image" sx={{ ...styles.image }} loading="lazy" title="Translated Image" />
                 </Link>
             </Box>
-
             {isGallery && (
                 <Box sx={styles.galleryControls}>
                     <IconButton onClick={() => handleChangeIndex(-1)} aria-label="Previous image" sx={styles.galleryButton}>
                         <NavigateBeforeIcon />
                     </IconButton>
-
                     <Typography sx={styles.galleryIndex}>
                         {`${currentIndex + 1} / ${urls.length}`}
                     </Typography>
-
                     <IconButton onClick={() => handleChangeIndex(1)} aria-label="Next image" sx={styles.galleryButton}>
                         <NavigateNextIcon />
                     </IconButton>
