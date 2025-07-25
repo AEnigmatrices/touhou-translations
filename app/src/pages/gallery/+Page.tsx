@@ -18,7 +18,7 @@ import { switchSlotProps, containerStyles, headerWrapperStyles, galleryHeaderBox
 
 const PAGE_CHUNK_SIZE = 12;
 
-export default function GalleryPage({ urlParsed }: { urlParsed: { pathname: string, searchOriginal?: string } }) {
+const Page = ({ urlParsed }: { urlParsed: { pathname: string, searchOriginal?: string } }) => {
     const posts = useGetPosts();
     const getCharacter = useGetCharacter();
     const getArtist = useGetArtist();
@@ -115,3 +115,5 @@ export default function GalleryPage({ urlParsed }: { urlParsed: { pathname: stri
         </Container>
     );
 }
+
+export default Page;

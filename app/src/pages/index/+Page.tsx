@@ -3,7 +3,7 @@ import { useGetPosts } from '../../context/PostsContext';
 import { hashDateToIndex } from './utils';
 import ImageViewer from '../../components/ImageViewer/ImageViewer';
 
-export const Page = () => {
+const Page = () => {
     const posts = useGetPosts();
 
     const selectedIndex = useMemo(() => {
@@ -21,3 +21,5 @@ export const Page = () => {
         </div>
     );
 }
+
+export default Page;

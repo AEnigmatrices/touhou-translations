@@ -7,6 +7,8 @@ import styles from './Gallery.styles';
 
 interface Props { posts: Post[]; }
 
+const BASE_URL = import.meta.env.BASE_URL || '/';
+
 const Gallery: React.FC<Props> = ({ posts }) => {
     const allPosts = useGetPosts();
 
@@ -24,7 +26,7 @@ const Gallery: React.FC<Props> = ({ posts }) => {
                 return (
                     <Box key={post.date} component="div" sx={styles.item}   >
                         <a
-                            href={`/post/${postIndex + 1}`} aria-label="View post details" tabIndex={0}
+                            href={`${BASE_URL}posts/${postIndex + 1}`} aria-label="View post details" tabIndex={0}
                             style={{ display: 'block', width: '100%', height: '100%' }}
                         >
                             <GalleryImage src={imageUrl} alt={`Gallery post from ${post.date}`} />

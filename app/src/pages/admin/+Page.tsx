@@ -4,7 +4,7 @@ import PostForm from '../../components/DataForms/PostForm/PostForm';
 import ArtistForm from '../../components/DataForms/ArtistForm/ArtistForm';
 import styles from './styles';
 
-export const Page = () => {
+const Page = () => {
     const theme = useTheme();
 
     const isAdminEnabled = import.meta.env.VITE_ENABLE_ADMIN === "true";
@@ -46,3 +46,5 @@ export const Page = () => {
         </Stack>
     );
 }
+
+export default Page;

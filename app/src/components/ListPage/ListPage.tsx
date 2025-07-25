@@ -4,8 +4,8 @@ import { useGetCharacters } from "../../context/PostsContext";
 import { useGetArtists } from "../../context/PostsContext";
 import { getCharacterPortraits } from "../../utils/galleryUtils";
 import { getArtistPortraits } from "../../utils/galleryUtils";
-import ArtworkCountSortButton from "../../components/ArtworkCountSortButton/ArtworkCountSortButton";
-import ProfileItem from "../../components/ProfileItem/ProfileItem";
+import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
+import ProfileItem from "../ProfileItem/ProfileItem";
 import styles from "./ListPage.styles";
 import type { Artist, Character, SortOrder } from "../../types/data";
 
