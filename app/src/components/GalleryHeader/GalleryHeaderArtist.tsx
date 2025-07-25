@@ -10,7 +10,7 @@ const GalleryHeaderArtist: React.FC<Props> = ({ artist }) => {
 
     return (
         <div className="gallery-page__header">
-            <a href="/artists" className="gallery-page__header-link" aria-label="Back to artists list">
+            <a href="/touhou-translations/artists" className="gallery-page__header-link" aria-label="Back to artists list">
                 <ProfileItem
                     name={artist.name}
                     imageUrl={getArtistPortraits(artist.id)}

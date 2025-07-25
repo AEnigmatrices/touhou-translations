@@ -12,7 +12,7 @@ export const ElevationScroll: React.FC<ElevationScrollProps> = (props) => {
 }
 
 export const navLinks = [
-    { label: 'Home', to: '/' },
+    { label: 'Home', to: '/touhou-translations/' },
     { label: 'Characters', to: '/touhou-translations/characters' },
     { label: 'Artists', to: '/touhou-translations/artists' },
     { label: 'Gallery', to: '/touhou-translations/gallery' },
