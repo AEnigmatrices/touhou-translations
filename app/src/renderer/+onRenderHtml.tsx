@@ -44,7 +44,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
                         base-uri 'self';"
                 />
                 <meta name="referrer" content="strict-origin" />
-                <link rel="icon" type="image/png" href="icons/favicon.png" />
+                <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.png" />
                 <link rel="manifest" href="/manifest.json" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
