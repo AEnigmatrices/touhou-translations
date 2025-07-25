@@ -21,6 +21,7 @@ export const titleSx = (theme: Theme): SxProps<Theme> => ({
     color: theme.palette.text.primary,
     textDecoration: 'none',
     fontWeight: 'bold',
+    cursor: 'pointer'
 });
 
 export const drawerBoxSx: SxProps<Theme> = {

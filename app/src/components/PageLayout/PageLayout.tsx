@@ -18,7 +18,7 @@ const LoadingFallback = () => <div>Loading...</div>;
 
 
 
-const PageLayout = ({ children }: { pageContext: PageContext; children: ReactNode }) => {
+const PageLayout = ({ pageContext, children }: { pageContext: PageContext; children: ReactNode }) => {
     return (
         <StrictMode>
             <QueryClientProvider client={queryClient}>
@@ -27,11 +27,11 @@ const PageLayout = ({ children }: { pageContext: PageContext; children: ReactNod
                     <ErrorBoundary>
                         <PostsProvider>
                             <Suspense fallback={<LoadingFallback />}>
-                                    <Box sx={styles.layoutContainer}>
-                                        <Navbar />
-                                        <Box component="main" sx={styles.mainContent}>{children}</Box>
-                                        <Footer />
-                                    </Box>
+                                <Box sx={styles.layoutContainer}>
+                                    <Navbar pageContext={pageContext} />
+                                    <Box component="main" sx={styles.mainContent}>{children}</Box>
+                                    <Footer />
+                                </Box>
                             </Suspense>
                         </PostsProvider>
                     </ErrorBoundary>
