@@ -2,7 +2,7 @@ import { StrictMode, Suspense, type ComponentType } from 'react';
 import { hydrateRoot, createRoot, type Root } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import { PageLayout } from './PageLayout';
+import { PageLayout } from '../components/PageLayout/PageLayout';
 import PostsProvider from '../context/PostsProvider';
 import ErrorBoundary from '../context/ErrorBoundary';
 import "./index.css";
