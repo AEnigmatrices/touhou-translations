@@ -33,7 +33,7 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
     };
 
     const ImageContent = imageUrl
-        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "lazy" } }} />
+        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "eager" } }} />
         : <Box sx={styles.placeholder} aria-hidden />;
 
     const Content = (
