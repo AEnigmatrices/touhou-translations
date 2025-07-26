@@ -736,12 +736,13 @@ const import1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   onRenderHtml
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  useGetArtists as a,
-  useGetPosts as b,
-  useGetCharacter as c,
-  useGetArtist as d,
+  artists as a,
+  useGetCharacters as b,
+  useGetArtists as c,
+  useGetCharacter as d,
   extractRedditId as e,
-  fetchPosts as f,
+  useGetArtist as f,
+  fetchPosts as g,
   import1 as i,
-  useGetCharacters as u
+  useGetPosts as u
 };
