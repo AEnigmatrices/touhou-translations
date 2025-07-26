@@ -18,7 +18,7 @@ const ImageSection: React.FC<Props> = ({ currentIndex, urls, handleChangeIndex }
         <Box sx={styles.root}>
             <Box sx={styles.imageDisplay}>
                 <Link href={currentImage} target="_blank" rel="noopener noreferrer" underline="none">
-                    <Box component="img" src={currentImage} alt="Translated Image" sx={{ ...styles.image }} loading="lazy" title="Translated Image" />
+                    <Box component="img" src={currentImage} alt="Translated Image" sx={{ ...styles.image }} loading="lazy" title="" />
                 </Link>
             </Box>
             {isGallery && (
