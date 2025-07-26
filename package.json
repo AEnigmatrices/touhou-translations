@@ -16,7 +16,7 @@
         "dev": "vike dev --mode development",
         "prebuild": "tsx scripts/processData.ts",
         "build": "vike build --mode production",
-        "postbuild": "node scripts/copyIndexTo404.ts && node scripts/moveDist.ts",
+        "postbuild": "tsx scripts/copyIndexTo404.ts && tsx scripts/moveDist.ts",
         "preview": "vike preview",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git"
