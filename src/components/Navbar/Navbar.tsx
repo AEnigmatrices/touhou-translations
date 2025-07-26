@@ -16,6 +16,8 @@ const Navbar: React.FC<{ pageContext: PageContext }> = ({ pageContext }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const posts = useGetPosts();
+    const tabPaths = navLinks.map(link => link.to);
+    const currentTab = tabPaths.includes(pageContext.urlOriginal) ? pageContext.urlOriginal : false;
 
     const getRandomPostPath = () => {
         if (posts.length === 0) return '/';
@@ -66,7 +68,7 @@ const Navbar: React.FC<{ pageContext: PageContext }> = ({ pageContext }) => {
                             </Drawer>
                         </>
                     ) : (
-                        <Tabs value={pageContext.urlOriginal} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={tabContainerSx}  >
+                        <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={tabContainerSx}  >
                             {navLinks.map(({ label, to }) => (
                                 <Tab key={to} value={to} label={label} onClick={() => handleNavigation(to)} sx={tabSx(isCurrent(to))} />
                             ))}
