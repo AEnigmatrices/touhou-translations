@@ -1,7 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Container, Box, Typography, TextField } from "@mui/material";
-import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "./chunk-DV3HJY5I.js";
+import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "./chunk-CHPWzO4P.js";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import CollectionsIcon from "@mui/icons-material/Collections";
