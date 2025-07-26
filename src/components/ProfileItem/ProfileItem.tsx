@@ -12,7 +12,7 @@ interface Props {
 
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
     const ImageContent = imageUrl
-        ? <Avatar src={imageUrl} alt={name} sx={styles.avatar} variant="rounded" slotProps={{ img: { loading: "lazy" } }} />
+        ? <Avatar src={imageUrl} alt={name} sx={styles.avatar} variant="rounded" slotProps={{ img: { loading: "lazy", decoding: "async", fetchPriority: "low" } }} />
         : <Box sx={styles.placeholder} aria-hidden />;
 
     const handleClick = () => {
