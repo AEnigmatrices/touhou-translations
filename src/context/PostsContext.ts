@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext } from 'react';
-import type { Post, Artist, ArtistRaw, CharacterRaw } from '../types/data';
+import type { Post, Artist, Character, ArtistRaw, CharacterRaw } from '../types/data';
 
 interface PostsContextType {
     posts: Post[];
@@ -42,7 +42,7 @@ export const useGetPosts = (): Post[] => usePostsContext().posts;
 
 
 
-export const useGetArtist = (): ((id: string) => (Artist & { artworkCount: number }) | null) => {
+export const useGetArtist = (): ((id: string) => Artist | null) => {
     const { artists, posts } = usePostsContext();
     return useCallback((id) => {
         const countMap = getArtistArtworkCounts(posts);
@@ -51,7 +51,7 @@ export const useGetArtist = (): ((id: string) => (Artist & { artworkCount: numbe
     }, [artists, posts]);
 };
 
-export const useGetArtists = (): ((ids?: string[]) => (Artist & { artworkCount: number })[]) => {
+export const useGetArtists = (): (ids?: string[]) => Artist[] => {
     const { artists, posts } = usePostsContext();
     return useCallback((ids) => {
         const countMap = getArtistArtworkCounts(posts);
@@ -64,7 +64,7 @@ export const useGetArtists = (): ((ids?: string[]) => (Artist & { artworkCount: 
 
 
 
-export const useGetCharacter = (): ((id: string) => (CharacterRaw & { artworkCount: number }) | null) => {
+export const useGetCharacter = (): ((id: string) => Character | null) => {
     const { characters, posts } = usePostsContext();
     return useCallback((id) => {
         const countMap = getCharacterArtworkCounts(posts);
@@ -73,7 +73,7 @@ export const useGetCharacter = (): ((id: string) => (CharacterRaw & { artworkCou
     }, [characters, posts]);
 };
 
-export const useGetCharacters = (): ((ids?: string[]) => (CharacterRaw & { artworkCount: number })[]) => {
+export const useGetCharacters = (): ((ids?: string[]) => Character[]) => {
     const { characters, posts } = usePostsContext();
     return useCallback((ids) => {
         const countMap = getCharacterArtworkCounts(posts);
