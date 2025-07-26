@@ -1,17 +1,14 @@
 import { StrictMode } from 'react';
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import PostsProvider from '../../context/PostsProvider';
 import ErrorBoundary from '../../context/ErrorBoundary';
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { Box } from "@mui/material";
 import styles from "./PageLayout.styles";
+import theme from './theme';
 import type { ReactNode } from "react";
 import type { PageContext } from 'vike/types'
-
-const theme = createTheme({ typography: { fontFamily: '"Noto Sans JP", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif' } });
-
-
 
 const PageLayout = ({ pageContext, children }: { pageContext: PageContext; children: ReactNode }) => {
     return (
