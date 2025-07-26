@@ -603,7 +603,7 @@ const styles = {
 };
 /*! src/components/ProfileItem/ProfileItem.tsx [vike:pluginModuleBanner] */
 const ProfileItem = ({ name, imageUrl, description, link }) => {
-  const ImageContent = imageUrl ? /* @__PURE__ */ jsx(Avatar, { src: imageUrl, alt: name, sx: styles.avatar, variant: "rounded" }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
+  const ImageContent = imageUrl ? /* @__PURE__ */ jsx(Avatar, { src: imageUrl, alt: name, sx: styles.avatar, variant: "rounded", slotProps: { img: { loading: "lazy" } } }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
   const handleClick = () => {
     if (link) navigate(link);
   };
