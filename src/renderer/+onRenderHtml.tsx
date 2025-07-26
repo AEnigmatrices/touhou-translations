@@ -1,25 +1,22 @@
 import type { ReactElement } from 'react';
-import { renderToStream } from 'react-streaming/server';
-import { escapeInject } from 'vike/server';
-import { PageLayout } from '../components/PageLayout/PageLayout';
+import { renderToStream } from 'react-streaming/server'
+import { escapeInject } from 'vike/server'
+import { PageLayout } from '../components/PageLayout/PageLayout'
 import type { OnRenderHtmlAsync, PageContext } from 'vike/types';
 
-type Page = (pageProps: any) => ReactElement;
+type Page = (pageProps: any) => ReactElement
+
+
 
 const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): ReturnType<OnRenderHtmlAsync> => {
-    const { Page } = pageContext as PageContext & { Page: Page };
+    const { Page } = pageContext as PageContext & { Page: Page }
 
-    const today = new Date().toISOString().split('T')[0];
-
-    (pageContext as any).today = today;
-
-    const userAgent = pageContext.headers?.['user-agent'] ?? '';
+    const userAgent = pageContext.headers?.['user-agent'] ?? ''
 
     const stream = await renderToStream(
         <PageLayout pageContext={pageContext}>
             <Page {...pageContext} />
-        </PageLayout>,
-        { userAgent }
+        </PageLayout>, { userAgent }
     );
 
     const documentHtml = escapeInject`
@@ -62,13 +59,12 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
                 <title>Touhou Translations</title>
             </head>
             <body>
-                <div id="root">${stream}</div>
-                <script>window.__TODAY__ = "${today}";</script>
+                 <div id="root">${stream}</div>
             </body>
         </html>
     `;
 
-    return { documentHtml };
+    return { documentHtml }
 };
 
 export { onRenderHtml };
