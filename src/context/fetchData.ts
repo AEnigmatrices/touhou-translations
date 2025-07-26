@@ -1,26 +1,20 @@
-import fileList from "./postsIndex.json";
-import type { Post, Artist, Character } from "../types/data";
+import artistsData from "../../data/artists.json";
+import charactersData from "../../data/characters.json";
+import type { Post, ArtistRaw, CharacterRaw } from "../types/data";
 
-const BASE_URL = "https://raw.githubusercontent.com/AEnigmatrices/touhou-translations/main/data";
+const postModules = import.meta.glob('../../data/posts/*.json', { eager: true });
 
-const fetchJson = async <T>(path: string): Promise<T> => {
-    const res = await fetch(`${BASE_URL}/${path}`);
-    if (!res.ok) throw new Error(`Failed to fetch ${path}`);
-    return res.json();
-};
+const loadPosts = async (): Promise<Post[]> => {
+    const postsArrays = Object.values(postModules).map((module: any) => module.default);
 
-
-
-export const fetchPosts = async (): Promise<Post[]> => {
-    const postsArrays = await Promise.all(
-        fileList.map(filename => fetchJson<Post[]>(`posts/${filename}`))
-    );
     const allPosts = postsArrays.flat();
     return allPosts
-        .filter(p => p.date)
+        .filter((p): p is Post => !!p && typeof p === 'object' && 'date' in p)
         .sort((a, b) => a.date - b.date);
 };
 
-export const fetchArtists = (): Promise<Artist[]> => fetchJson<Artist[]>("artists.json");
+export const fetchPosts = async (): Promise<Post[]> => loadPosts();
 
-export const fetchCharacters = (): Promise<Character[]> => fetchJson("characters.json");
+export const fetchArtists = async (): Promise<ArtistRaw[]> => artistsData;
+
+export const fetchCharacters = async (): Promise<CharacterRaw[]> => charactersData;

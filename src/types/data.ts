@@ -33,4 +33,17 @@ export interface PostEntryForm {
     characterIds: string;
 }
 
+export interface ArtistRaw {
+    id: string;
+    name: string;
+    linkTwitter?: string;
+    linkPixiv?: string;
+}
+
+export interface CharacterRaw {
+    id: string;
+    name: string;
+    work: string[];
+}
+
 export type SortOrder = "none" | "asc" | "desc";
