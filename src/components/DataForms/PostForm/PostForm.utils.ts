@@ -1,5 +1,5 @@
 import type { PostEntryForm } from "../../../types/data";
-import artists from '../../../../../data/artists.json';
+import artists from '../../../../data/artists.json';
 
 const headers = { 'Content-Type': 'application/json' };
 

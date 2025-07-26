@@ -3,8 +3,8 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import type { Post, Artist } from '../src/types/data';
 
-const postsPath = path.resolve(__dirname, '../../data/posts/posts-2024.json');
-const artistsPath = path.resolve(__dirname, '../../data/artists.json');
+const postsPath = path.resolve(__dirname, '../data/posts/posts-2024.json');
+const artistsPath = path.resolve(__dirname, '../data/artists.json');
 
 const readRequestBody = async (req: any): Promise<string> => {
     const chunks: Uint8Array[] = [];

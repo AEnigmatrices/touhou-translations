@@ -1,5 +1,5 @@
 import type { ArtistFormInput } from './ArtistForm.types';
-import artists from '../../../../../data/artists.json';
+import artists from '../../../../data/artists.json';
 
 const headers = { 'Content-Type': 'application/json' };
 
