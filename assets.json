@@ -1,202 +1,49 @@
 {
-  "_chunk-81w20G__.js": {
-    "file": "assets/chunks/chunk-81w20G__.js",
+  "_chunk-9-1mu2M-.js": {
+    "file": "assets/chunks/chunk-9-1mu2M-.js",
+    "name": "TextField",
+    "imports": [
+      "_chunk-B5SyGefh.js",
+      "_chunk-CSJa5t7c.js"
+    ]
+  },
+  "_chunk-B5SyGefh.js": {
+    "file": "assets/chunks/chunk-B5SyGefh.js",
+    "name": "_onRenderClient",
+    "imports": [
+      "_chunk-DT_UM7IW.js"
+    ],
+    "css": [
+      "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
+    ]
+  },
+  "_chunk-CNj05vsF.js": {
+    "file": "assets/chunks/chunk-CNj05vsF.js",
+    "name": "ListPage",
+    "imports": [
+      "_chunk-B5SyGefh.js",
+      "_chunk-C_edee9G.js",
+      "_chunk-CSJa5t7c.js",
+      "_chunk-9-1mu2M-.js"
+    ]
+  },
+  "_chunk-CSJa5t7c.js": {
+    "file": "assets/chunks/chunk-CSJa5t7c.js",
     "name": "useFormControl",
     "imports": [
-      "_chunk-CiDJUaEr.js"
+      "_chunk-B5SyGefh.js"
     ]
   },
-  "_chunk-BMxPQUqX.js": {
-    "file": "assets/chunks/chunk-BMxPQUqX.js",
+  "_chunk-C_edee9G.js": {
+    "file": "assets/chunks/chunk-C_edee9G.js",
     "name": "ProfileItem",
     "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-C8PL5MRo.js"
-    ],
-    "assets": [
-      "assets/static/akyuu.C69V-hwO.webp",
-      "assets/static/alice.DEWrPtVD.webp",
-      "assets/static/aun.D_HfZlaI.webp",
-      "assets/static/aya.Bs9Y13l-.webp",
-      "assets/static/benben.Ytj66Qhq.webp",
-      "assets/static/biten.DLfxQy1N.webp",
-      "assets/static/byakuren.DWOIa2Ie.webp",
-      "assets/static/chen.D3RPODWp.webp",
-      "assets/static/chimata.Cj95g3bK.webp",
-      "assets/static/chimi.Dpj7AW8n.webp",
-      "assets/static/chiyari.zV8v2pw2.webp",
-      "assets/static/cirno.CA_TJo0W.webp",
-      "assets/static/clownpiece.Dqn57-ur.webp",
-      "assets/static/daiyousei.D0S_Y_RO.webp",
-      "assets/static/doremy.CaNSoIp1.webp",
-      "assets/static/eika.BzCV04m1.webp",
-      "assets/static/eiki.C74mpl1r.webp",
-      "assets/static/eirin.CeAjhyYI.webp",
-      "assets/static/enoko.I1lYfMvP.webp",
-      "assets/static/flandre.BLUghg1_.webp",
-      "assets/static/futo.C1C5nsSy.webp",
-      "assets/static/hatate.BxdBaS34.webp",
-      "assets/static/hecatia.C9iWXdRA.webp",
-      "assets/static/hina.JkBOeqJ2.webp",
-      "assets/static/hisami.CYQrWK7L.webp",
-      "assets/static/ichirin.DhWuF_Os.webp",
-      "assets/static/iku.De8FgQlE.webp",
-      "assets/static/joon.DjtqZgfy.webp",
-      "assets/static/junko.BBANMAB1.webp",
-      "assets/static/kagerou.Dj4oHlwd.webp",
-      "assets/static/kaguya.CLRDTD9n.webp",
-      "assets/static/kanako.C8rnenIZ.webp",
-      "assets/static/kasen.jnZ2smjy.webp",
-      "assets/static/keiki.BSOuRXDq.webp",
-      "assets/static/keine.CAtNTHWx.webp",
-      "assets/static/kisume.DobJ-IEg.webp",
-      "assets/static/koakuma.DJjj9tZj.webp",
-      "assets/static/kogasa.KHduT5pf.webp",
-      "assets/static/koishi.BL-lY-F6.webp",
-      "assets/static/kokoro.DS2ClGkp.webp",
-      "assets/static/komachi.L8L92kb_.webp",
-      "assets/static/kosuzu.DPgi6H3Q.webp",
-      "assets/static/kutaka.Dt9yvZc9.webp",
-      "assets/static/kyouko.5M3R7cij.webp",
-      "assets/static/larva.4hx_f6YY.webp",
-      "assets/static/letty.jyn5_NeS.webp",
-      "assets/static/lily.CsREB__H.webp",
-      "assets/static/luna.BGayZBEX.webp",
-      "assets/static/lunasa.CWPOABVW.webp",
-      "assets/static/lyrica.C0qieuh9.webp",
-      "assets/static/mai.muoLaYA1.webp",
-      "assets/static/mamizou.BKMs-FO6.webp",
-      "assets/static/marisa.CZhW6VWk.webp",
-      "assets/static/mayumi.BoUMdqvX.webp",
-      "assets/static/medicine.l6Hs00s6.webp",
-      "assets/static/megumu.t0yxXRZh.webp",
-      "assets/static/meiling.W-3xdGWO.webp",
-      "assets/static/merlin.CDn4uvRE.webp",
-      "assets/static/merry.PR3U4dgG.webp",
-      "assets/static/mike.DleuvbGd.webp",
-      "assets/static/miko.B2qe8vJN.webp",
-      "assets/static/minamitsu.Cy7at_Tr.webp",
-      "assets/static/minoriko.x6jOvZ8O.webp",
-      "assets/static/misumaru.BnYkETwI.webp",
-      "assets/static/miyoi.u_OBKgQc.webp",
-      "assets/static/mizuchi.CVQwQue7.webp",
-      "assets/static/mokou.B3M7vhfF.webp",
-      "assets/static/momiji.Cpt-G1Lp.webp",
-      "assets/static/momoyo.LtU2XOR6.webp",
-      "assets/static/mystia.r5J6ne7k.webp",
-      "assets/static/nareko.DK_7Hbdp.webp",
-      "assets/static/narumi.ygb29z-d.webp",
-      "assets/static/nazrin.B1c3Jjy9.webp",
-      "assets/static/nemuno.CYtUZT6t.webp",
-      "assets/static/nitori.DSTVTThY.webp",
-      "assets/static/nue.DIAfMs9-.webp",
-      "assets/static/okina.BVGiO8tw.webp",
-      "assets/static/okuu.CzgoZxUG.webp",
-      "assets/static/orin.6pWkVbQB.webp",
-      "assets/static/parsee.BpzemPrK.webp",
-      "assets/static/patchouli.C2m0mcG9.webp",
-      "assets/static/raiko.C-iUDF0o.webp",
-      "assets/static/ran.8unJONnr.webp",
-      "assets/static/reimu.C--l9llF.webp",
-      "assets/static/reisen.nACCzEzk.webp",
-      "assets/static/reisen2.DqgDg5w6.webp",
-      "assets/static/remilia.DsxaxEe-.webp",
-      "assets/static/renko.bsQAGzxE.webp",
-      "assets/static/rin.C6XG6Wo5.webp",
-      "assets/static/ringo.BUNgKmre.webp",
-      "assets/static/rinnosuke.CMj8xLNj.webp",
-      "assets/static/rumia.CEJzBkrJ.webp",
-      "assets/static/sagume.DAz_NJma.webp",
-      "assets/static/saki.D4gI-BHr.webp",
-      "assets/static/sakuya.D4ymbzg7.webp",
-      "assets/static/sanae.Dt2nYCys.webp",
-      "assets/static/sannyo.exfI1nw6.webp",
-      "assets/static/satono.HF6-3LSt.webp",
-      "assets/static/satori.Kgyqy3p7.webp",
-      "assets/static/seiga.etA_P-3s.webp",
-      "assets/static/seija.2WIQ5me-.webp",
-      "assets/static/seiran.PrMklpOC.webp",
-      "assets/static/sekibanki.CtsD4rzS.webp",
-      "assets/static/shinmyoumaru.C7Ey8QIS.webp",
-      "assets/static/shion.CCicYzB4.webp",
-      "assets/static/shizuha.A7VrV-Bc.webp",
-      "assets/static/shou.BEsfrLOt.webp",
-      "assets/static/star.wYNQTgl8.webp",
-      "assets/static/suika.CRhTDXE1.webp",
-      "assets/static/sumireko.BK1zWfmI.webp",
-      "assets/static/sunny.BtNRRNhC.webp",
-      "assets/static/suwako.DdFZEDfi.webp",
-      "assets/static/takane.CwL4AyIL.webp",
-      "assets/static/tenshi.DMOOpmJj.webp",
-      "assets/static/tewi.BZYWcSHr.webp",
-      "assets/static/tojiko.CvrNXy8n.webp",
-      "assets/static/tokiko.94LDDDuY.webp",
-      "assets/static/toyohime.QKIaJFeT.webp",
-      "assets/static/tsukasa.CyNrcHuq.webp",
-      "assets/static/ubame.voz_v1y3.webp",
-      "assets/static/urumi.Df6Cciq-.webp",
-      "assets/static/wakasagihime.D_0LByx1.webp",
-      "assets/static/wriggle.CGbzpf9d.webp",
-      "assets/static/yachie.DLcZDIec.webp",
-      "assets/static/yamame.Cowv3hzP.webp",
-      "assets/static/yatsuhashi.8JlpmpvI.webp",
-      "assets/static/yorihime.bE-u9OYh.webp",
-      "assets/static/yoshika.Bu9xJYaF.webp",
-      "assets/static/youmu.BraMTuz2.webp",
-      "assets/static/yukari.DFM8Y7yz.webp",
-      "assets/static/yuugi.Dz7rI4zj.webp",
-      "assets/static/yuuka.DA8sJLqI.webp",
-      "assets/static/yuuma.Cv7XgboV.webp",
-      "assets/static/yuyuko.DB3S438q.webp",
-      "assets/static/zanmu.ErIc0Xhp.webp",
-      "assets/static/arugon.BZXWETkG.webp",
-      "assets/static/ayaharu.C_YX6P8J.webp",
-      "assets/static/chitose_hachi.DakvuEU-.webp",
-      "assets/static/chuumukade.BO6pqu2w.webp",
-      "assets/static/deetamu.D5LMepzq.webp",
-      "assets/static/ebi.BL-Zodck.webp",
-      "assets/static/enoki.l8teeIP1.webp",
-      "assets/static/gohan_tabe.YIJJn6N0.webp",
-      "assets/static/gokuu.DmR8mxfw.webp",
-      "assets/static/haruwaka_noroshi.z5BOxbKl.webp",
-      "assets/static/hidaruma.CDieD8l3.webp",
-      "assets/static/iroiro_yaru_hito.BgfYnGPU.webp",
-      "assets/static/kanonari.6i_QpXmA.webp",
-      "assets/static/kanpa.BIus6scQ.webp",
-      "assets/static/konna_reshiki.BqEmPioX.webp",
-      "assets/static/mendou15.Snb17Fri.webp",
-      "assets/static/merihari.DsXB5BU_.webp",
-      "assets/static/muntarou.D0Bncsb5.webp",
-      "assets/static/purabird.BxWzhIXd.webp",
-      "assets/static/seele.12r5Rb37.webp",
-      "assets/static/shichimi.BEJoBzK2.webp",
-      "assets/static/shio.DAh3pSoB.webp",
-      "assets/static/sniper.C4ZO9mbk.webp",
-      "assets/static/sobayu_to_tempura.BxTHbLUt.webp",
-      "assets/static/soborou.BuUmluBH.webp",
-      "assets/static/solidus.D-w1GKXh.webp",
-      "assets/static/soregashi.2IzVtBfk.webp",
-      "assets/static/suwaneko.DVD406iN.webp",
-      "assets/static/suzume_suzume.BryVqyp4.webp",
-      "assets/static/teoi.inRbYC3W.webp",
-      "assets/static/tofuya.Bmh_2rFa.webp",
-      "assets/static/yimu.DOWSRnn_.webp",
-      "assets/static/youyume.BemFfIf-.webp",
-      "assets/static/yukiya_nagi.GMn4l1jQ.webp",
-      "assets/static/zounose.CPmPufiI.webp",
-      "assets/static/demoman.DKVe_qV0.webp",
-      "assets/static/engineer.nXZlyKzP.webp",
-      "assets/static/heavy.B3TiiyhY.webp",
-      "assets/static/medic.Dt21nUYq.webp",
-      "assets/static/pyro.BbzNqIpv.webp",
-      "assets/static/scout.CGrWOvBY.webp",
-      "assets/static/sniper.DMrGlNqT.webp",
-      "assets/static/soldier.DOxzU5rm.webp",
-      "assets/static/spy.YJksyo1j.webp"
+      "_chunk-B5SyGefh.js",
+      "_chunk-DT_UM7IW.js"
     ]
   },
-  "_chunk-C8PL5MRo.js": {
-    "file": "assets/chunks/chunk-C8PL5MRo.js",
+  "_chunk-DT_UM7IW.js": {
+    "file": "assets/chunks/chunk-DT_UM7IW.js",
     "name": "renderPageClientSide",
     "dynamicImports": [
       "virtual:vike:pageConfigLazy:client:/src/pages/admin",
@@ -207,855 +54,111 @@
       "virtual:vike:pageConfigLazy:client:/src/pages/posts/@id"
     ]
   },
-  "_chunk-CC-jXIAa.js": {
-    "file": "assets/chunks/chunk-CC-jXIAa.js",
-    "name": "ListPage",
-    "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-BMxPQUqX.js",
-      "_chunk-81w20G__.js",
-      "_chunk-CNFkC7N2.js"
-    ]
-  },
-  "_chunk-CNFkC7N2.js": {
-    "file": "assets/chunks/chunk-CNFkC7N2.js",
-    "name": "TextField",
-    "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-81w20G__.js"
-    ]
-  },
-  "_chunk-CiDJUaEr.js": {
-    "file": "assets/chunks/chunk-CiDJUaEr.js",
-    "name": "_onRenderClient",
-    "imports": [
-      "_chunk-C8PL5MRo.js"
-    ],
-    "css": [
-      "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
-    ]
-  },
   "_src_renderer_index-54ec5530.BBfZVkUH.css": {
     "file": "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css",
     "src": "_src_renderer_index-54ec5530.BBfZVkUH.css"
   },
   "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js": {
-    "file": "assets/entries/entry-client-routing.Cm79qO-6.js",
+    "file": "assets/entries/entry-client-routing.Ck0NYBG0.js",
     "name": "entries/entry-client-routing",
     "src": "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js",
     "isEntry": true,
     "imports": [
-      "_chunk-C8PL5MRo.js"
+      "_chunk-DT_UM7IW.js"
     ]
   },
-  "src/icons/artists/arugon.webp": {
-    "file": "assets/static/arugon.BZXWETkG.webp",
-    "src": "src/icons/artists/arugon.webp"
-  },
-  "src/icons/artists/ayaharu.webp": {
-    "file": "assets/static/ayaharu.C_YX6P8J.webp",
-    "src": "src/icons/artists/ayaharu.webp"
-  },
-  "src/icons/artists/chitose_hachi.webp": {
-    "file": "assets/static/chitose_hachi.DakvuEU-.webp",
-    "src": "src/icons/artists/chitose_hachi.webp"
-  },
-  "src/icons/artists/chuumukade.webp": {
-    "file": "assets/static/chuumukade.BO6pqu2w.webp",
-    "src": "src/icons/artists/chuumukade.webp"
-  },
-  "src/icons/artists/deetamu.webp": {
-    "file": "assets/static/deetamu.D5LMepzq.webp",
-    "src": "src/icons/artists/deetamu.webp"
-  },
-  "src/icons/artists/ebi.webp": {
-    "file": "assets/static/ebi.BL-Zodck.webp",
-    "src": "src/icons/artists/ebi.webp"
-  },
-  "src/icons/artists/enoki.webp": {
-    "file": "assets/static/enoki.l8teeIP1.webp",
-    "src": "src/icons/artists/enoki.webp"
-  },
-  "src/icons/artists/gohan_tabe.webp": {
-    "file": "assets/static/gohan_tabe.YIJJn6N0.webp",
-    "src": "src/icons/artists/gohan_tabe.webp"
-  },
-  "src/icons/artists/gokuu.webp": {
-    "file": "assets/static/gokuu.DmR8mxfw.webp",
-    "src": "src/icons/artists/gokuu.webp"
-  },
-  "src/icons/artists/haruwaka_noroshi.webp": {
-    "file": "assets/static/haruwaka_noroshi.z5BOxbKl.webp",
-    "src": "src/icons/artists/haruwaka_noroshi.webp"
-  },
-  "src/icons/artists/hidaruma.webp": {
-    "file": "assets/static/hidaruma.CDieD8l3.webp",
-    "src": "src/icons/artists/hidaruma.webp"
-  },
-  "src/icons/artists/iroiro_yaru_hito.webp": {
-    "file": "assets/static/iroiro_yaru_hito.BgfYnGPU.webp",
-    "src": "src/icons/artists/iroiro_yaru_hito.webp"
-  },
-  "src/icons/artists/kanonari.webp": {
-    "file": "assets/static/kanonari.6i_QpXmA.webp",
-    "src": "src/icons/artists/kanonari.webp"
-  },
-  "src/icons/artists/kanpa.webp": {
-    "file": "assets/static/kanpa.BIus6scQ.webp",
-    "src": "src/icons/artists/kanpa.webp"
-  },
-  "src/icons/artists/konna_reshiki.webp": {
-    "file": "assets/static/konna_reshiki.BqEmPioX.webp",
-    "src": "src/icons/artists/konna_reshiki.webp"
-  },
-  "src/icons/artists/mendou15.webp": {
-    "file": "assets/static/mendou15.Snb17Fri.webp",
-    "src": "src/icons/artists/mendou15.webp"
-  },
-  "src/icons/artists/merihari.webp": {
-    "file": "assets/static/merihari.DsXB5BU_.webp",
-    "src": "src/icons/artists/merihari.webp"
-  },
-  "src/icons/artists/muntarou.webp": {
-    "file": "assets/static/muntarou.D0Bncsb5.webp",
-    "src": "src/icons/artists/muntarou.webp"
-  },
-  "src/icons/artists/purabird.webp": {
-    "file": "assets/static/purabird.BxWzhIXd.webp",
-    "src": "src/icons/artists/purabird.webp"
-  },
-  "src/icons/artists/seele.webp": {
-    "file": "assets/static/seele.12r5Rb37.webp",
-    "src": "src/icons/artists/seele.webp"
-  },
-  "src/icons/artists/shichimi.webp": {
-    "file": "assets/static/shichimi.BEJoBzK2.webp",
-    "src": "src/icons/artists/shichimi.webp"
-  },
-  "src/icons/artists/shio.webp": {
-    "file": "assets/static/shio.DAh3pSoB.webp",
-    "src": "src/icons/artists/shio.webp"
-  },
-  "src/icons/artists/sniper.webp": {
-    "file": "assets/static/sniper.C4ZO9mbk.webp",
-    "src": "src/icons/artists/sniper.webp"
-  },
-  "src/icons/artists/sobayu_to_tempura.webp": {
-    "file": "assets/static/sobayu_to_tempura.BxTHbLUt.webp",
-    "src": "src/icons/artists/sobayu_to_tempura.webp"
-  },
-  "src/icons/artists/soborou.webp": {
-    "file": "assets/static/soborou.BuUmluBH.webp",
-    "src": "src/icons/artists/soborou.webp"
-  },
-  "src/icons/artists/solidus.webp": {
-    "file": "assets/static/solidus.D-w1GKXh.webp",
-    "src": "src/icons/artists/solidus.webp"
-  },
-  "src/icons/artists/soregashi.webp": {
-    "file": "assets/static/soregashi.2IzVtBfk.webp",
-    "src": "src/icons/artists/soregashi.webp"
-  },
-  "src/icons/artists/suwaneko.webp": {
-    "file": "assets/static/suwaneko.DVD406iN.webp",
-    "src": "src/icons/artists/suwaneko.webp"
-  },
-  "src/icons/artists/suzume_suzume.webp": {
-    "file": "assets/static/suzume_suzume.BryVqyp4.webp",
-    "src": "src/icons/artists/suzume_suzume.webp"
-  },
-  "src/icons/artists/teoi.webp": {
-    "file": "assets/static/teoi.inRbYC3W.webp",
-    "src": "src/icons/artists/teoi.webp"
-  },
-  "src/icons/artists/tofuya.webp": {
-    "file": "assets/static/tofuya.Bmh_2rFa.webp",
-    "src": "src/icons/artists/tofuya.webp"
-  },
-  "src/icons/artists/yimu.webp": {
-    "file": "assets/static/yimu.DOWSRnn_.webp",
-    "src": "src/icons/artists/yimu.webp"
-  },
-  "src/icons/artists/youyume.webp": {
-    "file": "assets/static/youyume.BemFfIf-.webp",
-    "src": "src/icons/artists/youyume.webp"
-  },
-  "src/icons/artists/yukiya_nagi.webp": {
-    "file": "assets/static/yukiya_nagi.GMn4l1jQ.webp",
-    "src": "src/icons/artists/yukiya_nagi.webp"
-  },
-  "src/icons/artists/zounose.webp": {
-    "file": "assets/static/zounose.CPmPufiI.webp",
-    "src": "src/icons/artists/zounose.webp"
-  },
-  "src/icons/characters/portraits/akyuu.webp": {
-    "file": "assets/static/akyuu.C69V-hwO.webp",
-    "src": "src/icons/characters/portraits/akyuu.webp"
-  },
-  "src/icons/characters/portraits/alice.webp": {
-    "file": "assets/static/alice.DEWrPtVD.webp",
-    "src": "src/icons/characters/portraits/alice.webp"
-  },
-  "src/icons/characters/portraits/aun.webp": {
-    "file": "assets/static/aun.D_HfZlaI.webp",
-    "src": "src/icons/characters/portraits/aun.webp"
-  },
-  "src/icons/characters/portraits/aya.webp": {
-    "file": "assets/static/aya.Bs9Y13l-.webp",
-    "src": "src/icons/characters/portraits/aya.webp"
-  },
-  "src/icons/characters/portraits/benben.webp": {
-    "file": "assets/static/benben.Ytj66Qhq.webp",
-    "src": "src/icons/characters/portraits/benben.webp"
-  },
-  "src/icons/characters/portraits/biten.webp": {
-    "file": "assets/static/biten.DLfxQy1N.webp",
-    "src": "src/icons/characters/portraits/biten.webp"
-  },
-  "src/icons/characters/portraits/byakuren.webp": {
-    "file": "assets/static/byakuren.DWOIa2Ie.webp",
-    "src": "src/icons/characters/portraits/byakuren.webp"
-  },
-  "src/icons/characters/portraits/chen.webp": {
-    "file": "assets/static/chen.D3RPODWp.webp",
-    "src": "src/icons/characters/portraits/chen.webp"
-  },
-  "src/icons/characters/portraits/chimata.webp": {
-    "file": "assets/static/chimata.Cj95g3bK.webp",
-    "src": "src/icons/characters/portraits/chimata.webp"
-  },
-  "src/icons/characters/portraits/chimi.webp": {
-    "file": "assets/static/chimi.Dpj7AW8n.webp",
-    "src": "src/icons/characters/portraits/chimi.webp"
-  },
-  "src/icons/characters/portraits/chiyari.webp": {
-    "file": "assets/static/chiyari.zV8v2pw2.webp",
-    "src": "src/icons/characters/portraits/chiyari.webp"
-  },
-  "src/icons/characters/portraits/cirno.webp": {
-    "file": "assets/static/cirno.CA_TJo0W.webp",
-    "src": "src/icons/characters/portraits/cirno.webp"
-  },
-  "src/icons/characters/portraits/clownpiece.webp": {
-    "file": "assets/static/clownpiece.Dqn57-ur.webp",
-    "src": "src/icons/characters/portraits/clownpiece.webp"
-  },
-  "src/icons/characters/portraits/daiyousei.webp": {
-    "file": "assets/static/daiyousei.D0S_Y_RO.webp",
-    "src": "src/icons/characters/portraits/daiyousei.webp"
-  },
-  "src/icons/characters/portraits/doremy.webp": {
-    "file": "assets/static/doremy.CaNSoIp1.webp",
-    "src": "src/icons/characters/portraits/doremy.webp"
-  },
-  "src/icons/characters/portraits/eika.webp": {
-    "file": "assets/static/eika.BzCV04m1.webp",
-    "src": "src/icons/characters/portraits/eika.webp"
-  },
-  "src/icons/characters/portraits/eiki.webp": {
-    "file": "assets/static/eiki.C74mpl1r.webp",
-    "src": "src/icons/characters/portraits/eiki.webp"
-  },
-  "src/icons/characters/portraits/eirin.webp": {
-    "file": "assets/static/eirin.CeAjhyYI.webp",
-    "src": "src/icons/characters/portraits/eirin.webp"
-  },
-  "src/icons/characters/portraits/enoko.webp": {
-    "file": "assets/static/enoko.I1lYfMvP.webp",
-    "src": "src/icons/characters/portraits/enoko.webp"
-  },
-  "src/icons/characters/portraits/flandre.webp": {
-    "file": "assets/static/flandre.BLUghg1_.webp",
-    "src": "src/icons/characters/portraits/flandre.webp"
-  },
-  "src/icons/characters/portraits/futo.webp": {
-    "file": "assets/static/futo.C1C5nsSy.webp",
-    "src": "src/icons/characters/portraits/futo.webp"
-  },
-  "src/icons/characters/portraits/hatate.webp": {
-    "file": "assets/static/hatate.BxdBaS34.webp",
-    "src": "src/icons/characters/portraits/hatate.webp"
-  },
-  "src/icons/characters/portraits/hecatia.webp": {
-    "file": "assets/static/hecatia.C9iWXdRA.webp",
-    "src": "src/icons/characters/portraits/hecatia.webp"
-  },
-  "src/icons/characters/portraits/hina.webp": {
-    "file": "assets/static/hina.JkBOeqJ2.webp",
-    "src": "src/icons/characters/portraits/hina.webp"
-  },
-  "src/icons/characters/portraits/hisami.webp": {
-    "file": "assets/static/hisami.CYQrWK7L.webp",
-    "src": "src/icons/characters/portraits/hisami.webp"
-  },
-  "src/icons/characters/portraits/ichirin.webp": {
-    "file": "assets/static/ichirin.DhWuF_Os.webp",
-    "src": "src/icons/characters/portraits/ichirin.webp"
-  },
-  "src/icons/characters/portraits/iku.webp": {
-    "file": "assets/static/iku.De8FgQlE.webp",
-    "src": "src/icons/characters/portraits/iku.webp"
-  },
-  "src/icons/characters/portraits/joon.webp": {
-    "file": "assets/static/joon.DjtqZgfy.webp",
-    "src": "src/icons/characters/portraits/joon.webp"
-  },
-  "src/icons/characters/portraits/junko.webp": {
-    "file": "assets/static/junko.BBANMAB1.webp",
-    "src": "src/icons/characters/portraits/junko.webp"
-  },
-  "src/icons/characters/portraits/kagerou.webp": {
-    "file": "assets/static/kagerou.Dj4oHlwd.webp",
-    "src": "src/icons/characters/portraits/kagerou.webp"
-  },
-  "src/icons/characters/portraits/kaguya.webp": {
-    "file": "assets/static/kaguya.CLRDTD9n.webp",
-    "src": "src/icons/characters/portraits/kaguya.webp"
-  },
-  "src/icons/characters/portraits/kanako.webp": {
-    "file": "assets/static/kanako.C8rnenIZ.webp",
-    "src": "src/icons/characters/portraits/kanako.webp"
-  },
-  "src/icons/characters/portraits/kasen.webp": {
-    "file": "assets/static/kasen.jnZ2smjy.webp",
-    "src": "src/icons/characters/portraits/kasen.webp"
-  },
-  "src/icons/characters/portraits/keiki.webp": {
-    "file": "assets/static/keiki.BSOuRXDq.webp",
-    "src": "src/icons/characters/portraits/keiki.webp"
-  },
-  "src/icons/characters/portraits/keine.webp": {
-    "file": "assets/static/keine.CAtNTHWx.webp",
-    "src": "src/icons/characters/portraits/keine.webp"
-  },
-  "src/icons/characters/portraits/kisume.webp": {
-    "file": "assets/static/kisume.DobJ-IEg.webp",
-    "src": "src/icons/characters/portraits/kisume.webp"
-  },
-  "src/icons/characters/portraits/koakuma.webp": {
-    "file": "assets/static/koakuma.DJjj9tZj.webp",
-    "src": "src/icons/characters/portraits/koakuma.webp"
-  },
-  "src/icons/characters/portraits/kogasa.webp": {
-    "file": "assets/static/kogasa.KHduT5pf.webp",
-    "src": "src/icons/characters/portraits/kogasa.webp"
-  },
-  "src/icons/characters/portraits/koishi.webp": {
-    "file": "assets/static/koishi.BL-lY-F6.webp",
-    "src": "src/icons/characters/portraits/koishi.webp"
-  },
-  "src/icons/characters/portraits/kokoro.webp": {
-    "file": "assets/static/kokoro.DS2ClGkp.webp",
-    "src": "src/icons/characters/portraits/kokoro.webp"
-  },
-  "src/icons/characters/portraits/komachi.webp": {
-    "file": "assets/static/komachi.L8L92kb_.webp",
-    "src": "src/icons/characters/portraits/komachi.webp"
-  },
-  "src/icons/characters/portraits/kosuzu.webp": {
-    "file": "assets/static/kosuzu.DPgi6H3Q.webp",
-    "src": "src/icons/characters/portraits/kosuzu.webp"
-  },
-  "src/icons/characters/portraits/kutaka.webp": {
-    "file": "assets/static/kutaka.Dt9yvZc9.webp",
-    "src": "src/icons/characters/portraits/kutaka.webp"
-  },
-  "src/icons/characters/portraits/kyouko.webp": {
-    "file": "assets/static/kyouko.5M3R7cij.webp",
-    "src": "src/icons/characters/portraits/kyouko.webp"
-  },
-  "src/icons/characters/portraits/larva.webp": {
-    "file": "assets/static/larva.4hx_f6YY.webp",
-    "src": "src/icons/characters/portraits/larva.webp"
-  },
-  "src/icons/characters/portraits/letty.webp": {
-    "file": "assets/static/letty.jyn5_NeS.webp",
-    "src": "src/icons/characters/portraits/letty.webp"
-  },
-  "src/icons/characters/portraits/lily.webp": {
-    "file": "assets/static/lily.CsREB__H.webp",
-    "src": "src/icons/characters/portraits/lily.webp"
-  },
-  "src/icons/characters/portraits/luna.webp": {
-    "file": "assets/static/luna.BGayZBEX.webp",
-    "src": "src/icons/characters/portraits/luna.webp"
-  },
-  "src/icons/characters/portraits/lunasa.webp": {
-    "file": "assets/static/lunasa.CWPOABVW.webp",
-    "src": "src/icons/characters/portraits/lunasa.webp"
-  },
-  "src/icons/characters/portraits/lyrica.webp": {
-    "file": "assets/static/lyrica.C0qieuh9.webp",
-    "src": "src/icons/characters/portraits/lyrica.webp"
-  },
-  "src/icons/characters/portraits/mai.webp": {
-    "file": "assets/static/mai.muoLaYA1.webp",
-    "src": "src/icons/characters/portraits/mai.webp"
-  },
-  "src/icons/characters/portraits/mamizou.webp": {
-    "file": "assets/static/mamizou.BKMs-FO6.webp",
-    "src": "src/icons/characters/portraits/mamizou.webp"
-  },
-  "src/icons/characters/portraits/marisa.webp": {
-    "file": "assets/static/marisa.CZhW6VWk.webp",
-    "src": "src/icons/characters/portraits/marisa.webp"
-  },
-  "src/icons/characters/portraits/mayumi.webp": {
-    "file": "assets/static/mayumi.BoUMdqvX.webp",
-    "src": "src/icons/characters/portraits/mayumi.webp"
-  },
-  "src/icons/characters/portraits/medicine.webp": {
-    "file": "assets/static/medicine.l6Hs00s6.webp",
-    "src": "src/icons/characters/portraits/medicine.webp"
-  },
-  "src/icons/characters/portraits/megumu.webp": {
-    "file": "assets/static/megumu.t0yxXRZh.webp",
-    "src": "src/icons/characters/portraits/megumu.webp"
-  },
-  "src/icons/characters/portraits/meiling.webp": {
-    "file": "assets/static/meiling.W-3xdGWO.webp",
-    "src": "src/icons/characters/portraits/meiling.webp"
-  },
-  "src/icons/characters/portraits/merlin.webp": {
-    "file": "assets/static/merlin.CDn4uvRE.webp",
-    "src": "src/icons/characters/portraits/merlin.webp"
-  },
-  "src/icons/characters/portraits/merry.webp": {
-    "file": "assets/static/merry.PR3U4dgG.webp",
-    "src": "src/icons/characters/portraits/merry.webp"
-  },
-  "src/icons/characters/portraits/mike.webp": {
-    "file": "assets/static/mike.DleuvbGd.webp",
-    "src": "src/icons/characters/portraits/mike.webp"
-  },
-  "src/icons/characters/portraits/miko.webp": {
-    "file": "assets/static/miko.B2qe8vJN.webp",
-    "src": "src/icons/characters/portraits/miko.webp"
-  },
-  "src/icons/characters/portraits/minamitsu.webp": {
-    "file": "assets/static/minamitsu.Cy7at_Tr.webp",
-    "src": "src/icons/characters/portraits/minamitsu.webp"
-  },
-  "src/icons/characters/portraits/minoriko.webp": {
-    "file": "assets/static/minoriko.x6jOvZ8O.webp",
-    "src": "src/icons/characters/portraits/minoriko.webp"
-  },
-  "src/icons/characters/portraits/misumaru.webp": {
-    "file": "assets/static/misumaru.BnYkETwI.webp",
-    "src": "src/icons/characters/portraits/misumaru.webp"
-  },
-  "src/icons/characters/portraits/miyoi.webp": {
-    "file": "assets/static/miyoi.u_OBKgQc.webp",
-    "src": "src/icons/characters/portraits/miyoi.webp"
-  },
-  "src/icons/characters/portraits/mizuchi.webp": {
-    "file": "assets/static/mizuchi.CVQwQue7.webp",
-    "src": "src/icons/characters/portraits/mizuchi.webp"
-  },
-  "src/icons/characters/portraits/mokou.webp": {
-    "file": "assets/static/mokou.B3M7vhfF.webp",
-    "src": "src/icons/characters/portraits/mokou.webp"
-  },
-  "src/icons/characters/portraits/momiji.webp": {
-    "file": "assets/static/momiji.Cpt-G1Lp.webp",
-    "src": "src/icons/characters/portraits/momiji.webp"
-  },
-  "src/icons/characters/portraits/momoyo.webp": {
-    "file": "assets/static/momoyo.LtU2XOR6.webp",
-    "src": "src/icons/characters/portraits/momoyo.webp"
-  },
-  "src/icons/characters/portraits/mystia.webp": {
-    "file": "assets/static/mystia.r5J6ne7k.webp",
-    "src": "src/icons/characters/portraits/mystia.webp"
-  },
-  "src/icons/characters/portraits/nareko.webp": {
-    "file": "assets/static/nareko.DK_7Hbdp.webp",
-    "src": "src/icons/characters/portraits/nareko.webp"
-  },
-  "src/icons/characters/portraits/narumi.webp": {
-    "file": "assets/static/narumi.ygb29z-d.webp",
-    "src": "src/icons/characters/portraits/narumi.webp"
-  },
-  "src/icons/characters/portraits/nazrin.webp": {
-    "file": "assets/static/nazrin.B1c3Jjy9.webp",
-    "src": "src/icons/characters/portraits/nazrin.webp"
-  },
-  "src/icons/characters/portraits/nemuno.webp": {
-    "file": "assets/static/nemuno.CYtUZT6t.webp",
-    "src": "src/icons/characters/portraits/nemuno.webp"
-  },
-  "src/icons/characters/portraits/nitori.webp": {
-    "file": "assets/static/nitori.DSTVTThY.webp",
-    "src": "src/icons/characters/portraits/nitori.webp"
-  },
-  "src/icons/characters/portraits/nue.webp": {
-    "file": "assets/static/nue.DIAfMs9-.webp",
-    "src": "src/icons/characters/portraits/nue.webp"
-  },
-  "src/icons/characters/portraits/okina.webp": {
-    "file": "assets/static/okina.BVGiO8tw.webp",
-    "src": "src/icons/characters/portraits/okina.webp"
-  },
-  "src/icons/characters/portraits/okuu.webp": {
-    "file": "assets/static/okuu.CzgoZxUG.webp",
-    "src": "src/icons/characters/portraits/okuu.webp"
-  },
-  "src/icons/characters/portraits/orin.webp": {
-    "file": "assets/static/orin.6pWkVbQB.webp",
-    "src": "src/icons/characters/portraits/orin.webp"
-  },
-  "src/icons/characters/portraits/parsee.webp": {
-    "file": "assets/static/parsee.BpzemPrK.webp",
-    "src": "src/icons/characters/portraits/parsee.webp"
-  },
-  "src/icons/characters/portraits/patchouli.webp": {
-    "file": "assets/static/patchouli.C2m0mcG9.webp",
-    "src": "src/icons/characters/portraits/patchouli.webp"
-  },
-  "src/icons/characters/portraits/raiko.webp": {
-    "file": "assets/static/raiko.C-iUDF0o.webp",
-    "src": "src/icons/characters/portraits/raiko.webp"
-  },
-  "src/icons/characters/portraits/ran.webp": {
-    "file": "assets/static/ran.8unJONnr.webp",
-    "src": "src/icons/characters/portraits/ran.webp"
-  },
-  "src/icons/characters/portraits/reimu.webp": {
-    "file": "assets/static/reimu.C--l9llF.webp",
-    "src": "src/icons/characters/portraits/reimu.webp"
-  },
-  "src/icons/characters/portraits/reisen.webp": {
-    "file": "assets/static/reisen.nACCzEzk.webp",
-    "src": "src/icons/characters/portraits/reisen.webp"
-  },
-  "src/icons/characters/portraits/reisen2.webp": {
-    "file": "assets/static/reisen2.DqgDg5w6.webp",
-    "src": "src/icons/characters/portraits/reisen2.webp"
-  },
-  "src/icons/characters/portraits/remilia.webp": {
-    "file": "assets/static/remilia.DsxaxEe-.webp",
-    "src": "src/icons/characters/portraits/remilia.webp"
-  },
-  "src/icons/characters/portraits/renko.webp": {
-    "file": "assets/static/renko.bsQAGzxE.webp",
-    "src": "src/icons/characters/portraits/renko.webp"
-  },
-  "src/icons/characters/portraits/rin.webp": {
-    "file": "assets/static/rin.C6XG6Wo5.webp",
-    "src": "src/icons/characters/portraits/rin.webp"
-  },
-  "src/icons/characters/portraits/ringo.webp": {
-    "file": "assets/static/ringo.BUNgKmre.webp",
-    "src": "src/icons/characters/portraits/ringo.webp"
-  },
-  "src/icons/characters/portraits/rinnosuke.webp": {
-    "file": "assets/static/rinnosuke.CMj8xLNj.webp",
-    "src": "src/icons/characters/portraits/rinnosuke.webp"
-  },
-  "src/icons/characters/portraits/rumia.webp": {
-    "file": "assets/static/rumia.CEJzBkrJ.webp",
-    "src": "src/icons/characters/portraits/rumia.webp"
-  },
-  "src/icons/characters/portraits/sagume.webp": {
-    "file": "assets/static/sagume.DAz_NJma.webp",
-    "src": "src/icons/characters/portraits/sagume.webp"
-  },
-  "src/icons/characters/portraits/saki.webp": {
-    "file": "assets/static/saki.D4gI-BHr.webp",
-    "src": "src/icons/characters/portraits/saki.webp"
-  },
-  "src/icons/characters/portraits/sakuya.webp": {
-    "file": "assets/static/sakuya.D4ymbzg7.webp",
-    "src": "src/icons/characters/portraits/sakuya.webp"
-  },
-  "src/icons/characters/portraits/sanae.webp": {
-    "file": "assets/static/sanae.Dt2nYCys.webp",
-    "src": "src/icons/characters/portraits/sanae.webp"
-  },
-  "src/icons/characters/portraits/sannyo.webp": {
-    "file": "assets/static/sannyo.exfI1nw6.webp",
-    "src": "src/icons/characters/portraits/sannyo.webp"
-  },
-  "src/icons/characters/portraits/satono.webp": {
-    "file": "assets/static/satono.HF6-3LSt.webp",
-    "src": "src/icons/characters/portraits/satono.webp"
-  },
-  "src/icons/characters/portraits/satori.webp": {
-    "file": "assets/static/satori.Kgyqy3p7.webp",
-    "src": "src/icons/characters/portraits/satori.webp"
-  },
-  "src/icons/characters/portraits/seiga.webp": {
-    "file": "assets/static/seiga.etA_P-3s.webp",
-    "src": "src/icons/characters/portraits/seiga.webp"
-  },
-  "src/icons/characters/portraits/seija.webp": {
-    "file": "assets/static/seija.2WIQ5me-.webp",
-    "src": "src/icons/characters/portraits/seija.webp"
-  },
-  "src/icons/characters/portraits/seiran.webp": {
-    "file": "assets/static/seiran.PrMklpOC.webp",
-    "src": "src/icons/characters/portraits/seiran.webp"
-  },
-  "src/icons/characters/portraits/sekibanki.webp": {
-    "file": "assets/static/sekibanki.CtsD4rzS.webp",
-    "src": "src/icons/characters/portraits/sekibanki.webp"
-  },
-  "src/icons/characters/portraits/shinmyoumaru.webp": {
-    "file": "assets/static/shinmyoumaru.C7Ey8QIS.webp",
-    "src": "src/icons/characters/portraits/shinmyoumaru.webp"
-  },
-  "src/icons/characters/portraits/shion.webp": {
-    "file": "assets/static/shion.CCicYzB4.webp",
-    "src": "src/icons/characters/portraits/shion.webp"
-  },
-  "src/icons/characters/portraits/shizuha.webp": {
-    "file": "assets/static/shizuha.A7VrV-Bc.webp",
-    "src": "src/icons/characters/portraits/shizuha.webp"
-  },
-  "src/icons/characters/portraits/shou.webp": {
-    "file": "assets/static/shou.BEsfrLOt.webp",
-    "src": "src/icons/characters/portraits/shou.webp"
-  },
-  "src/icons/characters/portraits/star.webp": {
-    "file": "assets/static/star.wYNQTgl8.webp",
-    "src": "src/icons/characters/portraits/star.webp"
-  },
-  "src/icons/characters/portraits/suika.webp": {
-    "file": "assets/static/suika.CRhTDXE1.webp",
-    "src": "src/icons/characters/portraits/suika.webp"
-  },
-  "src/icons/characters/portraits/sumireko.webp": {
-    "file": "assets/static/sumireko.BK1zWfmI.webp",
-    "src": "src/icons/characters/portraits/sumireko.webp"
-  },
-  "src/icons/characters/portraits/sunny.webp": {
-    "file": "assets/static/sunny.BtNRRNhC.webp",
-    "src": "src/icons/characters/portraits/sunny.webp"
-  },
-  "src/icons/characters/portraits/suwako.webp": {
-    "file": "assets/static/suwako.DdFZEDfi.webp",
-    "src": "src/icons/characters/portraits/suwako.webp"
-  },
-  "src/icons/characters/portraits/takane.webp": {
-    "file": "assets/static/takane.CwL4AyIL.webp",
-    "src": "src/icons/characters/portraits/takane.webp"
-  },
-  "src/icons/characters/portraits/tenshi.webp": {
-    "file": "assets/static/tenshi.DMOOpmJj.webp",
-    "src": "src/icons/characters/portraits/tenshi.webp"
-  },
-  "src/icons/characters/portraits/tewi.webp": {
-    "file": "assets/static/tewi.BZYWcSHr.webp",
-    "src": "src/icons/characters/portraits/tewi.webp"
-  },
-  "src/icons/characters/portraits/tojiko.webp": {
-    "file": "assets/static/tojiko.CvrNXy8n.webp",
-    "src": "src/icons/characters/portraits/tojiko.webp"
-  },
-  "src/icons/characters/portraits/tokiko.webp": {
-    "file": "assets/static/tokiko.94LDDDuY.webp",
-    "src": "src/icons/characters/portraits/tokiko.webp"
-  },
-  "src/icons/characters/portraits/toyohime.webp": {
-    "file": "assets/static/toyohime.QKIaJFeT.webp",
-    "src": "src/icons/characters/portraits/toyohime.webp"
-  },
-  "src/icons/characters/portraits/tsukasa.webp": {
-    "file": "assets/static/tsukasa.CyNrcHuq.webp",
-    "src": "src/icons/characters/portraits/tsukasa.webp"
-  },
-  "src/icons/characters/portraits/ubame.webp": {
-    "file": "assets/static/ubame.voz_v1y3.webp",
-    "src": "src/icons/characters/portraits/ubame.webp"
-  },
-  "src/icons/characters/portraits/urumi.webp": {
-    "file": "assets/static/urumi.Df6Cciq-.webp",
-    "src": "src/icons/characters/portraits/urumi.webp"
-  },
-  "src/icons/characters/portraits/wakasagihime.webp": {
-    "file": "assets/static/wakasagihime.D_0LByx1.webp",
-    "src": "src/icons/characters/portraits/wakasagihime.webp"
-  },
-  "src/icons/characters/portraits/wriggle.webp": {
-    "file": "assets/static/wriggle.CGbzpf9d.webp",
-    "src": "src/icons/characters/portraits/wriggle.webp"
-  },
-  "src/icons/characters/portraits/yachie.webp": {
-    "file": "assets/static/yachie.DLcZDIec.webp",
-    "src": "src/icons/characters/portraits/yachie.webp"
-  },
-  "src/icons/characters/portraits/yamame.webp": {
-    "file": "assets/static/yamame.Cowv3hzP.webp",
-    "src": "src/icons/characters/portraits/yamame.webp"
-  },
-  "src/icons/characters/portraits/yatsuhashi.webp": {
-    "file": "assets/static/yatsuhashi.8JlpmpvI.webp",
-    "src": "src/icons/characters/portraits/yatsuhashi.webp"
-  },
-  "src/icons/characters/portraits/yorihime.webp": {
-    "file": "assets/static/yorihime.bE-u9OYh.webp",
-    "src": "src/icons/characters/portraits/yorihime.webp"
-  },
-  "src/icons/characters/portraits/yoshika.webp": {
-    "file": "assets/static/yoshika.Bu9xJYaF.webp",
-    "src": "src/icons/characters/portraits/yoshika.webp"
-  },
-  "src/icons/characters/portraits/youmu.webp": {
-    "file": "assets/static/youmu.BraMTuz2.webp",
-    "src": "src/icons/characters/portraits/youmu.webp"
-  },
-  "src/icons/characters/portraits/yukari.webp": {
-    "file": "assets/static/yukari.DFM8Y7yz.webp",
-    "src": "src/icons/characters/portraits/yukari.webp"
-  },
-  "src/icons/characters/portraits/yuugi.webp": {
-    "file": "assets/static/yuugi.Dz7rI4zj.webp",
-    "src": "src/icons/characters/portraits/yuugi.webp"
-  },
-  "src/icons/characters/portraits/yuuka.webp": {
-    "file": "assets/static/yuuka.DA8sJLqI.webp",
-    "src": "src/icons/characters/portraits/yuuka.webp"
-  },
-  "src/icons/characters/portraits/yuuma.webp": {
-    "file": "assets/static/yuuma.Cv7XgboV.webp",
-    "src": "src/icons/characters/portraits/yuuma.webp"
-  },
-  "src/icons/characters/portraits/yuyuko.webp": {
-    "file": "assets/static/yuyuko.DB3S438q.webp",
-    "src": "src/icons/characters/portraits/yuyuko.webp"
-  },
-  "src/icons/characters/portraits/zanmu.webp": {
-    "file": "assets/static/zanmu.ErIc0Xhp.webp",
-    "src": "src/icons/characters/portraits/zanmu.webp"
-  },
-  "src/icons/placeholders/demoman.webp": {
-    "file": "assets/static/demoman.DKVe_qV0.webp",
-    "src": "src/icons/placeholders/demoman.webp"
-  },
-  "src/icons/placeholders/engineer.webp": {
-    "file": "assets/static/engineer.nXZlyKzP.webp",
-    "src": "src/icons/placeholders/engineer.webp"
-  },
-  "src/icons/placeholders/heavy.webp": {
-    "file": "assets/static/heavy.B3TiiyhY.webp",
-    "src": "src/icons/placeholders/heavy.webp"
-  },
-  "src/icons/placeholders/medic.webp": {
-    "file": "assets/static/medic.Dt21nUYq.webp",
-    "src": "src/icons/placeholders/medic.webp"
-  },
-  "src/icons/placeholders/pyro.webp": {
-    "file": "assets/static/pyro.BbzNqIpv.webp",
-    "src": "src/icons/placeholders/pyro.webp"
-  },
-  "src/icons/placeholders/scout.webp": {
-    "file": "assets/static/scout.CGrWOvBY.webp",
-    "src": "src/icons/placeholders/scout.webp"
-  },
-  "src/icons/placeholders/sniper.webp": {
-    "file": "assets/static/sniper.DMrGlNqT.webp",
-    "src": "src/icons/placeholders/sniper.webp"
-  },
-  "src/icons/placeholders/soldier.webp": {
-    "file": "assets/static/soldier.DOxzU5rm.webp",
-    "src": "src/icons/placeholders/soldier.webp"
-  },
-  "src/icons/placeholders/spy.webp": {
-    "file": "assets/static/spy.YJksyo1j.webp",
-    "src": "src/icons/placeholders/spy.webp"
-  },
   "virtual:vike:pageConfigLazy:client:/src/pages/admin": {
-    "file": "assets/entries/src_pages_admin.B83583KR.js",
+    "file": "assets/entries/src_pages_admin.DdeSOXYe.js",
     "name": "entries/src/pages/admin",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/admin",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-CNFkC7N2.js",
-      "_chunk-81w20G__.js",
-      "_chunk-C8PL5MRo.js"
+      "_chunk-B5SyGefh.js",
+      "_chunk-9-1mu2M-.js",
+      "_chunk-CSJa5t7c.js",
+      "_chunk-DT_UM7IW.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/artists": {
-    "file": "assets/entries/src_pages_artists.k3p_cW0w.js",
+    "file": "assets/entries/src_pages_artists.z8fV1R3q.js",
     "name": "entries/src/pages/artists",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/artists",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-CC-jXIAa.js",
-      "_chunk-C8PL5MRo.js",
-      "_chunk-BMxPQUqX.js",
-      "_chunk-81w20G__.js",
-      "_chunk-CNFkC7N2.js"
+      "_chunk-B5SyGefh.js",
+      "_chunk-CNj05vsF.js",
+      "_chunk-DT_UM7IW.js",
+      "_chunk-C_edee9G.js",
+      "_chunk-CSJa5t7c.js",
+      "_chunk-9-1mu2M-.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/characters": {
-    "file": "assets/entries/src_pages_characters.Cyt_wk5v.js",
+    "file": "assets/entries/src_pages_characters.Bt5S8Efa.js",
     "name": "entries/src/pages/characters",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/characters",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-CC-jXIAa.js",
-      "_chunk-C8PL5MRo.js",
-      "_chunk-BMxPQUqX.js",
-      "_chunk-81w20G__.js",
-      "_chunk-CNFkC7N2.js"
+      "_chunk-B5SyGefh.js",
+      "_chunk-CNj05vsF.js",
+      "_chunk-DT_UM7IW.js",
+      "_chunk-C_edee9G.js",
+      "_chunk-CSJa5t7c.js",
+      "_chunk-9-1mu2M-.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/gallery": {
-    "file": "assets/entries/src_pages_gallery.TtxnPauw.js",
+    "file": "assets/entries/src_pages_gallery.CV0PI87y.js",
     "name": "entries/src/pages/gallery",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/gallery",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-BMxPQUqX.js",
-      "_chunk-81w20G__.js",
-      "_chunk-C8PL5MRo.js"
+      "_chunk-B5SyGefh.js",
+      "_chunk-C_edee9G.js",
+      "_chunk-CSJa5t7c.js",
+      "_chunk-DT_UM7IW.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/index": {
-    "file": "assets/entries/src_pages_index.vDisYOyX.js",
+    "file": "assets/entries/src_pages_index.CLegnPxQ.js",
     "name": "entries/src/pages/index",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/index",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-C8PL5MRo.js"
+      "_chunk-B5SyGefh.js",
+      "_chunk-DT_UM7IW.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/posts/@id": {
-    "file": "assets/entries/src_pages_posts_-id.cPNKPvSx.js",
+    "file": "assets/entries/src_pages_posts_-id.MuxIFngN.js",
     "name": "entries/src/pages/posts/@id",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/posts/@id",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-CiDJUaEr.js",
-      "_chunk-BMxPQUqX.js",
-      "_chunk-C8PL5MRo.js"
+      "_chunk-B5SyGefh.js",
+      "_chunk-C_edee9G.js",
+      "_chunk-DT_UM7IW.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
