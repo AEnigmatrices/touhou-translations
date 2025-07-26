@@ -39,7 +39,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
                         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
                         font-src 'self' https://fonts.gstatic.com;
                         img-src 'self' https://i.redd.it;
-                        connect-src 'self' https://www.reddit.com https://raw.githubusercontent.com;
+                        connect-src 'self' https://www.reddit.com;
                         object-src 'none';
                         base-uri 'self';"
                 />
