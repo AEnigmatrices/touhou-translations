@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { navigate } from 'vike/client/router';
 import { useGetPosts } from '../../context/PostsContext';
-import { extractRedditId } from '../../utils/extractRedditId';
 import { AppBar, Toolbar, Tabs, Tab, IconButton, Drawer, List, ListItemButton, ListItemText, Typography, useMediaQuery, Box, useTheme } from '@mui/material';
-import { ElevationScroll, navLinks } from './Navbar.utils';
+import { ElevationScroll, navLinks, getRandomPostPath } from './Navbar.utils';
 import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from './Navbar.styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import type { PageContext } from 'vike/types';
@@ -19,14 +18,7 @@ const Navbar: React.FC<{ pageContext: PageContext }> = ({ pageContext }) => {
     const tabPaths = navLinks.map(link => link.to);
     const currentTab = tabPaths.includes(pageContext.urlOriginal) ? pageContext.urlOriginal : false;
 
-    const getRandomPostPath = () => {
-        if (posts.length === 0) return '/';
-        const randomPost = posts[Math.floor(Math.random() * posts.length)];
-        const redditId = extractRedditId(randomPost.reddit);
-        return redditId ? `/posts/${redditId}` : '/';
-    };
-
-    const handleLogoClick = () => navigate(getRandomPostPath());
+    const handleLogoClick = () => navigate(getRandomPostPath(posts));
 
     const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
     const isCurrent = (to: string) => pageContext.urlOriginal === to;
