@@ -14,13 +14,15 @@
     "scripts": {
         "dev": "vike dev --mode development",
         "build": "vike build --mode production",
-        "postbuild": "node scripts/copyIndexTo404.js && node scripts/moveDist.js",
+
         "preview": "vike preview",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git"
     },
     "dependencies": {
+        "@emotion/cache": "^11.14.0",
         "@emotion/react": "^11.14.0",
+        "@emotion/server": "^11.11.0",
         "@emotion/styled": "^11.14.1",
         "@mui/icons-material": "^7.2.0",
         "@mui/material": "^7.2.0",

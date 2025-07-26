@@ -1,30 +1,34 @@
 import type { ReactElement } from 'react';
-import { hydrateRoot, createRoot, type Root } from 'react-dom/client'
+import { hydrateRoot, createRoot, type Root } from 'react-dom/client';
+import { CacheProvider } from '@emotion/react';
+import createEmotionCache from '../utils/createEmotionCache';
 import { PageLayout } from '../components/PageLayout/PageLayout';
-import "./index.css";
+import './index.css';
 import type { OnRenderClientAsync, PageContext } from 'vike/types';
 
-type Page = (pageProps: any) => ReactElement
+type Page = (pageProps: any) => ReactElement;
 
-
-let root: Root
+let root: Root;
+const cache = createEmotionCache();
 
 const onRenderClient: OnRenderClientAsync = async (pageContext: PageContext) => {
-    const { Page } = pageContext as PageContext & { Page: Page }
+    const { Page } = pageContext as PageContext & { Page: Page };
 
     const page = (
-        <PageLayout pageContext={pageContext}>
-            <Page {...pageContext} />
-        </PageLayout>
+        <CacheProvider value={cache}>
+            <PageLayout pageContext={pageContext}>
+                <Page {...pageContext} />
+            </PageLayout>
+        </CacheProvider>
     );
 
-    const container = document.getElementById('root')!
+    const container = document.getElementById('root')!;
     if (pageContext.isHydration) {
-        root = hydrateRoot(container, page)
+        root = hydrateRoot(container, page);
     } else {
-        if (!root) root = createRoot(container)
-        root.render(page)
+        if (!root) root = createRoot(container);
+        root.render(page);
     }
-}
+};
 
-export { onRenderClient }
+export { onRenderClient };
