@@ -1,4 +1,4 @@
-import { i as import1 } from "../chunks/chunk-CdyyFh51.js";
+import { i as import1 } from "../chunks/chunk-Bh3UB6nO.js";
 import { jsx } from "react/jsx-runtime";
 import { L as ListPage } from "../chunks/chunk-BhNfWGZU.js";
 import "react-dom/server";
