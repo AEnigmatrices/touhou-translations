@@ -9,7 +9,7 @@ type Page = (pageProps: any) => ReactElement
 
 let root: Root
 
-const onRenderClient: OnRenderClientAsync = async (pageContext: PageContext): ReturnType<OnRenderClientAsync> => {
+const onRenderClient: OnRenderClientAsync = async (pageContext: PageContext) => {
     const { Page } = pageContext as PageContext & { Page: Page }
 
     const page = (
