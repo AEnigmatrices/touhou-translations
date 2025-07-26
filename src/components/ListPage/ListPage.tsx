@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type JSX } from "react";
+import { useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
 import { getCharacterPortraits, getArtistPortraits } from "../../utils/galleryUtils";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
@@ -12,7 +12,10 @@ interface ListPageProps { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
 
 const MODE_CHARACTER = "character";
 const MODE_ARTIST = "artist";
-const BASE_URL = import.meta.env.BASE_URL || '/';
+const BASE_URL = import.meta.env.BASE_URL;
+const PAGE_SIZE = 25;
+
+
 
 const ListPage = ({ mode }: ListPageProps): JSX.Element => {
 
@@ -23,6 +26,9 @@ const ListPage = ({ mode }: ListPageProps): JSX.Element => {
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [sortOrder, setSortOrder] = useState<SortOrder>("none");
+
+    const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+    const loadMoreRef = useRef<HTMLDivElement | null>(null)
 
 
 
@@ -47,19 +53,15 @@ const ListPage = ({ mode }: ListPageProps): JSX.Element => {
         setSortOrder(prev => (prev === "none" ? "desc" : prev === "desc" ? "asc" : "none"));
 
     const renderListItems = (): JSX.Element[] => {
-        return sortedItems.map((item) => {
+        return sortedItems.slice(0, visibleCount).map((item) => {
             const isCharacter = mode === MODE_CHARACTER;
             const id = item.id;
             const name = item.name;
             const artworkCountText = `${item.artworkCount} artwork${item.artworkCount !== 1 ? "s" : ""}`;
-            const imageUrl = isCharacter
-                ? getCharacterPortraits(id)
-                : getArtistPortraits(id);
-            const toUrl = isCharacter
-                ? `${BASE_URL}gallery?character=${id}`
-                : `${BASE_URL}gallery?artist=${id}`;
+            const imageUrl = isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id);
+            const toUrl = isCharacter ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
 
-            return <ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
+            return (<ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />);
         });
     };
 
@@ -69,6 +71,23 @@ const ListPage = ({ mode }: ListPageProps): JSX.Element => {
         const timeout = setTimeout(() => setSearchQuery(searchInput), 300);
         return () => clearTimeout(timeout);
     }, [searchInput]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, sortedItems.length));
+                }
+            },
+            { rootMargin: "100px" }
+        );
+        const current = loadMoreRef.current;
+        if (current) observer.observe(current);
+        return () => { if (current) observer.unobserve(current); };
+
+    }, [sortedItems]);
+
+    useEffect(() => { setVisibleCount(PAGE_SIZE); }, [searchQuery, sortOrder]);
 
 
 
@@ -85,6 +104,7 @@ const ListPage = ({ mode }: ListPageProps): JSX.Element => {
             <Box component="ul" sx={styles.listGrid}>
                 {renderListItems()}
             </Box>
+            {visibleCount < sortedItems.length && <Box ref={loadMoreRef} sx={{ height: "1px" }} />}
         </Container>
     );
 };
