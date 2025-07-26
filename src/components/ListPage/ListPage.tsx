@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
-import { useGetCharacters } from "../../context/PostsContext";
-import { useGetArtists } from "../../context/PostsContext";
 import { getCharacterPortraits } from "../../utils/galleryUtils";
 import { getArtistPortraits } from "../../utils/galleryUtils";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
 import ProfileItem from "../ProfileItem/ProfileItem";
 import styles from "./ListPage.styles";
 import type { Artist, Character, SortOrder } from "../../types/data";
+import { characters } from "../../../data/processed-data";
+import { artists } from "../../../data/processed-data";
 
 interface ListPageProps { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
 
@@ -15,11 +15,9 @@ const MODE_CHARACTER = "character";
 const MODE_ARTIST = "artist";
 const BASE_URL = import.meta.env.BASE_URL || '/';
 
-
-
 const ListPage = ({ mode }: ListPageProps): JSX.Element => {
 
-    const items = mode === MODE_CHARACTER ? useGetCharacters()() : useGetArtists()();
+    const items = mode === MODE_CHARACTER ? characters : artists;
     const title = mode === MODE_CHARACTER ? "Character List" : "Artist List";
     const ariaLabel = mode === MODE_CHARACTER ? "Search Characters" : "Search Artists";
 
