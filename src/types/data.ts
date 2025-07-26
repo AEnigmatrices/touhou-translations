@@ -19,7 +19,7 @@ export interface Artist {
 export interface Character {
     id: string;
     name: string;
-    work: string;
+    work: string[];
     artworkCount: number;
 }
 

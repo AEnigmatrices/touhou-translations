@@ -4,8 +4,6 @@ import ExternalLink from "../ExternalLink/ExternalLink";
 import styles from "./Footer.styles";
 
 const Footer: React.FC = () => {
-    const currentYear = new Date().getFullYear();
-
     return (
         <Box component="footer" role="contentinfo" aria-label="Site footer" sx={styles.footer}>
             <Container maxWidth="md">
@@ -50,7 +48,7 @@ const Footer: React.FC = () => {
                 </Stack>
 
                 <Typography component="p" sx={styles.copyright}>
-                    © AEnigmatrices, {currentYear}. All rights reserved.
+                    © AEnigmatrices, 2025. All rights reserved.
                 </Typography>
             </Container>
         </Box>
