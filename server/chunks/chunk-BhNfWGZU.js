@@ -1,5 +1,5 @@
 import { jsx, jsxs } from "react/jsx-runtime";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useRef, useMemo, useEffect } from "react";
 import { Container, Box, Typography, TextField } from "@mui/material";
 import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "./chunk-DV3HJY5I.js";
 import IconButton from "@mui/material/IconButton";
@@ -2382,6 +2382,7 @@ const artists = [
 /*! src/components/ListPage/ListPage.tsx [vike:pluginModuleBanner] */
 const MODE_CHARACTER = "character";
 const BASE_URL = "/touhou-translations/";
+const PAGE_SIZE = 25;
 const ListPage = ({ mode }) => {
   const items = mode === MODE_CHARACTER ? characters : artists;
   const title = mode === MODE_CHARACTER ? "Character List" : "Artist List";
@@ -2389,6 +2390,8 @@ const ListPage = ({ mode }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("none");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const loadMoreRef = useRef(null);
   const search = (data, query) => data.filter(
     ({ id, name }) => [id, name].some((field) => field.toLowerCase().includes(query.toLowerCase()))
   );
@@ -2399,7 +2402,7 @@ const ListPage = ({ mode }) => {
   const sortedItems = useMemo(() => sort(searchedItems, sortOrder), [searchedItems, sortOrder]);
   const toggleSortOrder = () => setSortOrder((prev) => prev === "none" ? "desc" : prev === "desc" ? "asc" : "none");
   const renderListItems = () => {
-    return sortedItems.map((item) => {
+    return sortedItems.slice(0, visibleCount).map((item) => {
       const isCharacter = mode === MODE_CHARACTER;
       const id = item.id;
       const name = item.name;
@@ -2413,6 +2416,24 @@ const ListPage = ({ mode }) => {
     const timeout = setTimeout(() => setSearchQuery(searchInput), 300);
     return () => clearTimeout(timeout);
   }, [searchInput]);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, sortedItems.length));
+        }
+      },
+      { rootMargin: "100px" }
+    );
+    const current = loadMoreRef.current;
+    if (current) observer.observe(current);
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, [sortedItems]);
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [searchQuery, sortOrder]);
   return /* @__PURE__ */ jsxs(Container, { maxWidth: "lg", sx: styles.container, children: [
     /* @__PURE__ */ jsxs(Box, { sx: styles.box, children: [
       /* @__PURE__ */ jsx(Typography, { variant: "h4", component: "h2", sx: styles.typography, children: title }),
@@ -2429,7 +2450,8 @@ const ListPage = ({ mode }) => {
       ),
       /* @__PURE__ */ jsx(ArtworkCountSortIconButton, { sortOrder, onToggleSortOrder: toggleSortOrder })
     ] }),
-    /* @__PURE__ */ jsx(Box, { component: "ul", sx: styles.listGrid, children: renderListItems() })
+    /* @__PURE__ */ jsx(Box, { component: "ul", sx: styles.listGrid, children: renderListItems() }),
+    visibleCount < sortedItems.length && /* @__PURE__ */ jsx(Box, { ref: loadMoreRef, sx: { height: "1px" } })
   ] });
 };
 export {
