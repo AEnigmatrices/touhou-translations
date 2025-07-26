@@ -6,18 +6,6 @@ import styles from './styles';
 
 const Page = () => {
     const theme = useTheme();
-
-    const isAdminEnabled = import.meta.env.VITE_ENABLE_ADMIN === "true";
-
-    if (!isAdminEnabled) {
-        return (
-            <div style={{ padding: '2rem', textAlign: 'center' }}>
-                <Typography variant="h6">Access Denied</Typography>
-                <Typography>You don't have permission to access this page.</Typography>
-            </div>
-        );
-    }
-
     return (
         <Stack sx={styles.adminContainer} direction="column" spacing={3}>
             <Typography variant="h4" component="h2" sx={styles.header}>Admin Dashboard</Typography>
