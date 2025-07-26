@@ -8,7 +8,7 @@ import type { Artist, Character, SortOrder } from "../../types/data";
 import { characters } from "../../../data/processed-data";
 import { artists } from "../../../data/processed-data";
 
-interface ListPageProps { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
+interface Props { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
 
 const MODE_CHARACTER = "character";
 const MODE_ARTIST = "artist";
@@ -17,7 +17,7 @@ const PAGE_SIZE = 25;
 
 
 
-const ListPage = ({ mode }: ListPageProps): JSX.Element => {
+const ListPage = ({ mode }: Props): JSX.Element => {
 
     const items = mode === MODE_CHARACTER ? characters : artists;
     const title = mode === MODE_CHARACTER ? "Character List" : "Artist List";

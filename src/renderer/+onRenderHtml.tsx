@@ -50,7 +50,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             />
             <meta name="referrer" content="strict-origin" />
             <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.png" />
-            <link rel="manifest" href="/manifest.json" />
+            <link rel="manifest" href="/touhou-translations/manifest.json" />
 
             <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
