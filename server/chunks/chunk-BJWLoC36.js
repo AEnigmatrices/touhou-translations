@@ -206,13 +206,6 @@ const useGetArtist = () => {
     return artist ? { ...artist, artworkCount: countMap[artist.id] ?? 0 } : null;
   }, [artists2, posts]);
 };
-const useGetArtists = () => {
-  const { artists: artists2, posts } = usePostsContext();
-  return useCallback((ids) => {
-    const countMap = getArtistArtworkCounts(posts);
-    return artists2.filter((a) => !ids || ids.includes(a.id)).map((a) => ({ ...a, artworkCount: countMap[a.id] ?? 0 })).sort((a, b) => a.id.localeCompare(b.id));
-  }, [artists2, posts]);
-};
 const useGetCharacter = () => {
   const { characters, posts } = usePostsContext();
   return useCallback((id) => {
@@ -751,12 +744,11 @@ const import1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
 }, Symbol.toStringTag, { value: "Module" }));
 export {
   artists as a,
-  useGetCharacters as b,
-  useGetArtists as c,
-  useGetCharacter as d,
+  useGetCharacter as b,
+  useGetArtist as c,
+  useGetCharacters as d,
   extractRedditId as e,
-  useGetArtist as f,
-  fetchPosts as g,
+  fetchPosts as f,
   import1 as i,
   useGetPosts as u
 };
