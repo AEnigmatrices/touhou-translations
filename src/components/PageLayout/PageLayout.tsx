@@ -1,9 +1,10 @@
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import PostsProvider from '../../context/PostsProvider';
 import ErrorBoundary from '../../context/ErrorBoundary';
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import Loading from '../Loading/Loading';
 import { Box } from "@mui/material";
 import styles from "./PageLayout.styles";
 import theme from './theme';
@@ -19,13 +20,15 @@ const PageLayout = ({ pageContext, children }: { pageContext: PageContext; child
                     <PostsProvider>
                         <Box sx={styles.layoutContainer}>
                             <Navbar pageContext={pageContext} />
-                            <Box component="main" sx={styles.mainContent}>{children}</Box>
+                            <Suspense fallback={<Loading />}>
+                                <Box component="main" sx={styles.mainContent}>{children}</Box>
+                            </Suspense>
                             <Footer />
                         </Box>
                     </PostsProvider>
                 </ErrorBoundary>
             </ThemeProvider>
-        </StrictMode >
+        </StrictMode>
     );
 };
 
