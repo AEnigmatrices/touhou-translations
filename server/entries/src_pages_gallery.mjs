@@ -1,4 +1,4 @@
-import { u as useGetPosts, e as extractRedditId, d as useGetCharacter, f as useGetArtist, i as import1 } from "../chunks/chunk-DOPeLDlf.js";
+import { u as useGetPosts, e as extractRedditId, d as useGetCharacter, f as useGetArtist, i as import1 } from "../chunks/chunk-B0ZWQo0U.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Box } from "@mui/material";

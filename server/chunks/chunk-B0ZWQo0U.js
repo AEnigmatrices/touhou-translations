@@ -4,8 +4,8 @@ import { dangerouslySkipEscape, escapeInject } from "vike/server";
 import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
 import createCache from "@emotion/cache";
-import React, { createContext, useContext, useCallback, useState, useEffect, useMemo, Component, StrictMode } from "react";
-import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab, Link, Container, Stack, ThemeProvider, CssBaseline } from "@mui/material";
+import React, { createContext, useContext, useCallback, useState, useEffect, useMemo, Component, StrictMode, Suspense } from "react";
+import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab, Link, Container, Stack, CircularProgress, ThemeProvider, CssBaseline } from "@mui/material";
 import { navigate } from "vike/client/router";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -452,6 +452,20 @@ const Footer = () => {
     /* @__PURE__ */ jsx(Typography, { component: "p", sx: styles$1.copyright, children: "© AEnigmatrices, 2025. All rights reserved." })
   ] }) });
 };
+/*! src/components/Loading/Loading.tsx [vike:pluginModuleBanner] */
+const Loading = () => /* @__PURE__ */ jsx(
+  Box,
+  {
+    sx: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100%",
+      minHeight: 200
+    },
+    children: /* @__PURE__ */ jsx(CircularProgress, {})
+  }
+);
 /*! src/components/PageLayout/PageLayout.styles.ts [vike:pluginModuleBanner] */
 const styles = {
   layoutContainer: {
@@ -676,7 +690,7 @@ const PageLayout = ({ pageContext, children }) => {
     /* @__PURE__ */ jsx(CssBaseline, {}),
     /* @__PURE__ */ jsx(ErrorBoundary, { children: /* @__PURE__ */ jsx(PostsProvider, { children: /* @__PURE__ */ jsxs(Box, { sx: styles.layoutContainer, children: [
       /* @__PURE__ */ jsx(Navbar, { pageContext }),
-      /* @__PURE__ */ jsx(Box, { component: "main", sx: styles.mainContent, children }),
+      /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loading, {}), children: /* @__PURE__ */ jsx(Box, { component: "main", sx: styles.mainContent, children }) }),
       /* @__PURE__ */ jsx(Footer, {})
     ] }) }) })
   ] }) });
