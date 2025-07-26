@@ -69,7 +69,7 @@ const ProfileItem = ({ name, imageUrl, description, link }) => {
   const handleImageError = () => {
     setImgSrc(getRandomPlaceholder());
   };
-  const ImageContent = imageUrl ? /* @__PURE__ */ jsx(Avatar, { src: imgSrc, alt: name, sx: styles.avatar, variant: "rounded", onError: handleImageError, slotProps: { img: { loading: "eager" } } }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
+  const ImageContent = imageUrl ? /* @__PURE__ */ jsx(Avatar, { src: imgSrc, alt: name, sx: styles.avatar, variant: "rounded", onError: handleImageError, slotProps: { img: { loading: "lazy" } } }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
   const Content = /* @__PURE__ */ jsxs(Box, { sx: styles.content, children: [
     ImageContent,
     /* @__PURE__ */ jsxs(Box, { sx: styles.textContainer, children: [
