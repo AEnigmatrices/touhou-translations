@@ -4,8 +4,6 @@ import { getCharacterPortraits, getArtistPortraits, getRandomPlaceholder } from 
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
 import styles from "./ListPage.styles";
 import type { Artist, Character, SortOrder } from "../../types/data";
-import { characters } from "../../../data/processed-data";
-import { artists } from "../../../data/processed-data";
 import validPortraits from "../../../data/valid-portraits.json"
 
 interface Props { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
@@ -21,13 +19,16 @@ const PAGE_SIZE = 25;
 
 const ListPage = ({ mode }: Props): JSX.Element => {
 
-    const items = mode === MODE_CHARACTER ? characters : artists;
     const title = mode === MODE_CHARACTER ? "Character List" : "Artist List";
     const ariaLabel = mode === MODE_CHARACTER ? "Search Characters" : "Search Artists";
 
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [sortOrder, setSortOrder] = useState<SortOrder>("none");
+
+    const [data, setData] = useState<{ characters: Character[]; artists: Artist[] } | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
     const loadMoreRef = useRef<HTMLDivElement | null>(null)
@@ -46,6 +47,7 @@ const ListPage = ({ mode }: Props): JSX.Element => {
                 order === "asc" ? a.artworkCount - b.artworkCount : b.artworkCount - a.artworkCount
             );
 
+    const items = data ? (mode === MODE_CHARACTER ? data.characters : data.artists) : [];
     const searchedItems = useMemo(() => search(items, searchQuery), [items, searchQuery]);
     const sortedItems = useMemo(() => sort(searchedItems, sortOrder), [searchedItems, sortOrder]);
 
@@ -102,7 +104,38 @@ const ListPage = ({ mode }: Props): JSX.Element => {
 
     useEffect(() => { setVisibleCount(PAGE_SIZE); }, [searchQuery, sortOrder]);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                const [charactersRes, artistsRes] = await Promise.all([
+                    fetch(`${BASE_URL}data/processed-data/characters.json`),
+                    fetch(`${BASE_URL}data/processed-data/artists.json`),
+                ]);
 
+                if (!charactersRes.ok || !artistsRes.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+
+                const characters = await charactersRes.json();
+                const artists = await artistsRes.json();
+
+                setData({ characters, artists });
+            } catch (err) {
+                console.error("Error fetching data:", err);
+                setError("Failed to load data.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
+
+    if (loading) return <Typography>Loading...</Typography>;
+    if (error) return <Typography color="error">{error}</Typography>;
 
     return (
         <Container maxWidth="lg" sx={styles.container}>

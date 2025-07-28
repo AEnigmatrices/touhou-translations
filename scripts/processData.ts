@@ -53,16 +53,18 @@ if (!fs.existsSync(outputDir)) {
 }
 
 fs.writeFileSync(
-    resolve(__dirname, '../data/processed-data.ts'),
-    `// This file is auto-generated. Do not edit manually.
-import type { Post, Character, Artist } from '../src/types/data';
+    resolve(outputDir, './processed-data/characters.json'),
+    JSON.stringify(characters, null, 2)
+);
 
-export const posts: Post[] = ${JSON.stringify(posts, null, 2)};
+fs.writeFileSync(
+    resolve(outputDir, './processed-data/artists.json'),
+    JSON.stringify(artists, null, 2)
+);
 
-export const characters: Character[] = ${JSON.stringify(characters, null, 2)};
-
-export const artists: Artist[] = ${JSON.stringify(artists, null, 2)};
-`
+fs.writeFileSync(
+    resolve(outputDir, './processed-data/posts.json'),
+    JSON.stringify(posts, null, 2)
 );
 
 console.log('Data processing completed successfully!');
