@@ -1,10 +1,11 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
+import { useGetArtists, useGetCharacters } from "../../context/PostsContext";
 import { getCharacterPortraits, getArtistPortraits, getRandomPlaceholder } from "../../utils/galleryUtils";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
 import styles from "./ListPage.styles";
-import type { Artist, Character, SortOrder } from "../../types/data";
-import validPortraits from "../../../data/valid-portraits.json"
+import type { SortOrder } from "../../types/data";
+import validPortraits from "../../../data/valid-portraits.json";
 
 interface Props { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
 
@@ -18,43 +19,41 @@ const PAGE_SIZE = 25;
 
 
 const ListPage = ({ mode }: Props): JSX.Element => {
-
     const title = mode === MODE_CHARACTER ? "Character List" : "Artist List";
     const ariaLabel = mode === MODE_CHARACTER ? "Search Characters" : "Search Artists";
+
+    const getCharacters = useGetCharacters();
+    const getArtists = useGetArtists();
+
+    const allItems = useMemo(() => {
+        return mode === MODE_CHARACTER ? getCharacters() : getArtists();
+    }, [mode, getCharacters, getArtists]);
 
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [sortOrder, setSortOrder] = useState<SortOrder>("none");
-
-    const [data, setData] = useState<{ characters: Character[]; artists: Artist[] } | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
     const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-    const loadMoreRef = useRef<HTMLDivElement | null>(null)
+    const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
 
 
-    const search = (data: (Character | Artist)[], query: string): (Character | Artist)[] =>
-        data.filter(({ id, name }) =>
-            [id, name].some(field => field.toLowerCase().includes(query.toLowerCase()))
-        );
+    const searchedItems = useMemo(() => {
+        if (!searchQuery) return allItems;
+        return allItems.filter(({ id, name }) => [id, name].some(field => field.toLowerCase().includes(searchQuery.toLowerCase())));
 
-    const sort = (data: (Character | Artist)[], order: SortOrder): (Character | Artist)[] =>
-        order === "none"
-            ? data
-            : [...data].sort((a, b) =>
-                order === "asc" ? a.artworkCount - b.artworkCount : b.artworkCount - a.artworkCount
-            );
+    }, [allItems, searchQuery]);
 
-    const items = data ? (mode === MODE_CHARACTER ? data.characters : data.artists) : [];
-    const searchedItems = useMemo(() => search(items, searchQuery), [items, searchQuery]);
-    const sortedItems = useMemo(() => sort(searchedItems, sortOrder), [searchedItems, sortOrder]);
+    const sortedItems = useMemo(() => {
+        if (sortOrder === "none") return searchedItems;
+        return [...searchedItems].sort((a, b) => sortOrder === "asc" ? a.artworkCount - b.artworkCount : b.artworkCount - a.artworkCount);
+
+    }, [searchedItems, sortOrder]);
 
 
 
-    const toggleSortOrder = () =>
+    const toggleSortOrder = () => {
         setSortOrder(prev => (prev === "none" ? "desc" : prev === "desc" ? "asc" : "none"));
+    };
 
     const renderListItems = (): JSX.Element[] => {
         return sortedItems.slice(0, visibleCount).map((item) => {
@@ -73,8 +72,8 @@ const ListPage = ({ mode }: Props): JSX.Element => {
                 : `${BASE_URL}gallery?artist=${id}`;
 
             return (
-                <Suspense fallback={null}>
-                    <ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
+                <Suspense fallback={null} key={id}>
+                    <ProfileItem name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
                 </Suspense>
             );
         });
@@ -99,40 +98,11 @@ const ListPage = ({ mode }: Props): JSX.Element => {
         const current = loadMoreRef.current;
         if (current) observer.observe(current);
         return () => { if (current) observer.unobserve(current); };
-
     }, [sortedItems]);
 
     useEffect(() => { setVisibleCount(PAGE_SIZE); }, [searchQuery, sortOrder]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const [charactersRes, artistsRes] = await Promise.all([
-                    fetch(`${import.meta.env.BASE_URL}processed-data/characters.json`),
-                    fetch(`${import.meta.env.BASE_URL}processed-data/artists.json`),
-                ]);
-                if (!charactersRes.ok || !artistsRes.ok) throw new Error("Failed to fetch data");
 
-                const characters = await charactersRes.json();
-                const artists = await artistsRes.json();
-
-                setData({ characters, artists });
-            } catch (err) {
-                console.error("Error fetching data:", err);
-                setError("Failed to load data.");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-
-
-    if (loading) return <Typography>Loading...</Typography>;
-    if (error) return <Typography color="error">{error}</Typography>;
 
     return (
         <Container maxWidth="lg" sx={styles.container}>
