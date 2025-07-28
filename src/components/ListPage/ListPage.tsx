@@ -109,13 +109,10 @@ const ListPage = ({ mode }: Props): JSX.Element => {
             try {
                 setLoading(true);
                 const [charactersRes, artistsRes] = await Promise.all([
-                    fetch(`${BASE_URL}data/processed-data/characters.json`),
-                    fetch(`${BASE_URL}data/processed-data/artists.json`),
+                    fetch(`${import.meta.env.BASE_URL}processed-data/characters.json`),
+                    fetch(`${import.meta.env.BASE_URL}processed-data/artists.json`),
                 ]);
-
-                if (!charactersRes.ok || !artistsRes.ok) {
-                    throw new Error("Failed to fetch data");
-                }
+                if (!charactersRes.ok || !artistsRes.ok) throw new Error("Failed to fetch data");
 
                 const characters = await charactersRes.json();
                 const artists = await artistsRes.json();
