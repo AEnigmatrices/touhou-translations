@@ -1,7 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
-import { useState, useRef, useMemo, useEffect } from "react";
+import { lazy, useState, useRef, useMemo, useEffect, Suspense } from "react";
 import { Container, Box, Typography, TextField } from "@mui/material";
-import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-CHeC3Bgj.js";
+import { g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-DpqKyAox.js";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import CollectionsIcon from "@mui/icons-material/Collections";
@@ -2394,6 +2394,7 @@ const validPortraits = {
   artists
 };
 /*! src/components/ListPage/ListPage.tsx [vike:pluginModuleBanner] */
+const ProfileItem = lazy(() => import("./chunk-BBZSOiuW.js"));
 const MODE_CHARACTER = "character";
 const BASE_URL = "/touhou-translations/";
 const PAGE_SIZE = 25;
@@ -2424,7 +2425,7 @@ const ListPage = ({ mode }) => {
       const hasPortrait = isCharacter ? validPortraits.characters.includes(id) : validPortraits.artists.includes(id);
       const imageUrl = hasPortrait ? isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id) : getRandomPlaceholder();
       const toUrl = isCharacter ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
-      return /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl }, id);
+      return /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl }, id) });
     });
   };
   useEffect(() => {

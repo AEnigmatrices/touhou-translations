@@ -1,29 +1,8 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 import { navigate } from "vike/client/router";
+import { b as getRandomPlaceholder } from "./chunk-DpqKyAox.js";
 import { Paper, Box, Typography, Avatar } from "@mui/material";
-/*! src/utils/galleryUtils.ts [vike:pluginModuleBanner] */
-const getCharacterPortraits = (id) => {
-  return `${"/touhou-translations/"}portraits/characters/thumb_80x80/${id}_80x80.webp`;
-};
-const getArtistPortraits = (id) => {
-  return `${"/touhou-translations/"}portraits/artists/thumb_80x80/${id}_80x80.webp`;
-};
-const placeholderFilenames = [
-  "demoman_80x80.webp",
-  "engineer_80x80.webp",
-  "heavy_80x80.webp",
-  "medic_80x80.webp",
-  "pyro_80x80.webp",
-  "scout_80x80.webp",
-  "sniper_80x80.webp",
-  "soldier_80x80.webp",
-  "spy_80x80.webp"
-];
-const getRandomPlaceholder = () => {
-  const index = Math.floor(Math.random() * placeholderFilenames.length);
-  return `${"/touhou-translations/"}portraits/placeholders/thumb_80x80/${placeholderFilenames[index]}`;
-};
 /*! src/components/ProfileItem/ProfileItem.styles.ts [vike:pluginModuleBanner] */
 const styles = {
   paper: {
@@ -90,8 +69,5 @@ const ProfileItem = ({ name, imageUrl, description, link }) => {
   return /* @__PURE__ */ jsx(Paper, { component: "li", elevation: 1, role: "listitem", "aria-label": `Profile: ${name}`, tabIndex: link ? void 0 : 0, sx: styles.paper, children: link ? /* @__PURE__ */ jsx(Box, { onClick: handleClick, onKeyDown: handleKeyDown, sx: { ...styles.linkBox, cursor: "pointer" }, role: "button", tabIndex: 0, children: Content }) : /* @__PURE__ */ jsx(Box, { sx: styles.linkBox, children: Content }) });
 };
 export {
-  ProfileItem as P,
-  getArtistPortraits as a,
-  getRandomPlaceholder as b,
-  getCharacterPortraits as g
+  ProfileItem as default
 };
