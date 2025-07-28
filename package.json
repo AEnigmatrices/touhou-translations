@@ -12,13 +12,13 @@
     "license": "MIT",
     "author": "AEnigmatrices",
     "scripts": {
-        "predev": "tsx scripts/processData.ts && tsx scripts/resize-images.ts",
         "dev": "vike dev --mode development",
         "build": "vike build --mode production",
         "postbuild": "tsx scripts/copyIndexTo404.ts && tsx scripts/moveDist.ts",
         "preview": "vike preview",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git"
+        "deploy": "gh-pages -d dist --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git",
+        "chore": "tsx scripts/processData.ts && tsx scripts/resize-images.ts"
     },
     "dependencies": {
         "@emotion/cache": "^11.14.0",

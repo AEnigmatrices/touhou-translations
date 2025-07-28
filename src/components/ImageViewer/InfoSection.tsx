@@ -14,10 +14,10 @@ interface Props {
     characters: Character[];
 }
 
-const twitterIcon = `${import.meta.env.BASE_URL}icons/social/twitter_80x80.webp`;
-const nitterIcon = `${import.meta.env.BASE_URL}icons/social/nitter_80x80.webp`;
-const pixivIcon = `${import.meta.env.BASE_URL}icons/social/pixiv_80x80.webp`;
-const redditIcon = `${import.meta.env.BASE_URL}icons/social/reddit_80x80.webp`;
+const twitterIcon = `${import.meta.env.BASE_URL}icons/social/thumb_80x80/twitter_80x80.webp`;
+const nitterIcon = `${import.meta.env.BASE_URL}icons/social/thumb_80x80/nitter_80x80.webp`;
+const pixivIcon = `${import.meta.env.BASE_URL}icons/social/thumb_80x80/pixiv_80x80.webp`;
+const redditIcon = `${import.meta.env.BASE_URL}icons/social/thumb_80x80/reddit_80x80.webp`;
 
 
 

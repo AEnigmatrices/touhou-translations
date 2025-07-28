@@ -1,9 +1,9 @@
 export const getCharacterPortraits = (id: string): string => {
-    return `${import.meta.env.BASE_URL}portraits/characters/${id}_80x80.webp`;
+    return `${import.meta.env.BASE_URL}portraits/characters/thumb_80x80/${id}_80x80.webp`;
 };
 
 export const getArtistPortraits = (id: string): string => {
-    return `${import.meta.env.BASE_URL}portraits/artists/${id}_80x80.webp`;
+    return `${import.meta.env.BASE_URL}portraits/artists/thumb_80x80/${id}_80x80.webp`;
 };
 
 const placeholderFilenames = [
@@ -20,5 +20,5 @@ const placeholderFilenames = [
 
 export const getRandomPlaceholder = (): string => {
     const index = Math.floor(Math.random() * placeholderFilenames.length);
-    return `${import.meta.env.BASE_URL}portraits/placeholders/${placeholderFilenames[index]}`;
+    return `${import.meta.env.BASE_URL}portraits/placeholders/thumb_80x80/${placeholderFilenames[index]}`;
 };
