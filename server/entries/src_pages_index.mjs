@@ -1,4 +1,4 @@
-import { i as import1 } from "../chunks/chunk-DC9Yzxu-.js";
+import { i as import1 } from "../chunks/chunk-Dd9aSKIx.js";
 import { jsx } from "react/jsx-runtime";
 import { Typography } from "@mui/material";
 import "react-dom/server";

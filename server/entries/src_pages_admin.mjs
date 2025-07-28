@@ -1,4 +1,4 @@
-import { a as artists, u as useGetPosts, i as import1 } from "../chunks/chunk-DC9Yzxu-.js";
+import { a as artists, u as useGetPosts, i as import1 } from "../chunks/chunk-Dd9aSKIx.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";

@@ -705,7 +705,6 @@ const onRenderHtml = async (pageContext) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="description" content="An archive of fan-translated Touhou Project comics and illustrations." />
             <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-            <meta http-equiv="X-Frame-Options" content="DENY" />
             <meta
                 http-equiv="Content-Security-Policy"
                 content="
@@ -717,6 +716,7 @@ const onRenderHtml = async (pageContext) => {
                     connect-src 'self' https://www.reddit.com;
                     object-src 'none';
                     base-uri 'self';"
+                    frame-ancestors 'none';
             />
             <meta name="referrer" content="strict-origin" />
             <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.png" />
