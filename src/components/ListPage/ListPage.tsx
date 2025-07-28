@@ -1,8 +1,7 @@
-import { useEffect, useMemo, useRef, useState, type JSX } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
 import { getCharacterPortraits, getArtistPortraits, getRandomPlaceholder } from "../../utils/galleryUtils";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
-import ProfileItem from "../ProfileItem/ProfileItem";
 import styles from "./ListPage.styles";
 import type { Artist, Character, SortOrder } from "../../types/data";
 import { characters } from "../../../data/processed-data";
@@ -10,6 +9,8 @@ import { artists } from "../../../data/processed-data";
 import validPortraits from "../../../data/valid-portraits.json"
 
 interface Props { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
+
+const ProfileItem = lazy(() => import("../ProfileItem/ProfileItem"));
 
 const MODE_CHARACTER = "character";
 const MODE_ARTIST = "artist";
@@ -69,7 +70,11 @@ const ListPage = ({ mode }: Props): JSX.Element => {
                 ? `${BASE_URL}gallery?character=${id}`
                 : `${BASE_URL}gallery?artist=${id}`;
 
-            return <ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
+            return (
+                <Suspense fallback={null}>
+                    <ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
+                </Suspense>
+            );
         });
     };
 
