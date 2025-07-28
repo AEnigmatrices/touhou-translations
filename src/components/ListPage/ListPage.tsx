@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
-import { getCharacterPortraits, getArtistPortraits } from "../../utils/galleryUtils";
+import { getCharacterPortraits, getArtistPortraits, getRandomPlaceholder } from "../../utils/galleryUtils";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
 import ProfileItem from "../ProfileItem/ProfileItem";
 import styles from "./ListPage.styles";
 import type { Artist, Character, SortOrder } from "../../types/data";
 import { characters } from "../../../data/processed-data";
 import { artists } from "../../../data/processed-data";
+import validPortraits from "../../../data/valid-portraits.json"
 
 interface Props { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
 
@@ -58,10 +59,17 @@ const ListPage = ({ mode }: Props): JSX.Element => {
             const id = item.id;
             const name = item.name;
             const artworkCountText = `${item.artworkCount} artwork${item.artworkCount !== 1 ? "s" : ""}`;
-            const imageUrl = isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id);
-            const toUrl = isCharacter ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
+            const hasPortrait = isCharacter
+                ? validPortraits.characters.includes(id)
+                : validPortraits.artists.includes(id);
+            const imageUrl = hasPortrait
+                ? (isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id))
+                : getRandomPlaceholder();
+            const toUrl = isCharacter
+                ? `${BASE_URL}gallery?character=${id}`
+                : `${BASE_URL}gallery?artist=${id}`;
 
-            return (<ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />);
+            return <ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
         });
     };
 
