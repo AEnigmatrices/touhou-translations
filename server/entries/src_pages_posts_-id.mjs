@@ -1,4 +1,4 @@
-import { f as fetchPosts, b as useGetCharacter, c as useGetArtist, d as useGetCharacters, u as useGetPosts, i as import1 } from "../chunks/chunk-Er2rpSkh.js";
+import { f as fetchPosts, d as useGetCharacter, e as useGetArtist, b as useGetCharacters, u as useGetPosts, i as import1 } from "../chunks/chunk-DNASwFh_.js";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import React, { useState, useCallback, useEffect } from "react";

@@ -1,6 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
-import { lazy, useState, useRef, useMemo, useEffect, Suspense } from "react";
-import { Typography, Container, Box, TextField } from "@mui/material";
+import { lazy, useMemo, useState, useRef, useEffect, Suspense } from "react";
+import { Container, Box, Typography, TextField } from "@mui/material";
+import { b as useGetCharacters, c as useGetArtists } from "./chunk-DNASwFh_.js";
 import { g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-DpqKyAox.js";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
@@ -95,24 +96,27 @@ const PAGE_SIZE = 25;
 const ListPage = ({ mode }) => {
   const title = mode === MODE_CHARACTER ? "Character List" : "Artist List";
   const ariaLabel = mode === MODE_CHARACTER ? "Search Characters" : "Search Artists";
+  const getCharacters = useGetCharacters();
+  const getArtists = useGetArtists();
+  const allItems = useMemo(() => {
+    return mode === MODE_CHARACTER ? getCharacters() : getArtists();
+  }, [mode, getCharacters, getArtists]);
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("none");
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const loadMoreRef = useRef(null);
-  const search = (data2, query) => data2.filter(
-    ({ id, name }) => [id, name].some((field) => field.toLowerCase().includes(query.toLowerCase()))
-  );
-  const sort = (data2, order) => order === "none" ? data2 : [...data2].sort(
-    (a, b) => order === "asc" ? a.artworkCount - b.artworkCount : b.artworkCount - a.artworkCount
-  );
-  const items = data ? mode === MODE_CHARACTER ? data.characters : data.artists : [];
-  const searchedItems = useMemo(() => search(items, searchQuery), [items, searchQuery]);
-  const sortedItems = useMemo(() => sort(searchedItems, sortOrder), [searchedItems, sortOrder]);
-  const toggleSortOrder = () => setSortOrder((prev) => prev === "none" ? "desc" : prev === "desc" ? "asc" : "none");
+  const searchedItems = useMemo(() => {
+    if (!searchQuery) return allItems;
+    return allItems.filter(({ id, name }) => [id, name].some((field) => field.toLowerCase().includes(searchQuery.toLowerCase())));
+  }, [allItems, searchQuery]);
+  const sortedItems = useMemo(() => {
+    if (sortOrder === "none") return searchedItems;
+    return [...searchedItems].sort((a, b) => sortOrder === "asc" ? a.artworkCount - b.artworkCount : b.artworkCount - a.artworkCount);
+  }, [searchedItems, sortOrder]);
+  const toggleSortOrder = () => {
+    setSortOrder((prev) => prev === "none" ? "desc" : prev === "desc" ? "asc" : "none");
+  };
   const renderListItems = () => {
     return sortedItems.slice(0, visibleCount).map((item) => {
       const isCharacter = mode === MODE_CHARACTER;
@@ -122,7 +126,7 @@ const ListPage = ({ mode }) => {
       const hasPortrait = isCharacter ? validPortraits.characters.includes(id) : validPortraits.artists.includes(id);
       const imageUrl = hasPortrait ? isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id) : getRandomPlaceholder();
       const toUrl = isCharacter ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
-      return /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl }, id) });
+      return /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl }) }, id);
     });
   };
   useEffect(() => {
@@ -147,29 +151,6 @@ const ListPage = ({ mode }) => {
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
   }, [searchQuery, sortOrder]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const [charactersRes, artistsRes] = await Promise.all([
-          fetch(`${"/touhou-translations/"}processed-data/characters.json`),
-          fetch(`${"/touhou-translations/"}processed-data/artists.json`)
-        ]);
-        if (!charactersRes.ok || !artistsRes.ok) throw new Error("Failed to fetch data");
-        const characters2 = await charactersRes.json();
-        const artists2 = await artistsRes.json();
-        setData({ characters: characters2, artists: artists2 });
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        setError("Failed to load data.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-  if (loading) return /* @__PURE__ */ jsx(Typography, { children: "Loading..." });
-  if (error) return /* @__PURE__ */ jsx(Typography, { color: "error", children: error });
   return /* @__PURE__ */ jsxs(Container, { maxWidth: "lg", sx: styles.container, children: [
     /* @__PURE__ */ jsxs(Box, { sx: styles.box, children: [
       /* @__PURE__ */ jsx(Typography, { variant: "h4", component: "h2", sx: styles.typography, children: title }),
