@@ -1,12 +1,22 @@
 export const getCharacterPortraits = (id: string): string => {
-    return `${import.meta.env.BASE_URL}portraits/characters/${id}.webp`;
+    return `${import.meta.env.BASE_URL}portraits/characters/${id}_80x80.webp`;
 };
 
 export const getArtistPortraits = (id: string): string => {
-    return `${import.meta.env.BASE_URL}portraits/artists/${id}.webp`;
+    return `${import.meta.env.BASE_URL}portraits/artists/${id}_80x80.webp`;
 };
 
-const placeholderFilenames = ["demoman.webp", "engineer.webp", "heavy.webp", "medic.webp", "pyro.webp", "scout.webp", "sniper.webp", "soldier.webp", "spy.webp"];
+const placeholderFilenames = [
+    "demoman_80x80.webp",
+    "engineer_80x80.webp",
+    "heavy_80x80.webp",
+    "medic_80x80.webp",
+    "pyro_80x80.webp",
+    "scout_80x80.webp",
+    "sniper_80x80.webp",
+    "soldier_80x80.webp",
+    "spy_80x80.webp"
+];
 
 export const getRandomPlaceholder = (): string => {
     const index = Math.floor(Math.random() * placeholderFilenames.length);
