@@ -1,15 +1,16 @@
-import { StrictMode, Suspense } from 'react';
+import { StrictMode, Suspense, lazy } from 'react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import PostsProvider from '../../context/PostsProvider';
 import ErrorBoundary from '../../context/ErrorBoundary';
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import Loading from '../Loading/Loading';
 import { Box } from "@mui/material";
 import styles from "./PageLayout.styles";
 import theme from './theme';
 import type { ReactNode } from "react";
-import type { PageContext } from 'vike/types'
+import type { PageContext } from 'vike/types';
+
+const Navbar = lazy(() => import('../Navbar/Navbar'));
+const Footer = lazy(() => import('../Footer/Footer'));
 
 const PageLayout = ({ pageContext, children }: { pageContext: PageContext; children: ReactNode }) => {
     return (
@@ -19,11 +20,17 @@ const PageLayout = ({ pageContext, children }: { pageContext: PageContext; child
                 <ErrorBoundary>
                     <PostsProvider>
                         <Box sx={styles.layoutContainer}>
-                            <Navbar pageContext={pageContext} />
                             <Suspense fallback={<Loading />}>
-                                <Box component="main" sx={styles.mainContent}>{children}</Box>
+                                <Navbar pageContext={pageContext} />
                             </Suspense>
-                            <Footer />
+                            <Suspense fallback={<Loading />}>
+                                <Box component="main" sx={styles.mainContent}>
+                                    {children}
+                                </Box>
+                            </Suspense>
+                            <Suspense fallback={<Loading />}>
+                                <Footer />
+                            </Suspense>
                         </Box>
                     </PostsProvider>
                 </ErrorBoundary>
