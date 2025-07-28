@@ -14,7 +14,6 @@
     "scripts": {
         "predev": "tsx scripts/processData.ts && tsx scripts/resize-images.ts",
         "dev": "vike dev --mode development",
-        "prebuild": "tsx scripts/processData.ts && tsx scripts/resize-images.ts",
         "build": "vike build --mode production",
         "postbuild": "tsx scripts/copyIndexTo404.ts && tsx scripts/moveDist.ts",
         "preview": "vike preview",
