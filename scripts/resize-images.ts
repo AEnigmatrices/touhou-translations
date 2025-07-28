@@ -2,8 +2,8 @@ import sharp from 'sharp'
 import { glob } from 'glob'
 
 const resizeImages = async () => {
-    const socialIcons = await glob('public/images/icons/social/**/*.webp')
-    const portraitFiles = await glob('public/images/portraits/{artists,characters,placeholders}/**/*.webp')
+    const socialIcons = await glob('public/icons/social/**/*.webp')
+    const portraitFiles = await glob('public/portraits/{artists,characters,placeholders}/**/*.webp')
 
     const imageFiles = [...socialIcons, ...portraitFiles]
 
