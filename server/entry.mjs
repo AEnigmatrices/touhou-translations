@@ -1,43 +1,238 @@
-import{setGlobalContext_buildEntry as r}from"vike/__internal";/*! virtual:vike:entry:server [vike:pluginModuleBanner] */const t={},a={},s={},e={},o=[],l={},n=[{pageId:"/src/pages/admin",isErrorPage:void 0,routeFilesystem:{routeString:"/admin",definedAtLocation:"/src/pages/admin/"},loadConfigLazy:()=>({moduleId:"virtual:vike:pageConfigLazy:server:/src/pages/admin",moduleExports:import("./entries/src_pages_admin.mjs")}),configValuesSerialized:{isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},clientRouting:{type:"standard",definedAtData:{filePathToShowToUser:"/src/renderer/+config.ts",fileExportPathToShowToUser:["default","clientRouting"]},valueSerialized:{type:"js-serialized",value:!0}}}},{pageId:"/src/pages/artists",isErrorPage:void 0,routeFilesystem:{routeString:"/artists",definedAtLocation:"/src/pages/artists/"},loadConfigLazy:()=>({moduleId:"virtual:vike:pageConfigLazy:server:/src/pages/artists",moduleExports:import("./entries/src_pages_artists.mjs")}),configValuesSerialized:{isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},clientRouting:{type:"standard",definedAtData:{filePathToShowToUser:"/src/renderer/+config.ts",fileExportPathToShowToUser:["default","clientRouting"]},valueSerialized:{type:"js-serialized",value:!0}}}},{pageId:"/src/pages/characters",isErrorPage:void 0,routeFilesystem:{routeString:"/characters",definedAtLocation:"/src/pages/characters/"},loadConfigLazy:()=>({moduleId:"virtual:vike:pageConfigLazy:server:/src/pages/characters",moduleExports:import("./entries/src_pages_characters.mjs")}),configValuesSerialized:{isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},clientRouting:{type:"standard",definedAtData:{filePathToShowToUser:"/src/renderer/+config.ts",fileExportPathToShowToUser:["default","clientRouting"]},valueSerialized:{type:"js-serialized",value:!0}}}},{pageId:"/src/pages/gallery",isErrorPage:void 0,routeFilesystem:{routeString:"/gallery",definedAtLocation:"/src/pages/gallery/"},loadConfigLazy:()=>({moduleId:"virtual:vike:pageConfigLazy:server:/src/pages/gallery",moduleExports:import("./entries/src_pages_gallery.mjs")}),configValuesSerialized:{isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},clientRouting:{type:"standard",definedAtData:{filePathToShowToUser:"/src/renderer/+config.ts",fileExportPathToShowToUser:["default","clientRouting"]},valueSerialized:{type:"js-serialized",value:!0}}}},{pageId:"/src/pages/index",isErrorPage:void 0,routeFilesystem:{routeString:"/",definedAtLocation:"/src/pages/index/"},loadConfigLazy:()=>({moduleId:"virtual:vike:pageConfigLazy:server:/src/pages/index",moduleExports:import("./entries/src_pages_index.mjs")}),configValuesSerialized:{isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},clientRouting:{type:"standard",definedAtData:{filePathToShowToUser:"/src/renderer/+config.ts",fileExportPathToShowToUser:["default","clientRouting"]},valueSerialized:{type:"js-serialized",value:!0}}}},{pageId:"/src/pages/posts/@id",isErrorPage:void 0,routeFilesystem:{routeString:"/posts/@id",definedAtLocation:"/src/pages/posts/@id/"},loadConfigLazy:()=>({moduleId:"virtual:vike:pageConfigLazy:server:/src/pages/posts/@id",moduleExports:import("./entries/src_pages_posts_-id.mjs")}),configValuesSerialized:{isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},clientRouting:{type:"standard",definedAtData:{filePathToShowToUser:"/src/renderer/+config.ts",fileExportPathToShowToUser:["default","clientRouting"]},valueSerialized:{type:"js-serialized",value:!0}}}}],d={configValuesSerialized:{}},u=Object.assign({}),g={...u};t[".page"]=g;const p=Object.assign({}),c={...p};e[".page"]=c;const f=Object.assign({}),m={...f};t[".page.server"]=m;const y=Object.assign({}),v={...y};e[".page.server"]=v;const z=Object.assign({}),S={...z};a[".page.route"]=S;const E=Object.assign({}),h={...E};e[".page.client"]=h;const L=Object.freeze(Object.defineProperty({__proto__:null,neverLoaded:l,pageConfigGlobalSerialized:d,pageConfigsSerialized:n,pageFilesEager:a,pageFilesExportNamesEager:e,pageFilesExportNamesLazy:s,pageFilesLazy:t,pageFilesList:o},Symbol.toStringTag,{value:"Module"}));/*! virtual:@brillout/vite-plugin-server-entry:serverEntry [vike:pluginModuleBanner] */{const i={
-  "_ListPage.C3L88Wxa.js": {
-    "file": "assets/js/ListPage.C3L88Wxa.js",
-    "name": "ListPage",
+import { setGlobalContext_buildEntry } from "vike/__internal";
+/*! virtual:vike:entry:server [vike:pluginModuleBanner] */
+const pageFilesLazy = {};
+const pageFilesEager = {};
+const pageFilesExportNamesLazy = {};
+const pageFilesExportNamesEager = {};
+const pageFilesList = [];
+const neverLoaded = {};
+const pageConfigsSerialized = [
+  {
+    pageId: "/src/pages/admin",
+    isErrorPage: void 0,
+    routeFilesystem: { "routeString": "/admin", "definedAtLocation": "/src/pages/admin/" },
+    loadConfigLazy: () => ({ moduleId: "virtual:vike:pageConfigLazy:server:/src/pages/admin", moduleExports: import("./entries/src_pages_admin.mjs") }),
+    configValuesSerialized: {
+      ["isClientRuntimeLoaded"]: {
+        type: "computed",
+        definedAtData: null,
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      },
+      ["clientRouting"]: {
+        type: "standard",
+        definedAtData: { "filePathToShowToUser": "/src/renderer/+config.ts", "fileExportPathToShowToUser": ["default", "clientRouting"] },
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      }
+    }
+  },
+  {
+    pageId: "/src/pages/artists",
+    isErrorPage: void 0,
+    routeFilesystem: { "routeString": "/artists", "definedAtLocation": "/src/pages/artists/" },
+    loadConfigLazy: () => ({ moduleId: "virtual:vike:pageConfigLazy:server:/src/pages/artists", moduleExports: import("./entries/src_pages_artists.mjs") }),
+    configValuesSerialized: {
+      ["isClientRuntimeLoaded"]: {
+        type: "computed",
+        definedAtData: null,
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      },
+      ["clientRouting"]: {
+        type: "standard",
+        definedAtData: { "filePathToShowToUser": "/src/renderer/+config.ts", "fileExportPathToShowToUser": ["default", "clientRouting"] },
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      }
+    }
+  },
+  {
+    pageId: "/src/pages/characters",
+    isErrorPage: void 0,
+    routeFilesystem: { "routeString": "/characters", "definedAtLocation": "/src/pages/characters/" },
+    loadConfigLazy: () => ({ moduleId: "virtual:vike:pageConfigLazy:server:/src/pages/characters", moduleExports: import("./entries/src_pages_characters.mjs") }),
+    configValuesSerialized: {
+      ["isClientRuntimeLoaded"]: {
+        type: "computed",
+        definedAtData: null,
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      },
+      ["clientRouting"]: {
+        type: "standard",
+        definedAtData: { "filePathToShowToUser": "/src/renderer/+config.ts", "fileExportPathToShowToUser": ["default", "clientRouting"] },
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      }
+    }
+  },
+  {
+    pageId: "/src/pages/gallery",
+    isErrorPage: void 0,
+    routeFilesystem: { "routeString": "/gallery", "definedAtLocation": "/src/pages/gallery/" },
+    loadConfigLazy: () => ({ moduleId: "virtual:vike:pageConfigLazy:server:/src/pages/gallery", moduleExports: import("./entries/src_pages_gallery.mjs") }),
+    configValuesSerialized: {
+      ["isClientRuntimeLoaded"]: {
+        type: "computed",
+        definedAtData: null,
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      },
+      ["clientRouting"]: {
+        type: "standard",
+        definedAtData: { "filePathToShowToUser": "/src/renderer/+config.ts", "fileExportPathToShowToUser": ["default", "clientRouting"] },
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      }
+    }
+  },
+  {
+    pageId: "/src/pages/index",
+    isErrorPage: void 0,
+    routeFilesystem: { "routeString": "/", "definedAtLocation": "/src/pages/index/" },
+    loadConfigLazy: () => ({ moduleId: "virtual:vike:pageConfigLazy:server:/src/pages/index", moduleExports: import("./entries/src_pages_index.mjs") }),
+    configValuesSerialized: {
+      ["isClientRuntimeLoaded"]: {
+        type: "computed",
+        definedAtData: null,
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      },
+      ["clientRouting"]: {
+        type: "standard",
+        definedAtData: { "filePathToShowToUser": "/src/renderer/+config.ts", "fileExportPathToShowToUser": ["default", "clientRouting"] },
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      }
+    }
+  },
+  {
+    pageId: "/src/pages/posts/@id",
+    isErrorPage: void 0,
+    routeFilesystem: { "routeString": "/posts/@id", "definedAtLocation": "/src/pages/posts/@id/" },
+    loadConfigLazy: () => ({ moduleId: "virtual:vike:pageConfigLazy:server:/src/pages/posts/@id", moduleExports: import("./entries/src_pages_posts_-id.mjs") }),
+    configValuesSerialized: {
+      ["isClientRuntimeLoaded"]: {
+        type: "computed",
+        definedAtData: null,
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      },
+      ["clientRouting"]: {
+        type: "standard",
+        definedAtData: { "filePathToShowToUser": "/src/renderer/+config.ts", "fileExportPathToShowToUser": ["default", "clientRouting"] },
+        valueSerialized: {
+          type: "js-serialized",
+          value: true
+        }
+      }
+    }
+  }
+];
+const pageConfigGlobalSerialized = {
+  configValuesSerialized: {}
+};
+const pageFilesLazyIsomorph1 = /* @__PURE__ */ Object.assign({});
+const pageFilesLazyIsomorph = { ...pageFilesLazyIsomorph1 };
+pageFilesLazy[".page"] = pageFilesLazyIsomorph;
+const pageFilesExportNamesEagerIsomorph1 = /* @__PURE__ */ Object.assign({});
+const pageFilesExportNamesEagerIsomorph = { ...pageFilesExportNamesEagerIsomorph1 };
+pageFilesExportNamesEager[".page"] = pageFilesExportNamesEagerIsomorph;
+const pageFilesLazyServer1 = /* @__PURE__ */ Object.assign({});
+const pageFilesLazyServer = { ...pageFilesLazyServer1 };
+pageFilesLazy[".page.server"] = pageFilesLazyServer;
+const pageFilesExportNamesEagerServer1 = /* @__PURE__ */ Object.assign({});
+const pageFilesExportNamesEagerServer = { ...pageFilesExportNamesEagerServer1 };
+pageFilesExportNamesEager[".page.server"] = pageFilesExportNamesEagerServer;
+const pageFilesEagerRoute1 = /* @__PURE__ */ Object.assign({});
+const pageFilesEagerRoute = { ...pageFilesEagerRoute1 };
+pageFilesEager[".page.route"] = pageFilesEagerRoute;
+const pageFilesExportNamesEagerClient1 = /* @__PURE__ */ Object.assign({});
+const pageFilesExportNamesEagerClient = { ...pageFilesExportNamesEagerClient1 };
+pageFilesExportNamesEager[".page.client"] = pageFilesExportNamesEagerClient;
+const virtualFileExports = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  neverLoaded,
+  pageConfigGlobalSerialized,
+  pageConfigsSerialized,
+  pageFilesEager,
+  pageFilesExportNamesEager,
+  pageFilesExportNamesLazy,
+  pageFilesLazy,
+  pageFilesList
+}, Symbol.toStringTag, { value: "Module" }));
+/*! virtual:@brillout/vite-plugin-server-entry:serverEntry [vike:pluginModuleBanner] */
+{
+  const assetsManifest = {
+  "_chunk-1vZWPLyC.js": {
+    "file": "assets/chunks/chunk-1vZWPLyC.js",
+    "name": "Container",
     "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_ProfileItem.BmjKx306.js",
-      "_useFormControl.EJpFiZXV.js",
-      "_TextField.DH3ceIwm.js"
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-CAmVzbS8.js"
     ]
   },
-  "_ProfileItem.BmjKx306.js": {
-    "file": "assets/js/ProfileItem.BmjKx306.js",
-    "name": "ProfileItem",
-    "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_renderPageClientSide.DUFOS9QK.js"
-    ]
-  },
-  "_TextField.DH3ceIwm.js": {
-    "file": "assets/js/TextField.DH3ceIwm.js",
+  "_chunk-BEEy94aN.js": {
+    "file": "assets/chunks/chunk-BEEy94aN.js",
     "name": "TextField",
     "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_useFormControl.EJpFiZXV.js"
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-B_ah4L4C.js",
+      "_chunk-DgPrC-IC.js",
+      "_chunk-Ls7yMqxa.js"
     ]
   },
-  "__onRenderClient.CrOezyuq.js": {
-    "file": "assets/js/_onRenderClient.CrOezyuq.js",
-    "name": "_onRenderClient",
+  "_chunk-B_ah4L4C.js": {
+    "file": "assets/chunks/chunk-B_ah4L4C.js",
+    "name": "useFormControl",
     "imports": [
-      "_renderPageClientSide.DUFOS9QK.js"
-    ],
-    "css": [
-      "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
+      "_chunk-Dy9C_Ocf.js"
     ]
   },
-  "_renderPageClientSide.DUFOS9QK.js": {
-    "file": "assets/js/renderPageClientSide.DUFOS9QK.js",
+  "_chunk-BggHBmtZ.js": {
+    "file": "assets/chunks/chunk-BggHBmtZ.js",
+    "name": "navigate",
+    "imports": [
+      "_chunk-BrhNgn6_.js"
+    ]
+  },
+  "_chunk-BhM667Ry.js": {
+    "file": "assets/chunks/chunk-BhM667Ry.js",
+    "name": "getThemeProps",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js"
+    ]
+  },
+  "_chunk-BrhNgn6_.js": {
+    "file": "assets/chunks/chunk-BrhNgn6_.js",
     "name": "renderPageClientSide",
+    "imports": [
+      "_chunk-PSOkAIay.js"
+    ],
     "dynamicImports": [
       "virtual:vike:pageConfigLazy:client:/src/pages/admin",
       "virtual:vike:pageConfigLazy:client:/src/pages/artists",
@@ -47,121 +242,329 @@ import{setGlobalContext_buildEntry as r}from"vike/__internal";/*! virtual:vike:e
       "virtual:vike:pageConfigLazy:client:/src/pages/posts/@id"
     ]
   },
+  "_chunk-C-nr1p1w.js": {
+    "file": "assets/chunks/chunk-C-nr1p1w.js",
+    "name": "ButtonBase",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-Ls7yMqxa.js"
+    ]
+  },
+  "_chunk-CAmVzbS8.js": {
+    "file": "assets/chunks/chunk-CAmVzbS8.js",
+    "name": "useThemeProps",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-BhM667Ry.js"
+    ]
+  },
+  "_chunk-CD-UgIlD.js": {
+    "file": "assets/chunks/chunk-CD-UgIlD.js",
+    "name": "Stack",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-CAmVzbS8.js"
+    ]
+  },
+  "_chunk-DDKZcktH.js": {
+    "file": "assets/chunks/chunk-DDKZcktH.js",
+    "name": "ListPage",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-KxMjz5_k.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-Ls7yMqxa.js",
+      "_chunk-B_ah4L4C.js",
+      "_chunk-DgPrC-IC.js",
+      "_chunk-BEEy94aN.js",
+      "_chunk-S-fRVKVV.js",
+      "_chunk-1vZWPLyC.js"
+    ]
+  },
+  "_chunk-DMjb9ISz.js": {
+    "file": "assets/chunks/chunk-DMjb9ISz.js",
+    "name": "Link",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-Ls7yMqxa.js"
+    ]
+  },
+  "_chunk-DgPrC-IC.js": {
+    "file": "assets/chunks/chunk-DgPrC-IC.js",
+    "name": "List",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-pu0H1ned.js",
+      "_chunk-Ls7yMqxa.js"
+    ]
+  },
+  "_chunk-Dy9C_Ocf.js": {
+    "file": "assets/chunks/chunk-Dy9C_Ocf.js",
+    "name": "_onRenderClient",
+    "imports": [
+      "_chunk-PSOkAIay.js"
+    ],
+    "dynamicImports": [
+      "src/components/Navbar/Navbar.tsx",
+      "src/components/Footer/Footer.tsx"
+    ],
+    "css": [
+      "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
+    ]
+  },
+  "_chunk-KxMjz5_k.js": {
+    "file": "assets/chunks/chunk-KxMjz5_k.js",
+    "name": "ProfileItem",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-BggHBmtZ.js",
+      "_chunk-BrhNgn6_.js",
+      "_chunk-C-nr1p1w.js"
+    ]
+  },
+  "_chunk-Ls7yMqxa.js": {
+    "file": "assets/chunks/chunk-Ls7yMqxa.js",
+    "name": "isFocusVisible",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js"
+    ]
+  },
+  "_chunk-PSOkAIay.js": {
+    "file": "assets/chunks/chunk-PSOkAIay.js",
+    "name": "preload-helper"
+  },
+  "_chunk-S-fRVKVV.js": {
+    "file": "assets/chunks/chunk-S-fRVKVV.js",
+    "name": "IconButton",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-C-nr1p1w.js"
+    ]
+  },
+  "_chunk-_MjiKTlx.js": {
+    "file": "assets/chunks/chunk-_MjiKTlx.js",
+    "name": "extractRedditId"
+  },
+  "_chunk-pu0H1ned.js": {
+    "file": "assets/chunks/chunk-pu0H1ned.js",
+    "name": "index",
+    "imports": [
+      "_chunk-Dy9C_Ocf.js"
+    ]
+  },
   "_src_renderer_index-54ec5530.BBfZVkUH.css": {
     "file": "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css",
     "src": "_src_renderer_index-54ec5530.BBfZVkUH.css"
   },
-  "_useFormControl.EJpFiZXV.js": {
-    "file": "assets/js/useFormControl.EJpFiZXV.js",
-    "name": "useFormControl",
-    "imports": [
-      "__onRenderClient.CrOezyuq.js"
-    ]
-  },
   "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js": {
-    "file": "assets/entries/entry-client-routing.BFmqqXWz.js",
+    "file": "assets/entries/entry-client-routing.GANOiT1x.js",
     "name": "entries/entry-client-routing",
     "src": "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js",
     "isEntry": true,
     "imports": [
-      "_renderPageClientSide.DUFOS9QK.js"
+      "_chunk-BrhNgn6_.js",
+      "_chunk-PSOkAIay.js"
+    ]
+  },
+  "src/components/Footer/Footer.tsx": {
+    "file": "assets/chunks/chunk-Dw13b_Or.js",
+    "name": "Footer",
+    "src": "src/components/Footer/Footer.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-DMjb9ISz.js",
+      "_chunk-1vZWPLyC.js",
+      "_chunk-CD-UgIlD.js",
+      "_chunk-PSOkAIay.js",
+      "_chunk-Ls7yMqxa.js",
+      "_chunk-CAmVzbS8.js",
+      "_chunk-BhM667Ry.js"
+    ],
+    "css": [
+      "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
+    ]
+  },
+  "src/components/Navbar/Navbar.tsx": {
+    "file": "assets/chunks/chunk-8Ft5eHyx.js",
+    "name": "Navbar",
+    "src": "src/components/Navbar/Navbar.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-BggHBmtZ.js",
+      "_chunk-BrhNgn6_.js",
+      "_chunk-_MjiKTlx.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-Ls7yMqxa.js",
+      "_chunk-BhM667Ry.js",
+      "_chunk-S-fRVKVV.js",
+      "_chunk-DgPrC-IC.js",
+      "_chunk-PSOkAIay.js",
+      "_chunk-pu0H1ned.js"
+    ],
+    "css": [
+      "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/admin": {
-    "file": "assets/entries/src_pages_admin.BB5f1n1g.js",
+    "file": "assets/entries/src_pages_admin.Tx7052LG.js",
     "name": "entries/src/pages/admin",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/admin",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_TextField.DH3ceIwm.js",
-      "_useFormControl.EJpFiZXV.js",
-      "_renderPageClientSide.DUFOS9QK.js"
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-CD-UgIlD.js",
+      "_chunk-BEEy94aN.js",
+      "_chunk-Ls7yMqxa.js",
+      "_chunk-B_ah4L4C.js",
+      "_chunk-DgPrC-IC.js",
+      "_chunk-PSOkAIay.js",
+      "_chunk-CAmVzbS8.js",
+      "_chunk-BhM667Ry.js",
+      "_chunk-pu0H1ned.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/artists": {
-    "file": "assets/entries/src_pages_artists.JjYGOtCd.js",
+    "file": "assets/entries/src_pages_artists.1WdeAqcv.js",
     "name": "entries/src/pages/artists",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/artists",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_ListPage.C3L88Wxa.js",
-      "_renderPageClientSide.DUFOS9QK.js",
-      "_ProfileItem.BmjKx306.js",
-      "_useFormControl.EJpFiZXV.js",
-      "_TextField.DH3ceIwm.js"
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-DDKZcktH.js",
+      "_chunk-PSOkAIay.js",
+      "_chunk-KxMjz5_k.js",
+      "_chunk-BggHBmtZ.js",
+      "_chunk-BrhNgn6_.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-Ls7yMqxa.js",
+      "_chunk-B_ah4L4C.js",
+      "_chunk-DgPrC-IC.js",
+      "_chunk-pu0H1ned.js",
+      "_chunk-BEEy94aN.js",
+      "_chunk-S-fRVKVV.js",
+      "_chunk-1vZWPLyC.js",
+      "_chunk-CAmVzbS8.js",
+      "_chunk-BhM667Ry.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/characters": {
-    "file": "assets/entries/src_pages_characters.BjgbtDhl.js",
+    "file": "assets/entries/src_pages_characters.C0xAz_ao.js",
     "name": "entries/src/pages/characters",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/characters",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_ListPage.C3L88Wxa.js",
-      "_renderPageClientSide.DUFOS9QK.js",
-      "_ProfileItem.BmjKx306.js",
-      "_useFormControl.EJpFiZXV.js",
-      "_TextField.DH3ceIwm.js"
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-DDKZcktH.js",
+      "_chunk-PSOkAIay.js",
+      "_chunk-KxMjz5_k.js",
+      "_chunk-BggHBmtZ.js",
+      "_chunk-BrhNgn6_.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-Ls7yMqxa.js",
+      "_chunk-B_ah4L4C.js",
+      "_chunk-DgPrC-IC.js",
+      "_chunk-pu0H1ned.js",
+      "_chunk-BEEy94aN.js",
+      "_chunk-S-fRVKVV.js",
+      "_chunk-1vZWPLyC.js",
+      "_chunk-CAmVzbS8.js",
+      "_chunk-BhM667Ry.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/gallery": {
-    "file": "assets/entries/src_pages_gallery.BFYQgTu0.js",
+    "file": "assets/entries/src_pages_gallery.BeBYWxJk.js",
     "name": "entries/src/pages/gallery",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/gallery",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_ProfileItem.BmjKx306.js",
-      "_useFormControl.EJpFiZXV.js",
-      "_renderPageClientSide.DUFOS9QK.js"
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-_MjiKTlx.js",
+      "_chunk-KxMjz5_k.js",
+      "_chunk-Ls7yMqxa.js",
+      "_chunk-1vZWPLyC.js",
+      "_chunk-CD-UgIlD.js",
+      "_chunk-B_ah4L4C.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-PSOkAIay.js",
+      "_chunk-BggHBmtZ.js",
+      "_chunk-BrhNgn6_.js",
+      "_chunk-CAmVzbS8.js",
+      "_chunk-BhM667Ry.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/index": {
-    "file": "assets/entries/src_pages_index.BMeU7Ga9.js",
+    "file": "assets/entries/src_pages_index.wnaFj94q.js",
     "name": "entries/src/pages/index",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/index",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_renderPageClientSide.DUFOS9QK.js"
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-PSOkAIay.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   },
   "virtual:vike:pageConfigLazy:client:/src/pages/posts/@id": {
-    "file": "assets/entries/src_pages_posts_-id.Bk1T9o5Z.js",
+    "file": "assets/entries/src_pages_posts_-id.Bkmw_tD0.js",
     "name": "entries/src/pages/posts/@id",
     "src": "virtual:vike:pageConfigLazy:client:/src/pages/posts/@id",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "__onRenderClient.CrOezyuq.js",
-      "_ProfileItem.BmjKx306.js",
-      "_renderPageClientSide.DUFOS9QK.js"
+      "_chunk-Dy9C_Ocf.js",
+      "_chunk-_MjiKTlx.js",
+      "_chunk-C-nr1p1w.js",
+      "_chunk-DMjb9ISz.js",
+      "_chunk-S-fRVKVV.js",
+      "_chunk-pu0H1ned.js",
+      "_chunk-KxMjz5_k.js",
+      "_chunk-PSOkAIay.js",
+      "_chunk-Ls7yMqxa.js",
+      "_chunk-BggHBmtZ.js",
+      "_chunk-BrhNgn6_.js"
     ],
     "css": [
       "assets/static/src_renderer_index-54ec5530.BBfZVkUH.css"
     ]
   }
-};r({virtualFileExports:L,assetsManifest:i,buildInfo:{versionAtBuildTime:"0.4.236",usesClientRouter:!1,viteConfigRuntime:{root:"/home/runner/work/touhou-translations/touhou-translations",build:{outDir:"/home/runner/work/touhou-translations/touhou-translations/dist/"},_baseViteOriginal:"/touhou-translations/",vitePluginServerEntry:{}}}})}
+};
+  const buildInfo = {
+    "versionAtBuildTime": "0.4.236",
+    "usesClientRouter": false,
+    "viteConfigRuntime": {
+      "root": "/home/runner/work/touhou-translations/touhou-translations",
+      "build": {
+        "outDir": "/home/runner/work/touhou-translations/touhou-translations/dist/"
+      },
+      "_baseViteOriginal": "/touhou-translations/",
+      "vitePluginServerEntry": {}
+    }
+  };
+  setGlobalContext_buildEntry({
+    virtualFileExports,
+    assetsManifest,
+    buildInfo
+  });
+}

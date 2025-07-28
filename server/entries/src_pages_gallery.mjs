@@ -1,1 +1,321 @@
-import{u as z,e as N,b as V,c as W,i as F}from"../assets/js/_onRenderHtml.Cu11H-VZ.js";import{jsxs as k,jsx as t}from"react/jsx-runtime";import{useState as I,useRef as P,useMemo as b,useEffect as _}from"react";import{Box as x}from"@mui/material";import{P as B,g as K,a as Z}from"../assets/js/ProfileItem.DJAScqIE.js";import q from"@mui/material/Container";import J from"@mui/material/Stack";import v from"@mui/material/Box";import X from"@mui/material/FormControlLabel";import Y from"@mui/material/Switch";import Q from"@mui/material/Typography";import ee from"@mui/material/CircularProgress";import{useTheme as te}from"@mui/material/styles";import"react-dom/server";import"vike/server";import"@emotion/react";import"@emotion/server/create-instance";import"@emotion/cache";import"vike/client/router";import"@mui/material/useScrollTrigger";import"@mui/icons-material/Menu";/*! src/utils/filterPosts.ts [vike:pluginModuleBanner] */const re=(e,r,n,o="and")=>{if(r.length===0&&n.length===0)return e;const a=r.map(s=>s.toLowerCase()),i=n.map(s=>s.toLowerCase());return e.filter(s=>{const u=s.characterIds?.map(l=>l.toLowerCase())??[],g=s.artistId?.toLowerCase()??"",m=o==="and"?a.every(l=>u.includes(l)):a.some(l=>u.includes(l)),c=o==="and"?i.every(l=>g===l):i.some(l=>g===l);return r.length>0&&n.length>0?o==="and"?m&&c:m||c:r.length>0?m:c})};/*! src/components/Gallery/Gallery.utils.ts [vike:pluginModuleBanner] */const oe=(...e)=>Object.assign({},...e.filter(Boolean));/*! src/components/Gallery/GalleryImage.styles.ts [vike:pluginModuleBanner] */const y={wrapper:{position:"relative",width:"100%",overflow:"hidden",borderRadius:1},placeholder:{position:"absolute",inset:0,borderRadius:1,background:"linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%)",backgroundSize:"200% 100%",animation:"shimmer 1.5s infinite"},image:{width:"100%",height:"auto",display:"block",objectFit:"cover",transition:"opacity 0.3s ease, filter 0.3s ease"},loading:{opacity:.5,filter:"blur(5px)"},loaded:{opacity:1,filter:"blur(0)"}};/*! src/components/Gallery/GalleryImage.tsx [vike:pluginModuleBanner] */const ae=({src:e,alt:r})=>{const[n,o]=I(!1),a=oe(y.image,n?y.loaded:y.loading);return k(x,{sx:y.wrapper,children:[!n&&t(x,{sx:y.placeholder,"aria-hidden":"true"}),t(x,{component:"img",src:e,alt:r,loading:"lazy",onLoad:()=>o(!0),sx:a})]})};/*! src/components/Gallery/Gallery.styles.ts [vike:pluginModuleBanner] */const T={grid:{columnCount:3,columnGap:"1.25rem",width:"100%","@media (max-width:1024px)":{columnCount:2},"@media (max-width:768px)":{columnCount:1}},item:{breakInside:"avoid",marginBottom:"1.25rem",borderRadius:1,overflow:"hidden",backgroundColor:"#f9f9f9",boxShadow:"0 2px 6px rgba(0,0,0,0.1)",transition:"transform 0.2s ease, box-shadow 0.3s ease",cursor:"pointer",display:"block",willChange:"transform, box-shadow","&:hover":{transform:"scale(1.03)",boxShadow:"0 4px 10px rgba(0,0,0,0.15)"},"&:focus-visible":{outline:"2px solid #005fcc",outlineOffset:"2px"}}};/*! src/components/Gallery/Gallery.tsx [vike:pluginModuleBanner] */const se="/touhou-translations/",ne=({posts:e})=>{const r=z(),n=e||r;return n.length?t(x,{component:"section",sx:T.grid,"aria-label":"Gallery grid",children:n.map(o=>{if(!o.url||o.url.length===0)return null;const a=o.url[0],i=N(o.reddit);return i?t(x,{component:"div",sx:T.item,children:t("a",{href:`${se}posts/${i}`,"aria-label":"View post details",tabIndex:0,style:{display:"block",width:"100%",height:"100%"},children:t(ae,{src:a,alt:`Gallery post from ${new Date(o.date).toLocaleDateString()}`})})},o.date):null})}):t("p",{children:"No posts available."})};/*! src/components/GalleryHeader/GalleryHeaderCharacter.tsx [vike:pluginModuleBanner] */const le=({character:e})=>{const r=`${e.artworkCount} artwork${e.artworkCount!==1?"s":""}`;return t("a",{href:"/touhou-translations/characters",className:"gallery-page__header-link","aria-label":"Back to characters list",children:t(B,{name:e.name,imageUrl:K(e.id),description:r})})};/*! src/components/GalleryHeader/GalleryHeaderArtist.tsx [vike:pluginModuleBanner] */const ie=({artist:e})=>{const r=`${e.artworkCount} artwork${e.artworkCount!==1?"s":""}`;return t("div",{className:"gallery-page__header",children:t("a",{href:"/touhou-translations/artists",className:"gallery-page__header-link","aria-label":"Back to artists list",children:t(B,{name:e.name,imageUrl:Z(e.id),description:r})})})};/*! src/pages/gallery/styles.ts [vike:pluginModuleBanner] */const ce={input:{"aria-label":"Toggle gallery only"}},de=e=>({pt:e.spacing(4),pb:e.spacing(4),px:{xs:e.spacing(1),sm:e.spacing(2)},margin:"0 auto"}),pe=e=>({display:"flex",justifyContent:"center",alignItems:"center",flexWrap:"wrap",pb:e.spacing(2),mb:{xs:e.spacing(2),sm:e.spacing(4)},px:{xs:e.spacing(1),sm:0},gap:e.spacing(2)}),j=e=>({maxWidth:e.spacing(37.5),width:"100%",flexShrink:0}),ue=e=>({ml:e.spacing(2),fontWeight:500,color:e.palette.text.secondary,userSelect:"none",fontSize:"1rem",cursor:"pointer",transition:e.transitions.create("color",{duration:e.transitions.duration.short}),"&:hover":{color:e.palette.text.primary}}),ge=e=>({display:"flex",justifyContent:"center",py:e.spacing(2)});/*! src/pages/gallery/+Page.tsx [vike:pluginModuleBanner] */const U=12,me=({urlParsed:e})=>{const r=z(),n=V(),o=W(),a=te(),i=new URLSearchParams(e.searchOriginal||""),s=i.getAll("character"),u=i.getAll("artist"),g=i.get("mode")==="or"?"or":"and",m=i.get("galleryOnly")==="true",[c,l]=I(m),[O,E]=I(U),w=P(null),S=P(!1),$=P(null),G=s[0]??null,L=G?n(G):null,R=u[0]??null,A=R?o(R):null,C=b(()=>{const d=re(r,s,u,g);return c?d.filter(p=>p.url.length>1):d},[r,s,u,g,c]),H=b(()=>{const d=s.slice().sort().join(","),p=u.slice().sort().join(",");return`${d}|${p}|${g}|${c}|${C.length}`},[s,u,g,c,C.length]),h=b(()=>C.slice().sort(()=>Math.random()-.5),[H]),f=b(()=>h.slice(0,O),[h,O]),M=()=>{const d=!c;l(d);const p=new URLSearchParams(e.searchOriginal||"");d?p.set("galleryOnly","true"):p.delete("galleryOnly"),window.history.replaceState(null,"",`${e.pathname}?${p.toString()}`)};return _(()=>{if(!w.current)return;$.current=new IntersectionObserver(p=>{p[0].isIntersecting&&!S.current&&f.length<h.length&&(S.current=!0,E(D=>D+U))},{rootMargin:"200px"});const d=$.current;return d.observe(w.current),()=>d.disconnect()},[f.length,h.length]),_(()=>{S.current=!1},[f.length]),k(q,{maxWidth:"lg",sx:de(a),children:[k(J,{direction:"row",sx:pe(a),children:[L&&t(v,{sx:j(a),children:t(le,{character:L})}),A&&t(v,{sx:j(a),children:t(ie,{artist:A})}),t(X,{control:t(Y,{checked:c,onChange:M,color:"primary",slotProps:ce}),label:t(Q,{variant:"body1",children:"Gallery Only"}),sx:ue(a)})]}),t(ne,{posts:f}),f.length<h.length&&t(v,{ref:w,sx:ge(a),"aria-busy":"true",children:t(ee,{})})]})},he=Object.freeze(Object.defineProperty({__proto__:null,default:me},Symbol.toStringTag,{value:"Module"}));/*! virtual:vike:pageConfigLazy:server:/src/pages/gallery [vike:pluginModuleBanner] */const ze={isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},onRenderHtml:{type:"standard",definedAtData:{filePathToShowToUser:"/src/renderer/+onRenderHtml.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:F}},Page:{type:"standard",definedAtData:{filePathToShowToUser:"/src/pages/gallery/+Page.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:he}}};export{ze as configValuesSerialized};
+import { u as useGetPosts, b as useGetCharacter, c as useGetArtist, i as import1 } from "../chunks/chunk-Er2rpSkh.js";
+import { jsxs, jsx } from "react/jsx-runtime";
+import { useState, useRef, useMemo, useEffect } from "react";
+import { Box } from "@mui/material";
+import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
+import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-CHeC3Bgj.js";
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Box$1 from "@mui/material/Box";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
+import Typography from "@mui/material/Typography";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useTheme } from "@mui/material/styles";
+import "react-dom/server";
+import "vike/server";
+import "@emotion/react";
+import "@emotion/server/create-instance";
+import "@emotion/cache";
+import "vike/client/router";
+/*! src/utils/filterPosts.ts [vike:pluginModuleBanner] */
+const filterPosts = (posts, characterQueries, artistQueries, mode = "and") => {
+  if (characterQueries.length === 0 && artistQueries.length === 0) return posts;
+  const lowerCaseCharacterQueries = characterQueries.map((q) => q.toLowerCase());
+  const lowerCaseArtistQueries = artistQueries.map((q) => q.toLowerCase());
+  return posts.filter((post) => {
+    const postCharacterIds = post.characterIds?.map((id) => id.toLowerCase()) ?? [];
+    const postArtistId = post.artistId?.toLowerCase() ?? "";
+    const characterMatch = mode === "and" ? lowerCaseCharacterQueries.every((q) => postCharacterIds.includes(q)) : lowerCaseCharacterQueries.some((q) => postCharacterIds.includes(q));
+    const artistMatch = mode === "and" ? lowerCaseArtistQueries.every((q) => postArtistId === q) : lowerCaseArtistQueries.some((q) => postArtistId === q);
+    if (characterQueries.length > 0 && artistQueries.length > 0) {
+      return mode === "and" ? characterMatch && artistMatch : characterMatch || artistMatch;
+    } else if (characterQueries.length > 0) {
+      return characterMatch;
+    } else {
+      return artistMatch;
+    }
+  });
+};
+/*! src/components/Gallery/Gallery.utils.ts [vike:pluginModuleBanner] */
+const mergeSx = (...sxObjects) => Object.assign({}, ...sxObjects.filter(Boolean));
+/*! src/components/Gallery/GalleryImage.styles.ts [vike:pluginModuleBanner] */
+const styles$1 = {
+  wrapper: {
+    position: "relative",
+    width: "100%",
+    overflow: "hidden",
+    borderRadius: 1
+  },
+  placeholder: {
+    position: "absolute",
+    inset: 0,
+    borderRadius: 1,
+    background: "linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%)",
+    backgroundSize: "200% 100%",
+    animation: "shimmer 1.5s infinite"
+  },
+  image: {
+    width: "100%",
+    height: "auto",
+    display: "block",
+    objectFit: "cover",
+    transition: "opacity 0.3s ease, filter 0.3s ease"
+  },
+  loading: {
+    opacity: 0.5,
+    filter: "blur(5px)"
+  },
+  loaded: {
+    opacity: 1,
+    filter: "blur(0)"
+  }
+};
+/*! src/components/Gallery/GalleryImage.tsx [vike:pluginModuleBanner] */
+const GalleryImage = ({ src, alt }) => {
+  const [loaded, setLoaded] = useState(false);
+  const sxImage = mergeSx(styles$1.image, loaded ? styles$1.loaded : styles$1.loading);
+  return /* @__PURE__ */ jsxs(Box, { sx: styles$1.wrapper, children: [
+    !loaded && /* @__PURE__ */ jsx(Box, { sx: styles$1.placeholder, "aria-hidden": "true" }),
+    /* @__PURE__ */ jsx(Box, { component: "img", src, alt, loading: "lazy", onLoad: () => setLoaded(true), sx: sxImage })
+  ] });
+};
+/*! src/components/Gallery/Gallery.styles.ts [vike:pluginModuleBanner] */
+const styles = {
+  grid: {
+    columnCount: 3,
+    columnGap: "1.25rem",
+    width: "100%",
+    "@media (max-width:1024px)": {
+      columnCount: 2
+    },
+    "@media (max-width:768px)": {
+      columnCount: 1
+    }
+  },
+  item: {
+    breakInside: "avoid",
+    marginBottom: "1.25rem",
+    borderRadius: 1,
+    overflow: "hidden",
+    backgroundColor: "#f9f9f9",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    transition: "transform 0.2s ease, box-shadow 0.3s ease",
+    cursor: "pointer",
+    display: "block",
+    willChange: "transform, box-shadow",
+    "&:hover": {
+      transform: "scale(1.03)",
+      boxShadow: "0 4px 10px rgba(0,0,0,0.15)"
+    },
+    "&:focus-visible": {
+      outline: "2px solid #005fcc",
+      outlineOffset: "2px"
+    }
+  }
+};
+/*! src/components/Gallery/Gallery.tsx [vike:pluginModuleBanner] */
+const BASE_URL = "/touhou-translations/";
+const Gallery = ({ posts }) => {
+  const allPosts = useGetPosts();
+  const displayedPosts = posts || allPosts;
+  if (!displayedPosts.length) return /* @__PURE__ */ jsx("p", { children: "No posts available." });
+  return /* @__PURE__ */ jsx(Box, { component: "section", sx: styles.grid, "aria-label": "Gallery grid", children: displayedPosts.map((post) => {
+    if (!post.url || post.url.length === 0) return null;
+    const imageUrl = post.url[0];
+    const redditId = extractRedditId(post.reddit);
+    if (!redditId) return null;
+    return /* @__PURE__ */ jsx(Box, { component: "div", sx: styles.item, children: /* @__PURE__ */ jsx(
+      "a",
+      {
+        href: `${BASE_URL}posts/${redditId}`,
+        "aria-label": "View post details",
+        tabIndex: 0,
+        style: { display: "block", width: "100%", height: "100%" },
+        children: /* @__PURE__ */ jsx(
+          GalleryImage,
+          {
+            src: imageUrl,
+            alt: `Gallery post from ${new Date(post.date).toLocaleDateString()}`
+          }
+        )
+      }
+    ) }, post.date);
+  }) });
+};
+/*! src/components/GalleryHeader/GalleryHeaderCharacter.tsx [vike:pluginModuleBanner] */
+const GalleryHeaderCharacter = ({ character }) => {
+  const description = `${character.artworkCount} artwork${character.artworkCount !== 1 ? "s" : ""}`;
+  return /* @__PURE__ */ jsx("a", { href: "/touhou-translations/characters", className: "gallery-page__header-link", "aria-label": "Back to characters list", children: /* @__PURE__ */ jsx(
+    ProfileItem,
+    {
+      name: character.name,
+      imageUrl: getCharacterPortraits(character.id),
+      description
+    }
+  ) });
+};
+/*! src/components/GalleryHeader/GalleryHeaderArtist.tsx [vike:pluginModuleBanner] */
+const GalleryHeaderArtist = ({ artist }) => {
+  const description = `${artist.artworkCount} artwork${artist.artworkCount !== 1 ? "s" : ""}`;
+  return /* @__PURE__ */ jsx("div", { className: "gallery-page__header", children: /* @__PURE__ */ jsx("a", { href: "/touhou-translations/artists", className: "gallery-page__header-link", "aria-label": "Back to artists list", children: /* @__PURE__ */ jsx(
+    ProfileItem,
+    {
+      name: artist.name,
+      imageUrl: getArtistPortraits(artist.id),
+      description
+    }
+  ) }) });
+};
+/*! src/pages/gallery/styles.ts [vike:pluginModuleBanner] */
+const switchSlotProps = {
+  input: { "aria-label": "Toggle gallery only" }
+};
+const containerStyles = (theme) => ({
+  pt: theme.spacing(4),
+  pb: theme.spacing(4),
+  px: { xs: theme.spacing(1), sm: theme.spacing(2) },
+  margin: "0 auto"
+});
+const headerWrapperStyles = (theme) => ({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexWrap: "wrap",
+  pb: theme.spacing(2),
+  mb: { xs: theme.spacing(2), sm: theme.spacing(4) },
+  px: { xs: theme.spacing(1), sm: 0 },
+  gap: theme.spacing(2)
+});
+const galleryHeaderBoxStyles = (theme) => ({
+  maxWidth: theme.spacing(37.5),
+  width: "100%",
+  flexShrink: 0
+});
+const switchLabelStyles = (theme) => ({
+  ml: theme.spacing(2),
+  fontWeight: 500,
+  color: theme.palette.text.secondary,
+  userSelect: "none",
+  fontSize: "1rem",
+  cursor: "pointer",
+  transition: theme.transitions.create("color", { duration: theme.transitions.duration.short }),
+  "&:hover": { color: theme.palette.text.primary }
+});
+const loaderBoxStyles = (theme) => ({
+  display: "flex",
+  justifyContent: "center",
+  py: theme.spacing(2)
+});
+/*! src/pages/gallery/+Page.tsx [vike:pluginModuleBanner] */
+const PAGE_CHUNK_SIZE = 12;
+const Page = ({ urlParsed }) => {
+  const posts = useGetPosts();
+  const getCharacter = useGetCharacter();
+  const getArtist = useGetArtist();
+  const theme = useTheme();
+  const searchParams = new URLSearchParams(urlParsed.searchOriginal || "");
+  const characterQueries = searchParams.getAll("character");
+  const artistQueries = searchParams.getAll("artist");
+  const mode = searchParams.get("mode") === "or" ? "or" : "and";
+  const galleryOnlyParam = searchParams.get("galleryOnly") === "true";
+  const [galleryOnly, setGalleryOnly] = useState(galleryOnlyParam);
+  const [visibleCount, setVisibleCount] = useState(PAGE_CHUNK_SIZE);
+  const loaderRef = useRef(null);
+  const isLoadingRef = useRef(false);
+  const observerRef = useRef(null);
+  const characterId = characterQueries[0] ?? null;
+  const character = characterId ? getCharacter(characterId) : null;
+  const artistId = artistQueries[0] ?? null;
+  const artist = artistId ? getArtist(artistId) : null;
+  const filteredPosts = useMemo(() => {
+    const baseFiltered = filterPosts(posts, characterQueries, artistQueries, mode);
+    return galleryOnly ? baseFiltered.filter((post) => post.url.length > 1) : baseFiltered;
+  }, [posts, characterQueries, artistQueries, mode, galleryOnly]);
+  const filterKey = useMemo(() => {
+    const chars = characterQueries.slice().sort().join(",");
+    const artists = artistQueries.slice().sort().join(",");
+    return `${chars}|${artists}|${mode}|${galleryOnly}|${filteredPosts.length}`;
+  }, [characterQueries, artistQueries, mode, galleryOnly, filteredPosts.length]);
+  const shuffledPosts = useMemo(() => filteredPosts.slice().sort(() => Math.random() - 0.5), [filterKey]);
+  const visiblePosts = useMemo(() => shuffledPosts.slice(0, visibleCount), [shuffledPosts, visibleCount]);
+  const toggleGalleryOnly = () => {
+    const newGalleryOnly = !galleryOnly;
+    setGalleryOnly(newGalleryOnly);
+    const newParams = new URLSearchParams(urlParsed.searchOriginal || "");
+    if (newGalleryOnly) {
+      newParams.set("galleryOnly", "true");
+    } else {
+      newParams.delete("galleryOnly");
+    }
+    window.history.replaceState(null, "", `${urlParsed.pathname}?${newParams.toString()}`);
+  };
+  useEffect(() => {
+    if (!loaderRef.current) return;
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !isLoadingRef.current && visiblePosts.length < shuffledPosts.length) {
+          isLoadingRef.current = true;
+          setVisibleCount((prev) => prev + PAGE_CHUNK_SIZE);
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    const currentObserver = observerRef.current;
+    currentObserver.observe(loaderRef.current);
+    return () => currentObserver.disconnect();
+  }, [visiblePosts.length, shuffledPosts.length]);
+  useEffect(() => {
+    isLoadingRef.current = false;
+  }, [visiblePosts.length]);
+  return /* @__PURE__ */ jsxs(Container, { maxWidth: "lg", sx: containerStyles(theme), children: [
+    /* @__PURE__ */ jsxs(Stack, { direction: "row", sx: headerWrapperStyles(theme), children: [
+      character && /* @__PURE__ */ jsx(Box$1, { sx: galleryHeaderBoxStyles(theme), children: /* @__PURE__ */ jsx(GalleryHeaderCharacter, { character }) }),
+      artist && /* @__PURE__ */ jsx(Box$1, { sx: galleryHeaderBoxStyles(theme), children: /* @__PURE__ */ jsx(GalleryHeaderArtist, { artist }) }),
+      /* @__PURE__ */ jsx(
+        FormControlLabel,
+        {
+          control: /* @__PURE__ */ jsx(Switch, { checked: galleryOnly, onChange: toggleGalleryOnly, color: "primary", slotProps: switchSlotProps }),
+          label: /* @__PURE__ */ jsx(Typography, { variant: "body1", children: "Gallery Only" }),
+          sx: switchLabelStyles(theme)
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsx(Gallery, { posts: visiblePosts }),
+    visiblePosts.length < shuffledPosts.length && /* @__PURE__ */ jsx(Box$1, { ref: loaderRef, sx: loaderBoxStyles(theme), "aria-busy": "true", children: /* @__PURE__ */ jsx(CircularProgress, {}) })
+  ] });
+};
+const import2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Page
+}, Symbol.toStringTag, { value: "Module" }));
+/*! virtual:vike:pageConfigLazy:server:/src/pages/gallery [vike:pluginModuleBanner] */
+const configValuesSerialized = {
+  ["isClientRuntimeLoaded"]: {
+    type: "computed",
+    definedAtData: null,
+    valueSerialized: {
+      type: "js-serialized",
+      value: true
+    }
+  },
+  ["onRenderHtml"]: {
+    type: "standard",
+    definedAtData: { "filePathToShowToUser": "/src/renderer/+onRenderHtml.tsx", "fileExportPathToShowToUser": [] },
+    valueSerialized: {
+      type: "plus-file",
+      exportValues: import1
+    }
+  },
+  ["Page"]: {
+    type: "standard",
+    definedAtData: { "filePathToShowToUser": "/src/pages/gallery/+Page.tsx", "fileExportPathToShowToUser": [] },
+    valueSerialized: {
+      type: "plus-file",
+      exportValues: import2
+    }
+  }
+};
+export {
+  configValuesSerialized
+};

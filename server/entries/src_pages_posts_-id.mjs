@@ -1,1 +1,462 @@
-import{f as C,e as S,b as _,c as D,d as L,u as R,i as W}from"../assets/js/_onRenderHtml.Cu11H-VZ.js";import{jsxs as a,jsx as t,Fragment as x}from"react/jsx-runtime";import B,{useState as w,useCallback as V,useEffect as v}from"react";import{Box as l,Link as y,IconButton as I,Typography as m}from"@mui/material";import z from"@mui/icons-material/NavigateBefore";import U from"@mui/icons-material/NavigateNext";import $ from"react-markdown";import A from"remark-gfm";import{createPortal as j}from"react-dom";import{a as E,g as O,P as G}from"../assets/js/ProfileItem.DJAScqIE.js";import H from"@mui/material/Box";import"react-dom/server";import"vike/server";import"@emotion/react";import"@emotion/server/create-instance";import"@emotion/cache";import"vike/client/router";import"@mui/material/useScrollTrigger";import"@mui/icons-material/Menu";import"@mui/material/styles";/*! src/pages/posts/@id/+onBeforePrerenderStart.ts [vike:pluginModuleBanner] */const N=async()=>{try{return(await C()).map(n=>{const i=S(n.reddit);return i?{url:`/posts/${i}`,pageContext:{post:n,postId:i}}:(console.warn("Skipping post: could not extract Reddit ID from",n.reddit),null)}).filter(Boolean)}catch(e){return console.error("Failed to generate prerender routes:",e),[]}},F=Object.freeze(Object.defineProperty({__proto__:null,default:N},Symbol.toStringTag,{value:"Module"}));/*! src/components/ImageViewer/ImageSection.styles.ts [vike:pluginModuleBanner] */const u={root:{display:"flex",flexDirection:"column",gap:2},imageDisplay:{maxWidth:600,overflow:"hidden",borderRadius:2,boxShadow:"0 4px 12px rgba(0, 0, 0, 0.08)",transition:"transform 0.3s ease","&:hover":{transform:"scale(1.03)"},"&:active":{transform:"scale(0.97)"},"@media (max-width:768px)":{maxWidth:"100%",flex:"1 1 100%"},"@media (max-width:480px)":{maxWidth:"100%",maxHeight:"50vh",overflow:"hidden"}},image:{width:"100%",height:"auto",display:"block",borderRadius:2,cursor:"zoom-in","@media (max-width:480px)":{maxHeight:"100%",objectFit:"contain"}},galleryControls:{display:"flex",justifyContent:"center",alignItems:"center",gap:2,"@media (max-width:480px)":{gap:1}},galleryButton:{background:"none",border:"none",fontSize:"1.2rem",cursor:"pointer",padding:1,color:"#333",transition:"transform 0.2s ease","&:hover":{transform:"scale(1.2)"},"@media (max-width:480px)":{fontSize:"1rem",padding:.5}},galleryIndex:{fontWeight:600,minWidth:64,textAlign:"center"}};/*! src/components/ImageViewer/ImageSection.tsx [vike:pluginModuleBanner] */const M=({currentIndex:e,urls:r,handleChangeIndex:n})=>{const i=r[e],s=r.length>1;return a(l,{sx:u.root,children:[t(l,{sx:u.imageDisplay,children:t(y,{href:i,target:"_blank",rel:"noopener noreferrer",underline:"none",children:t(l,{component:"img",src:i,alt:"Translated Image",sx:{...u.image},loading:"lazy",title:""})})}),s&&a(l,{sx:u.galleryControls,children:[t(I,{onClick:()=>n(-1),"aria-label":"Previous image",sx:u.galleryButton,children:t(z,{})}),t(m,{sx:u.galleryIndex,children:`${e+1} / ${r.length}`}),t(I,{onClick:()=>n(1),"aria-label":"Next image",sx:u.galleryButton,children:t(U,{})})]})]})};/*! src/components/ImageViewer/ImageViewer.utils.ts [vike:pluginModuleBanner] */const Y={timeZone:"UTC",dateStyle:"long",timeStyle:"short"},X=e=>{try{const r=new URL(e);return r.hostname==="x.com"?(r.hostname="nitter.net",r.toString()):null}catch{return null}};/*! src/components/ProfilePopover/ProfilePopover.utils.ts [vike:pluginModuleBanner] */const Z=(e,r,n)=>{const i=e.clientX+r+n.width>window.innerWidth?e.clientX-r-n.width:e.clientX+r,s=e.clientY+r+n.height>window.innerHeight?e.clientY-r-n.height:e.clientY+r;return{x:i,y:s}},q=e=>{if(typeof e=="number")return`${e} artwork${e!==1?"s":""}`};/*! src/components/ProfilePopover/ProfilePopover.styles.ts [vike:pluginModuleBanner] */const J=(e,r)=>({position:"fixed",top:r.y,left:r.x,zIndex:9999,padding:.5,pointerEvents:"auto",maxWidth:320,opacity:e?1:0,transform:e?"translateY(0)":"translateY(10px)",transition:"opacity 0.3s ease, transform 0.3s ease"});/*! src/components/ProfilePopover/ProfilePopover.tsx [vike:pluginModuleBanner] */const K=10,Q={width:320,height:200},ee=({data:e,type:r,position:n})=>{if(!e||!n)return null;const[i,s]=w(!1),[p,f]=w(n),h=r==="artist"?E(e.id):O(e.id),g=q(e.artworkCount),c=V(d=>{f(Z(d,K,Q))},[]);return v(()=>{if(e&&n){s(!1),f(n);const d=setTimeout(()=>{s(!0)},10);return()=>clearTimeout(d)}else s(!1)},[e,n]),v(()=>{if(e)return window.addEventListener("mousemove",c),()=>window.removeEventListener("mousemove",c)},[e,c]),j(t(H,{sx:J(i,p),children:t(G,{name:e.name,imageUrl:h,description:g})}),document.body)};/*! src/components/ImageViewer/InfoSection.styles.ts [vike:pluginModuleBanner] */const o={root:{display:"flex",flexDirection:"column",gap:3,maxWidth:600,color:"#333",alignItems:"stretch"},infoGrid:{display:"grid",gridTemplateColumns:"auto 1fr",gap:"0.5rem 1rem","@media (max-width:768px)":{gridTemplateColumns:"1fr"}},infoItemLabel:{color:"#222",fontWeight:600,whiteSpace:"nowrap",display:"flex",alignItems:"flex-start",justifyContent:"flex-start",lineHeight:1.6},infoItemValue:{display:"flex",gap:3,"@media (max-width:480px)":{flexWrap:"wrap",gap:1}},infoItemValueComment:{textAlign:"left",fontSize:"1.05rem",lineHeight:1.6},infoIcons:{display:"flex",gap:1,flexWrap:"wrap"},iconButton:{p:0,display:"inline-flex",alignItems:"center",cursor:"pointer",transition:"transform 0.15s ease, filter 0.15s ease","& img":{width:24,height:24,borderRadius:1,transition:"inherit",display:"block"},"&:hover img":{transform:"scale(1.1)",filter:"brightness(1.1)"},"&:active img":{transform:"scale(0.95)",filter:"brightness(0.9)"}},sourceLink:{color:"#0066cc",textDecoration:"none",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",display:"block",maxWidth:"100%",textAlign:"left","&:hover":{textDecoration:"underline"},"@media (max-width:480px)":{whiteSpace:"normal",wordBreak:"break-word"}},characterLink:{color:"#0066cc",textDecoration:"none",fontWeight:500,whiteSpace:"nowrap",transition:"color 0.2s ease, text-decoration 0.2s ease","&:hover, &:focus":{color:"#004999",textDecoration:"underline"},"&:active":{color:"#003366"}},charactersWrapper:{display:"inline"}};/*! src/components/ImageViewer/InfoSection.tsx [vike:pluginModuleBanner] */const te="/touhou-translations/icons/social/thumb_80x80/twitter_80x80.webp",re="/touhou-translations/icons/social/thumb_80x80/nitter_80x80.webp",ne="/touhou-translations/icons/social/thumb_80x80/pixiv_80x80.webp",oe="/touhou-translations/icons/social/thumb_80x80/reddit_80x80.webp",ie=({post:e,artist:r,characters:n})=>{const[i,s]=w(null),[p,f]=w(null),h=e.src?X(e.src):null,g=e.date?new Date(e.date).toLocaleString("en-US",Y):"Unknown date";_();const c=(d,b,k,T)=>d?t(I,{component:"a",href:d,target:"_blank",rel:"noopener noreferrer","aria-label":b,sx:o.iconButton,size:"small",children:t("img",{src:k,alt:T})}):null;return a(x,{children:[a(l,{sx:o.root,children:[a(l,{sx:o.infoGrid,children:[r&&a(x,{children:[t(m,{component:"div",sx:o.infoItemLabel,children:"Artist:"}),a(l,{sx:o.infoItemValue,children:[t(m,{children:r.name}),a(l,{sx:o.infoIcons,children:[c(r.linkTwitter,"Twitter profile",te,"Twitter"),c(r.linkTwitter?.replace("x.com","nitter.net"),"Nitter profile",re,"Nitter"),c(r.linkPixiv,"Pixiv profile",ne,"Pixiv")]})]})]}),e.src&&a(x,{children:[t(m,{component:"div",sx:o.infoItemLabel,children:"Source:"}),t(y,{href:e.src,target:"_blank",rel:"noopener noreferrer",sx:o.sourceLink,title:e.src,children:e.src})]}),h&&a(x,{children:[t(m,{component:"div",sx:o.infoItemLabel,children:"Nitter Mirror:"}),t(y,{href:h,target:"_blank",rel:"noopener noreferrer",sx:o.sourceLink,title:h,children:h})]}),n.length>0&&a(x,{children:[t(m,{component:"div",sx:o.infoItemLabel,children:n.length===1?"Character:":"Characters:"}),t(l,{sx:o.infoItemValue,children:t(l,{sx:o.charactersWrapper,children:n.map((d,b)=>a(B.Fragment,{children:[t(y,{component:"a",href:`/gallery?character=${d.id}`,sx:o.characterLink,children:d.name}),b<n.length-1&&", "]},d.id))})})]}),e.date&&a(x,{children:[t(m,{component:"div",sx:o.infoItemLabel,children:"Translated:"}),t(m,{sx:o.infoItemValue,children:g})]})]}),a(l,{children:[a(l,{sx:{display:"flex",alignItems:"center",gap:2,mb:-1},children:[t(l,{sx:{display:"flex",gap:1,alignItems:"center"},children:e.reddit&&c(e.reddit,"Reddit post",oe,"Reddit")}),t(m,{sx:{fontWeight:600,fontSize:"1.25rem"},children:"TL Commentary:"})]}),t(l,{sx:o.infoItemValueComment,children:t($,{remarkPlugins:[A],children:e.desc})})]})]}),t(ee,{data:i,type:"character",position:p})]})};/*! src/components/ImageViewer/ImageViewer.styles.ts [vike:pluginModuleBanner] */const ae={root:{display:"flex",gap:4,justifyContent:"center",alignItems:"center",marginTop:4,padding:3,backgroundColor:"#fafafa",borderRadius:3,boxShadow:"0 8px 16px rgba(0, 0, 0, 0.1)",transition:"box-shadow 0.3s ease","&:hover":{boxShadow:"0 12px 24px rgba(0, 0, 0, 0.15)"},"@media (max-width:768px)":{flexDirection:"column",padding:2}}};/*! src/components/ImageViewer/ImageViewer.tsx [vike:pluginModuleBanner] */const P=({post:e})=>{const r=D(),n=L(),i=r(e.artistId),s=n(e.characterIds),[p,f]=w(0),h=g=>{e.url.length<=1||f(c=>(c+g+e.url.length)%e.url.length)};return!e.url.length||!e.src?null:a(l,{sx:ae.root,children:[t(M,{currentIndex:p,urls:e.url,handleChangeIndex:h}),t(ie,{post:e,artist:i,characters:s})]})};/*! src/pages/posts/@id/+Page.tsx [vike:pluginModuleBanner] */const le=e=>{const{id:r}=e.routeParams||{};if(!r)return t("p",{style:{color:"red"},children:"Invalid URL: missing post ID."});if(e.post)return t(P,{post:e.post});const n=R(),i=r,s=n.find(p=>S(p.reddit)===i);return s?t(P,{post:s}):t("p",{style:{color:"red"},children:"Post not found."})},se=Object.freeze(Object.defineProperty({__proto__:null,default:le},Symbol.toStringTag,{value:"Module"}));/*! virtual:vike:pageConfigLazy:server:/src/pages/posts/@id [vike:pluginModuleBanner] */const De={isClientRuntimeLoaded:{type:"computed",definedAtData:null,valueSerialized:{type:"js-serialized",value:!0}},onRenderHtml:{type:"standard",definedAtData:{filePathToShowToUser:"/src/renderer/+onRenderHtml.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:W}},onBeforePrerenderStart:{type:"standard",definedAtData:{filePathToShowToUser:"/src/pages/posts/@id/+onBeforePrerenderStart.ts",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:F}},Page:{type:"standard",definedAtData:{filePathToShowToUser:"/src/pages/posts/@id/+Page.tsx",fileExportPathToShowToUser:[]},valueSerialized:{type:"plus-file",exportValues:se}}};export{De as configValuesSerialized};
+import { f as fetchPosts, b as useGetCharacter, c as useGetArtist, d as useGetCharacters, u as useGetPosts, i as import1 } from "../chunks/chunk-Er2rpSkh.js";
+import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
+import { jsxs, jsx, Fragment } from "react/jsx-runtime";
+import React, { useState, useCallback, useEffect } from "react";
+import { Box, Link, IconButton, Typography } from "@mui/material";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { createPortal } from "react-dom";
+import { a as getArtistPortraits, g as getCharacterPortraits, P as ProfileItem } from "../chunks/chunk-CHeC3Bgj.js";
+import Box$1 from "@mui/material/Box";
+import "react-dom/server";
+import "vike/server";
+import "@emotion/react";
+import "@emotion/server/create-instance";
+import "@emotion/cache";
+import "@mui/material/styles";
+import "vike/client/router";
+/*! src/pages/posts/@id/+onBeforePrerenderStart.ts [vike:pluginModuleBanner] */
+const _onBeforePrerenderStart = async () => {
+  try {
+    const posts = await fetchPosts();
+    const routes = posts.map((post) => {
+      const redditId = extractRedditId(post.reddit);
+      if (!redditId) {
+        console.warn("Skipping post: could not extract Reddit ID from", post.reddit);
+        return null;
+      }
+      return {
+        url: `/posts/${redditId}`,
+        pageContext: { post, postId: redditId }
+      };
+    }).filter(Boolean);
+    return routes;
+  } catch (error) {
+    console.error("Failed to generate prerender routes:", error);
+    return [];
+  }
+};
+const import2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: _onBeforePrerenderStart
+}, Symbol.toStringTag, { value: "Module" }));
+/*! src/components/ImageViewer/ImageSection.styles.ts [vike:pluginModuleBanner] */
+const styles$2 = {
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 2
+  },
+  imageDisplay: {
+    maxWidth: 600,
+    overflow: "hidden",
+    borderRadius: 2,
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+    transition: "transform 0.3s ease",
+    "&:hover": {
+      transform: "scale(1.03)"
+    },
+    "&:active": {
+      transform: "scale(0.97)"
+    },
+    "@media (max-width:768px)": {
+      maxWidth: "100%",
+      flex: "1 1 100%"
+    },
+    "@media (max-width:480px)": {
+      maxWidth: "100%",
+      maxHeight: "50vh",
+      overflow: "hidden"
+    }
+  },
+  image: {
+    width: "100%",
+    height: "auto",
+    display: "block",
+    borderRadius: 2,
+    cursor: "zoom-in",
+    "@media (max-width:480px)": {
+      maxHeight: "100%",
+      objectFit: "contain"
+    }
+  },
+  galleryControls: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 2,
+    "@media (max-width:480px)": {
+      gap: 1
+    }
+  },
+  galleryButton: {
+    background: "none",
+    border: "none",
+    fontSize: "1.2rem",
+    cursor: "pointer",
+    padding: 1,
+    color: "#333",
+    transition: "transform 0.2s ease",
+    "&:hover": {
+      transform: "scale(1.2)"
+    },
+    "@media (max-width:480px)": {
+      fontSize: "1rem",
+      padding: 0.5
+    }
+  },
+  galleryIndex: {
+    fontWeight: 600,
+    minWidth: 64,
+    textAlign: "center"
+  }
+};
+/*! src/components/ImageViewer/ImageSection.tsx [vike:pluginModuleBanner] */
+const ImageSection = ({ currentIndex, urls, handleChangeIndex }) => {
+  const currentImage = urls[currentIndex];
+  const isGallery = urls.length > 1;
+  return /* @__PURE__ */ jsxs(Box, { sx: styles$2.root, children: [
+    /* @__PURE__ */ jsx(Box, { sx: styles$2.imageDisplay, children: /* @__PURE__ */ jsx(Link, { href: currentImage, target: "_blank", rel: "noopener noreferrer", underline: "none", children: /* @__PURE__ */ jsx(Box, { component: "img", src: currentImage, alt: "Translated Image", sx: { ...styles$2.image }, loading: "lazy", title: "" }) }) }),
+    isGallery && /* @__PURE__ */ jsxs(Box, { sx: styles$2.galleryControls, children: [
+      /* @__PURE__ */ jsx(IconButton, { onClick: () => handleChangeIndex(-1), "aria-label": "Previous image", sx: styles$2.galleryButton, children: /* @__PURE__ */ jsx(NavigateBeforeIcon, {}) }),
+      /* @__PURE__ */ jsx(Typography, { sx: styles$2.galleryIndex, children: `${currentIndex + 1} / ${urls.length}` }),
+      /* @__PURE__ */ jsx(IconButton, { onClick: () => handleChangeIndex(1), "aria-label": "Next image", sx: styles$2.galleryButton, children: /* @__PURE__ */ jsx(NavigateNextIcon, {}) })
+    ] })
+  ] });
+};
+/*! src/components/ImageViewer/ImageViewer.utils.ts [vike:pluginModuleBanner] */
+const dateFormatOptions = { timeZone: "UTC", dateStyle: "long", timeStyle: "short" };
+const replaceXWithNitter = (originalUrl) => {
+  try {
+    const url = new URL(originalUrl);
+    return url.hostname === "x.com" ? (url.hostname = "nitter.net", url.toString()) : null;
+  } catch {
+    return null;
+  }
+};
+/*! src/components/ProfilePopover/ProfilePopover.utils.ts [vike:pluginModuleBanner] */
+const calculatePopoverPosition = (e, offset, popoverSize) => {
+  const x = e.clientX + offset + popoverSize.width > window.innerWidth ? e.clientX - offset - popoverSize.width : e.clientX + offset;
+  const y = e.clientY + offset + popoverSize.height > window.innerHeight ? e.clientY - offset - popoverSize.height : e.clientY + offset;
+  return { x, y };
+};
+const formatArtworkDescription = (count) => {
+  if (typeof count !== "number") return void 0;
+  return `${count} artwork${count !== 1 ? "s" : ""}`;
+};
+/*! src/components/ProfilePopover/ProfilePopover.styles.ts [vike:pluginModuleBanner] */
+const getPopoverStyles = (visible, position) => ({
+  position: "fixed",
+  top: position.y,
+  left: position.x,
+  zIndex: 9999,
+  padding: 0.5,
+  pointerEvents: "auto",
+  maxWidth: 320,
+  opacity: visible ? 1 : 0,
+  transform: visible ? "translateY(0)" : "translateY(10px)",
+  transition: "opacity 0.3s ease, transform 0.3s ease"
+});
+/*! src/components/ProfilePopover/ProfilePopover.tsx [vike:pluginModuleBanner] */
+const POPOVER_OFFSET = 10;
+const POPOVER_SIZE = { width: 320, height: 200 };
+const ProfilePopover = ({ data, type, position }) => {
+  if (!data || !position) return null;
+  const [visible, setVisible] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(position);
+  const imageUrl = type === "artist" ? getArtistPortraits(data.id) : getCharacterPortraits(data.id);
+  const description = formatArtworkDescription(data.artworkCount);
+  const handleMouseMove = useCallback((e) => {
+    setCurrentPosition(calculatePopoverPosition(e, POPOVER_OFFSET, POPOVER_SIZE));
+  }, []);
+  useEffect(() => {
+    if (data && position) {
+      setVisible(false);
+      setCurrentPosition(position);
+      const timer = setTimeout(() => {
+        setVisible(true);
+      }, 10);
+      return () => clearTimeout(timer);
+    } else {
+      setVisible(false);
+    }
+  }, [data, position]);
+  useEffect(() => {
+    if (!data) return;
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [data, handleMouseMove]);
+  return createPortal(
+    /* @__PURE__ */ jsx(Box$1, { sx: getPopoverStyles(visible, currentPosition), children: /* @__PURE__ */ jsx(ProfileItem, { name: data.name, imageUrl, description }) }),
+    document.body
+  );
+};
+/*! src/components/ImageViewer/InfoSection.styles.ts [vike:pluginModuleBanner] */
+const styles$1 = {
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 3,
+    maxWidth: 600,
+    color: "#333",
+    alignItems: "stretch"
+  },
+  infoGrid: {
+    display: "grid",
+    gridTemplateColumns: "auto 1fr",
+    gap: "0.5rem 1rem",
+    "@media (max-width:768px)": {
+      gridTemplateColumns: "1fr"
+    }
+  },
+  infoItemLabel: {
+    color: "#222",
+    fontWeight: 600,
+    whiteSpace: "nowrap",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    lineHeight: 1.6
+  },
+  infoItemValue: {
+    display: "flex",
+    gap: 3,
+    "@media (max-width:480px)": {
+      flexWrap: "wrap",
+      gap: 1
+    }
+  },
+  infoItemValueComment: {
+    textAlign: "left",
+    fontSize: "1.05rem",
+    lineHeight: 1.6
+  },
+  infoIcons: {
+    display: "flex",
+    gap: 1,
+    flexWrap: "wrap"
+  },
+  iconButton: {
+    p: 0,
+    display: "inline-flex",
+    alignItems: "center",
+    cursor: "pointer",
+    transition: "transform 0.15s ease, filter 0.15s ease",
+    "& img": {
+      width: 24,
+      height: 24,
+      borderRadius: 1,
+      transition: "inherit",
+      display: "block"
+    },
+    "&:hover img": {
+      transform: "scale(1.1)",
+      filter: "brightness(1.1)"
+    },
+    "&:active img": {
+      transform: "scale(0.95)",
+      filter: "brightness(0.9)"
+    }
+  },
+  sourceLink: {
+    color: "#0066cc",
+    textDecoration: "none",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "block",
+    maxWidth: "100%",
+    textAlign: "left",
+    "&:hover": {
+      textDecoration: "underline"
+    },
+    "@media (max-width:480px)": {
+      whiteSpace: "normal",
+      wordBreak: "break-word"
+    }
+  },
+  characterLink: {
+    color: "#0066cc",
+    textDecoration: "none",
+    fontWeight: 500,
+    whiteSpace: "nowrap",
+    transition: "color 0.2s ease, text-decoration 0.2s ease",
+    "&:hover, &:focus": {
+      color: "#004999",
+      textDecoration: "underline"
+    },
+    "&:active": {
+      color: "#003366"
+    }
+  },
+  charactersWrapper: {
+    display: "inline"
+  }
+};
+/*! src/components/ImageViewer/InfoSection.tsx [vike:pluginModuleBanner] */
+const twitterIcon = `${"/touhou-translations/"}icons/social/thumb_80x80/twitter_80x80.webp`;
+const nitterIcon = `${"/touhou-translations/"}icons/social/thumb_80x80/nitter_80x80.webp`;
+const pixivIcon = `${"/touhou-translations/"}icons/social/thumb_80x80/pixiv_80x80.webp`;
+const redditIcon = `${"/touhou-translations/"}icons/social/thumb_80x80/reddit_80x80.webp`;
+const InfoSection = ({ post, artist, characters }) => {
+  const [hoveredCharacterData, setHoveredCharacterData] = useState(null);
+  const [tooltipPosition, setTooltipPosition] = useState(null);
+  const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
+  const formattedDate = post.date ? new Date(post.date).toLocaleString("en-US", dateFormatOptions) : "Unknown date";
+  useGetCharacter();
+  const renderIconLink = (href, ariaLabel, iconSrc, altText) => {
+    if (!href) return null;
+    return /* @__PURE__ */ jsx(IconButton, { component: "a", href, target: "_blank", rel: "noopener noreferrer", "aria-label": ariaLabel, sx: styles$1.iconButton, size: "small", children: /* @__PURE__ */ jsx("img", { src: iconSrc, alt: altText }) });
+  };
+  return /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsxs(Box, { sx: styles$1.root, children: [
+      /* @__PURE__ */ jsxs(Box, { sx: styles$1.infoGrid, children: [
+        artist && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Artist:" }),
+          /* @__PURE__ */ jsxs(Box, { sx: styles$1.infoItemValue, children: [
+            /* @__PURE__ */ jsx(Typography, { children: artist.name }),
+            /* @__PURE__ */ jsxs(Box, { sx: styles$1.infoIcons, children: [
+              renderIconLink(artist.linkTwitter, "Twitter profile", twitterIcon, "Twitter"),
+              renderIconLink(artist.linkTwitter?.replace("x.com", "nitter.net"), "Nitter profile", nitterIcon, "Nitter"),
+              renderIconLink(artist.linkPixiv, "Pixiv profile", pixivIcon, "Pixiv")
+            ] })
+          ] })
+        ] }),
+        post.src && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Source:" }),
+          /* @__PURE__ */ jsx(Link, { href: post.src, target: "_blank", rel: "noopener noreferrer", sx: styles$1.sourceLink, title: post.src, children: post.src })
+        ] }),
+        nitterUrl && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Nitter Mirror:" }),
+          /* @__PURE__ */ jsx(Link, { href: nitterUrl, target: "_blank", rel: "noopener noreferrer", sx: styles$1.sourceLink, title: nitterUrl, children: nitterUrl })
+        ] }),
+        characters.length > 0 && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: characters.length === 1 ? "Character:" : "Characters:" }),
+          /* @__PURE__ */ jsx(Box, { sx: styles$1.infoItemValue, children: /* @__PURE__ */ jsx(Box, { sx: styles$1.charactersWrapper, children: characters.map((c, idx) => /* @__PURE__ */ jsxs(React.Fragment, { children: [
+            /* @__PURE__ */ jsx(
+              Link,
+              {
+                component: "a",
+                href: `/gallery?character=${c.id}`,
+                sx: styles$1.characterLink,
+                children: c.name
+              }
+            ),
+            idx < characters.length - 1 && ", "
+          ] }, c.id)) }) })
+        ] }),
+        post.date && /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Translated:" }),
+          /* @__PURE__ */ jsx(Typography, { sx: styles$1.infoItemValue, children: formattedDate })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(Box, { children: [
+        /* @__PURE__ */ jsxs(Box, { sx: { display: "flex", alignItems: "center", gap: 2, mb: -1 }, children: [
+          /* @__PURE__ */ jsx(Box, { sx: { display: "flex", gap: 1, alignItems: "center" }, children: post.reddit && renderIconLink(post.reddit, "Reddit post", redditIcon, "Reddit") }),
+          /* @__PURE__ */ jsx(Typography, { sx: { fontWeight: 600, fontSize: "1.25rem" }, children: "TL Commentary:" })
+        ] }),
+        /* @__PURE__ */ jsx(Box, { sx: styles$1.infoItemValueComment, children: /* @__PURE__ */ jsx(ReactMarkdown, { remarkPlugins: [remarkGfm], children: post.desc }) })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsx(ProfilePopover, { data: hoveredCharacterData, type: "character", position: tooltipPosition })
+  ] });
+};
+/*! src/components/ImageViewer/ImageViewer.styles.ts [vike:pluginModuleBanner] */
+const styles = {
+  root: {
+    display: "flex",
+    gap: 4,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 4,
+    padding: 3,
+    backgroundColor: "#fafafa",
+    borderRadius: 3,
+    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
+    transition: "box-shadow 0.3s ease",
+    "&:hover": {
+      boxShadow: "0 12px 24px rgba(0, 0, 0, 0.15)"
+    },
+    "@media (max-width:768px)": {
+      flexDirection: "column",
+      padding: 2
+    }
+  }
+};
+/*! src/components/ImageViewer/ImageViewer.tsx [vike:pluginModuleBanner] */
+const ImageViewer = ({ post }) => {
+  const getArtist = useGetArtist();
+  const getCharacters = useGetCharacters();
+  const artist = getArtist(post.artistId);
+  const characters = getCharacters(post.characterIds);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const handleChangeIndex = (direction) => {
+    if (post.url.length <= 1) return;
+    setCurrentIndex((prev) => (prev + direction + post.url.length) % post.url.length);
+  };
+  if (!post.url.length || !post.src) return null;
+  return /* @__PURE__ */ jsxs(Box, { sx: styles.root, children: [
+    /* @__PURE__ */ jsx(ImageSection, { currentIndex, urls: post.url, handleChangeIndex }),
+    /* @__PURE__ */ jsx(InfoSection, { post, artist, characters })
+  ] });
+};
+/*! src/pages/posts/@id/+Page.tsx [vike:pluginModuleBanner] */
+const Page = (pageContext) => {
+  const { id } = pageContext.routeParams || {};
+  if (!id) return /* @__PURE__ */ jsx("p", { style: { color: "red" }, children: "Invalid URL: missing post ID." });
+  if (pageContext.post) {
+    return /* @__PURE__ */ jsx(ImageViewer, { post: pageContext.post });
+  }
+  const posts = useGetPosts();
+  const targetRedditId = id;
+  const post = posts.find((p) => {
+    const pid = extractRedditId(p.reddit);
+    return pid === targetRedditId;
+  });
+  if (!post) return /* @__PURE__ */ jsx("p", { style: { color: "red" }, children: "Post not found." });
+  return /* @__PURE__ */ jsx(ImageViewer, { post });
+};
+const import3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  default: Page
+}, Symbol.toStringTag, { value: "Module" }));
+/*! virtual:vike:pageConfigLazy:server:/src/pages/posts/@id [vike:pluginModuleBanner] */
+const configValuesSerialized = {
+  ["isClientRuntimeLoaded"]: {
+    type: "computed",
+    definedAtData: null,
+    valueSerialized: {
+      type: "js-serialized",
+      value: true
+    }
+  },
+  ["onRenderHtml"]: {
+    type: "standard",
+    definedAtData: { "filePathToShowToUser": "/src/renderer/+onRenderHtml.tsx", "fileExportPathToShowToUser": [] },
+    valueSerialized: {
+      type: "plus-file",
+      exportValues: import1
+    }
+  },
+  ["onBeforePrerenderStart"]: {
+    type: "standard",
+    definedAtData: { "filePathToShowToUser": "/src/pages/posts/@id/+onBeforePrerenderStart.ts", "fileExportPathToShowToUser": [] },
+    valueSerialized: {
+      type: "plus-file",
+      exportValues: import2
+    }
+  },
+  ["Page"]: {
+    type: "standard",
+    definedAtData: { "filePathToShowToUser": "/src/pages/posts/@id/+Page.tsx", "fileExportPathToShowToUser": [] },
+    valueSerialized: {
+      type: "plus-file",
+      exportValues: import3
+    }
+  }
+};
+export {
+  configValuesSerialized
+};
