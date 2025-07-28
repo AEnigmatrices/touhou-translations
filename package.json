@@ -14,7 +14,7 @@
     "scripts": {
         "predev": "tsx scripts/processData.ts",
         "dev": "vike dev --mode development",
-        "prebuild": "tsx scripts/processData.ts",
+        "prebuild": "tsx scripts/processData.ts && tsx scripts/resize-images.ts",
         "build": "vike build --mode production",
         "postbuild": "tsx scripts/copyIndexTo404.ts && tsx scripts/moveDist.ts",
         "preview": "vike preview",
@@ -47,7 +47,9 @@
         "eslint-plugin-react-hooks": "^5.2.0",
         "eslint-plugin-react-refresh": "^0.4.19",
         "gh-pages": "^6.3.0",
+        "glob": "^11.0.3",
         "globals": "^16.3.0",
+        "sharp": "^0.34.3",
         "tsx": "^4.20.3",
         "typescript": "~5.8.3",
         "typescript-eslint": "^8.38.0",

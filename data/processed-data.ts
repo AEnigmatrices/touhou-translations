@@ -8496,5 +8496,12 @@ export const artists: Artist[] = [
     "linkTwitter": "https://x.com/hatomehonpoo",
     "linkPixiv": "https://www.pixiv.net/en/users/65904984",
     "artworkCount": 1
+  },
+  {
+    "id": "ebi_tea_tan",
+    "name": "海老Tea旦",
+    "linkTwitter": "https://x.com/Lobstrater64",
+    "linkPixiv": "https://www.pixiv.net/en/users/77541894",
+    "artworkCount": 0
   }
 ];
