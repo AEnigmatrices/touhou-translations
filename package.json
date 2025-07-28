@@ -12,7 +12,7 @@
     "license": "MIT",
     "author": "AEnigmatrices",
     "scripts": {
-        "predev": "tsx scripts/processData.ts",
+        "predev": "tsx scripts/processData.ts && tsx scripts/resize-images.ts",
         "dev": "vike dev --mode development",
         "prebuild": "tsx scripts/processData.ts && tsx scripts/resize-images.ts",
         "build": "vike build --mode production",
