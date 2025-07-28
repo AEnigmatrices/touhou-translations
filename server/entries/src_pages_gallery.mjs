@@ -2,7 +2,7 @@ import { u as useGetPosts, e as extractRedditId, b as useGetCharacter, c as useG
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Box } from "@mui/material";
-import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-DV3HJY5I.js";
+import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-Ck1KhA3L.js";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Box$1 from "@mui/material/Box";

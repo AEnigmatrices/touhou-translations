@@ -7,7 +7,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { createPortal } from "react-dom";
-import { a as getArtistPortraits, g as getCharacterPortraits, P as ProfileItem } from "../chunks/chunk-DV3HJY5I.js";
+import { a as getArtistPortraits, g as getCharacterPortraits, P as ProfileItem } from "../chunks/chunk-Ck1KhA3L.js";
 import Box$1 from "@mui/material/Box";
 import "react-dom/server";
 import "vike/server";
@@ -297,10 +297,10 @@ const styles$1 = {
   }
 };
 /*! src/components/ImageViewer/InfoSection.tsx [vike:pluginModuleBanner] */
-const twitterIcon = `${"/touhou-translations/"}icons/social/twitter.webp`;
-const nitterIcon = `${"/touhou-translations/"}icons/social/nitter.webp`;
-const pixivIcon = `${"/touhou-translations/"}icons/social/pixiv.webp`;
-const redditIcon = `${"/touhou-translations/"}icons/social/reddit.webp`;
+const twitterIcon = `${"/touhou-translations/"}icons/social/twitter_80x80.webp`;
+const nitterIcon = `${"/touhou-translations/"}icons/social/nitter_80x80.webp`;
+const pixivIcon = `${"/touhou-translations/"}icons/social/pixiv_80x80.webp`;
+const redditIcon = `${"/touhou-translations/"}icons/social/reddit_80x80.webp`;
 const InfoSection = ({ post, artist, characters }) => {
   const [hoveredCharacterData, setHoveredCharacterData] = useState(null);
   const [tooltipPosition, setTooltipPosition] = useState(null);

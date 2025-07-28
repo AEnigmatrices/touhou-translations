@@ -1,6 +1,6 @@
 import { i as import1 } from "../chunks/chunk-DC9Yzxu-.js";
 import { jsx } from "react/jsx-runtime";
-import { L as ListPage } from "../chunks/chunk-_a1491r8.js";
+import { L as ListPage } from "../chunks/chunk-BRUCdCbg.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -12,7 +12,7 @@ import "vike/client/router";
 import "@mui/material/useScrollTrigger";
 import "@mui/icons-material/Menu";
 import "@mui/material/styles";
-import "../chunks/chunk-DV3HJY5I.js";
+import "../chunks/chunk-Ck1KhA3L.js";
 import "@mui/material/IconButton";
 import "@mui/material/Tooltip";
 import "@mui/icons-material/Collections";
