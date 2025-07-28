@@ -1,6 +1,6 @@
 import { i as import1 } from "../chunks/chunk-Er2rpSkh.js";
 import { jsx } from "react/jsx-runtime";
-import { L as ListPage } from "../chunks/chunk-HOsU4U6E.js";
+import { L as ListPage } from "../chunks/chunk-DueBHdLU.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";

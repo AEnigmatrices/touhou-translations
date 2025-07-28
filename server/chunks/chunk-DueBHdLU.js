@@ -152,12 +152,10 @@ const ListPage = ({ mode }) => {
       try {
         setLoading(true);
         const [charactersRes, artistsRes] = await Promise.all([
-          fetch(`${BASE_URL}data/processed-data/characters.json`),
-          fetch(`${BASE_URL}data/processed-data/artists.json`)
+          fetch(`${"/touhou-translations/"}processed-data/characters.json`),
+          fetch(`${"/touhou-translations/"}processed-data/artists.json`)
         ]);
-        if (!charactersRes.ok || !artistsRes.ok) {
-          throw new Error("Failed to fetch data");
-        }
+        if (!charactersRes.ok || !artistsRes.ok) throw new Error("Failed to fetch data");
         const characters2 = await charactersRes.json();
         const artists2 = await artistsRes.json();
         setData({ characters: characters2, artists: artists2 });
