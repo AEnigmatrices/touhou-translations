@@ -1,6 +1,7 @@
-import { f as fetchPosts, d as useGetCharacter, e as useGetArtist, b as useGetCharacters, u as useGetPosts, i as import1 } from "../chunks/chunk-DNASwFh_.js";
+import { b as fetchPosts, e as useGetCharacter, h as useGetArtist, j as useGetCharacters, i as import1 } from "../chunks/chunk-DPmHre0G.js";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
+import { u as useData } from "../chunks/chunk-CyTfn6rt.js";
 import React, { useState, useCallback, useEffect } from "react";
 import { Box, Link, IconButton, Typography } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -8,9 +9,10 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { createPortal } from "react-dom";
-import { a as getArtistPortraits, g as getCharacterPortraits } from "../chunks/chunk-DpqKyAox.js";
+import { a as getArtistPortraits, g as getCharacterPortraits } from "../chunks/chunk-CLD-kbC0.js";
 import Box$1 from "@mui/material/Box";
-import ProfileItem from "../chunks/chunk-BBZSOiuW.js";
+import ProfileItem from "../chunks/chunk-BAheWJns.js";
+import { render } from "vike/abort";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -19,7 +21,7 @@ import "@emotion/cache";
 import "@mui/material/styles";
 import "vike/client/router";
 /*! src/pages/posts/@id/+onBeforePrerenderStart.ts [vike:pluginModuleBanner] */
-const _onBeforePrerenderStart = async () => {
+const onBeforePrerenderStart = async () => {
   try {
     const posts = await fetchPosts();
     const routes = posts.map((post) => {
@@ -30,7 +32,7 @@ const _onBeforePrerenderStart = async () => {
       }
       return {
         url: `/posts/${redditId}`,
-        pageContext: { post, postId: redditId }
+        pageContext: { data: { post }, postId: redditId }
       };
     }).filter(Boolean);
     return routes;
@@ -41,7 +43,7 @@ const _onBeforePrerenderStart = async () => {
 };
 const import2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  default: _onBeforePrerenderStart
+  onBeforePrerenderStart
 }, Symbol.toStringTag, { value: "Module" }));
 /*! src/components/ImageViewer/ImageSection.styles.ts [vike:pluginModuleBanner] */
 const styles$2 = {
@@ -163,17 +165,17 @@ const getPopoverStyles = (visible, position) => ({
 /*! src/components/ProfilePopover/ProfilePopover.tsx [vike:pluginModuleBanner] */
 const POPOVER_OFFSET = 10;
 const POPOVER_SIZE = { width: 320, height: 200 };
-const ProfilePopover = ({ data, type, position }) => {
-  if (!data || !position) return null;
+const ProfilePopover = ({ data: data2, type, position }) => {
+  if (!data2 || !position) return null;
   const [visible, setVisible] = useState(false);
   const [currentPosition, setCurrentPosition] = useState(position);
-  const imageUrl = type === "artist" ? getArtistPortraits(data.id) : getCharacterPortraits(data.id);
-  const description = formatArtworkDescription(data.artworkCount);
+  const imageUrl = type === "artist" ? getArtistPortraits(data2.id) : getCharacterPortraits(data2.id);
+  const description = formatArtworkDescription(data2.artworkCount);
   const handleMouseMove = useCallback((e) => {
     setCurrentPosition(calculatePopoverPosition(e, POPOVER_OFFSET, POPOVER_SIZE));
   }, []);
   useEffect(() => {
-    if (data && position) {
+    if (data2 && position) {
       setVisible(false);
       setCurrentPosition(position);
       const timer = setTimeout(() => {
@@ -183,14 +185,14 @@ const ProfilePopover = ({ data, type, position }) => {
     } else {
       setVisible(false);
     }
-  }, [data, position]);
+  }, [data2, position]);
   useEffect(() => {
-    if (!data) return;
+    if (!data2) return;
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [data, handleMouseMove]);
+  }, [data2, handleMouseMove]);
   return createPortal(
-    /* @__PURE__ */ jsx(Box$1, { sx: getPopoverStyles(visible, currentPosition), children: /* @__PURE__ */ jsx(ProfileItem, { name: data.name, imageUrl, description }) }),
+    /* @__PURE__ */ jsx(Box$1, { sx: getPopoverStyles(visible, currentPosition), children: /* @__PURE__ */ jsx(ProfileItem, { name: data2.name, imageUrl, description }) }),
     document.body
   );
 };
@@ -297,10 +299,10 @@ const styles$1 = {
   }
 };
 /*! src/components/ImageViewer/InfoSection.tsx [vike:pluginModuleBanner] */
-const twitterIcon = `${"/touhou-translations/"}icons/social/thumb_80x80/twitter_80x80.webp`;
-const nitterIcon = `${"/touhou-translations/"}icons/social/thumb_80x80/nitter_80x80.webp`;
-const pixivIcon = `${"/touhou-translations/"}icons/social/thumb_80x80/pixiv_80x80.webp`;
-const redditIcon = `${"/touhou-translations/"}icons/social/thumb_80x80/reddit_80x80.webp`;
+const twitterIcon = `${"/touhou-translations/"}icons/social/thumb/twitter.webp`;
+const nitterIcon = `${"/touhou-translations/"}icons/social/thumb/nitter.webp`;
+const pixivIcon = `${"/touhou-translations/"}icons/social/thumb/pixiv.webp`;
+const redditIcon = `${"/touhou-translations/"}icons/social/thumb/reddit.webp`;
 const InfoSection = ({ post, artist, characters }) => {
   const [hoveredCharacterData, setHoveredCharacterData] = useState(null);
   const [tooltipPosition, setTooltipPosition] = useState(null);
@@ -404,24 +406,27 @@ const ImageViewer = ({ post }) => {
   ] });
 };
 /*! src/pages/posts/@id/+Page.tsx [vike:pluginModuleBanner] */
-const Page = (pageContext) => {
-  const { id } = pageContext.routeParams || {};
-  if (!id) return /* @__PURE__ */ jsx("p", { style: { color: "red" }, children: "Invalid URL: missing post ID." });
-  if (pageContext.post) {
-    return /* @__PURE__ */ jsx(ImageViewer, { post: pageContext.post });
-  }
-  const posts = useGetPosts();
-  const targetRedditId = id;
-  const post = posts.find((p) => {
-    const pid = extractRedditId(p.reddit);
-    return pid === targetRedditId;
-  });
-  if (!post) return /* @__PURE__ */ jsx("p", { style: { color: "red" }, children: "Post not found." });
+const Page = () => {
+  const { post } = useData();
   return /* @__PURE__ */ jsx(ImageViewer, { post });
 };
 const import3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: Page
+}, Symbol.toStringTag, { value: "Module" }));
+/*! src/pages/posts/@id/+data.ts [vike:pluginModuleBanner] */
+const data = async (pageContext) => {
+  const { id } = pageContext.routeParams;
+  if (!id) throw render(404, "Missing post ID");
+  if (pageContext.post) return { post: pageContext.post };
+  const posts = await fetchPosts();
+  const post = posts.find((p) => extractRedditId(p.reddit) === id);
+  if (!post) throw render(404, `Post not found for ID: ${id}`);
+  return { post };
+};
+const import4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  data
 }, Symbol.toStringTag, { value: "Module" }));
 /*! virtual:vike:pageConfigLazy:server:/src/pages/posts/@id [vike:pluginModuleBanner] */
 const configValuesSerialized = {
@@ -455,6 +460,14 @@ const configValuesSerialized = {
     valueSerialized: {
       type: "plus-file",
       exportValues: import3
+    }
+  },
+  ["data"]: {
+    type: "standard",
+    definedAtData: { "filePathToShowToUser": "/src/pages/posts/@id/+data.ts", "fileExportPathToShowToUser": [] },
+    valueSerialized: {
+      type: "plus-file",
+      exportValues: import4
     }
   }
 };

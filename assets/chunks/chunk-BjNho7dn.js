@@ -1,1 +1,0 @@
-import{Y as m,Z as a}from"./chunk-DzBwZViW.js";import{g as p}from"./chunk-BIRP3ZJf.js";const i=m();function n({props:t,name:r,defaultTheme:o,themeId:s}){let e=a(o);return s&&(e=e[s]||e),p({theme:e,name:r,props:t})}export{i as s,n as u};

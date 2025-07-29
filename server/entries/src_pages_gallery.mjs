@@ -1,10 +1,10 @@
-import { u as useGetPosts, d as useGetCharacter, e as useGetArtist, i as import1 } from "../chunks/chunk-DNASwFh_.js";
+import { u as useGetPosts, e as useGetCharacter, h as useGetArtist, i as import1 } from "../chunks/chunk-DPmHre0G.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Box } from "@mui/material";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
-import ProfileItem from "../chunks/chunk-BBZSOiuW.js";
-import { g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-DpqKyAox.js";
+import ProfileItem from "../chunks/chunk-BAheWJns.js";
+import { g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-CLD-kbC0.js";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Box$1 from "@mui/material/Box";
