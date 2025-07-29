@@ -30,6 +30,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
 
     const allItems = useMemo(() => (mode === MODE_CHARACTER ? characters! : artists!), [mode, characters, artists]);
 
+    const [hasMounted, setHasMounted] = useState(false);
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [sortOrder, setSortOrder] = useState<SortOrder>("none");
@@ -57,6 +58,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
     };
 
     const renderListItems = (): JSX.Element[] => {
+        if (!hasMounted) return [];
         return sortedItems.slice(0, visibleCount).map((item) => {
             const isCharacter = mode === MODE_CHARACTER;
             const id = item.id;
@@ -102,6 +104,14 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
     }, [sortedItems]);
 
     useEffect(() => { setVisibleCount(PAGE_SIZE); }, [searchQuery, sortOrder]);
+
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                setHasMounted(true);
+            });
+        });
+    }, []);
 
 
 
