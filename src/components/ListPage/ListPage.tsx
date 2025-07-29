@@ -1,6 +1,7 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState, type JSX } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
 import { getCharacterPortraits, getArtistPortraits, getRandomPlaceholder } from "../../utils/galleryUtils";
+import ProfileItem from "../ProfileItem/ProfileItem";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
 import styles from "./ListPage.styles";
 import type { Character, Artist, SortOrder } from "../../types/data";
@@ -11,8 +12,6 @@ interface Props {
     characters?: Character[];
     artists?: Artist[];
 }
-
-const ProfileItem = lazy(() => import("../ProfileItem/ProfileItem"));
 
 const MODE_CHARACTER = "character";
 const MODE_ARTIST = "artist";
