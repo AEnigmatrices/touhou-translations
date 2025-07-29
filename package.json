@@ -18,7 +18,7 @@
         "preview": "vike preview",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git",
-        "chore": "tsx scripts/processData.ts && tsx scripts/resize-images.ts"
+        "chore": "tsx scripts/processData.ts"
     },
     "dependencies": {
         "@emotion/cache": "^11.14.0",
