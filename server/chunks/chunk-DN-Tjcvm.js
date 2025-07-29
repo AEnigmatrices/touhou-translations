@@ -65,9 +65,8 @@ const styles = {
   }
 };
 /*! src/components/ProfileItem/ProfileItem.tsx [vike:pluginModuleBanner] */
-const ProfileItem = ({ name, imageUrl, description, link }) => {
-  const [imgSrc, setImgSrc] = useState(imageUrl ?? getRandomPlaceholder());
-  const [showImage, setShowImage] = useState(false);
+const ProfileItem = ({ name, imageUrl, description, link, shouldLoadImage = false }) => {
+  const [imgSrc, setImgSrc] = useState(null);
   const handleClick = () => {
     if (link) navigate(link);
   };
@@ -81,16 +80,11 @@ const ProfileItem = ({ name, imageUrl, description, link }) => {
     setImgSrc(getRandomPlaceholder());
   };
   useEffect(() => {
-    const timeout = typeof window !== "undefined" && "requestIdleCallback" in window ? window.requestIdleCallback(() => setShowImage(true)) : setTimeout(() => setShowImage(true), 200);
-    return () => {
-      if (typeof window !== "undefined" && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(timeout);
-      } else {
-        clearTimeout(timeout);
-      }
-    };
-  }, []);
-  const ImageContent = imageUrl && showImage ? /* @__PURE__ */ jsx(Avatar, { src: imgSrc, alt: name, sx: styles.avatar, variant: "rounded", onError: handleImageError, slotProps: { img: { loading: "eager" } } }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
+    if (shouldLoadImage) {
+      setImgSrc(imageUrl ?? getRandomPlaceholder());
+    }
+  }, [shouldLoadImage, imageUrl]);
+  const ImageContent = imgSrc ? /* @__PURE__ */ jsx(Avatar, { src: imgSrc, alt: name, sx: styles.avatar, variant: "rounded", onError: handleImageError, slotProps: { img: { loading: "lazy" } } }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
   const Content = /* @__PURE__ */ jsxs(Box, { sx: styles.content, children: [
     ImageContent,
     /* @__PURE__ */ jsxs(Box, { sx: styles.textContainer, children: [
