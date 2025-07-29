@@ -1,13 +1,16 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
-import { useGetArtists, useGetCharacters } from "../../context/PostsContext";
 import { getCharacterPortraits, getArtistPortraits, getRandomPlaceholder } from "../../utils/galleryUtils";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
 import styles from "./ListPage.styles";
-import type { SortOrder } from "../../types/data";
+import type { Character, Artist, SortOrder } from "../../types/data";
 import validPortraits from "../../../data/valid-portraits.json";
 
-interface Props { mode: typeof MODE_CHARACTER | typeof MODE_ARTIST; }
+interface Props {
+    mode: typeof MODE_CHARACTER | typeof MODE_ARTIST;
+    characters?: Character[];
+    artists?: Artist[];
+}
 
 const ProfileItem = lazy(() => import("../ProfileItem/ProfileItem"));
 
@@ -18,16 +21,15 @@ const PAGE_SIZE = 25;
 
 
 
-const ListPage = ({ mode }: Props): JSX.Element => {
+const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
     const title = mode === MODE_CHARACTER ? "Character List" : "Artist List";
     const ariaLabel = mode === MODE_CHARACTER ? "Search Characters" : "Search Artists";
 
-    const getCharacters = useGetCharacters();
-    const getArtists = useGetArtists();
+    if ((mode === MODE_CHARACTER && !characters) || (mode === MODE_ARTIST && !artists)) {
+        throw new Error(`${mode} data prop is required`);
+    }
 
-    const allItems = useMemo(() => {
-        return mode === MODE_CHARACTER ? getCharacters() : getArtists();
-    }, [mode, getCharacters, getArtists]);
+    const allItems = useMemo(() => (mode === MODE_CHARACTER ? characters! : artists!), [mode, characters, artists]);
 
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");

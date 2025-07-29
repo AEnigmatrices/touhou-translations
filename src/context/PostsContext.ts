@@ -15,7 +15,7 @@ const usePostsContext = () => {
     return context;
 };
 
-const getCharacterArtworkCounts = (posts: Post[]): Record<string, number> => {
+export const getCharacterArtworkCounts = (posts: Post[]): Record<string, number> => {
     const countMap: Record<string, number> = {};
     for (const post of posts) {
         for (const id of post.characterIds) {
@@ -25,7 +25,7 @@ const getCharacterArtworkCounts = (posts: Post[]): Record<string, number> => {
     return countMap;
 };
 
-const getArtistArtworkCounts = (posts: Post[]): Record<string, number> => {
+export const getArtistArtworkCounts = (posts: Post[]): Record<string, number> => {
     const countMap: Record<string, number> = {};
     for (const post of posts) {
         const id = post.artistId;
