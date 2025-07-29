@@ -1,4 +1,4 @@
-import { f as fetchPosts, u as usePageContext, h as useGetCharacter, j as useGetArtist, k as useGetCharacters, i as import1 } from "../chunks/chunk-BGTzXAE5.js";
+import { f as fetchPosts, u as usePageContext, h as useGetCharacter, j as useGetArtist, k as useGetCharacters, i as import1 } from "../chunks/chunk-fNEiddaa.js";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import React, { useState, useCallback, useEffect } from "react";
@@ -8,7 +8,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { createPortal } from "react-dom";
-import { a as getArtistPortraits, g as getCharacterPortraits, P as ProfileItem } from "../chunks/chunk-DHOET97D.js";
+import { a as getArtistPortraits, g as getCharacterPortraits, P as ProfileItem } from "../chunks/chunk-Dq2qoafU.js";
 import Box$1 from "@mui/material/Box";
 import { render } from "vike/abort";
 import "react-dom/server";

@@ -1,4 +1,4 @@
-import { u as usePageContext, i as import1 } from "../chunks/chunk-BGTzXAE5.js";
+import { u as usePageContext, i as import1 } from "../chunks/chunk-fNEiddaa.js";
 import { jsx } from "react/jsx-runtime";
 import "react-dom/server";
 import "vike/server";
