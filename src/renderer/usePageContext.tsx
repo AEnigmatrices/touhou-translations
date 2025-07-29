@@ -1,14 +1,14 @@
 import React, { useContext, type JSX, type ReactNode } from 'react'
-import type { ExtendedPageContext } from '../types/vike'
+import type { PageContext } from 'vike/types';
 
-const Context = React.createContext<ExtendedPageContext>(undefined as any)
+const Context = React.createContext<PageContext>(undefined as any)
 
-const PageContextProvider = ({ pageContext, children }: { pageContext: ExtendedPageContext; children: ReactNode }): JSX.Element => (
+const PageContextProvider = ({ pageContext, children }: { pageContext: PageContext; children: ReactNode }): JSX.Element => (
     <Context.Provider value={pageContext}>
         {children}
     </Context.Provider>
 )
 
-const usePageContext = (): ExtendedPageContext => useContext(Context)
+const usePageContext = (): PageContext => useContext(Context)
 
 export { PageContextProvider, usePageContext }
