@@ -78,40 +78,23 @@ const ProfileItem = ({ name, imageUrl, description, link }) => {
       navigate(link);
     }
   };
-  const handleImageError = () => {
-    setImgSrc(getRandomPlaceholder());
-  };
+  const handleImageError = () => setImgSrc(getRandomPlaceholder());
   useEffect(() => {
     const node = observerRef.current;
     if (!node) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (isVisible) {
-      setImgSrc(imageUrl ?? getRandomPlaceholder());
-    }
+    if (isVisible) setImgSrc(imageUrl || getRandomPlaceholder());
   }, [isVisible, imageUrl]);
-  const ImageContent = imgSrc ? /* @__PURE__ */ jsx(
-    Avatar,
-    {
-      src: imgSrc,
-      alt: name,
-      sx: styles.avatar,
-      variant: "rounded",
-      onError: handleImageError,
-      slotProps: { img: { loading: "lazy" } }
-    }
-  ) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
+  const ImageContent = imgSrc ? /* @__PURE__ */ jsx(Avatar, { src: imgSrc, alt: name, sx: styles.avatar, variant: "rounded", onError: handleImageError, slotProps: { img: { loading: "lazy" } } }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
   const Content = /* @__PURE__ */ jsxs(Box, { sx: styles.content, children: [
     ImageContent,
     /* @__PURE__ */ jsxs(Box, { sx: styles.textContainer, children: [
