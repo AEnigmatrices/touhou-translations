@@ -1,7 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useMemo, useState, useRef, useEffect, Suspense } from "react";
 import { Container, Box, Typography, TextField } from "@mui/material";
-import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-DN-Tjcvm.js";
+import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-DHOET97D.js";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import CollectionsIcon from "@mui/icons-material/Collections";
@@ -102,7 +102,6 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
   const allItems = useMemo(() => mode === MODE_CHARACTER ? characters2 : artists2, [mode, characters2, artists2]);
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  const [shouldLoadImages, setShouldLoadImages] = useState(false);
   const [sortOrder, setSortOrder] = useState("none");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const loadMoreRef = useRef(null);
@@ -126,7 +125,7 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
       const hasPortrait = isCharacter ? validPortraits.characters.includes(id) : validPortraits.artists.includes(id);
       const imageUrl = hasPortrait ? isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id) : getRandomPlaceholder();
       const toUrl = isCharacter ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
-      return /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl, shouldLoadImage: shouldLoadImages }) }, id);
+      return /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl }) }, id);
     });
   };
   useEffect(() => {
@@ -151,13 +150,6 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
   }, [searchQuery, sortOrder]);
-  useEffect(() => {
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(() => setShouldLoadImages(true));
-    } else {
-      setTimeout(() => setShouldLoadImages(true), 1e3);
-    }
-  }, []);
   return /* @__PURE__ */ jsxs(Container, { maxWidth: "lg", sx: styles.container, children: [
     /* @__PURE__ */ jsxs(Box, { sx: styles.box, children: [
       /* @__PURE__ */ jsx(Typography, { variant: "h4", component: "h2", sx: styles.typography, children: title }),
