@@ -3,7 +3,7 @@ import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Box } from "@mui/material";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
-import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-DHOET97D.js";
+import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-C76wk9Hb.js";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Box$1 from "@mui/material/Box";
