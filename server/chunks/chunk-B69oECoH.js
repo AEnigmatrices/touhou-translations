@@ -1,7 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
-import { lazy, useMemo, useState, useRef, useEffect, Suspense } from "react";
+import { useMemo, useState, useRef, useEffect, Suspense } from "react";
 import { Container, Box, Typography, TextField } from "@mui/material";
-import { g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-CLD-kbC0.js";
+import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-DHOET97D.js";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import CollectionsIcon from "@mui/icons-material/Collections";
@@ -88,7 +88,6 @@ const validPortraits = {
   artists
 };
 /*! src/components/ListPage/ListPage.tsx [vike:pluginModuleBanner] */
-const ProfileItem = lazy(() => import("./chunk-BAheWJns.js"));
 const MODE_CHARACTER = "character";
 const MODE_ARTIST = "artist";
 const BASE_URL = "/touhou-translations/";

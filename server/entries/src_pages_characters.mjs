@@ -1,6 +1,6 @@
 import { c as fetchCharacters, b as fetchPosts, d as getCharacterArtworkCounts, i as import1 } from "../chunks/chunk-DPmHre0G.js";
 import { jsx } from "react/jsx-runtime";
-import { L as ListPage } from "../chunks/chunk-Co17Q8wG.js";
+import { L as ListPage } from "../chunks/chunk-B69oECoH.js";
 import { u as useData } from "../chunks/chunk-CyTfn6rt.js";
 import { render } from "vike/abort";
 import "react-dom/server";
@@ -11,7 +11,8 @@ import "@emotion/cache";
 import "react";
 import "@mui/material";
 import "@mui/material/styles";
-import "../chunks/chunk-CLD-kbC0.js";
+import "../chunks/chunk-DHOET97D.js";
+import "vike/client/router";
 import "@mui/material/IconButton";
 import "@mui/material/Tooltip";
 import "@mui/icons-material/Collections";
