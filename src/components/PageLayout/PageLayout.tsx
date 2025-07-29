@@ -14,13 +14,16 @@ const Navbar = lazy(() => import('../Navbar/Navbar'));
 const Footer = lazy(() => import('../Footer/Footer'));
 
 const PageLayout = ({ pageContext, children }: { pageContext: PageContext; children: ReactNode }) => {
+
+    const enhancedPageContext = { ...pageContext, appData: pageContext.data };
+
     return (
         <StrictMode>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <ErrorBoundary>
                     <PostsProvider>
-                        <PageContextProvider pageContext={pageContext}>
+                        <PageContextProvider pageContext={enhancedPageContext}>
                             <Box sx={styles.layoutContainer}>
                                 <Suspense fallback={<Loading />}>
                                     <Navbar pageContext={pageContext} />
