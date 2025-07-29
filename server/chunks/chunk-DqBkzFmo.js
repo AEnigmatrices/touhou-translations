@@ -100,6 +100,7 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
     throw new Error(`${mode} data prop is required`);
   }
   const allItems = useMemo(() => mode === MODE_CHARACTER ? characters2 : artists2, [mode, characters2, artists2]);
+  const [hasMounted, setHasMounted] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("none");
@@ -117,6 +118,7 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
     setSortOrder((prev) => prev === "none" ? "desc" : prev === "desc" ? "asc" : "none");
   };
   const renderListItems = () => {
+    if (!hasMounted) return [];
     return sortedItems.slice(0, visibleCount).map((item) => {
       const isCharacter = mode === MODE_CHARACTER;
       const id = item.id;
@@ -150,6 +152,13 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
   useEffect(() => {
     setVisibleCount(PAGE_SIZE);
   }, [searchQuery, sortOrder]);
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setHasMounted(true);
+      });
+    });
+  }, []);
   return /* @__PURE__ */ jsxs(Container, { maxWidth: "lg", sx: styles.container, children: [
     /* @__PURE__ */ jsxs(Box, { sx: styles.box, children: [
       /* @__PURE__ */ jsx(Typography, { variant: "h4", component: "h2", sx: styles.typography, children: title }),

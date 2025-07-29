@@ -1,7 +1,7 @@
 import { i as import1 } from "../chunks/chunk-fNEiddaa.js";
 import { jsx } from "react/jsx-runtime";
 import { render } from "vike/abort";
-import { u as useAppData, L as ListPage } from "../chunks/chunk-Bfpd3uMt.js";
+import { u as useAppData, L as ListPage } from "../chunks/chunk-DqBkzFmo.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
