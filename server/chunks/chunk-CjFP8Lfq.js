@@ -7,7 +7,6 @@ import Tooltip from "@mui/material/Tooltip";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { u as usePageContext, f as fetchPosts, c as fetchArtists, d as fetchCharacters, g as getArtistArtworkCounts, e as getCharacterArtworkCounts } from "./chunk-fNEiddaa.js";
 /*! src/components/ArtworkCountSortButton/ArtworkCountSortButton.constants.ts [vike:pluginModuleBanner] */
 const ariaSortMap = {
   none: "none",
@@ -170,50 +169,6 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
     visibleCount < sortedItems.length && /* @__PURE__ */ jsx(Box, { ref: loadMoreRef, sx: { height: "1px" } })
   ] });
 };
-/*! src/renderer/useAppData.ts [vike:pluginModuleBanner] */
-const useAppData = () => {
-  const pageContext = usePageContext();
-  const [data, setData] = useState({
-    posts: pageContext.appData?.posts || [],
-    artists: pageContext.appData?.artists || [],
-    characters: pageContext.appData?.characters || [],
-    loading: !pageContext.appData,
-    error: null
-  });
-  useEffect(() => {
-    if (pageContext.appData) return;
-    const fetchData = async () => {
-      try {
-        setData((prev) => ({ ...prev, loading: true, error: null }));
-        const [posts, artists2, characters2] = await Promise.all([
-          fetchPosts(),
-          fetchArtists(),
-          fetchCharacters()
-        ]);
-        const artistArtworkCounts = getArtistArtworkCounts(posts);
-        const characterArtworkCounts = getCharacterArtworkCounts(posts);
-        const artistsWithCount = artists2.map((artist) => ({ ...artist, artworkCount: artistArtworkCounts[artist.id] ?? 0 }));
-        const charactersWithCount = characters2.map((character) => ({ ...character, artworkCount: characterArtworkCounts[character.id] ?? 0 }));
-        setData({
-          posts,
-          artists: artistsWithCount,
-          characters: charactersWithCount,
-          loading: false,
-          error: null
-        });
-      } catch (error) {
-        setData((prev) => ({
-          ...prev,
-          loading: false,
-          error: error instanceof Error ? error : new Error("Failed to fetch data")
-        }));
-      }
-    };
-    fetchData();
-  }, [pageContext.appData]);
-  return data;
-};
 export {
-  ListPage as L,
-  useAppData as u
+  ListPage as L
 };

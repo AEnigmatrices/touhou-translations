@@ -495,7 +495,7 @@ const theme = createTheme({
   }
 });
 /*! src/components/PageLayout/PageLayout.tsx [vike:pluginModuleBanner] */
-const Navbar = lazy(() => import("./chunk-49ucfI_Z.js"));
+const Navbar = lazy(() => import("./chunk-DJIIBgCp.js"));
 const Footer = lazy(() => import("./chunk-B-dQnOcx.js"));
 const PageLayout = ({ pageContext, children }) => {
   const enhancedPageContext = { ...pageContext, appData: pageContext.data };
@@ -565,14 +565,14 @@ const import1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
 export {
   artists as a,
   useGetPosts as b,
-  fetchArtists as c,
-  fetchCharacters as d,
-  getCharacterArtworkCounts as e,
+  useGetCharacter as c,
+  useGetArtist as d,
+  fetchArtists as e,
   fetchPosts as f,
-  getArtistArtworkCounts as g,
-  useGetCharacter as h,
+  fetchCharacters as g,
+  getArtistArtworkCounts as h,
   import1 as i,
-  useGetArtist as j,
+  getCharacterArtworkCounts as j,
   useGetCharacters as k,
   usePageContext as u
 };

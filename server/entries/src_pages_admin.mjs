@@ -1,9 +1,10 @@
-import { a as artists, b as useGetPosts, i as import1 } from "../chunks/chunk-fNEiddaa.js";
+import { a as artists, b as useGetPosts, i as import1 } from "../chunks/chunk-DuogPw2d.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { i as import3 } from "../chunks/chunk-DvfotoXw.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -471,6 +472,14 @@ const configValuesSerialized = {
     valueSerialized: {
       type: "plus-file",
       exportValues: import2
+    }
+  },
+  ["data"]: {
+    type: "standard",
+    definedAtData: { "filePathToShowToUser": "/src/renderer/+data.ts", "fileExportPathToShowToUser": [] },
+    valueSerialized: {
+      type: "plus-file",
+      exportValues: import3
     }
   }
 };
