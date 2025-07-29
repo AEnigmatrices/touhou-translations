@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { navigate } from "vike/client/router";
 import { getRandomPlaceholder } from "../../utils/galleryUtils";
 import { Box, Avatar, Typography, Paper } from "@mui/material";
@@ -14,6 +14,8 @@ interface Props {
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
 
     const [imgSrc, setImgSrc] = useState(imageUrl ?? getRandomPlaceholder());
+    const [showImage, setShowImage] = useState(false);
+
 
 
 
@@ -32,7 +34,25 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         setImgSrc(getRandomPlaceholder());
     };
 
-    const ImageContent = imageUrl
+
+
+    useEffect(() => {
+        const timeout = typeof window !== "undefined" && "requestIdleCallback" in window
+            ? window.requestIdleCallback(() => setShowImage(true))
+            : setTimeout(() => setShowImage(true), 200);
+
+        return () => {
+            if (typeof window !== "undefined" && "cancelIdleCallback" in window) {
+                window.cancelIdleCallback(timeout as number);
+            } else {
+                clearTimeout(timeout as number);
+            }
+        };
+    }, []);
+
+
+
+    const ImageContent = imageUrl && showImage
         ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "eager" } }} />
         : <Box sx={styles.placeholder} aria-hidden />;
 
