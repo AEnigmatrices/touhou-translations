@@ -2,6 +2,7 @@ import { StrictMode, Suspense, lazy } from 'react';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import PostsProvider from '../../context/PostsProvider';
 import ErrorBoundary from '../../context/ErrorBoundary';
+import { PageContextProvider } from '../../renderer/usePageContext';
 import Loading from '../Loading/Loading';
 import { Box } from "@mui/material";
 import styles from "./PageLayout.styles";
@@ -19,19 +20,21 @@ const PageLayout = ({ pageContext, children }: { pageContext: PageContext; child
                 <CssBaseline />
                 <ErrorBoundary>
                     <PostsProvider>
-                        <Box sx={styles.layoutContainer}>
-                            <Suspense fallback={<Loading />}>
-                                <Navbar pageContext={pageContext} />
-                            </Suspense>
-                            <Suspense fallback={<Loading />}>
-                                <Box component="main" sx={styles.mainContent}>
-                                    {children}
-                                </Box>
-                            </Suspense>
-                            <Suspense fallback={<Loading />}>
-                                <Footer />
-                            </Suspense>
-                        </Box>
+                        <PageContextProvider pageContext={pageContext}>
+                            <Box sx={styles.layoutContainer}>
+                                <Suspense fallback={<Loading />}>
+                                    <Navbar pageContext={pageContext} />
+                                </Suspense>
+                                <Suspense fallback={<Loading />}>
+                                    <Box component="main" sx={styles.mainContent}>
+                                        {children}
+                                    </Box>
+                                </Suspense>
+                                <Suspense fallback={<Loading />}>
+                                    <Footer />
+                                </Suspense>
+                            </Box>
+                        </PageContextProvider>
                     </PostsProvider>
                 </ErrorBoundary>
             </ThemeProvider>

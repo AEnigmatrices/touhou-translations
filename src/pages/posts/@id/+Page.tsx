@@ -1,26 +1,11 @@
-import { useGetPosts } from '../../../context/PostsContext';
-import { extractRedditId } from '../../../utils/extractRedditId';
-import ImageViewer from '../../../components/ImageViewer/ImageViewer';
-import type { PageContext } from 'vike/types';
+import { useData } from '../../../renderer/useData'
+import ImageViewer from '../../../components/ImageViewer/ImageViewer'
+import type { JSX } from 'react';
+import type { Data } from './+data'
 
-const Page = (pageContext: PageContext) => {
-    const { id } = pageContext.routeParams || {};
-    if (!id) return <p style={{ color: 'red' }}>Invalid URL: missing post ID.</p>;
 
-    if (pageContext.post) {
-        return <ImageViewer post={pageContext.post} />;
-    }
-
-    const posts = useGetPosts();
-    const targetRedditId = id;
-
-    const post = posts.find(p => {
-        const pid = extractRedditId(p.reddit);
-        return pid === targetRedditId;
-    });
-
-    if (!post) return <p style={{ color: 'red' }}>Post not found.</p>;
-
+const Page = (): JSX.Element => {
+    const { post } = useData<Data>();
     return <ImageViewer post={post} />;
 };
 
