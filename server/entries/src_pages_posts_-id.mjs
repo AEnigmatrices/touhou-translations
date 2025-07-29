@@ -1,7 +1,6 @@
-import { b as fetchPosts, e as useGetCharacter, h as useGetArtist, j as useGetCharacters, i as import1 } from "../chunks/chunk-ZayQ6bkZ.js";
+import { f as fetchPosts, u as usePageContext, h as useGetCharacter, j as useGetArtist, k as useGetCharacters, i as import1 } from "../chunks/chunk-BGTzXAE5.js";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
-import { u as useData } from "../chunks/chunk-Cu_rZyQE.js";
 import React, { useState, useCallback, useEffect } from "react";
 import { Box, Link, IconButton, Typography } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -44,6 +43,11 @@ const import2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
   __proto__: null,
   onBeforePrerenderStart
 }, Symbol.toStringTag, { value: "Module" }));
+/*! src/renderer/useData.ts [vike:pluginModuleBanner] */
+const useData = () => {
+  const { data: data2 } = usePageContext();
+  return data2;
+};
 /*! src/components/ImageViewer/ImageSection.styles.ts [vike:pluginModuleBanner] */
 const styles$2 = {
   root: {
@@ -298,10 +302,10 @@ const styles$1 = {
   }
 };
 /*! src/components/ImageViewer/InfoSection.tsx [vike:pluginModuleBanner] */
-const twitterIcon = `${"/touhou-translations/"}icons/social/thumb/twitter.webp`;
-const nitterIcon = `${"/touhou-translations/"}icons/social/thumb/nitter.webp`;
-const pixivIcon = `${"/touhou-translations/"}icons/social/thumb/pixiv.webp`;
-const redditIcon = `${"/touhou-translations/"}icons/social/thumb/reddit.webp`;
+const twitterIcon = `${"/touhou-translations/"}icons/social/twitter.webp`;
+const nitterIcon = `${"/touhou-translations/"}icons/social/nitter.webp`;
+const pixivIcon = `${"/touhou-translations/"}icons/social/pixiv.webp`;
+const redditIcon = `${"/touhou-translations/"}icons/social/reddit.webp`;
 const InfoSection = ({ post, artist, characters }) => {
   const [hoveredCharacterData, setHoveredCharacterData] = useState(null);
   const [tooltipPosition, setTooltipPosition] = useState(null);

@@ -1,8 +1,7 @@
-import { c as fetchCharacters, b as fetchPosts, d as getCharacterArtworkCounts, i as import1 } from "../chunks/chunk-ZayQ6bkZ.js";
+import { i as import1 } from "../chunks/chunk-BGTzXAE5.js";
 import { jsx } from "react/jsx-runtime";
-import { L as ListPage } from "../chunks/chunk-B69oECoH.js";
-import { u as useData } from "../chunks/chunk-Cu_rZyQE.js";
 import { render } from "vike/abort";
+import { u as useAppData, L as ListPage } from "../chunks/chunk-VvyoPco2.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -18,51 +17,17 @@ import "@mui/material/Tooltip";
 import "@mui/icons-material/Collections";
 import "@mui/icons-material/ArrowUpward";
 import "@mui/icons-material/ArrowDownward";
-/*! src/pages/characters/+onBeforePrerenderStart.ts [vike:pluginModuleBanner] */
-const onBeforePrerenderStart = async () => {
-  try {
-    const characters = fetchCharacters();
-    if (!characters || characters.length === 0) return [];
-    const posts = fetchPosts();
-    const artworkCounts = getCharacterArtworkCounts(posts);
-    const charactersWithCount = characters.map((char) => ({
-      ...char,
-      artworkCount: artworkCounts[char.id] ?? 0
-    }));
-    return [{ url: "/characters", pageContext: { data: { characters: charactersWithCount } } }];
-  } catch (error) {
-    console.error("Failed to generate prerender routes for characters:", error);
-    return [];
-  }
+/*! src/pages/characters/+Page.tsx [vike:pluginModuleBanner] */
+const Page = () => {
+  const { characters, loading, error } = useAppData();
+  if (loading) return /* @__PURE__ */ jsx("div", { children: "Loading..." });
+  if (error) throw render(500, error.message);
+  if (!characters || characters.length === 0) throw render(404, "No characters found");
+  return /* @__PURE__ */ jsx(ListPage, { mode: "character", characters });
 };
 const import2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  onBeforePrerenderStart
-}, Symbol.toStringTag, { value: "Module" }));
-/*! src/pages/characters/+Page.tsx [vike:pluginModuleBanner] */
-const Page = () => {
-  const { characters } = useData();
-  return /* @__PURE__ */ jsx(ListPage, { mode: "character", characters });
-};
-const import3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
   default: Page
-}, Symbol.toStringTag, { value: "Module" }));
-/*! src/pages/characters/+data.ts [vike:pluginModuleBanner] */
-const data = async () => {
-  const characters = fetchCharacters();
-  if (!characters || characters.length === 0) throw render(404, "No characters found");
-  const posts = fetchPosts();
-  const artworkCounts = getCharacterArtworkCounts(posts);
-  const charactersWithCount = characters.map((character) => ({
-    ...character,
-    artworkCount: artworkCounts[character.id] ?? 0
-  }));
-  return { characters: charactersWithCount };
-};
-const import4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  data
 }, Symbol.toStringTag, { value: "Module" }));
 /*! virtual:vike:pageConfigLazy:server:/src/pages/characters [vike:pluginModuleBanner] */
 const configValuesSerialized = {
@@ -82,28 +47,12 @@ const configValuesSerialized = {
       exportValues: import1
     }
   },
-  ["onBeforePrerenderStart"]: {
-    type: "standard",
-    definedAtData: { "filePathToShowToUser": "/src/pages/characters/+onBeforePrerenderStart.ts", "fileExportPathToShowToUser": [] },
-    valueSerialized: {
-      type: "plus-file",
-      exportValues: import2
-    }
-  },
   ["Page"]: {
     type: "standard",
     definedAtData: { "filePathToShowToUser": "/src/pages/characters/+Page.tsx", "fileExportPathToShowToUser": [] },
     valueSerialized: {
       type: "plus-file",
-      exportValues: import3
-    }
-  },
-  ["data"]: {
-    type: "standard",
-    definedAtData: { "filePathToShowToUser": "/src/pages/characters/+data.ts", "fileExportPathToShowToUser": [] },
-    valueSerialized: {
-      type: "plus-file",
-      exportValues: import4
+      exportValues: import2
     }
   }
 };

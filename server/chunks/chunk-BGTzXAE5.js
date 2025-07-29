@@ -260,7 +260,10 @@ class ErrorBoundary extends Component {
 }
 /*! src/renderer/usePageContext.tsx [vike:pluginModuleBanner] */
 const Context = React.createContext(void 0);
-const PageContextProvider = ({ pageContext, children }) => /* @__PURE__ */ jsx(Context.Provider, { value: pageContext, children });
+const PageContextProvider = ({
+  pageContext,
+  children
+}) => /* @__PURE__ */ jsx(Context.Provider, { value: pageContext, children });
 const usePageContext = () => useContext(Context);
 /*! src/components/Loading/Loading.tsx [vike:pluginModuleBanner] */
 const Loading = () => /* @__PURE__ */ jsx(
@@ -495,12 +498,13 @@ const theme = createTheme({
   }
 });
 /*! src/components/PageLayout/PageLayout.tsx [vike:pluginModuleBanner] */
-const Navbar = lazy(() => import("./chunk-CNKPjoa9.js"));
+const Navbar = lazy(() => import("./chunk-B5EfQzTH.js"));
 const Footer = lazy(() => import("./chunk-B-dQnOcx.js"));
 const PageLayout = ({ pageContext, children }) => {
+  const enhancedPageContext = { ...pageContext, appData: pageContext.data };
   return /* @__PURE__ */ jsx(StrictMode, { children: /* @__PURE__ */ jsxs(ThemeProvider, { theme, children: [
     /* @__PURE__ */ jsx(CssBaseline, {}),
-    /* @__PURE__ */ jsx(ErrorBoundary, { children: /* @__PURE__ */ jsx(PostsProvider, { children: /* @__PURE__ */ jsx(PageContextProvider, { pageContext, children: /* @__PURE__ */ jsxs(Box, { sx: styles.layoutContainer, children: [
+    /* @__PURE__ */ jsx(ErrorBoundary, { children: /* @__PURE__ */ jsx(PostsProvider, { children: /* @__PURE__ */ jsx(PageContextProvider, { pageContext: enhancedPageContext, children: /* @__PURE__ */ jsxs(Box, { sx: styles.layoutContainer, children: [
       /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loading, {}), children: /* @__PURE__ */ jsx(Navbar, { pageContext }) }),
       /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loading, {}), children: /* @__PURE__ */ jsx(Box, { component: "main", sx: styles.mainContent, children }) }),
       /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loading, {}), children: /* @__PURE__ */ jsx(Footer, {}) })
@@ -563,15 +567,15 @@ const import1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePrope
 }, Symbol.toStringTag, { value: "Module" }));
 export {
   artists as a,
-  fetchPosts as b,
-  fetchCharacters as c,
-  getCharacterArtworkCounts as d,
-  useGetCharacter as e,
-  fetchArtists as f,
+  useGetPosts as b,
+  fetchArtists as c,
+  fetchCharacters as d,
+  getCharacterArtworkCounts as e,
+  fetchPosts as f,
   getArtistArtworkCounts as g,
-  useGetArtist as h,
+  useGetCharacter as h,
   import1 as i,
-  useGetCharacters as j,
-  usePageContext as k,
-  useGetPosts as u
+  useGetArtist as j,
+  useGetCharacters as k,
+  usePageContext as u
 };
