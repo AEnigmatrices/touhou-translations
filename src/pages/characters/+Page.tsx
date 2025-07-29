@@ -1,15 +1,11 @@
 import { render } from 'vike/abort';
 import ListPage from '../../components/ListPage/ListPage';
-import { useAppData } from '../../renderer/useAppData';
+import { usePageContext } from '../../renderer/usePageContext';
 
 const Page = () => {
-    const { characters, loading, error } = useAppData();
-
-    if (loading) return <div>Loading...</div>;
-    if (error) throw render(500, error.message);
-    if (!characters || characters.length === 0) throw render(404, 'No characters found');
-
-    return <ListPage mode="character" characters={characters} />;
+    const { appData } = usePageContext();
+    if (!appData || !appData.characters || appData.characters.length === 0) throw render(404, 'No characters found');
+    return <ListPage mode="character" characters={appData.characters} />;
 };
 
 export default Page;
