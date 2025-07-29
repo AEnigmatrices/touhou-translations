@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { navigate } from "vike/client/router";
 import { getRandomPlaceholder } from "../../utils/galleryUtils";
 import { Box, Avatar, Typography, Paper } from "@mui/material";
@@ -13,9 +13,9 @@ interface Props {
 
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
 
-    const [imgSrc, setImgSrc] = useState(imageUrl ?? getRandomPlaceholder());
-
-
+    const observerRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const [imgSrc, setImgSrc] = useState<string | null>(null);
 
     const handleClick = () => {
         if (link) navigate(link);
@@ -32,9 +32,47 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         setImgSrc(getRandomPlaceholder());
     };
 
-    const ImageContent = imageUrl
-        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "lazy" } }} />
-        : <Box sx={styles.placeholder} aria-hidden />;
+
+
+    useEffect(() => {
+        const node = observerRef.current;
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        observer.observe(node);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (isVisible) {
+            setImgSrc(imageUrl ?? getRandomPlaceholder());
+        }
+    }, [isVisible, imageUrl]);
+
+
+
+    const ImageContent = imgSrc
+        ? (
+            <Avatar
+                src={imgSrc}
+                alt={name}
+                sx={styles.avatar}
+                variant="rounded"
+                onError={handleImageError}
+                slotProps={{ img: { loading: "lazy" } }}
+            />
+        ) : (
+            <Box sx={styles.placeholder} aria-hidden />
+        );
 
     const Content = (
         <Box sx={styles.content}>
@@ -51,14 +89,16 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
     );
 
     return (
-        <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper}   >
-            {link ? (
-                <Box onClick={handleClick} onKeyDown={handleKeyDown} sx={{ ...styles.linkBox, cursor: 'pointer' }} role="button" tabIndex={0} >
-                    {Content}
-                </Box>
-            ) : (
-                <Box sx={styles.linkBox}>{Content}</Box>
-            )}
+        <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper}  >
+            <Box ref={observerRef}>
+                {link ? (
+                    <Box onClick={handleClick} onKeyDown={handleKeyDown} sx={{ ...styles.linkBox, cursor: 'pointer' }} role="button" tabIndex={0}  >
+                        {Content}
+                    </Box>
+                ) : (
+                    <Box sx={styles.linkBox}>{Content}</Box>
+                )}
+            </Box>
         </Paper>
     );
 };
