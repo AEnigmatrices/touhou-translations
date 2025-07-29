@@ -1,8 +1,7 @@
-import { u as usePageContext, i as import1 } from "../chunks/chunk-DuogPw2d.js";
+import { i as import1 } from "../chunks/chunk-fNEiddaa.js";
 import { jsx } from "react/jsx-runtime";
 import { render } from "vike/abort";
-import { L as ListPage } from "../chunks/chunk-CjFP8Lfq.js";
-import { i as import3 } from "../chunks/chunk-DvfotoXw.js";
+import { u as useAppData, L as ListPage } from "../chunks/chunk-CTK27XEU.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -20,9 +19,11 @@ import "@mui/icons-material/ArrowUpward";
 import "@mui/icons-material/ArrowDownward";
 /*! src/pages/artists/+Page.tsx [vike:pluginModuleBanner] */
 const Page = () => {
-  const { appData } = usePageContext();
-  if (!appData || !appData.artists || appData.artists.length === 0) throw render(404, "No artists found");
-  return /* @__PURE__ */ jsx(ListPage, { mode: "artist", artists: appData.artists });
+  const { artists, loading, error } = useAppData();
+  if (loading) return /* @__PURE__ */ jsx("div", { children: "Loading..." });
+  if (error) throw render(500, error.message);
+  if (!artists || artists.length === 0) throw render(404, "No artists found");
+  return /* @__PURE__ */ jsx(ListPage, { mode: "artist", artists });
 };
 const import2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -52,14 +53,6 @@ const configValuesSerialized = {
     valueSerialized: {
       type: "plus-file",
       exportValues: import2
-    }
-  },
-  ["data"]: {
-    type: "standard",
-    definedAtData: { "filePathToShowToUser": "/src/renderer/+data.ts", "fileExportPathToShowToUser": [] },
-    valueSerialized: {
-      type: "plus-file",
-      exportValues: import3
     }
   }
 };

@@ -1,6 +1,5 @@
-import { u as usePageContext, i as import1 } from "../chunks/chunk-DuogPw2d.js";
+import { u as usePageContext, i as import1 } from "../chunks/chunk-fNEiddaa.js";
 import { jsx } from "react/jsx-runtime";
-import { i as import3 } from "../chunks/chunk-DvfotoXw.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -59,14 +58,6 @@ const configValuesSerialized = {
     valueSerialized: {
       type: "plus-file",
       exportValues: import2
-    }
-  },
-  ["data"]: {
-    type: "standard",
-    definedAtData: { "filePathToShowToUser": "/src/renderer/+data.ts", "fileExportPathToShowToUser": [] },
-    valueSerialized: {
-      type: "plus-file",
-      exportValues: import3
     }
   }
 };

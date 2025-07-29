@@ -1,4 +1,4 @@
-import { b as useGetPosts, c as useGetCharacter, d as useGetArtist, i as import1 } from "../chunks/chunk-DuogPw2d.js";
+import { b as useGetPosts, h as useGetCharacter, j as useGetArtist, i as import1 } from "../chunks/chunk-fNEiddaa.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Box } from "@mui/material";
@@ -12,7 +12,6 @@ import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useTheme } from "@mui/material/styles";
-import { i as import3 } from "../chunks/chunk-DvfotoXw.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -314,14 +313,6 @@ const configValuesSerialized = {
     valueSerialized: {
       type: "plus-file",
       exportValues: import2
-    }
-  },
-  ["data"]: {
-    type: "standard",
-    definedAtData: { "filePathToShowToUser": "/src/renderer/+data.ts", "fileExportPathToShowToUser": [] },
-    valueSerialized: {
-      type: "plus-file",
-      exportValues: import3
     }
   }
 };

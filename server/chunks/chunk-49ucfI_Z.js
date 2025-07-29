@@ -1,7 +1,7 @@
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import React, { useState } from "react";
 import { navigate } from "vike/client/router";
-import { b as useGetPosts } from "./chunk-DuogPw2d.js";
+import { b as useGetPosts } from "./chunk-fNEiddaa.js";
 import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab } from "@mui/material";
 import { e as extractRedditId } from "./chunk-D1bws8Ae.js";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
