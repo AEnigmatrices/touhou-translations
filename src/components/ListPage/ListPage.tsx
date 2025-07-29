@@ -32,6 +32,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
 
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
+    const [shouldLoadImages, setShouldLoadImages] = useState(false);
     const [sortOrder, setSortOrder] = useState<SortOrder>("none");
     const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
     const loadMoreRef = useRef<HTMLDivElement | null>(null);
@@ -74,7 +75,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
 
             return (
                 <Suspense fallback={null} key={id}>
-                    <ProfileItem name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
+                    <ProfileItem name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} shouldLoadImage={shouldLoadImages} />
                 </Suspense>
             );
         });
@@ -102,6 +103,14 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
     }, [sortedItems]);
 
     useEffect(() => { setVisibleCount(PAGE_SIZE); }, [searchQuery, sortOrder]);
+
+    useEffect(() => {
+        if ('requestIdleCallback' in window) {
+            (window as any).requestIdleCallback(() => setShouldLoadImages(true));
+        } else {
+            setTimeout(() => setShouldLoadImages(true), 1000);
+        }
+    }, []);
 
 
 

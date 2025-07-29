@@ -9,12 +9,12 @@ interface Props {
     imageUrl?: string | null;
     description?: string;
     link?: string;
+    shouldLoadImage?: boolean;
 }
 
-const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
+const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link, shouldLoadImage = false }) => {
 
-    const [imgSrc, setImgSrc] = useState(imageUrl ?? getRandomPlaceholder());
-    const [showImage, setShowImage] = useState(false);
+    const [imgSrc, setImgSrc] = useState<string | null>(null);
 
 
 
@@ -37,23 +37,15 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
 
 
     useEffect(() => {
-        const timeout = typeof window !== "undefined" && "requestIdleCallback" in window
-            ? window.requestIdleCallback(() => setShowImage(true))
-            : setTimeout(() => setShowImage(true), 200);
-
-        return () => {
-            if (typeof window !== "undefined" && "cancelIdleCallback" in window) {
-                window.cancelIdleCallback(timeout as number);
-            } else {
-                clearTimeout(timeout as number);
-            }
-        };
-    }, []);
+        if (shouldLoadImage) {
+            setImgSrc(imageUrl ?? getRandomPlaceholder());
+        }
+    }, [shouldLoadImage, imageUrl]);
 
 
 
-    const ImageContent = imageUrl && showImage
-        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "eager" } }} />
+    const ImageContent = imgSrc
+        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "lazy" } }} />
         : <Box sx={styles.placeholder} aria-hidden />;
 
     const Content = (
