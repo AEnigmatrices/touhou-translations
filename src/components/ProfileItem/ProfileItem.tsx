@@ -17,6 +17,8 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
     const [isVisible, setIsVisible] = useState(false);
     const [imgSrc, setImgSrc] = useState<string | null>(null);
 
+
+
     const handleClick = () => {
         if (link) navigate(link);
     };
@@ -28,9 +30,7 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         }
     };
 
-    const handleImageError = () => {
-        setImgSrc(getRandomPlaceholder());
-    };
+    const handleImageError = () => setImgSrc(getRandomPlaceholder());
 
 
 
@@ -38,41 +38,26 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         const node = observerRef.current;
         if (!node) return;
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.1 }
-        );
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                setIsVisible(true);
+                observer.disconnect();
+            }
+        }, { threshold: 0.1 });
 
         observer.observe(node);
         return () => observer.disconnect();
     }, []);
 
     useEffect(() => {
-        if (isVisible) {
-            setImgSrc(imageUrl ?? getRandomPlaceholder());
-        }
+        if (isVisible) setImgSrc(imageUrl || getRandomPlaceholder());
     }, [isVisible, imageUrl]);
 
 
 
     const ImageContent = imgSrc
-        ? (
-            <Avatar
-                src={imgSrc}
-                alt={name}
-                sx={styles.avatar}
-                variant="rounded"
-                onError={handleImageError}
-                slotProps={{ img: { loading: "lazy" } }}
-            />
-        ) : (
-            <Box sx={styles.placeholder} aria-hidden />
-        );
+        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "lazy" } }} />
+        : <Box sx={styles.placeholder} aria-hidden />;
 
     const Content = (
         <Box sx={styles.content}>
