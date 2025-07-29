@@ -1,11 +1,15 @@
 import { render } from 'vike/abort';
 import ListPage from '../../components/ListPage/ListPage';
-import { usePageContext } from '../../renderer/usePageContext';
+import { useAppData } from '../../renderer/useAppData';
 
 const Page = () => {
-    const { appData } = usePageContext();
-    if (!appData || !appData.artists || appData.artists.length === 0) throw render(404, 'No artists found');
-    return <ListPage mode="artist" artists={appData.artists} />;
+    const { artists, loading, error } = useAppData();
+
+    if (loading) return <div>Loading...</div>;
+    if (error) throw render(500, error.message);
+    if (!artists || artists.length === 0) throw render(404, 'No artists found');
+
+    return <ListPage mode="artist" artists={artists} />;
 };
 
 export default Page;

@@ -23,3 +23,18 @@ declare global {
         }
     }
 }
+
+export interface ExtendedPageContext extends PageContext {
+    post?: Post
+    data?: {
+        post?: Post
+        posts?: Post[]
+        artists?: Artist[]
+        characters?: Character[]
+    }
+    appData?: {
+        posts?: Post[]
+        artists?: Artist[]
+        characters?: Character[]
+    }
+}
