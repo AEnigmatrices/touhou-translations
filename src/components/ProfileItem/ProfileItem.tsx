@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { navigate } from "vike/client/router";
 import { getRandomPlaceholder } from "../../utils/galleryUtils";
 import { Box, Avatar, Typography, Paper } from "@mui/material";
@@ -14,7 +14,6 @@ interface Props {
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
 
     const [imgSrc, setImgSrc] = useState(imageUrl ?? getRandomPlaceholder());
-    const [showImage, setShowImage] = useState(false);
 
 
 
@@ -33,16 +32,8 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         setImgSrc(getRandomPlaceholder());
     };
 
-    useEffect(() => {
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                setShowImage(true);
-            });
-        });
-    }, []);
-
-    const ImageContent = imageUrl && showImage
-        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "lazy" } }} />
+    const ImageContent = imageUrl
+        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "eager" } }} />
         : <Box sx={styles.placeholder} aria-hidden />;
 
     const Content = (
