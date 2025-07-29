@@ -14,7 +14,7 @@ interface Props {
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
 
     const [imgSrc, setImgSrc] = useState(imageUrl ?? getRandomPlaceholder());
-    const [hasMounted, setHasMounted] = useState(false);
+    const [showImage, setShowImage] = useState(false);
 
 
 
@@ -33,9 +33,15 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         setImgSrc(getRandomPlaceholder());
     };
 
-    useEffect(() => { setHasMounted(true); }, []);
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                setShowImage(true);
+            });
+        });
+    }, []);
 
-    const ImageContent = imageUrl && hasMounted
+    const ImageContent = imageUrl && showImage
         ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "lazy" } }} />
         : <Box sx={styles.placeholder} aria-hidden />;
 
