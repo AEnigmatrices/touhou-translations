@@ -1,7 +1,7 @@
-import { b as fetchPosts, e as useGetCharacter, h as useGetArtist, j as useGetCharacters, i as import1 } from "../chunks/chunk-DPmHre0G.js";
+import { b as fetchPosts, e as useGetCharacter, h as useGetArtist, j as useGetCharacters, i as import1 } from "../chunks/chunk-ZayQ6bkZ.js";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
-import { u as useData } from "../chunks/chunk-CyTfn6rt.js";
+import { u as useData } from "../chunks/chunk-Cu_rZyQE.js";
 import React, { useState, useCallback, useEffect } from "react";
 import { Box, Link, IconButton, Typography } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";

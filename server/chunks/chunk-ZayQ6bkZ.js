@@ -495,7 +495,7 @@ const theme = createTheme({
   }
 });
 /*! src/components/PageLayout/PageLayout.tsx [vike:pluginModuleBanner] */
-const Navbar = lazy(() => import("./chunk-BuIWJWpi.js"));
+const Navbar = lazy(() => import("./chunk-CNKPjoa9.js"));
 const Footer = lazy(() => import("./chunk-B-dQnOcx.js"));
 const PageLayout = ({ pageContext, children }) => {
   return /* @__PURE__ */ jsx(StrictMode, { children: /* @__PURE__ */ jsxs(ThemeProvider, { theme, children: [
@@ -541,6 +541,8 @@ const onRenderHtml = async (pageContext) => {
             <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.png" />
             <link rel="manifest" href="/touhou-translations/manifest.json" />
 
+            <link rel="preload" as="fetch" href="/artists/index.pageContext.json" crossorigin="anonymous">
+            <link rel="preload" as="fetch" href="/characters/index.pageContext.json" crossorigin="anonymous">
             <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
             <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />

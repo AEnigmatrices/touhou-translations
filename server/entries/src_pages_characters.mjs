@@ -1,7 +1,7 @@
-import { c as fetchCharacters, b as fetchPosts, d as getCharacterArtworkCounts, i as import1 } from "../chunks/chunk-DPmHre0G.js";
+import { c as fetchCharacters, b as fetchPosts, d as getCharacterArtworkCounts, i as import1 } from "../chunks/chunk-ZayQ6bkZ.js";
 import { jsx } from "react/jsx-runtime";
 import { L as ListPage } from "../chunks/chunk-B69oECoH.js";
-import { u as useData } from "../chunks/chunk-CyTfn6rt.js";
+import { u as useData } from "../chunks/chunk-Cu_rZyQE.js";
 import { render } from "vike/abort";
 import "react-dom/server";
 import "vike/server";

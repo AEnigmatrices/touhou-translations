@@ -1,4 +1,4 @@
-import { k as usePageContext } from "./chunk-DPmHre0G.js";
+import { k as usePageContext } from "./chunk-ZayQ6bkZ.js";
 /*! src/renderer/useData.ts [vike:pluginModuleBanner] */
 const useData = () => {
   const { data } = usePageContext();

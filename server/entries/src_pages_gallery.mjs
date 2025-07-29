@@ -1,4 +1,4 @@
-import { u as useGetPosts, e as useGetCharacter, h as useGetArtist, i as import1 } from "../chunks/chunk-DPmHre0G.js";
+import { u as useGetPosts, e as useGetCharacter, h as useGetArtist, i as import1 } from "../chunks/chunk-ZayQ6bkZ.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Box } from "@mui/material";
