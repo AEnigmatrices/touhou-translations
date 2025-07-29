@@ -67,7 +67,7 @@ const styles = {
 /*! src/components/ProfileItem/ProfileItem.tsx [vike:pluginModuleBanner] */
 const ProfileItem = ({ name, imageUrl, description, link }) => {
   const [imgSrc, setImgSrc] = useState(imageUrl ?? getRandomPlaceholder());
-  const [hasMounted, setHasMounted] = useState(false);
+  const [showImage, setShowImage] = useState(false);
   const handleClick = () => {
     if (link) navigate(link);
   };
@@ -81,9 +81,13 @@ const ProfileItem = ({ name, imageUrl, description, link }) => {
     setImgSrc(getRandomPlaceholder());
   };
   useEffect(() => {
-    setHasMounted(true);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setShowImage(true);
+      });
+    });
   }, []);
-  const ImageContent = imageUrl && hasMounted ? /* @__PURE__ */ jsx(Avatar, { src: imgSrc, alt: name, sx: styles.avatar, variant: "rounded", onError: handleImageError, slotProps: { img: { loading: "lazy" } } }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
+  const ImageContent = imageUrl && showImage ? /* @__PURE__ */ jsx(Avatar, { src: imgSrc, alt: name, sx: styles.avatar, variant: "rounded", onError: handleImageError, slotProps: { img: { loading: "lazy" } } }) : /* @__PURE__ */ jsx(Box, { sx: styles.placeholder, "aria-hidden": true });
   const Content = /* @__PURE__ */ jsxs(Box, { sx: styles.content, children: [
     ImageContent,
     /* @__PURE__ */ jsxs(Box, { sx: styles.textContainer, children: [
