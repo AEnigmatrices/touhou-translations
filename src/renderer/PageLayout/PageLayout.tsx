@@ -24,7 +24,7 @@ const PageLayout = ({ pageContext, children }: { pageContext: PageContext; child
                     <PageContextProvider pageContext={enhancedPageContext}>
                         <Box sx={styles.layoutContainer}>
                             <Suspense fallback={<Loading />}>
-                                <Navbar pageContext={pageContext} />
+                                <Navbar />
                             </Suspense>
                             <Suspense fallback={<Loading />}>
                                 <Box component="main" sx={styles.mainContent}>

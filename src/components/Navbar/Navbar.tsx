@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { navigate } from 'vike/client/router';
 import { useAppData } from '../../renderer/useAppData';
+import { usePageContext } from '../../renderer/usePageContext';
 import { AppBar, Toolbar, Tabs, Tab, IconButton, Drawer, List, ListItemButton, ListItemText, Typography, useMediaQuery, Box, useTheme } from '@mui/material';
 import { ElevationScroll, navLinks, getRandomPostPath } from './Navbar.utils';
 import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from './Navbar.styles';
 import MenuIcon from '@mui/icons-material/Menu';
-import type { PageContext } from 'vike/types';
 
 
 
-const Navbar: React.FC<{ pageContext: PageContext }> = ({ pageContext }) => {
+const Navbar: React.FC = () => {
     const theme = useTheme();
+    const pageContext = usePageContext();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [drawerOpen, setDrawerOpen] = useState(false);
 
