@@ -31,6 +31,11 @@ jobs:
             - name: Build project
               run: npm run build
 
+            - name: Run postbuild steps
+              run: |
+                  npx tsx scripts/copyIndexTo404.ts
+                  npx tsx scripts/moveDist.ts
+
             - name: Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v3
               with:
