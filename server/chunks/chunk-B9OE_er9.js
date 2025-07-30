@@ -1,5 +1,5 @@
 import { jsx, jsxs } from "react/jsx-runtime";
-import { useMemo, useState, useRef, useEffect, Suspense } from "react";
+import { useMemo, useState, useRef, useEffect } from "react";
 import { Container, Box, Typography, TextField } from "@mui/material";
 import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-D4yE-5Mp.js";
 import IconButton from "@mui/material/IconButton";
@@ -124,7 +124,7 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
       const hasPortrait = isCharacter ? validPortraits.characters.includes(id) : validPortraits.artists.includes(id);
       const imageUrl = hasPortrait ? isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id) : getRandomPlaceholder();
       const toUrl = isCharacter ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
-      return /* @__PURE__ */ jsx(Suspense, { fallback: null, children: /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl }) }, id);
+      return /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl });
     });
   };
   useEffect(() => {

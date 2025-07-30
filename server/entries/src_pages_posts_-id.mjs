@@ -1,6 +1,4 @@
-import { u as usePageContext, i as import1 } from "../chunks/chunk-DcZ7tQ28.js";
-import { f as fetchPosts, u as useAppData } from "../chunks/chunk-CXFrBQNp.js";
-import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
+import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-B-1wTCPj.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
 import React, { useState, useCallback, useEffect } from "react";
@@ -12,13 +10,15 @@ import remarkGfm from "remark-gfm";
 import { createPortal } from "react-dom";
 import { a as getArtistPortraits, g as getCharacterPortraits, P as ProfileItem } from "../chunks/chunk-D4yE-5Mp.js";
 import Box$1 from "@mui/material/Box";
-import "react-streaming/server";
+import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";
 import "@emotion/cache";
-import "@mui/material/styles";
 import "vike/client/router";
+import "@mui/material/useScrollTrigger";
+import "@mui/icons-material/Menu";
+import "@mui/material/styles";
 /*! src/pages/posts/@id/+onBeforePrerenderStart.ts [vike:pluginModuleBanner] */
 const onBeforePrerenderStart = async () => {
   try {

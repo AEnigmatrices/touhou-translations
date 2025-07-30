@@ -1,12 +1,15 @@
-import { i as import1 } from "../chunks/chunk-DcZ7tQ28.js";
+import { i as import1 } from "../chunks/chunk-B-1wTCPj.js";
 import { jsx } from "react/jsx-runtime";
 import { Typography } from "@mui/material";
-import "react-streaming/server";
+import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";
 import "@emotion/cache";
 import "react";
+import "vike/client/router";
+import "@mui/material/useScrollTrigger";
+import "@mui/icons-material/Menu";
 import "@mui/material/styles";
 /*! src/pages/index/+Page.tsx [vike:pluginModuleBanner] */
 const Page = () => {

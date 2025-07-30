@@ -1,15 +1,17 @@
-import { i as import1 } from "../chunks/chunk-DcZ7tQ28.js";
+import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-B-1wTCPj.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { a as artists, u as useAppData } from "../chunks/chunk-CXFrBQNp.js";
-import "react-streaming/server";
+import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";
 import "@emotion/cache";
+import "vike/client/router";
+import "@mui/material/useScrollTrigger";
+import "@mui/icons-material/Menu";
 import "@mui/material/styles";
 /*! src/components/DataForms/PostForm/PostForm.utils.ts [vike:pluginModuleBanner] */
 const headers$1 = { "Content-Type": "application/json" };

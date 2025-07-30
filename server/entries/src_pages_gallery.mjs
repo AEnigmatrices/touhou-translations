@@ -1,9 +1,7 @@
-import { i as import1 } from "../chunks/chunk-DcZ7tQ28.js";
+import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-B-1wTCPj.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
-import { u as useAppData } from "../chunks/chunk-CXFrBQNp.js";
 import { Box } from "@mui/material";
-import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-D4yE-5Mp.js";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
@@ -13,12 +11,14 @@ import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useTheme } from "@mui/material/styles";
-import "react-streaming/server";
+import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";
 import "@emotion/cache";
 import "vike/client/router";
+import "@mui/material/useScrollTrigger";
+import "@mui/icons-material/Menu";
 /*! src/utils/filterPosts.ts [vike:pluginModuleBanner] */
 const filterPosts = (posts, characterQueries, artistQueries, mode = "and") => {
   if (characterQueries.length === 0 && artistQueries.length === 0) return posts;
