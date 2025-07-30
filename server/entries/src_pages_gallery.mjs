@@ -1,6 +1,7 @@
-import { b as useGetPosts, c as useGetCharacter, d as useGetArtist, i as import1 } from "../chunks/chunk-DrVr2UpR.js";
+import { i as import1 } from "../chunks/chunk-CvIAgub0.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
+import { u as useAppData } from "../chunks/chunk-wpDDK5b8.js";
 import { Box } from "@mui/material";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-D4yE-5Mp.js";
@@ -117,7 +118,7 @@ const styles = {
 /*! src/components/Gallery/Gallery.tsx [vike:pluginModuleBanner] */
 const BASE_URL = "/touhou-translations/";
 const Gallery = ({ posts }) => {
-  const allPosts = useGetPosts();
+  const { posts: allPosts } = useAppData();
   const displayedPosts = posts || allPosts;
   if (!displayedPosts.length) return /* @__PURE__ */ jsx("p", { children: "No posts available." });
   return /* @__PURE__ */ jsx(Box, { component: "section", sx: styles.grid, "aria-label": "Gallery grid", children: displayedPosts.map((post) => {
@@ -210,10 +211,8 @@ const loaderBoxStyles = (theme) => ({
 /*! src/pages/gallery/+Page.tsx [vike:pluginModuleBanner] */
 const PAGE_CHUNK_SIZE = 12;
 const Page = ({ urlParsed }) => {
-  const posts = useGetPosts();
-  const getCharacter = useGetCharacter();
-  const getArtist = useGetArtist();
   const theme = useTheme();
+  const { posts, artists, characters, loading, error } = useAppData();
   const searchParams = new URLSearchParams(urlParsed.searchOriginal || "");
   const characterQueries = searchParams.getAll("character");
   const artistQueries = searchParams.getAll("artist");
@@ -225,17 +224,17 @@ const Page = ({ urlParsed }) => {
   const isLoadingRef = useRef(false);
   const observerRef = useRef(null);
   const characterId = characterQueries[0] ?? null;
-  const character = characterId ? getCharacter(characterId) : null;
+  const character = characterId ? characters.find((c) => c.id === characterId) ?? null : null;
   const artistId = artistQueries[0] ?? null;
-  const artist = artistId ? getArtist(artistId) : null;
+  const artist = artistId ? artists.find((a) => a.id === artistId) ?? null : null;
   const filteredPosts = useMemo(() => {
     const baseFiltered = filterPosts(posts, characterQueries, artistQueries, mode);
     return galleryOnly ? baseFiltered.filter((post) => post.url.length > 1) : baseFiltered;
   }, [posts, characterQueries, artistQueries, mode, galleryOnly]);
   const filterKey = useMemo(() => {
     const chars = characterQueries.slice().sort().join(",");
-    const artists = artistQueries.slice().sort().join(",");
-    return `${chars}|${artists}|${mode}|${galleryOnly}|${filteredPosts.length}`;
+    const artists2 = artistQueries.slice().sort().join(",");
+    return `${chars}|${artists2}|${mode}|${galleryOnly}|${filteredPosts.length}`;
   }, [characterQueries, artistQueries, mode, galleryOnly, filteredPosts.length]);
   const shuffledPosts = useMemo(() => filteredPosts.slice().sort(() => Math.random() - 0.5), [filterKey]);
   const visiblePosts = useMemo(() => shuffledPosts.slice(0, visibleCount), [shuffledPosts, visibleCount]);
@@ -268,6 +267,12 @@ const Page = ({ urlParsed }) => {
   useEffect(() => {
     isLoadingRef.current = false;
   }, [visiblePosts.length]);
+  if (loading) {
+    return /* @__PURE__ */ jsx(Box$1, { sx: loaderBoxStyles(theme), children: /* @__PURE__ */ jsx(CircularProgress, {}) });
+  }
+  if (error) {
+    return /* @__PURE__ */ jsx(Box$1, { sx: loaderBoxStyles(theme), children: /* @__PURE__ */ jsx(Typography, { color: "error", children: error.message }) });
+  }
   return /* @__PURE__ */ jsxs(Container, { maxWidth: "lg", sx: containerStyles(theme), children: [
     /* @__PURE__ */ jsxs(Stack, { direction: "row", sx: headerWrapperStyles(theme), children: [
       character && /* @__PURE__ */ jsx(Box$1, { sx: galleryHeaderBoxStyles(theme), children: /* @__PURE__ */ jsx(GalleryHeaderCharacter, { character }) }),

@@ -1,8 +1,8 @@
-import { f as fetchPosts, c as useGetCharacter, d as useGetArtist, e as useGetCharacters, u as usePageContext, i as import1 } from "../chunks/chunk-DrVr2UpR.js";
+import { u as usePageContext, i as import1 } from "../chunks/chunk-CvIAgub0.js";
+import { f as fetchPosts, u as useAppData } from "../chunks/chunk-wpDDK5b8.js";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
-import { u as useAppData } from "../chunks/chunk-Chj2YL_G.js";
 import React, { useState, useCallback, useEffect } from "react";
 import { Box, Link, IconButton, Typography } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -306,7 +306,7 @@ const InfoSection = ({ post, artist, characters }) => {
   const [tooltipPosition, setTooltipPosition] = useState(null);
   const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
   const formattedDate = post.date ? new Date(post.date).toLocaleString("en-US", dateFormatOptions) : "Unknown date";
-  useGetCharacter();
+  const { characters: allCharacters } = useAppData();
   const renderIconLink = (href, ariaLabel, iconSrc, altText) => {
     if (!href) return null;
     return /* @__PURE__ */ jsx(IconButton, { component: "a", href, target: "_blank", rel: "noopener noreferrer", "aria-label": ariaLabel, sx: styles$1.iconButton, size: "small", children: /* @__PURE__ */ jsx("img", { src: iconSrc, alt: altText }) });
@@ -388,10 +388,9 @@ const styles = {
 };
 /*! src/components/ImageViewer/ImageViewer.tsx [vike:pluginModuleBanner] */
 const ImageViewer = ({ post }) => {
-  const getArtist = useGetArtist();
-  const getCharacters = useGetCharacters();
-  const artist = getArtist(post.artistId);
-  const characters = getCharacters(post.characterIds);
+  const { artists, characters: allCharacters } = useAppData();
+  const artist = artists.find((a) => a.id === post.artistId) ?? null;
+  const characters = allCharacters.filter((c) => post.characterIds.includes(c.id));
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleChangeIndex = (direction) => {
     if (post.url.length <= 1) return;

@@ -1,11 +1,12 @@
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import React, { useState } from "react";
 import { navigate } from "vike/client/router";
-import { b as useGetPosts } from "./chunk-DrVr2UpR.js";
+import { u as useAppData } from "./chunk-wpDDK5b8.js";
 import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab } from "@mui/material";
 import { e as extractRedditId } from "./chunk-D1bws8Ae.js";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import MenuIcon from "@mui/icons-material/Menu";
+import "./chunk-CvIAgub0.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -84,7 +85,7 @@ const Navbar = ({ pageContext }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const posts = useGetPosts();
+  const { posts } = useAppData();
   const tabPaths = navLinks.map((link) => link.to);
   const currentTab = tabPaths.includes(pageContext.urlOriginal) ? pageContext.urlOriginal : false;
   const handleLogoClick = () => navigate(getRandomPostPath(posts));

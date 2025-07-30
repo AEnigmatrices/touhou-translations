@@ -1,9 +1,10 @@
-import { a as artists, b as useGetPosts, i as import1 } from "../chunks/chunk-DrVr2UpR.js";
+import { i as import1 } from "../chunks/chunk-CvIAgub0.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { a as artists, u as useAppData } from "../chunks/chunk-wpDDK5b8.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -98,7 +99,7 @@ const styles$2 = {
 const PostForm = () => {
   const { register, handleSubmit, reset, watch, setValue, getValues, setError, clearErrors, formState: { errors, isSubmitting } } = useForm();
   const [loadingRedditData, setLoadingRedditData] = useState(false);
-  const allPosts = useGetPosts();
+  const { posts: allPosts } = useAppData();
   const debounceRef = useRef(null);
   const watchedReddit = watch("reddit");
   const debouncedValidateReddit = useCallback((value) => {
