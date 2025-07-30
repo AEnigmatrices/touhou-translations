@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
 
                         <Box component="span" mx={1}>|</Box>
 
-                        Removal requests:{" "}
+                        Change requests:{" "}
                         <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations/issues" label="Open an issue">Open an issue</ExternalLink>
                     </Typography>
                 </Stack>
