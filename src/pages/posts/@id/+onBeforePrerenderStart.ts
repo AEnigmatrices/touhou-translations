@@ -7,8 +7,7 @@ import type { OnBeforePrerenderStartAsync } from "vike/types";
 export const onBeforePrerenderStart: OnBeforePrerenderStartAsync = async () => {
     try {
         const posts = await fetchPosts();
-
-        const routes = posts
+        return posts
             .map((post: Post) => {
                 const redditId = extractRedditId(post.reddit);
                 if (!redditId) {
@@ -17,12 +16,10 @@ export const onBeforePrerenderStart: OnBeforePrerenderStartAsync = async () => {
                 }
                 return {
                     url: `/posts/${redditId}`,
-                    pageContext: { data: { post }, postId: redditId }
+                    pageContext: { postId: redditId }
                 };
             })
-            .filter(Boolean);
-
-        return routes as any;
+            .filter(Boolean) as any;
     } catch (error) {
         console.error("Failed to generate prerender routes:", error);
         return [];
