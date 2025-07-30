@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { useGetPosts } from '../../context/PostsContext';
+import { useAppData } from '../../renderer/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
 import GalleryImage from './GalleryImage';
 import styles from './Gallery.styles';
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Gallery: React.FC<Props> = ({ posts }) => {
-    const allPosts = useGetPosts();
+    const { posts: allPosts } = useAppData();
     const displayedPosts = posts || allPosts;
 
     if (!displayedPosts.length) return <p>No posts available.</p>;

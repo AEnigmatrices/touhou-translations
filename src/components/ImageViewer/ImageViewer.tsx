@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
+import { useAppData } from '../../renderer/useAppData';
 import ImageSection from './ImageSection';
 import InfoSection from './InfoSection';
-import { useGetArtist, useGetCharacters } from '../../context/PostsContext';
 import type { Post } from '../../types/data';
 import styles from './ImageViewer.styles';
 
@@ -11,11 +11,11 @@ interface Props { post: Post; }
 
 
 const ImageViewer: React.FC<Props> = ({ post }) => {
-    const getArtist = useGetArtist();
-    const getCharacters = useGetCharacters();
 
-    const artist = getArtist(post.artistId);
-    const characters = getCharacters(post.characterIds);
+    const { artists, characters: allCharacters } = useAppData();
+
+    const artist = artists.find(a => a.id === post.artistId) ?? null;
+    const characters = allCharacters.filter(c => post.characterIds.includes(c.id));
 
     const [currentIndex, setCurrentIndex] = useState(0);
 

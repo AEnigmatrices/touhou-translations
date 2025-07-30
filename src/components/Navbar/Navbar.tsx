@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { navigate } from 'vike/client/router';
-import { useGetPosts } from '../../context/PostsContext';
+import { useAppData } from '../../renderer/useAppData';
 import { AppBar, Toolbar, Tabs, Tab, IconButton, Drawer, List, ListItemButton, ListItemText, Typography, useMediaQuery, Box, useTheme } from '@mui/material';
 import { ElevationScroll, navLinks, getRandomPostPath } from './Navbar.utils';
 import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from './Navbar.styles';
@@ -14,7 +14,7 @@ const Navbar: React.FC<{ pageContext: PageContext }> = ({ pageContext }) => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const posts = useGetPosts();
+    const { posts } = useAppData();
     const tabPaths = navLinks.map(link => link.to);
     const currentTab = tabPaths.includes(pageContext.urlOriginal) ? pageContext.urlOriginal : false;
 

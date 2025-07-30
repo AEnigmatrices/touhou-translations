@@ -1,4 +1,4 @@
-import { fetchPosts } from "../../../context/fetchData";
+import { fetchPosts } from "../../../renderer/fetchData";
 import { extractRedditId } from "../../../utils/extractRedditId";
 import type { Post } from "../../../types/data";
 import type { OnBeforePrerenderStartAsync } from "vike/types";

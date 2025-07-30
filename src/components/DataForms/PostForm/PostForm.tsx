@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button, Stack, Typography, Box } from '@mui/material';
+import { useAppData } from '../../../renderer/useAppData';
 import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl, validateArtistId, submitPostEntry } from './PostForm.utils';
 import styles from './PostForm.styles';
-import { useGetPosts } from '../../../context/PostsContext';
 import type { PostEntryForm } from "../../../types/data";
 
 
@@ -11,7 +11,7 @@ import type { PostEntryForm } from "../../../types/data";
 const PostForm: React.FC = () => {
     const { register, handleSubmit, reset, watch, setValue, getValues, setError, clearErrors, formState: { errors, isSubmitting } } = useForm<PostEntryForm>();
     const [loadingRedditData, setLoadingRedditData] = useState(false);
-    const allPosts = useGetPosts();
+    const { posts: allPosts } = useAppData();
 
     const debounceRef = useRef<NodeJS.Timeout | null>(null);
     const watchedReddit = watch('reddit');

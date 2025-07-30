@@ -4,7 +4,7 @@ import { escapeInject, dangerouslySkipEscape } from 'vike/server';
 import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '../utils/createEmotionCache';
-import { PageLayout } from '../components/PageLayout/PageLayout';
+import { PageLayout } from './PageLayout/PageLayout';
 import type { OnRenderHtmlAsync, PageContext } from 'vike/types';
 
 type Page = (pageProps: any) => ReactElement;

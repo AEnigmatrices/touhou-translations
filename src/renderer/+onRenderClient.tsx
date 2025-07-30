@@ -1,6 +1,6 @@
 import { Suspense, type ReactElement } from 'react';
 import { hydrateRoot, createRoot, type Root } from 'react-dom/client';
-import { PageLayout } from '../components/PageLayout/PageLayout';
+import { PageLayout } from './PageLayout/PageLayout';
 import { CacheProvider } from '@emotion/react';
 import Loading from '../components/Loading/Loading';
 import createEmotionCache from '../utils/createEmotionCache';

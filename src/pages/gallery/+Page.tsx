@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useGetPosts, useGetCharacter, useGetArtist } from '../../context/PostsContext';
+import { useAppData } from '../../renderer/useAppData';
 import { filterPosts } from '../../utils/filterPosts';
 import Gallery from '../../components/Gallery/Gallery';
 import GalleryHeaderCharacter from '../../components/GalleryHeader/GalleryHeaderCharacter';
@@ -19,10 +19,8 @@ import { switchSlotProps, containerStyles, headerWrapperStyles, galleryHeaderBox
 const PAGE_CHUNK_SIZE = 12;
 
 const Page = ({ urlParsed }: { urlParsed: { pathname: string, searchOriginal?: string } }) => {
-    const posts = useGetPosts();
-    const getCharacter = useGetCharacter();
-    const getArtist = useGetArtist();
     const theme = useTheme();
+    const { posts, artists, characters, loading, error } = useAppData();
 
     const searchParams = new URLSearchParams(urlParsed.searchOriginal || '');
 
@@ -39,10 +37,12 @@ const Page = ({ urlParsed }: { urlParsed: { pathname: string, searchOriginal?: s
     const observerRef = useRef<IntersectionObserver | null>(null);
 
     const characterId = characterQueries[0] ?? null;
-    const character = characterId ? getCharacter(characterId) : null;
+    const character = characterId ? characters.find(c => c.id === characterId) ?? null : null;
 
     const artistId = artistQueries[0] ?? null;
-    const artist = artistId ? getArtist(artistId) : null;
+    const artist = artistId ? artists.find(a => a.id === artistId) ?? null : null;
+
+
 
     const filteredPosts = useMemo(() => {
         const baseFiltered = filterPosts(posts, characterQueries, artistQueries, mode);
@@ -58,6 +58,8 @@ const Page = ({ urlParsed }: { urlParsed: { pathname: string, searchOriginal?: s
     const shuffledPosts = useMemo(() => filteredPosts.slice().sort(() => Math.random() - 0.5), [filterKey]);
     const visiblePosts = useMemo(() => shuffledPosts.slice(0, visibleCount), [shuffledPosts, visibleCount]);
 
+
+
     const toggleGalleryOnly = () => {
         const newGalleryOnly = !galleryOnly;
         setGalleryOnly(newGalleryOnly);
@@ -69,6 +71,8 @@ const Page = ({ urlParsed }: { urlParsed: { pathname: string, searchOriginal?: s
         }
         window.history.replaceState(null, '', `${urlParsed.pathname}?${newParams.toString()}`);
     };
+
+
 
     useEffect(() => {
         if (!loaderRef.current) return;
@@ -87,6 +91,24 @@ const Page = ({ urlParsed }: { urlParsed: { pathname: string, searchOriginal?: s
     }, [visiblePosts.length, shuffledPosts.length]);
 
     useEffect(() => { isLoadingRef.current = false; }, [visiblePosts.length]);
+
+
+
+    if (loading) {
+        return (
+            <Box sx={loaderBoxStyles(theme)}>
+                <CircularProgress />
+            </Box>
+        );
+    }
+
+    if (error) {
+        return (
+            <Box sx={loaderBoxStyles(theme)}>
+                <Typography color="error">{error.message}</Typography>
+            </Box>
+        );
+    }
 
     return (
         <Container maxWidth="lg" sx={containerStyles(theme)}>

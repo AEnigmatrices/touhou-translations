@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Box, Typography, Link, IconButton } from '@mui/material';
-import { useGetCharacter } from '../../context/PostsContext';
+import { useAppData } from '../../renderer/useAppData';
 import { dateFormatOptions, replaceXWithNitter } from './ImageViewer.utils';
 import ProfilePopover from '../ProfilePopover/ProfilePopover';
 import styles from './InfoSection.styles';
@@ -29,7 +29,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
     const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
-    const getCharacter = useGetCharacter();
+    const { characters: allCharacters } = useAppData();
 
 
 
@@ -45,7 +45,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
     const handleCharacterMouseEnter = (e: React.MouseEvent, id: string) => {
         const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
         setTooltipPosition({ x: rect.right + 8, y: rect.top });
-        const fullCharacter = getCharacter(id);
+        const fullCharacter = allCharacters.find(c => c.id === id) ?? null;
         setHoveredCharacterData(fullCharacter);
     };
 
