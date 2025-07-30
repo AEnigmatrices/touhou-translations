@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useMemo, useRef, useState, type JSX } from "react";
+import { useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
 import { getCharacterPortraits, getArtistPortraits, getRandomPlaceholder } from "../../utils/galleryUtils";
 import ProfileItem from "../ProfileItem/ProfileItem";
@@ -72,11 +72,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
                 ? `${BASE_URL}gallery?character=${id}`
                 : `${BASE_URL}gallery?artist=${id}`;
 
-            return (
-                <Suspense fallback={null} key={id}>
-                    <ProfileItem name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
-                </Suspense>
-            );
+            return <ProfileItem name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
         });
     };
 

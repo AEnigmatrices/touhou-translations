@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { renderToStream } from 'react-streaming/server';
+import { renderToString } from 'react-dom/server';
 import { escapeInject, dangerouslySkipEscape } from 'vike/server';
 import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
@@ -23,12 +23,9 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
         </CacheProvider>
     );
 
-    const html = require('react-dom/server').renderToString(app);
+    const html = renderToString(app);
     const emotionChunks = extractCriticalToChunks(html);
     const emotionStyleTags = constructStyleTagsFromChunks(emotionChunks);
-
-    const userAgent = pageContext.headers?.['user-agent'];
-    const stream = await renderToStream(app, { userAgent });
 
     const documentHtml = escapeInject`
         <!DOCTYPE html>
@@ -65,7 +62,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             ${dangerouslySkipEscape(emotionStyleTags)}
         </head>
         <body>
-            <div id="root">${stream}</div>
+           <div id="root">${dangerouslySkipEscape(html)}</div>
         </body>
         </html>
     `;
