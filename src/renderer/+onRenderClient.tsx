@@ -1,8 +1,7 @@
-import { Suspense, type ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { hydrateRoot, createRoot, type Root } from 'react-dom/client';
 import { PageLayout } from './PageLayout/PageLayout';
 import { CacheProvider } from '@emotion/react';
-import Loading from '../components/Loading/Loading';
 import createEmotionCache from '../utils/createEmotionCache';
 import './index.css';
 import type { OnRenderClientAsync, PageContext } from 'vike/types';
@@ -18,9 +17,7 @@ const onRenderClient: OnRenderClientAsync = async (pageContext: PageContext) => 
     const page = (
         <CacheProvider value={cache}>
             <PageLayout pageContext={pageContext}>
-                <Suspense fallback={<Loading />}>
-                    <Page {...pageContext} />
-                </Suspense>
+                <Page {...pageContext} />
             </PageLayout>
         </CacheProvider>
     );
