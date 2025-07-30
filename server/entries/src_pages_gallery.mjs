@@ -1,7 +1,7 @@
-import { i as import1 } from "../chunks/chunk-CvIAgub0.js";
+import { i as import1 } from "../chunks/chunk-2WB3rLjB.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
-import { u as useAppData } from "../chunks/chunk-wpDDK5b8.js";
+import { u as useAppData } from "../chunks/chunk-Cz_pmYco.js";
 import { Box } from "@mui/material";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits } from "../chunks/chunk-D4yE-5Mp.js";

@@ -1,5 +1,5 @@
-import { u as usePageContext, i as import1 } from "../chunks/chunk-CvIAgub0.js";
-import { f as fetchPosts, u as useAppData } from "../chunks/chunk-wpDDK5b8.js";
+import { u as usePageContext, i as import1 } from "../chunks/chunk-2WB3rLjB.js";
+import { f as fetchPosts, u as useAppData } from "../chunks/chunk-Cz_pmYco.js";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
