@@ -1,6 +1,6 @@
 import { usePageContext } from '../renderer/usePageContext';
 import { useEffect, useState } from 'react';
-import { fetchPosts, fetchArtists, fetchCharacters } from './fetchData';
+import { fetchPosts, fetchArtists, fetchCharacters } from '../utils/fetchData';
 import type { Post, Artist, Character } from '../types/data';
 
 interface AppData {
