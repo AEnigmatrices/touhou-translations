@@ -1,7 +1,7 @@
-import { i as import1 } from "../chunks/chunk-2WB3rLjB.js";
+import { i as import1 } from "../chunks/chunk-DcZ7tQ28.js";
 import { jsx } from "react/jsx-runtime";
 import { Typography } from "@mui/material";
-import "react-dom/server";
+import "react-streaming/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";

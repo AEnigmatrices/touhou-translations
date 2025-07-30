@@ -1,11 +1,11 @@
-import { i as import1 } from "../chunks/chunk-2WB3rLjB.js";
+import { i as import1 } from "../chunks/chunk-DcZ7tQ28.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { a as artists, u as useAppData } from "../chunks/chunk-Cz_pmYco.js";
-import "react-dom/server";
+import { a as artists, u as useAppData } from "../chunks/chunk-CXFrBQNp.js";
+import "react-streaming/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";

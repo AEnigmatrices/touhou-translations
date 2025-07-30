@@ -1,5 +1,5 @@
-import { u as usePageContext, i as import1 } from "../chunks/chunk-2WB3rLjB.js";
-import { f as fetchPosts, u as useAppData } from "../chunks/chunk-Cz_pmYco.js";
+import { u as usePageContext, i as import1 } from "../chunks/chunk-DcZ7tQ28.js";
+import { f as fetchPosts, u as useAppData } from "../chunks/chunk-CXFrBQNp.js";
 import { e as extractRedditId } from "../chunks/chunk-D1bws8Ae.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
@@ -12,7 +12,7 @@ import remarkGfm from "remark-gfm";
 import { createPortal } from "react-dom";
 import { a as getArtistPortraits, g as getCharacterPortraits, P as ProfileItem } from "../chunks/chunk-D4yE-5Mp.js";
 import Box$1 from "@mui/material/Box";
-import "react-dom/server";
+import "react-streaming/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";

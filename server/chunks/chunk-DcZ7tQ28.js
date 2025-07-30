@@ -1,5 +1,5 @@
 import { jsxs, jsx } from "react/jsx-runtime";
-import { renderToString } from "react-dom/server";
+import { renderToStream } from "react-streaming/server";
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
 import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
@@ -264,14 +264,14 @@ const theme = createTheme({
   }
 });
 /*! src/renderer/PageLayout/PageLayout.tsx [vike:pluginModuleBanner] */
-const Navbar = lazy(() => import("./chunk-DXfKCFnd.js"));
+const Navbar = lazy(() => import("./chunk-BeBr9fKI.js"));
 const Footer = lazy(() => import("./chunk-D0CglXR6.js"));
 const PageLayout = ({ pageContext, children }) => {
   const enhancedPageContext = { ...pageContext, appData: pageContext.data };
   return /* @__PURE__ */ jsx(StrictMode, { children: /* @__PURE__ */ jsxs(ThemeProvider, { theme, children: [
     /* @__PURE__ */ jsx(CssBaseline, {}),
     /* @__PURE__ */ jsx(ErrorBoundary, { children: /* @__PURE__ */ jsx(PageContextProvider, { pageContext: enhancedPageContext, children: /* @__PURE__ */ jsxs(Box, { sx: styles.layoutContainer, children: [
-      /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loading, {}), children: /* @__PURE__ */ jsx(Navbar, { pageContext }) }),
+      /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loading, {}), children: /* @__PURE__ */ jsx(Navbar, {}) }),
       /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loading, {}), children: /* @__PURE__ */ jsx(Box, { component: "main", sx: styles.mainContent, children }) }),
       /* @__PURE__ */ jsx(Suspense, { fallback: /* @__PURE__ */ jsx(Loading, {}), children: /* @__PURE__ */ jsx(Footer, {}) })
     ] }) }) })
@@ -283,9 +283,11 @@ const onRenderHtml = async (pageContext) => {
   const cache = createEmotionCache();
   const { extractCriticalToChunks, constructStyleTagsFromChunks } = createEmotionServer(cache);
   const app = /* @__PURE__ */ jsx(CacheProvider, { value: cache, children: /* @__PURE__ */ jsx(PageLayout, { pageContext, children: /* @__PURE__ */ jsx(Page, { ...pageContext }) }) });
-  const html = renderToString(app);
+  const html = require("react-dom/server").renderToString(app);
   const emotionChunks = extractCriticalToChunks(html);
   const emotionStyleTags = constructStyleTagsFromChunks(emotionChunks);
+  const userAgent = pageContext.headers?.["user-agent"];
+  const stream = await renderToStream(app, { userAgent });
   const documentHtml = escapeInject`
         <!DOCTYPE html>
         <html lang="en">
@@ -321,7 +323,7 @@ const onRenderHtml = async (pageContext) => {
             ${dangerouslySkipEscape(emotionStyleTags)}
         </head>
         <body>
-            <div id="root">${dangerouslySkipEscape(html)}</div>
+            <div id="root">${stream}</div>
         </body>
         </html>
     `;

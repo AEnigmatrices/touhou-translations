@@ -1,13 +1,13 @@
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import React, { useState } from "react";
 import { navigate } from "vike/client/router";
-import { u as useAppData } from "./chunk-Cz_pmYco.js";
+import { u as useAppData } from "./chunk-CXFrBQNp.js";
+import { u as usePageContext } from "./chunk-DcZ7tQ28.js";
 import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab } from "@mui/material";
 import { e as extractRedditId } from "./chunk-D1bws8Ae.js";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import MenuIcon from "@mui/icons-material/Menu";
-import "./chunk-2WB3rLjB.js";
-import "react-dom/server";
+import "react-streaming/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";
@@ -81,8 +81,9 @@ const tabSx = (active) => ({
   color: active ? "#1976d2" : "#333"
 });
 /*! src/components/Navbar/Navbar.tsx [vike:pluginModuleBanner] */
-const Navbar = ({ pageContext }) => {
+const Navbar = () => {
   const theme = useTheme();
+  const pageContext = usePageContext();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { posts } = useAppData();

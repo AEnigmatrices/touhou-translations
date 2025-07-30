@@ -1,9 +1,9 @@
-import { i as import1 } from "../chunks/chunk-2WB3rLjB.js";
+import { i as import1 } from "../chunks/chunk-DcZ7tQ28.js";
 import { jsx } from "react/jsx-runtime";
 import { render } from "vike/abort";
 import { L as ListPage } from "../chunks/chunk-CjFP8Lfq.js";
-import { u as useAppData } from "../chunks/chunk-Cz_pmYco.js";
-import "react-dom/server";
+import { u as useAppData } from "../chunks/chunk-CXFrBQNp.js";
+import "react-streaming/server";
 import "vike/server";
 import "@emotion/react";
 import "@emotion/server/create-instance";
