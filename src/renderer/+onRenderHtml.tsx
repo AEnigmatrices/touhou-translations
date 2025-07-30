@@ -27,7 +27,8 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
     const emotionChunks = extractCriticalToChunks(html);
     const emotionStyleTags = constructStyleTagsFromChunks(emotionChunks);
 
-    const stream = await renderToStream(app);
+    const userAgent = pageContext.headers?.['user-agent'];
+    const stream = await renderToStream(app, { userAgent });
 
     const documentHtml = escapeInject`
         <!DOCTYPE html>
