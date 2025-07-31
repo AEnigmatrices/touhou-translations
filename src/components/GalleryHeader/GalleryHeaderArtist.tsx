@@ -9,15 +9,13 @@ const GalleryHeaderArtist: React.FC<Props> = ({ artist }) => {
     const description = `${artist.artworkCount} artwork${artist.artworkCount !== 1 ? 's' : ''}`;
 
     return (
-        <div className="gallery-page__header">
-            <a href="/touhou-translations/artists" className="gallery-page__header-link" aria-label="Back to artists list">
-                <ProfileItem
-                    name={artist.name}
-                    imageUrl={getArtistPortraits(artist.id)}
-                    description={description}
-                />
-            </a>
-        </div>
+        <a href="/touhou-translations/artists" aria-label="Back to artists list">
+            <ProfileItem
+                name={artist.name}
+                imageUrl={getArtistPortraits(artist.id)}
+                description={description}
+            />
+        </a>
     );
 };
 
