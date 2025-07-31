@@ -124,7 +124,7 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
       const hasPortrait = isCharacter ? validPortraits.characters.includes(id) : validPortraits.artists.includes(id);
       const imageUrl = hasPortrait ? isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id) : getRandomPlaceholder();
       const toUrl = isCharacter ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
-      return /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl });
+      return /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl }, id);
     });
   };
   useEffect(() => {

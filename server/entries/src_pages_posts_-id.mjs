@@ -1,4 +1,4 @@
-import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-DGiGUwsZ.js";
+import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-DTfSF2vB.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
 import React, { useState, useCallback, useEffect } from "react";
@@ -297,10 +297,11 @@ const styles$1 = {
   }
 };
 /*! src/components/ImageViewer/InfoSection.tsx [vike:pluginModuleBanner] */
-const twitterIcon = `${"/touhou-translations/"}icons/social/twitter.webp`;
-const nitterIcon = `${"/touhou-translations/"}icons/social/nitter.webp`;
-const pixivIcon = `${"/touhou-translations/"}icons/social/pixiv.webp`;
-const redditIcon = `${"/touhou-translations/"}icons/social/reddit.webp`;
+const BASE_URL = "/touhou-translations/";
+const twitterIcon = `${BASE_URL}icons/social/twitter.webp`;
+const nitterIcon = `${BASE_URL}icons/social/nitter.webp`;
+const pixivIcon = `${BASE_URL}icons/social/pixiv.webp`;
+const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 const InfoSection = ({ post, artist, characters }) => {
   const [hoveredCharacterData, setHoveredCharacterData] = useState(null);
   const [tooltipPosition, setTooltipPosition] = useState(null);
@@ -340,7 +341,7 @@ const InfoSection = ({ post, artist, characters }) => {
               Link,
               {
                 component: "a",
-                href: `/gallery?character=${c.id}`,
+                href: `${BASE_URL}gallery?character=${c.id}`,
                 sx: styles$1.characterLink,
                 children: c.name
               }

@@ -5,7 +5,7 @@ import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
 import createCache from "@emotion/cache";
 import React, { Component, useContext, useState, useEffect, StrictMode } from "react";
-import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab, Link, Container, Stack, ThemeProvider, CssBaseline } from "@mui/material";
+import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, NoSsr, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab, Link, Container, Stack, ThemeProvider, CssBaseline } from "@mui/material";
 import { navigate } from "vike/client/router";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -259,17 +259,17 @@ const extractRedditId = (url) => {
   return match ? match[1] : "";
 };
 /*! src/components/Navbar/Navbar.utils.ts [vike:pluginModuleBanner] */
-const BASE_PATH = "/touhou-translations/".replace(/\/$/, "");
+const BASE_PATH = "/touhou-translations/";
 const ElevationScroll = (props) => {
   const { children } = props;
   const trigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
   return React.cloneElement(children, { elevation: trigger ? 4 : 0 });
 };
 const navLinks = [
-  { label: "Home", to: `${BASE_PATH}/` },
-  { label: "Characters", to: `${BASE_PATH}/characters/` },
-  { label: "Artists", to: `${BASE_PATH}/artists/` },
-  { label: "Gallery", to: `${BASE_PATH}/gallery/` },
+  { label: "Home", to: BASE_PATH },
+  { label: "Characters", to: `${BASE_PATH}characters` },
+  { label: "Artists", to: `${BASE_PATH}artists` },
+  { label: "Gallery", to: `${BASE_PATH}gallery` },
   ...[]
 ];
 const getRandomPostPath = (posts) => {
@@ -347,10 +347,10 @@ const Navbar = () => {
   };
   return /* @__PURE__ */ jsx(ElevationScroll, { children: /* @__PURE__ */ jsx(AppBar, { position: "sticky", sx: appBarSx, children: /* @__PURE__ */ jsxs(Toolbar, { sx: toolbarSx, children: [
     /* @__PURE__ */ jsx(Typography, { variant: "h6", component: "div", onClick: handleLogoClick, sx: titleSx(theme2), tabIndex: 0, role: "link", "aria-label": "Random post", children: "Touhou Translations" }),
-    isMobile ? /* @__PURE__ */ jsxs(Fragment, { children: [
+    /* @__PURE__ */ jsx(NoSsr, { children: isMobile ? /* @__PURE__ */ jsxs(Fragment, { children: [
       /* @__PURE__ */ jsx(IconButton, { edge: "end", color: "inherit", "aria-label": "open navigation menu", onClick: toggleDrawer(true), size: "large", children: /* @__PURE__ */ jsx(MenuIcon, {}) }),
       /* @__PURE__ */ jsx(Drawer, { anchor: "right", open: drawerOpen, onClose: toggleDrawer(false), children: /* @__PURE__ */ jsx(Box, { sx: drawerBoxSx, role: "presentation", onKeyDown: handleDrawerKeyDown, children: /* @__PURE__ */ jsx(List, { children: navLinks.map(({ label, to }) => /* @__PURE__ */ jsx(ListItemButton, { onClick: () => handleNavigation(to), children: /* @__PURE__ */ jsx(ListItemText, { primary: label }) }, to)) }) }) })
-    ] }) : /* @__PURE__ */ jsx(Tabs, { value: currentTab, textColor: "primary", indicatorColor: "primary", "aria-label": "navigation tabs", sx: tabContainerSx, children: navLinks.map(({ label, to }) => /* @__PURE__ */ jsx(Tab, { value: to, label, onClick: () => handleNavigation(to), sx: tabSx(isCurrent(to)) }, to)) })
+    ] }) : /* @__PURE__ */ jsx(Tabs, { value: currentTab, textColor: "primary", indicatorColor: "primary", "aria-label": "navigation tabs", sx: tabContainerSx, children: navLinks.map(({ label, to }) => /* @__PURE__ */ jsx(Tab, { value: to, label, onClick: () => handleNavigation(to), sx: tabSx(isCurrent(to)) }, to)) }) })
   ] }) }) });
 };
 /*! src/components/ExternalLink/ExternalLink.styles.ts [vike:pluginModuleBanner] */
