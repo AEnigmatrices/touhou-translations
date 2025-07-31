@@ -13,14 +13,12 @@ import type { PageContext } from 'vike/types';
 
 const PageLayout = ({ pageContext, children }: { pageContext: PageContext; children: ReactNode }) => {
 
-    const enhancedPageContext = { ...pageContext, appData: pageContext.data };
-
     return (
         <StrictMode>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <ErrorBoundary>
-                    <PageContextProvider pageContext={enhancedPageContext}>
+                    <PageContextProvider pageContext={pageContext}>
                         <Box sx={styles.layoutContainer}>
                             <Navbar />
                             <Box component="main" sx={styles.mainContent}>
