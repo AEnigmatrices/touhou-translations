@@ -72,7 +72,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
                 ? `${BASE_URL}gallery?character=${id}`
                 : `${BASE_URL}gallery?artist=${id}`;
 
-            return <ProfileItem name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
+            return <ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
         });
     };
 
