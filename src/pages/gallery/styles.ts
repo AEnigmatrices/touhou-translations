@@ -25,7 +25,10 @@ export const headerWrapperStyles = (theme: Theme): SxProps<Theme> => ({
 export const galleryHeaderBoxStyles = (theme: Theme): SxProps<Theme> => ({
     maxWidth: theme.spacing(37.5),
     width: '100%',
-    flexShrink: 0
+    flexShrink: 0,
+    listStyle: 'none',
+    padding: 0,
+    margin: 0
 });
 
 export const switchLabelStyles = (theme: Theme): SxProps<Theme> => ({
