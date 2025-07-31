@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { useAppData } from '../../renderer/useAppData';
 import useFilteredPosts from './useFilteredPosts';
-import useInfiniteScroll from './useInfiniteScroll';
 import useQueryParams from './useQueryParams';
 import Gallery from '../../components/Gallery/Gallery';
 import GalleryHeaderCharacter from '../../components/GalleryHeader/GalleryHeaderCharacter';
@@ -13,20 +13,29 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 import { useTheme } from '@mui/material/styles';
-import { switchSlotProps, containerStyles, headerWrapperStyles, galleryHeaderBoxStyles, switchLabelStyles, loaderBoxStyles } from './styles';
+import styles from './styles';
 
 interface Props { pathname: string; searchOriginal?: string }
+
+const POSTS_PER_PAGE = 18;
 
 
 const Page = ({ urlParsed }: { urlParsed: Props }) => {
     const theme = useTheme();
-    const { posts, artists, characters, loading, error } = useAppData();
 
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const { posts, artists, characters, loading, error } = useAppData();
     const { characterQueries, artistQueries, mode, galleryOnly, toggleGalleryOnly } = useQueryParams(urlParsed);
-    const { loaderRef, visibleCount } = useInfiniteScroll({ totalItems: posts.length });
-    const { shuffledPosts, visiblePosts } = useFilteredPosts({ posts, characterQueries, artistQueries, mode, galleryOnly, visibleCount });
+    const { shuffledPosts } = useFilteredPosts({ posts, characterQueries, artistQueries, mode, galleryOnly });
+
+    const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+    const endIndex = startIndex + POSTS_PER_PAGE;
+    const visiblePosts = shuffledPosts.slice(startIndex, endIndex);
+    const totalPages = Math.ceil(shuffledPosts.length / POSTS_PER_PAGE);
 
     const characterId = characterQueries[0] ?? null;
     const character = characterId ? characters.find(c => c.id === characterId) ?? null : null;
@@ -36,30 +45,64 @@ const Page = ({ urlParsed }: { urlParsed: Props }) => {
 
 
 
-    if (loading) return <Box sx={loaderBoxStyles(theme)}><CircularProgress /></Box>
-    if (error) return <Box sx={loaderBoxStyles(theme)}><Typography color="error">{error.message}</Typography></Box>
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+    };
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        }
+    };
+
+
+
+    if (loading) return <Box sx={styles.loaderBoxStyles(theme)}><CircularProgress /></Box>
+    if (error) return <Box sx={styles.loaderBoxStyles(theme)}><Typography color="error">{error.message}</Typography></Box>
     return (
-        <Container maxWidth="lg" sx={containerStyles(theme)}>
-            <Stack direction="row" sx={headerWrapperStyles(theme)}>
+        <Container maxWidth="lg" sx={styles.containerStyles(theme)}>
+            <Stack direction="row" sx={styles.headerWrapperStyles(theme)}>
                 {character && (
-                    <Box sx={galleryHeaderBoxStyles(theme)}><GalleryHeaderCharacter character={character} /></Box>
+                    <Box sx={styles.galleryHeaderBoxStyles(theme)}><GalleryHeaderCharacter character={character} /></Box>
                 )}
                 {artist && (
-                    <Box sx={galleryHeaderBoxStyles(theme)}><GalleryHeaderArtist artist={artist} /></Box>
+                    <Box sx={styles.galleryHeaderBoxStyles(theme)}><GalleryHeaderArtist artist={artist} /></Box>
                 )}
                 <FormControlLabel
-                    control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" slotProps={switchSlotProps} />}
-                    label={<Typography variant="body1">Gallery Only</Typography>} sx={switchLabelStyles(theme)}
+                    control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" slotProps={styles.switchSlotProps} />}
+                    label={<Typography variant="body1">Gallery Only</Typography>} sx={styles.switchLabelStyles(theme)}
                 />
             </Stack>
 
             <Gallery posts={visiblePosts} />
 
-            {visiblePosts.length < shuffledPosts.length && (
-                <Box ref={loaderRef} sx={loaderBoxStyles(theme)} aria-busy="true">
-                    <CircularProgress />
-                </Box>
-            )}
+            <Stack direction="row" sx={styles.paginationWrapperStyles(theme)}>
+                <Button
+                    variant="contained"
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 1}
+                    sx={styles.paginationButtonStyles(theme)}
+                >
+                    Previous
+                </Button>
+
+                <Typography variant="body1" sx={styles.paginationPageInfoStyles(theme)}>
+                    Page {currentPage} of {totalPages}
+                </Typography>
+
+                <Button
+                    variant="contained"
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                    sx={styles.paginationButtonStyles(theme)}
+                >
+                    Next
+                </Button>
+            </Stack>
         </Container>
     );
 };

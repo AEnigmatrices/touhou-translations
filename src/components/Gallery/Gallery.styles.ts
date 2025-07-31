@@ -1,22 +1,10 @@
 import type { SxProps, Theme } from '@mui/material/styles';
 
 interface GalleryStyles {
-    grid: SxProps<Theme>;
     item: SxProps<Theme>;
 }
 
 const styles: GalleryStyles = {
-    grid: {
-        columnCount: 3,
-        columnGap: '1.25rem',
-        width: '100%',
-        '@media (max-width:1024px)': {
-            columnCount: 2,
-        },
-        '@media (max-width:768px)': {
-            columnCount: 1,
-        },
-    },
     item: {
         breakInside: 'avoid',
         marginBottom: '1.25rem',

@@ -7,10 +7,9 @@ interface Props {
     artistQueries: string[];
     mode: 'and' | 'or';
     galleryOnly: boolean;
-    visibleCount: number;
 }
 
-const useFilteredPosts = ({ posts, characterQueries, artistQueries, mode, galleryOnly, visibleCount }: Props) => {
+const useFilteredPosts = ({ posts, characterQueries, artistQueries, mode, galleryOnly }: Props) => {
 
     const filteredPosts = useMemo(() => {
         const baseFiltered = filterPosts(posts, characterQueries, artistQueries, mode);
@@ -28,12 +27,7 @@ const useFilteredPosts = ({ posts, characterQueries, artistQueries, mode, galler
         [filterKey]
     );
 
-    const visiblePosts = useMemo(
-        () => shuffledPosts.slice(0, visibleCount),
-        [shuffledPosts, visibleCount]
-    );
-
-    return { filteredPosts, shuffledPosts, visiblePosts };
+    return { filteredPosts, shuffledPosts };
 };
 
 export default useFilteredPosts;

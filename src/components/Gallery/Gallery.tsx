@@ -2,6 +2,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { useAppData } from '../../renderer/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
+import Masonry from '@mui/lab/Masonry';
 import GalleryImage from './GalleryImage';
 import styles from './Gallery.styles';
 import type { Post } from '../../types/data';
@@ -19,31 +20,26 @@ const Gallery: React.FC<Props> = ({ posts }) => {
     if (!displayedPosts.length) return <p>No posts available.</p>;
 
     return (
-        <Box component="section" sx={styles.grid} aria-label="Gallery grid">
+        <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2} >
             {displayedPosts.map((post) => {
-                if (!post.url || post.url.length === 0) return null;
+                if (!post.url?.length) return null;
 
                 const imageUrl = post.url[0];
                 const redditId = extractRedditId(post.reddit);
                 if (!redditId) return null;
 
                 return (
-                    <Box key={post.date} component="div" sx={styles.item}>
+                    <Box key={post.date} sx={styles.item}>
                         <a
-                            href={`${BASE_URL}posts/${redditId}`}
-                            aria-label="View post details"
-                            tabIndex={0}
+                            href={`${BASE_URL}posts/${redditId}`} aria-label="View post details" tabIndex={0}
                             style={{ display: 'block', width: '100%', height: '100%' }}
                         >
-                            <GalleryImage
-                                src={imageUrl}
-                                alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
-                            />
+                            <GalleryImage src={imageUrl} alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`} />
                         </a>
                     </Box>
                 );
             })}
-        </Box>
+        </Masonry>
     );
 };
 
