@@ -4,7 +4,7 @@ import { useAppData } from '../../renderer/useAppData';
 import { usePageContext } from '../../renderer/usePageContext';
 import { AppBar, Toolbar, Tabs, Tab, IconButton, Drawer, List, ListItemButton, ListItemText, Typography, useMediaQuery, Box, useTheme, NoSsr } from '@mui/material';
 import { ElevationScroll, navLinks, getRandomPostPath } from './Navbar.utils';
-import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from './Navbar.styles';
+import styles from './Navbar.styles';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
@@ -36,9 +36,9 @@ const Navbar: React.FC = () => {
 
     return (
         <ElevationScroll>
-            <AppBar position="sticky" sx={appBarSx}>
-                <Toolbar sx={toolbarSx}>
-                    <Typography variant="h6" component="div" onClick={handleLogoClick} sx={titleSx(theme)} tabIndex={0} role="link" aria-label="Random post" >
+            <AppBar position="sticky" sx={styles.appBar}>
+                <Toolbar sx={styles.toolbar}>
+                    <Typography variant="h6" component="div" onClick={handleLogoClick} sx={styles.title(theme)} tabIndex={0} role="link" aria-label="Random post" >
                         Touhou Translations
                     </Typography>
                     <NoSsr>
@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
                                 </IconButton>
 
                                 <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}   >
-                                    <Box sx={drawerBoxSx} role="presentation" onKeyDown={handleDrawerKeyDown}   >
+                                    <Box sx={styles.drawerBox} role="presentation" onKeyDown={handleDrawerKeyDown}   >
                                         <List>
                                             {navLinks.map(({ label, to }) => (
                                                 <ListItemButton key={to} onClick={() => handleNavigation(to)}   >
@@ -61,9 +61,9 @@ const Navbar: React.FC = () => {
                                 </Drawer>
                             </>
                         ) : (
-                            <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={tabContainerSx}  >
+                            <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={styles.tabContainer}  >
                                 {navLinks.map(({ label, to }) => (
-                                    <Tab key={to} value={to} label={label} onClick={() => handleNavigation(to)} sx={tabSx(isCurrent(to))} />
+                                    <Tab key={to} value={to} label={label} onClick={() => handleNavigation(to)} sx={styles.tab(isCurrent(to))} />
                                 ))}
                             </Tabs>
                         )}
