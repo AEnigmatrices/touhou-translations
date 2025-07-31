@@ -15,23 +15,21 @@ const POPOVER_SIZE = { width: 320, height: 200 };
 
 
 const ProfilePopover: React.FC<Props> = ({ data, type, position }) => {
-    if (!data || !position) return null;
-
     const [visible, setVisible] = useState(false);
     const [currentPosition, setCurrentPosition] = useState(position);
 
-    const imageUrl = type === 'artist' ? getArtistPortraits(data.id) : getCharacterPortraits(data.id);
-    const description = formatArtworkDescription(data.artworkCount);
+    const imageUrl = type === 'artist' ? getArtistPortraits(data?.id ?? '') : getCharacterPortraits(data?.id ?? '');
+    const description = formatArtworkDescription(data?.artworkCount ?? 0);
 
-    const handleMouseMove = useCallback((e: MouseEvent) => { setCurrentPosition(calculatePopoverPosition(e, POPOVER_OFFSET, POPOVER_SIZE)); }, []);
-
-
+    const handleMouseMove = useCallback((e: MouseEvent) => {
+        setCurrentPosition(calculatePopoverPosition(e, POPOVER_OFFSET, POPOVER_SIZE));
+    }, []);
 
     useEffect(() => {
         if (data && position) {
             setVisible(false);
             setCurrentPosition(position);
-            const timer = setTimeout(() => { setVisible(true); }, 10);
+            const timer = setTimeout(() => setVisible(true), 10);
             return () => clearTimeout(timer);
         } else {
             setVisible(false);
@@ -44,11 +42,14 @@ const ProfilePopover: React.FC<Props> = ({ data, type, position }) => {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, [data, handleMouseMove]);
 
-
-
     return createPortal(
-        <Box sx={getPopoverStyles(visible, currentPosition)}>
-            <ProfileItem name={data.name} imageUrl={imageUrl} description={description} />
+        <Box
+            sx={getPopoverStyles(visible && data !== null && position !== null, currentPosition ?? { x: 0, y: 0 })}
+            aria-hidden={!visible || !data || !position}
+        >
+            {data && position && (
+                <ProfileItem name={data.name} imageUrl={imageUrl} description={description} />
+            )}
         </Box>,
         document.body
     );

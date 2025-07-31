@@ -107,6 +107,11 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                                                 component="a"
                                                 href={`${BASE_URL}gallery?character=${c.id}`}
                                                 sx={styles.characterLink}
+                                                onMouseEnter={(e) => handleCharacterMouseEnter(e, c.id)}
+                                                onMouseLeave={() => {
+                                                    setHoveredCharacterData(null);
+                                                    setTooltipPosition(null);
+                                                }}
                                             >
                                                 {c.name}
                                             </Link>

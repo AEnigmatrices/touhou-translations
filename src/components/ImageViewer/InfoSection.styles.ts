@@ -125,7 +125,8 @@ const styles: InfoSectionStyles = {
         }
     },
     charactersWrapper: {
-        display: 'inline'
+        display: 'inline',
+        textAlign: 'left'
     },
 };
 
