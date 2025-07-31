@@ -7,7 +7,7 @@ interface ElevationScrollProps {
 }
 
 const isDev = import.meta.env.MODE === 'development';
-const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, '');
+const BASE_PATH = import.meta.env.BASE_URL;
 
 export const ElevationScroll: React.FC<ElevationScrollProps> = (props) => {
     const { children } = props;
@@ -16,11 +16,11 @@ export const ElevationScroll: React.FC<ElevationScrollProps> = (props) => {
 }
 
 export const navLinks = [
-    { label: 'Home', to: `${BASE_PATH}/` },
-    { label: 'Characters', to: `${BASE_PATH}/characters/` },
-    { label: 'Artists', to: `${BASE_PATH}/artists/` },
-    { label: 'Gallery', to: `${BASE_PATH}/gallery/` },
-    ...((isDev) ? [{ label: 'Admin', to: `${BASE_PATH}/admin/` }] : []),
+    { label: 'Home', to: BASE_PATH },
+    { label: 'Characters', to: `${BASE_PATH}characters` },
+    { label: 'Artists', to: `${BASE_PATH}artists` },
+    { label: 'Gallery', to: `${BASE_PATH}gallery` },
+    ...((isDev) ? [{ label: 'Admin', to: `${BASE_PATH}admin` }] : []),
 ];
 
 export const getRandomPostPath = (posts: { reddit: string }[]): string => {
