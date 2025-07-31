@@ -1,4 +1,4 @@
-import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-B-1wTCPj.js";
+import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-DGiGUwsZ.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { Box } from "@mui/material";

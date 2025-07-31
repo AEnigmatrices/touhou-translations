@@ -658,10 +658,9 @@ const theme = createTheme({
 });
 /*! src/renderer/PageLayout/PageLayout.tsx [vike:pluginModuleBanner] */
 const PageLayout = ({ pageContext, children }) => {
-  const enhancedPageContext = { ...pageContext, appData: pageContext.data };
   return /* @__PURE__ */ jsx(StrictMode, { children: /* @__PURE__ */ jsxs(ThemeProvider, { theme, children: [
     /* @__PURE__ */ jsx(CssBaseline, {}),
-    /* @__PURE__ */ jsx(ErrorBoundary, { children: /* @__PURE__ */ jsx(PageContextProvider, { pageContext: enhancedPageContext, children: /* @__PURE__ */ jsxs(Box, { sx: styles.layoutContainer, children: [
+    /* @__PURE__ */ jsx(ErrorBoundary, { children: /* @__PURE__ */ jsx(PageContextProvider, { pageContext, children: /* @__PURE__ */ jsxs(Box, { sx: styles.layoutContainer, children: [
       /* @__PURE__ */ jsx(Navbar, {}),
       /* @__PURE__ */ jsx(Box, { component: "main", sx: styles.mainContent, children }),
       /* @__PURE__ */ jsx(Footer, {})
