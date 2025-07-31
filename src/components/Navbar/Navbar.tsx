@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { navigate } from 'vike/client/router';
 import { useAppData } from '../../renderer/useAppData';
 import { usePageContext } from '../../renderer/usePageContext';
-import { AppBar, Toolbar, Tabs, Tab, IconButton, Drawer, List, ListItemButton, ListItemText, Typography, useMediaQuery, Box, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Tabs, Tab, IconButton, Drawer, List, ListItemButton, ListItemText, Typography, useMediaQuery, Box, useTheme, NoSsr } from '@mui/material';
 import { ElevationScroll, navLinks, getRandomPostPath } from './Navbar.utils';
 import { appBarSx, toolbarSx, titleSx, drawerBoxSx, tabContainerSx, tabSx } from './Navbar.styles';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -41,32 +41,33 @@ const Navbar: React.FC = () => {
                     <Typography variant="h6" component="div" onClick={handleLogoClick} sx={titleSx(theme)} tabIndex={0} role="link" aria-label="Random post" >
                         Touhou Translations
                     </Typography>
+                    <NoSsr>
+                        {isMobile ? (
+                            <>
+                                <IconButton edge="end" color="inherit" aria-label="open navigation menu" onClick={toggleDrawer(true)} size="large"   >
+                                    <MenuIcon />
+                                </IconButton>
 
-                    {isMobile ? (
-                        <>
-                            <IconButton edge="end" color="inherit" aria-label="open navigation menu" onClick={toggleDrawer(true)} size="large"   >
-                                <MenuIcon />
-                            </IconButton>
-
-                            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}   >
-                                <Box sx={drawerBoxSx} role="presentation" onKeyDown={handleDrawerKeyDown}   >
-                                    <List>
-                                        {navLinks.map(({ label, to }) => (
-                                            <ListItemButton key={to} onClick={() => handleNavigation(to)}   >
-                                                <ListItemText primary={label} />
-                                            </ListItemButton>
-                                        ))}
-                                    </List>
-                                </Box>
-                            </Drawer>
-                        </>
-                    ) : (
-                        <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={tabContainerSx}  >
-                            {navLinks.map(({ label, to }) => (
-                                <Tab key={to} value={to} label={label} onClick={() => handleNavigation(to)} sx={tabSx(isCurrent(to))} />
-                            ))}
-                        </Tabs>
-                    )}
+                                <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}   >
+                                    <Box sx={drawerBoxSx} role="presentation" onKeyDown={handleDrawerKeyDown}   >
+                                        <List>
+                                            {navLinks.map(({ label, to }) => (
+                                                <ListItemButton key={to} onClick={() => handleNavigation(to)}   >
+                                                    <ListItemText primary={label} />
+                                                </ListItemButton>
+                                            ))}
+                                        </List>
+                                    </Box>
+                                </Drawer>
+                            </>
+                        ) : (
+                            <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={tabContainerSx}  >
+                                {navLinks.map(({ label, to }) => (
+                                    <Tab key={to} value={to} label={label} onClick={() => handleNavigation(to)} sx={tabSx(isCurrent(to))} />
+                                ))}
+                            </Tabs>
+                        )}
+                    </NoSsr>
                 </Toolbar>
             </AppBar>
         </ElevationScroll>
