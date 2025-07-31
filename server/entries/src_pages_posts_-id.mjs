@@ -1,4 +1,4 @@
-import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-DTfSF2vB.js";
+import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-BM7j-M2S.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
 import React, { useState, useCallback, useEffect } from "react";
@@ -154,21 +154,22 @@ const getPopoverStyles = (visible, position) => ({
   left: position.x,
   zIndex: 9999,
   padding: 0.5,
-  pointerEvents: "auto",
+  pointerEvents: visible ? "auto" : "none",
   maxWidth: 320,
   opacity: visible ? 1 : 0,
   transform: visible ? "translateY(0)" : "translateY(10px)",
-  transition: "opacity 0.3s ease, transform 0.3s ease"
+  transition: "opacity 0.3s ease, transform 0.3s ease",
+  listStyle: "none",
+  margin: 0
 });
 /*! src/components/ProfilePopover/ProfilePopover.tsx [vike:pluginModuleBanner] */
 const POPOVER_OFFSET = 10;
 const POPOVER_SIZE = { width: 320, height: 200 };
 const ProfilePopover = ({ data, type, position }) => {
-  if (!data || !position) return null;
   const [visible, setVisible] = useState(false);
   const [currentPosition, setCurrentPosition] = useState(position);
-  const imageUrl = type === "artist" ? getArtistPortraits(data.id) : getCharacterPortraits(data.id);
-  const description = formatArtworkDescription(data.artworkCount);
+  const imageUrl = type === "artist" ? getArtistPortraits(data?.id ?? "") : getCharacterPortraits(data?.id ?? "");
+  const description = formatArtworkDescription(data?.artworkCount ?? 0);
   const handleMouseMove = useCallback((e) => {
     setCurrentPosition(calculatePopoverPosition(e, POPOVER_OFFSET, POPOVER_SIZE));
   }, []);
@@ -176,9 +177,7 @@ const ProfilePopover = ({ data, type, position }) => {
     if (data && position) {
       setVisible(false);
       setCurrentPosition(position);
-      const timer = setTimeout(() => {
-        setVisible(true);
-      }, 10);
+      const timer = setTimeout(() => setVisible(true), 10);
       return () => clearTimeout(timer);
     } else {
       setVisible(false);
@@ -190,7 +189,14 @@ const ProfilePopover = ({ data, type, position }) => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [data, handleMouseMove]);
   return createPortal(
-    /* @__PURE__ */ jsx(Box$1, { sx: getPopoverStyles(visible, currentPosition), children: /* @__PURE__ */ jsx(ProfileItem, { name: data.name, imageUrl, description }) }),
+    /* @__PURE__ */ jsx(
+      Box$1,
+      {
+        sx: getPopoverStyles(visible && data !== null && position !== null, currentPosition ?? { x: 0, y: 0 }),
+        "aria-hidden": !visible || !data || !position,
+        children: data && position && /* @__PURE__ */ jsx(ProfileItem, { name: data.name, imageUrl, description })
+      }
+    ),
     document.body
   );
 };
@@ -293,7 +299,8 @@ const styles$1 = {
     }
   },
   charactersWrapper: {
-    display: "inline"
+    display: "inline",
+    textAlign: "left"
   }
 };
 /*! src/components/ImageViewer/InfoSection.tsx [vike:pluginModuleBanner] */
@@ -311,6 +318,12 @@ const InfoSection = ({ post, artist, characters }) => {
   const renderIconLink = (href, ariaLabel, iconSrc, altText) => {
     if (!href) return null;
     return /* @__PURE__ */ jsx(IconButton, { component: "a", href, target: "_blank", rel: "noopener noreferrer", "aria-label": ariaLabel, sx: styles$1.iconButton, size: "small", children: /* @__PURE__ */ jsx("img", { src: iconSrc, alt: altText }) });
+  };
+  const handleCharacterMouseEnter = (e, id) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setTooltipPosition({ x: rect.right + 8, y: rect.top });
+    const fullCharacter = allCharacters.find((c) => c.id === id) ?? null;
+    setHoveredCharacterData(fullCharacter);
   };
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsxs(Box, { sx: styles$1.root, children: [
@@ -343,6 +356,11 @@ const InfoSection = ({ post, artist, characters }) => {
                 component: "a",
                 href: `${BASE_URL}gallery?character=${c.id}`,
                 sx: styles$1.characterLink,
+                onMouseEnter: (e) => handleCharacterMouseEnter(e, c.id),
+                onMouseLeave: () => {
+                  setHoveredCharacterData(null);
+                  setTooltipPosition(null);
+                },
                 children: c.name
               }
             ),

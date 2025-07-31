@@ -279,52 +279,54 @@ const getRandomPostPath = (posts) => {
   return redditId ? `${BASE_PATH}/posts/${redditId}/` : `${BASE_PATH}/`;
 };
 /*! src/components/Navbar/Navbar.styles.ts [vike:pluginModuleBanner] */
-const appBarSx = {
-  backgroundColor: "rgba(255, 255, 255, 0.95)",
-  backdropFilter: "blur(8px)",
-  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-  zIndex: 1100,
-  borderBottom: "1px solid rgba(0, 0, 0, 0.08)"
-};
-const toolbarSx = {
-  maxWidth: 1200,
-  margin: "0 auto",
-  width: "100%",
-  justifyContent: "flex-start",
-  paddingY: 1.5
-};
-const titleSx = (theme2) => ({
-  flexGrow: 1,
-  color: theme2.palette.text.primary,
-  textDecoration: "none",
-  fontWeight: "bold",
-  cursor: "pointer"
-});
-const drawerBoxSx = {
-  width: 250
-};
-const tabContainerSx = {
-  minHeight: 48
-};
-const tabSx = (active) => ({
-  textTransform: "none",
-  marginRight: 3,
-  borderRadius: 1,
-  transition: "background-color 0.3s ease, color 0.3s ease",
-  "&:hover": {
-    backgroundColor: "rgba(0, 0, 0, 0.05)",
-    color: "#000"
+const styles$3 = {
+  appBar: {
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    backdropFilter: "blur(8px)",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+    zIndex: 1100,
+    borderBottom: "1px solid rgba(0, 0, 0, 0.08)"
   },
-  "&:active": {
-    backgroundColor: "rgba(0, 0, 0, 0.1)"
+  toolbar: {
+    maxWidth: 1200,
+    margin: "0 auto",
+    width: "100%",
+    justifyContent: "flex-start",
+    paddingY: 1.5
   },
-  "&:last-of-type": {
-    marginRight: 0
+  title: (theme2) => ({
+    flexGrow: 1,
+    color: theme2.palette.text.primary,
+    textDecoration: "none",
+    fontWeight: "bold",
+    cursor: "pointer"
+  }),
+  drawerBox: {
+    width: 250
   },
-  minHeight: 48,
-  fontWeight: 600,
-  color: active ? "#1976d2" : "#333"
-});
+  tabContainer: {
+    minHeight: 48
+  },
+  tab: (active) => ({
+    textTransform: "none",
+    marginRight: 3,
+    borderRadius: 1,
+    transition: "background-color 0.3s ease, color 0.3s ease",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0.05)",
+      color: "#000"
+    },
+    "&:active": {
+      backgroundColor: "rgba(0, 0, 0, 0.1)"
+    },
+    "&:last-of-type": {
+      marginRight: 0
+    },
+    minHeight: 48,
+    fontWeight: 600,
+    color: active ? "#1976d2" : "#333"
+  })
+};
 /*! src/components/Navbar/Navbar.tsx [vike:pluginModuleBanner] */
 const Navbar = () => {
   const theme2 = useTheme();
@@ -345,12 +347,12 @@ const Navbar = () => {
     setDrawerOpen(false);
     navigate(to);
   };
-  return /* @__PURE__ */ jsx(ElevationScroll, { children: /* @__PURE__ */ jsx(AppBar, { position: "sticky", sx: appBarSx, children: /* @__PURE__ */ jsxs(Toolbar, { sx: toolbarSx, children: [
-    /* @__PURE__ */ jsx(Typography, { variant: "h6", component: "div", onClick: handleLogoClick, sx: titleSx(theme2), tabIndex: 0, role: "link", "aria-label": "Random post", children: "Touhou Translations" }),
+  return /* @__PURE__ */ jsx(ElevationScroll, { children: /* @__PURE__ */ jsx(AppBar, { position: "sticky", sx: styles$3.appBar, children: /* @__PURE__ */ jsxs(Toolbar, { sx: styles$3.toolbar, children: [
+    /* @__PURE__ */ jsx(Typography, { variant: "h6", component: "div", onClick: handleLogoClick, sx: styles$3.title(theme2), tabIndex: 0, role: "link", "aria-label": "Random post", children: "Touhou Translations" }),
     /* @__PURE__ */ jsx(NoSsr, { children: isMobile ? /* @__PURE__ */ jsxs(Fragment, { children: [
       /* @__PURE__ */ jsx(IconButton, { edge: "end", color: "inherit", "aria-label": "open navigation menu", onClick: toggleDrawer(true), size: "large", children: /* @__PURE__ */ jsx(MenuIcon, {}) }),
-      /* @__PURE__ */ jsx(Drawer, { anchor: "right", open: drawerOpen, onClose: toggleDrawer(false), children: /* @__PURE__ */ jsx(Box, { sx: drawerBoxSx, role: "presentation", onKeyDown: handleDrawerKeyDown, children: /* @__PURE__ */ jsx(List, { children: navLinks.map(({ label, to }) => /* @__PURE__ */ jsx(ListItemButton, { onClick: () => handleNavigation(to), children: /* @__PURE__ */ jsx(ListItemText, { primary: label }) }, to)) }) }) })
-    ] }) : /* @__PURE__ */ jsx(Tabs, { value: currentTab, textColor: "primary", indicatorColor: "primary", "aria-label": "navigation tabs", sx: tabContainerSx, children: navLinks.map(({ label, to }) => /* @__PURE__ */ jsx(Tab, { value: to, label, onClick: () => handleNavigation(to), sx: tabSx(isCurrent(to)) }, to)) }) })
+      /* @__PURE__ */ jsx(Drawer, { anchor: "right", open: drawerOpen, onClose: toggleDrawer(false), children: /* @__PURE__ */ jsx(Box, { sx: styles$3.drawerBox, role: "presentation", onKeyDown: handleDrawerKeyDown, children: /* @__PURE__ */ jsx(List, { children: navLinks.map(({ label, to }) => /* @__PURE__ */ jsx(ListItemButton, { onClick: () => handleNavigation(to), children: /* @__PURE__ */ jsx(ListItemText, { primary: label }) }, to)) }) }) })
+    ] }) : /* @__PURE__ */ jsx(Tabs, { value: currentTab, textColor: "primary", indicatorColor: "primary", "aria-label": "navigation tabs", sx: styles$3.tabContainer, children: navLinks.map(({ label, to }) => /* @__PURE__ */ jsx(Tab, { value: to, label, onClick: () => handleNavigation(to), sx: styles$3.tab(isCurrent(to)) }, to)) }) })
   ] }) }) });
 };
 /*! src/components/ExternalLink/ExternalLink.styles.ts [vike:pluginModuleBanner] */

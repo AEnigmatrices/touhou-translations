@@ -1,4 +1,4 @@
-import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-DTfSF2vB.js";
+import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-BM7j-M2S.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useMemo, useState } from "react";
 import { Box } from "@mui/material";
@@ -322,7 +322,7 @@ const Page = ({ urlParsed }) => {
       )
     ] }),
     /* @__PURE__ */ jsx(Gallery, { posts: visiblePosts }),
-    /* @__PURE__ */ jsxs(Stack, { direction: "row", sx: styles.paginationWrapperStyles(theme), children: [
+    shuffledPosts.length > POSTS_PER_PAGE && /* @__PURE__ */ jsxs(Stack, { direction: "row", sx: styles.paginationWrapperStyles(theme), children: [
       /* @__PURE__ */ jsx(
         Button,
         {
