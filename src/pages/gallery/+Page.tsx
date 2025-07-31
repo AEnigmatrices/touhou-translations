@@ -80,29 +80,31 @@ const Page = ({ urlParsed }: { urlParsed: Props }) => {
 
             <Gallery posts={visiblePosts} />
 
-            <Stack direction="row" sx={styles.paginationWrapperStyles(theme)}>
-                <Button
-                    variant="contained"
-                    onClick={handlePrevPage}
-                    disabled={currentPage === 1}
-                    sx={styles.paginationButtonStyles(theme)}
-                >
-                    Previous
-                </Button>
+            {shuffledPosts.length > POSTS_PER_PAGE && (
+                <Stack direction="row" sx={styles.paginationWrapperStyles(theme)}>
+                    <Button
+                        variant="contained"
+                        onClick={handlePrevPage}
+                        disabled={currentPage === 1}
+                        sx={styles.paginationButtonStyles(theme)}
+                    >
+                        Previous
+                    </Button>
 
-                <Typography variant="body1" sx={styles.paginationPageInfoStyles(theme)}>
-                    Page {currentPage} of {totalPages}
-                </Typography>
+                    <Typography variant="body1" sx={styles.paginationPageInfoStyles(theme)}>
+                        Page {currentPage} of {totalPages}
+                    </Typography>
 
-                <Button
-                    variant="contained"
-                    onClick={handleNextPage}
-                    disabled={currentPage === totalPages}
-                    sx={styles.paginationButtonStyles(theme)}
-                >
-                    Next
-                </Button>
-            </Stack>
+                    <Button
+                        variant="contained"
+                        onClick={handleNextPage}
+                        disabled={currentPage === totalPages}
+                        sx={styles.paginationButtonStyles(theme)}
+                    >
+                        Next
+                    </Button>
+                </Stack>
+            )}
         </Container>
     );
 };
