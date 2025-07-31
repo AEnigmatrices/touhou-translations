@@ -14,10 +14,11 @@ interface Props {
     characters: Character[];
 }
 
-const twitterIcon = `${import.meta.env.BASE_URL}icons/social/twitter.webp`;
-const nitterIcon = `${import.meta.env.BASE_URL}icons/social/nitter.webp`;
-const pixivIcon = `${import.meta.env.BASE_URL}icons/social/pixiv.webp`;
-const redditIcon = `${import.meta.env.BASE_URL}icons/social/reddit.webp`;
+const BASE_URL = import.meta.env.BASE_URL
+const twitterIcon = `${BASE_URL}icons/social/twitter.webp`;
+const nitterIcon = `${BASE_URL}icons/social/nitter.webp`;
+const pixivIcon = `${BASE_URL}icons/social/pixiv.webp`;
+const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
 
 
@@ -104,7 +105,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                                         <React.Fragment key={c.id}>
                                             <Link
                                                 component="a"
-                                                href={`/gallery?character=${c.id}`}
+                                                href={`${BASE_URL}gallery?character=${c.id}`}
                                                 sx={styles.characterLink}
                                             >
                                                 {c.name}
