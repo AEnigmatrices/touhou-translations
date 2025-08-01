@@ -1,4 +1,4 @@
-import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-Ct-4F_pz.js";
+import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-CGEvxkWZ.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useMemo, useState, useEffect } from "react";
 import { Box, CircularProgress } from "@mui/material";
@@ -183,8 +183,8 @@ const Gallery = ({ posts }) => {
   };
   if (!displayedPosts.length) return /* @__PURE__ */ jsx("p", { children: "No posts available." });
   const allLoaded = loadedCount === totalImages;
-  return /* @__PURE__ */ jsxs(Box, { sx: { position: "relative", minHeight: "200px" }, children: [
-    /* @__PURE__ */ jsx(Masonry, { columns: { xs: 1, sm: 2, md: 3 }, spacing: 2, sx: { visibility: allLoaded ? "visible" : "hidden" }, children: displayedPosts.map((post) => {
+  return /* @__PURE__ */ jsxs(Box, { sx: { position: "relative", minHeight: "200px", display: "flex", justifyContent: "center" }, children: [
+    /* @__PURE__ */ jsx(Masonry, { columns: { xs: 2, md: 4 }, spacing: 2, sx: { visibility: allLoaded ? "visible" : "hidden" }, children: displayedPosts.map((post) => {
       if (!post.url?.length) return null;
       const imageUrl = post.url[0];
       const redditId = extractRedditId(post.reddit);
@@ -282,18 +282,26 @@ const styles = {
   }),
   paginationWrapperStyles: (theme) => ({
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
-    gap: theme.spacing(4),
-    mt: theme.spacing(4)
+    justifyContent: "center",
+    gap: { xs: theme.spacing(4), sm: theme.spacing(4) },
+    mt: { xs: theme.spacing(3), sm: theme.spacing(4) },
+    px: theme.spacing(1),
+    width: "100%",
+    overflowX: "auto"
   }),
   paginationButtonStyles: (theme) => ({
-    minWidth: 110,
-    fontSize: "1.1rem",
-    padding: theme.spacing(1.75, 4),
+    minWidth: { xs: 80, sm: 110 },
+    fontSize: { xs: "0.9rem", sm: "1.05rem" },
+    padding: {
+      xs: theme.spacing(1, 2),
+      sm: theme.spacing(1.5, 3)
+    },
     borderRadius: theme.shape.borderRadius * 2,
     textTransform: "none",
     fontWeight: 700,
+    whiteSpace: "nowrap",
     boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
     transition: theme.transitions.create(["background-color", "box-shadow"], {
       duration: theme.transitions.duration.short
@@ -316,11 +324,12 @@ const styles = {
   }),
   paginationPageInfoStyles: (theme) => ({
     fontWeight: 600,
-    fontSize: "1.15rem",
+    fontSize: { xs: "0.95rem", sm: "1.1rem" },
     color: theme.palette.text.primary,
     userSelect: "none",
-    minWidth: 120,
-    textAlign: "center"
+    minWidth: { xs: 80, sm: 100 },
+    textAlign: "center",
+    whiteSpace: "nowrap"
   })
 };
 /*! src/pages/gallery/+Page.tsx [vike:pluginModuleBanner] */
