@@ -344,6 +344,10 @@ const Navbar = () => {
     setDrawerOpen(false);
   };
   const handleNavigation = (to) => {
+    if (pageContext.urlOriginal === to) {
+      setDrawerOpen(false);
+      return;
+    }
     setDrawerOpen(false);
     navigate(to);
   };

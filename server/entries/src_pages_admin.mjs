@@ -1,4 +1,4 @@
-import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-Da0UTZy2.js";
+import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-Ct-4F_pz.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -260,6 +260,17 @@ const PostForm = () => {
   ] }) }) });
 };
 /*! src/components/DataForms/ArtistForm/ArtistForm.utils.ts [vike:pluginModuleBanner] */
+const PLACEHOLDER_FILENAMES = [
+  "demoman.webp",
+  "engineer.webp",
+  "heavy.webp",
+  "medic.webp",
+  "pyro.webp",
+  "scout.webp",
+  "sniper.webp",
+  "soldier.webp",
+  "spy.webp"
+];
 const headers = { "Content-Type": "application/json" };
 const TWITTER_URL_PATTERN = /^(https?:\/\/)?(www\.)?x\.com\/.+$/i;
 const PIXIV_URL_PATTERN = /^https?:\/\/(www\.)?pixiv\.net\/.+$/i;
@@ -276,6 +287,10 @@ const submitNewArtist = async (artist) => {
   const response = await fetch("/api/artists", { method: "POST", headers, body: JSON.stringify(artist) });
   const result = await response.json();
   if (!response.ok) throw new Error(result.error || "Failed to add artist");
+};
+const getRandomPlaceholder = () => {
+  const index = Math.floor(Math.random() * PLACEHOLDER_FILENAMES.length);
+  return `/portraits/placeholders/${PLACEHOLDER_FILENAMES[index]}`;
 };
 /*! src/components/DataForms/ArtistForm/ArtistForm.styles.ts [vike:pluginModuleBanner] */
 const styles$1 = {
@@ -325,7 +340,8 @@ const ArtistForm = () => {
       id: data.id.trim(),
       name: data.name.trim(),
       ...data.linkTwitter?.trim() && { linkTwitter: data.linkTwitter.trim() },
-      ...data.linkPixiv?.trim() && { linkPixiv: data.linkPixiv.trim() }
+      ...data.linkPixiv?.trim() && { linkPixiv: data.linkPixiv.trim() },
+      portrait: getRandomPlaceholder()
     };
     try {
       await submitNewArtist(cleaned);

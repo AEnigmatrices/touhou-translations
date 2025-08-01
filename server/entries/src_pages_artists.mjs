@@ -1,7 +1,7 @@
-import { b as useAppData, i as import1 } from "../chunks/chunk-Da0UTZy2.js";
+import { b as useAppData, i as import1 } from "../chunks/chunk-Ct-4F_pz.js";
 import { jsx } from "react/jsx-runtime";
 import { render } from "vike/abort";
-import { L as ListPage } from "../chunks/chunk-CWNZEKX7.js";
+import { L as ListPage } from "../chunks/chunk-CnUiXdGg.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -13,7 +13,7 @@ import "vike/client/router";
 import "@mui/material/useScrollTrigger";
 import "@mui/icons-material/Menu";
 import "@mui/material/styles";
-import "../chunks/chunk-Ku3JGR1t.js";
+import "../chunks/chunk-CYdkaobM.js";
 import "@mui/material/IconButton";
 import "@mui/material/Tooltip";
 import "@mui/icons-material/Collections";

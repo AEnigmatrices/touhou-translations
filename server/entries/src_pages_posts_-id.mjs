@@ -1,15 +1,15 @@
-import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-Da0UTZy2.js";
+import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-Ct-4F_pz.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import { Box, Link, IconButton, Typography } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { createPortal } from "react-dom";
-import { a as getArtistPortraits, g as getCharacterPortraits, P as ProfileItem } from "../chunks/chunk-Ku3JGR1t.js";
 import Box$1 from "@mui/material/Box";
+import { P as ProfileItem } from "../chunks/chunk-CYdkaobM.js";
 import "react-dom/server";
 import "vike/server";
 import "@emotion/react";
@@ -165,10 +165,10 @@ const getPopoverStyles = (visible, position) => ({
 /*! src/components/ProfilePopover/ProfilePopover.tsx [vike:pluginModuleBanner] */
 const POPOVER_OFFSET = 10;
 const POPOVER_SIZE = { width: 320, height: 200 };
-const ProfilePopover = ({ data, type, position }) => {
+const ProfilePopover = ({ data, position }) => {
   const [visible, setVisible] = useState(false);
   const [currentPosition, setCurrentPosition] = useState(position);
-  const imageUrl = type === "artist" ? getArtistPortraits(data?.id ?? "") : getCharacterPortraits(data?.id ?? "");
+  const imageUrl = data ? `${"/touhou-translations/"}${data.portrait}` : "";
   const description = formatArtworkDescription(data?.artworkCount ?? 0);
   const handleMouseMove = useCallback((e) => {
     setCurrentPosition(calculatePopoverPosition(e, POPOVER_OFFSET, POPOVER_SIZE));
@@ -312,6 +312,7 @@ const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 const InfoSection = ({ post, artist, characters }) => {
   const [hoveredCharacterData, setHoveredCharacterData] = useState(null);
   const [tooltipPosition, setTooltipPosition] = useState(null);
+  const hoverTimeoutRef = useRef(null);
   const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
   const formattedDate = post.date ? new Date(post.date).toLocaleString("en-US", dateFormatOptions) : "Unknown date";
   const { characters: allCharacters } = useAppData();
@@ -320,10 +321,24 @@ const InfoSection = ({ post, artist, characters }) => {
     return /* @__PURE__ */ jsx(IconButton, { component: "a", href, target: "_blank", rel: "noopener noreferrer", "aria-label": ariaLabel, sx: styles$1.iconButton, size: "small", children: /* @__PURE__ */ jsx("img", { src: iconSrc, alt: altText }) });
   };
   const handleCharacterMouseEnter = (e, id) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
     const rect = e.currentTarget.getBoundingClientRect();
-    setTooltipPosition({ x: rect.right + 8, y: rect.top });
-    const fullCharacter = allCharacters.find((c) => c.id === id) ?? null;
-    setHoveredCharacterData(fullCharacter);
+    const newPosition = { x: rect.right + 8, y: rect.top };
+    hoverTimeoutRef.current = window.setTimeout(() => {
+      const fullCharacter = allCharacters.find((c) => c.id === id) ?? null;
+      setHoveredCharacterData(fullCharacter);
+      setTooltipPosition(newPosition);
+    }, 250);
+  };
+  const handleCharacterMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setHoveredCharacterData(null);
+    setTooltipPosition(null);
   };
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsxs(Box, { sx: styles$1.root, children: [
@@ -357,10 +372,7 @@ const InfoSection = ({ post, artist, characters }) => {
                 href: `${BASE_URL}gallery?character=${c.id}`,
                 sx: styles$1.characterLink,
                 onMouseEnter: (e) => handleCharacterMouseEnter(e, c.id),
-                onMouseLeave: () => {
-                  setHoveredCharacterData(null);
-                  setTooltipPosition(null);
-                },
+                onMouseLeave: () => handleCharacterMouseLeave(),
                 children: c.name
               }
             ),
@@ -380,7 +392,7 @@ const InfoSection = ({ post, artist, characters }) => {
         /* @__PURE__ */ jsx(Box, { sx: styles$1.infoItemValueComment, children: /* @__PURE__ */ jsx(ReactMarkdown, { remarkPlugins: [remarkGfm], children: post.desc }) })
       ] })
     ] }),
-    /* @__PURE__ */ jsx(ProfilePopover, { data: hoveredCharacterData, type: "character", position: tooltipPosition })
+    /* @__PURE__ */ jsx(ProfilePopover, { data: hoveredCharacterData, position: tooltipPosition })
   ] });
 };
 /*! src/components/ImageViewer/ImageViewer.styles.ts [vike:pluginModuleBanner] */
