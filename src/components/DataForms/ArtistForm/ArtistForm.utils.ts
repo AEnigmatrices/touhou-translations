@@ -1,7 +1,27 @@
-import type { ArtistFormInput } from './ArtistForm.types';
 import artists from '../../../../data/artists.json';
 
+interface ArtistFormInput {
+    id: string;
+    name: string;
+    linkTwitter?: string;
+    linkPixiv?: string;
+}
+
+const PLACEHOLDER_FILENAMES = [
+    "demoman.webp",
+    "engineer.webp",
+    "heavy.webp",
+    "medic.webp",
+    "pyro.webp",
+    "scout.webp",
+    "sniper.webp",
+    "soldier.webp",
+    "spy.webp",
+];
+
 const headers = { 'Content-Type': 'application/json' };
+
+
 
 export const TWITTER_URL_PATTERN = /^(https?:\/\/)?(www\.)?x\.com\/.+$/i;
 export const PIXIV_URL_PATTERN = /^https?:\/\/(www\.)?pixiv\.net\/.+$/i;
@@ -19,3 +39,8 @@ export const submitNewArtist = async (artist: ArtistFormInput): Promise<void> =>
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || 'Failed to add artist');
 };
+
+export const getRandomPlaceholder = (): string => {
+    const index = Math.floor(Math.random() * PLACEHOLDER_FILENAMES.length);
+    return `/portraits/placeholders/${PLACEHOLDER_FILENAMES[index]}`;
+}

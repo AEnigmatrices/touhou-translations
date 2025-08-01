@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button, Stack, Typography, Box } from '@mui/material';
-import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId } from './ArtistForm.utils';
+import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId, getRandomPlaceholder } from './ArtistForm.utils';
 import styles from './ArtistForm.styles';
 import type { ArtistRaw } from '../../../types/data';
 
@@ -28,9 +28,11 @@ const ArtistForm: React.FC = () => {
 
     const onSubmit = async (data: ArtistRaw) => {
         const cleaned = {
-            id: data.id.trim(), name: data.name.trim(),
+            id: data.id.trim(),
+            name: data.name.trim(),
             ...(data.linkTwitter?.trim() && { linkTwitter: data.linkTwitter.trim() }),
             ...(data.linkPixiv?.trim() && { linkPixiv: data.linkPixiv.trim() }),
+            portrait: getRandomPlaceholder(),
         };
         try {
             await submitNewArtist(cleaned);
