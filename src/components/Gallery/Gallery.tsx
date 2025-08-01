@@ -41,8 +41,8 @@ const Gallery: React.FC<Props> = ({ posts }) => {
     const allLoaded = loadedCount === totalImages;
 
     return (
-        <Box sx={{ position: 'relative', minHeight: '200px' }}>
-            <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2} sx={{ visibility: allLoaded ? 'visible' : 'hidden' }}>
+        <Box sx={{ position: 'relative', minHeight: '200px', display: 'flex', justifyContent: 'center' }}>
+            <Masonry columns={{ xs: 2, md: 4 }} spacing={2} sx={{ visibility: allLoaded ? 'visible' : 'hidden' }}>
                 {displayedPosts.map((post) => {
                     if (!post.url?.length) return null;
 

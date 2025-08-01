@@ -51,19 +51,27 @@ const styles = {
 
     paginationWrapperStyles: (theme: Theme): SxProps<Theme> => ({
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'row',
         alignItems: 'center',
-        gap: theme.spacing(4),
-        mt: theme.spacing(4),
+        justifyContent: 'center',
+        gap: { xs: theme.spacing(4), sm: theme.spacing(4) },
+        mt: { xs: theme.spacing(3), sm: theme.spacing(4) },
+        px: theme.spacing(1),
+        width: '100%',
+        overflowX: 'auto',
     }),
 
     paginationButtonStyles: (theme: Theme): SxProps<Theme> => ({
-        minWidth: 110,
-        fontSize: '1.1rem',
-        padding: theme.spacing(1.75, 4),
+        minWidth: { xs: 80, sm: 110 },
+        fontSize: { xs: '0.9rem', sm: '1.05rem' },
+        padding: {
+            xs: theme.spacing(1, 2),
+            sm: theme.spacing(1.5, 3),
+        },
         borderRadius: (theme.shape.borderRadius as number) * 2,
         textTransform: 'none',
         fontWeight: 700,
+        whiteSpace: 'nowrap',
         boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
         transition: theme.transitions.create(['background-color', 'box-shadow'], {
             duration: theme.transitions.duration.short,
@@ -87,12 +95,14 @@ const styles = {
 
     paginationPageInfoStyles: (theme: Theme): SxProps<Theme> => ({
         fontWeight: 600,
-        fontSize: '1.15rem',
+        fontSize: { xs: '0.95rem', sm: '1.1rem' },
         color: theme.palette.text.primary,
         userSelect: 'none',
-        minWidth: 120,
+        minWidth: { xs: 80, sm: 100 },
         textAlign: 'center',
+        whiteSpace: 'nowrap',
     }),
+
 };
 
 export default styles;
