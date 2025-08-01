@@ -1013,5 +1013,29 @@
         "name": "海老Tea旦",
         "linkTwitter": "https://x.com/Lobstrater64",
         "linkPixiv": "https://www.pixiv.net/en/users/77541894"
+    },
+    {
+        "id": "yukiwari",
+        "name": "ゆきわり",
+        "linkTwitter": "https://x.com/ykwr0223",
+        "linkPixiv": "https://www.pixiv.net/en/users/25818807"
+    },
+    {
+        "id": "aquabooks",
+        "name": "AquaBooks",
+        "linkTwitter": "https://x.com/Aqua_Books_",
+        "linkPixiv": "https://www.pixiv.net/en/users/41946872"
+    },
+    {
+        "id": "gakubuchi_udon",
+        "name": "ｶﾞｸﾌﾞﾁｳﾄﾞﾝ",
+        "linkTwitter": "https://x.com/gaidennsinnzi44",
+        "linkPixiv": "https://www.pixiv.net/en/users/22552657"
+    },
+    {
+        "id": "s_a_murai",
+        "name": "S.A.村井",
+        "linkTwitter": "https://x.com/s_a_murai",
+        "linkPixiv": "https://www.pixiv.net/en/users/452874"
     }
 ]
