@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box } from '@mui/material';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Box, CircularProgress } from '@mui/material';
 import { useAppData } from '../../renderer/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
 import Masonry from '@mui/lab/Masonry';
@@ -17,29 +17,64 @@ const Gallery: React.FC<Props> = ({ posts }) => {
     const { posts: allPosts } = useAppData();
     const displayedPosts = posts || allPosts;
 
+    const [loadedCount, setLoadedCount] = useState(0);
+    const [batchId, setBatchId] = useState(0);
+
+    const totalImages = useMemo(
+        () => displayedPosts.filter(post => post.url?.length && extractRedditId(post.reddit)).length,
+        [displayedPosts]
+    );
+
+    useEffect(() => {
+        setLoadedCount(0);
+        setBatchId((id) => id + 1);
+    }, [posts]);
+
+    const handleImageLoad = (currentBatchId: number) => {
+        if (currentBatchId === batchId) {
+            setLoadedCount((prev) => prev + 1);
+        }
+    };
+
     if (!displayedPosts.length) return <p>No posts available.</p>;
 
+    const allLoaded = loadedCount === totalImages;
+
     return (
-        <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2} >
-            {displayedPosts.map((post) => {
-                if (!post.url?.length) return null;
+        <Box sx={{ position: 'relative', minHeight: '200px' }}>
+            <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2} sx={{ visibility: allLoaded ? 'visible' : 'hidden' }}>
+                {displayedPosts.map((post) => {
+                    if (!post.url?.length) return null;
 
-                const imageUrl = post.url[0];
-                const redditId = extractRedditId(post.reddit);
-                if (!redditId) return null;
+                    const imageUrl = post.url[0];
+                    const redditId = extractRedditId(post.reddit);
+                    if (!redditId) return null;
 
-                return (
-                    <Box key={post.date} sx={styles.item}>
-                        <a
-                            href={`${BASE_URL}posts/${redditId}`} aria-label="View post details" tabIndex={0}
-                            style={{ display: 'block', width: '100%', height: '100%' }}
-                        >
-                            <GalleryImage src={imageUrl} alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`} />
-                        </a>
-                    </Box>
-                );
-            })}
-        </Masonry>
+                    return (
+                        <Box key={post.date} sx={styles.item}>
+                            <a
+                                href={`${BASE_URL}posts/${redditId}`}
+                                aria-label="View post details"
+                                tabIndex={0}
+                                style={{ display: 'block', width: '100%', height: '100%' }}
+                            >
+                                <GalleryImage
+                                    src={imageUrl}
+                                    alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
+                                    onLoad={() => handleImageLoad(batchId)}
+                                />
+                            </a>
+                        </Box>
+                    );
+                })}
+            </Masonry>
+
+            {!allLoaded && (
+                <Box sx={styles.loadingOverlay} >
+                    <CircularProgress />
+                </Box>
+            )}
+        </Box>
     );
 };
 

@@ -2,6 +2,7 @@ import type { SxProps, Theme } from '@mui/material/styles';
 
 interface GalleryStyles {
     item: SxProps<Theme>;
+    loadingOverlay: SxProps<Theme>;
 }
 
 const styles: GalleryStyles = {
@@ -24,6 +25,19 @@ const styles: GalleryStyles = {
             outline: '2px solid #005fcc',
             outlineOffset: '2px',
         },
+    },
+    loadingOverlay: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(255,255,255)',
+        zIndex: 10,
+        paddingTop: '1rem',
     },
 };
 
