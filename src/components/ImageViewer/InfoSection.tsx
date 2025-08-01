@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Box, Typography, Link, IconButton } from '@mui/material';
@@ -27,6 +27,8 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
     const [hoveredCharacterData, setHoveredCharacterData] = useState<Character | null>(null);
     const [tooltipPosition, setTooltipPosition] = useState<{ x: number; y: number } | null>(null);
 
+    const hoverTimeoutRef = useRef<number | null>(null);
+
     const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
@@ -44,10 +46,27 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
     };
 
     const handleCharacterMouseEnter = (e: React.MouseEvent, id: string) => {
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+        }
+
         const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-        setTooltipPosition({ x: rect.right + 8, y: rect.top });
-        const fullCharacter = allCharacters.find(c => c.id === id) ?? null;
-        setHoveredCharacterData(fullCharacter);
+        const newPosition = { x: rect.right + 8, y: rect.top };
+
+        hoverTimeoutRef.current = window.setTimeout(() => {
+            const fullCharacter = allCharacters.find(c => c.id === id) ?? null;
+            setHoveredCharacterData(fullCharacter);
+            setTooltipPosition(newPosition);
+        }, 250);
+    };
+
+    const handleCharacterMouseLeave = () => {
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = null;
+        }
+        setHoveredCharacterData(null);
+        setTooltipPosition(null);
     };
 
 
@@ -108,10 +127,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                                                 href={`${BASE_URL}gallery?character=${c.id}`}
                                                 sx={styles.characterLink}
                                                 onMouseEnter={(e) => handleCharacterMouseEnter(e, c.id)}
-                                                onMouseLeave={() => {
-                                                    setHoveredCharacterData(null);
-                                                    setTooltipPosition(null);
-                                                }}
+                                                onMouseLeave={() => handleCharacterMouseLeave()}
                                             >
                                                 {c.name}
                                             </Link>
