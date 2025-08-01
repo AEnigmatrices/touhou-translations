@@ -146,7 +146,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                 </Box>
             </Box>
 
-            <ProfilePopover data={hoveredCharacterData} type="character" position={tooltipPosition} />
+            <ProfilePopover data={hoveredCharacterData} position={tooltipPosition} />
         </>
     );
 };

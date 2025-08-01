@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { navigate } from "vike/client/router";
-import { getRandomPlaceholder } from "../../utils/galleryUtils";
 import { Box, Avatar, Typography, Paper } from "@mui/material";
 import styles from "./ProfileItem.styles";
 
 interface Props {
     name: string;
-    imageUrl?: string | null;
+    imageUrl: string;
     description?: string;
     link?: string;
 }
@@ -30,8 +29,6 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         }
     };
 
-    const handleImageError = () => setImgSrc(getRandomPlaceholder());
-
 
 
     useEffect(() => {
@@ -50,13 +47,13 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
     }, []);
 
     useEffect(() => {
-        if (isVisible) setImgSrc(imageUrl || getRandomPlaceholder());
+        if (isVisible) setImgSrc(imageUrl);
     }, [isVisible, imageUrl]);
 
 
 
     const ImageContent = imgSrc
-        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" onError={handleImageError} slotProps={{ img: { loading: "lazy" } }} />
+        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" slotProps={{ img: { loading: "lazy" } }} />
         : <Box sx={styles.placeholder} aria-hidden />;
 
     const Content = (

@@ -1,24 +1,23 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { getCharacterPortraits, getArtistPortraits } from '../../utils/galleryUtils';
 import { calculatePopoverPosition, formatArtworkDescription } from './ProfilePopover.utils';
 import Box from '@mui/material/Box';
 import ProfileItem from '../ProfileItem/ProfileItem';
 import getPopoverStyles from './ProfilePopover.styles';
 import type { Character, Artist } from '../../types/data';
 
-interface Props { data: Character | Artist | null; type: 'character' | 'artist'; position: { x: number; y: number } | null; }
+interface Props { data: Character | Artist | null; position: { x: number; y: number } | null; }
 
 const POPOVER_OFFSET = 10;
 const POPOVER_SIZE = { width: 320, height: 200 };
 
 
 
-const ProfilePopover: React.FC<Props> = ({ data, type, position }) => {
+const ProfilePopover: React.FC<Props> = ({ data, position }) => {
     const [visible, setVisible] = useState(false);
     const [currentPosition, setCurrentPosition] = useState(position);
 
-    const imageUrl = type === 'artist' ? getArtistPortraits(data?.id ?? '') : getCharacterPortraits(data?.id ?? '');
+    const imageUrl = data ? `${import.meta.env.BASE_URL}${data.portrait}` : '';
     const description = formatArtworkDescription(data?.artworkCount ?? 0);
 
     const handleMouseMove = useCallback((e: MouseEvent) => {
