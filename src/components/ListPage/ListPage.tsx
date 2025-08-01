@@ -1,12 +1,9 @@
 import { useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
-import { getCharacterPortraits, getArtistPortraits, getRandomPlaceholder } from "../../utils/galleryUtils";
 import ProfileItem from "../ProfileItem/ProfileItem";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
 import styles from "./ListPage.styles";
 import type { Character, Artist, SortOrder } from "../../types/data";
-import validPortraits from "../../../data/valid-portraits.json";
-
 interface Props {
     mode: typeof MODE_CHARACTER | typeof MODE_ARTIST;
     characters?: Character[];
@@ -58,17 +55,11 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
 
     const renderListItems = (): JSX.Element[] => {
         return sortedItems.slice(0, visibleCount).map((item) => {
-            const isCharacter = mode === MODE_CHARACTER;
             const id = item.id;
             const name = item.name;
             const artworkCountText = `${item.artworkCount} artwork${item.artworkCount !== 1 ? "s" : ""}`;
-            const hasPortrait = isCharacter
-                ? validPortraits.characters.includes(id)
-                : validPortraits.artists.includes(id);
-            const imageUrl = hasPortrait
-                ? (isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id))
-                : getRandomPlaceholder();
-            const toUrl = isCharacter
+            const imageUrl = `${BASE_URL}${item.portrait}`;
+            const toUrl = mode === MODE_CHARACTER
                 ? `${BASE_URL}gallery?character=${id}`
                 : `${BASE_URL}gallery?artist=${id}`;
 

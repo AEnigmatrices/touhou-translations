@@ -1,973 +1,1108 @@
 [
-    {
-        "id": "reimu",
-        "name": "Hakurei Reimu",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "marisa",
-        "name": "Kirisame Marisa",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "rin",
-        "name": "Satsuki Rin",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "rumia",
-        "name": "Rumia",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "daiyousei",
-        "name": "Daiyōsei",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "cirno",
-        "name": "Cirno",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "meiling",
-        "name": "Hong Meiling",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "koakuma",
-        "name": "Koakuma",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "patchouli",
-        "name": "Patchouli Knowledge",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "sakuya",
-        "name": "Izayoi Sakuya",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "remilia",
-        "name": "Remilia Scarlet",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "flandre",
-        "name": "Flandre Scarlet",
-        "work": [
-            "eosd"
-        ]
-    },
-    {
-        "id": "letty",
-        "name": "Letty Whiterock",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "chen",
-        "name": "Chen",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "alice",
-        "name": "Alice Margatroid",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "lily",
-        "name": "Lily White",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "lunasa",
-        "name": "Lunasa Prismriver",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "merlin",
-        "name": "Merlin Prismriver",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "lyrica",
-        "name": "Lyrica Prismriver",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "youmu",
-        "name": "Konpaku Yōmu",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "yuyuko",
-        "name": "Saigyōji Yuyuko",
-        "work": [
-            "pcb"
-        ]
-    },
-    {
-        "id": "ran",
-        "name": "Yakumo Ran",
-        "work": [
-            "pcb",
-            "udoalg"
-        ]
-    },
-    {
-        "id": "yukari",
-        "name": "Yakumo Yukari",
-        "work": [
-            "pcb",
-            "iamp",
-            "in",
-            "swr",
-            "sa",
-            "soku",
-            "aocf"
-        ]
-    },
-    {
-        "id": "renko",
-        "name": "Usami Renko",
-        "work": [
-            "hifuu"
-        ]
-    },
-    {
-        "id": "merry",
-        "name": "Maëlivérie Hearn",
-        "work": [
-            "hifuu"
-        ]
-    },
-    {
-        "id": "rinnosuke",
-        "name": "Morichika Rinnosuke",
-        "work": [
-            "cola"
-        ]
-    },
-    {
-        "id": "tokiko",
-        "name": "Tokiko",
-        "work": [
-            "cola"
-        ]
-    },
-    {
-        "id": "suika",
-        "name": "Ibuki Suika",
-        "work": [
-            "iamp",
-            "swr",
-            "sa",
-            "soku",
-            "udoalg"
-        ]
-    },
-    {
-        "id": "wriggle",
-        "name": "Wriggle Nightbug",
-        "work": [
-            "in"
-        ]
-    },
-    {
-        "id": "mystia",
-        "name": "Mystia Lorelei",
-        "work": [
-            "in"
-        ]
-    },
-    {
-        "id": "keine",
-        "name": "Kamishirasawa Keine",
-        "work": [
-            "in"
-        ]
-    },
-    {
-        "id": "tewi",
-        "name": "Inaba Tewi",
-        "work": [
-            "in"
-        ]
-    },
-    {
-        "id": "reisen",
-        "name": "Reisen Udondein Inaba",
-        "work": [
-            "in"
-        ]
-    },
-    {
-        "id": "eirin",
-        "name": "Yagokoro Eirin",
-        "work": [
-            "in"
-        ]
-    },
-    {
-        "id": "kaguya",
-        "name": "Hōraisan Kaguya",
-        "work": [
-            "in"
-        ]
-    },
-    {
-        "id": "mokou",
-        "name": "Fujiwara no Mokō",
-        "work": [
-            "in"
-        ]
-    },
-    {
-        "id": "sunny",
-        "name": "Sunny Milk",
-        "work": [
-            "sgs"
-        ]
-    },
-    {
-        "id": "luna",
-        "name": "Luna Child",
-        "work": [
-            "sgs"
-        ]
-    },
-    {
-        "id": "star",
-        "name": "Star Sapphire",
-        "work": [
-            "sgs"
-        ]
-    },
-    {
-        "id": "aya",
-        "name": "Shameimaru Aya",
-        "work": [
-            "pofv",
-            "sa",
-            "mof",
-            "ds"
-        ]
-    },
-    {
-        "id": "medicine",
-        "name": "Medicine Melancholy",
-        "work": [
-            "pofv"
-        ]
-    },
-    {
-        "id": "yuuka",
-        "name": "Kazami Yūka",
-        "work": [
-            "pofv"
-        ]
-    },
-    {
-        "id": "komachi",
-        "name": "Onozuka Komachi",
-        "work": [
-            "pofv"
-        ]
-    },
-    {
-        "id": "eiki",
-        "name": "Shiki Eiki, Yamaxanadu",
-        "work": [
-            "pofv"
-        ]
-    },
-    {
-        "id": "reisen2",
-        "name": "Reisen",
-        "work": [
-            "ssib"
-        ]
-    },
-    {
-        "id": "toyohime",
-        "name": "Watasuki no Toyohime",
-        "work": [
-            "ssib"
-        ]
-    },
-    {
-        "id": "yorihime",
-        "name": "Watatsuki no Yorihime",
-        "work": [
-            "ssib"
-        ]
-    },
-    {
-        "id": "akyuu",
-        "name": "Hieda no Akyū",
-        "work": [
-            "pmiss"
-        ]
-    },
-    {
-        "id": "shizuha",
-        "name": "Aki Shizuha",
-        "work": [
-            "mof"
-        ]
-    },
-    {
-        "id": "minoriko",
-        "name": "Aki Minoriko",
-        "work": [
-            "mof"
-        ]
-    },
-    {
-        "id": "hina",
-        "name": "Kagiyama Hina",
-        "work": [
-            "mof"
-        ]
-    },
-    {
-        "id": "nitori",
-        "name": "Kawashiro Nitori",
-        "work": [
-            "mof"
-        ]
-    },
-    {
-        "id": "momiji",
-        "name": "Inubashiri Momiji",
-        "work": [
-            "mof"
-        ]
-    },
-    {
-        "id": "sanae",
-        "name": "Kochiya Sanae",
-        "work": [
-            "mof",
-            "sa",
-            "ufo",
-            "soku",
-            "td",
-            "lolk",
-            "um",
-            "udoalg"
-        ]
-    },
-    {
-        "id": "kanako",
-        "name": "Yasaka Kanako",
-        "work": [
-            "mof"
-        ]
-    },
-    {
-        "id": "suwako",
-        "name": "Moriya Suwako",
-        "work": [
-            "mof"
-        ]
-    },
-    {
-        "id": "iku",
-        "name": "Nagae Iku",
-        "work": [
-            "swr"
-        ]
-    },
-    {
-        "id": "tenshi",
-        "name": "Hinanawi Tenshi",
-        "work": [
-            "swr"
-        ]
-    },
-    {
-        "id": "kisume",
-        "name": "Kisume",
-        "work": [
-            "sa"
-        ]
-    },
-    {
-        "id": "yamame",
-        "name": "Kurodani Yamame",
-        "work": [
-            "sa"
-        ]
-    },
-    {
-        "id": "parsee",
-        "name": "Mizuhashi Parsee",
-        "work": [
-            "sa"
-        ]
-    },
-    {
-        "id": "yuugi",
-        "name": "Hoshiguma Yūgi",
-        "work": [
-            "sa"
-        ]
-    },
-    {
-        "id": "satori",
-        "name": "Komeiji Satori",
-        "work": [
-            "sa"
-        ]
-    },
-    {
-        "id": "orin",
-        "name": "Kaenbyō Rin",
-        "work": [
-            "sa",
-            "udoalg"
-        ]
-    },
-    {
-        "id": "okuu",
-        "name": "Reiuji Utsuho",
-        "work": [
-            "sa"
-        ]
-    },
-    {
-        "id": "koishi",
-        "name": "Komeiji Koishi",
-        "work": [
-            "sa"
-        ]
-    },
-    {
-        "id": "nazrin",
-        "name": "Nazrin",
-        "work": [
-            "ufo"
-        ]
-    },
-    {
-        "id": "kogasa",
-        "name": "Tatara Kogasa",
-        "work": [
-            "ufo"
-        ]
-    },
-    {
-        "id": "ichirin",
-        "name": "Kumoi Ichirin",
-        "work": [
-            "ufo"
-        ]
-    },
-    {
-        "id": "minamitsu",
-        "name": "Murasa Minamitsu",
-        "work": [
-            "ufo"
-        ]
-    },
-    {
-        "id": "shou",
-        "name": "Toramaru Shō",
-        "work": [
-            "ufo"
-        ]
-    },
-    {
-        "id": "byakuren",
-        "name": "Hijiri Byakuren",
-        "work": [
-            "ufo"
-        ]
-    },
-    {
-        "id": "nue",
-        "name": "Hōjū Nue",
-        "work": [
-            "ufo"
-        ]
-    },
-    {
-        "id": "hatate",
-        "name": "Himekaidō Hatate",
-        "work": [
-            "ds"
-        ]
-    },
-    {
-        "id": "kasen",
-        "name": "Ibaraki Kasen",
-        "work": [
-            "aocf"
-        ]
-    },
-    {
-        "id": "kyouko",
-        "name": "Kasodani Kyōko",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "yoshika",
-        "name": "Miyako Yoshika",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "seiga",
-        "name": "Kaku Seiga",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "tojiko",
-        "name": "Soga no Tojiko",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "futo",
-        "name": "Mononobe no Futo",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "miko",
-        "name": "Toyosatomimi no Miko",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "mamizou",
-        "name": "Futatsuiwa Mamizō",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "kosuzu",
-        "name": "Motōri Kosuzu",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "kokoro",
-        "name": "Hata no Kokoro",
-        "work": [
-            "td"
-        ]
-    },
-    {
-        "id": "wakasagihime",
-        "name": "Wakasagihime",
-        "work": [
-            "ddc"
-        ]
-    },
-    {
-        "id": "sekibanki",
-        "name": "Sekibanki",
-        "work": [
-            "ddc"
-        ]
-    },
-    {
-        "id": "kagerou",
-        "name": "Imaizumi Kagerō",
-        "work": [
-            "ddc"
-        ]
-    },
-    {
-        "id": "benben",
-        "name": "Tsukumo Benben",
-        "work": [
-            "ddc"
-        ]
-    },
-    {
-        "id": "yatsuhashi",
-        "name": "Tsukumo Yatsuhashi",
-        "work": [
-            "ddc"
-        ]
-    },
-    {
-        "id": "seija",
-        "name": "Kijin Seija",
-        "work": [
-            "ddc"
-        ]
-    },
-    {
-        "id": "shinmyoumaru",
-        "name": "Sukuna Shinmyōmaru",
-        "work": [
-            "ddc"
-        ]
-    },
-    {
-        "id": "raiko",
-        "name": "Horikawa Raiko",
-        "work": [
-            "ddc"
-        ]
-    },
-    {
-        "id": "sumireko",
-        "name": "Usami Sumireko",
-        "work": [
-            "ulil"
-        ]
-    },
-    {
-        "id": "seiran",
-        "name": "Seiran",
-        "work": [
-            "lolk"
-        ]
-    },
-    {
-        "id": "ringo",
-        "name": "Ringo",
-        "work": [
-            "lolk"
-        ]
-    },
-    {
-        "id": "doremy",
-        "name": "Doremy Sweet",
-        "work": [
-            "lolk"
-        ]
-    },
-    {
-        "id": "sagume",
-        "name": "Kishin Sagume",
-        "work": [
-            "lolk"
-        ]
-    },
-    {
-        "id": "clownpiece",
-        "name": "Clownpiece",
-        "work": [
-            "lolk"
-        ]
-    },
-    {
-        "id": "junko",
-        "name": "Junko",
-        "work": [
-            "lolk"
-        ]
-    },
-    {
-        "id": "hecatia",
-        "name": "Hecatia Lapislazuli",
-        "work": [
-            "lolk"
-        ]
-    },
-    {
-        "id": "joon",
-        "name": "Yorigami Jo'on",
-        "work": [
-            "aocf"
-        ]
-    },
-    {
-        "id": "shion",
-        "name": "Yorigami Shion",
-        "work": [
-            "aocf"
-        ]
-    },
-    {
-        "id": "larva",
-        "name": "Eternity Larva",
-        "work": [
-            "hsifs"
-        ]
-    },
-    {
-        "id": "nemuno",
-        "name": "Sakata Nemuno",
-        "work": [
-            "hsifs"
-        ]
-    },
-    {
-        "id": "aun",
-        "name": "Komano Aun",
-        "work": [
-            "hsifs"
-        ]
-    },
-    {
-        "id": "narumi",
-        "name": "Yatadera Narumi",
-        "work": [
-            "hsifs"
-        ]
-    },
-    {
-        "id": "mai",
-        "name": "Teireida Mai",
-        "work": [
-            "hsifs"
-        ]
-    },
-    {
-        "id": "satono",
-        "name": "Nishida Satono",
-        "work": [
-            "hsifs"
-        ]
-    },
-    {
-        "id": "okina",
-        "name": "Matara Okina",
-        "work": [
-            "hsifs"
-        ]
-    },
-    {
-        "id": "eika",
-        "name": "Ebisu Eika",
-        "work": [
-            "wbawc"
-        ]
-    },
-    {
-        "id": "kutaka",
-        "name": "Niwatari Kutaka",
-        "work": [
-            "wbawc"
-        ]
-    },
-    {
-        "id": "urumi",
-        "name": "Ushizaki Urumi",
-        "work": [
-            "wbawc"
-        ]
-    },
-    {
-        "id": "yachie",
-        "name": "Kicchō Yachie",
-        "work": [
-            "wbawc",
-            "udoalg"
-        ]
-    },
-    {
-        "id": "mayumi",
-        "name": "Jōtōgū Mayumi",
-        "work": [
-            "wbawc"
-        ]
-    },
-    {
-        "id": "keiki",
-        "name": "Haniyasushin Keiki",
-        "work": [
-            "wbawc"
-        ]
-    },
-    {
-        "id": "saki",
-        "name": "Kurokoma Saki",
-        "work": [
-            "wbawc",
-            "udoalg"
-        ]
-    },
-    {
-        "id": "miyoi",
-        "name": "Okunoda Miyoi",
-        "work": [
-            "le"
-        ]
-    },
-    {
-        "id": "mizuchi",
-        "name": "Miyadeguchi Mizuchi",
-        "work": [
-            "fds"
-        ]
-    },
-    {
-        "id": "yuuma",
-        "name": "Tōtetsu Yūma",
-        "work": [
-            "sfw",
-            "udoalg"
-        ]
-    },
-    {
-        "id": "mike",
-        "name": "Gōtokuji Mike",
-        "work": [
-            "um"
-        ]
-    },
-    {
-        "id": "takane",
-        "name": "Yamashiro Takane",
-        "work": [
-            "um"
-        ]
-    },
-    {
-        "id": "sannyo",
-        "name": "Komakusa Sannyo",
-        "work": [
-            "um"
-        ]
-    },
-    {
-        "id": "misumaru",
-        "name": "Tamatsukuri Misumaru",
-        "work": [
-            "um"
-        ]
-    },
-    {
-        "id": "tsukasa",
-        "name": "Kudamaki Tsukasa",
-        "work": [
-            "um",
-            "udoalg"
-        ]
-    },
-    {
-        "id": "megumu",
-        "name": "Iizunamaru Megumu",
-        "work": [
-            "um"
-        ]
-    },
-    {
-        "id": "chimata",
-        "name": "Tenkyū Chimata",
-        "work": [
-            "um"
-        ]
-    },
-    {
-        "id": "momoyo",
-        "name": "Himemushi Momoyo",
-        "work": [
-            "um"
-        ]
-    },
-    {
-        "id": "biten",
-        "name": "Son Biten",
-        "work": [
-            "udoalg"
-        ]
-    },
-    {
-        "id": "enoko",
-        "name": "Mitsugashira Enoko",
-        "work": [
-            "udoalg"
-        ]
-    },
-    {
-        "id": "chiyari",
-        "name": "Tenkajin Chiyari",
-        "work": [
-            "udoalg"
-        ]
-    },
-    {
-        "id": "hisami",
-        "name": "Yomotsu Hisami",
-        "work": [
-            "udoalg"
-        ]
-    },
-    {
-        "id": "zanmu",
-        "name": "Nippaku Zanmu",
-        "work": [
-            "udoalg"
-        ]
-    },
-    {
-        "id": "ubame",
-        "name": "Chirizuka Ubame",
-        "work": [
-            "fw"
-        ]
-    },
-    {
-        "id": "chimi",
-        "name": "Hōjū Chimi",
-        "work": [
-            "fw"
-        ]
-    },
-    {
-        "id": "nareko",
-        "name": "Michigami Nareko",
-        "work": [
-            "fw"
-        ]
-    }
+  {
+    "id": "reimu",
+    "name": "Hakurei Reimu",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/reimu.webp"
+  },
+  {
+    "id": "marisa",
+    "name": "Kirisame Marisa",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/marisa.webp"
+  },
+  {
+    "id": "rin",
+    "name": "Satsuki Rin",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/rin.webp"
+  },
+  {
+    "id": "rumia",
+    "name": "Rumia",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/rumia.webp"
+  },
+  {
+    "id": "daiyousei",
+    "name": "Daiyōsei",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/daiyousei.webp"
+  },
+  {
+    "id": "cirno",
+    "name": "Cirno",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/cirno.webp"
+  },
+  {
+    "id": "meiling",
+    "name": "Hong Meiling",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/meiling.webp"
+  },
+  {
+    "id": "koakuma",
+    "name": "Koakuma",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/koakuma.webp"
+  },
+  {
+    "id": "patchouli",
+    "name": "Patchouli Knowledge",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/patchouli.webp"
+  },
+  {
+    "id": "sakuya",
+    "name": "Izayoi Sakuya",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/sakuya.webp"
+  },
+  {
+    "id": "remilia",
+    "name": "Remilia Scarlet",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/remilia.webp"
+  },
+  {
+    "id": "flandre",
+    "name": "Flandre Scarlet",
+    "work": [
+      "eosd"
+    ],
+    "portrait": "/portraits/characters/flandre.webp"
+  },
+  {
+    "id": "letty",
+    "name": "Letty Whiterock",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/letty.webp"
+  },
+  {
+    "id": "chen",
+    "name": "Chen",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/chen.webp"
+  },
+  {
+    "id": "alice",
+    "name": "Alice Margatroid",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/alice.webp"
+  },
+  {
+    "id": "lily",
+    "name": "Lily White",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/lily.webp"
+  },
+  {
+    "id": "lunasa",
+    "name": "Lunasa Prismriver",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/lunasa.webp"
+  },
+  {
+    "id": "merlin",
+    "name": "Merlin Prismriver",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/merlin.webp"
+  },
+  {
+    "id": "lyrica",
+    "name": "Lyrica Prismriver",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/lyrica.webp"
+  },
+  {
+    "id": "youmu",
+    "name": "Konpaku Yōmu",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/youmu.webp"
+  },
+  {
+    "id": "yuyuko",
+    "name": "Saigyōji Yuyuko",
+    "work": [
+      "pcb"
+    ],
+    "portrait": "/portraits/characters/yuyuko.webp"
+  },
+  {
+    "id": "ran",
+    "name": "Yakumo Ran",
+    "work": [
+      "pcb",
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/ran.webp"
+  },
+  {
+    "id": "yukari",
+    "name": "Yakumo Yukari",
+    "work": [
+      "pcb",
+      "iamp",
+      "in",
+      "swr",
+      "sa",
+      "soku",
+      "aocf"
+    ],
+    "portrait": "/portraits/characters/yukari.webp"
+  },
+  {
+    "id": "renko",
+    "name": "Usami Renko",
+    "work": [
+      "hifuu"
+    ],
+    "portrait": "/portraits/characters/renko.webp"
+  },
+  {
+    "id": "merry",
+    "name": "Maëlivérie Hearn",
+    "work": [
+      "hifuu"
+    ],
+    "portrait": "/portraits/characters/merry.webp"
+  },
+  {
+    "id": "rinnosuke",
+    "name": "Morichika Rinnosuke",
+    "work": [
+      "cola"
+    ],
+    "portrait": "/portraits/characters/rinnosuke.webp"
+  },
+  {
+    "id": "tokiko",
+    "name": "Tokiko",
+    "work": [
+      "cola"
+    ],
+    "portrait": "/portraits/characters/tokiko.webp"
+  },
+  {
+    "id": "suika",
+    "name": "Ibuki Suika",
+    "work": [
+      "iamp",
+      "swr",
+      "sa",
+      "soku",
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/suika.webp"
+  },
+  {
+    "id": "wriggle",
+    "name": "Wriggle Nightbug",
+    "work": [
+      "in"
+    ],
+    "portrait": "/portraits/characters/wriggle.webp"
+  },
+  {
+    "id": "mystia",
+    "name": "Mystia Lorelei",
+    "work": [
+      "in"
+    ],
+    "portrait": "/portraits/characters/mystia.webp"
+  },
+  {
+    "id": "keine",
+    "name": "Kamishirasawa Keine",
+    "work": [
+      "in"
+    ],
+    "portrait": "/portraits/characters/keine.webp"
+  },
+  {
+    "id": "tewi",
+    "name": "Inaba Tewi",
+    "work": [
+      "in"
+    ],
+    "portrait": "/portraits/characters/tewi.webp"
+  },
+  {
+    "id": "reisen",
+    "name": "Reisen Udondein Inaba",
+    "work": [
+      "in"
+    ],
+    "portrait": "/portraits/characters/reisen.webp"
+  },
+  {
+    "id": "eirin",
+    "name": "Yagokoro Eirin",
+    "work": [
+      "in"
+    ],
+    "portrait": "/portraits/characters/eirin.webp"
+  },
+  {
+    "id": "kaguya",
+    "name": "Hōraisan Kaguya",
+    "work": [
+      "in"
+    ],
+    "portrait": "/portraits/characters/kaguya.webp"
+  },
+  {
+    "id": "mokou",
+    "name": "Fujiwara no Mokō",
+    "work": [
+      "in"
+    ],
+    "portrait": "/portraits/characters/mokou.webp"
+  },
+  {
+    "id": "sunny",
+    "name": "Sunny Milk",
+    "work": [
+      "sgs"
+    ],
+    "portrait": "/portraits/characters/sunny.webp"
+  },
+  {
+    "id": "luna",
+    "name": "Luna Child",
+    "work": [
+      "sgs"
+    ],
+    "portrait": "/portraits/characters/luna.webp"
+  },
+  {
+    "id": "star",
+    "name": "Star Sapphire",
+    "work": [
+      "sgs"
+    ],
+    "portrait": "/portraits/characters/star.webp"
+  },
+  {
+    "id": "aya",
+    "name": "Shameimaru Aya",
+    "work": [
+      "pofv",
+      "sa",
+      "mof",
+      "ds"
+    ],
+    "portrait": "/portraits/characters/aya.webp"
+  },
+  {
+    "id": "medicine",
+    "name": "Medicine Melancholy",
+    "work": [
+      "pofv"
+    ],
+    "portrait": "/portraits/characters/medicine.webp"
+  },
+  {
+    "id": "yuuka",
+    "name": "Kazami Yūka",
+    "work": [
+      "pofv"
+    ],
+    "portrait": "/portraits/characters/yuuka.webp"
+  },
+  {
+    "id": "komachi",
+    "name": "Onozuka Komachi",
+    "work": [
+      "pofv"
+    ],
+    "portrait": "/portraits/characters/komachi.webp"
+  },
+  {
+    "id": "eiki",
+    "name": "Shiki Eiki, Yamaxanadu",
+    "work": [
+      "pofv"
+    ],
+    "portrait": "/portraits/characters/eiki.webp"
+  },
+  {
+    "id": "reisen2",
+    "name": "Reisen",
+    "work": [
+      "ssib"
+    ],
+    "portrait": "/portraits/characters/reisen2.webp"
+  },
+  {
+    "id": "toyohime",
+    "name": "Watasuki no Toyohime",
+    "work": [
+      "ssib"
+    ],
+    "portrait": "/portraits/characters/toyohime.webp"
+  },
+  {
+    "id": "yorihime",
+    "name": "Watatsuki no Yorihime",
+    "work": [
+      "ssib"
+    ],
+    "portrait": "/portraits/characters/yorihime.webp"
+  },
+  {
+    "id": "akyuu",
+    "name": "Hieda no Akyū",
+    "work": [
+      "pmiss"
+    ],
+    "portrait": "/portraits/characters/akyuu.webp"
+  },
+  {
+    "id": "shizuha",
+    "name": "Aki Shizuha",
+    "work": [
+      "mof"
+    ],
+    "portrait": "/portraits/characters/shizuha.webp"
+  },
+  {
+    "id": "minoriko",
+    "name": "Aki Minoriko",
+    "work": [
+      "mof"
+    ],
+    "portrait": "/portraits/characters/minoriko.webp"
+  },
+  {
+    "id": "hina",
+    "name": "Kagiyama Hina",
+    "work": [
+      "mof"
+    ],
+    "portrait": "/portraits/characters/hina.webp"
+  },
+  {
+    "id": "nitori",
+    "name": "Kawashiro Nitori",
+    "work": [
+      "mof"
+    ],
+    "portrait": "/portraits/characters/nitori.webp"
+  },
+  {
+    "id": "momiji",
+    "name": "Inubashiri Momiji",
+    "work": [
+      "mof"
+    ],
+    "portrait": "/portraits/characters/momiji.webp"
+  },
+  {
+    "id": "sanae",
+    "name": "Kochiya Sanae",
+    "work": [
+      "mof",
+      "sa",
+      "ufo",
+      "soku",
+      "td",
+      "lolk",
+      "um",
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/sanae.webp"
+  },
+  {
+    "id": "kanako",
+    "name": "Yasaka Kanako",
+    "work": [
+      "mof"
+    ],
+    "portrait": "/portraits/characters/kanako.webp"
+  },
+  {
+    "id": "suwako",
+    "name": "Moriya Suwako",
+    "work": [
+      "mof"
+    ],
+    "portrait": "/portraits/characters/suwako.webp"
+  },
+  {
+    "id": "iku",
+    "name": "Nagae Iku",
+    "work": [
+      "swr"
+    ],
+    "portrait": "/portraits/characters/iku.webp"
+  },
+  {
+    "id": "tenshi",
+    "name": "Hinanawi Tenshi",
+    "work": [
+      "swr"
+    ],
+    "portrait": "/portraits/characters/tenshi.webp"
+  },
+  {
+    "id": "kisume",
+    "name": "Kisume",
+    "work": [
+      "sa"
+    ],
+    "portrait": "/portraits/characters/kisume.webp"
+  },
+  {
+    "id": "yamame",
+    "name": "Kurodani Yamame",
+    "work": [
+      "sa"
+    ],
+    "portrait": "/portraits/characters/yamame.webp"
+  },
+  {
+    "id": "parsee",
+    "name": "Mizuhashi Parsee",
+    "work": [
+      "sa"
+    ],
+    "portrait": "/portraits/characters/parsee.webp"
+  },
+  {
+    "id": "yuugi",
+    "name": "Hoshiguma Yūgi",
+    "work": [
+      "sa"
+    ],
+    "portrait": "/portraits/characters/yuugi.webp"
+  },
+  {
+    "id": "satori",
+    "name": "Komeiji Satori",
+    "work": [
+      "sa"
+    ],
+    "portrait": "/portraits/characters/satori.webp"
+  },
+  {
+    "id": "orin",
+    "name": "Kaenbyō Rin",
+    "work": [
+      "sa",
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/orin.webp"
+  },
+  {
+    "id": "okuu",
+    "name": "Reiuji Utsuho",
+    "work": [
+      "sa"
+    ],
+    "portrait": "/portraits/characters/okuu.webp"
+  },
+  {
+    "id": "koishi",
+    "name": "Komeiji Koishi",
+    "work": [
+      "sa"
+    ],
+    "portrait": "/portraits/characters/koishi.webp"
+  },
+  {
+    "id": "nazrin",
+    "name": "Nazrin",
+    "work": [
+      "ufo"
+    ],
+    "portrait": "/portraits/characters/nazrin.webp"
+  },
+  {
+    "id": "kogasa",
+    "name": "Tatara Kogasa",
+    "work": [
+      "ufo"
+    ],
+    "portrait": "/portraits/characters/kogasa.webp"
+  },
+  {
+    "id": "ichirin",
+    "name": "Kumoi Ichirin",
+    "work": [
+      "ufo"
+    ],
+    "portrait": "/portraits/characters/ichirin.webp"
+  },
+  {
+    "id": "minamitsu",
+    "name": "Murasa Minamitsu",
+    "work": [
+      "ufo"
+    ],
+    "portrait": "/portraits/characters/minamitsu.webp"
+  },
+  {
+    "id": "shou",
+    "name": "Toramaru Shō",
+    "work": [
+      "ufo"
+    ],
+    "portrait": "/portraits/characters/shou.webp"
+  },
+  {
+    "id": "byakuren",
+    "name": "Hijiri Byakuren",
+    "work": [
+      "ufo"
+    ],
+    "portrait": "/portraits/characters/byakuren.webp"
+  },
+  {
+    "id": "nue",
+    "name": "Hōjū Nue",
+    "work": [
+      "ufo"
+    ],
+    "portrait": "/portraits/characters/nue.webp"
+  },
+  {
+    "id": "hatate",
+    "name": "Himekaidō Hatate",
+    "work": [
+      "ds"
+    ],
+    "portrait": "/portraits/characters/hatate.webp"
+  },
+  {
+    "id": "kasen",
+    "name": "Ibaraki Kasen",
+    "work": [
+      "aocf"
+    ],
+    "portrait": "/portraits/characters/kasen.webp"
+  },
+  {
+    "id": "kyouko",
+    "name": "Kasodani Kyōko",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/kyouko.webp"
+  },
+  {
+    "id": "yoshika",
+    "name": "Miyako Yoshika",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/yoshika.webp"
+  },
+  {
+    "id": "seiga",
+    "name": "Kaku Seiga",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/seiga.webp"
+  },
+  {
+    "id": "tojiko",
+    "name": "Soga no Tojiko",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/tojiko.webp"
+  },
+  {
+    "id": "futo",
+    "name": "Mononobe no Futo",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/futo.webp"
+  },
+  {
+    "id": "miko",
+    "name": "Toyosatomimi no Miko",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/miko.webp"
+  },
+  {
+    "id": "mamizou",
+    "name": "Futatsuiwa Mamizō",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/mamizou.webp"
+  },
+  {
+    "id": "kosuzu",
+    "name": "Motōri Kosuzu",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/kosuzu.webp"
+  },
+  {
+    "id": "kokoro",
+    "name": "Hata no Kokoro",
+    "work": [
+      "td"
+    ],
+    "portrait": "/portraits/characters/kokoro.webp"
+  },
+  {
+    "id": "wakasagihime",
+    "name": "Wakasagihime",
+    "work": [
+      "ddc"
+    ],
+    "portrait": "/portraits/characters/wakasagihime.webp"
+  },
+  {
+    "id": "sekibanki",
+    "name": "Sekibanki",
+    "work": [
+      "ddc"
+    ],
+    "portrait": "/portraits/characters/sekibanki.webp"
+  },
+  {
+    "id": "kagerou",
+    "name": "Imaizumi Kagerō",
+    "work": [
+      "ddc"
+    ],
+    "portrait": "/portraits/characters/kagerou.webp"
+  },
+  {
+    "id": "benben",
+    "name": "Tsukumo Benben",
+    "work": [
+      "ddc"
+    ],
+    "portrait": "/portraits/characters/benben.webp"
+  },
+  {
+    "id": "yatsuhashi",
+    "name": "Tsukumo Yatsuhashi",
+    "work": [
+      "ddc"
+    ],
+    "portrait": "/portraits/characters/yatsuhashi.webp"
+  },
+  {
+    "id": "seija",
+    "name": "Kijin Seija",
+    "work": [
+      "ddc"
+    ],
+    "portrait": "/portraits/characters/seija.webp"
+  },
+  {
+    "id": "shinmyoumaru",
+    "name": "Sukuna Shinmyōmaru",
+    "work": [
+      "ddc"
+    ],
+    "portrait": "/portraits/characters/shinmyoumaru.webp"
+  },
+  {
+    "id": "raiko",
+    "name": "Horikawa Raiko",
+    "work": [
+      "ddc"
+    ],
+    "portrait": "/portraits/characters/raiko.webp"
+  },
+  {
+    "id": "sumireko",
+    "name": "Usami Sumireko",
+    "work": [
+      "ulil"
+    ],
+    "portrait": "/portraits/characters/sumireko.webp"
+  },
+  {
+    "id": "seiran",
+    "name": "Seiran",
+    "work": [
+      "lolk"
+    ],
+    "portrait": "/portraits/characters/seiran.webp"
+  },
+  {
+    "id": "ringo",
+    "name": "Ringo",
+    "work": [
+      "lolk"
+    ],
+    "portrait": "/portraits/characters/ringo.webp"
+  },
+  {
+    "id": "doremy",
+    "name": "Doremy Sweet",
+    "work": [
+      "lolk"
+    ],
+    "portrait": "/portraits/characters/doremy.webp"
+  },
+  {
+    "id": "sagume",
+    "name": "Kishin Sagume",
+    "work": [
+      "lolk"
+    ],
+    "portrait": "/portraits/characters/sagume.webp"
+  },
+  {
+    "id": "clownpiece",
+    "name": "Clownpiece",
+    "work": [
+      "lolk"
+    ],
+    "portrait": "/portraits/characters/clownpiece.webp"
+  },
+  {
+    "id": "junko",
+    "name": "Junko",
+    "work": [
+      "lolk"
+    ],
+    "portrait": "/portraits/characters/junko.webp"
+  },
+  {
+    "id": "hecatia",
+    "name": "Hecatia Lapislazuli",
+    "work": [
+      "lolk"
+    ],
+    "portrait": "/portraits/characters/hecatia.webp"
+  },
+  {
+    "id": "joon",
+    "name": "Yorigami Jo'on",
+    "work": [
+      "aocf"
+    ],
+    "portrait": "/portraits/characters/joon.webp"
+  },
+  {
+    "id": "shion",
+    "name": "Yorigami Shion",
+    "work": [
+      "aocf"
+    ],
+    "portrait": "/portraits/characters/shion.webp"
+  },
+  {
+    "id": "larva",
+    "name": "Eternity Larva",
+    "work": [
+      "hsifs"
+    ],
+    "portrait": "/portraits/characters/larva.webp"
+  },
+  {
+    "id": "nemuno",
+    "name": "Sakata Nemuno",
+    "work": [
+      "hsifs"
+    ],
+    "portrait": "/portraits/characters/nemuno.webp"
+  },
+  {
+    "id": "aun",
+    "name": "Komano Aun",
+    "work": [
+      "hsifs"
+    ],
+    "portrait": "/portraits/characters/aun.webp"
+  },
+  {
+    "id": "narumi",
+    "name": "Yatadera Narumi",
+    "work": [
+      "hsifs"
+    ],
+    "portrait": "/portraits/characters/narumi.webp"
+  },
+  {
+    "id": "mai",
+    "name": "Teireida Mai",
+    "work": [
+      "hsifs"
+    ],
+    "portrait": "/portraits/characters/mai.webp"
+  },
+  {
+    "id": "satono",
+    "name": "Nishida Satono",
+    "work": [
+      "hsifs"
+    ],
+    "portrait": "/portraits/characters/satono.webp"
+  },
+  {
+    "id": "okina",
+    "name": "Matara Okina",
+    "work": [
+      "hsifs"
+    ],
+    "portrait": "/portraits/characters/okina.webp"
+  },
+  {
+    "id": "eika",
+    "name": "Ebisu Eika",
+    "work": [
+      "wbawc"
+    ],
+    "portrait": "/portraits/characters/eika.webp"
+  },
+  {
+    "id": "kutaka",
+    "name": "Niwatari Kutaka",
+    "work": [
+      "wbawc"
+    ],
+    "portrait": "/portraits/characters/kutaka.webp"
+  },
+  {
+    "id": "urumi",
+    "name": "Ushizaki Urumi",
+    "work": [
+      "wbawc"
+    ],
+    "portrait": "/portraits/characters/urumi.webp"
+  },
+  {
+    "id": "yachie",
+    "name": "Kicchō Yachie",
+    "work": [
+      "wbawc",
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/yachie.webp"
+  },
+  {
+    "id": "mayumi",
+    "name": "Jōtōgū Mayumi",
+    "work": [
+      "wbawc"
+    ],
+    "portrait": "/portraits/characters/mayumi.webp"
+  },
+  {
+    "id": "keiki",
+    "name": "Haniyasushin Keiki",
+    "work": [
+      "wbawc"
+    ],
+    "portrait": "/portraits/characters/keiki.webp"
+  },
+  {
+    "id": "saki",
+    "name": "Kurokoma Saki",
+    "work": [
+      "wbawc",
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/saki.webp"
+  },
+  {
+    "id": "miyoi",
+    "name": "Okunoda Miyoi",
+    "work": [
+      "le"
+    ],
+    "portrait": "/portraits/characters/miyoi.webp"
+  },
+  {
+    "id": "mizuchi",
+    "name": "Miyadeguchi Mizuchi",
+    "work": [
+      "fds"
+    ],
+    "portrait": "/portraits/characters/mizuchi.webp"
+  },
+  {
+    "id": "yuuma",
+    "name": "Tōtetsu Yūma",
+    "work": [
+      "sfw",
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/yuuma.webp"
+  },
+  {
+    "id": "mike",
+    "name": "Gōtokuji Mike",
+    "work": [
+      "um"
+    ],
+    "portrait": "/portraits/characters/mike.webp"
+  },
+  {
+    "id": "takane",
+    "name": "Yamashiro Takane",
+    "work": [
+      "um"
+    ],
+    "portrait": "/portraits/characters/takane.webp"
+  },
+  {
+    "id": "sannyo",
+    "name": "Komakusa Sannyo",
+    "work": [
+      "um"
+    ],
+    "portrait": "/portraits/characters/sannyo.webp"
+  },
+  {
+    "id": "misumaru",
+    "name": "Tamatsukuri Misumaru",
+    "work": [
+      "um"
+    ],
+    "portrait": "/portraits/characters/misumaru.webp"
+  },
+  {
+    "id": "tsukasa",
+    "name": "Kudamaki Tsukasa",
+    "work": [
+      "um",
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/tsukasa.webp"
+  },
+  {
+    "id": "megumu",
+    "name": "Iizunamaru Megumu",
+    "work": [
+      "um"
+    ],
+    "portrait": "/portraits/characters/megumu.webp"
+  },
+  {
+    "id": "chimata",
+    "name": "Tenkyū Chimata",
+    "work": [
+      "um"
+    ],
+    "portrait": "/portraits/characters/chimata.webp"
+  },
+  {
+    "id": "momoyo",
+    "name": "Himemushi Momoyo",
+    "work": [
+      "um"
+    ],
+    "portrait": "/portraits/characters/momoyo.webp"
+  },
+  {
+    "id": "biten",
+    "name": "Son Biten",
+    "work": [
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/biten.webp"
+  },
+  {
+    "id": "enoko",
+    "name": "Mitsugashira Enoko",
+    "work": [
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/enoko.webp"
+  },
+  {
+    "id": "chiyari",
+    "name": "Tenkajin Chiyari",
+    "work": [
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/chiyari.webp"
+  },
+  {
+    "id": "hisami",
+    "name": "Yomotsu Hisami",
+    "work": [
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/hisami.webp"
+  },
+  {
+    "id": "zanmu",
+    "name": "Nippaku Zanmu",
+    "work": [
+      "udoalg"
+    ],
+    "portrait": "/portraits/characters/zanmu.webp"
+  },
+  {
+    "id": "ubame",
+    "name": "Chirizuka Ubame",
+    "work": [
+      "fw"
+    ],
+    "portrait": "/portraits/characters/ubame.webp"
+  },
+  {
+    "id": "chimi",
+    "name": "Hōjū Chimi",
+    "work": [
+      "fw"
+    ],
+    "portrait": "/portraits/characters/chimi.webp"
+  },
+  {
+    "id": "nareko",
+    "name": "Michigami Nareko",
+    "work": [
+      "fw"
+    ],
+    "portrait": "/portraits/characters/nareko.webp"
+  }
 ]

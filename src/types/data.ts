@@ -13,6 +13,7 @@ export interface Artist {
     name: string;
     linkTwitter?: string;
     linkPixiv?: string;
+    portrait: string;
     artworkCount: number;
 }
 
@@ -20,6 +21,7 @@ export interface Character {
     id: string;
     name: string;
     work: string[];
+    portrait: string;
     artworkCount: number;
 }
 
@@ -38,12 +40,14 @@ export interface ArtistRaw {
     name: string;
     linkTwitter?: string;
     linkPixiv?: string;
+    portrait: string;
 }
 
 export interface CharacterRaw {
     id: string;
     name: string;
     work: string[];
+    portrait: string;
 }
 
 export type SortOrder = "none" | "asc" | "desc";
