@@ -107,6 +107,5 @@ const ProfileItem = ({ name, imageUrl, description, link }) => {
 export {
   ProfileItem as P,
   getArtistPortraits as a,
-  getRandomPlaceholder as b,
   getCharacterPortraits as g
 };

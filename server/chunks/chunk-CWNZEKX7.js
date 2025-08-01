@@ -1,7 +1,7 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { Container, Box, Typography, TextField } from "@mui/material";
-import { P as ProfileItem, g as getCharacterPortraits, a as getArtistPortraits, b as getRandomPlaceholder } from "./chunk-D4yE-5Mp.js";
+import { P as ProfileItem } from "./chunk-Ku3JGR1t.js";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import CollectionsIcon from "@mui/icons-material/Collections";
@@ -80,25 +80,18 @@ const styles = {
     }
   }
 };
-/*! data/valid-portraits.json [vike:pluginModuleBanner] */
-const characters = ["akyuu", "alice", "aun", "aya", "benben", "biten", "byakuren", "chen", "chimata", "chimi", "chiyari", "cirno", "clownpiece", "daiyousei", "doremy", "eika", "eiki", "eirin", "enoko", "flandre", "futo", "hatate", "hecatia", "hina", "hisami", "ichirin", "iku", "joon", "junko", "kagerou", "kaguya", "kanako", "kasen", "keiki", "keine", "kisume", "koakuma", "kogasa", "koishi", "kokoro", "komachi", "kosuzu", "kutaka", "kyouko", "larva", "letty", "lily", "lunasa", "luna", "lyrica", "mai", "mamizou", "marisa", "mayumi", "medicine", "megumu", "meiling", "merlin", "merry", "mike", "miko", "minamitsu", "minoriko", "misumaru", "miyoi", "mizuchi", "mokou", "momiji", "momoyo", "mystia", "nareko", "narumi", "nazrin", "nemuno", "nitori", "nue", "okina", "okuu", "orin", "parsee", "patchouli", "raiko", "ran", "reimu", "reisen2", "reisen", "remilia", "renko", "ringo", "rinnosuke", "rin", "rumia", "sagume", "saki", "sakuya", "sanae", "sannyo", "satono", "satori", "seiga", "seija", "seiran", "sekibanki", "shinmyoumaru", "shion", "shizuha", "shou", "star", "suika", "sumireko", "sunny", "suwako", "takane", "tenshi", "tewi", "tojiko", "tokiko", "toyohime", "tsukasa", "ubame", "urumi", "wakasagihime", "wriggle", "yachie", "yamame", "yatsuhashi", "yorihime", "yoshika", "youmu", "yukari", "yuugi", "yuuka", "yuuma", "yuyuko", "zanmu"];
-const artists = ["akeboshi_saku", "arugon", "ayaharu", "chitose_hachi", "chuumukade", "deetamu", "ebi", "enoki", "gohan_tabe", "gokuu", "haruwaka_noroshi", "hidaruma", "iroiro_yaru_hito", "kanonari", "kanpa", "konna_reshiki", "mendou15", "merihari", "muntarou", "purabird", "seele", "sha_re", "shichimi", "shio", "sniper", "sobayu_to_tempura", "soborou", "solidus", "soregashi", "suwaneko", "suzume_suzume", "teoi", "tofuya", "yimu", "youyume", "yukiya_nagi", "zounose"];
-const validPortraits = {
-  characters,
-  artists
-};
 /*! src/components/ListPage/ListPage.tsx [vike:pluginModuleBanner] */
 const MODE_CHARACTER = "character";
 const MODE_ARTIST = "artist";
 const BASE_URL = "/touhou-translations/";
 const PAGE_SIZE = 25;
-const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
+const ListPage = ({ mode, characters, artists }) => {
   const title = mode === MODE_CHARACTER ? "Character List" : "Artist List";
   const ariaLabel = mode === MODE_CHARACTER ? "Search Characters" : "Search Artists";
-  if (mode === MODE_CHARACTER && !characters2 || mode === MODE_ARTIST && !artists2) {
+  if (mode === MODE_CHARACTER && !characters || mode === MODE_ARTIST && !artists) {
     throw new Error(`${mode} data prop is required`);
   }
-  const allItems = useMemo(() => mode === MODE_CHARACTER ? characters2 : artists2, [mode, characters2, artists2]);
+  const allItems = useMemo(() => mode === MODE_CHARACTER ? characters : artists, [mode, characters, artists]);
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("none");
@@ -117,13 +110,11 @@ const ListPage = ({ mode, characters: characters2, artists: artists2 }) => {
   };
   const renderListItems = () => {
     return sortedItems.slice(0, visibleCount).map((item) => {
-      const isCharacter = mode === MODE_CHARACTER;
       const id = item.id;
       const name = item.name;
       const artworkCountText = `${item.artworkCount} artwork${item.artworkCount !== 1 ? "s" : ""}`;
-      const hasPortrait = isCharacter ? validPortraits.characters.includes(id) : validPortraits.artists.includes(id);
-      const imageUrl = hasPortrait ? isCharacter ? getCharacterPortraits(id) : getArtistPortraits(id) : getRandomPlaceholder();
-      const toUrl = isCharacter ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
+      const imageUrl = `${BASE_URL}${item.portrait}`;
+      const toUrl = mode === MODE_CHARACTER ? `${BASE_URL}gallery?character=${id}` : `${BASE_URL}gallery?artist=${id}`;
       return /* @__PURE__ */ jsx(ProfileItem, { name, imageUrl, description: artworkCountText, link: toUrl }, id);
     });
   };

@@ -1,4 +1,4 @@
-import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-BM7j-M2S.js";
+import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-Da0UTZy2.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
