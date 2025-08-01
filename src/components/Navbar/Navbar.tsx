@@ -30,6 +30,10 @@ const Navbar: React.FC = () => {
     };
 
     const handleNavigation = (to: string) => {
+        if (pageContext.urlOriginal === to) {
+            setDrawerOpen(false)
+            return;
+        }
         setDrawerOpen(false);
         navigate(to);
     };
