@@ -2,13 +2,12 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Emulate __dirname in ES module context
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const baseURL = process.env.BASE_URL || "/";
 const dataDir = path.resolve(__dirname, "../data");
-const publicDir = path.resolve(__dirname, "../public"); // Portraits assumed under public/
+const publicDir = path.resolve(__dirname, "../public");
 
 const placeholderFilenames = [
     "demoman.webp",
@@ -41,7 +40,7 @@ async function updatePortraits() {
 
     for (const { filename, portraitDir } of files) {
         const filePath = path.join(dataDir, filename);
-        const portraitPath = path.join(publicDir, portraitDir); // Actual image location
+        const portraitPath = path.join(publicDir, portraitDir);
 
         try {
             await fs.access(filePath);
