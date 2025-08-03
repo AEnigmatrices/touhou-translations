@@ -11,6 +11,7 @@ interface InfoSectionStyles {
     infoIconsLabel: SxProps<Theme>;
     iconButton: SxProps<Theme>;
     sourceLink: SxProps<Theme>;
+    sourceContainer: SxProps<Theme>;
     characterLink: SxProps<Theme>;
     charactersWrapper: SxProps<Theme>;
     characterChip: SxProps<Theme>;
@@ -40,7 +41,10 @@ const styles: InfoSectionStyles = {
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
-        lineHeight: 1.6
+        lineHeight: 1.6,
+        '@media (max-width:480px)': {
+            whiteSpace: 'normal',
+        }
     },
     infoItemLabelComment: {
         display: 'flex',
@@ -49,7 +53,10 @@ const styles: InfoSectionStyles = {
         fontSize: '1.25rem',
         fontWeight: 600,
         marginBottom: '-0.75rem',
-        alignItems: 'center'
+        alignItems: 'center',
+        '@media (max-width:480px)': {
+            fontSize: '1.1rem',
+        }
     },
     infoItemValue: {
         display: 'flex',
@@ -62,7 +69,10 @@ const styles: InfoSectionStyles = {
     infoItemValueComment: {
         textAlign: 'left',
         fontSize: '1.05rem',
-        lineHeight: 1.6
+        lineHeight: 1.6,
+        '@media (max-width:480px)': {
+            fontSize: '1rem',
+        }
     },
     infoIcons: {
         display: 'flex',
@@ -111,6 +121,15 @@ const styles: InfoSectionStyles = {
             wordBreak: 'break-word'
         }
     },
+    sourceContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: 1,
+        flexWrap: 'wrap',
+        '@media (max-width:480px)': {
+            gap: 0.5,
+        }
+    },
     characterLink: {
         color: '#0066cc',
         textDecoration: 'none',
@@ -126,30 +145,40 @@ const styles: InfoSectionStyles = {
         }
     },
     charactersWrapper: {
-        display: 'inline',
-        textAlign: 'left'
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 1,
+        textAlign: 'left',
+        '@media (max-width:480px)': {
+            gap: 0.5,
+        }
     },
     characterChip: {
         fontWeight: 500,
-        color: '#0066cc',
-        borderColor: '#0066cc',
-        backgroundColor: 'transparent',
+        color: '#004999',
+        borderColor: '#004999',
+        backgroundColor: '#e6f0ff',
         cursor: 'pointer',
         transition: 'all 0.2s ease',
+        minHeight: 36,
         '&:hover': {
-            backgroundColor: '#e6f0ff',
-            color: '#004999',
-            borderColor: '#004999',
+            backgroundColor: '#d0e4ff',
+            color: '#003366',
+            borderColor: '#003366',
         },
         '&:active': {
             backgroundColor: '#cce0ff',
-            color: '#003366',
-            borderColor: '#003366',
+            color: '#002244',
+            borderColor: '#002244',
         },
         '& .MuiChip-label': {
             paddingLeft: 6,
             paddingRight: 6,
-        },
+            fontSize: '0.9rem',
+            '@media (max-width:480px)': {
+                fontSize: '0.85rem',
+            }
+        }
     }
 };
 

@@ -22,14 +22,21 @@ const pixivIcon = `${BASE_URL}icons/social/pixiv.webp`;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
 const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
+
+    const { characters: allCharacters } = useAppData();
+
     const [hoveredCharacterData, setHoveredCharacterData] = useState<Character | null>(null);
+    const [showNitter, setShowNitter] = useState(false);
     const [tooltipPosition, setTooltipPosition] = useState<{ x: number; y: number } | null>(null);
     const hoverTimeoutRef = useRef<number | null>(null);
 
+    const isTwitterUrl = post.src ? /^(https?:\/\/)?(www\.)?(twitter\.com|x\.com)/.test(post.src) : false;
     const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
-    const { characters: allCharacters } = useAppData();
+    const displayedUrl = showNitter && nitterUrl ? nitterUrl : post.src;
+
+
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
         if (!href) return null;
@@ -66,6 +73,10 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
         setTooltipPosition(null);
     };
 
+    const toggleUrl = () => setShowNitter(prev => !prev);
+
+
+
     return (
         <>
             <Box sx={styles.root}>
@@ -89,18 +100,20 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                     {post.src && (
                         <>
                             <Typography component="div" sx={styles.infoItemLabel}>Source:</Typography>
-                            <Tooltip title={post.src} arrow>
-                                <Link href={post.src} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}>{post.src}</Link>
-                            </Tooltip>
-                        </>
-                    )}
-
-                    {nitterUrl && (
-                        <>
-                            <Typography component="div" sx={styles.infoItemLabel}>Nitter Mirror:</Typography>
-                            <Tooltip title={nitterUrl} arrow>
-                                <Link href={nitterUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}>{nitterUrl}</Link>
-                            </Tooltip>
+                            <Box sx={styles.sourceContainer}>
+                                <Link href={displayedUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}>
+                                    {displayedUrl}
+                                </Link>
+                                {isTwitterUrl && nitterUrl && (
+                                    <Chip
+                                        size="small"
+                                        label={showNitter ? 'Show Twitter Mirror' : 'Show Nitter Mirror'}
+                                        onClick={toggleUrl}
+                                        clickable
+                                        sx={{ cursor: 'pointer', userSelect: 'none' }}
+                                    />
+                                )}
+                            </Box>
                         </>
                     )}
 
