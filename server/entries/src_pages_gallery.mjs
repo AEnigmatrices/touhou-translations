@@ -1,4 +1,4 @@
-import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-CGEvxkWZ.js";
+import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-CvzALYET.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useMemo, useState, useEffect } from "react";
 import { Box, CircularProgress } from "@mui/material";
@@ -156,7 +156,6 @@ const styles$1 = {
     left: 0,
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(255,255,255)",
     zIndex: 10,
     paddingTop: "1rem"
   }

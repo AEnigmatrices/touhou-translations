@@ -1,12 +1,13 @@
-import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-CGEvxkWZ.js";
+import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-CvzALYET.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
-import React, { useState, useCallback, useEffect, useRef } from "react";
-import { Box, Link, IconButton, Typography } from "@mui/material";
+import { useState, useCallback, useEffect, useRef } from "react";
+import { Box, Link, IconButton, Typography, Skeleton, Chip, Accordion, AccordionSummary, AccordionDetails, Tooltip } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { createPortal } from "react-dom";
 import Box$1 from "@mui/material/Box";
 import { P as ProfileItem } from "../chunks/chunk-CYdkaobM.js";
@@ -200,7 +201,7 @@ const ProfilePopover = ({ data, position }) => {
     document.body
   );
 };
-/*! src/components/ImageViewer/InfoSection.styles.ts [vike:pluginModuleBanner] */
+/*! src/components/ImageViewer/InfoSection/InfoSection.styles.ts [vike:pluginModuleBanner] */
 const styles$1 = {
   root: {
     display: "flex",
@@ -225,7 +226,10 @@ const styles$1 = {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "flex-start",
-    lineHeight: 1.6
+    lineHeight: 1.6,
+    "@media (max-width:480px)": {
+      whiteSpace: "normal"
+    }
   },
   infoItemValue: {
     display: "flex",
@@ -238,7 +242,10 @@ const styles$1 = {
   infoItemValueComment: {
     textAlign: "left",
     fontSize: "1.05rem",
-    lineHeight: 1.6
+    lineHeight: 1.6,
+    "@media (max-width:480px)": {
+      fontSize: "1rem"
+    }
   },
   infoIcons: {
     display: "flex",
@@ -284,41 +291,71 @@ const styles$1 = {
       wordBreak: "break-word"
     }
   },
-  characterLink: {
-    color: "#0066cc",
-    textDecoration: "none",
-    fontWeight: 500,
-    whiteSpace: "nowrap",
-    transition: "color 0.2s ease, text-decoration 0.2s ease",
-    "&:hover, &:focus": {
-      color: "#004999",
-      textDecoration: "underline"
-    },
-    "&:active": {
-      color: "#003366"
+  sourceContainer: {
+    display: "flex",
+    alignItems: "center",
+    gap: 1,
+    flexWrap: "wrap",
+    "@media (max-width:480px)": {
+      gap: 0.5
     }
   },
   charactersWrapper: {
-    display: "inline",
-    textAlign: "left"
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 1,
+    textAlign: "left",
+    "@media (max-width:480px)": {
+      gap: 0.5
+    }
+  },
+  characterChip: {
+    fontWeight: 500,
+    color: "#004999",
+    borderColor: "#004999",
+    backgroundColor: "#e6f0ff",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
+    minHeight: 36,
+    "&:hover": {
+      backgroundColor: "#d0e4ff",
+      color: "#003366",
+      borderColor: "#003366"
+    },
+    "&:active": {
+      backgroundColor: "#cce0ff",
+      color: "#002244",
+      borderColor: "#002244"
+    },
+    "& .MuiChip-label": {
+      paddingLeft: 6,
+      paddingRight: 6,
+      fontSize: "0.9rem",
+      "@media (max-width:480px)": {
+        fontSize: "0.85rem"
+      }
+    }
   }
 };
-/*! src/components/ImageViewer/InfoSection.tsx [vike:pluginModuleBanner] */
+/*! src/components/ImageViewer/InfoSection/InfoSection.tsx [vike:pluginModuleBanner] */
 const BASE_URL = "/touhou-translations/";
 const twitterIcon = `${BASE_URL}icons/social/twitter.webp`;
 const nitterIcon = `${BASE_URL}icons/social/nitter.webp`;
 const pixivIcon = `${BASE_URL}icons/social/pixiv.webp`;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 const InfoSection = ({ post, artist, characters }) => {
+  const { characters: allCharacters } = useAppData();
   const [hoveredCharacterData, setHoveredCharacterData] = useState(null);
+  const [showNitter, setShowNitter] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState(null);
   const hoverTimeoutRef = useRef(null);
+  const isTwitterUrl = post.src ? /^(https?:\/\/)?(www\.)?(twitter\.com|x\.com)/.test(post.src) : false;
   const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
   const formattedDate = post.date ? new Date(post.date).toLocaleString("en-US", dateFormatOptions) : "Unknown date";
-  const { characters: allCharacters } = useAppData();
+  const displayedUrl = showNitter && nitterUrl ? nitterUrl : post.src;
   const renderIconLink = (href, ariaLabel, iconSrc, altText) => {
     if (!href) return null;
-    return /* @__PURE__ */ jsx(IconButton, { component: "a", href, target: "_blank", rel: "noopener noreferrer", "aria-label": ariaLabel, sx: styles$1.iconButton, size: "small", children: /* @__PURE__ */ jsx("img", { src: iconSrc, alt: altText }) });
+    return /* @__PURE__ */ jsx(Tooltip, { title: altText, arrow: true, placement: "top", children: /* @__PURE__ */ jsx(IconButton, { component: "a", href, target: "_blank", rel: "noopener noreferrer", "aria-label": ariaLabel, sx: styles$1.iconButton, size: "small", children: /* @__PURE__ */ jsx("img", { src: iconSrc, alt: altText }) }) });
   };
   const handleCharacterMouseEnter = (e, id) => {
     if (hoverTimeoutRef.current) {
@@ -340,56 +377,62 @@ const InfoSection = ({ post, artist, characters }) => {
     setHoveredCharacterData(null);
     setTooltipPosition(null);
   };
+  const toggleUrl = () => setShowNitter((prev) => !prev);
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsxs(Box, { sx: styles$1.root, children: [
       /* @__PURE__ */ jsxs(Box, { sx: styles$1.infoGrid, children: [
-        artist && /* @__PURE__ */ jsxs(Fragment, { children: [
-          /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Artist:" }),
-          /* @__PURE__ */ jsxs(Box, { sx: styles$1.infoItemValue, children: [
-            /* @__PURE__ */ jsx(Typography, { children: artist.name }),
-            /* @__PURE__ */ jsxs(Box, { sx: styles$1.infoIcons, children: [
-              renderIconLink(artist.linkTwitter, "Twitter profile", twitterIcon, "Twitter"),
-              renderIconLink(artist.linkTwitter?.replace("x.com", "nitter.net"), "Nitter profile", nitterIcon, "Nitter"),
-              renderIconLink(artist.linkPixiv, "Pixiv profile", pixivIcon, "Pixiv")
-            ] })
+        /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Artist:" }),
+        /* @__PURE__ */ jsx(Box, { sx: styles$1.infoItemValue, children: !artist ? /* @__PURE__ */ jsx(Skeleton, { width: 120 }) : /* @__PURE__ */ jsxs(Fragment, { children: [
+          /* @__PURE__ */ jsx(Typography, { children: artist.name }),
+          /* @__PURE__ */ jsxs(Box, { sx: styles$1.infoIcons, children: [
+            renderIconLink(artist.linkTwitter, "Twitter profile", twitterIcon, "Twitter"),
+            renderIconLink(artist.linkTwitter?.replace("x.com", "nitter.net"), "Nitter profile", nitterIcon, "Nitter"),
+            renderIconLink(artist.linkPixiv, "Pixiv profile", pixivIcon, "Pixiv")
           ] })
-        ] }),
+        ] }) }),
         post.src && /* @__PURE__ */ jsxs(Fragment, { children: [
           /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Source:" }),
-          /* @__PURE__ */ jsx(Link, { href: post.src, target: "_blank", rel: "noopener noreferrer", sx: styles$1.sourceLink, title: post.src, children: post.src })
-        ] }),
-        nitterUrl && /* @__PURE__ */ jsxs(Fragment, { children: [
-          /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Nitter Mirror:" }),
-          /* @__PURE__ */ jsx(Link, { href: nitterUrl, target: "_blank", rel: "noopener noreferrer", sx: styles$1.sourceLink, title: nitterUrl, children: nitterUrl })
+          /* @__PURE__ */ jsxs(Box, { sx: styles$1.sourceContainer, children: [
+            /* @__PURE__ */ jsx(Link, { href: displayedUrl, target: "_blank", rel: "noopener noreferrer", sx: styles$1.sourceLink, children: displayedUrl }),
+            isTwitterUrl && nitterUrl && /* @__PURE__ */ jsx(
+              Chip,
+              {
+                size: "small",
+                label: showNitter ? "Show Twitter Mirror" : "Show Nitter Mirror",
+                onClick: toggleUrl,
+                clickable: true,
+                sx: { cursor: "pointer", userSelect: "none" }
+              }
+            )
+          ] })
         ] }),
         characters.length > 0 && /* @__PURE__ */ jsxs(Fragment, { children: [
           /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: characters.length === 1 ? "Character:" : "Characters:" }),
-          /* @__PURE__ */ jsx(Box, { sx: styles$1.infoItemValue, children: /* @__PURE__ */ jsx(Box, { sx: styles$1.charactersWrapper, children: characters.map((c, idx) => /* @__PURE__ */ jsxs(React.Fragment, { children: [
-            /* @__PURE__ */ jsx(
-              Link,
-              {
-                component: "a",
-                href: `${BASE_URL}gallery?character=${c.id}`,
-                sx: styles$1.characterLink,
-                onMouseEnter: (e) => handleCharacterMouseEnter(e, c.id),
-                onMouseLeave: () => handleCharacterMouseLeave(),
-                children: c.name
-              }
-            ),
-            idx < characters.length - 1 && ", "
-          ] }, c.id)) }) })
+          /* @__PURE__ */ jsx(Box, { sx: styles$1.infoItemValue, children: /* @__PURE__ */ jsx(Box, { sx: styles$1.charactersWrapper, children: characters.map((c) => /* @__PURE__ */ jsx(
+            Chip,
+            {
+              label: c.name,
+              component: "a",
+              href: `${BASE_URL}gallery?character=${c.id}`,
+              onMouseEnter: (e) => handleCharacterMouseEnter(e, c.id),
+              onMouseLeave: handleCharacterMouseLeave,
+              clickable: true,
+              sx: styles$1.characterChip
+            },
+            c.id
+          )) }) })
         ] }),
         post.date && /* @__PURE__ */ jsxs(Fragment, { children: [
           /* @__PURE__ */ jsx(Typography, { component: "div", sx: styles$1.infoItemLabel, children: "Translated:" }),
           /* @__PURE__ */ jsx(Typography, { sx: styles$1.infoItemValue, children: formattedDate })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs(Box, { children: [
-        /* @__PURE__ */ jsxs(Box, { sx: { display: "flex", alignItems: "center", gap: 2, mb: -1 }, children: [
-          /* @__PURE__ */ jsx(Box, { sx: { display: "flex", gap: 1, alignItems: "center" }, children: post.reddit && renderIconLink(post.reddit, "Reddit post", redditIcon, "Reddit") }),
-          /* @__PURE__ */ jsx(Typography, { sx: { fontWeight: 600, fontSize: "1.25rem" }, children: "TL Commentary:" })
-        ] }),
-        /* @__PURE__ */ jsx(Box, { sx: styles$1.infoItemValueComment, children: /* @__PURE__ */ jsx(ReactMarkdown, { remarkPlugins: [remarkGfm], children: post.desc }) })
+      /* @__PURE__ */ jsxs(Accordion, { children: [
+        /* @__PURE__ */ jsx(AccordionSummary, { expandIcon: /* @__PURE__ */ jsx(ExpandMoreIcon, {}), children: /* @__PURE__ */ jsxs(Box, { sx: { display: "flex", alignItems: "center", gap: 2 }, children: [
+          post.reddit && renderIconLink(post.reddit, "Reddit post", redditIcon, "Reddit"),
+          /* @__PURE__ */ jsx(Typography, { sx: { fontWeight: 600, fontSize: "1.25rem" }, children: "TL Commentary" })
+        ] }) }),
+        /* @__PURE__ */ jsx(AccordionDetails, { children: /* @__PURE__ */ jsx(Box, { sx: styles$1.infoItemValueComment, children: /* @__PURE__ */ jsx(ReactMarkdown, { remarkPlugins: [remarkGfm], children: post.desc }) }) })
       ] })
     ] }),
     /* @__PURE__ */ jsx(ProfilePopover, { data: hoveredCharacterData, position: tooltipPosition })
@@ -406,11 +449,6 @@ const styles = {
     padding: 3,
     backgroundColor: "#fafafa",
     borderRadius: 3,
-    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
-    transition: "box-shadow 0.3s ease",
-    "&:hover": {
-      boxShadow: "0 12px 24px rgba(0, 0, 0, 0.15)"
-    },
     "@media (max-width:768px)": {
       flexDirection: "column",
       padding: 2
