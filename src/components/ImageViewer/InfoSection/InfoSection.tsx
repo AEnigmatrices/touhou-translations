@@ -3,11 +3,11 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Box, Typography, Link, IconButton, Tooltip, Accordion, AccordionSummary, AccordionDetails, Chip, Skeleton } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useAppData } from '../../renderer/useAppData';
-import { dateFormatOptions, replaceXWithNitter } from './ImageViewer.utils';
-import ProfilePopover from '../ProfilePopover/ProfilePopover';
+import { useAppData } from '../../../renderer/useAppData';
+import { dateFormatOptions, replaceXWithNitter } from '../ImageViewer.utils';
+import ProfilePopover from '../../ProfilePopover/ProfilePopover';
 import styles from './InfoSection.styles';
-import type { Post, Artist, Character } from '../../types/data';
+import type { Post, Artist, Character } from '../../../types/data';
 
 interface Props {
     post: Post;

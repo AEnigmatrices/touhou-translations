@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import { useAppData } from '../../renderer/useAppData';
 import ImageSection from './ImageSection';
-import InfoSection from './InfoSection';
+import InfoSection from './InfoSection/InfoSection';
 import type { Post } from '../../types/data';
 import styles from './ImageViewer.styles';
 
