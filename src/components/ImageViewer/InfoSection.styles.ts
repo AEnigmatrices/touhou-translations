@@ -13,6 +13,7 @@ interface InfoSectionStyles {
     sourceLink: SxProps<Theme>;
     characterLink: SxProps<Theme>;
     charactersWrapper: SxProps<Theme>;
+    characterChip: SxProps<Theme>;
 }
 
 const styles: InfoSectionStyles = {
@@ -128,6 +129,28 @@ const styles: InfoSectionStyles = {
         display: 'inline',
         textAlign: 'left'
     },
+    characterChip: {
+        fontWeight: 500,
+        color: '#0066cc',
+        borderColor: '#0066cc',
+        backgroundColor: 'transparent',
+        cursor: 'pointer',
+        transition: 'all 0.2s ease',
+        '&:hover': {
+            backgroundColor: '#e6f0ff',
+            color: '#004999',
+            borderColor: '#004999',
+        },
+        '&:active': {
+            backgroundColor: '#cce0ff',
+            color: '#003366',
+            borderColor: '#003366',
+        },
+        '& .MuiChip-label': {
+            paddingLeft: 6,
+            paddingRight: 6,
+        },
+    }
 };
 
 export default styles;

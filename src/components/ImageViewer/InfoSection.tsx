@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Accordion, AccordionSummary, AccordionDetails, Chip, Skeleton } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useAppData } from '../../renderer/useAppData';
 import { dateFormatOptions, replaceXWithNitter } from './ImageViewer.utils';
 import ProfilePopover from '../ProfilePopover/ProfilePopover';
@@ -14,19 +15,15 @@ interface Props {
     characters: Character[];
 }
 
-const BASE_URL = import.meta.env.BASE_URL
+const BASE_URL = import.meta.env.BASE_URL;
 const twitterIcon = `${BASE_URL}icons/social/twitter.webp`;
 const nitterIcon = `${BASE_URL}icons/social/nitter.webp`;
 const pixivIcon = `${BASE_URL}icons/social/pixiv.webp`;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
-
-
 const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
-
     const [hoveredCharacterData, setHoveredCharacterData] = useState<Character | null>(null);
     const [tooltipPosition, setTooltipPosition] = useState<{ x: number; y: number } | null>(null);
-
     const hoverTimeoutRef = useRef<number | null>(null);
 
     const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
@@ -34,14 +31,14 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
     const { characters: allCharacters } = useAppData();
 
-
-
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
         if (!href) return null;
         return (
-            <IconButton component="a" href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} sx={styles.iconButton} size="small">
-                <img src={iconSrc} alt={altText} />
-            </IconButton>
+            <Tooltip title={altText} arrow placement="top">
+                <IconButton component="a" href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} sx={styles.iconButton} size="small">
+                    <img src={iconSrc} alt={altText} />
+                </IconButton>
+            </Tooltip>
         );
     };
 
@@ -69,70 +66,60 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
         setTooltipPosition(null);
     };
 
-
-
     return (
         <>
             <Box sx={styles.root}>
                 <Box sx={styles.infoGrid}>
-                    {artist && (
-                        <>
-                            <Typography component="div" sx={styles.infoItemLabel}>
-                                Artist:
-                            </Typography>
-                            <Box sx={styles.infoItemValue}>
+                    <Typography component="div" sx={styles.infoItemLabel}>Artist:</Typography>
+                    <Box sx={styles.infoItemValue}>
+                        {!artist ? (
+                            <Skeleton width={120} />
+                        ) : (
+                            <>
                                 <Typography>{artist.name}</Typography>
                                 <Box sx={styles.infoIcons}>
                                     {renderIconLink(artist.linkTwitter, 'Twitter profile', twitterIcon, 'Twitter')}
                                     {renderIconLink(artist.linkTwitter?.replace('x.com', 'nitter.net'), 'Nitter profile', nitterIcon, 'Nitter')}
                                     {renderIconLink(artist.linkPixiv, 'Pixiv profile', pixivIcon, 'Pixiv')}
                                 </Box>
-                            </Box>
-                        </>
-                    )}
+                            </>
+                        )}
+                    </Box>
 
                     {post.src && (
                         <>
-                            <Typography component="div" sx={styles.infoItemLabel}>
-                                Source:
-                            </Typography>
-                            <Link href={post.src} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink} title={post.src}>
-                                {post.src}
-                            </Link>
+                            <Typography component="div" sx={styles.infoItemLabel}>Source:</Typography>
+                            <Tooltip title={post.src} arrow>
+                                <Link href={post.src} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}>{post.src}</Link>
+                            </Tooltip>
                         </>
                     )}
 
                     {nitterUrl && (
                         <>
-                            <Typography component="div" sx={styles.infoItemLabel}>
-                                Nitter Mirror:
-                            </Typography>
-                            <Link href={nitterUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink} title={nitterUrl}>
-                                {nitterUrl}
-                            </Link>
+                            <Typography component="div" sx={styles.infoItemLabel}>Nitter Mirror:</Typography>
+                            <Tooltip title={nitterUrl} arrow>
+                                <Link href={nitterUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}>{nitterUrl}</Link>
+                            </Tooltip>
                         </>
                     )}
 
                     {characters.length > 0 && (
                         <>
-                            <Typography component="div" sx={styles.infoItemLabel}>
-                                {characters.length === 1 ? 'Character:' : 'Characters:'}
-                            </Typography>
+                            <Typography component="div" sx={styles.infoItemLabel}>{characters.length === 1 ? 'Character:' : 'Characters:'}</Typography>
                             <Box sx={styles.infoItemValue}>
                                 <Box sx={styles.charactersWrapper}>
-                                    {characters.map((c, idx) => (
-                                        <React.Fragment key={c.id}>
-                                            <Link
-                                                component="a"
-                                                href={`${BASE_URL}gallery?character=${c.id}`}
-                                                sx={styles.characterLink}
-                                                onMouseEnter={(e) => handleCharacterMouseEnter(e, c.id)}
-                                                onMouseLeave={() => handleCharacterMouseLeave()}
-                                            >
-                                                {c.name}
-                                            </Link>
-                                            {idx < characters.length - 1 && ', '}
-                                        </React.Fragment>
+                                    {characters.map((c) => (
+                                        <Chip
+                                            key={c.id}
+                                            label={c.name}
+                                            component="a"
+                                            href={`${BASE_URL}gallery?character=${c.id}`}
+                                            onMouseEnter={(e) => handleCharacterMouseEnter(e, c.id)}
+                                            onMouseLeave={handleCharacterMouseLeave}
+                                            clickable
+                                            sx={styles.characterChip}
+                                        />
                                     ))}
                                 </Box>
                             </Box>
@@ -141,25 +128,25 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
                     {post.date && (
                         <>
-                            <Typography component="div" sx={styles.infoItemLabel}>
-                                Translated:
-                            </Typography>
+                            <Typography component="div" sx={styles.infoItemLabel}>Translated:</Typography>
                             <Typography sx={styles.infoItemValue}>{formattedDate}</Typography>
                         </>
                     )}
                 </Box>
 
-                <Box>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: -1 }}>
-                        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                <Accordion>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                             {post.reddit && renderIconLink(post.reddit, 'Reddit post', redditIcon, 'Reddit')}
+                            <Typography sx={{ fontWeight: 600, fontSize: '1.25rem' }}>TL Commentary</Typography>
                         </Box>
-                        <Typography sx={{ fontWeight: 600, fontSize: '1.25rem' }}>TL Commentary:</Typography>
-                    </Box>
-                    <Box sx={styles.infoItemValueComment}>
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.desc}</ReactMarkdown>
-                    </Box>
-                </Box>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Box sx={styles.infoItemValueComment}>
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.desc}</ReactMarkdown>
+                        </Box>
+                    </AccordionDetails>
+                </Accordion>
             </Box>
 
             <ProfilePopover data={hoveredCharacterData} position={tooltipPosition} />
