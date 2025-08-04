@@ -1,4 +1,4 @@
-import { u as usePageContext, i as import1 } from "../chunks/chunk-BCSY9s9G.js";
+import { u as usePageContext, i as import1 } from "../chunks/chunk-BG3S5xSK.js";
 import { jsx } from "react/jsx-runtime";
 import "react-dom/server";
 import "vike/server";
@@ -10,6 +10,9 @@ import "@mui/material";
 import "vike/client/router";
 import "@mui/material/useScrollTrigger";
 import "@mui/icons-material/Menu";
+import "@mui/icons-material/GitHub";
+import "@mui/icons-material/Twitter";
+import "@mui/icons-material/Language";
 import "@mui/material/styles";
 /*! src/pages/_error/+Page.tsx [vike:pluginModuleBanner] */
 const Page = () => {

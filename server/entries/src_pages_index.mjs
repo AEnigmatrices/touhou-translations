@@ -1,4 +1,4 @@
-import { i as import1 } from "../chunks/chunk-BCSY9s9G.js";
+import { i as import1 } from "../chunks/chunk-BG3S5xSK.js";
 import { jsx } from "react/jsx-runtime";
 import { Typography } from "@mui/material";
 import "react-dom/server";
@@ -10,6 +10,9 @@ import "react";
 import "vike/client/router";
 import "@mui/material/useScrollTrigger";
 import "@mui/icons-material/Menu";
+import "@mui/icons-material/GitHub";
+import "@mui/icons-material/Twitter";
+import "@mui/icons-material/Language";
 import "@mui/material/styles";
 /*! src/pages/index/+Page.tsx [vike:pluginModuleBanner] */
 const Page = () => {

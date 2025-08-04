@@ -5,10 +5,13 @@ import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
 import createCache from "@emotion/cache";
 import React, { Component, useContext, useState, useEffect, StrictMode } from "react";
-import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, NoSsr, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab, Link, Container, Stack, ThemeProvider, CssBaseline } from "@mui/material";
+import { useTheme, useMediaQuery, AppBar, Toolbar, Typography, NoSsr, IconButton, Drawer, Box, List, ListItemButton, ListItemText, Tabs, Tab, Link, Container, Grid, Stack, Divider, ThemeProvider, CssBaseline } from "@mui/material";
 import { navigate } from "vike/client/router";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import MenuIcon from "@mui/icons-material/Menu";
+import GitHub from "@mui/icons-material/GitHub";
+import Twitter from "@mui/icons-material/Twitter";
+import Language from "@mui/icons-material/Language";
 import { createTheme, alpha } from "@mui/material/styles";
 /*! src/utils/createEmotionCache.ts [vike:pluginModuleBanner] */
 function createEmotionCache() {
@@ -258,57 +261,70 @@ const ExternalLink = ({ href, children, label }) => /* @__PURE__ */ jsx(
 /*! src/components/Footer/Footer.styles.ts [vike:pluginModuleBanner] */
 const styles$1 = {
   footer: {
-    py: { xs: 2, sm: 3 },
-    px: 2,
     mt: "auto",
-    backgroundColor: (theme2) => theme2.palette.grey[100],
+    py: { xs: 4, md: 6 },
+    px: { xs: 2, md: 4 },
+    backgroundColor: (theme2) => theme2.palette.grey[50],
     borderTop: (theme2) => `1px solid ${theme2.palette.divider}`,
-    textAlign: "center"
+    boxShadow: (theme2) => `0 -2px 6px ${theme2.palette.grey[200]}`
   },
-  copyright: {
-    mt: 2,
-    fontSize: "0.75rem",
+  sectionTitle: {
+    fontWeight: 600,
+    mb: 1.5
+  },
+  bodyText: {
     color: "text.secondary",
-    backgroundColor: (theme2) => theme2.palette.grey[100],
-    py: 1,
-    borderRadius: 1
+    lineHeight: 1.6
+  },
+  divider: {
+    my: 4,
+    borderColor: "divider"
+  },
+  iconButton: {
+    color: "text.secondary",
+    "&:hover": {
+      color: "primary.main"
+    }
+  },
+  bottomBar: {
+    textAlign: { xs: "center", sm: "left" }
   }
 };
 /*! src/components/Footer/Footer.tsx [vike:pluginModuleBanner] */
 const Footer = () => {
-  return /* @__PURE__ */ jsx(Box, { component: "footer", role: "contentinfo", "aria-label": "Site footer", sx: styles$1.footer, children: /* @__PURE__ */ jsxs(Container, { maxWidth: "md", children: [
-    /* @__PURE__ */ jsxs(Stack, { spacing: 1.5, children: [
-      /* @__PURE__ */ jsxs(Typography, { variant: "body2", color: "text.secondary", children: [
-        "This site adheres to the",
-        " ",
-        /* @__PURE__ */ jsx(ExternalLink, { href: "https://touhou-project.news/guidelines_en/", label: "Touhou Project fan content guidelines", children: "Touhou Project fan content guidelines" }),
-        "."
+  return /* @__PURE__ */ jsx(Box, { component: "footer", sx: styles$1.footer, children: /* @__PURE__ */ jsxs(Container, { maxWidth: "lg", children: [
+    /* @__PURE__ */ jsxs(Grid, { container: true, spacing: { xs: 4, md: 6 }, children: [
+      /* @__PURE__ */ jsxs(Grid, { size: { xs: 12, md: 6 }, sx: { textAlign: "left" }, children: [
+        /* @__PURE__ */ jsx(Typography, { variant: "h6", sx: { fontWeight: 700, mb: 1.5 }, children: "Touhou Translations" }),
+        /* @__PURE__ */ jsx(Typography, { variant: "body2", sx: styles$1.bodyText, children: "A fan-driven archive featuring English translations of Touhou illustrations and comics." }),
+        /* @__PURE__ */ jsxs(Typography, { variant: "body2", sx: { ...styles$1.bodyText, mt: 1 }, children: [
+          "Character portraits by",
+          " ",
+          /* @__PURE__ */ jsx(ExternalLink, { href: "https://www.pixiv.net/en/users/4920496", label: "dairi's Pixiv profile", children: "dairi" }),
+          " ",
+          "(",
+          /* @__PURE__ */ jsx(ExternalLink, { href: "https://www.nicovideo.jp/user/3494232", label: "haruka's NicoNico profile", children: "haruka" }),
+          "), used under their stated permissions. All fan works remain the property of their original creators."
+        ] })
       ] }),
-      /* @__PURE__ */ jsxs(Typography, { component: "address", variant: "body2", color: "text.secondary", sx: { fontStyle: "normal" }, children: [
-        "Touhou Project character portraits by",
-        " ",
-        /* @__PURE__ */ jsx(ExternalLink, { href: "https://www.pixiv.net/en/users/4920496", label: "dairi's Pixiv profile", children: "dairi" }),
-        " ",
-        "(",
-        /* @__PURE__ */ jsx(ExternalLink, { href: "https://www.nicovideo.jp/user/3494232", label: "haruka's NicoNico profile", children: "haruka" }),
-        "), used accordingly to the specified permissions."
-      ] }),
-      /* @__PURE__ */ jsx(Typography, { variant: "body2", color: "text.secondary", children: "All fan comics, illustrations, and translated content remain the intellectual property of their original creators." }),
-      /* @__PURE__ */ jsxs(Typography, { variant: "body2", color: "text.secondary", children: [
-        "Site repository on",
-        " ",
-        /* @__PURE__ */ jsx(ExternalLink, { href: "https://github.com/AEnigmatrices/touhou-translations", label: "GitHub repository", children: "GitHub" }),
-        /* @__PURE__ */ jsx(Box, { component: "span", mx: 1, children: "|" }),
-        "Licensed under",
-        " ",
-        /* @__PURE__ */ jsx(ExternalLink, { href: "https://github.com/AEnigmatrices/touhou-translations/blob/main/LICENSE", label: "MIT License", children: "MIT" }),
-        /* @__PURE__ */ jsx(Box, { component: "span", mx: 1, children: "|" }),
-        "Change requests:",
-        " ",
-        /* @__PURE__ */ jsx(ExternalLink, { href: "https://github.com/AEnigmatrices/touhou-translations/issues", label: "Open an issue", children: "Open an issue" })
-      ] })
+      /* @__PURE__ */ jsx(Grid, { size: { xs: 12, md: 6 }, sx: { textAlign: "right" }, children: /* @__PURE__ */ jsx(Stack, { spacing: 3, children: /* @__PURE__ */ jsxs(Box, { children: [
+        /* @__PURE__ */ jsx(Typography, { variant: "h6", sx: styles$1.sectionTitle, children: "Project" }),
+        /* @__PURE__ */ jsxs(Stack, { spacing: 0.75, alignItems: "flex-end", children: [
+          /* @__PURE__ */ jsx(ExternalLink, { href: "https://github.com/AEnigmatrices/touhou-translations", label: "GitHub Repository", children: "GitHub Repository" }),
+          /* @__PURE__ */ jsx(ExternalLink, { href: "https://github.com/AEnigmatrices/touhou-translations/issues", label: "Submit an Issue", children: "Submit an Issue" }),
+          /* @__PURE__ */ jsx(ExternalLink, { href: "https://touhou-project.news/guidelines_en/", label: "Fan Content Guidelines", children: "Fan Content Guidelines" })
+        ] })
+      ] }) }) })
     ] }),
-    /* @__PURE__ */ jsx(Typography, { component: "p", sx: styles$1.copyright, children: "© AEnigmatrices, 2025. All rights reserved." })
+    /* @__PURE__ */ jsx(Divider, { sx: styles$1.divider }),
+    /* @__PURE__ */ jsxs(Stack, { direction: { xs: "column", sm: "row" }, spacing: { xs: 2, sm: 3 }, justifyContent: "space-between", alignItems: "center", sx: styles$1.bottomBar, children: [
+      /* @__PURE__ */ jsxs(Stack, { direction: "row", spacing: 1, children: [
+        /* @__PURE__ */ jsx(IconButton, { component: "a", href: "https://github.com/AEnigmatrices/touhou-translations", target: "_blank", "aria-label": "GitHub", sx: styles$1.iconButton, children: /* @__PURE__ */ jsx(GitHub, {}) }),
+        /* @__PURE__ */ jsx(IconButton, { component: "a", href: "https://twitter.com/", target: "_blank", "aria-label": "Twitter", sx: styles$1.iconButton, children: /* @__PURE__ */ jsx(Twitter, {}) }),
+        /* @__PURE__ */ jsx(IconButton, { component: "a", href: "https://touhou-project.news/", target: "_blank", "aria-label": "Website", sx: styles$1.iconButton, children: /* @__PURE__ */ jsx(Language, {}) })
+      ] }),
+      /* @__PURE__ */ jsx(Typography, { variant: "caption", color: "text.secondary", children: "© AEnigmatrices, 2025. All rights reserved." })
+    ] })
   ] }) });
 };
 /*! src/renderer/PageLayout/PageLayout.styles.ts [vike:pluginModuleBanner] */
@@ -567,15 +583,18 @@ const onRenderHtml = async (pageContext) => {
                     img-src 'self' https://i.redd.it data:;
                     connect-src 'self' https://www.reddit.com;
                     object-src 'none';
-                    base-uri 'self';"
-                    frame-ancestors 'none';
+                    base-uri 'self';
+                "
             />
             <meta name="referrer" content="strict-origin" />
             <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.png" />
             <link rel="manifest" href="/touhou-translations/manifest.json" />
 
-            <link rel="preload" as="fetch" href="/artists/index.pageContext.json" crossorigin="anonymous">
-            <link rel="preload" as="fetch" href="/characters/index.pageContext.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/data/artists.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/data/characters.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/data/posts/posts-2024.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/data/posts/posts-2025.json" crossorigin="anonymous">
+
             <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
             <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />

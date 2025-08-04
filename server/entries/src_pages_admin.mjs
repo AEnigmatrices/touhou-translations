@@ -1,4 +1,4 @@
-import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-BCSY9s9G.js";
+import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-BG3S5xSK.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -12,6 +12,9 @@ import "@emotion/cache";
 import "vike/client/router";
 import "@mui/material/useScrollTrigger";
 import "@mui/icons-material/Menu";
+import "@mui/icons-material/GitHub";
+import "@mui/icons-material/Twitter";
+import "@mui/icons-material/Language";
 import "@mui/material/styles";
 /*! src/components/DataForms/PostForm/PostForm.utils.ts [vike:pluginModuleBanner] */
 const headers$1 = { "Content-Type": "application/json" };

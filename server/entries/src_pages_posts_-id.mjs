@@ -1,4 +1,4 @@
-import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-BCSY9s9G.js";
+import { f as fetchPosts, e as extractRedditId, b as useAppData, u as usePageContext, i as import1 } from "../chunks/chunk-BG3S5xSK.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { render } from "vike/abort";
 import { useState, useCallback, useEffect, useRef } from "react";
@@ -19,6 +19,9 @@ import "@emotion/cache";
 import "vike/client/router";
 import "@mui/material/useScrollTrigger";
 import "@mui/icons-material/Menu";
+import "@mui/icons-material/GitHub";
+import "@mui/icons-material/Twitter";
+import "@mui/icons-material/Language";
 import "@mui/material/styles";
 /*! src/pages/posts/@id/+onBeforePrerenderStart.ts [vike:pluginModuleBanner] */
 const onBeforePrerenderStart = async () => {

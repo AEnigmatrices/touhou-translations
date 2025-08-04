@@ -1,4 +1,4 @@
-import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-BCSY9s9G.js";
+import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-BG3S5xSK.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useMemo, useState, useEffect } from "react";
 import { Box, CircularProgress } from "@mui/material";
@@ -21,6 +21,9 @@ import "@emotion/cache";
 import "vike/client/router";
 import "@mui/material/useScrollTrigger";
 import "@mui/icons-material/Menu";
+import "@mui/icons-material/GitHub";
+import "@mui/icons-material/Twitter";
+import "@mui/icons-material/Language";
 /*! src/utils/filterPosts.ts [vike:pluginModuleBanner] */
 const filterPosts = (posts, characterQueries, artistQueries, mode = "and") => {
   if (characterQueries.length === 0 && artistQueries.length === 0) return posts;
