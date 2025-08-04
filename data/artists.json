@@ -1222,5 +1222,60 @@
         "linkTwitter": "https://x.com/s_a_murai",
         "linkPixiv": "https://www.pixiv.net/en/users/452874",
         "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "miranokaze_draw",
+        "name": "みらの風ドール",
+        "linkTwitter": "https://x.com/mira_d011",
+        "linkPixiv": "https://www.pixiv.net/en/users/92193361",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "manmaru_mikan",
+        "name": "満丸みかん",
+        "linkTwitter": "https://x.com/manmarumikan_",
+        "linkPixiv": "https://www.pixiv.net/en/users/9190106",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "carrot_8",
+        "name": "きゃろっと8",
+        "linkTwitter": "https://x.com/ninzin_88hon",
+        "linkPixiv": "https://www.pixiv.net/en/users/100513271",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "nekoa",
+        "name": "ネコア",
+        "linkTwitter": "https://x.com/nekotococoa2",
+        "linkPixiv": "https://www.pixiv.net/en/users/77726278",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "hikarabita",
+        "name": "干からびた大草原",
+        "linkTwitter": "https://x.com/o8qZ6riQpwyFtv2",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "yanpai",
+        "name": "やんパイ",
+        "linkTwitter": "https://x.com/yanpai0",
+        "linkPixiv": "https://www.pixiv.net/en/users/614613",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "kaeru_mikan",
+        "name": "蛙み缶",
+        "linkTwitter": "https://x.com/kaeru__mikan",
+        "linkPixiv": "https://www.pixiv.net/en/users/28301472",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "shiratsuki_shiori",
+        "name": "白月しおり",
+        "linkTwitter": "https://x.com/Shiratsuki_Shio",
+        "linkPixiv": "https://www.pixiv.net/en/users/1992358",
+        "portrait": "/portraits/placeholders/sniper.webp"
     }
 ]

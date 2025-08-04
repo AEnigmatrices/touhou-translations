@@ -12,10 +12,12 @@ const getApiUrl = (url: string) => url.endsWith('.json') ? url : `${url}.json`;
 const buildImageUrls = (postData: any): string[] => {
     if (postData.media_metadata) {
         const metadata = postData.media_metadata as Record<string, { m?: string }>;
-        return Object.entries(metadata).map(([id, media]) => {
-            const ext = media.m?.includes('png') ? 'png' : 'jpg';
-            return `https://i.redd.it/${id}.${ext}`;
-        });
+        return Object.entries(metadata)
+            .map(([id, media]) => {
+                const ext = media.m?.includes('png') ? 'png' : 'jpg';
+                return `https://i.redd.it/${id}.${ext}`;
+            })
+            .reverse();
     }
     return postData.url ? [postData.url] : [];
 };
