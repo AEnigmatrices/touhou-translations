@@ -1,4 +1,4 @@
-import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-CvzALYET.js";
+import { a as artists, b as useAppData, i as import1 } from "../chunks/chunk-BCSY9s9G.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Box, Stack, Typography, TextField, Button, useTheme, Paper, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -23,7 +23,7 @@ const buildImageUrls = (postData) => {
     return Object.entries(metadata).map(([id, media]) => {
       const ext = media.m?.includes("png") ? "png" : "jpg";
       return `https://i.redd.it/${id}.${ext}`;
-    });
+    }).reverse();
   }
   return postData.url ? [postData.url] : [];
 };
