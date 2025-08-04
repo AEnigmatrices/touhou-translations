@@ -46,15 +46,16 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
                     connect-src 'self' https://www.reddit.com;
                     object-src 'none';
                     base-uri 'self';
-                    frame-ancestors 'none';
                 "
             />
             <meta name="referrer" content="strict-origin" />
             <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.png" />
             <link rel="manifest" href="/touhou-translations/manifest.json" />
 
-            <link rel="preload" as="fetch" href="/artists/index.pageContext.json" crossorigin="anonymous" />
-            <link rel="preload" as="fetch" href="/characters/index.pageContext.json" crossorigin="anonymous" />
+            <link rel="prefetch" href="/data/artists.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/data/characters.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/data/posts/posts-2024.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/data/posts/posts-2025.json" crossorigin="anonymous">
 
             <title>Touhou Translations</title>
             ${dangerouslySkipEscape(emotionStyleTags)}
