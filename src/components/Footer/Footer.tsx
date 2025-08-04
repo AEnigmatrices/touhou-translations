@@ -1,55 +1,78 @@
 import React from "react";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography, IconButton, Divider } from "@mui/material";
+import GitHub from "@mui/icons-material/GitHub";
+import Twitter from "@mui/icons-material/Twitter";
+import Language from "@mui/icons-material/Language";
 import ExternalLink from "../ExternalLink/ExternalLink";
 import styles from "./Footer.styles";
 
+
 const Footer: React.FC = () => {
     return (
-        <Box component="footer" role="contentinfo" aria-label="Site footer" sx={styles.footer}>
-            <Container maxWidth="md">
-                <Stack spacing={1.5}>
-                    <Typography variant="body2" color="text.secondary">
-                        This site adheres to the{" "}
-                        <ExternalLink href="https://touhou-project.news/guidelines_en/" label="Touhou Project fan content guidelines">
-                            Touhou Project fan content guidelines
-                        </ExternalLink>.
-                    </Typography>
+        <Box component="footer" sx={styles.footer}>
+            <Container maxWidth="lg">
+                <Grid container spacing={{ xs: 4, md: 6 }}>
+                    <Grid size={{ xs: 12, md: 6 }} sx={{ textAlign: "left" }}>
+                        <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5 }}>
+                            Touhou Translations
+                        </Typography>
+                        <Typography variant="body2" sx={styles.bodyText}>
+                            A fan-driven archive featuring English translations of Touhou illustrations and comics.
+                        </Typography>
+                        <Typography variant="body2" sx={{ ...styles.bodyText, mt: 1 }}>
+                            Character portraits by{" "}
+                            <ExternalLink href="https://www.pixiv.net/en/users/4920496" label="dairi's Pixiv profile">
+                                dairi
+                            </ExternalLink>{" "}
+                            (
+                            <ExternalLink href="https://www.nicovideo.jp/user/3494232" label="haruka's NicoNico profile">
+                                haruka
+                            </ExternalLink>
+                            ), used under their stated permissions. All fan works remain the property of their original creators.
+                        </Typography>
+                    </Grid>
 
-                    <Typography component="address" variant="body2" color="text.secondary" sx={{ fontStyle: 'normal' }}>
-                        Touhou Project character portraits by{" "}
-                        <ExternalLink href="https://www.pixiv.net/en/users/4920496" label="dairi's Pixiv profile">
-                            dairi
-                        </ExternalLink>{" "}
-                        (
-                        <ExternalLink href="https://www.nicovideo.jp/user/3494232" label="haruka's NicoNico profile">
-                            haruka
-                        </ExternalLink>
-                        ), used accordingly to the specified permissions.
-                    </Typography>
+                    <Grid size={{ xs: 12, md: 6 }} sx={{ textAlign: "right" }}>
+                        <Stack spacing={3}>
+                            <Box>
+                                <Typography variant="h6" sx={styles.sectionTitle}>
+                                    Project
+                                </Typography>
+                                <Stack spacing={0.75} alignItems="flex-end">
+                                    <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations" label="GitHub Repository">
+                                        GitHub Repository
+                                    </ExternalLink>
+                                    <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations/issues" label="Submit an Issue">
+                                        Submit an Issue
+                                    </ExternalLink>
+                                    <ExternalLink href="https://touhou-project.news/guidelines_en/" label="Fan Content Guidelines">
+                                        Fan Content Guidelines
+                                    </ExternalLink>
+                                </Stack>
+                            </Box>
+                        </Stack>
+                    </Grid>
+                </Grid>
 
-                    <Typography variant="body2" color="text.secondary">
-                        All fan comics, illustrations, and translated content remain the intellectual property of their original creators.
-                    </Typography>
+                <Divider sx={styles.divider} />
 
-                    <Typography variant="body2" color="text.secondary">
-                        Site repository on{" "}
-                        <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations" label="GitHub repository">GitHub</ExternalLink>
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, sm: 3 }} justifyContent="space-between" alignItems="center" sx={styles.bottomBar} >
+                    <Stack direction="row" spacing={1}>
+                        <IconButton component="a" href="https://github.com/AEnigmatrices/touhou-translations" target="_blank" aria-label="GitHub" sx={styles.iconButton} >
+                            <GitHub />
+                        </IconButton>
+                        <IconButton component="a" href="https://twitter.com/" target="_blank" aria-label="Twitter" sx={styles.iconButton} >
+                            <Twitter />
+                        </IconButton>
+                        <IconButton component="a" href="https://touhou-project.news/" target="_blank" aria-label="Website" sx={styles.iconButton} >
+                            <Language />
+                        </IconButton>
+                    </Stack>
 
-                        <Box component="span" mx={1}>|</Box>
-
-                        Licensed under{" "}
-                        <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations/blob/main/LICENSE" label="MIT License">MIT</ExternalLink>
-
-                        <Box component="span" mx={1}>|</Box>
-
-                        Change requests:{" "}
-                        <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations/issues" label="Open an issue">Open an issue</ExternalLink>
+                    <Typography variant="caption" color="text.secondary">
+                        © AEnigmatrices, 2025. All rights reserved.
                     </Typography>
                 </Stack>
-
-                <Typography component="p" sx={styles.copyright}>
-                    © AEnigmatrices, 2025. All rights reserved.
-                </Typography>
             </Container>
         </Box>
     );
