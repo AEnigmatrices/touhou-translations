@@ -63,7 +63,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
 
             <title>Touhou Translations</title>
             ${dangerouslySkipEscape(emotionStyleTags)}
-            ${process.env.NODE_ENV === 'production' ? `<script src="/touhou-translations/registerSW.js"></script>` : ''}
+            <script src="/touhou-translations/registerSW.js"></script>
         </head>
         <body>
            <div id="root">${dangerouslySkipEscape(html)}</div>
