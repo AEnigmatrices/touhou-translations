@@ -1,4 +1,4 @@
-import { b as useAppData, i as import1 } from "../chunks/chunk-Bt5RNKE5.js";
+import { b as useAppData, i as import1 } from "../chunks/chunk-DLOx6VQe.js";
 import { jsx } from "react/jsx-runtime";
 import { render } from "vike/abort";
 import { L as ListPage } from "../chunks/chunk-CnUiXdGg.js";

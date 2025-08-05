@@ -1,6 +1,6 @@
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
 import { renderToString } from "react-dom/server";
-import { escapeInject, dangerouslySkipEscape } from "vike/server";
+import { dangerouslySkipEscape, escapeInject } from "vike/server";
 import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
 import createCache from "@emotion/cache";
@@ -557,10 +557,6 @@ const PageLayout = ({ pageContext, children }) => {
   ] }) });
 };
 /*! src/renderer/+onRenderHtml.tsx [vike:pluginModuleBanner] */
-var __freeze = Object.freeze;
-var __defProp = Object.defineProperty;
-var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
-var _a;
 const onRenderHtml = async (pageContext) => {
   const { Page } = pageContext;
   const cache = createEmotionCache();
@@ -569,7 +565,7 @@ const onRenderHtml = async (pageContext) => {
   const html = renderToString(app);
   const emotionChunks = extractCriticalToChunks(html);
   const emotionStyleTags = constructStyleTagsFromChunks(emotionChunks);
-  const documentHtml = escapeInject(_a || (_a = __template([`
+  const documentHtml = escapeInject`
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -604,7 +600,14 @@ const onRenderHtml = async (pageContext) => {
             <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
             <title>Touhou Translations</title>
-            `, '\n            <script src="/touhou-translations/registerSW.js"><\/script>\n        </head>\n        <body>\n           <div id="root">', "</div>\n        </body>\n        </html>\n    "])), dangerouslySkipEscape(emotionStyleTags), dangerouslySkipEscape(html));
+            ${dangerouslySkipEscape(emotionStyleTags)}
+            ${process.env.NODE_ENV === "production" ? `<script src="/touhou-translations/registerSW.js"><\/script>` : ""}
+        </head>
+        <body>
+           <div id="root">${dangerouslySkipEscape(html)}</div>
+        </body>
+        </html>
+    `;
   return { documentHtml };
 };
 const import1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
