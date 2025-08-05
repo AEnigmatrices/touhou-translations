@@ -28,33 +28,8 @@ export default VitePWA({
         lang: "en"
     },
     workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,json,webmanifest}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
         cleanupOutdatedCaches: true,
-        runtimeCaching: [
-            {
-                urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|avif)$/i,
-                handler: 'StaleWhileRevalidate',
-                options: {
-                    cacheName: 'images',
-                    expiration: {
-                        maxEntries: 150,
-                        maxAgeSeconds: 60 * 24 * 60 * 60,
-                    },
-                },
-            },
-            {
-                urlPattern: /\/posts\/.+\/index\.pageContext\.json$/i,
-                handler: 'NetworkFirst',
-                options: {
-                    cacheName: 'page-data',
-                    expiration: {
-                        maxEntries: 100,
-                        maxAgeSeconds: 15 * 60,
-                    },
-                    networkTimeoutSeconds: 5,
-                },
-            },
-        ],
     },
     includeAssets: ['icons/favicon.ico', 'robots.txt']
 });
