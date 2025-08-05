@@ -7,12 +7,12 @@ export default VitePWA({
     },
     manifest: {
         name: "Touhou Translations",
-        short_name: "Touhou EN",
+        short_name: "Touhou TL",
         start_url: "/touhou-translations/",
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#ffffff",
-        description: "An archive of fan-translated Touhou Project comics and illustrations.",
+        description: "An archive of English-translated Touhou Project fan comics and illustrations.",
         icons: [
             {
                 src: "icons/icon-192x192.png",
