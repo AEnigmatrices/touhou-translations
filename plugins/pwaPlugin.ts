@@ -31,5 +31,5 @@ export default VitePWA({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
         cleanupOutdatedCaches: true,
     },
-    includeAssets: ['favicon.ico', 'robots.txt']
+    includeAssets: ['icons/favicon.ico', 'robots.txt']
 });
