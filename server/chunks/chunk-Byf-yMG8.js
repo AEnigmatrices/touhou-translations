@@ -587,8 +587,7 @@ const onRenderHtml = async (pageContext) => {
                 "
             />
             <meta name="referrer" content="strict-origin" />
-            <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.png" />
-            <link rel="manifest" href="/touhou-translations/manifest.json" />
+            <link rel="icon" type="image/png" href="/touhou-translations/favicon.ico" />
 
             <link rel="prefetch" href="/data/artists.json" crossorigin="anonymous">
             <link rel="prefetch" href="/data/characters.json" crossorigin="anonymous">

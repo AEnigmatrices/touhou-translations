@@ -1,4 +1,4 @@
-import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-BG3S5xSK.js";
+import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-Byf-yMG8.js";
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useMemo, useState, useEffect } from "react";
 import { Box, CircularProgress } from "@mui/material";

@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/touhou-translations/sw.js', { scope: '/touhou-translations/' })})}
