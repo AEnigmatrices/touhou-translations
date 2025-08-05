@@ -8,7 +8,13 @@ import generateSitemapPlugin from './plugins/generateSitemapPlugin';
 
 
 
+const productionPlugins = [
+    ...(process.env.NODE_ENV === 'production' ? [pwaPlugin, generateSitemapPlugin] : [])
+];
+
+
+
 export default defineConfig({
-    plugins: [react(), vike(), pwaPlugin, postDataPlugin, generateSitemapPlugin],
+    plugins: [react(), vike(), postDataPlugin, ...productionPlugins],
     base: '/touhou-translations/'
 });
