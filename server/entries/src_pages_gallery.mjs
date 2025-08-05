@@ -1,8 +1,7 @@
 import { b as useAppData, e as extractRedditId, i as import1 } from "../chunks/chunk-Bt3P2hlM.js";
 import { jsxs, jsx } from "react/jsx-runtime";
-import { useMemo, useState, useEffect } from "react";
-import { Box, CircularProgress } from "@mui/material";
-import Masonry from "@mui/lab/Masonry";
+import { useMemo, useState } from "react";
+import { Box, ImageList, ImageListItem } from "@mui/material";
 import { P as ProfileItem } from "../chunks/chunk-CYdkaobM.js";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
@@ -10,7 +9,7 @@ import Box$1 from "@mui/material/Box";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
-import CircularProgress$1 from "@mui/material/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
 import "react-dom/server";
@@ -116,16 +115,12 @@ const styles$2 = {
   }
 };
 /*! src/components/Gallery/GalleryImage.tsx [vike:pluginModuleBanner] */
-const GalleryImage = ({ src, alt, onLoad }) => {
+const GalleryImage = ({ src, alt }) => {
   const [loaded, setLoaded] = useState(false);
   const sxImage = mergeSx(styles$2.image, loaded ? styles$2.loaded : styles$2.loading);
-  const handleLoad = () => {
-    setLoaded(true);
-    if (onLoad) onLoad();
-  };
   return /* @__PURE__ */ jsxs(Box, { sx: styles$2.wrapper, children: [
     !loaded && /* @__PURE__ */ jsx(Box, { sx: styles$2.placeholder, "aria-hidden": "true" }),
-    /* @__PURE__ */ jsx(Box, { component: "img", src, alt, loading: "lazy", onLoad: handleLoad, sx: sxImage })
+    /* @__PURE__ */ jsx(Box, { component: "img", src, alt, loading: "lazy", onLoad: () => setLoaded(true), sx: sxImage })
   ] });
 };
 /*! src/components/Gallery/Gallery.styles.ts [vike:pluginModuleBanner] */
@@ -149,18 +144,6 @@ const styles$1 = {
       outline: "2px solid #005fcc",
       outlineOffset: "2px"
     }
-  },
-  loadingOverlay: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    zIndex: 10,
-    paddingTop: "1rem"
   }
 };
 /*! src/components/Gallery/Gallery.tsx [vike:pluginModuleBanner] */
@@ -168,49 +151,14 @@ const BASE_URL = "/touhou-translations/";
 const Gallery = ({ posts }) => {
   const { posts: allPosts } = useAppData();
   const displayedPosts = posts || allPosts;
-  const [loadedCount, setLoadedCount] = useState(0);
-  const [batchId, setBatchId] = useState(0);
-  const totalImages = useMemo(
-    () => displayedPosts.filter((post) => post.url?.length && extractRedditId(post.reddit)).length,
-    [displayedPosts]
-  );
-  useEffect(() => {
-    setLoadedCount(0);
-    setBatchId((id) => id + 1);
-  }, [posts]);
-  const handleImageLoad = (currentBatchId) => {
-    if (currentBatchId === batchId) {
-      setLoadedCount((prev) => prev + 1);
-    }
-  };
   if (!displayedPosts.length) return /* @__PURE__ */ jsx("p", { children: "No posts available." });
-  const allLoaded = loadedCount === totalImages;
-  return /* @__PURE__ */ jsxs(Box, { sx: { position: "relative", minHeight: "200px", display: "flex", justifyContent: "center" }, children: [
-    /* @__PURE__ */ jsx(Masonry, { columns: { xs: 2, md: 4 }, spacing: 2, sx: { visibility: allLoaded ? "visible" : "hidden" }, children: displayedPosts.map((post) => {
-      if (!post.url?.length) return null;
-      const imageUrl = post.url[0];
-      const redditId = extractRedditId(post.reddit);
-      if (!redditId) return null;
-      return /* @__PURE__ */ jsx(Box, { sx: styles$1.item, children: /* @__PURE__ */ jsx(
-        "a",
-        {
-          href: `${BASE_URL}posts/${redditId}`,
-          "aria-label": "View post details",
-          tabIndex: 0,
-          style: { display: "block", width: "100%", height: "100%" },
-          children: /* @__PURE__ */ jsx(
-            GalleryImage,
-            {
-              src: imageUrl,
-              alt: `Gallery post from ${new Date(post.date).toLocaleDateString()}`,
-              onLoad: () => handleImageLoad(batchId)
-            }
-          )
-        }
-      ) }, post.date);
-    }) }),
-    !allLoaded && /* @__PURE__ */ jsx(Box, { sx: styles$1.loadingOverlay, children: /* @__PURE__ */ jsx(CircularProgress, {}) })
-  ] });
+  return /* @__PURE__ */ jsx(ImageList, { variant: "masonry", cols: 4, gap: 16, children: displayedPosts.map((post) => {
+    if (!post.url?.length) return null;
+    const imageUrl = post.url[0];
+    const redditId = extractRedditId(post.reddit);
+    if (!redditId) return null;
+    return /* @__PURE__ */ jsx(ImageListItem, { sx: styles$1.item, children: /* @__PURE__ */ jsx("a", { href: `${BASE_URL}posts/${redditId}`, "aria-label": "View post details", tabIndex: 0, style: { display: "block", width: "100%" }, children: /* @__PURE__ */ jsx(GalleryImage, { src: imageUrl, alt: `Gallery post from ${new Date(post.date).toLocaleDateString()}` }) }) }, post.date);
+  }) });
 };
 /*! src/components/GalleryHeader/GalleryHeaderCharacter.tsx [vike:pluginModuleBanner] */
 const GalleryHeaderCharacter = ({ character }) => {
@@ -362,7 +310,7 @@ const Page = ({ urlParsed }) => {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
   };
-  if (loading) return /* @__PURE__ */ jsx(Box$1, { sx: styles.loaderBoxStyles(theme), children: /* @__PURE__ */ jsx(CircularProgress$1, {}) });
+  if (loading) return /* @__PURE__ */ jsx(Box$1, { sx: styles.loaderBoxStyles(theme), children: /* @__PURE__ */ jsx(CircularProgress, {}) });
   if (error) return /* @__PURE__ */ jsx(Box$1, { sx: styles.loaderBoxStyles(theme), children: /* @__PURE__ */ jsx(Typography, { color: "error", children: error.message }) });
   return /* @__PURE__ */ jsxs(Container, { maxWidth: "lg", sx: styles.containerStyles(theme), children: [
     /* @__PURE__ */ jsxs(Stack, { direction: "row", sx: styles.headerWrapperStyles(theme), children: [
