@@ -50,6 +50,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             />
             <meta name="referrer" content="strict-origin" />
             <link rel="icon" type="image/png" href="/touhou-translations/favicon.ico" />
+            <link rel="manifest" href="/touhou-translations/manifest.webmanifest" />
 
             <link rel="prefetch" href="/data/artists.json" crossorigin="anonymous">
             <link rel="prefetch" href="/data/characters.json" crossorigin="anonymous">
@@ -62,6 +63,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
 
             <title>Touhou Translations</title>
             ${dangerouslySkipEscape(emotionStyleTags)}
+            <script src="/touhou-translations/registerSW.js"></script>
         </head>
         <body>
            <div id="root">${dangerouslySkipEscape(html)}</div>
