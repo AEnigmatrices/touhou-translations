@@ -61,46 +61,47 @@ const styles = {
         overflowX: 'auto',
     }),
 
-    paginationButtonStyles: (theme: Theme): SxProps<Theme> => ({
-        minWidth: { xs: 80, sm: 110 },
-        fontSize: { xs: '0.9rem', sm: '1.05rem' },
-        padding: {
-            xs: theme.spacing(1, 2),
-            sm: theme.spacing(1.5, 3),
+    paginationStyles: (theme: Theme): SxProps<Theme> => ({
+        '& .MuiPagination-ul': {
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: theme.spacing(1.5),
         },
-        borderRadius: (theme.shape.borderRadius as number) * 2,
-        textTransform: 'none',
-        fontWeight: 700,
-        whiteSpace: 'nowrap',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
-        transition: theme.transitions.create(['background-color', 'box-shadow'], {
-            duration: theme.transitions.duration.short,
-        }),
-        '&:hover:not(:disabled)': {
-            backgroundColor: theme.palette.primary.dark,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+        '& .MuiPaginationItem-root': {
+            fontWeight: 600,
+            fontSize: {
+                xs: '0.85rem',
+                sm: '1rem',
+            },
+            minWidth: {
+                xs: theme.spacing(4.5),
+                sm: theme.spacing(5.5),
+            },
+            height: {
+                xs: theme.spacing(4.5),
+                sm: theme.spacing(5.5),
+            },
+            borderRadius: theme.spacing(1),
+            border: `1px solid ${theme.palette.divider}`,
+            transition: theme.transitions.create(['background-color', 'box-shadow'], {
+                duration: theme.transitions.duration.short,
+            }),
+            '&.Mui-selected': {
+                backgroundColor: theme.palette.primary.main,
+                color: theme.palette.primary.contrastText,
+                border: `1px solid ${theme.palette.primary.main}`,
+                '&:hover': {
+                    backgroundColor: theme.palette.primary.dark,
+                },
+            },
+            '&:hover': {
+                backgroundColor: theme.palette.action.hover,
+            },
+            '&:focus-visible': {
+                outline: `2px solid ${theme.palette.primary.main}`,
+                outlineOffset: 2,
+            },
         },
-        '&:disabled': {
-            backgroundColor: theme.palette.action.disabledBackground,
-            color: theme.palette.text.disabled,
-            pointerEvents: 'none',
-            opacity: 0.6,
-            boxShadow: 'none',
-        },
-        '&:focus-visible': {
-            outline: `2px solid ${theme.palette.primary.main}`,
-            outlineOffset: 2,
-        },
-    }),
-
-    paginationPageInfoStyles: (theme: Theme): SxProps<Theme> => ({
-        fontWeight: 600,
-        fontSize: { xs: '0.95rem', sm: '1.1rem' },
-        color: theme.palette.text.primary,
-        userSelect: 'none',
-        minWidth: { xs: 80, sm: 100 },
-        textAlign: 'center',
-        whiteSpace: 'nowrap',
     }),
 
 };

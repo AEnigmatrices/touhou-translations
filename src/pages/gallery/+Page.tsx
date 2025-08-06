@@ -13,7 +13,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
+import Pagination from '@mui/material/Pagination';
 
 import { useTheme } from '@mui/material/styles';
 import styles from './styles';
@@ -45,22 +45,6 @@ const Page = ({ urlParsed }: { urlParsed: Props }) => {
 
 
 
-    const handlePrevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-            window.scrollTo({ top: 0, behavior: 'auto' });
-        }
-    };
-
-    const handleNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-            window.scrollTo({ top: 0, behavior: 'auto' });
-        }
-    };
-
-
-
     if (loading) return <Box sx={styles.loaderBoxStyles(theme)}><CircularProgress /></Box>
     if (error) return <Box sx={styles.loaderBoxStyles(theme)}><Typography color="error">{error.message}</Typography></Box>
     return (
@@ -81,29 +65,12 @@ const Page = ({ urlParsed }: { urlParsed: Props }) => {
             <Gallery posts={visiblePosts} />
 
             {shuffledPosts.length > POSTS_PER_PAGE && (
-                <Stack direction="row" sx={styles.paginationWrapperStyles(theme)}>
-                    <Button
-                        variant="contained"
-                        onClick={handlePrevPage}
-                        disabled={currentPage === 1}
-                        sx={styles.paginationButtonStyles(theme)}
-                    >
-                        Previous
-                    </Button>
-
-                    <Typography variant="body1" sx={styles.paginationPageInfoStyles(theme)}>
-                        Page {currentPage} of {totalPages}
-                    </Typography>
-
-                    <Button
-                        variant="contained"
-                        onClick={handleNextPage}
-                        disabled={currentPage === totalPages}
-                        sx={styles.paginationButtonStyles(theme)}
-                    >
-                        Next
-                    </Button>
-                </Stack>
+                <Box sx={styles.paginationWrapperStyles(theme)}>
+                    <Pagination
+                        count={totalPages} page={currentPage} onChange={(_, value) => { setCurrentPage(value); window.scrollTo({ top: 0, behavior: 'auto' }); }}
+                        color="primary" variant="outlined" shape="rounded" siblingCount={1} boundaryCount={1} sx={styles.paginationStyles(theme)}
+                    />
+                </Box>
             )}
         </Container>
     );
