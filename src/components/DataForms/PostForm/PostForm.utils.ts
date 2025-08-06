@@ -28,7 +28,7 @@ const buildPostEntry = ({ date, reddit, urls, src, desc, artistId, characterIds 
     src,
     desc,
     artistId,
-    characterIds: splitClean(characterIds),
+    characterIds
 });
 
 

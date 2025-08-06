@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { TextField, Button, Stack, Typography, Box } from '@mui/material';
+import { Autocomplete, Avatar, Box, Chip, Button, Stack, TextField, Typography } from '@mui/material';
 import { useAppData } from '../../../renderer/useAppData';
 import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl, validateArtistId, submitPostEntry } from './PostForm.utils';
 import styles from './PostForm.styles';
 import type { PostEntryForm } from "../../../types/data";
+import artists from '../../../../data/artists.json';
+import characters from '../../../../data/characters.json';
 
 
 
@@ -15,6 +17,12 @@ const PostForm: React.FC = () => {
 
     const debounceRef = useRef<NodeJS.Timeout | null>(null);
     const watchedReddit = watch('reddit');
+
+    const artistIds = artists.map(artist => artist.id);
+    const characterOptions = characters.map(c => ({
+        id: c.id,
+        portrait: c.portrait,
+    }));
 
     const debouncedValidateReddit = useCallback((value: string) => {
         if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -63,12 +71,18 @@ const PostForm: React.FC = () => {
         }
     };
 
+
+
     useEffect(() => {
         if (!watchedReddit) {
             clearErrors('reddit'); return;
         }
         debouncedValidateReddit(watchedReddit);
     }, [watchedReddit, debouncedValidateReddit, clearErrors]);
+
+    useEffect(() => {
+        register('artistId', { required: 'Artist ID is required', validate: validateArtistId });
+    }, [register, artistIds]);
 
 
 
@@ -89,9 +103,15 @@ const PostForm: React.FC = () => {
                             </Box>
 
                             <Box sx={styles.inputBoxSmall}>
-                                <TextField
-                                    label="Artist ID" error={!!errors.artistId} helperText={errors.artistId?.message} fullWidth
-                                    {...register('artistId', { required: 'Artist ID is required', validate: validateArtistId })} slotProps={{ inputLabel: { shrink: !!watch('artistId') } }}
+                                <Autocomplete
+                                    options={artistIds} freeSolo value={watch('artistId') || ''}
+                                    onInputChange={(_, value) => setValue('artistId', value, { shouldValidate: true, shouldDirty: true })}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params} label="Artist ID" error={!!errors.artistId} helperText={errors.artistId?.message}
+                                            slotProps={{ inputLabel: { shrink: !!watch('artistId') } }}
+                                        />
+                                    )}
                                 />
                             </Box>
 
@@ -130,9 +150,29 @@ const PostForm: React.FC = () => {
                                         ))}
                                 </Box>
                             )}
-                            <TextField
-                                label="Character IDs (comma separated)" error={!!errors.characterIds} helperText={errors.characterIds?.message} fullWidth
-                                {...register('characterIds', { required: 'Character IDs are required' })} slotProps={{ inputLabel: { shrink: !!watch('characterIds') } }}
+                            <Autocomplete
+                                multiple options={characterOptions} getOptionLabel={(option) => option.id}
+                                value={characterOptions.filter(opt => (watch('characterIds') || []).includes(opt.id))}
+                                onChange={(_, selected) => {
+                                    const ids = selected.map(opt => opt.id);
+                                    setValue('characterIds', ids, { shouldValidate: true });
+                                }}
+                                isOptionEqualToValue={(option, value) => option.id === value.id}
+                                renderValue={(selected) => (
+                                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                                        {selected.map((option) => (
+                                            <Chip
+                                                key={option.id} label={option.id}
+                                                avatar={<Avatar src={`${import.meta.env.BASE_URL}${option.portrait}`} />}
+                                            />
+                                        ))}
+                                    </Box>
+                                )}
+                                renderInput={(params) => (
+                                    <TextField  {...params} label="Character IDs"
+                                        error={!!errors.characterIds} helperText={errors.characterIds?.message}
+                                    />
+                                )}
                             />
                         </Stack>
                     </Box>

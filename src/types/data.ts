@@ -32,7 +32,7 @@ export interface PostEntryForm {
     src: string;
     desc: string;
     artistId: string;
-    characterIds: string;
+    characterIds: string[];
 }
 
 export interface ArtistRaw {
