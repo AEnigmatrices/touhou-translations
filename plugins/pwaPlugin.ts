@@ -30,6 +30,12 @@ export default VitePWA({
     workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
         cleanupOutdatedCaches: true,
+        navigateFallback: '/touhou-translations/index.html',
+        navigateFallbackDenylist: [
+            new RegExp('^/icons/'),
+            new RegExp('^/portraits/'),
+            new RegExp('^/robots\\.txt')
+        ]
     },
     includeAssets: ['icons/favicon.ico', 'robots.txt']
 });
