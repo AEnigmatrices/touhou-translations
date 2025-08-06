@@ -1,12 +1,12 @@
-import { Typography } from '@mui/material';
+import NoSsr from '@mui/material/NoSsr';
+import DailyPost from './DailyPost';
+import type { FC } from 'react';
 
-const Page = () => {
+const Page: FC = () => {
     return (
-        <div>
-            <Typography variant="h4" align="center" color="textSecondary" sx={{ mt: 4 }}>
-                Under Construction
-            </Typography>
-        </div>
+        <NoSsr>
+            <DailyPost />
+        </NoSsr>
     );
 };
 
