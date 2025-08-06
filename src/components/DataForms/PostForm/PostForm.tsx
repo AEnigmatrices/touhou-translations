@@ -113,6 +113,23 @@ const PostForm: React.FC = () => {
                                 label="Image URLs (comma separated)" error={!!errors.urls} helperText={errors.urls?.message} fullWidth
                                 {...register('urls', { required: 'Image URLs are required' })} slotProps={{ inputLabel: { shrink: !!watch('urls') } }}
                             />
+                            {watch('urls') && (
+                                <Box sx={styles.imagePreviewContainer}>
+                                    {watch('urls')
+                                        .split(',')
+                                        .map(url => url.trim())
+                                        .filter(Boolean)
+                                        .map((url, index) => (
+                                            <Box key={index} sx={styles.imageBox}>
+                                                <Typography variant="caption">Image {index + 1}</Typography>
+                                                <Box
+                                                    component="img" src={url} alt={`Image ${index + 1}`} sx={styles.previewImage}
+                                                    onError={(e) => (e.currentTarget.style.display = 'none')}
+                                                />
+                                            </Box>
+                                        ))}
+                                </Box>
+                            )}
                             <TextField
                                 label="Character IDs (comma separated)" error={!!errors.characterIds} helperText={errors.characterIds?.message} fullWidth
                                 {...register('characterIds', { required: 'Character IDs are required' })} slotProps={{ inputLabel: { shrink: !!watch('characterIds') } }}
