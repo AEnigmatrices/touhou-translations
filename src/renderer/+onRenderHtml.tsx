@@ -9,6 +9,8 @@ import type { OnRenderHtmlAsync, PageContext } from 'vike/types';
 
 type Page = (pageProps: any) => ReactElement;
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): ReturnType<OnRenderHtmlAsync> => {
     const { Page } = pageContext as PageContext & { Page: Page };
 
@@ -50,7 +52,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             />
             <meta name="referrer" content="strict-origin" />
             <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.ico" />
-            <link rel="manifest" href="/touhou-translations/manifest.webmanifest" />
+            ${dangerouslySkipEscape(isProd ? '<link rel="manifest" href="/touhou-translations/manifest.webmanifest" />' : '')}
 
             <link rel="prefetch" href="/data/artists.json" crossorigin="anonymous">
             <link rel="prefetch" href="/data/characters.json" crossorigin="anonymous">
@@ -63,7 +65,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
 
             <title>Touhou Translations</title>
             ${dangerouslySkipEscape(emotionStyleTags)}
-            ${dangerouslySkipEscape(process.env.NODE_ENV === 'production' ? '<script src="/touhou-translations/registerSW.js"></script>' : '')}
+            ${dangerouslySkipEscape(isProd ? '<script src="/touhou-translations/registerSW.js"></script>' : '')}
         </head>
         <body>
            <div id="root">${dangerouslySkipEscape(html)}</div>
