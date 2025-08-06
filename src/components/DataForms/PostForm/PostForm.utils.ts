@@ -17,7 +17,6 @@ const buildImageUrls = (postData: any): string[] => {
                 const ext = media.m?.includes('png') ? 'png' : 'jpg';
                 return `https://i.redd.it/${id}.${ext}`;
             })
-            .reverse();
     }
     return postData.url ? [postData.url] : [];
 };

@@ -1277,5 +1277,24 @@
         "linkTwitter": "https://x.com/Shiratsuki_Shio",
         "linkPixiv": "https://www.pixiv.net/en/users/1992358",
         "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "tatsudango",
+        "name": "竜団子",
+        "linkTwitter": "https://x.com/Tatsudango",
+        "linkPixiv": "https://www.pixiv.net/en/users/36150555",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "keitai_no_kokoro",
+        "name": "けたいのこころ",
+        "linkTwitter": "https://x.com/KetaiOfHeart",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "kasaikei",
+        "name": "カサイケイ",
+        "linkTwitter": "https://x.com/saisyuusensi",
+        "portrait": "/portraits/placeholders/medic.webp"
     }
 ]
