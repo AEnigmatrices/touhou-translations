@@ -36,12 +36,14 @@ const CharacterChips: React.FC<Props> = ({ characters, baseUrl }) => {
                 />
             ))}
             {characters.length > PREVIEW_COUNT && (
-                <Chip
-                    label={showAll ? 'Show fewer' : `Show all (${characters.length})`}
-                    onClick={() => setShowAll(prev => !prev)}
-                    clickable
-                    sx={styles.toggle}
-                />
+                <Box sx={styles.toggleWrapper}>
+                    <Chip
+                        label={showAll ? 'Show fewer' : `Show all (${characters.length})`}
+                        onClick={() => setShowAll(prev => !prev)}
+                        clickable
+                        sx={styles.toggle}
+                    />
+                </Box>
             )}
         </Box>
     );

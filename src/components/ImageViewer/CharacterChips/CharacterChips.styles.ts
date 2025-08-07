@@ -3,6 +3,7 @@ import type { SxProps, Theme } from '@mui/material/styles';
 interface CharacterChipsStyles {
     container: SxProps<Theme>;
     chip: SxProps<Theme>;
+    toggleWrapper: SxProps<Theme>;
     toggle: SxProps<Theme>;
 }
 
@@ -31,10 +32,10 @@ const styles: CharacterChipsStyles = {
         transition: 'all 0.2s ease',
         minHeight: 36,
         '@media (max-width:480px)': {
-            flexBasis: 'calc(50% - 8px)',
-            flexGrow: 1,
-            flexShrink: 1,
-            maxWidth: '100%',
+            width: 'calc(50% - 4px)',
+            maxWidth: '50%',
+            flexGrow: 0,
+            flexShrink: 0,
         },
         '&:hover': {
             backgroundColor: '#d0e4ff',
@@ -56,6 +57,12 @@ const styles: CharacterChipsStyles = {
             }
         }
     },
+    toggleWrapper: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        mt: 1,
+    },
     toggle: {
         fontWeight: 500,
         fontSize: '0.85rem',
@@ -76,7 +83,7 @@ const styles: CharacterChipsStyles = {
         '@media (max-width:480px)': {
             mt: 1
         }
-    }
+    },
 };
 
 export default styles;
