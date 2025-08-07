@@ -149,6 +149,7 @@ const styles: InfoSectionStyles = {
     charactersWrapper: {
         display: 'flex',
         flexWrap: 'wrap',
+        alignItems: 'center',
         gap: 1,
         textAlign: 'left',
         '@media (max-width:480px)': {
@@ -219,6 +220,9 @@ const styles: InfoSectionStyles = {
             backgroundColor: '#d0e4ff',
             color: '#002244',
             borderColor: '#88aaff',
+        },
+        '@media (max-width:480px)': {
+            mt: 1
         }
     }
 };

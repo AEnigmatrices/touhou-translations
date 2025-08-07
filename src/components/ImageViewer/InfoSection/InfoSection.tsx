@@ -113,17 +113,16 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                                     avatar={c.portrait ? (<Avatar src={`${BASE_URL}${c.portrait}`} alt={c.name} variant="rounded" />) : undefined}
                                 />
                             ))}
-                        </Box>
-                        {characters.length > CHARACTER_PREVIEW_COUNT && (
-                            <Box sx={styles.showAllToggleWrapper}>
+
+                            {characters.length > CHARACTER_PREVIEW_COUNT && (
                                 <Chip
                                     label={showAllCharacters ? 'Show fewer' : `Show all (${characters.length})`}
                                     onClick={() => setShowAllCharacters(prev => !prev)}
                                     clickable
                                     sx={styles.showAllToggle}
                                 />
-                            </Box>
-                        )}
+                            )}
+                        </Box>
                     </Box>
                 </Box>
             )}
