@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageList, ImageListItem } from '@mui/material';
+import { ImageList, ImageListItem, useMediaQuery, useTheme } from '@mui/material';
 import { useAppData } from '../../renderer/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
 import GalleryImage from './GalleryImage';
@@ -16,10 +16,14 @@ const Gallery: React.FC<Props> = ({ posts }) => {
     const { posts: allPosts } = useAppData();
     const displayedPosts = posts || allPosts;
 
+    const theme = useTheme();
+    const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+    const columns = isMdUp ? 4 : 2;
+
     if (!displayedPosts.length) return <p>No posts available.</p>;
 
     return (
-        <ImageList variant="masonry" cols={4} gap={16}>
+        <ImageList variant="masonry" cols={columns} gap={16}>
             {displayedPosts.map((post) => {
                 if (!post.url?.length) return null;
 
@@ -30,7 +34,10 @@ const Gallery: React.FC<Props> = ({ posts }) => {
                 return (
                     <ImageListItem key={post.date} sx={styles.item}>
                         <a href={`${BASE_URL}posts/${redditId}`} aria-label="View post details" tabIndex={0} style={{ display: 'block', width: '100%' }} >
-                            <GalleryImage src={imageUrl} alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`} />
+                            <GalleryImage
+                                src={imageUrl}
+                                alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
+                            />
                         </a>
                     </ImageListItem>
                 );
