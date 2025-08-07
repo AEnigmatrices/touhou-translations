@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip, Skeleton, Avatar } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Chip, Skeleton } from '@mui/material';
 import { dateFormatOptions, replaceXWithNitter } from '../ImageViewer.utils';
+import CharacterChips from '../CharacterChips/CharacterChips';
 import styles from './InfoSection.styles';
 import type { Post, Artist, Character } from '../../../types/data';
 
@@ -18,11 +19,8 @@ const nitterIcon = `${BASE_URL}icons/social/nitter.webp`;
 const pixivIcon = `${BASE_URL}icons/social/pixiv.webp`;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
-const CHARACTER_PREVIEW_COUNT = 4;
-
 const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
-    const [showAllCharacters, setShowAllCharacters] = useState(false);
     const [showNitter, setShowNitter] = useState(false);
 
     const isTwitterUrl = post.src ? /^(https?:\/\/)?(www\.)?(twitter\.com|x\.com)/.test(post.src) : false;
@@ -100,30 +98,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                     <Typography sx={{ fontWeight: 600, fontSize: '1.1rem', mb: 1 }}>
                         {characters.length === 1 ? 'Character' : 'Characters'}
                     </Typography>
-                    <Box sx={styles.infoItemValue}>
-                        <Box sx={styles.charactersWrapper}>
-                            {(showAllCharacters ? characters : characters.slice(0, CHARACTER_PREVIEW_COUNT)).map((c) => (
-                                <Chip
-                                    key={c.id}
-                                    label={c.short_name}
-                                    component="a"
-                                    href={`${BASE_URL}gallery?character=${c.id}`}
-                                    clickable
-                                    sx={styles.characterChip}
-                                    avatar={c.portrait ? (<Avatar src={`${BASE_URL}${c.portrait}`} alt={c.name} variant="rounded" />) : undefined}
-                                />
-                            ))}
-
-                            {characters.length > CHARACTER_PREVIEW_COUNT && (
-                                <Chip
-                                    label={showAllCharacters ? 'Show fewer' : `Show all (${characters.length})`}
-                                    onClick={() => setShowAllCharacters(prev => !prev)}
-                                    clickable
-                                    sx={styles.showAllToggle}
-                                />
-                            )}
-                        </Box>
-                    </Box>
+                    <CharacterChips characters={characters} baseUrl={BASE_URL} />
                 </Box>
             )}
 
