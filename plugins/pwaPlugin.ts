@@ -14,9 +14,9 @@ export default VitePWA({
         theme_color: "#ffffff",
         description: "An archive of English-translated Touhou Project fan comics and illustrations.",
         "icons": [
-            { "src": "icons/pwa-icon-48x48.png", "sizes": "48x48", "type": "image/png", "purpose": "any" },
-            { "src": "icons/pwa-icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-            { "src": "icons/pwa-icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+            { "src": "icons/pwa/pwa-icon-48x48.png", "sizes": "48x48", "type": "image/png", "purpose": "any" },
+            { "src": "icons/pwa/pwa-icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+            { "src": "icons/pwa/pwa-icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
         ],
         lang: "en"
     },
