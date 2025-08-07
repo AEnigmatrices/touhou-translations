@@ -15,6 +15,7 @@ interface InfoSectionStyles {
     characterLink: SxProps<Theme>;
     charactersWrapper: SxProps<Theme>;
     characterChip: SxProps<Theme>;
+    showAllToggle: SxProps<Theme>;
 }
 
 const styles: InfoSectionStyles = {
@@ -172,12 +173,30 @@ const styles: InfoSectionStyles = {
             borderColor: '#002244',
         },
         '& .MuiChip-label': {
-            paddingLeft: 6,
-            paddingRight: 6,
+            paddingLeft: 3,
+            paddingRight: 3,
             fontSize: '0.9rem',
             '@media (max-width:480px)': {
                 fontSize: '0.85rem',
             }
+        }
+    },
+    showAllToggle: {
+        fontWeight: 500,
+        fontSize: '0.85rem',
+        color: '#004999',
+        borderColor: '#b0cfff',
+        backgroundColor: '#f0f6ff',
+        transition: 'all 0.2s ease',
+        '&:hover': {
+            backgroundColor: '#e0eeff',
+            color: '#003366',
+            borderColor: '#99bbff',
+        },
+        '&:active': {
+            backgroundColor: '#d0e4ff',
+            color: '#002244',
+            borderColor: '#88aaff',
         }
     }
 };
