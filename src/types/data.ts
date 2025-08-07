@@ -20,6 +20,7 @@ export interface Artist {
 export interface Character {
     id: string;
     name: string;
+    short_name: string;
     work: string[];
     portrait: string;
     artworkCount: number;
@@ -46,6 +47,7 @@ export interface ArtistRaw {
 export interface CharacterRaw {
     id: string;
     name: string;
+    short_name: string;
     work: string[];
     portrait: string;
 }

@@ -105,19 +105,12 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                             {(showAllCharacters ? characters : characters.slice(0, CHARACTER_PREVIEW_COUNT)).map((c) => (
                                 <Chip
                                     key={c.id}
-                                    label={c.name}
+                                    label={c.short_name}
                                     component="a"
                                     href={`${BASE_URL}gallery?character=${c.id}`}
                                     clickable
                                     sx={styles.characterChip}
-                                    avatar={c.portrait ? (
-                                        <Avatar
-                                            src={`${BASE_URL}${c.portrait}`}
-                                            alt={c.name}
-                                            sx={{ width: 24, height: 24, marginRight: 0.5 }}
-                                            variant="rounded"
-                                        />
-                                    ) : undefined}
+                                    avatar={c.portrait ? (<Avatar src={`${BASE_URL}${c.portrait}`} alt={c.name} variant="rounded" />) : undefined}
                                 />
                             ))}
                         </Box>

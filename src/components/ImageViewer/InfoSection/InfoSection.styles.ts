@@ -152,9 +152,15 @@ const styles: InfoSectionStyles = {
         textAlign: 'left',
         '@media (max-width:480px)': {
             gap: 0.5,
+            justifyContent: 'center',
         }
     },
+
     characterChip: {
+        padding: 2.5,
+        display: 'flex',
+        justifyContent: 'center',
+        gap: 1,
         fontWeight: 500,
         color: '#004999',
         borderColor: '#004999',
@@ -162,6 +168,13 @@ const styles: InfoSectionStyles = {
         cursor: 'pointer',
         transition: 'all 0.2s ease',
         minHeight: 36,
+        '@media (max-width:480px)': {
+            width: '48%',
+            minHeight: 36,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+        },
         '&:hover': {
             backgroundColor: '#d0e4ff',
             color: '#003366',
@@ -173,11 +186,12 @@ const styles: InfoSectionStyles = {
             borderColor: '#002244',
         },
         '& .MuiChip-label': {
-            paddingLeft: 3,
-            paddingRight: 3,
             fontSize: '0.9rem',
             '@media (max-width:480px)': {
                 fontSize: '0.85rem',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
             }
         }
     },
