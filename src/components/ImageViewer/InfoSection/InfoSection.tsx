@@ -115,7 +115,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                             ))}
                         </Box>
                         {characters.length > CHARACTER_PREVIEW_COUNT && (
-                            <Box sx={{ mt: 1 }}>
+                            <Box sx={styles.showAllToggleWrapper}>
                                 <Chip
                                     label={showAllCharacters ? 'Show fewer' : `Show all (${characters.length})`}
                                     onClick={() => setShowAllCharacters(prev => !prev)}

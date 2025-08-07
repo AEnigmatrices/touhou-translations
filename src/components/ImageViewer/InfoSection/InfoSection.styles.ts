@@ -15,6 +15,7 @@ interface InfoSectionStyles {
     characterLink: SxProps<Theme>;
     charactersWrapper: SxProps<Theme>;
     characterChip: SxProps<Theme>;
+    showAllToggleWrapper: SxProps<Theme>;
     showAllToggle: SxProps<Theme>;
 }
 
@@ -169,11 +170,10 @@ const styles: InfoSectionStyles = {
         transition: 'all 0.2s ease',
         minHeight: 36,
         '@media (max-width:480px)': {
-            width: '48%',
-            minHeight: 36,
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
+            flexBasis: 'calc(50% - 8px)',
+            flexGrow: 1,
+            flexShrink: 1,
+            maxWidth: '100%',
         },
         '&:hover': {
             backgroundColor: '#d0e4ff',
@@ -193,6 +193,14 @@ const styles: InfoSectionStyles = {
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
             }
+        }
+    },
+    showAllToggleWrapper: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        '@media (max-width:480px)': {
+            justifyContent: 'center',
         }
     },
     showAllToggle: {
