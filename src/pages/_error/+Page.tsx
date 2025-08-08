@@ -1,3 +1,4 @@
+import { Box, Typography } from '@mui/material'
 import { usePageContext } from '../../renderer/usePageContext'
 
 const Page = () => {
@@ -6,27 +7,19 @@ const Page = () => {
 
     const displayMessage = abortReason && typeof abortReason === 'string'
         ? abortReason
-        : is404 ? 'Page not found.' : 'Something went wrong.'
+        : is404
+            ? 'Page not found.'
+            : 'Something went wrong.'
 
     return (
-        <Center>
-            <p style={{ fontSize: '1.3em' }}>{displayMessage}</p>
-        </Center>
-    )
-}
-
-const Center = ({ style, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
-    return (
-        <div
-            style={{
-                height: 'calc(100vh - 100px)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                ...style,
-            }}
-            {...props}
-        ></div>
+        <Box
+            component="main"
+            sx={{ height: 'calc(100vh - 100px)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        >
+            <Typography variant="h6" sx={{ fontSize: '1.3em' }}>
+                {displayMessage}
+            </Typography>
+        </Box>
     )
 }
 
