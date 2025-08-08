@@ -54,10 +54,10 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.ico" />
             ${dangerouslySkipEscape(isProd ? '<link rel="manifest" href="/touhou-translations/manifest.webmanifest" />' : '')}
 
-            <link rel="prefetch" href="/data/artists.json" crossorigin="anonymous">
-            <link rel="prefetch" href="/data/characters.json" crossorigin="anonymous">
-            <link rel="prefetch" href="/data/posts/posts-2024.json" crossorigin="anonymous">
-            <link rel="prefetch" href="/data/posts/posts-2025.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/touhou-translations/data/artists.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/touhou-translations/data/characters.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2024.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2025.json" crossorigin="anonymous">
 
             <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
