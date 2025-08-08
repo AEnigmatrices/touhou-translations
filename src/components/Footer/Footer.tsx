@@ -1,8 +1,12 @@
 import React from "react";
 import { Box, Container, Grid, Stack, Typography, IconButton, Divider } from "@mui/material";
-import GitHub from "@mui/icons-material/GitHub";
-import Twitter from "@mui/icons-material/Twitter";
-import Language from "@mui/icons-material/Language";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import BugReportIcon from "@mui/icons-material/BugReport";
+import DescriptionIcon from "@mui/icons-material/Description";
+import RedditIcon from "@mui/icons-material/Reddit";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import ImageIcon from "@mui/icons-material/Image";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import ExternalLink from "../ExternalLink/ExternalLink";
 import styles from "./Footer.styles";
 
@@ -39,13 +43,15 @@ const Footer: React.FC = () => {
                                     Project
                                 </Typography>
                                 <Stack spacing={0.75} alignItems="flex-end">
-                                    <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations" label="GitHub Repository">
+                                    <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations" label="GitHub Repository" startIcon={<GitHubIcon fontSize="small" />}>
                                         GitHub Repository
                                     </ExternalLink>
-                                    <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations/issues" label="Submit an Issue">
+
+                                    <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations/issues" label="Submit an Issue" startIcon={<BugReportIcon fontSize="small" />}>
                                         Submit an Issue
                                     </ExternalLink>
-                                    <ExternalLink href="https://touhou-project.news/guidelines_en/" label="Fan Content Guidelines">
+
+                                    <ExternalLink href="https://touhou-project.news/guidelines_en/" label="Fan Content Guidelines" startIcon={<DescriptionIcon fontSize="small" />}>
                                         Fan Content Guidelines
                                     </ExternalLink>
                                 </Stack>
@@ -57,15 +63,21 @@ const Footer: React.FC = () => {
                 <Divider sx={styles.divider} />
 
                 <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, sm: 3 }} justifyContent="space-between" alignItems="center" sx={styles.bottomBar} >
-                    <Stack direction="row" spacing={1}>
-                        <IconButton component="a" href="https://github.com/AEnigmatrices/touhou-translations" target="_blank" aria-label="GitHub" sx={styles.iconButton} >
-                            <GitHub />
+                    <Stack direction="row" spacing={2}>
+                        <IconButton component="a" href="https://www.reddit.com/user/Aenigmatrix/" target="_blank" aria-label="Reddit" sx={styles.iconButton} >
+                            <RedditIcon />
                         </IconButton>
-                        <IconButton component="a" href="https://twitter.com/" target="_blank" aria-label="Twitter" sx={styles.iconButton} >
-                            <Twitter />
+
+                        <IconButton component="a" href="https://x.com/aenigmatrix" target="_blank" aria-label="X (formerly Twitter)" sx={styles.iconButton} >
+                            <TwitterIcon />
                         </IconButton>
-                        <IconButton component="a" href="https://touhou-project.news/" target="_blank" aria-label="Website" sx={styles.iconButton} >
-                            <Language />
+
+                        <IconButton component="a" href="https://www.pixiv.net/en/users/41327107" target="_blank" aria-label="Pixiv" sx={styles.iconButton} >
+                            <ImageIcon />
+                        </IconButton>
+
+                        <IconButton component="a" href="https://www.youtube.com/channel/UC_IOLpymEy7P4dnkUzxpqng" target="_blank" aria-label="YouTube" sx={styles.iconButton} >
+                            <YouTubeIcon />
                         </IconButton>
                     </Stack>
 

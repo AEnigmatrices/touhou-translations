@@ -39,6 +39,7 @@ const styles: FooterStyles = {
     },
     bottomBar: {
         textAlign: { xs: "center", sm: "left" },
+        paddingBottom: { xs: "56px", sm: 0 },
     },
     link: {
         color: "inherit",

@@ -6,6 +6,9 @@ interface Styles {
 
 const styles: Styles = {
     link: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 1,
         color: "inherit",
         textDecoration: "underline",
         fontWeight: 500,

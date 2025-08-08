@@ -1,13 +1,15 @@
 import { Link } from '@mui/material';
 import styles from './ExternalLink.styles';
+import type { FC, ReactNode } from 'react';
 
 interface Props {
     href: string;
-    children: React.ReactNode;
+    children: ReactNode;
     label: string;
+    startIcon?: ReactNode;
 }
 
-const ExternalLink: React.FC<Props> = ({ href, children, label }) => (
+const ExternalLink: FC<Props> = ({ href, children, label, startIcon }) => (
     <Link
         href={href}
         target="_blank"
@@ -16,6 +18,7 @@ const ExternalLink: React.FC<Props> = ({ href, children, label }) => (
         aria-label={`${label} (opens in new tab)`}
     >
         {children}
+        {startIcon}
     </Link>
 );
 
