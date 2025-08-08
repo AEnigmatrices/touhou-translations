@@ -42,8 +42,8 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
                 content="
                     default-src 'self';
                     script-src 'self' 'unsafe-inline';
-                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-                    font-src 'self' https://fonts.gstatic.com;
+                    style-src 'self' 'unsafe-inline';
+                    font-src 'self';
                     img-src 'self' https://i.redd.it data:;
                     connect-src 'self' https://www.reddit.com;
                     object-src 'none';
@@ -54,14 +54,14 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.ico" />
             ${dangerouslySkipEscape(isProd ? '<link rel="manifest" href="/touhou-translations/manifest.webmanifest" />' : '')}
 
-            <link rel="prefetch" href="/touhou-translations/data/artists.json" crossorigin="anonymous">
-            <link rel="prefetch" href="/touhou-translations/data/characters.json" crossorigin="anonymous">
-            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2024.json" crossorigin="anonymous">
-            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2025.json" crossorigin="anonymous">
+            <link rel="prefetch" href="/touhou-translations/data/artists.json" crossorigin>
+            <link rel="prefetch" href="/touhou-translations/data/characters.json" crossorigin>
+            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2024.json" crossorigin>
+            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2025.json" crossorigin>
 
-            <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-500.woff2" as="font" type="font/woff2" crossorigin>
+            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-600.woff2" as="font" type="font/woff2" crossorigin>
 
             <title>Touhou Translations</title>
             ${dangerouslySkipEscape(emotionStyleTags)}

@@ -3,6 +3,7 @@ import { hydrateRoot, createRoot, type Root } from 'react-dom/client';
 import { PageLayout } from './PageLayout/PageLayout';
 import { CacheProvider } from '@emotion/react';
 import createEmotionCache from '../utils/createEmotionCache';
+import './fonts.css';
 import './index.css';
 import type { OnRenderClientAsync, PageContext } from 'vike/types';
 

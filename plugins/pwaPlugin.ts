@@ -21,7 +21,7 @@ export default VitePWA({
         lang: "en"
     },
     workbox: {
-        globPatterns: ['**/*.{js,css,ico,png,svg}'],
+        globPatterns: ['**/*.{js,css,ico,png,svg,woff2}'],
         cleanupOutdatedCaches: true,
         navigateFallback: '/touhou-translations/index.html',
         navigateFallbackDenylist: [

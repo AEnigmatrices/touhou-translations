@@ -48,7 +48,7 @@ const theme = createTheme({
     palette: colors,
 
     typography: {
-        fontFamily: '"Noto Sans JP", "Roboto", "Helvetica Neue", Arial, sans-serif',
+        fontFamily: '"Noto Sans JP", "Noto Sans", "Roboto", sans-serif',
         h1: {
             fontWeight: 700,
             fontSize: '2.5rem',
