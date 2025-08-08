@@ -1309,5 +1309,39 @@
         "linkTwitter": "https://x.com/indozou",
         "linkPixiv": "https://www.pixiv.net/en/users/390501",
         "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "kamepasuta",
+        "name": "かめぱすた",
+        "linkTwitter": "https://x.com/kamepan44231",
+        "linkPixiv": "https://www.pixiv.net/en/users/49675420",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "yuugiri",
+        "name": "夕霧",
+        "linkTwitter": "https://x.com/yugiri_picture",
+        "linkPixiv": "https://www.pixiv.net/en/users/45748599",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "seisumo",
+        "name": "セイスモ",
+        "linkTwitter": "https://x.com/seisumochi",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "kamoi_nougu",
+        "name": "鴨居能嵎",
+        "linkTwitter": "https://x.com/harisuwa",
+        "linkPixiv": "https://www.pixiv.net/en/users/15151131",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "aru",
+        "name": "アル",
+        "linkTwitter": "https://x.com/R_u_0725",
+        "linkPixiv": "https://www.pixiv.net/en/users/73228951",
+        "portrait": "/portraits/placeholders/pyro.webp"
     }
 ]
