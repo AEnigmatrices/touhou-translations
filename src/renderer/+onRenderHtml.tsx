@@ -62,6 +62,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
             <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-500.woff2" as="font" type="font/woff2" crossorigin>
             <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-600.woff2" as="font" type="font/woff2" crossorigin>
+            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
             <title>Touhou Translations</title>
             ${dangerouslySkipEscape(emotionStyleTags)}
