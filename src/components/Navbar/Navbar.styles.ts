@@ -1,13 +1,27 @@
 import type { SxProps, Theme } from '@mui/material/styles';
 
-const styles = {
+interface StaticStyles {
+    appBar: SxProps<Theme>;
+    toolbar: SxProps<Theme>;
+    drawerBox: SxProps<Theme>;
+    tabContainer: SxProps<Theme>;
+}
+
+interface DynamicStyles {
+    title: (theme: Theme) => SxProps<Theme>;
+    tab: (active: boolean) => SxProps<Theme>;
+}
+
+type Styles = StaticStyles & DynamicStyles;
+
+const styles: Styles = {
     appBar: {
         backgroundColor: 'rgba(255, 255, 255, 0.95)',
         backdropFilter: 'blur(8px)',
         boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
         zIndex: 1100,
         borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
-    } as SxProps<Theme>,
+    },
 
     toolbar: {
         maxWidth: 1200,
@@ -15,9 +29,9 @@ const styles = {
         width: '100%',
         justifyContent: 'flex-start',
         paddingY: 1.5,
-    } as SxProps<Theme>,
+    },
 
-    title: (theme: Theme): SxProps<Theme> => ({
+    title: (theme: Theme) => ({
         flexGrow: 1,
         color: theme.palette.text.primary,
         textDecoration: 'none',
@@ -27,13 +41,13 @@ const styles = {
 
     drawerBox: {
         width: 250,
-    } as SxProps<Theme>,
+    },
 
     tabContainer: {
         minHeight: 48,
-    } as SxProps<Theme>,
+    },
 
-    tab: (active: boolean): SxProps<Theme> => ({
+    tab: (active: boolean) => ({
         textTransform: 'none',
         marginRight: 3,
         borderRadius: 1,

@@ -2,7 +2,7 @@ import { Typography, Paper, Accordion, AccordionSummary, AccordionDetails, Stack
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PostForm from '../../components/DataForms/PostForm/PostForm';
 import ArtistForm from '../../components/DataForms/ArtistForm/ArtistForm';
-import styles from './styles';
+import styles from './admin.styles';
 
 const Page = () => {
     const theme = useTheme();
