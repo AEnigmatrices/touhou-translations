@@ -5,6 +5,7 @@ import { PageContextProvider } from '../usePageContext';
 import { Box } from "@mui/material";
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import BottomNav from '../../components/BottomNav/BottomNav';
 import styles from "./PageLayout.styles";
 import theme from './theme';
 
@@ -26,6 +27,7 @@ const PageLayout = ({ pageContext, children }: { pageContext: PageContext; child
                                 {children}
                             </Box>
                             <Footer />
+                            <BottomNav />
                         </Box>
                     </PageContextProvider>
                 </ErrorBoundary>

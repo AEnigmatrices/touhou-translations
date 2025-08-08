@@ -1,40 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { navigate } from 'vike/client/router';
 import { useAppData } from '../../renderer/useAppData';
 import { usePageContext } from '../../renderer/usePageContext';
-import { AppBar, Toolbar, Tabs, Tab, IconButton, Drawer, List, ListItemButton, ListItemText, Typography, useMediaQuery, Box, useTheme, NoSsr } from '@mui/material';
-import { ElevationScroll, navLinks, getRandomPostPath } from './Navbar.utils';
+import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme, NoSsr } from '@mui/material';
+import { ElevationScroll, getRandomPostPath } from './Navbar.utils';
+import { navLinks } from '../../utils/navLinks';
 import styles from './Navbar.styles';
-import MenuIcon from '@mui/icons-material/Menu';
 
 
 
 const Navbar: React.FC = () => {
-    const theme = useTheme();
-    const pageContext = usePageContext();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const [drawerOpen, setDrawerOpen] = useState(false);
 
+    const pageContext = usePageContext();
     const { posts } = useAppData();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     const tabPaths = navLinks.map(link => link.to);
     const currentTab = tabPaths.includes(pageContext.urlOriginal) ? pageContext.urlOriginal : false;
 
     const handleLogoClick = () => navigate(getRandomPostPath(posts));
 
-    const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
     const isCurrent = (to: string) => pageContext.urlOriginal === to;
 
-    const handleDrawerKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-        if (event.key === 'Tab' || event.key === 'Shift') return;
-        setDrawerOpen(false);
-    };
-
     const handleNavigation = (to: string) => {
-        if (pageContext.urlOriginal === to) {
-            setDrawerOpen(false)
-            return;
-        }
-        setDrawerOpen(false);
+        if (pageContext.urlOriginal === to) return;
         navigate(to);
     };
 
@@ -46,26 +36,8 @@ const Navbar: React.FC = () => {
                         Touhou Translations
                     </Typography>
                     <NoSsr>
-                        {isMobile ? (
-                            <>
-                                <IconButton edge="end" color="inherit" aria-label="open navigation menu" onClick={toggleDrawer(true)} size="large"   >
-                                    <MenuIcon />
-                                </IconButton>
-
-                                <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}   >
-                                    <Box sx={styles.drawerBox} role="presentation" onKeyDown={handleDrawerKeyDown}   >
-                                        <List>
-                                            {navLinks.map(({ label, to }) => (
-                                                <ListItemButton key={to} onClick={() => handleNavigation(to)}   >
-                                                    <ListItemText primary={label} />
-                                                </ListItemButton>
-                                            ))}
-                                        </List>
-                                    </Box>
-                                </Drawer>
-                            </>
-                        ) : (
-                            <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={styles.tabContainer}  >
+                        {!isMobile && (
+                            <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={styles.tabContainer} >
                                 {navLinks.map(({ label, to }) => (
                                     <Tab key={to} value={to} label={label} onClick={() => handleNavigation(to)} sx={styles.tab(isCurrent(to))} />
                                 ))}
