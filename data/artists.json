@@ -1296,5 +1296,18 @@
         "name": "カサイケイ",
         "linkTwitter": "https://x.com/saisyuusensi",
         "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "mitsu",
+        "name": "mitsu",
+        "linkTwitter": "https://x.com/GhMfly8",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "indo_sou",
+        "name": "インド僧",
+        "linkTwitter": "https://x.com/indozou",
+        "linkPixiv": "https://www.pixiv.net/en/users/390501",
+        "portrait": "/portraits/placeholders/heavy.webp"
     }
 ]
