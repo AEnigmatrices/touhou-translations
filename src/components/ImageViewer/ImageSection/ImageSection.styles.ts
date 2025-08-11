@@ -1,19 +1,21 @@
 import type { SxProps, Theme } from '@mui/material/styles';
 
-interface ImageSectionStyles {
+interface Styles {
     root: SxProps<Theme>;
     imageDisplay: SxProps<Theme>;
     image: SxProps<Theme>;
     galleryControls: SxProps<Theme>;
     galleryButton: SxProps<Theme>;
     galleryIndex: SxProps<Theme>;
+    zoomOut: SxProps<Theme>;
+    zoomed: SxProps<Theme>;
 }
 
-const styles: ImageSectionStyles = {
+const styles: Styles = {
     root: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 2
+        gap: 2,
     },
     imageDisplay: {
         overflow: 'hidden',
@@ -21,15 +23,15 @@ const styles: ImageSectionStyles = {
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
         transition: 'transform 0.3s ease',
         '&:hover': {
-            transform: 'scale(1.03)'
+            transform: 'scale(1.03)',
         },
         '&:active': {
-            transform: 'scale(0.97)'
+            transform: 'scale(0.97)',
         },
         '@media (max-width:768px)': {
             maxWidth: '100%',
-            flex: '1 1 100%'
-        }
+            flex: '1 1 100%',
+        },
     },
     image: {
         width: '100%',
@@ -37,7 +39,6 @@ const styles: ImageSectionStyles = {
         display: 'block',
         overflow: 'hidden',
         borderRadius: 2,
-        cursor: 'zoom-in',
     },
     galleryControls: {
         display: 'flex',
@@ -45,8 +46,8 @@ const styles: ImageSectionStyles = {
         alignItems: 'center',
         gap: 2,
         '@media (max-width:480px)': {
-            gap: 1
-        }
+            gap: 1,
+        },
     },
     galleryButton: {
         background: 'none',
@@ -57,18 +58,34 @@ const styles: ImageSectionStyles = {
         color: '#333',
         transition: 'transform 0.2s ease',
         '&:hover': {
-            transform: 'scale(1.2)'
+            transform: 'scale(1.2)',
         },
         '@media (max-width:480px)': {
             fontSize: '1rem',
-            padding: 0.5
-        }
+            padding: 0.5,
+        },
     },
     galleryIndex: {
         fontWeight: 600,
         minWidth: 64,
-        textAlign: 'center'
-    }
+        textAlign: 'center',
+    },
+    zoomOut: {
+        maxWidth: '100%',
+        maxHeight: '70vh',
+        width: 'auto',
+        height: 'auto',
+        display: 'block',
+        borderRadius: 2,
+        userSelect: 'none',
+        objectFit: 'contain',
+    },
+    zoomed: {
+        width: '100%',
+        objectFit: 'contain',
+        userSelect: 'none',
+        borderRadius: 0,
+    },
 };
 
 export default styles;
