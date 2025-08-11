@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
                     <Typography variant="h6" component="div" onClick={handleLogoClick} sx={styles.title(theme)} tabIndex={0} role="link" aria-label="Random post" >
                         Touhou Translations
                     </Typography>
-                    {!isMobile && currentTab !== false && (
+                    {!isMobile && (
                         <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={styles.tabContainer} >
                             {navLinks.map(({ label, to }) => (
                                 <Tab key={to} value={to} label={label} component="a" href={to} sx={styles.tab(isCurrent(to))} />

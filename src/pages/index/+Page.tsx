@@ -1,5 +1,4 @@
 import { Container, Grid, Paper, Typography } from '@mui/material';
-import NoSsr from '@mui/material/NoSsr';
 import DailyPost from './DailyPost';
 import type { JSX } from 'react';
 
@@ -9,7 +8,7 @@ const Page = (): JSX.Element => {
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={{ xs: 3, md: 4 }}>
                 <Grid size={{ xs: 12, md: 5 }}>
-                    <NoSsr><DailyPost /></NoSsr>
+                    <DailyPost />
                 </Grid>
 
                 <Grid size={{ xs: 12, md: 4 }} container direction="column" spacing={3}>
