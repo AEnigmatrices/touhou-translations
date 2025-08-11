@@ -36,6 +36,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="description" content="An archive of fan-translated Touhou Project comics and illustrations." />
+            <meta name="google-site-verification" content="0HESLIqydO91EGI_Nz10xq3aAxhdqBAfCHes6Q6oXrE" />
             <meta http-equiv="X-Content-Type-Options" content="nosniff" />
             <meta
                 http-equiv="Content-Security-Policy"
