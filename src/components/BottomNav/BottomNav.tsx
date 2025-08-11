@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme, useMediaQuery, BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
-import { navigate } from 'vike/client/router';
 import { navLinks } from '../../utils/navLinks';
 import styles from './BottomNav.styles';
 
@@ -23,11 +22,6 @@ const BottomNav: React.FC = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [value, setValue] = useState(0);
 
-    const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-        navigate(navLinks[newValue].to);
-    };
-
     useEffect(() => {
         const currentIndex = navLinks.findIndex(link => window.location.pathname === new URL(link.to, window.location.origin).pathname);
         if (currentIndex !== -1) setValue(currentIndex);
@@ -36,9 +30,9 @@ const BottomNav: React.FC = () => {
     if (!isMobile) return null;
     return (
         <Paper elevation={8} sx={styles.root} component="footer" role="navigation" aria-label="Bottom navigation"   >
-            <BottomNavigation showLabels value={value} onChange={handleChange}>
-                {navLinks.map(({ label }) => (
-                    <BottomNavigationAction key={label} label={label} icon={iconMap[label] ?? <BrushIcon />} />
+            <BottomNavigation showLabels value={value} onChange={(_event, newValue) => setValue(newValue)}>
+                {navLinks.map(({ label, to }) => (
+                    <BottomNavigationAction key={label} label={label} icon={iconMap[label] ?? <BrushIcon />} component="a" href={to} />
                 ))}
             </BottomNavigation>
         </Paper>

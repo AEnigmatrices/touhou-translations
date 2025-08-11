@@ -24,7 +24,10 @@ const styles: ProfileItemStyles = {
     linkBox: {
         display: "flex",
         alignItems: "center",
-        width: "100%"
+        width: "100%",
+        textDecoration: "none",
+        color: "inherit",
+        cursor: "pointer"
     },
     content: {
         display: "flex",

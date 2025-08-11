@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { navigate } from "vike/client/router";
 import { Box, Avatar, Typography, Paper } from "@mui/material";
 import styles from "./ProfileItem.styles";
 
@@ -15,19 +14,6 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
     const observerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [imgSrc, setImgSrc] = useState<string | null>(null);
-
-
-
-    const handleClick = () => {
-        if (link) navigate(link);
-    };
-
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-        if ((event.key === 'Enter' || event.key === ' ') && link) {
-            event.preventDefault();
-            navigate(link);
-        }
-    };
 
 
 
@@ -73,13 +59,10 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
     return (
         <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper}  >
             <Box ref={observerRef}>
-                {link ? (
-                    <Box onClick={handleClick} onKeyDown={handleKeyDown} sx={{ ...styles.linkBox, cursor: 'pointer' }} role="button" tabIndex={0}  >
-                        {Content}
-                    </Box>
-                ) : (
-                    <Box sx={styles.linkBox}>{Content}</Box>
-                )}
+                {link
+                    ? <Box component="a" href={link} sx={styles.linkBox}>{Content}</Box>
+                    : <Box sx={styles.linkBox}>{Content}</Box>
+                }
             </Box>
         </Paper>
     );
