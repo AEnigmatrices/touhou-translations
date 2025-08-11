@@ -1343,5 +1343,66 @@
         "linkTwitter": "https://x.com/R_u_0725",
         "linkPixiv": "https://www.pixiv.net/en/users/73228951",
         "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "kusatsuku",
+        "name": "くさつく",
+        "linkTwitter": "https://x.com/kusatsuku1",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "ramudia",
+        "name": "ラムディア",
+        "linkTwitter": "https://x.com/ramyun109",
+        "linkPixiv": "https://www.pixiv.net/en/users/2455233",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "zegen",
+        "name": "ぜーげん",
+        "linkTwitter": "https://x.com/segen311",
+        "linkPixiv": "https://www.pixiv.net/en/users/12113266",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "safupara",
+        "name": "さふぱら",
+        "linkTwitter": "https://x.com/eboshitoribousi",
+        "linkPixiv": "https://www.pixiv.net/en/users/43855021",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "blue_hawaii",
+        "name": "ぶるーはわい",
+        "linkTwitter": "https://x.com/Blue_Hawaii_KGS",
+        "linkPixiv": "https://www.pixiv.net/en/users/45239569",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "seutoku",
+        "name": "せうとく",
+        "linkTwitter": "https://x.com/_Seutoku_",
+        "linkPixiv": "https://www.pixiv.net/en/users/103095993",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "mitsuba_kin",
+        "name": "みつばきん",
+        "linkTwitter": "https://x.com/mtbkin",
+        "linkPixiv": "https://www.pixiv.net/en/users/500351",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "tebasaki_ni_hone",
+        "name": "手羽先に骨",
+        "linkTwitter": "https://x.com/usinohone_",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "sushirou",
+        "name": "すしろう",
+        "linkTwitter": "https://x.com/HeripanTomorrow",
+        "linkPixiv": "https://www.pixiv.net/en/users/42276572",
+        "portrait": "/portraits/placeholders/engineer.webp"
     }
 ]
