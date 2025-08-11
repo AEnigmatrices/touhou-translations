@@ -12,7 +12,7 @@ interface Props {
 
 const ImageSection: FC<Props> = ({ currentIndex, urls, handleChangeIndex }) => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'), { noSsr: true });
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const [zoomed, setZoomed] = useState(false);
     const currentImage = urls[currentIndex];

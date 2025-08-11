@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, NoSsr } from '@mui/material';
 import { useAppData } from '../../renderer/useAppData';
 import ImageSection from './ImageSection/ImageSection';
 import InfoSection from './InfoSection/InfoSection';
@@ -28,7 +28,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
 
     return (
         <Box sx={styles.root}>
-            <ImageSection currentIndex={currentIndex} urls={post.url} handleChangeIndex={handleChangeIndex} />
+            <NoSsr><ImageSection currentIndex={currentIndex} urls={post.url} handleChangeIndex={handleChangeIndex} /></NoSsr>
             <InfoSection post={post} artist={artist} characters={characters} />
         </Box>
     );
