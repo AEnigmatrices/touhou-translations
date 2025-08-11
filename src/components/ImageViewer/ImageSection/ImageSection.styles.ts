@@ -16,7 +16,6 @@ const styles: ImageSectionStyles = {
         gap: 2
     },
     imageDisplay: {
-        maxWidth: 600,
         overflow: 'hidden',
         borderRadius: 2,
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
@@ -30,23 +29,15 @@ const styles: ImageSectionStyles = {
         '@media (max-width:768px)': {
             maxWidth: '100%',
             flex: '1 1 100%'
-        },
-        '@media (max-width:480px)': {
-            maxWidth: '100%',
-            maxHeight: '50vh',
-            overflow: 'hidden'
         }
     },
     image: {
         width: '100%',
         height: 'auto',
         display: 'block',
+        overflow: 'hidden',
         borderRadius: 2,
         cursor: 'zoom-in',
-        '@media (max-width:480px)': {
-            maxHeight: '100%',
-            objectFit: 'contain'
-        }
     },
     galleryControls: {
         display: 'flex',

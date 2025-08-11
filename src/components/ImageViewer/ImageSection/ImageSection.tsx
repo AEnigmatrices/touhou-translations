@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, IconButton, Typography, Link } from '@mui/material';
+import { Box, IconButton, Typography, Link, Paper } from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import styles from './ImageSection.styles';
@@ -18,7 +18,15 @@ const ImageSection: React.FC<Props> = ({ currentIndex, urls, handleChangeIndex }
         <Box sx={styles.root}>
             <Box sx={styles.imageDisplay}>
                 <Link href={currentImage} target="_blank" rel="noopener noreferrer" underline="none">
-                    <Box component="img" src={currentImage} alt="Translated Image" sx={{ ...styles.image }} loading="lazy" title="" />
+                    <Paper sx={styles.image}>
+                        <img
+                            src={currentImage}
+                            alt="Translated Image"
+                            style={{ display: 'block', width: '100%', height: 'auto' }}
+                            fetchPriority="high"
+                            title=""
+                        />
+                    </Paper>
                 </Link>
             </Box>
             {isGallery && (
