@@ -43,7 +43,7 @@ const generateSitemapPlugin: Plugin = {
 ${urls.map(url => `  <url><loc>${url}</loc></url>`).join('\n')}
 </urlset>`.trim();
 
-        const outputPath = path.resolve(__dirname, '../dist', 'sitemap.xml');
+        const outputPath = path.resolve(__dirname, '../dist/client', 'sitemap.xml');
         fs.writeFileSync(outputPath, xml, 'utf-8');
 
         console.log(`✅ Sitemap generated with ${urls.length} URLs at ${outputPath}`);
