@@ -89,23 +89,39 @@ const styles: StaticStyles = {
         },
     }),
 
+    desktopContainer: () => ({
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'row',
+        gap: 0
+    }),
+
     desktopNameTag: (theme: Theme) => ({
-        position: 'absolute',
-        bottom: '100%',
-        marginBottom: theme.spacing(1),
+        whiteSpace: 'nowrap',
         padding: theme.spacing(0.5, 1),
         backgroundColor: theme.palette.background.paper,
         borderRadius: theme.shape.borderRadius,
         boxShadow: theme.shadows[1],
         fontWeight: 500,
         fontSize: '0.9rem',
-        whiteSpace: 'nowrap',
-        opacity: 0,
-        pointerEvents: 'none',
-        transform: 'translateY(8px)',
-        transition: 'opacity 0.3s ease, transform 0.3s ease',
+        opacity: 1,
+        pointerEvents: 'auto',
+        transform: 'translateX(0)',
+        transition: theme.transitions.create(['opacity', 'transform', 'margin-left'], {
+            duration: theme.transitions.duration.short,
+        }),
         userSelect: 'none',
         zIndex: theme.zIndex.tooltip + 1,
+
+        '&.open': {
+            opacity: 1,
+            pointerEvents: 'auto',
+            transform: 'translateX(0)',
+        },
+
+        '&.pushed': {
+            marginLeft: theme.spacing(6),
+        },
     }),
 
     speedDialFab: (theme: Theme) => ({
@@ -162,20 +178,23 @@ const styles: StaticStyles = {
         maxWidth: 'none',
     }),
 
-    desktopContainer: (theme: Theme) => ({
-        display: 'flex',
-        alignItems: 'center',
-        gap: theme.spacing(2),
-    }),
-
     desktopSpeedDial: (theme: Theme) => ({
-        '& .MuiSpeedDial-directionRight': {
-            display: 'flex',
-            alignItems: 'center',
-        },
+        position: 'relative',
+
         '& .MuiSpeedDial-actions': {
+            position: 'absolute',
+            left: '100%',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            display: 'flex',
             flexDirection: 'row',
             gap: theme.spacing(1.5),
+            transition: theme.transitions.create('gap', {
+                duration: theme.transitions.duration.short,
+            }),
+            width: 'auto',
+            pointerEvents: 'auto',
+            zIndex: theme.zIndex.tooltip + 1,
         },
     }),
 };
