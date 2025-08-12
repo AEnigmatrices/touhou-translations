@@ -11,24 +11,22 @@ import styles from './posts.styles';
 const Page = (): JSX.Element | null => {
     const { posts, loading, error, artists, characters: allCharacters } = useAppData();
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    const pageContext = usePageContext();
-    const { id } = pageContext.routeParams;
+    const { id } = usePageContext().routeParams;
 
     if (loading) return <div>Loading...</div>;
     if (error) throw render(500, error.message);
 
     const post = posts.find(p => extractRedditId(p.reddit) === id);
     if (!post) throw render(404, `Post not found for ID: ${id}`);
-
     if (!post.url.length || !post.src) return null;
 
-    const artist = artists.find(a => a.id === post.artistId) ?? null;
+    const artist = artists.find(a => a.id === post.artistId) || null;
     const characters = allCharacters.filter(c => post.characterIds.includes(c.id));
 
     const handleChangeIndex = (direction: number) => {
-        if (post.url.length <= 1) return;
-        setCurrentIndex(prev => (prev + direction + post.url.length) % post.url.length);
+        if (post.url.length > 1) {
+            setCurrentIndex(prev => (prev + direction + post.url.length) % post.url.length);
+        }
     };
 
     return (
