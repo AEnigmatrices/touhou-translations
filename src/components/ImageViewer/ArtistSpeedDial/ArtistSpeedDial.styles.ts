@@ -5,6 +5,8 @@ interface StaticStyles {
     innerWrapper: SxProps<Theme>;
     avatarWrapper: SxProps<Theme>;
     nameTag: SxProps<Theme>;
+    fabWrapper: SxProps<Theme>;
+    desktopNameTag: SxProps<Theme>;
     speedDialFab: SxProps<Theme>;
     speedDialActionFab: SxProps<Theme>;
     tooltip: SxProps<Theme>;
@@ -71,17 +73,39 @@ const styles: StaticStyles = {
             pointerEvents: 'auto',
         },
         [theme.breakpoints.up('sm')]: {
-            position: 'relative',
-            top: 'auto',
-            right: 'auto',
-            transform: 'none',
+            display: 'none',
+        },
+    }),
+
+    fabWrapper: () => ({
+        position: 'relative',
+        display: 'inline-flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '&:hover .desktop-name-tag': {
             opacity: 1,
             pointerEvents: 'auto',
-            margin: 0,
-            boxShadow: 'none',
-            padding: 0,
-            backgroundColor: 'transparent',
+            transform: 'translateY(0)',
         },
+    }),
+
+    desktopNameTag: (theme: Theme) => ({
+        position: 'absolute',
+        bottom: '100%',
+        marginBottom: theme.spacing(1),
+        padding: theme.spacing(0.5, 1),
+        backgroundColor: theme.palette.background.paper,
+        borderRadius: theme.shape.borderRadius,
+        boxShadow: theme.shadows[1],
+        fontWeight: 500,
+        fontSize: '0.9rem',
+        whiteSpace: 'nowrap',
+        opacity: 0,
+        pointerEvents: 'none',
+        transform: 'translateY(8px)',
+        transition: 'opacity 0.3s ease, transform 0.3s ease',
+        userSelect: 'none',
+        zIndex: theme.zIndex.tooltip + 1,
     }),
 
     speedDialFab: (theme: Theme) => ({
