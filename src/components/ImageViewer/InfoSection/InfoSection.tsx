@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip, Skeleton } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Chip } from '@mui/material';
 import { dateFormatOptions, replaceXWithNitter } from '../ImageViewer.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
 import styles from './InfoSection.styles';
-import type { Post, Artist, Character } from '../../../types/data';
+import type { Post, Character } from '../../../types/data';
 
 interface Props {
     post: Post;
-    artist: Artist | null;
     characters: Character[];
 }
 
 const BASE_URL = import.meta.env.BASE_URL;
-const twitterIcon = `${BASE_URL}icons/social/twitter.webp`;
-const nitterIcon = `${BASE_URL}icons/social/nitter.webp`;
-const pixivIcon = `${BASE_URL}icons/social/pixiv.webp`;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
-const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
+const InfoSection: React.FC<Props> = ({ post, characters }) => {
 
     const [showNitter, setShowNitter] = useState(false);
 
@@ -49,21 +45,6 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
     return (
         <Box sx={styles.root}>
             <Box sx={styles.infoGrid}>
-                <Typography component="div" sx={styles.infoItemLabel}>Artist:</Typography>
-                <Box sx={styles.infoItemValue}>
-                    {!artist ? (
-                        <Skeleton width={120} />
-                    ) : (
-                        <>
-                            <Typography>{artist.name}</Typography>
-                            <Box sx={styles.infoIcons}>
-                                {renderIconLink(artist.linkTwitter, 'Twitter profile', twitterIcon, 'Twitter')}
-                                {renderIconLink(artist.linkTwitter?.replace('x.com', 'nitter.net'), 'Nitter profile', nitterIcon, 'Nitter')}
-                                {renderIconLink(artist.linkPixiv, 'Pixiv profile', pixivIcon, 'Pixiv')}
-                            </Box>
-                        </>
-                    )}
-                </Box>
 
                 {post.src && (
                     <>

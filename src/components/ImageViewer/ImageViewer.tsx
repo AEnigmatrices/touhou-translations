@@ -3,11 +3,11 @@ import { Box } from '@mui/material';
 import { useAppData } from '../../renderer/useAppData';
 import ImageSection from './ImageSection/ImageSection';
 import InfoSection from './InfoSection/InfoSection';
+import ArtistSpeedDial from './ArtistSpeedDial/ArtistSpeedDial';
 import type { Post } from '../../types/data';
 import styles from './ImageViewer.styles';
 
 interface Props { post: Post; }
-
 
 
 const ImageViewer: React.FC<Props> = ({ post }) => {
@@ -21,15 +21,16 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
 
     const handleChangeIndex = (direction: number) => {
         if (post.url.length <= 1) return;
-        setCurrentIndex((prev) => (prev + direction + post.url.length) % post.url.length);
+        setCurrentIndex(prev => (prev + direction + post.url.length) % post.url.length);
     };
 
     if (!post.url.length || !post.src) return null;
 
     return (
-        <Box sx={styles.root}>
+        <Box sx={{ position: 'relative', ...styles.root }}>
             <ImageSection currentIndex={currentIndex} urls={post.url} handleChangeIndex={handleChangeIndex} />
-            <InfoSection post={post} artist={artist} characters={characters} />
+            <InfoSection post={post} characters={characters} />
+            {artist && <ArtistSpeedDial artist={artist} />}
         </Box>
     );
 };
