@@ -144,12 +144,16 @@ const styles: StaticStyles = {
         gap: theme.spacing(2),
     }),
 
-    desktopSpeedDial: {
+    desktopSpeedDial: (theme: Theme) => ({
         '& .MuiSpeedDial-directionRight': {
             display: 'flex',
             alignItems: 'center',
         },
-    },
+        '& .MuiSpeedDial-actions': {
+            flexDirection: 'row',
+            gap: theme.spacing(1.5),
+        },
+    }),
 };
 
 export default styles;

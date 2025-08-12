@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery } from '@mui/material';
 import { dateFormatOptions, replaceXWithNitter } from '../ImageViewer.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
 import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
@@ -17,8 +17,10 @@ interface Props {
 const BASE_URL = import.meta.env.BASE_URL;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
-const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
+const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [showNitter, setShowNitter] = useState(false);
 
     const isTwitterUrl = post.src ? /^(https?:\/\/)?(www\.)?(twitter\.com|x\.com)/.test(post.src) : false;
@@ -27,7 +29,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
     const displayedUrl = showNitter && nitterUrl ? nitterUrl : post.src;
 
-
+    const toggleUrl = () => setShowNitter((prev) => !prev);
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
         if (!href) return null;
@@ -40,25 +42,23 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
         );
     };
 
-    const toggleUrl = () => setShowNitter(prev => !prev);
-
-
-
     return (
         <Box sx={styles.root}>
-
             <Box sx={styles.infoGrid}>
-
-                {artist && (
+                {artist && !isMobile && (
                     <>
-                        <Typography component="div" sx={styles.infoItemLabel}>Artist:</Typography>
-                        {artist && <ArtistSpeedDial artist={artist} />}
+                        <Typography component="div" sx={styles.infoItemLabel}>
+                            Artist:
+                        </Typography>
+                        <ArtistSpeedDial artist={artist} isMobile={false} />
                     </>
                 )}
 
                 {post.src && (
                     <>
-                        <Typography component="div" sx={styles.infoItemLabel}>Source:</Typography>
+                        <Typography component="div" sx={styles.infoItemLabel}>
+                            Source:
+                        </Typography>
                         <Box sx={styles.sourceContainer}>
                             <Link href={displayedUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}>
                                 {displayedUrl}
@@ -78,15 +78,19 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
                 {post.date && (
                     <>
-                        <Typography component="div" sx={styles.infoItemLabel}>Translated:</Typography>
-                        <Typography sx={styles.infoItemValue}>{formattedDate}</Typography>
+                        <Typography component="div" sx={styles.infoItemLabel}>
+                            Translated:
+                        </Typography>
+                        <Typography sx={styles.infoItemValue}>
+                            {formattedDate}
+                        </Typography>
                     </>
                 )}
             </Box>
 
             {characters.length > 0 && (
                 <Box sx={{ mt: 2 }}>
-                    <Typography sx={{ fontWeight: 600, fontSize: '1.1rem', mb: 1 }}>
+                    <Typography sx={{ fontWeight: 600, fontSize: '1.1rem', mb: 1 }} >
                         {characters.length === 1 ? 'Character' : 'Characters'}
                     </Typography>
                     <CharacterChips characters={characters} baseUrl={BASE_URL} />
@@ -94,15 +98,20 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
             )}
 
             <Box sx={{ mt: 2 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }} >
                     {post.reddit && renderIconLink(post.reddit, 'Reddit post', redditIcon, 'Reddit')}
-                    <Typography sx={{ fontWeight: 600, fontSize: '1.25rem' }}>TL Commentary</Typography>
+                    <Typography sx={{ fontWeight: 600, fontSize: '1.25rem' }}>
+                        TL Commentary
+                    </Typography>
                 </Box>
                 <Box sx={styles.infoItemValueComment}>
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.desc}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {post.desc}
+                    </ReactMarkdown>
                 </Box>
             </Box>
 
+            {artist && isMobile && <ArtistSpeedDial artist={artist} isMobile={true} />}
         </Box>
     );
 };
