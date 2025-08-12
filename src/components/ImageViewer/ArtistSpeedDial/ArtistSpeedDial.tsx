@@ -1,6 +1,6 @@
 import React from 'react';
-import { Avatar, Box, Typography } from '@mui/material';
-import { StyledSpeedDial, StyledSpeedDialAction } from './ArtistSpeedDial.styles';
+import { Avatar, Box, Typography, SpeedDial, SpeedDialAction, useTheme, useMediaQuery } from '@mui/material';
+import styles from './ArtistSpeedDial.styles';
 
 interface Props {
     artist: {
@@ -17,6 +17,8 @@ const nitterIcon = `${baseUrl}icons/social/nitter.webp`;
 const pixivIcon = `${baseUrl}icons/social/pixiv.webp`;
 
 const ArtistSpeedDial: React.FC<Props> = ({ artist }) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const imageUrl = `${baseUrl}${artist.portrait}`;
     const [open, setOpen] = React.useState(false);
 
@@ -26,73 +28,101 @@ const ArtistSpeedDial: React.FC<Props> = ({ artist }) => {
     const speedDialActions = [
         ...(artist.linkTwitter
             ? [
-                { icon: <Avatar src={twitterIcon} alt="Twitter" />, name: 'Twitter', href: artist.linkTwitter },
-                { icon: <Avatar src={nitterIcon} alt="Nitter" />, name: 'Nitter', href: artist.linkTwitter.replace('x.com', 'nitter.net') }
-            ] : []),
-        ...(artist.linkPixiv ? [{ icon: <Avatar src={pixivIcon} alt="Pixiv" />, name: 'Pixiv', href: artist.linkPixiv }] : []),
+                {
+                    icon: <Avatar src={twitterIcon} alt="Twitter" sx={{ width: 52, height: 52 }} />,
+                    name: 'Twitter',
+                    href: artist.linkTwitter,
+                },
+                {
+                    icon: <Avatar src={nitterIcon} alt="Nitter" sx={{ width: 52, height: 52 }} />,
+                    name: 'Nitter',
+                    href: artist.linkTwitter.replace('x.com', 'nitter.net'),
+                },
+            ]
+            : []),
+        ...(artist.linkPixiv
+            ? [
+                {
+                    icon: <Avatar src={pixivIcon} alt="Pixiv" sx={{ width: 52, height: 52 }} />,
+                    name: 'Pixiv',
+                    href: artist.linkPixiv,
+                },
+            ]
+            : []),
     ];
 
-    return (
-        <Box
-            sx={{
-                position: 'fixed',
-                bottom: 84,
-                right: 16,
-                zIndex: theme => theme.zIndex.tooltip + 1,
-            }}
-        >
-            <Box
-                sx={{
-                    position: 'relative',
-                    width: 72,
-                    height: 72,
-                    overflow: 'visible'
-                }}
-            >
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        right: '100%',
-                        top: '50%',
-                        transform: open ? 'translateY(-50%) translateX(0)' : 'translateY(-50%) translateX(10px)',
-                        transition: 'all 0.3s ease-in-out',
-                        backgroundColor: 'background.paper',
-                        padding: '8px 16px',
-                        borderRadius: 2,
-                        boxShadow: 4,
-                        whiteSpace: 'nowrap',
-                        opacity: open ? 1 : 0,
-                        pointerEvents: 'none',
-                        marginRight: 1
-                    }}
+    if (!isMobile) {
+        return (
+            <Box sx={styles.desktopContainer}>
+                <SpeedDial
+                    ariaLabel="Artist links"
+                    direction="right"
+                    open={open}
+                    onOpen={handleOpen}
+                    onClose={handleClose}
+                    FabProps={{ sx: styles.speedDialFab }}
+                    icon={<Avatar src={imageUrl} alt={artist.name} sx={{ width: 32, height: 32 }} />}
+                    sx={styles.desktopSpeedDial}
                 >
-                    <Typography variant="body2" sx={{ fontWeight: 500 }}>
-                        {artist.name}
-                    </Typography>
+                    {speedDialActions.map((action, idx) => (
+                        <SpeedDialAction
+                            key={idx}
+                            icon={action.icon}
+                            onClick={() => {
+                                if (action.href) window.open(action.href, '_blank', 'noopener');
+                                handleClose();
+                            }}
+                            slotProps={{
+                                fab: { sx: styles.speedDialActionFab },
+                                tooltip: {
+                                    title: action.name,
+                                    placement: 'top',
+                                    classes: { tooltip: 'custom-tooltip' },
+                                },
+                            }}
+                        />
+                    ))}
+                </SpeedDial>
+            </Box>
+        );
+    }
+
+    return (
+        <Box sx={styles.container}>
+            <Box sx={styles.innerWrapper}>
+                <Box sx={styles.nameTag} className={open ? 'MuiBox-root--open' : ''}>
+                    <Typography variant="body1">{artist.name}</Typography>
                 </Box>
 
-                <Box sx={{ position: 'absolute', right: 0, bottom: 0 }}>
-                    <StyledSpeedDial
+                <Box sx={styles.avatarWrapper}>
+                    <SpeedDial
                         ariaLabel="Artist links"
                         direction="up"
                         open={open}
                         onOpen={handleOpen}
                         onClose={handleClose}
-                        FabProps={{ size: 'medium' }}
+                        FabProps={{ sx: styles.speedDialFab }}
                         icon={<Avatar src={imageUrl} alt={artist.name} />}
                     >
                         {speedDialActions.map((action, idx) => (
-                            <StyledSpeedDialAction
+                            <SpeedDialAction
                                 key={idx}
                                 icon={action.icon}
                                 onClick={() => {
                                     if (action.href) window.open(action.href, '_blank', 'noopener');
                                     handleClose();
                                 }}
-                                slotProps={{ tooltip: { title: action.name, placement: 'left' } }}
+                                slotProps={{
+                                    fab: { sx: styles.speedDialActionFab },
+                                    tooltip: {
+                                        title: action.name,
+                                        placement: 'left',
+                                        classes: { tooltip: 'custom-tooltip' },
+                                    },
+                                }}
                             />
                         ))}
-                    </StyledSpeedDial>
+                    </SpeedDial>
                 </Box>
             </Box>
         </Box>

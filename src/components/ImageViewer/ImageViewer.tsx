@@ -3,7 +3,6 @@ import { Box } from '@mui/material';
 import { useAppData } from '../../renderer/useAppData';
 import ImageSection from './ImageSection/ImageSection';
 import InfoSection from './InfoSection/InfoSection';
-import ArtistSpeedDial from './ArtistSpeedDial/ArtistSpeedDial';
 import type { Post } from '../../types/data';
 import styles from './ImageViewer.styles';
 
@@ -29,8 +28,7 @@ const ImageViewer: React.FC<Props> = ({ post }) => {
     return (
         <Box sx={{ position: 'relative', ...styles.root }}>
             <ImageSection currentIndex={currentIndex} urls={post.url} handleChangeIndex={handleChangeIndex} />
-            <InfoSection post={post} characters={characters} />
-            {artist && <ArtistSpeedDial artist={artist} />}
+            <InfoSection post={post} artist={artist} characters={characters} />
         </Box>
     );
 };

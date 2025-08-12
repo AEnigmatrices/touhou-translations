@@ -4,18 +4,20 @@ import remarkGfm from 'remark-gfm';
 import { Box, Typography, Link, IconButton, Tooltip, Chip } from '@mui/material';
 import { dateFormatOptions, replaceXWithNitter } from '../ImageViewer.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
+import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
 import styles from './InfoSection.styles';
-import type { Post, Character } from '../../../types/data';
+import type { Post, Artist, Character } from '../../../types/data';
 
 interface Props {
     post: Post;
+    artist: Artist | null;
     characters: Character[];
 }
 
 const BASE_URL = import.meta.env.BASE_URL;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
-const InfoSection: React.FC<Props> = ({ post, characters }) => {
+const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
     const [showNitter, setShowNitter] = useState(false);
 
@@ -44,7 +46,15 @@ const InfoSection: React.FC<Props> = ({ post, characters }) => {
 
     return (
         <Box sx={styles.root}>
+
             <Box sx={styles.infoGrid}>
+
+                {artist && (
+                    <>
+                        <Typography component="div" sx={styles.infoItemLabel}>Artist:</Typography>
+                        {artist && <ArtistSpeedDial artist={artist} />}
+                    </>
+                )}
 
                 {post.src && (
                     <>
@@ -92,6 +102,7 @@ const InfoSection: React.FC<Props> = ({ post, characters }) => {
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.desc}</ReactMarkdown>
                 </Box>
             </Box>
+
         </Box>
     );
 };
