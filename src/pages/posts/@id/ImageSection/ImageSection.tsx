@@ -4,22 +4,22 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import styles from './ImageSection.styles';
 
-interface Props {
-    currentIndex: number;
-    urls: string[];
-    handleChangeIndex: (direction: number) => void;
-}
 
-const ImageSection: FC<Props> = ({ currentIndex, urls, handleChangeIndex }) => {
+const ImageSection: FC<{ urls: string[] }> = ({ urls }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [zoomed, setZoomed] = useState(false);
     const currentImage = urls[currentIndex];
     const isGallery = urls.length > 1;
 
+    const handleChangeIndex = (direction: number) => {
+        if (isGallery) setCurrentIndex(prev => (prev + direction + urls.length) % urls.length);
+    };
+
     const handleImageClick = () => {
-        if (!isMobile) setZoomed((prev) => !prev);
+        if (!isMobile) setZoomed(prev => !prev);
     };
 
     return (

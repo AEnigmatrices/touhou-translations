@@ -1,4 +1,3 @@
-import { useState, type JSX } from 'react';
 import { render } from 'vike/abort';
 import { useAppData } from '../../../renderer/useAppData';
 import { extractRedditId } from '../../../utils/extractRedditId';
@@ -7,10 +6,11 @@ import { Box } from '@mui/material';
 import ImageSection from './ImageSection/ImageSection';
 import InfoSection from './InfoSection/InfoSection';
 import styles from './posts.styles';
+import type { JSX } from 'react';
+
 
 const Page = (): JSX.Element | null => {
     const { posts, loading, error, artists, characters: allCharacters } = useAppData();
-    const [currentIndex, setCurrentIndex] = useState(0);
     const { id } = usePageContext().routeParams;
 
     if (loading) return <div>Loading...</div>;
@@ -23,15 +23,9 @@ const Page = (): JSX.Element | null => {
     const artist = artists.find(a => a.id === post.artistId) || null;
     const characters = allCharacters.filter(c => post.characterIds.includes(c.id));
 
-    const handleChangeIndex = (direction: number) => {
-        if (post.url.length > 1) {
-            setCurrentIndex(prev => (prev + direction + post.url.length) % post.url.length);
-        }
-    };
-
     return (
         <Box sx={{ position: 'relative', ...styles.root }}>
-            <ImageSection currentIndex={currentIndex} urls={post.url} handleChangeIndex={handleChangeIndex} />
+            <ImageSection urls={post.url} />
             <InfoSection post={post} artist={artist} characters={characters} />
         </Box>
     );
