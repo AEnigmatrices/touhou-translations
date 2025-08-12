@@ -189,9 +189,6 @@ const styles: StaticStyles = {
             display: 'flex',
             flexDirection: 'row',
             gap: theme.spacing(1.5),
-            transition: theme.transitions.create('gap', {
-                duration: theme.transitions.duration.short,
-            }),
             width: 'auto',
             pointerEvents: 'auto',
             zIndex: theme.zIndex.tooltip + 1,
