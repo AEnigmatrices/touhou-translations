@@ -36,7 +36,7 @@ const styles: InfoSectionStyles = {
         fontWeight: 600,
         whiteSpace: 'nowrap',
         display: 'flex',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         justifyContent: 'flex-start',
         lineHeight: 1.6,
         '@media (max-width:480px)': {

@@ -142,7 +142,6 @@ const styles: StaticStyles = {
         display: 'flex',
         alignItems: 'center',
         gap: theme.spacing(2),
-        marginTop: theme.spacing(2),
     }),
 
     desktopSpeedDial: {

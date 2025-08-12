@@ -34,13 +34,9 @@ const ArtistSpeedDial: FC<{ artist: Artist }> = ({ artist }) => {
     ];
 
     return isMobile ? (
-        <ArtistSpeedDialMobile
-            artist={artist} speedDialActions={speedDialActions} open={open} onOpen={handleOpen} onClose={handleClose} imageUrl={imageUrl}
-        />
+        <ArtistSpeedDialMobile artist={artist} speedDialActions={speedDialActions} open={open} onOpen={handleOpen} onClose={handleClose} imageUrl={imageUrl} />
     ) : (
-        <ArtistSpeedDialDesktop
-            artist={artist} speedDialActions={speedDialActions} open={open} onOpen={handleOpen} onClose={handleClose} imageUrl={imageUrl}
-        />
+        <ArtistSpeedDialDesktop artist={artist} speedDialActions={speedDialActions} open={open} onOpen={handleOpen} onClose={handleClose} imageUrl={imageUrl} />
     );
 };
 
