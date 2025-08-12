@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Chip, Avatar } from '@mui/material';
 import styles from './CharacterChips.styles';
-import type { Character } from '../../../types/data';
+import type { Character } from '../../../../types/data';
 
 interface Props {
     characters: Character[];

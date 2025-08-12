@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery } from '@mui/material';
-import { dateFormatOptions, replaceXWithNitter } from '../ImageViewer.utils';
+import { dateFormatOptions, replaceXWithNitter } from '../posts.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
 import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
 import styles from './InfoSection.styles';
-import type { Post, Artist, Character } from '../../../types/data';
+import type { Post, Artist, Character } from '../../../../types/data';
 
 interface Props {
     post: Post;
