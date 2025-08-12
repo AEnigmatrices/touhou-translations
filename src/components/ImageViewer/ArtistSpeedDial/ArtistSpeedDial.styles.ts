@@ -77,7 +77,7 @@ const styles: StaticStyles = {
         },
     }),
 
-    fabWrapper: () => ({
+    fabWrapper: {
         position: 'relative',
         display: 'inline-flex',
         flexDirection: 'column',
@@ -87,14 +87,14 @@ const styles: StaticStyles = {
             pointerEvents: 'auto',
             transform: 'translateY(0)',
         },
-    }),
+    },
 
-    desktopContainer: () => ({
+    desktopContainer: {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'row',
-        gap: 0
-    }),
+        gap: 0,
+    },
 
     desktopNameTag: (theme: Theme) => ({
         whiteSpace: 'nowrap',
