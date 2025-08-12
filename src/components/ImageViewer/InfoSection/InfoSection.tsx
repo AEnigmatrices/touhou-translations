@@ -31,16 +31,14 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
 
     const toggleUrl = () => setShowNitter((prev) => !prev);
 
-    const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) => {
-        if (!href) return null;
-        return (
+    const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) =>
+        href ? (
             <Tooltip title={altText} arrow placement="top">
                 <IconButton component="a" href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} sx={styles.iconButton} size="small">
                     <img src={iconSrc} alt={altText} />
                 </IconButton>
             </Tooltip>
-        );
-    };
+        ) : null;
 
     return (
         <Box sx={styles.root}>
