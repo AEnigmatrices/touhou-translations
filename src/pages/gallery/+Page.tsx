@@ -16,7 +16,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Pagination from '@mui/material/Pagination';
 
 import { useTheme } from '@mui/material/styles';
-import styles from './styles';
+import styles from './gallery.styles';
 
 interface Props { pathname: string; searchOriginal?: string }
 

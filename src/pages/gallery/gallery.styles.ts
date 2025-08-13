@@ -1,18 +1,28 @@
 import type { SxProps, Theme } from '@mui/material/styles';
 
-const styles = {
-    switchSlotProps: {
-        input: { 'aria-label': 'Toggle gallery only' }
-    },
+interface Styles {
+    switchSlotProps: { input: { 'aria-label': string; }; };
+    containerStyles: (theme: Theme) => SxProps;
+    headerWrapperStyles: (theme: Theme) => SxProps;
+    galleryHeaderBoxStyles: (theme: Theme) => SxProps;
+    switchLabelStyles: (theme: Theme) => SxProps;
+    loaderBoxStyles: (theme: Theme) => SxProps;
+    paginationWrapperStyles: (theme: Theme) => SxProps;
+    paginationStyles: (theme: Theme) => SxProps;
+}
 
-    containerStyles: (theme: Theme): SxProps<Theme> => ({
+const styles: Styles = {
+
+    switchSlotProps: { input: { 'aria-label': 'Toggle gallery only' } },
+
+    containerStyles: (theme: Theme) => ({
         pt: theme.spacing(4),
         pb: theme.spacing(4),
         px: { xs: theme.spacing(1), sm: theme.spacing(2) },
-        margin: '0 auto'
+        margin: '0 auto',
     }),
 
-    headerWrapperStyles: (theme: Theme): SxProps<Theme> => ({
+    headerWrapperStyles: (theme: Theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -20,36 +30,38 @@ const styles = {
         pb: theme.spacing(2),
         mb: { xs: theme.spacing(2), sm: theme.spacing(4) },
         px: { xs: theme.spacing(1), sm: 0 },
-        gap: theme.spacing(2)
+        gap: theme.spacing(2),
     }),
 
-    galleryHeaderBoxStyles: (theme: Theme): SxProps<Theme> => ({
+    galleryHeaderBoxStyles: (theme: Theme) => ({
         maxWidth: theme.spacing(37.5),
         width: '100%',
         flexShrink: 0,
         listStyle: 'none',
         padding: 0,
-        margin: 0
+        margin: 0,
     }),
 
-    switchLabelStyles: (theme: Theme): SxProps<Theme> => ({
+    switchLabelStyles: (theme: Theme) => ({
         ml: theme.spacing(2),
         fontWeight: 500,
         color: theme.palette.text.secondary,
         userSelect: 'none',
         fontSize: '1rem',
         cursor: 'pointer',
-        transition: theme.transitions.create('color', { duration: theme.transitions.duration.short }),
-        '&:hover': { color: theme.palette.text.primary }
+        transition: theme.transitions.create('color', {
+            duration: theme.transitions.duration.short,
+        }),
+        '&:hover': { color: theme.palette.text.primary },
     }),
 
-    loaderBoxStyles: (theme: Theme): SxProps<Theme> => ({
+    loaderBoxStyles: (theme: Theme) => ({
         display: 'flex',
         justifyContent: 'center',
-        py: theme.spacing(2)
+        py: theme.spacing(2),
     }),
 
-    paginationWrapperStyles: (theme: Theme): SxProps<Theme> => ({
+    paginationWrapperStyles: (theme: Theme) => ({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -61,7 +73,7 @@ const styles = {
         overflowX: 'auto',
     }),
 
-    paginationStyles: (theme: Theme): SxProps<Theme> => ({
+    paginationStyles: (theme: Theme) => ({
         '& .MuiPagination-ul': {
             justifyContent: 'center',
             flexWrap: 'wrap',
@@ -69,18 +81,9 @@ const styles = {
         },
         '& .MuiPaginationItem-root': {
             fontWeight: 600,
-            fontSize: {
-                xs: '0.85rem',
-                sm: '1rem',
-            },
-            minWidth: {
-                xs: theme.spacing(4.5),
-                sm: theme.spacing(5.5),
-            },
-            height: {
-                xs: theme.spacing(4.5),
-                sm: theme.spacing(5.5),
-            },
+            fontSize: { xs: '0.85rem', sm: '1rem' },
+            minWidth: { xs: theme.spacing(4.5), sm: theme.spacing(5.5) },
+            height: { xs: theme.spacing(4.5), sm: theme.spacing(5.5) },
             borderRadius: theme.spacing(1),
             border: `1px solid ${theme.palette.divider}`,
             transition: theme.transitions.create(['background-color', 'box-shadow'], {

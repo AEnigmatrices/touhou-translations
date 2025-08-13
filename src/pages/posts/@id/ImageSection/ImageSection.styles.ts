@@ -16,7 +16,7 @@ interface Styles {
     cursorZoomIn: SxProps;
     cursorZoomOut: SxProps;
     loadingBackdrop: SxProps;
-    loadingIndicatorWrapper: (theme: Theme) => SxProps<Theme>;
+    loadingIndicatorWrapper: (theme: Theme) => SxProps;
 }
 
 const styles: Styles = {
