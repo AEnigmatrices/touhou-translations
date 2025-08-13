@@ -5,6 +5,7 @@ import useQueryParams from './useQueryParams';
 import Gallery from '../../components/Gallery/Gallery';
 import GalleryHeaderCharacter from '../../components/GalleryHeader/GalleryHeaderCharacter';
 import GalleryHeaderArtist from '../../components/GalleryHeader/GalleryHeaderArtist';
+import useStyles from './gallery.styles';
 
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -15,17 +16,14 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import Pagination from '@mui/material/Pagination';
 
-import { useTheme } from '@mui/material/styles';
-import styles from './gallery.styles';
-
 interface Props { pathname: string; searchOriginal?: string }
 
 const POSTS_PER_PAGE = 18;
 
 
 const Page = ({ urlParsed }: { urlParsed: Props }) => {
-    const theme = useTheme();
 
+    const styles = useStyles();
     const [currentPage, setCurrentPage] = useState(1);
 
     const { posts, artists, characters, loading, error } = useAppData();
@@ -45,30 +43,30 @@ const Page = ({ urlParsed }: { urlParsed: Props }) => {
 
 
 
-    if (loading) return <Box sx={styles.loaderBoxStyles(theme)}><CircularProgress /></Box>
-    if (error) return <Box sx={styles.loaderBoxStyles(theme)}><Typography color="error">{error.message}</Typography></Box>
+    if (loading) return <Box sx={styles.loaderBoxStyles}><CircularProgress /></Box>
+    if (error) return <Box sx={styles.loaderBoxStyles}><Typography color="error">{error.message}</Typography></Box>
     return (
-        <Container maxWidth="lg" sx={styles.containerStyles(theme)}>
-            <Stack direction="row" sx={styles.headerWrapperStyles(theme)}>
+        <Container maxWidth="lg" sx={styles.containerStyles}>
+            <Stack direction="row" sx={styles.headerWrapperStyles}>
                 {character && (
-                    <Box sx={styles.galleryHeaderBoxStyles(theme)}><GalleryHeaderCharacter character={character} /></Box>
+                    <Box sx={styles.galleryHeaderBoxStyles}><GalleryHeaderCharacter character={character} /></Box>
                 )}
                 {artist && (
-                    <Box sx={styles.galleryHeaderBoxStyles(theme)}><GalleryHeaderArtist artist={artist} /></Box>
+                    <Box sx={styles.galleryHeaderBoxStyles}><GalleryHeaderArtist artist={artist} /></Box>
                 )}
                 <FormControlLabel
                     control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" slotProps={styles.switchSlotProps} />}
-                    label={<Typography variant="body1">Gallery Only</Typography>} sx={styles.switchLabelStyles(theme)}
+                    label={<Typography variant="body1">Gallery Only</Typography>} sx={styles.switchLabelStyles}
                 />
             </Stack>
 
             <Gallery posts={visiblePosts} />
 
             {shuffledPosts.length > POSTS_PER_PAGE && (
-                <Box sx={styles.paginationWrapperStyles(theme)}>
+                <Box sx={styles.paginationWrapperStyles}>
                     <Pagination
                         count={totalPages} page={currentPage} onChange={(_, value) => { setCurrentPage(value); window.scrollTo({ top: 0, behavior: 'auto' }); }}
-                        color="primary" variant="outlined" shape="rounded" siblingCount={1} boundaryCount={1} sx={styles.paginationStyles(theme)}
+                        color="primary" variant="outlined" shape="rounded" siblingCount={1} boundaryCount={1} sx={styles.paginationStyles}
                     />
                 </Box>
             )}
