@@ -23,10 +23,20 @@ const Page = (): JSX.Element | null => {
     const artist = artists.find(a => a.id === post.artistId) || null;
     const characters = allCharacters.filter(c => post.characterIds.includes(c.id));
 
+    const artistPosts = posts.filter(p => p.artistId === post.artistId && p.reddit !== post.reddit);
+    const nextArtistPostId = artistPosts.length > 0
+        ? extractRedditId(artistPosts[Math.floor(Math.random() * artistPosts.length)].reddit)
+        : null;
+
     return (
         <Box sx={{ position: 'relative', ...styles.root }}>
             <ImageSection urls={post.url} />
-            <InfoSection post={post} artist={artist} characters={characters} />
+            <InfoSection
+                post={post}
+                artist={artist}
+                characters={characters}
+                nextArtistPostId={nextArtistPostId}
+            />
         </Box>
     );
 };

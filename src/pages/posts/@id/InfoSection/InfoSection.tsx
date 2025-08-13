@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState, type FC } from 'react';
+import { navigate } from 'vike/client/router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery, Button } from '@mui/material';
 import { dateFormatOptions, replaceXWithNitter } from '../posts.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
 import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
@@ -12,13 +13,14 @@ interface Props {
     post: Post;
     artist: Artist | null;
     characters: Character[];
+    nextArtistPostId: string | null;
 }
 
 const BASE_URL = import.meta.env.BASE_URL;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
 
-const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
+const InfoSection: FC<Props> = ({ post, artist, characters, nextArtistPostId }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [showNitter, setShowNitter] = useState(false);
@@ -28,6 +30,7 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
     const displayedUrl = showNitter && nitterUrl ? nitterUrl : post.src;
+    const nextArtistPostUrl = nextArtistPostId ? `${BASE_URL}posts/${nextArtistPostId}` : null;
 
     const toggleUrl = () => setShowNitter((prev) => !prev);
 
@@ -95,19 +98,33 @@ const InfoSection: React.FC<Props> = ({ post, artist, characters }) => {
                 </Box>
             )}
 
-            <Box sx={{ mt: 2 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }} >
-                    {post.reddit && renderIconLink(post.reddit, 'Reddit post', redditIcon, 'Reddit')}
-                    <Typography sx={{ fontWeight: 600, fontSize: '1.25rem' }}>
-                        TL Commentary
-                    </Typography>
+            {post.desc && (
+                <Box sx={{ mt: 2 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }} >
+                        {post.reddit && renderIconLink(post.reddit, 'Reddit post', redditIcon, 'Reddit')}
+                        <Typography sx={{ fontWeight: 600, fontSize: '1.25rem' }}>
+                            TL Commentary
+                        </Typography>
+                    </Box>
+                    <Box sx={styles.infoItemValueComment}>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                            {post.desc}
+                        </ReactMarkdown>
+                    </Box>
                 </Box>
-                <Box sx={styles.infoItemValueComment}>
-                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                        {post.desc}
-                    </ReactMarkdown>
+            )}
+
+            {nextArtistPostUrl && (
+                <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => navigate(nextArtistPostUrl)}
+                    >
+                        Next Artist Post
+                    </Button>
                 </Box>
-            </Box>
+            )}
 
             {artist && isMobile && <ArtistSpeedDial artist={artist} isMobile={true} />}
         </Box>
