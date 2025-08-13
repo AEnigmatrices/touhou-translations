@@ -19,12 +19,10 @@ const styles: StaticStyles = {
         position: 'fixed',
         bottom: 84,
         right: 16,
-        zIndex: theme.zIndex.tooltip + 1,
         [theme.breakpoints.up('sm')]: {
             position: 'relative',
             bottom: 'auto',
             right: 'auto',
-            zIndex: 'auto',
         },
     }),
 
@@ -111,7 +109,6 @@ const styles: StaticStyles = {
             duration: theme.transitions.duration.short,
         }),
         userSelect: 'none',
-        zIndex: theme.zIndex.tooltip + 1,
 
         '&.open': {
             opacity: 1,
@@ -191,7 +188,6 @@ const styles: StaticStyles = {
             gap: theme.spacing(1.5),
             width: 'auto',
             pointerEvents: 'auto',
-            zIndex: theme.zIndex.tooltip + 1,
         },
     }),
 };
