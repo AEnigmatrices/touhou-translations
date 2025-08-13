@@ -24,9 +24,13 @@ const Page = (): JSX.Element | null => {
     const characters = allCharacters.filter(c => post.characterIds.includes(c.id));
 
     const artistPosts = posts.filter(p => p.artistId === post.artistId && p.reddit !== post.reddit);
-    const nextArtistPostId = artistPosts.length > 0
-        ? extractRedditId(artistPosts[Math.floor(Math.random() * artistPosts.length)].reddit)
-        : null;
+    const randomArtistPosts = artistPosts
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 4)
+        .map(p => ({
+            id: extractRedditId(p.reddit),
+            img: p.url[0]
+        }));
 
     return (
         <Box sx={{ position: 'relative', ...styles.root }}>
@@ -35,7 +39,7 @@ const Page = (): JSX.Element | null => {
                 post={post}
                 artist={artist}
                 characters={characters}
-                nextArtistPostId={nextArtistPostId}
+                artistPosts={randomArtistPosts}
             />
         </Box>
     );

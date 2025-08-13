@@ -2,7 +2,7 @@ import { useState, type FC } from 'react';
 import { navigate } from 'vike/client/router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery, Button } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery, Grid } from '@mui/material';
 import { dateFormatOptions, replaceXWithNitter } from '../posts.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
 import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
@@ -13,14 +13,14 @@ interface Props {
     post: Post;
     artist: Artist | null;
     characters: Character[];
-    nextArtistPostId: string | null;
+    artistPosts: { id: string; img: string }[];
 }
 
 const BASE_URL = import.meta.env.BASE_URL;
 const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
 
 
-const InfoSection: FC<Props> = ({ post, artist, characters, nextArtistPostId }) => {
+const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [showNitter, setShowNitter] = useState(false);
@@ -30,7 +30,6 @@ const InfoSection: FC<Props> = ({ post, artist, characters, nextArtistPostId }) 
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
     const displayedUrl = showNitter && nitterUrl ? nitterUrl : post.src;
-    const nextArtistPostUrl = nextArtistPostId ? `${BASE_URL}posts/${nextArtistPostId}` : null;
 
     const toggleUrl = () => setShowNitter((prev) => !prev);
 
@@ -114,15 +113,24 @@ const InfoSection: FC<Props> = ({ post, artist, characters, nextArtistPostId }) 
                 </Box>
             )}
 
-            {nextArtistPostUrl && (
-                <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={() => navigate(nextArtistPostUrl)}
-                    >
-                        Next Artist Post
-                    </Button>
+            {artistPosts.length > 0 && (
+                <Box sx={styles.seeMoreContainer}>
+                    <Typography sx={styles.seeMoreTitle}>
+                        See more by
+                        <Box component="span" sx={styles.seeMoreArtistName}>
+                            {artist?.name ?? 'this Artist'}
+                        </Box>
+                    </Typography>
+                    <Grid container spacing={2} justifyContent="center">
+                        {artistPosts.slice(0, 4).map(({ id, img }) => (
+                            <Grid size={{ xs: 6, sm: 3 }} key={id} sx={styles.seeMoreGrid}>
+                                <Box
+                                    sx={{ ...styles.seeMoreImage, backgroundImage: `url(${img})` }}
+                                    onClick={() => navigate(`${BASE_URL}posts/${id}`)}
+                                />
+                            </Grid>
+                        ))}
+                    </Grid>
                 </Box>
             )}
 

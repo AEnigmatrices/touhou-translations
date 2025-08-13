@@ -1,20 +1,26 @@
-import type { SxProps, Theme } from '@mui/material/styles';
+import type { SxProps } from '@mui/material/styles';
 
 interface InfoSectionStyles {
-    root: SxProps<Theme>;
-    infoGrid: SxProps<Theme>;
-    infoItemLabel: SxProps<Theme>;
-    infoItemLabelComment: SxProps<Theme>;
-    infoItemValue: SxProps<Theme>;
-    infoItemValueComment: SxProps<Theme>;
-    infoIcons: SxProps<Theme>;
-    infoIconsLabel: SxProps<Theme>;
-    iconButton: SxProps<Theme>;
-    sourceLink: SxProps<Theme>;
-    sourceContainer: SxProps<Theme>;
+    root: SxProps;
+    infoGrid: SxProps;
+    infoItemLabel: SxProps;
+    infoItemLabelComment: SxProps;
+    infoItemValue: SxProps;
+    infoItemValueComment: SxProps;
+    infoIcons: SxProps;
+    infoIconsLabel: SxProps;
+    iconButton: SxProps;
+    sourceLink: SxProps;
+    sourceContainer: SxProps;
+    seeMoreContainer: SxProps;
+    seeMoreTitle: SxProps;
+    seeMoreArtistName: SxProps;
+    seeMoreGrid: SxProps;
+    seeMoreImage: SxProps;
 }
 
 const styles: InfoSectionStyles = {
+
     root: {
         display: 'flex',
         flexDirection: 'column',
@@ -23,6 +29,7 @@ const styles: InfoSectionStyles = {
         color: '#333',
         alignItems: 'stretch'
     },
+
     infoGrid: {
         display: 'grid',
         gridTemplateColumns: 'auto 1fr',
@@ -31,6 +38,7 @@ const styles: InfoSectionStyles = {
             gridTemplateColumns: '1fr'
         }
     },
+
     infoItemLabel: {
         color: '#222',
         fontWeight: 600,
@@ -43,6 +51,7 @@ const styles: InfoSectionStyles = {
             whiteSpace: 'normal',
         }
     },
+
     infoItemLabelComment: {
         display: 'flex',
         gap: 2,
@@ -55,6 +64,7 @@ const styles: InfoSectionStyles = {
             fontSize: '1.1rem',
         }
     },
+
     infoItemValue: {
         display: 'flex',
         gap: 3,
@@ -63,6 +73,7 @@ const styles: InfoSectionStyles = {
             gap: 1
         }
     },
+
     infoItemValueComment: {
         textAlign: 'left',
         fontSize: '1.05rem',
@@ -71,14 +82,17 @@ const styles: InfoSectionStyles = {
             fontSize: '1rem',
         }
     },
+
     infoIcons: {
         display: 'flex',
         gap: 1,
         flexWrap: 'wrap'
     },
+
     infoIconsLabel: {
         alignItems: 'center'
     },
+
     iconButton: {
         p: 0,
         display: 'inline-flex',
@@ -101,6 +115,7 @@ const styles: InfoSectionStyles = {
             filter: 'brightness(0.9)'
         }
     },
+
     sourceLink: {
         color: '#0066cc',
         textDecoration: 'none',
@@ -118,6 +133,7 @@ const styles: InfoSectionStyles = {
             wordBreak: 'break-word'
         }
     },
+
     sourceContainer: {
         display: 'flex',
         alignItems: 'center',
@@ -126,7 +142,41 @@ const styles: InfoSectionStyles = {
         '@media (max-width:480px)': {
             gap: 0.5,
         }
+    },
+
+    seeMoreContainer: {
+        mt: 3
+    },
+
+    seeMoreTitle: {
+        fontWeight: 600,
+        fontSize: '1.1rem',
+        mb: 4
+    },
+
+    seeMoreArtistName: {
+        fontWeight: 700,
+        ml: 2
+    },
+
+    seeMoreGrid: {
+        display: 'flex',
+        justifyContent: 'center'
+    },
+
+    seeMoreImage: {
+        width: 160,
+        height: 160,
+        borderRadius: 2,
+        cursor: 'pointer',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        overflow: 'hidden',
+        transition: 'transform 0.2s ease',
+        '&:hover': { transform: 'scale(1.05)' }
     }
+
 };
 
 export default styles;
