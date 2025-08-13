@@ -18,5 +18,5 @@ export const getRandomPostPath = (posts: { reddit: string }[]): string => {
     if (!posts || posts.length === 0) return `${BASE_PATH}/`;
     const randomPost = posts[Math.floor(Math.random() * posts.length)];
     const redditId = extractRedditId(randomPost.reddit);
-    return redditId ? `${BASE_PATH}posts/${redditId}/` : `${BASE_PATH}/`;
+    return redditId ? `${BASE_PATH}posts/${redditId}` : BASE_PATH;
 }
