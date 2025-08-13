@@ -1404,5 +1404,53 @@
         "linkTwitter": "https://x.com/HeripanTomorrow",
         "linkPixiv": "https://www.pixiv.net/en/users/42276572",
         "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "258n",
+        "name": "258n",
+        "linkTwitter": "https://x.com/258n_",
+        "linkPixiv": "https://www.pixiv.net/en/users/19061012",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "harakune",
+        "name": "ハラクネ",
+        "linkTwitter": "https://x.com/harakune1",
+        "linkPixiv": "https://www.pixiv.net/en/users/1786775",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "nayozane",
+        "name": "ナヨザネ",
+        "linkTwitter": "https://x.com/nayozanee",
+        "linkPixiv": "https://www.pixiv.net/en/users/409707",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "tattani",
+        "name": "たったに",
+        "linkTwitter": "https://x.com/tatutaniyuuto",
+        "linkPixiv": "https://www.pixiv.net/en/users/30893515",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "rome",
+        "name": "ろめ",
+        "linkTwitter": "https://x.com/ROME35793562",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "burijitou",
+        "name": "鰤十刀",
+        "linkTwitter": "https://x.com/burijittou",
+        "linkPixiv": "https://www.pixiv.net/en/users/134908",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "moyazou",
+        "name": "もや造",
+        "linkTwitter": "https://x.com/moyashiseizoujo",
+        "linkPixiv": "https://www.pixiv.net/en/users/12363124",
+        "portrait": "/portraits/placeholders/soldier.webp"
     }
 ]
