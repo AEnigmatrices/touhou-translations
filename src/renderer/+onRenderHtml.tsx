@@ -52,7 +52,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
                 "
             />
             <meta name="referrer" content="strict-origin" />
-            <link rel="icon" type="image/png" href="/touhou-translations/icons/favicon.ico" />
+            <link rel="icon" type="image/x-icon" href="/touhou-translations/icons/favicon.ico" />
             ${dangerouslySkipEscape(isProd ? '<link rel="manifest" href="/touhou-translations/manifest.webmanifest" />' : '')}
 
             <link rel="prefetch" href="/touhou-translations/data/artists.json" crossorigin>
