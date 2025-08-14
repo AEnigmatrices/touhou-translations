@@ -1,11 +1,11 @@
 import { useState, type FC } from 'react';
-import { navigate } from 'vike/client/router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery, Grid } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery } from '@mui/material';
+import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
 import { dateFormatOptions, replaceXWithNitter } from '../posts.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
-import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
+import SeeMoreArtist from './SeeMoreArtist/SeeMoreArtist';
 import styles from './InfoSection.styles';
 import type { Post, Artist, Character } from '../../../../types/data';
 
@@ -113,26 +113,7 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts }) => {
                 </Box>
             )}
 
-            {artistPosts.length > 0 && (
-                <Box sx={styles.seeMoreContainer}>
-                    <Typography sx={styles.seeMoreTitle}>
-                        See more by
-                        <Box component="span" sx={styles.seeMoreArtistName}>
-                            {artist?.name ?? 'this Artist'}
-                        </Box>
-                    </Typography>
-                    <Grid container spacing={2} justifyContent="center">
-                        {artistPosts.slice(0, 4).map(({ id, img }) => (
-                            <Grid size={{ xs: 6, sm: 3 }} key={id} sx={styles.seeMoreGrid}>
-                                <Box
-                                    sx={{ ...styles.seeMoreImage, backgroundImage: `url(${img})` }}
-                                    onClick={() => navigate(`${BASE_URL}posts/${id}`)}
-                                />
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Box>
-            )}
+            {artistPosts.length > 0 && (<SeeMoreArtist artistName={artist?.name} artistPosts={artistPosts} baseUrl={BASE_URL} />)}
 
             {artist && isMobile && <ArtistSpeedDial artist={artist} isMobile={true} />}
         </Box>

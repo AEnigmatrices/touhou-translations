@@ -12,11 +12,6 @@ interface InfoSectionStyles {
     iconButton: SxProps;
     sourceLink: SxProps;
     sourceContainer: SxProps;
-    seeMoreContainer: SxProps;
-    seeMoreTitle: SxProps;
-    seeMoreArtistName: SxProps;
-    seeMoreGrid: SxProps;
-    seeMoreImage: SxProps;
 }
 
 const styles: InfoSectionStyles = {
@@ -142,39 +137,6 @@ const styles: InfoSectionStyles = {
         '@media (max-width:480px)': {
             gap: 0.5,
         }
-    },
-
-    seeMoreContainer: {
-        mt: 3
-    },
-
-    seeMoreTitle: {
-        fontWeight: 600,
-        fontSize: '1.1rem',
-        mb: 4
-    },
-
-    seeMoreArtistName: {
-        fontWeight: 700,
-        ml: 2
-    },
-
-    seeMoreGrid: {
-        display: 'flex',
-        justifyContent: 'center'
-    },
-
-    seeMoreImage: {
-        width: 160,
-        height: 160,
-        borderRadius: 2,
-        cursor: 'pointer',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        overflow: 'hidden',
-        transition: 'transform 0.2s ease',
-        '&:hover': { transform: 'scale(1.05)' }
     }
 
 };
