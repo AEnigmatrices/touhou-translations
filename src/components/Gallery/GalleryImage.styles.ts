@@ -1,20 +1,22 @@
-import type { SxProps, Theme } from '@mui/material/styles';
+import type { SxProps } from '@mui/material/styles';
 
-interface GalleryImageStyles {
-    wrapper: SxProps<Theme>;
-    placeholder: SxProps<Theme>;
-    image: SxProps<Theme>;
-    loading: SxProps<Theme>;
-    loaded: SxProps<Theme>;
+interface Styles {
+    wrapper: SxProps;
+    placeholder: SxProps;
+    image: SxProps;
+    loading: SxProps;
+    loaded: SxProps;
 }
 
-const styles: GalleryImageStyles = {
+const styles: Styles = {
+
     wrapper: {
         position: 'relative',
         width: '100%',
         overflow: 'hidden',
         borderRadius: 1
     },
+
     placeholder: {
         position: 'absolute',
         inset: 0,
@@ -23,6 +25,7 @@ const styles: GalleryImageStyles = {
         backgroundSize: '200% 100%',
         animation: 'shimmer 1.5s infinite'
     },
+
     image: {
         width: '100%',
         height: 'auto',
@@ -30,14 +33,17 @@ const styles: GalleryImageStyles = {
         objectFit: 'cover',
         transition: 'opacity 0.3s ease, filter 0.3s ease'
     },
+
     loading: {
         opacity: 0.5,
         filter: 'blur(5px)'
     },
+
     loaded: {
         opacity: 1,
         filter: 'blur(0)'
     }
+
 };
 
 export default styles;
