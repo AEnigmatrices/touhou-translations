@@ -27,7 +27,9 @@ const styles: InfoSectionStyles = {
 
     seeMoreGrid: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        width: 160,
+        height: 160,
     },
 
     seeMoreImage: {
@@ -38,6 +40,7 @@ const styles: InfoSectionStyles = {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        position: 'relative',
         overflow: 'hidden',
         transition: 'transform 0.2s ease',
         '&:hover': { transform: 'scale(1.05)' }
