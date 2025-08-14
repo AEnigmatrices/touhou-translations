@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ImageList, ImageListItem, useMediaQuery, useTheme } from '@mui/material';
+import { useState, useEffect, type FC } from 'react';
+import { Grid, Box } from '@mui/material';
 import { useAppData } from '../../renderer/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
 import GalleryImage from './GalleryImage';
@@ -12,14 +12,10 @@ interface Props {
     posts?: Post[];
 }
 
-const Gallery: React.FC<Props> = ({ posts }) => {
+const Gallery: FC<Props> = ({ posts }) => {
     const { posts: allPosts } = useAppData();
     const [loadedIndex, setLoadedIndex] = useState(-1);
     const displayedPosts = posts || allPosts;
-
-    const theme = useTheme();
-    const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
-    const columns = isMdUp ? 4 : 2;
 
     const handleImageLoad = (index: number) => {
         if (index + 1 < displayedPosts.length) {
@@ -37,37 +33,37 @@ const Gallery: React.FC<Props> = ({ posts }) => {
     if (!displayedPosts.length) return <p>No posts available.</p>;
 
     return (
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-            <ImageList variant="masonry" cols={columns} gap={16}>
-                {displayedPosts.map((post, index) => {
-                    if (!post.url?.length) return null;
-                    const imageUrl = post.url[0];
-                    const redditId = extractRedditId(post.reddit);
-                    if (!redditId) return null;
+        <Grid container spacing={2} justifyContent="center">
+            {displayedPosts.map((post, index) => {
+                if (!post.url?.length) return null;
+                const imageUrl = post.url[0];
+                const redditId = extractRedditId(post.reddit);
+                if (!redditId) return null;
 
-                    return (
-                        <ImageListItem key={post.date} sx={styles.item}>
+                return (
+                    <Grid size={{ xs: 6, sm: 2.4 }} key={post.date}   >
+                        <Box sx={styles.item}>
                             {index <= loadedIndex ? (
                                 <a
                                     href={`${BASE_URL}posts/${redditId}`}
-                                    aria-label="View post details"
-                                    tabIndex={0}
-                                    style={{ display: 'block', width: '100%' }}
+                                    style={{ display: 'block', width: '100%', height: '100%' }}
                                 >
-                                    <GalleryImage
-                                        src={imageUrl}
-                                        alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
-                                        onLoad={() => handleImageLoad(index)}
-                                    />
+                                    <Box sx={styles.imageWrapper}>
+                                        <GalleryImage
+                                            src={imageUrl}
+                                            alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
+                                            onLoad={() => handleImageLoad(index)}
+                                        />
+                                    </Box>
                                 </a>
                             ) : (
-                                <div style={{ width: '100%', aspectRatio: '1 / 1', backgroundColor: '#f0f0f0', }} />
+                                <Box sx={{ width: '100%', height: '100%', backgroundColor: '#f0f0f0' }} />
                             )}
-                        </ImageListItem>
-                    );
-                })}
-            </ImageList>
-        </div>
+                        </Box>
+                    </Grid>
+                );
+            })}
+        </Grid>
     );
 };
 

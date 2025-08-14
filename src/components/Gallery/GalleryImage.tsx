@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, type FC } from 'react';
 import { Box } from '@mui/material';
 import styles from './GalleryImage.styles';
 import type { SxProps } from '@mui/material';
@@ -9,7 +9,7 @@ interface Props {
     onLoad?: () => void;
 }
 
-const GalleryImage: React.FC<Props> = ({ src, alt, onLoad }) => {
+const GalleryImage: FC<Props> = ({ src, alt, onLoad }) => {
     const [loaded, setLoaded] = useState(false);
 
     const handleLoad = () => {

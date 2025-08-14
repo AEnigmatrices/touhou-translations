@@ -18,7 +18,7 @@ import Pagination from '@mui/material/Pagination';
 
 interface Props { pathname: string; searchOriginal?: string }
 
-const POSTS_PER_PAGE = 8;
+const POSTS_PER_PAGE = 10;
 
 
 const Page = ({ urlParsed }: { urlParsed: Props }) => {

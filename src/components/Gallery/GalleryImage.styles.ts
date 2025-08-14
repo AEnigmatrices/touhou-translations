@@ -28,7 +28,7 @@ const styles: Styles = {
 
     image: {
         width: '100%',
-        height: 'auto',
+        height: '100%',
         display: 'block',
         objectFit: 'cover',
         transition: 'opacity 0.3s ease, filter 0.3s ease'

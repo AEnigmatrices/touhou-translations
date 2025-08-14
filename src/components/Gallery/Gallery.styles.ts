@@ -1,30 +1,36 @@
-import type { SxProps, Theme } from '@mui/material/styles';
+import type { SxProps } from '@mui/material/styles';
 
-interface GalleryStyles {
-    item: SxProps<Theme>;
-    loadingOverlay: SxProps<Theme>;
+interface Props {
+    item: SxProps;
+    imageWrapper: SxProps;
+    loadingOverlay: SxProps;
 }
 
-const styles: GalleryStyles = {
+const styles: Props = {
     item: {
-        breakInside: 'avoid',
-        marginBottom: '1.25rem',
-        borderRadius: 1,
+        width: 200,
+        height: 200,
+        borderRadius: 2,
         overflow: 'hidden',
-        backgroundColor: '#f9f9f9',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-        transition: 'transform 0.2s ease, box-shadow 0.3s ease',
         cursor: 'pointer',
-        display: 'block',
-        willChange: 'transform, box-shadow',
+        transition: 'transform 0.2s ease, box-shadow 0.3s ease',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f9f9f9',
         '&:hover': {
-            transform: 'scale(1.03)',
+            transform: 'scale(1.05)',
             boxShadow: '0 4px 10px rgba(0,0,0,0.15)',
         },
         '&:focus-visible': {
             outline: '2px solid #005fcc',
             outlineOffset: '2px',
         },
+    },
+    imageWrapper: {
+        width: '100%',
+        height: '100%',
+        display: 'flex'
     },
     loadingOverlay: {
         display: 'flex',
