@@ -4702,6 +4702,7 @@
         "desc": "I'd like to note that the original Japanese uses 正直**者**, which would be \"honest person\". So we're dealing with the gender-neutral \"men\" case. And switching to \"honest people\" sounds really off.\n\nAnd this **者** is a really convenient character, by the way. It's pretty much the \"**-er**\" in English. For instance, \"採掘\" is \"mining\", and appending it into \"採掘者\" makes it \"miner\".\n\nBut \"honester\" is not how we refer to an honest person, is it?",
         "artistId": "sannoji",
         "characterIds": [
+            "flandre",
             "tewi",
             "aya",
             "seiga",

@@ -1452,5 +1452,76 @@
         "linkTwitter": "https://x.com/moyashiseizoujo",
         "linkPixiv": "https://www.pixiv.net/en/users/12363124",
         "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "harunoha",
+        "name": "ハルノハ",
+        "linkTwitter": "https://x.com/HarunoLeaf",
+        "linkPixiv": "https://www.pixiv.net/en/users/5510587",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "yaan",
+        "name": "夜餡",
+        "linkTwitter": "https://x.com/tktkhappymchyr",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "ooeyama",
+        "name": "大江山",
+        "linkTwitter": "https://x.com/eyamahanasaki",
+        "linkPixiv": "https://www.pixiv.net/en/users/5738809",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "ao_murasaki",
+        "name": "あお紫綺",
+        "linkTwitter": "https://x.com/AOmurasaki_R",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "akamoku",
+        "name": "赤モク",
+        "linkTwitter": "https://x.com/akachan0219",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "machi_paterina",
+        "name": "まちぱてりーな",
+        "linkTwitter": "https://x.com/mati100311",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "fuusan",
+        "name": "ふーさん",
+        "linkTwitter": "https://x.com/FuuSan5567",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "siw0n",
+        "name": "siw0n",
+        "linkTwitter": "https://x.com/siw0n_c",
+        "linkPixiv": "https://www.pixiv.net/en/users/19848183",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "asaka_haru",
+        "name": "朝霞はる",
+        "linkTwitter": "https://x.com/ASAKA_haru",
+        "linkPixiv": "https://www.pixiv.net/en/users/73927911",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "shirono",
+        "name": "白埜",
+        "linkTwitter": "https://x.com/s_hirono28",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "miroku",
+        "name": "弥勒",
+        "linkTwitter": "https://x.com/Osnrz",
+        "linkPixiv": "https://www.pixiv.net/en/users/76247213",
+        "portrait": "/portraits/placeholders/spy.webp"
     }
 ]
