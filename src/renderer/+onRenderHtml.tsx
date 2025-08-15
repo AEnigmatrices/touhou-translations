@@ -29,6 +29,13 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
     const emotionChunks = extractCriticalToChunks(html);
     const emotionStyleTags = constructStyleTagsFromChunks(emotionChunks);
 
+    const connectSrc = isProd
+        ? `'self' https://www.reddit.com`
+        : `'self' https://www.reddit.com https://i.redd.it`;
+
+    const manifestLink = isProd ? '<link rel="manifest" href="/touhou-translations/manifest.webmanifest" />' : '';
+    const registerSwScript = isProd ? '<script src="/touhou-translations/registerSW.js"></script>' : '';
+
     const documentHtml = escapeInject`
         <!DOCTYPE html>
         <html lang="en">
@@ -46,14 +53,14 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
                     style-src 'self' 'unsafe-inline';
                     font-src 'self';
                     img-src 'self' https://i.redd.it data:;
-                    connect-src 'self' https://www.reddit.com;
+                    connect-src ${connectSrc};
                     object-src 'none';
                     base-uri 'self';
                 "
             />
             <meta name="referrer" content="strict-origin" />
             <link rel="icon" type="image/x-icon" href="/touhou-translations/icons/favicon.ico" />
-            ${dangerouslySkipEscape(isProd ? '<link rel="manifest" href="/touhou-translations/manifest.webmanifest" />' : '')}
+            ${dangerouslySkipEscape(manifestLink)}
 
             <link rel="prefetch" href="/touhou-translations/data/artists.json" crossorigin>
             <link rel="prefetch" href="/touhou-translations/data/characters.json" crossorigin>
@@ -67,7 +74,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
 
             <title>Touhou Translations</title>
             ${dangerouslySkipEscape(emotionStyleTags)}
-            ${dangerouslySkipEscape(isProd ? '<script src="/touhou-translations/registerSW.js"></script>' : '')}
+            ${dangerouslySkipEscape(registerSwScript)}
         </head>
         <body>
            <div id="root">${dangerouslySkipEscape(html)}</div>

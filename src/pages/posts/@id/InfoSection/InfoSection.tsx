@@ -120,7 +120,7 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPos
                 </Box>
             )}
 
-            {(prevPostId || nextPostId) && (<MenuButtons prevPostId={prevPostId} nextPostId={nextPostId} baseUrl={baseUrl} />)}
+            {(prevPostId || nextPostId) && (<MenuButtons prevPostId={prevPostId} nextPostId={nextPostId} urls={post.url} />)}
 
             {artistPosts.length > 0 && (<SeeMoreArtist artistName={artist?.name} artistPosts={artistPosts} />)}
 
