@@ -5,6 +5,7 @@ import useQueryParams from './useQueryParams';
 import Gallery from '../../components/Gallery/Gallery';
 import GalleryHeaderCharacter from '../../components/GalleryHeader/GalleryHeaderCharacter';
 import GalleryHeaderArtist from '../../components/GalleryHeader/GalleryHeaderArtist';
+import DateSortButton from './DateSortButton';
 import useStyles from './gallery.styles';
 
 import Container from '@mui/material/Container';
@@ -16,6 +17,8 @@ import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import Pagination from '@mui/material/Pagination';
 
+import type { SortOrder } from '../../types/data';
+
 interface Props { pathname: string; searchOriginal?: string }
 
 const POSTS_PER_PAGE = 10;
@@ -25,10 +28,11 @@ const Page = ({ urlParsed }: { urlParsed: Props }) => {
 
     const styles = useStyles();
     const [currentPage, setCurrentPage] = useState(1);
+    const [dateSortOrder, setDateSortOrder] = useState<SortOrder>("none");
 
     const { posts, artists, characters, loading, error } = useAppData();
     const { characterQueries, artistQueries, mode, galleryOnly, toggleGalleryOnly } = useQueryParams(urlParsed);
-    const { shuffledPosts } = useFilteredPosts({ posts, characterQueries, artistQueries, mode, galleryOnly });
+    const { shuffledPosts } = useFilteredPosts({ posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder });
 
     const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
     const endIndex = startIndex + POSTS_PER_PAGE;
@@ -40,6 +44,16 @@ const Page = ({ urlParsed }: { urlParsed: Props }) => {
 
     const artistId = artistQueries[0] ?? null;
     const artist = artistId ? artists.find(a => a.id === artistId) ?? null : null;
+
+
+
+    const handleToggleDateSort = () => {
+        setDateSortOrder(prev => {
+            const orders: SortOrder[] = ["none", "desc", "asc"];
+            const nextIndex = (orders.indexOf(prev) + 1) % orders.length;
+            return orders[nextIndex];
+        });
+    };
 
 
 
@@ -57,6 +71,10 @@ const Page = ({ urlParsed }: { urlParsed: Props }) => {
                 <FormControlLabel
                     control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" slotProps={styles.switchSlotProps} />}
                     label={<Typography variant="body1">Gallery Only</Typography>} sx={styles.switchLabelStyles}
+                />
+                <DateSortButton
+                    sortOrder={dateSortOrder}
+                    onToggleSortOrder={handleToggleDateSort}
                 />
             </Stack>
 
