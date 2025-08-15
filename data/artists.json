@@ -1523,5 +1523,57 @@
         "linkTwitter": "https://x.com/Osnrz",
         "linkPixiv": "https://www.pixiv.net/en/users/76247213",
         "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "kikka",
+        "name": "キッカ",
+        "linkTwitter": "https://x.com/kica7",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "gurajio",
+        "name": "ぐらじお",
+        "linkTwitter": "https://x.com/Shameimarulike",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "shiroyama_dondyuruma",
+        "name": "白山どんどゅるま",
+        "linkTwitter": "https://x.com/shiroyamadon",
+        "linkPixiv": "https://www.pixiv.net/en/users/4823812",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "pitchi",
+        "name": "ピッチ",
+        "linkTwitter": "https://x.com/pittibuntyou",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "iyau",
+        "name": "ぃゃぅ",
+        "linkTwitter": "https://x.com/iyau_pelica",
+        "linkPixiv": "https://www.pixiv.net/en/users/5555",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "b_sanaeosi",
+        "name": "b",
+        "linkTwitter": "https://x.com/b_Sanaeosi0730",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "ponzu",
+        "name": "ぽんず",
+        "linkTwitter": "https://x.com/pokopoko_ponzu",
+        "linkPixiv": "https://www.pixiv.net/en/users/76021809",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "pico",
+        "name": "Pico",
+        "linkTwitter": "https://x.com/Pico_kimuchi",
+        "linkPixiv": "https://www.pixiv.net/en/users/114446940",
+        "portrait": "/portraits/placeholders/demoman.webp"
     }
 ]
