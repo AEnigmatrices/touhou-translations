@@ -1,15 +1,16 @@
 import type { SxProps, Theme } from '@mui/material/styles';
 
-interface ImageViewerStyles {
+interface Styles {
     root: SxProps<Theme>;
 }
 
-const styles: ImageViewerStyles = {
+const styles: Styles = {
     root: {
         display: 'flex',
         gap: 4,
         justifyContent: 'center',
         alignItems: 'center',
+        position: 'relative',
         marginTop: 4,
         padding: 3,
         backgroundColor: '#fafafa',

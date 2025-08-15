@@ -7,10 +7,11 @@ import type { FC } from 'react';
 interface Props {
     artistName?: string | null;
     artistPosts: { id: string; img: string }[];
-    baseUrl: string;
 }
 
-const SeeMoreArtist: FC<Props> = ({ artistName, artistPosts, baseUrl }) => {
+const baseUrl = import.meta.env.BASE_URL;
+
+const SeeMoreArtist: FC<Props> = ({ artistName, artistPosts }) => {
     const [loadedIndex, setLoadedIndex] = useState(-1);
 
     const handleImageLoad = (index: number) => {

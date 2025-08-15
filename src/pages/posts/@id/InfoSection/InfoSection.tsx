@@ -1,7 +1,8 @@
 import { useState, type FC } from 'react';
+import { navigate } from 'vike/client/router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Chip, Button, useTheme, useMediaQuery } from '@mui/material';
 import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
 import { dateFormatOptions, replaceXWithNitter } from '../posts.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
@@ -14,13 +15,15 @@ interface Props {
     artist: Artist | null;
     characters: Character[];
     artistPosts: { id: string; img: string }[];
+    prevPostId?: string | null;
+    nextPostId?: string | null;
 }
 
-const BASE_URL = import.meta.env.BASE_URL;
-const redditIcon = `${BASE_URL}icons/social/reddit.webp`;
+const baseUrl = import.meta.env.BASE_URL;
+const redditIcon = `${baseUrl}icons/social/reddit.webp`;
 
 
-const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts }) => {
+const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPostId, nextPostId }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [showNitter, setShowNitter] = useState(false);
@@ -30,6 +33,8 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts }) => {
     const formattedDate = post.date ? new Date(post.date).toLocaleString('en-US', dateFormatOptions) : 'Unknown date';
 
     const displayedUrl = showNitter && nitterUrl ? nitterUrl : post.src;
+
+
 
     const toggleUrl = () => setShowNitter((prev) => !prev);
 
@@ -41,6 +46,12 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts }) => {
                 </IconButton>
             </Tooltip>
         ) : null;
+
+    const handleNavigate = (postId: string | null | undefined) => {
+        if (postId) navigate(`${baseUrl}posts/${postId}`);
+    };
+
+
 
     return (
         <Box sx={styles.root}>
@@ -93,7 +104,7 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts }) => {
                     <Typography sx={{ fontWeight: 600, fontSize: '1.1rem', mb: 1 }} >
                         {characters.length === 1 ? 'Character' : 'Characters'}
                     </Typography>
-                    <CharacterChips characters={characters} baseUrl={BASE_URL} />
+                    <CharacterChips characters={characters} />
                 </Box>
             )}
 
@@ -113,7 +124,19 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts }) => {
                 </Box>
             )}
 
-            {artistPosts.length > 0 && (<SeeMoreArtist artistName={artist?.name} artistPosts={artistPosts} baseUrl={BASE_URL} />)}
+            {(prevPostId || nextPostId) && (
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
+                    <Button variant="contained" disabled={!prevPostId} onClick={() => handleNavigate(prevPostId)}>
+                        Previous
+                    </Button>
+
+                    <Button variant="contained" disabled={!nextPostId} onClick={() => handleNavigate(nextPostId)}>
+                        Next
+                    </Button>
+                </Box>
+            )}
+
+            {artistPosts.length > 0 && (<SeeMoreArtist artistName={artist?.name} artistPosts={artistPosts} />)}
 
             {artist && isMobile && <ArtistSpeedDial artist={artist} isMobile={true} />}
         </Box>
