@@ -1,11 +1,11 @@
 import { useState, type FC } from 'react';
-import { navigate } from 'vike/client/router';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip, Button, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery } from '@mui/material';
 import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
 import { dateFormatOptions, replaceXWithNitter } from '../posts.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
+import MenuButtons from './MenuButtons/MenuButtons';
 import SeeMoreArtist from './SeeMoreArtist/SeeMoreArtist';
 import styles from './InfoSection.styles';
 import type { Post, Artist, Character } from '../../../../types/data';
@@ -15,8 +15,8 @@ interface Props {
     artist: Artist | null;
     characters: Character[];
     artistPosts: { id: string; img: string }[];
-    prevPostId?: string | null;
-    nextPostId?: string | null;
+    prevPostId: string | null;
+    nextPostId: string | null;
 }
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -46,10 +46,6 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPos
                 </IconButton>
             </Tooltip>
         ) : null;
-
-    const handleNavigate = (postId: string | null | undefined) => {
-        if (postId) navigate(`${baseUrl}posts/${postId}`);
-    };
 
 
 
@@ -124,17 +120,7 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPos
                 </Box>
             )}
 
-            {(prevPostId || nextPostId) && (
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
-                    <Button variant="contained" disabled={!prevPostId} onClick={() => handleNavigate(prevPostId)}>
-                        Previous
-                    </Button>
-
-                    <Button variant="contained" disabled={!nextPostId} onClick={() => handleNavigate(nextPostId)}>
-                        Next
-                    </Button>
-                </Box>
-            )}
+            {(prevPostId || nextPostId) && (<MenuButtons prevPostId={prevPostId} nextPostId={nextPostId} baseUrl={baseUrl} />)}
 
             {artistPosts.length > 0 && (<SeeMoreArtist artistName={artist?.name} artistPosts={artistPosts} />)}
 
