@@ -1575,5 +1575,52 @@
         "linkTwitter": "https://x.com/Pico_kimuchi",
         "linkPixiv": "https://www.pixiv.net/en/users/114446940",
         "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "oroka",
+        "name": "愚華",
+        "linkTwitter": "https://x.com/0903_renge",
+        "linkPixiv": "https://www.pixiv.net/en/users/2603536",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "tami",
+        "name": "たみ",
+        "linkTwitter": "https://x.com/_ta_mi_01000",
+        "linkPixiv": "https://www.pixiv.net/en/users/108029502",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "mitsusame",
+        "name": "蜜鮫",
+        "linkTwitter": "https://x.com/remyaruku65",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "karubo",
+        "name": "カルボナーラ",
+        "linkTwitter": "https://x.com/Karubo_100sei",
+        "linkPixiv": "https://www.pixiv.net/en/users/97978657",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "neru",
+        "name": "Neru",
+        "linkTwitter": "https://x.com/kerukero1341",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "berusuke",
+        "name": "ベル助",
+        "linkTwitter": "https://x.com/berusuke_sanada",
+        "linkPixiv": "https://www.pixiv.net/en/users/3663553",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "guanin",
+        "name": "グアニン",
+        "linkTwitter": "https://x.com/guaninekoubou",
+        "linkPixiv": "https://www.pixiv.net/en/users/82375581",
+        "portrait": "/portraits/placeholders/soldier.webp"
     }
 ]
