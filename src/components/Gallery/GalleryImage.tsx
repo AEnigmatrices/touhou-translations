@@ -1,32 +1,55 @@
-import { useState, type FC } from 'react';
+import { useState, useEffect, useCallback, type FC } from 'react';
 import { Box } from '@mui/material';
 import styles from './GalleryImage.styles';
 import type { SxProps } from '@mui/material';
 
-interface Props {
-    src: string;
-    alt: string;
-    onLoad?: () => void;
-}
+interface Props { src: string; alt: string; }
 
-const GalleryImage: FC<Props> = ({ src, alt, onLoad }) => {
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 300;
+
+
+const GalleryImage: FC<Props> = ({ src, alt }) => {
     const [loaded, setLoaded] = useState(false);
+    const [retryCount, setRetryCount] = useState(0);
+    const [currentSrc, setCurrentSrc] = useState(src);
 
-    const handleLoad = () => {
-        setLoaded(true);
-        if (onLoad) onLoad();
+
+
+    const handleError = () => {
+        if (retryCount < MAX_RETRIES) setRetryCount(prev => prev + 1);
     };
+
+    const attemptLoad = useCallback(() => {
+        const cacheBustedSrc = `${src}?retry=${retryCount}&cb=${Date.now()}`;
+        setCurrentSrc(cacheBustedSrc);
+    }, [retryCount, src]);
+
+
+
+    useEffect(() => {
+        if (retryCount > 0 && retryCount <= MAX_RETRIES) {
+            const timer = setTimeout(attemptLoad, RETRY_DELAY);
+            return () => clearTimeout(timer);
+        }
+    }, [retryCount, attemptLoad]);
+
+
 
     return (
         <Box sx={styles.wrapper}>
-            {!loaded && <Box sx={styles.placeholder} aria-hidden="true" />}
+            <Box
+                sx={{ ...styles.placeholder, opacity: loaded ? 0 : 1, transition: 'opacity 0.3s ease', }}
+                aria-hidden="true"
+            />
             <Box
                 component="img"
-                src={src}
+                src={currentSrc}
                 alt={alt}
                 loading="lazy"
-                onLoad={handleLoad}
-                sx={{ ...styles.image, ...(loaded ? styles.loaded : styles.loading) } as SxProps<{}>}
+                onLoad={() => setLoaded(true)}
+                onError={handleError}
+                sx={{ ...styles.image, ...(loaded ? styles.loaded : styles.loading) } as SxProps}
             />
         </Box>
     );

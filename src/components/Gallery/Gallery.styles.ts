@@ -1,12 +1,12 @@
 import type { SxProps } from '@mui/material/styles';
 
-interface Props {
+interface Styles {
     item: SxProps;
     imageWrapper: SxProps;
-    loadingOverlay: SxProps;
 }
 
-const styles: Props = {
+const styles: Styles = {
+
     item: {
         width: 200,
         height: 200,
@@ -26,24 +26,16 @@ const styles: Props = {
             outline: '2px solid #005fcc',
             outlineOffset: '2px',
         },
+        opacity: 0,
+        animation: 'fadeIn 0.5s forwards',
     },
+
     imageWrapper: {
         width: '100%',
         height: '100%',
         display: 'flex'
-    },
-    loadingOverlay: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 10,
-        paddingTop: '1rem',
-    },
+    }
+
 };
 
 export default styles;
