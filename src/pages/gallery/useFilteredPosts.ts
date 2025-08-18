@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { filterPosts } from '../../utils/filterPosts';
 import type { Post, SortOrder } from '../../types/data';
 
@@ -25,12 +25,15 @@ const useFilteredPosts = ({ posts, characterQueries, artistQueries, mode, galler
         });
     }, [posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder]);
 
-    const shuffledPosts = useMemo(
-        () => dateSortOrder === "none"
-            ? [...filteredPosts].sort(() => Math.random() - 0.5)
-            : filteredPosts,
-        [filteredPosts, dateSortOrder]
-    );
+    const shuffledOnceRef = useRef<Post[] | null>(null);
+
+    const shuffledPosts = useMemo(() => {
+        if (dateSortOrder !== "none") return filteredPosts;
+        if (!shuffledOnceRef.current || shuffledOnceRef.current.length !== filteredPosts.length) {
+            shuffledOnceRef.current = [...filteredPosts].sort(() => Math.random() - 0.5);
+        }
+        return shuffledOnceRef.current;
+    }, [filteredPosts, dateSortOrder]);
 
     return { filteredPosts, shuffledPosts };
 };
