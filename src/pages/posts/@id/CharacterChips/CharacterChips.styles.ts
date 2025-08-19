@@ -24,7 +24,7 @@ const styles: CharacterChipsStyles = {
         display: 'flex',
         justifyContent: 'center',
         gap: 1,
-        fontWeight: 500,
+        fontWeight: 600,
         color: '#004999',
         borderColor: '#004999',
         backgroundColor: '#e6f0ff',
