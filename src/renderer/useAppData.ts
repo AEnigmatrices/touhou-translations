@@ -7,6 +7,7 @@ interface AppData {
     posts: Post[];
     artists: Artist[];
     characters: Character[];
+    dailyPost: Post | null;
     loading: boolean;
     error: Error | null;
 }
@@ -30,12 +31,20 @@ const getArtistArtworkCounts = (posts: Post[]): Record<string, number> => {
     return countMap;
 };
 
+const getDailyPost = (posts: Post[]): Post | null => {
+    if (!posts.length) return null;
+    const today = new Date();
+    const index = (today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate()) % posts.length;
+    return posts[index];
+};
+
 const useAppData = (): AppData => {
     const pageContext = usePageContext();
     const [data, setData] = useState<AppData>({
         posts: pageContext.appData?.posts || [],
         artists: pageContext.appData?.artists || [],
         characters: pageContext.appData?.characters || [],
+        dailyPost: pageContext.appData?.posts ? getDailyPost(pageContext.appData.posts) : null,
         loading: !pageContext.appData,
         error: null,
     });
@@ -64,6 +73,7 @@ const useAppData = (): AppData => {
                     posts,
                     artists: artistsWithCount,
                     characters: charactersWithCount,
+                    dailyPost: getDailyPost(posts),
                     loading: false,
                     error: null
                 });

@@ -10,13 +10,10 @@ const IMAGE_HEIGHT = 540;
 
 
 const DailyPost = (): JSX.Element | null => {
-    const { posts, loading, error } = useAppData();
 
-    const today = new Date();
-    const index = (today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate()) % (posts?.length || 1);
-    const post = posts?.[index];
-    const imageUrl = post?.url?.[0];
-    const redditId = post ? extractRedditId(post.reddit) : null;
+    const { dailyPost, loading, error } = useAppData();
+    const imageUrl = dailyPost?.url?.[0];
+    const redditId = dailyPost ? extractRedditId(dailyPost.reddit) : null;
 
     return (
         <Card sx={styles.card}>
@@ -26,7 +23,7 @@ const DailyPost = (): JSX.Element | null => {
                 </Typography>
                 <Box sx={styles.imageWrapper}>
                     {loading ? <Box sx={styles.loadingWrapper}><CircularProgress /></Box>
-                        : error || !post || !imageUrl || !redditId ? <Typography sx={styles.errorText} variant="h6">Failed to load post.</Typography>
+                        : error || !dailyPost || !imageUrl || !redditId ? <Typography sx={styles.errorText} variant="h6">Failed to load post.</Typography>
                             :
                             <a
                                 href={`${BASE_URL}posts/${redditId}`} aria-label="View post details"
