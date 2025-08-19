@@ -1,54 +1,72 @@
 import type { SxProps, Theme } from '@mui/material/styles';
 
-interface StaticStyles {
-    card: SxProps<Theme>;
-    imageWrapper: SxProps<Theme>;
-    image: SxProps<Theme>;
-    loadingWrapper: SxProps<Theme>;
-    errorText: SxProps<Theme>;
+interface Styles {
+    card: SxProps;
+    imageWrapper: SxProps;
+    image: SxProps;
+    loadingWrapper: SxProps;
+    errorText: SxProps;
+    title: SxProps<Theme>;
 }
-
-interface DynamicStyles {
-    title: (theme: Theme) => SxProps<Theme>;
-}
-
-type Styles = StaticStyles & DynamicStyles;
 
 const styles: Styles = {
 
     card: {
         width: '100%',
         maxWidth: 960,
-        p: 2,
+        p: { xs: 2, sm: 3 },
+        mx: 'auto',
+        borderRadius: 3,
+        boxShadow: 3,
+        backgroundColor: 'background.paper',
     },
 
     imageWrapper: {
         display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        maxWidth: 960,
+        height: 540,
+        position: 'relative',
+        borderRadius: 2,
+        overflow: 'hidden',
+        mt: 2,
     },
 
     image: {
-        maxWidth: '100%',
-        height: 'auto',
+        width: '100%',
+        height: '100%',
         display: 'block',
         borderRadius: 2,
+        objectFit: 'cover',
+        transition: 'transform 0.3s ease',
+        '&:hover': {
+            transform: 'scale(1.02)',
+        },
     },
 
     loadingWrapper: {
         display: 'flex',
         justifyContent: 'center',
-        mt: 4,
+        alignItems: 'center',
+        height: '100%',
     },
 
     errorText: {
+        color: 'error.main',
+        textAlign: 'center',
         mt: 4,
+        px: 2,
     },
 
-    title: (theme: Theme) => ({
+    title: (theme) => ({
         color: theme.palette.text.secondary,
-        fontWeight: 500,
+        fontWeight: 600,
         mb: 2,
+        textAlign: 'center',
     }),
+
 };
 
 export default styles;
