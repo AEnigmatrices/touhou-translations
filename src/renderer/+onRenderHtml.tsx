@@ -29,10 +29,6 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
     const emotionChunks = extractCriticalToChunks(html);
     const emotionStyleTags = constructStyleTagsFromChunks(emotionChunks);
 
-    const connectSrc = isProd
-        ? `'self' https://www.reddit.com`
-        : `'self' https://www.reddit.com https://i.redd.it`;
-
     const manifestLink = isProd ? '<link rel="manifest" href="/touhou-translations/manifest.webmanifest" />' : '';
     const registerSwScript = isProd ? '<script src="/touhou-translations/registerSW.js"></script>' : '';
 
@@ -53,7 +49,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
                     style-src 'self' 'unsafe-inline';
                     font-src 'self';
                     img-src 'self' https://i.redd.it data:;
-                    connect-src ${connectSrc};
+                    connect-src 'self' https://www.reddit.com https://i.redd.it;
                     object-src 'none';
                     base-uri 'self';
                 "
@@ -62,6 +58,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext: PageContext): Return
             <link rel="icon" type="image/x-icon" href="/touhou-translations/icons/favicon.ico" />
             ${dangerouslySkipEscape(manifestLink)}
 
+            <link rel="preconnect" href="https://i.redd.it" crossorigin />
             <link rel="prefetch" href="/touhou-translations/data/artists.json" crossorigin>
             <link rel="prefetch" href="/touhou-translations/data/characters.json" crossorigin>
             <link rel="prefetch" href="/touhou-translations/data/posts/posts-2024.json" crossorigin>
