@@ -1622,5 +1622,59 @@
         "linkTwitter": "https://x.com/guaninekoubou",
         "linkPixiv": "https://www.pixiv.net/en/users/82375581",
         "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "miragu",
+        "name": "みらぐ",
+        "linkTwitter": "https://x.com/mirag32",
+        "linkPixiv": "https://www.pixiv.net/en/users/195511",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "kitsune_maru",
+        "name": "きつね丸",
+        "linkTwitter": "https://x.com/kitsune_maru",
+        "linkPixiv": "https://www.pixiv.net/en/users/3951729",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "yatagarasu",
+        "name": "八咫ガラス",
+        "linkTwitter": "https://x.com/yatagarasu150",
+        "linkPixiv": "https://www.pixiv.net/en/users/16223891",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "eo",
+        "name": "EO",
+        "linkTwitter": "https://x.com/EODAYO",
+        "linkPixiv": "https://www.pixiv.net/en/users/3261838",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "ushiro_no_fuji",
+        "name": "うしろのふじ",
+        "linkTwitter": "https://x.com/Vtcsku3HJBR2eZw",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "ns-x",
+        "name": "NS-X",
+        "linkTwitter": "https://x.com/Shun_s86",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "shope",
+        "name": "しょぺ",
+        "linkTwitter": "https://x.com/syope",
+        "linkPixiv": "https://www.pixiv.net/en/users/90634",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "chamaji",
+        "name": "ちゃまじ",
+        "linkTwitter": "https://x.com/chamaji33",
+        "linkPixiv": "https://www.pixiv.net/en/users/3704024",
+        "portrait": "/portraits/placeholders/pyro.webp"
     }
 ]
