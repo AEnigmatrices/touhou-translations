@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useAppData } from '../../renderer/useAppData';
+import { useAppData } from '../layout/useAppData';
+import { usePageContext } from 'vike-react/usePageContext';
 import useFilteredPosts from './useFilteredPosts';
 import useQueryParams from './useQueryParams';
 import Gallery from '../../components/Gallery/Gallery';
@@ -19,12 +20,13 @@ import Pagination from '@mui/material/Pagination';
 
 import type { SortOrder } from '../../types/data';
 
-interface Props { pathname: string; searchOriginal?: string }
-
 const POSTS_PER_PAGE = 10;
 
 
-const Page = ({ urlParsed }: { urlParsed: Props }) => {
+const Page = () => {
+
+    const pageContext = usePageContext();
+    const urlParsed = pageContext.urlParsed;
 
     const styles = useStyles();
     const [currentPage, setCurrentPage] = useState(1);

@@ -1,6 +1,6 @@
 import { render } from 'vike/abort';
 import ListPage from '../../components/ListPage/ListPage';
-import { useAppData } from '../../renderer/useAppData';
+import { useAppData } from '../layout/useAppData';
 
 const Page = () => {
     const { characters, loading, error } = useAppData();

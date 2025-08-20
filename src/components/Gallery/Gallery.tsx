@@ -1,6 +1,6 @@
 import { useState, useEffect, type FC } from 'react';
 import { Grid, Box } from '@mui/material';
-import { useAppData } from '../../renderer/useAppData';
+import { useAppData } from '../../pages/layout/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
 import GalleryImage from './GalleryImage';
 import styles from './Gallery.styles';

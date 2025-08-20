@@ -1,7 +1,7 @@
 import { render } from 'vike/abort';
-import { useAppData } from '../../../renderer/useAppData';
+import { useAppData } from '../../layout/useAppData';
 import { extractRedditId } from '../../../utils/extractRedditId';
-import { usePageContext } from '../../../renderer/usePageContext';
+import { usePageContext } from 'vike-react/usePageContext';
 import { Box } from '@mui/material';
 import ImageSection from './ImageSection/ImageSection';
 import InfoSection from './InfoSection/InfoSection';

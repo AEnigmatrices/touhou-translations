@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import { usePageContext } from '../../renderer/usePageContext'
+import { usePageContext } from 'vike-react/usePageContext'
 
 const Page = () => {
     const pageContext = usePageContext()

@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, CircularProgress, Typography } from '@mui/material';
-import { useAppData } from '../../renderer/useAppData';
+import { useAppData } from '../layout/useAppData';
 import styles from './DailyPost.styles';
 import { extractRedditId } from '../../utils/extractRedditId';
 import type { JSX } from 'react';

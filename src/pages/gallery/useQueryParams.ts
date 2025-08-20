@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-interface Props { pathname: string; searchOriginal?: string }
+const useQueryParams = (urlParsed: any) => {
 
-const useQueryParams = (urlParsed: Props) => {
     const searchParams = new URLSearchParams(urlParsed.searchOriginal || '');
 
     const characterQueries = searchParams.getAll('character');

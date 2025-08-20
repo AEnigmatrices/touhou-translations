@@ -30,7 +30,8 @@
         "react-hook-form": "^7.62.0",
         "react-markdown": "^10.1.0",
         "remark-gfm": "^4.0.1",
-        "vike": "^0.4.236"
+        "vike": "^0.4.236",
+        "vike-react": "^0.6.5"
     },
     "devDependencies": {
         "@eslint/js": "^9.32.0",

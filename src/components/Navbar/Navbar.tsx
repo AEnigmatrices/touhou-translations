@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { navigate } from 'vike/client/router';
-import { useAppData } from '../../renderer/useAppData';
-import { usePageContext } from '../../renderer/usePageContext';
+import { useAppData } from '../../pages/layout/useAppData';
+import { usePageContext } from 'vike-react/usePageContext';
 import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { ElevationScroll, getRandomPostPath } from './Navbar.utils';
 import { navLinks } from '../../utils/navLinks';
