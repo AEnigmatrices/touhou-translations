@@ -1676,5 +1676,19 @@
         "linkTwitter": "https://x.com/chamaji33",
         "linkPixiv": "https://www.pixiv.net/en/users/3704024",
         "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "maki_no",
+        "name": "まきノ",
+        "linkTwitter": "https://x.com/MyaroMyari",
+        "linkPixiv": "https://www.pixiv.net/en/users/2204917",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "yamazaki_tsukune",
+        "name": "山崎つくね",
+        "linkTwitter": "https://x.com/2qune",
+        "linkPixiv": "https://www.pixiv.net/en/users/11736258",
+        "portrait": "/portraits/placeholders/scout.webp"
     }
 ]
