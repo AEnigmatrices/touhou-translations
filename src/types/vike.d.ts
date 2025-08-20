@@ -7,14 +7,6 @@ type Page = () => ReactElement
 declare global {
     namespace Vike {
         interface PageContext {
-            Page: Page
-            post?: Post
-            data?: {
-                post?: Post
-                posts?: Post[]
-                artists?: Artist[]
-                characters?: Character[]
-            }
             appData?: {
                 posts?: Post[]
                 artists?: Artist[]
