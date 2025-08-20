@@ -1,7 +1,7 @@
 import { resolveRoute } from 'vike/routing'
-import type { PageContext, RouteSync } from 'vike/types'
+import type { PageContext } from 'vike/types'
 
-export const route: RouteSync = (pageContext: PageContext) => {
+export const route = (pageContext: PageContext) => {
     if (pageContext.urlPathname === '/posts' || pageContext.urlPathname === '/posts/') {
         return { routeParams: { id: '' } }
     }
