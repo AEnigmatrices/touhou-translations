@@ -4,7 +4,6 @@ const Head = () => {
     return (
         <>
             <meta name="google-site-verification" content="0HESLIqydO91EGI_Nz10xq3aAxhdqBAfCHes6Q6oXrE" />
-            <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
             <meta
                 httpEquiv="Content-Security-Policy"
                 content="
@@ -22,11 +21,11 @@ const Head = () => {
 
             {isProd && <link rel="manifest" href="/touhou-translations/manifest.webmanifest" />}
 
-            <link rel="preconnect" href="https://i.redd.it" crossOrigin="" />
-            <link rel="prefetch" href="/touhou-translations/data/artists.json" crossOrigin="" />
-            <link rel="prefetch" href="/touhou-translations/data/characters.json" crossOrigin="" />
-            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2024.json" crossOrigin="" />
-            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2025.json" crossOrigin="" />
+            <link rel="preconnect" href="https://i.redd.it" />
+            <link rel="prefetch" href="/touhou-translations/data/artists.json" />
+            <link rel="prefetch" href="/touhou-translations/data/characters.json" />
+            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2024.json" />
+            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2025.json" />
 
             <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-regular.woff2" as="font" type="font/woff2" crossOrigin="" />
             <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-500.woff2" as="font" type="font/woff2" crossOrigin="" />
