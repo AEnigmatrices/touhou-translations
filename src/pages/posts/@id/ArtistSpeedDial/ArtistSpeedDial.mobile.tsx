@@ -1,21 +1,12 @@
-import { Avatar, Box, Typography, SpeedDial, SpeedDialAction, type SxProps, type Theme } from '@mui/material';
+import { Avatar, Box, Typography, SpeedDial, SpeedDialAction } from '@mui/material';
 import styles from './ArtistSpeedDial.styles';
 import type { FC } from 'react';
-import type { SystemStyleObject } from '@mui/system';
 import type { ArtistSpeedDialProps } from './ArtistSpeedDial.types';
 
 
 const ArtistSpeedDialMobile: FC<ArtistSpeedDialProps> = ({ artist, speedDialActions, open, onOpen, onClose, imageUrl }) => {
-
-    const getContainerSx = (): SxProps<Theme> => (theme: Theme) => {
-        const base = typeof styles.container === 'function'
-            ? styles.container(theme)
-            : styles.container;
-        return { ...(base as SystemStyleObject<Theme>), pointerEvents: open ? 'auto' : 'none' };
-    };
-
     return (
-        <Box sx={getContainerSx()}>
+        <Box sx={styles.container}>
             <Box sx={styles.innerWrapper}>
                 <Box sx={styles.nameTag} className={open ? 'MuiBox-root--open' : ''}>
                     <Typography variant="body1">{artist.name}</Typography>

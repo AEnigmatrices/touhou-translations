@@ -1,20 +1,20 @@
 import type { SxProps, Theme } from '@mui/material/styles';
 
-interface Styles {
+interface StaticStyles {
     container: SxProps<Theme>;
     innerWrapper: SxProps<Theme>;
     avatarWrapper: SxProps<Theme>;
     nameTag: SxProps<Theme>;
-    fabWrapper: SxProps;
+    fabWrapper: SxProps<Theme>;
     desktopNameTag: SxProps<Theme>;
     speedDialFab: SxProps<Theme>;
     speedDialActionFab: SxProps<Theme>;
     tooltip: SxProps<Theme>;
-    desktopContainer: SxProps;
+    desktopContainer: SxProps<Theme>;
     desktopSpeedDial: SxProps<Theme>;
 }
 
-const styles: Styles = {
+const styles: StaticStyles = {
     container: (theme: Theme) => ({
         position: 'fixed',
         bottom: 84,

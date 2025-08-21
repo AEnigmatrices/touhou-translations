@@ -1,18 +1,19 @@
-import { useCallback, useEffect, useRef, useState, type FC } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useData } from 'vike-react/useData';
 import { Autocomplete, Avatar, Box, Chip, Button, Stack, TextField, Typography } from '@mui/material';
+import { useAppData } from '../../../pages/layout/useAppData';
 import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl, validateArtistId, submitPostEntry } from './PostForm.utils';
 import styles from './PostForm.styles';
-import type { Data } from '../../../types/data';
 import type { PostEntryForm } from "../../../types/data";
+import artists from '../../../../data/artists.json';
+import characters from '../../../../data/characters.json';
 
 
 
-const PostForm: FC = () => {
+const PostForm: React.FC = () => {
     const { register, handleSubmit, reset, watch, setValue, getValues, setError, clearErrors, formState: { errors, isSubmitting } } = useForm<PostEntryForm>();
     const [loadingRedditData, setLoadingRedditData] = useState(false);
-    const { posts: allPosts, artists, characters } = useData<Data>();
+    const { posts: allPosts } = useAppData();
 
     const debounceRef = useRef<NodeJS.Timeout | null>(null);
     const watchedReddit = watch('reddit');

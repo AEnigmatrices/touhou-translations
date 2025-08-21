@@ -1,19 +1,18 @@
-import { useEffect, useState, type FC } from 'react';
-import { useData } from 'vike-react/useData';
+import React, { useEffect, useState } from 'react';
 import { navigate } from 'vike/client/router';
+import { useAppData } from '../../pages/layout/useAppData';
 import { usePageContext } from 'vike-react/usePageContext';
 import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { ElevationScroll, getRandomPostPath } from './Navbar.utils';
 import { navLinks } from '../../utils/navLinks';
 import styles from './Navbar.styles';
-import type { Data } from '../../types/data';
 
 
 
 
-const Navbar: FC = () => {
+const Navbar: React.FC = () => {
 
-    const { posts } = useData<Data>();
+    const { posts } = useAppData();
     const pageContext = usePageContext();
     const [currentTab, setCurrentTab] = useState<string | false>(false);
 
