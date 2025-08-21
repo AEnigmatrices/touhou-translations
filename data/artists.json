@@ -1690,5 +1690,32 @@
         "linkTwitter": "https://x.com/2qune",
         "linkPixiv": "https://www.pixiv.net/en/users/11736258",
         "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "urashima",
+        "name": "浦嶋",
+        "linkTwitter": "https://x.com/urashima0039",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "kurogarasu",
+        "name": "黒鴉",
+        "linkTwitter": "https://x.com/krogarasu",
+        "linkPixiv": "https://www.pixiv.net/en/users/360751",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "nishikoo",
+        "name": "にしこー",
+        "linkTwitter": "https://x.com/ovst245o",
+        "linkPixiv": "https://www.pixiv.net/en/users/5851732",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "kujirai_minato",
+        "name": "鯨井みなと",
+        "linkTwitter": "https://x.com/kujiraxminato",
+        "linkPixiv": "https://www.pixiv.net/en/users/3154218",
+        "portrait": "/portraits/placeholders/medic.webp"
     }
 ]
