@@ -1717,5 +1717,19 @@
         "linkTwitter": "https://x.com/kujiraxminato",
         "linkPixiv": "https://www.pixiv.net/en/users/3154218",
         "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "buchiki_funao",
+        "name": "ぶちきフナお",
+        "linkTwitter": "https://x.com/bfnao",
+        "linkPixiv": "https://www.pixiv.net/en/users/3660105",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "amacha",
+        "name": "甘茶",
+        "linkTwitter": "https://x.com/AmAchA_0000",
+        "linkPixiv": "https://www.pixiv.net/en/users/113676628",
+        "portrait": "/portraits/placeholders/heavy.webp"
     }
 ]

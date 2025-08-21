@@ -4384,5 +4384,50 @@
         "characterIds": [
             "aya"
         ]
+    },
+    {
+        "date": 1744721558000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1jzr4v2",
+        "url": [
+            "https://i.redd.it/g011libywzue1.png"
+        ],
+        "src": "https://x.com/bfnao/status/1900567123887550815",
+        "desc": "🤨... It never occurred to me that Kasen's bandage arm would be hollow.\n\nIn case you're wondering, zunda is, like, sweet mashed green soybeans. And mitarashi is sweet soy sauce glaze. In fact, the dango stands are pretty much the same as in [**those two's article**](https://en.touhouwiki.net/index.php?title=Alternative_Facts_in_Eastern_Utopia/Article_and_Interview/Seiran_and_Ringo) in *AFiEU*.",
+        "artistId": "buchiki_funao",
+        "characterIds": [
+            "reimu",
+            "kasen",
+            "seiran",
+            "ringo",
+            "marisa"
+        ]
+    },
+    {
+        "date": 1744725114000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1jzsewr",
+        "url": [
+            "https://i.redd.it/4ontn65j70ve1.png"
+        ],
+        "src": "https://x.com/AmAchA_0000/status/1900455596224348563",
+        "desc": "In *Magical Astronomy*, Merry says this at the start of [***Satellite Café Terrace***](https://en.touhouwiki.net/wiki/Magical_Astronomy/Story#衛星カフェテラス). Like, Renko went on explaining about how physics is ending 'cause it's become practically impossible to go any smaller and they've run out of observable stuff, the field becoming less experiments and more interpretations.\n\nBut I suppose this is kinda like a return to its roots? 'Cause physics was **natural philosophy**.",
+        "artistId": "amacha",
+        "characterIds": [
+            "renko",
+            "merry"
+        ]
+    },
+    {
+        "date": 1744729033000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1jztz9y",
+        "url": [
+            "https://i.redd.it/fd6bc9l6j0ve1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/128229000",
+        "desc": "You reckon Eientei has allergy shots? 🤔 I can imagine the local rabbits keeping it for themselves. Maybe Eirin charges people for it, and/or with Tewi being the middle-rabbit.",
+        "artistId": "hidaruma",
+        "characterIds": [
+            "lily",
+            "reimu"
+        ]
     }
 ]
