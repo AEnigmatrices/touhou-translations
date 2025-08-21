@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useAppData } from '../layout/useAppData';
+import { useState, type JSX } from 'react';
+import { useData } from 'vike-react/useData';
 import { usePageContext } from 'vike-react/usePageContext';
 import useFilteredPosts from './useFilteredPosts';
 import useQueryParams from './useQueryParams';
@@ -15,15 +15,14 @@ import Box from '@mui/material/Box';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
-import CircularProgress from '@mui/material/CircularProgress';
 import Pagination from '@mui/material/Pagination';
 
-import type { SortOrder } from '../../types/data';
+import type { Data, SortOrder } from '../../types/data';
 
 const POSTS_PER_PAGE = 10;
 
 
-const Page = () => {
+const Page = (): JSX.Element => {
 
     const pageContext = usePageContext();
     const urlParsed = pageContext.urlParsed;
@@ -32,7 +31,7 @@ const Page = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [dateSortOrder, setDateSortOrder] = useState<SortOrder>("none");
 
-    const { posts, artists, characters, loading, error } = useAppData();
+    const { posts, artists, characters } = useData<Data>();
     const { characterQueries, artistQueries, mode, galleryOnly, toggleGalleryOnly } = useQueryParams(urlParsed);
     const { shuffledPosts } = useFilteredPosts({ posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder });
 
@@ -59,8 +58,6 @@ const Page = () => {
 
 
 
-    if (loading) return <Box sx={styles.loaderBoxStyles}><CircularProgress /></Box>
-    if (error) return <Box sx={styles.loaderBoxStyles}><Typography color="error">{error.message}</Typography></Box>
     return (
         <Container maxWidth="lg" sx={styles.containerStyles}>
             <Stack direction="row" sx={styles.headerWrapperStyles}>

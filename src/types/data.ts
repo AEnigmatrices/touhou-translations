@@ -1,3 +1,10 @@
+export interface Data {
+    posts: Post[];
+    artists: Artist[];
+    characters: Character[];
+    dailyPost: Post | null;
+}
+
 export interface Post {
     date: number;
     reddit: string;

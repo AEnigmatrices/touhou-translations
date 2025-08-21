@@ -1,14 +1,10 @@
-import { render } from 'vike/abort';
+import { useData } from 'vike-react/useData';
 import ListPage from '../../components/ListPage/ListPage';
-import { useAppData } from '../layout/useAppData';
+import type { JSX } from 'react';
+import type { Data } from '../../types/data';
 
-const Page = () => {
-    const { characters, loading, error } = useAppData();
-
-    if (loading) return <div>Loading...</div>;
-    if (error) throw render(500, error.message);
-    if (!characters || characters.length === 0) throw render(404, 'No characters found');
-
+const Page = (): JSX.Element => {
+    const { characters } = useData<Data>();
     return <ListPage mode="character" characters={characters} />;
 };
 

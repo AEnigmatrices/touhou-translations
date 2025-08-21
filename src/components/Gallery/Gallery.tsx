@@ -1,10 +1,10 @@
-import { useState, useEffect, type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
+import { useData } from 'vike-react/useData';
 import { Grid, Box } from '@mui/material';
-import { useAppData } from '../../pages/layout/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
 import GalleryImage from './GalleryImage';
 import styles from './Gallery.styles';
-import type { Post } from '../../types/data';
+import type { Data, Post } from '../../types/data';
 
 interface Props { posts?: Post[]; }
 
@@ -14,7 +14,7 @@ const BATCH_DELAY = 500;
 
 
 const Gallery: FC<Props> = ({ posts }) => {
-    const { posts: allPosts } = useAppData();
+    const { posts: allPosts } = useData<Data>();
     const displayedPosts = posts || allPosts;
     const [visibleCount, setVisibleCount] = useState(0);
 

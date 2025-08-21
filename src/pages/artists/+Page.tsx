@@ -1,14 +1,10 @@
-import { render } from 'vike/abort';
+import { useData } from 'vike-react/useData';
 import ListPage from '../../components/ListPage/ListPage';
-import { useAppData } from '../layout/useAppData';
+import type { JSX } from 'react';
+import type { Data } from '../../types/data';
 
-const Page = () => {
-    const { artists, loading, error } = useAppData();
-
-    if (loading) return <div>Loading...</div>;
-    if (error) throw render(500, error.message);
-    if (!artists || artists.length === 0) throw render(404, 'No artists found');
-
+const Page = (): JSX.Element => {
+    const { artists } = useData<Data>();
     return <ListPage mode="artist" artists={artists} />;
 };
 
