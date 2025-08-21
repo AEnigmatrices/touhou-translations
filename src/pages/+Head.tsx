@@ -27,11 +27,6 @@ const Head = () => {
             <link rel="prefetch" href="/touhou-translations/data/posts/posts-2024.json" />
             <link rel="prefetch" href="/touhou-translations/data/posts/posts-2025.json" />
 
-            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-regular.woff2" as="font" type="font/woff2" crossOrigin="" />
-            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-500.woff2" as="font" type="font/woff2" crossOrigin="" />
-            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-600.woff2" as="font" type="font/woff2" crossOrigin="" />
-            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-700.woff2" as="font" type="font/woff2" crossOrigin="" />
-
             {isProd && <script src="/touhou-translations/registerSW.js"></script>}
         </>
     );
