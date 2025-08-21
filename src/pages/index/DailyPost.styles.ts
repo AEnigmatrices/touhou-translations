@@ -63,7 +63,7 @@ const styles: Styles = {
     title: (theme) => ({
         color: theme.palette.text.secondary,
         fontWeight: 600,
-        mb: 2,
+        mb: 4.5,
         textAlign: 'center',
     }),
 
