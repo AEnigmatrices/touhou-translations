@@ -2,13 +2,12 @@ import { fetchPosts } from "../../../utils/fetchData";
 import { extractRedditId } from "../../../utils/extractRedditId";
 import type { Post } from "../../../types/data";
 
-type PageContext = { data?: Record<string, unknown>; };
-type Return = { url: string; pageContext?: PageContext };
+type Return = { url: string };
 
 
 const onBeforePrerenderStart = async (): Promise<Return[]> => {
     try {
-        const posts = await fetchPosts();
+        const posts = fetchPosts();
 
         const postPages: Return[] = posts
             .map((post: Post) => {
@@ -17,7 +16,7 @@ const onBeforePrerenderStart = async (): Promise<Return[]> => {
                     console.warn("Skipping post: could not extract Reddit ID from", post.reddit);
                     return null;
                 }
-                return { url: `/posts/${redditId}`, pageContext: { data: { post } } };
+                return { url: `/posts/${redditId}` };
             })
             .filter(Boolean) as Return[];
 
@@ -27,6 +26,6 @@ const onBeforePrerenderStart = async (): Promise<Return[]> => {
         console.error("Failed to generate prerender routes:", error);
         return [];
     }
-}
+};
 
 export { onBeforePrerenderStart };
