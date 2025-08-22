@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { usePageContext } from 'vike-react/usePageContext';
-import { fetchPosts, fetchArtists, fetchCharacters } from '../../utils/fetchData';
+import { fetchPosts, fetchArtistsRaw, fetchCharactersRaw } from '../../utils/fetchData';
 import type { Post, Artist, Character } from '../../types/data';
 
 interface AppData {
@@ -58,8 +58,8 @@ const useAppData = (): AppData => {
 
                 const [posts, artists, characters] = await Promise.all([
                     fetchPosts(),
-                    fetchArtists(),
-                    fetchCharacters()
+                    fetchArtistsRaw(),
+                    fetchCharactersRaw()
                 ]);
 
                 const artistArtworkCounts = getArtistArtworkCounts(posts);
