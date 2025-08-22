@@ -27,7 +27,6 @@ const styles: Styles = {
         alignItems: 'center',
         width: '100%',
         maxWidth: 960,
-        height: 540,
         position: 'relative',
         borderRadius: 2,
         overflow: 'hidden',
