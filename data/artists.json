@@ -1731,5 +1731,18 @@
         "linkTwitter": "https://x.com/AmAchA_0000",
         "linkPixiv": "https://www.pixiv.net/en/users/113676628",
         "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "rise",
+        "name": "RISE",
+        "linkTwitter": "https://x.com/RISE19851203",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "azuma_yoriko",
+        "name": "あずまよりこ",
+        "linkTwitter": "https://x.com/AzumaYoriko",
+        "linkPixiv": "https://www.pixiv.net/en/users/37450350",
+        "portrait": "/portraits/placeholders/scout.webp"
     }
 ]
