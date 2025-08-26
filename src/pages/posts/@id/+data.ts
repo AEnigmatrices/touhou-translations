@@ -13,7 +13,7 @@ const getRandomArtistPosts = <T>(arr: T[]): T[] => {
     return result.slice(0, RANDOM_ARTIST_POSTS_COUNT);
 };
 
-const data = async (pageContext: PageContextServer) => {
+const data = (pageContext: PageContextServer) => {
     const { id } = pageContext.routeParams;
     const { posts, artists, characters } = fetchPostsData();
 
