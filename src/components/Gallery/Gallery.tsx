@@ -1,13 +1,12 @@
 import { useState, useEffect, type FC } from 'react';
 import { Grid, Box } from '@mui/material';
-import { useAppData } from '../../pages/layout/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
 import { isCached } from '../../utils/isCached';
 import GalleryImage from './GalleryImage';
 import styles from './Gallery.styles';
 import type { Post } from '../../types/data';
 
-interface Props { posts?: Post[]; }
+interface Props { posts: Post[]; }
 
 const BASE_URL = import.meta.env.BASE_URL || '/';
 const BATCH_SIZE = 5;
@@ -15,9 +14,8 @@ const BATCH_DELAY = 500;
 
 
 const Gallery: FC<Props> = ({ posts }) => {
-    const { posts: allPosts } = useAppData();
-    const displayedPosts = posts || allPosts;
 
+    const displayedPosts = posts;
     const cachedCount = displayedPosts.filter(p => p.url?.length && isCached(p.url[0])).length;
 
     const [visibleCount, setVisibleCount] = useState(cachedCount);
