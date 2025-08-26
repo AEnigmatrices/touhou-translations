@@ -1744,5 +1744,83 @@
         "linkTwitter": "https://x.com/AzumaYoriko",
         "linkPixiv": "https://www.pixiv.net/en/users/37450350",
         "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "diz",
+        "name": "DiZ",
+        "linkTwitter": "https://x.com/dizsonyasuna",
+        "linkPixiv": "https://www.pixiv.net/en/users/7499778",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "meis",
+        "name": "メイス",
+        "linkTwitter": "https://x.com/meis12495",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "uwakushi",
+        "name": "うわくし",
+        "linkTwitter": "https://x.com/darekano94",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "shionoe",
+        "name": "しおのえ",
+        "linkTwitter": "https://x.com/_shionoe__",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "morisshi",
+        "name": "もりっしー",
+        "linkTwitter": "https://x.com/morishiey",
+        "linkPixiv": "https://www.pixiv.net/en/users/4590152",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "gondora",
+        "name": "ごんどら",
+        "linkTwitter": "https://x.com/Ww333v",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "satou_yokochou",
+        "name": "佐藤横丁",
+        "linkTwitter": "https://x.com/yoko_cho",
+        "linkPixiv": "https://www.pixiv.net/en/users/264039",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "prim",
+        "name": "Prim",
+        "linkTwitter": "https://x.com/primsla",
+        "linkPixiv": "https://www.pixiv.net/en/users/76420999",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "waa",
+        "name": "わーっ",
+        "linkTwitter": "https://x.com/W178_",
+        "linkPixiv": "https://www.pixiv.net/en/users/55578424",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "nagato_grey",
+        "name": "Nagato Grey",
+        "linkTwitter": "https://x.com/grey_99123",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "kepona",
+        "name": "けぽな",
+        "linkTwitter": "https://x.com/pnk_wonderful",
+        "linkPixiv": "https://www.pixiv.net/en/users/4428315",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "rowen_taro",
+        "name": "ローエン太郎",
+        "linkTwitter": "https://x.com/roowen_taro",
+        "portrait": "/portraits/placeholders/demoman.webp"
     }
 ]
