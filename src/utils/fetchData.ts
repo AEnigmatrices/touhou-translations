@@ -45,6 +45,18 @@ export const fetchPostsData = (): { posts: Post[]; artists: Artist[]; characters
     return { posts, artists, characters };
 };
 
+export const fetchArtistsData = (): { artists: Artist[] } => {
+    const posts = fetchPosts();
+    const artists = processArtists(artistsData, posts);
+    return { artists };
+};
+
+export const fetchCharactersData = (): { characters: Character[] } => {
+    const posts = fetchPosts();
+    const characters = processCharacters(charactersData, posts);
+    return { characters };
+};
+
 
 export const getRandomPostPath = (): string => {
     const { posts } = fetchPostsData();
