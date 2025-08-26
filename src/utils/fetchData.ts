@@ -67,3 +67,11 @@ export const getRandomPostPath = (): string => {
 
     return redditId ? `${BASE_PATH}posts/${redditId}` : BASE_PATH;
 };
+
+
+export const fetchDailyPost = (): Post => {
+    const posts = fetchPosts();
+    const today = new Date();
+    const index = (today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate()) % posts.length;
+    return posts[index];
+};
