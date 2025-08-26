@@ -48,22 +48,22 @@ const Gallery: FC<Props> = ({ posts }) => {
     return (
         <Grid container spacing={2} justifyContent="center">
             {displayedPosts.map((post, index) => {
-                if (index >= visibleCount) return null;
                 if (!post.url?.length) return null;
 
                 const redditId = extractRedditId(post.reddit);
                 if (!redditId) return null;
 
                 const preloaded = isCached(post.url[0]);
+                const isVisible = index < visibleCount;
+
                 return (
                     <Grid size={{ xs: 6, sm: 2.4 }} key={redditId}>
                         <Box
                             sx={{
                                 ...styles.item,
-                                opacity: preloaded ? 1 : 0,
-                                animation: preloaded ? 'none' : 'fadeIn 0.5s forwards',
-                                animationDelay: preloaded ? '0ms' : `${index * 100}ms`,
-                                '@keyframes fadeIn': { from: { opacity: 0 }, to: { opacity: 1 } }
+                                animation: isVisible && !preloaded ? 'fadeIn 0.5s forwards' : 'none',
+                                animationDelay: isVisible ? `${index * 100}ms` : '0ms',
+                                '@keyframes fadeIn': { from: { opacity: 0 }, to: { opacity: 1 } },
                             }}
                         >
                             <a
@@ -71,10 +71,14 @@ const Gallery: FC<Props> = ({ posts }) => {
                                 style={{ display: 'block', width: '100%', height: '100%' }}
                             >
                                 <Box sx={styles.imageWrapper}>
-                                    <GalleryImage
-                                        src={post.url[0]} preloaded={preloaded}
-                                        alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
-                                    />
+                                    {isVisible ? (
+                                        <GalleryImage
+                                            src={post.url[0]} preloaded={preloaded}
+                                            alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
+                                        />
+                                    ) : (
+                                        <Box sx={styles.placeholder} />
+                                    )}
                                 </Box>
                             </a>
                         </Box>

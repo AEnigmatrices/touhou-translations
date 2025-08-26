@@ -3,6 +3,7 @@ import type { SxProps } from '@mui/material/styles';
 interface Styles {
     item: SxProps;
     imageWrapper: SxProps;
+    placeholder: SxProps;
 }
 
 const styles: Styles = {
@@ -26,12 +27,22 @@ const styles: Styles = {
             outline: '2px solid #005fcc',
             outlineOffset: '2px',
         },
+        opacity: 1
     },
 
     imageWrapper: {
         width: '100%',
         height: '100%',
         display: 'flex'
+    },
+
+    placeholder: {
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#f0f0f0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     }
 
 };
