@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { navigate } from 'vike/client/router';
-import { useAppData } from '../../pages/layout/useAppData';
 import { usePageContext } from 'vike-react/usePageContext';
+import { getRandomPostPath } from '../../utils/fetchData';
 import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { ElevationScroll, getRandomPostPath } from './Navbar.utils';
+import { ElevationScroll } from './Navbar.utils';
 import { navLinks } from '../../utils/navLinks';
 import styles from './Navbar.styles';
+import type { JSX } from 'react';
 
 
+const Navbar = (): JSX.Element => {
 
-
-const Navbar: React.FC = () => {
-
-    const { posts } = useAppData();
     const pageContext = usePageContext();
     const [currentTab, setCurrentTab] = useState<string | false>(false);
 
@@ -23,15 +21,12 @@ const Navbar: React.FC = () => {
     const url = pageContext.urlOriginal;
 
 
-
-    const handleLogoClick = () => navigate(getRandomPostPath(posts));
+    const handleLogoClick = () => navigate(getRandomPostPath());
 
     const isCurrent = (to: string) => currentTab === to;
 
 
-
     useEffect(() => { setCurrentTab(tabPaths.includes(url) ? url : false); }, [url, tabPaths]);
-
 
 
     return (
