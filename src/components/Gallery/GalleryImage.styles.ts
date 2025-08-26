@@ -6,6 +6,7 @@ interface Styles {
     image: SxProps;
     loading: SxProps;
     loaded: SxProps;
+    spinnerContainer: SxProps;
 }
 
 const styles: Styles = {
@@ -42,6 +43,16 @@ const styles: Styles = {
     loaded: {
         opacity: 1,
         filter: 'blur(0)'
+    },
+
+    spinnerContainer: {
+        position: 'absolute',
+        inset: 0,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f0f0f0',
+        borderRadius: 1,
     }
 
 };

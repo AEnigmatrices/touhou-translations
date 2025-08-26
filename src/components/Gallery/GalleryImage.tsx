@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, type FC } from 'react';
-import { Box } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import styles from './GalleryImage.styles';
 import type { SxProps } from '@mui/material';
 
@@ -47,19 +47,18 @@ const GalleryImage: FC<Props> = ({ src, alt, preloaded }) => {
 
     return (
         <Box sx={styles.wrapper}>
-            <Box
-                sx={{ ...styles.placeholder, opacity: loaded ? 0 : 1, transition: 'opacity 0.3s ease', }}
-                aria-hidden="true"
-            />
-            <Box
-                component="img"
-                src={currentSrc}
-                alt={alt}
-                loading="lazy"
-                onLoad={() => setLoaded(true)}
-                onError={handleError}
-                sx={{ ...styles.image, ...(loaded ? styles.loaded : styles.loading) } as SxProps}
-            />
+            {!loaded && <Box sx={styles.spinnerContainer}><CircularProgress /></Box>}
+            {loaded && (
+                <Box
+                    component="img"
+                    src={currentSrc}
+                    alt={alt}
+                    loading="lazy"
+                    onLoad={() => setLoaded(true)}
+                    onError={handleError}
+                    sx={{ ...styles.image, ...(loaded ? styles.loaded : styles.loading) } as SxProps}
+                />
+            )}
         </Box>
     );
 };
