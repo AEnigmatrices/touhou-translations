@@ -3,17 +3,20 @@ import { Box } from '@mui/material';
 import styles from './GalleryImage.styles';
 import type { SxProps } from '@mui/material';
 
-interface Props { src: string; alt: string; }
+interface Props {
+    src: string;
+    alt: string;
+    preloaded?: boolean;
+}
 
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 300;
 
 
-const GalleryImage: FC<Props> = ({ src, alt }) => {
-    const [loaded, setLoaded] = useState(false);
+const GalleryImage: FC<Props> = ({ src, alt, preloaded }) => {
+    const [loaded, setLoaded] = useState(!!preloaded);
     const [retryCount, setRetryCount] = useState(0);
     const [currentSrc, setCurrentSrc] = useState(src);
-
 
 
     const handleError = () => {
@@ -26,7 +29,6 @@ const GalleryImage: FC<Props> = ({ src, alt }) => {
     }, [retryCount, src]);
 
 
-
     useEffect(() => {
         if (retryCount > 0 && retryCount <= MAX_RETRIES) {
             const timer = setTimeout(attemptLoad, RETRY_DELAY);
@@ -34,6 +36,13 @@ const GalleryImage: FC<Props> = ({ src, alt }) => {
         }
     }, [retryCount, attemptLoad]);
 
+    useEffect(() => {
+        if (!preloaded) {
+            const img = new Image();
+            img.src = src;
+            if (img.complete && img.naturalWidth > 0) setLoaded(true);
+        }
+    }, [src, preloaded]);
 
 
     return (

@@ -26,8 +26,6 @@ const styles: Styles = {
             outline: '2px solid #005fcc',
             outlineOffset: '2px',
         },
-        opacity: 0,
-        animation: 'fadeIn 0.5s forwards',
     },
 
     imageWrapper: {

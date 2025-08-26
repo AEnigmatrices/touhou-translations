@@ -2,6 +2,7 @@ import { useState, useEffect, type FC } from 'react';
 import { Grid, Box } from '@mui/material';
 import { useAppData } from '../../pages/layout/useAppData';
 import { extractRedditId } from '../../utils/extractRedditId';
+import { isCached } from '../../utils/isCached';
 import GalleryImage from './GalleryImage';
 import styles from './Gallery.styles';
 import type { Post } from '../../types/data';
@@ -16,26 +17,31 @@ const BATCH_DELAY = 500;
 const Gallery: FC<Props> = ({ posts }) => {
     const { posts: allPosts } = useAppData();
     const displayedPosts = posts || allPosts;
-    const [visibleCount, setVisibleCount] = useState(0);
 
+    const cachedCount = displayedPosts.filter(p => p.url?.length && isCached(p.url[0])).length;
 
+    const [visibleCount, setVisibleCount] = useState(cachedCount);
 
     useEffect(() => {
         if (!displayedPosts.length) return;
 
-        setVisibleCount(0);
+        if (cachedCount >= displayedPosts.length) {
+            setVisibleCount(displayedPosts.length);
+            return;
+        }
+
+        setVisibleCount(cachedCount);
         let batchIndex = 0;
 
         const interval = setInterval(() => {
             batchIndex++;
-            setVisibleCount(Math.min(batchIndex * BATCH_SIZE, displayedPosts.length));
-            if (batchIndex * BATCH_SIZE >= displayedPosts.length) clearInterval(interval);
+            const nextCount = Math.min(cachedCount + batchIndex * BATCH_SIZE, displayedPosts.length);
+            setVisibleCount(nextCount);
+            if (nextCount >= displayedPosts.length) clearInterval(interval);
         }, BATCH_DELAY);
+
         return () => clearInterval(interval);
-
-    }, [displayedPosts]);
-
-
+    }, [displayedPosts, cachedCount]);
 
     if (!displayedPosts.length) return <p>No posts available.</p>;
 
@@ -48,13 +54,15 @@ const Gallery: FC<Props> = ({ posts }) => {
                 const redditId = extractRedditId(post.reddit);
                 if (!redditId) return null;
 
+                const preloaded = isCached(post.url[0]);
                 return (
                     <Grid size={{ xs: 6, sm: 2.4 }} key={redditId}>
                         <Box
                             sx={{
                                 ...styles.item,
-                                animation: 'fadeIn 0.5s forwards',
-                                animationDelay: `${index * 100}ms`,
+                                opacity: preloaded ? 1 : 0,
+                                animation: preloaded ? 'none' : 'fadeIn 0.5s forwards',
+                                animationDelay: preloaded ? '0ms' : `${index * 100}ms`,
                                 '@keyframes fadeIn': { from: { opacity: 0 }, to: { opacity: 1 } }
                             }}
                         >
@@ -64,7 +72,7 @@ const Gallery: FC<Props> = ({ posts }) => {
                             >
                                 <Box sx={styles.imageWrapper}>
                                     <GalleryImage
-                                        src={post.url[0]}
+                                        src={post.url[0]} preloaded={preloaded}
                                         alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
                                     />
                                 </Box>
