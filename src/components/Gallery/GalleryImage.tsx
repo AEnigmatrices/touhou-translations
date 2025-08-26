@@ -12,16 +12,11 @@ interface Props {
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 300;
 
-
 const GalleryImage: FC<Props> = ({ src, alt, preloaded }) => {
     const [loaded, setLoaded] = useState(!!preloaded);
     const [retryCount, setRetryCount] = useState(0);
     const [currentSrc, setCurrentSrc] = useState(src);
 
-
-    const handleError = () => {
-        if (retryCount < MAX_RETRIES) setRetryCount(prev => prev + 1);
-    };
 
     const attemptLoad = useCallback(() => {
         const cacheBustedSrc = `${src}?retry=${retryCount}&cb=${Date.now()}`;
@@ -37,12 +32,26 @@ const GalleryImage: FC<Props> = ({ src, alt, preloaded }) => {
     }, [retryCount, attemptLoad]);
 
     useEffect(() => {
-        if (!preloaded) {
-            const img = new Image();
-            img.src = src;
-            if (img.complete && img.naturalWidth > 0) setLoaded(true);
-        }
-    }, [src, preloaded]);
+        if (loaded) return;
+
+        const img = new Image();
+        img.src = currentSrc;
+
+        const handleLoad = () => setLoaded(true);
+        const handleError = () => {
+            if (retryCount < MAX_RETRIES) setRetryCount(prev => prev + 1);
+        };
+
+        img.onload = handleLoad;
+        img.onerror = handleError;
+
+        if (img.complete && img.naturalWidth > 0) setLoaded(true);
+
+        return () => {
+            img.onload = null;
+            img.onerror = null;
+        };
+    }, [currentSrc, loaded, retryCount]);
 
 
     return (
@@ -54,8 +63,6 @@ const GalleryImage: FC<Props> = ({ src, alt, preloaded }) => {
                     src={currentSrc}
                     alt={alt}
                     loading="lazy"
-                    onLoad={() => setLoaded(true)}
-                    onError={handleError}
                     sx={{ ...styles.image, ...(loaded ? styles.loaded : styles.loading) } as SxProps}
                 />
             )}
