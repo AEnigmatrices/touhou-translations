@@ -1822,5 +1822,12 @@
         "name": "ローエン太郎",
         "linkTwitter": "https://x.com/roowen_taro",
         "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "jikumo",
+        "name": "じくも",
+        "linkTwitter": "https://x.com/imijikumo36",
+        "linkPixiv": "https://www.pixiv.net/en/users/3584525",
+        "portrait": "/portraits/placeholders/soldier.webp"
     }
 ]
