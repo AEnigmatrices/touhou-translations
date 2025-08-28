@@ -1829,5 +1829,39 @@
         "linkTwitter": "https://x.com/imijikumo36",
         "linkPixiv": "https://www.pixiv.net/en/users/3584525",
         "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "harushagi_9",
+        "name": "はるしゃぎ9",
+        "linkTwitter": "https://x.com/Harushagi_nine",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "amakaze",
+        "name": "あまかぜ",
+        "linkTwitter": "https://x.com/Amakaze16",
+        "linkPixiv": "https://www.pixiv.net/en/users/14853486",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "touto",
+        "name": "とうと",
+        "linkTwitter": "https://x.com/sunoures",
+        "linkPixiv": "https://www.pixiv.net/en/users/1490590",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "momokuri",
+        "name": "ももくり",
+        "linkTwitter": "https://x.com/3nennkaki8nenn",
+        "linkPixiv": "https://www.pixiv.net/en/users/68695648",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "kapuri",
+        "name": "カプリ",
+        "linkTwitter": "https://x.com/capuriwa",
+        "linkPixiv": "https://www.pixiv.net/en/users/17516127",
+        "portrait": "/portraits/placeholders/demoman.webp"
     }
 ]
