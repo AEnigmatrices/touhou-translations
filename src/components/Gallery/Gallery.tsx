@@ -70,10 +70,7 @@ const Gallery: FC<Props> = ({ posts }) => {
                             >
                                 <Box sx={styles.imageWrapper}>
                                     {isVisible ? (
-                                        <GalleryImage
-                                            src={post.url[0]} preloaded={preloaded}
-                                            alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
-                                        />
+                                        <GalleryImage src={post.url[0]} alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`} />
                                     ) : (
                                         <Box sx={styles.placeholder} />
                                     )}

@@ -1,7 +1,8 @@
-import { useEffect, useState, type FC } from 'react';
+import { useState, type FC } from 'react';
 import { useMediaQuery, useTheme, Box, IconButton, Typography, Paper, CircularProgress } from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { Img } from 'react-image';
 import styles from './ImageSection.styles';
 
 
@@ -10,13 +11,10 @@ const ImageSection: FC<{ urls: string[] }> = ({ urls }) => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [loading, setLoading] = useState(true);
     const [zoomed, setZoomed] = useState(false);
 
     const currentImage = urls[currentIndex];
     const isGallery = urls.length > 1;
-
-
 
     const handleChangeIndex = (direction: number) => {
         if (isGallery) setCurrentIndex((prev) => (prev + direction + urls.length) % urls.length);
@@ -32,24 +30,28 @@ const ImageSection: FC<{ urls: string[] }> = ({ urls }) => {
         ...(isMobile ? styles.cursorDefault : zoomed ? styles.cursorZoomOut : styles.cursorZoomIn),
     });
 
-    useEffect(() => { setLoading(true); }, [currentIndex]);
-
-
-
     return (
         <Box sx={styles.root}>
             <Box sx={styles.imageDisplay} position="relative">
                 <Paper onClick={handleImageClick} elevation={zoomed ? 8 : 1} sx={getPaperSx(zoomed, isMobile)}>
-                    <Box
-                        component="img" src={currentImage} alt="Translated Image" draggable={false} fetchPriority="high"
-                        sx={zoomed ? styles.zoomed : styles.zoomOut} onLoad={() => setLoading(false)} onError={() => setLoading(false)}
+                    <Img
+                        src={[currentImage]}
+                        alt="Translated Image"
+                        decode={false}
+                        draggable={false}
+                        loader={
+                            <>
+                                <Box sx={styles.loadingBackdrop} />
+                                <Box sx={styles.loadingIndicatorWrapper(theme)}><CircularProgress /></Box>
+                            </>
+                        }
+                        unloader={
+                            <Box sx={{ ...styles.zoomOut, display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#999' }}>
+                                Failed to load
+                            </Box>
+                        }
+                        style={zoomed ? styles.zoomed : styles.zoomOut}
                     />
-                    {loading && (
-                        <>
-                            <Box sx={styles.loadingBackdrop} />
-                            <Box sx={styles.loadingIndicatorWrapper(theme)}><CircularProgress /></Box>
-                        </>
-                    )}
                 </Paper>
             </Box>
 

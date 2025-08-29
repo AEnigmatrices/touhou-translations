@@ -1,4 +1,5 @@
 import type { SxProps, Theme } from '@mui/material/styles';
+import type { CSSProperties } from 'react';
 
 interface Styles {
     root: SxProps;
@@ -7,8 +8,8 @@ interface Styles {
     galleryControls: SxProps;
     galleryButton: SxProps;
     galleryIndex: SxProps;
-    zoomOut: SxProps;
-    zoomed: SxProps;
+    zoomOut: CSSProperties;
+    zoomed: CSSProperties;
     paper: SxProps;
     paperZoomIn: SxProps;
     paperZoomOut: SxProps;

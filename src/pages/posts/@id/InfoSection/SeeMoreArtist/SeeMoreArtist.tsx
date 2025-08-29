@@ -1,6 +1,6 @@
-import { Box, Typography, Grid } from '@mui/material';
+import { Img } from 'react-image';
 import { navigate } from 'vike/client/router';
-import { useEffect, useState } from 'react';
+import { Box, Typography, Grid, CircularProgress } from '@mui/material';
 import styles from './SeeMoreArtist.styles.ts';
 import type { FC } from 'react';
 
@@ -12,21 +12,6 @@ interface Props {
 const baseUrl = import.meta.env.BASE_URL;
 
 const SeeMoreArtist: FC<Props> = ({ artistName, artistPosts }) => {
-    const [loadedIndex, setLoadedIndex] = useState(-1);
-
-    const handleImageLoad = (index: number) => {
-        if (index + 1 < artistPosts.slice(0, 4).length) {
-            setTimeout(() => { setLoadedIndex(index + 1); }, 600);
-        }
-    };
-
-    useEffect(() => {
-        if (!artistPosts.length) return;
-        setLoadedIndex(-1);
-        const timer = setTimeout(() => setLoadedIndex(0), 600);
-        return () => clearTimeout(timer);
-    }, [artistPosts]);
-
     if (artistPosts.length === 0) return null;
 
     return (
@@ -38,22 +23,29 @@ const SeeMoreArtist: FC<Props> = ({ artistName, artistPosts }) => {
                 </Box>
             </Typography>
             <Grid container spacing={2} justifyContent="center">
-                {artistPosts.slice(0, 4).map(({ id, img }, index) => (
+                {artistPosts.slice(0, 4).map(({ id, img }) => (
                     <Grid size={{ xs: 6, sm: 3 }} key={id} sx={styles.seeMoreGrid}>
-                        {index <= loadedIndex && (
-                            <Box sx={styles.seeMoreImage} onClick={() => navigate(`${baseUrl}posts/${id}`)} >
-                                <img
-                                    src={img} alt={`See more by ${artistName ?? 'this Artist'}`}
-                                    style={{
-                                        width: '100%', height: '100%', objectFit: 'cover', opacity: 0, transition: 'opacity 0.5s ease'
-                                    }}
-                                    onLoad={(e) => {
-                                        (e.target as HTMLImageElement).style.opacity = '1';
-                                        handleImageLoad(index);
-                                    }}
-                                />
-                            </Box>
-                        )}
+                        <Box
+                            sx={styles.seeMoreImage}
+                            onClick={() => navigate(`${baseUrl}posts/${id}`)}
+                        >
+                            <Img
+                                src={[img]}
+                                alt={`See more by ${artistName ?? 'this Artist'}`}
+                                decode={false}
+                                loader={
+                                    <Box sx={styles.loaderWrapper}>
+                                        <CircularProgress size={24} />
+                                    </Box>
+                                }
+                                unloader={
+                                    <Box sx={styles.unloaderWrapper}>
+                                        <Typography sx={styles.unloaderText}>Failed to load</Typography>
+                                    </Box>
+                                }
+                                style={styles.imageStyle}
+                            />
+                        </Box>
                     </Grid>
                 ))}
             </Grid>
