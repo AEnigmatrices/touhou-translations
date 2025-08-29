@@ -1863,5 +1863,23 @@
         "linkTwitter": "https://x.com/capuriwa",
         "linkPixiv": "https://www.pixiv.net/en/users/17516127",
         "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "aosagi",
+        "name": "アオサギ",
+        "linkTwitter": "https://x.com/aosagi_mmd",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "migisune",
+        "name": "右脛",
+        "linkTwitter": "https://x.com/ukei624",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "takanakana",
+        "name": "たかなかな",
+        "linkTwitter": "https://x.com/bv7W3czek939",
+        "portrait": "/portraits/placeholders/soldier.webp"
     }
 ]
