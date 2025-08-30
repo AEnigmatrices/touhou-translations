@@ -1,12 +1,13 @@
-import type { SxProps, Theme } from "@mui/material";
+import type { CSSProperties } from "react";
+import type { SxProps } from "@mui/material";
 
 interface ProfileItemStyles {
-    paper: SxProps<Theme>;
-    linkBox: SxProps<Theme>;
-    content: SxProps<Theme>;
-    textContainer: SxProps<Theme>;
-    avatar: SxProps<Theme>;
-    placeholder: SxProps<Theme>;
+    paper: SxProps;
+    linkBox: SxProps;
+    content: SxProps;
+    textContainer: SxProps;
+    avatar: CSSProperties;
+    placeholder: SxProps;
 }
 
 const styles: ProfileItemStyles = {

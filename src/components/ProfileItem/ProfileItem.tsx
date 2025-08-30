@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Avatar, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
+import { Img } from "react-image";
+import LoadingIndicator from "../../components/LoadingIndicator";
 import styles from "./ProfileItem.styles";
 
 interface Props {
@@ -9,12 +11,11 @@ interface Props {
     link?: string;
 }
 
+
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
 
     const observerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
-    const [imgSrc, setImgSrc] = useState<string | null>(null);
-
 
 
     useEffect(() => {
@@ -32,14 +33,18 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         return () => observer.disconnect();
     }, []);
 
-    useEffect(() => {
-        if (isVisible) setImgSrc(imageUrl);
-    }, [isVisible, imageUrl]);
 
-
-
-    const ImageContent = imgSrc
-        ? <Avatar src={imgSrc} alt={name} sx={styles.avatar} variant="rounded" slotProps={{ img: { loading: "lazy" } }} />
+    const ImageContent = isVisible
+        ? (
+            <Img
+                src={[imageUrl]}
+                alt={name}
+                decode={false}
+                loader={<Box sx={styles.placeholder}><LoadingIndicator /></Box>}
+                unloader={<Box sx={styles.placeholder} aria-hidden><LoadingIndicator /></Box>}
+                style={styles.avatar}
+            />
+        )
         : <Box sx={styles.placeholder} aria-hidden />;
 
     const Content = (
@@ -56,8 +61,9 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         </Box>
     );
 
+
     return (
-        <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper}  >
+        <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper}>
             <Box ref={observerRef}>
                 {link
                     ? <Box component="a" href={link} sx={styles.linkBox}>{Content}</Box>
