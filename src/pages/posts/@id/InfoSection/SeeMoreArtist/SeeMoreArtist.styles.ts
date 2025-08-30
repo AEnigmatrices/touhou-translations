@@ -8,9 +8,6 @@ interface Styles {
     seeMoreGrid: SxProps;
     seeMoreImage: SxProps;
     imageStyle: CSSProperties;
-    loaderWrapper: SxProps;
-    unloaderWrapper: SxProps;
-    unloaderText: SxProps;
 }
 
 const styles: Styles = {
@@ -35,25 +32,6 @@ const styles: Styles = {
         width: '100%',
         height: '100%',
         objectFit: 'cover',
-    },
-    loaderWrapper: {
-        position: 'absolute',
-        inset: 0,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    unloaderWrapper: {
-        position: 'absolute',
-        inset: 0,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    unloaderText: {
-        color: '#999',
-        fontSize: '0.9rem',
-        textAlign: 'center',
     },
 };
 

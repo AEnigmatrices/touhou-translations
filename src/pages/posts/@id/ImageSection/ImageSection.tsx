@@ -1,8 +1,9 @@
 import { useState, type FC } from 'react';
-import { useMediaQuery, useTheme, Box, IconButton, Typography, Paper, CircularProgress } from '@mui/material';
+import { Img } from 'react-image';
+import { useMediaQuery, useTheme, Box, IconButton, Typography, Paper } from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Img } from 'react-image';
+import LoadingIndicator from '../../../../components/LoadingIndicator';
 import styles from './ImageSection.styles';
 
 
@@ -39,17 +40,8 @@ const ImageSection: FC<{ urls: string[] }> = ({ urls }) => {
                         alt="Translated Image"
                         decode={false}
                         draggable={false}
-                        loader={
-                            <>
-                                <Box sx={styles.loadingBackdrop} />
-                                <Box sx={styles.loadingIndicatorWrapper(theme)}><CircularProgress /></Box>
-                            </>
-                        }
-                        unloader={
-                            <Box sx={{ ...styles.zoomOut, display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#999' }}>
-                                Failed to load
-                            </Box>
-                        }
+                        loader={<><Box sx={styles.loadingBackdrop} /><LoadingIndicator /></>}
+                        unloader={<LoadingIndicator />}
                         style={zoomed ? styles.zoomed : styles.zoomOut}
                     />
                 </Paper>

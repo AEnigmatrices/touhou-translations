@@ -1,10 +1,10 @@
+import type { CSSProperties } from 'react';
 import type { SxProps, Theme } from '@mui/material/styles';
 
 interface Styles {
     card: SxProps;
     imageWrapper: SxProps;
-    image: SxProps;
-    loadingWrapper: SxProps;
+    image: CSSProperties;
     errorText: SxProps;
     title: SxProps<Theme>;
 }
@@ -39,17 +39,6 @@ const styles: Styles = {
         display: 'block',
         borderRadius: 2,
         objectFit: 'cover',
-        transition: 'transform 0.3s ease',
-        '&:hover': {
-            transform: 'scale(1.02)',
-        },
-    },
-
-    loadingWrapper: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100%',
     },
 
     errorText: {

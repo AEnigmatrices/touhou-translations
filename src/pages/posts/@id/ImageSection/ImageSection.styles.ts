@@ -1,4 +1,4 @@
-import type { SxProps, Theme } from '@mui/material/styles';
+import type { SxProps } from '@mui/material/styles';
 import type { CSSProperties } from 'react';
 
 interface Styles {
@@ -17,7 +17,6 @@ interface Styles {
     cursorZoomIn: SxProps;
     cursorZoomOut: SxProps;
     loadingBackdrop: SxProps;
-    loadingIndicatorWrapper: (theme: Theme) => SxProps;
 }
 
 const styles: Styles = {
@@ -128,14 +127,6 @@ const styles: Styles = {
         zIndex: 10,
         borderRadius: 1,
     },
-    loadingIndicatorWrapper: (theme: Theme) => ({
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        zIndex: 11,
-        color: theme.palette.primary.main,
-    }),
 };
 
 export default styles;

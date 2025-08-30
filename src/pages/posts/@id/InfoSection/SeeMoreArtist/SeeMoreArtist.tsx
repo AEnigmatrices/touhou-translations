@@ -1,6 +1,7 @@
 import { Img } from 'react-image';
 import { navigate } from 'vike/client/router';
-import { Box, Typography, Grid, CircularProgress } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
+import LoadingIndicator from '../../../../../components/LoadingIndicator/index.tsx';
 import styles from './SeeMoreArtist.styles.ts';
 import type { FC } from 'react';
 
@@ -33,16 +34,8 @@ const SeeMoreArtist: FC<Props> = ({ artistName, artistPosts }) => {
                                 src={[img]}
                                 alt={`See more by ${artistName ?? 'this Artist'}`}
                                 decode={false}
-                                loader={
-                                    <Box sx={styles.loaderWrapper}>
-                                        <CircularProgress size={24} />
-                                    </Box>
-                                }
-                                unloader={
-                                    <Box sx={styles.unloaderWrapper}>
-                                        <Typography sx={styles.unloaderText}>Failed to load</Typography>
-                                    </Box>
-                                }
+                                loader={<LoadingIndicator />}
+                                unloader={<LoadingIndicator />}
                                 style={styles.imageStyle}
                             />
                         </Box>
