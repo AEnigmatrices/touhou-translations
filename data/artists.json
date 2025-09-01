@@ -1881,5 +1881,49 @@
         "name": "たかなかな",
         "linkTwitter": "https://x.com/bv7W3czek939",
         "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "ringo_no_ki",
+        "name": "リンゴの木",
+        "linkTwitter": "https://x.com/painting4apple7",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "hoshi_ringo",
+        "name": "星りんご",
+        "linkTwitter": "https://x.com/_Hoshi_Ringo_",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "mikagezuka",
+        "name": "みかげ塚",
+        "linkTwitter": "https://x.com/mikagezuka_",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "niseneko",
+        "name": "偽猫",
+        "linkTwitter": "https://x.com/niseneko21",
+        "linkPixiv": "https://www.pixiv.net/en/users/1705403",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "shunmin_tsurezure",
+        "name": "春眠つれづれ",
+        "linkTwitter": "https://x.com/SyunTsure",
+        "linkPixiv": "https://www.pixiv.net/en/users/13453553",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "kawiten",
+        "name": "かゐてん",
+        "linkTwitter": "https://x.com/KAETEN21567398",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "nuu",
+        "name": "ヌゥ",
+        "linkTwitter": "https://x.com/nuu_echo",
+        "portrait": "/portraits/placeholders/scout.webp"
     }
 ]
