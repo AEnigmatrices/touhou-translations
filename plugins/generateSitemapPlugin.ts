@@ -6,12 +6,13 @@ import type { Plugin } from 'vite';
 const generateSitemapPlugin: Plugin = {
     name: 'generate-sitemap',
     closeBundle() {
-        const BASE_URL = 'https://aenigmatrices.github.io/touhou-translations';
+        const BASE_URL = 'https://aenigmatrices.github.io/touhou-translations/';
+
         const postsDir = path.resolve(__dirname, '../data/posts');
 
         const staticRoutes = ['', 'gallery', 'artists', 'characters'];
         const urls: string[] = staticRoutes.map(route =>
-            `${BASE_URL}/${route}`
+            `${BASE_URL}${route}${route ? '/' : ''}`
         );
 
         let posts: { reddit: string }[] = [];
@@ -32,7 +33,7 @@ const generateSitemapPlugin: Plugin = {
         posts.forEach(post => {
             const redditId = extractRedditId(post.reddit);
             if (redditId) {
-                urls.push(`${BASE_URL}/posts/${redditId}`);
+                urls.push(`${BASE_URL}posts/${redditId}/`);
             }
         });
 
