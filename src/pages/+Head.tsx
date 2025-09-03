@@ -9,8 +9,8 @@ const Head = () => {
                 content="
                     default-src 'self';
                     script-src 'self' 'unsafe-inline';
-                    style-src 'self' 'unsafe-inline';
-                    font-src 'self';
+                    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                    font-src 'self' https://fonts.gstatic.com;
                     img-src 'self' https://i.redd.it data:;
                     connect-src 'self' https://www.reddit.com https://i.redd.it;
                     object-src 'none';
@@ -22,15 +22,9 @@ const Head = () => {
             {isProd && <link rel="manifest" href="/touhou-translations/manifest.webmanifest" />}
 
             <link rel="preconnect" href="https://i.redd.it" />
-            <link rel="prefetch" href="/touhou-translations/data/artists.json" />
-            <link rel="prefetch" href="/touhou-translations/data/characters.json" />
-            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2024.json" />
-            <link rel="prefetch" href="/touhou-translations/data/posts/posts-2025.json" />
-
-            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-regular.woff2" as="font" type="font/woff2" crossOrigin="" />
-            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-500.woff2" as="font" type="font/woff2" crossOrigin="" />
-            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-600.woff2" as="font" type="font/woff2" crossOrigin="" />
-            <link rel="preload" href="/touhou-translations/fonts/noto-sans-jp/noto-sans-jp-v54-japanese_latin-700.woff2" as="font" type="font/woff2" crossOrigin="" />
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
             {isProd && <script src="/touhou-translations/registerSW.js"></script>}
         </>

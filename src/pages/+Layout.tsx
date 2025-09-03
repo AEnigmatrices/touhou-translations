@@ -7,7 +7,6 @@ import Footer from '../components/Footer/Footer';
 import BottomNav from '../components/BottomNav/BottomNav';
 import styles from "./layout/Layout.styles";
 import theme from './layout/theme';
-import './layout/fonts.css';
 import './layout/index.css';
 
 import type { JSX, ReactNode } from "react";
