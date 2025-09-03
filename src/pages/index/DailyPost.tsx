@@ -24,7 +24,7 @@ const DailyPost: FC<Props> = ({ dailyPost }) => {
                 </Typography>
                 {imageUrl && <Box sx={styles.imageWrapper}>
                     <a
-                        href={`${BASE_URL}posts/${redditId}`}
+                        href={`${BASE_URL}posts/${redditId}/`}
                         aria-label="View post details"
                         tabIndex={0}
                         rel="noopener noreferrer"

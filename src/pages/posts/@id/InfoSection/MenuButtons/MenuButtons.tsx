@@ -19,7 +19,7 @@ const isDev = import.meta.env.MODE === 'development';
 const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
 
     const handleNavigate = (postId: string | null) => {
-        if (postId) navigate(`${baseUrl}posts/${postId}`);
+        if (postId) navigate(`${baseUrl}posts/${postId}/`);
     };
 
     const downloadFile = async (url: string) => {

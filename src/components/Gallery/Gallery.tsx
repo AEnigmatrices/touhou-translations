@@ -65,7 +65,7 @@ const Gallery: FC<Props> = ({ posts }) => {
                             }}
                         >
                             <a
-                                href={`${BASE_URL}posts/${redditId}`}
+                                href={`${BASE_URL}posts/${redditId}/`}
                                 style={{ display: 'block', width: '100%', height: '100%' }}
                             >
                                 <Box sx={styles.imageWrapper}>
