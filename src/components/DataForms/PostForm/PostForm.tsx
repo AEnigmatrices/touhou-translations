@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Autocomplete, Avatar, Box, Chip, Button, Stack, TextField, Typography } from '@mui/material';
 import { fetchPosts } from '../../../utils/fetchData';
 import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl, validateArtistId, submitPostEntry } from './PostForm.utils';
 import styles from './PostForm.styles';
-import type { PostEntryForm } from "../../../types/data";
+import type { Post, PostEntryForm } from "../../../types/data";
 import artists from '../../../../data/artists.json';
 import characters from '../../../../data/characters.json';
 
@@ -12,8 +12,8 @@ import characters from '../../../../data/characters.json';
 
 const PostForm: React.FC = () => {
     const { register, handleSubmit, reset, watch, setValue, getValues, setError, clearErrors, formState: { errors, isSubmitting } } = useForm<PostEntryForm>();
+    const [allPosts, setAllPosts] = useState<Post[]>([]);
     const [loadingRedditData, setLoadingRedditData] = useState(false);
-    const allPosts = useMemo(() => fetchPosts(), []);
 
     const debounceRef = useRef<NodeJS.Timeout | null>(null);
     const watchedReddit = watch('reddit');
@@ -72,6 +72,12 @@ const PostForm: React.FC = () => {
     };
 
 
+
+    useEffect(() => {
+        let mounted = true;
+        fetchPosts().then(posts => { if (mounted) setAllPosts(posts); });
+        return () => { mounted = false; };
+    }, []);
 
     useEffect(() => {
         if (!watchedReddit) {

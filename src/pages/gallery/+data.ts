@@ -1,8 +1,8 @@
 import type { PageContextServer } from 'vike/types';
 import { fetchPostsData } from '../../utils/fetchData';
 
-const data = (_pageContext: PageContextServer) => {
-    const { posts, artists, characters } = fetchPostsData();
+const data = async (_pageContext: PageContextServer) => {
+    const { posts, artists, characters } = await fetchPostsData();
     return { posts, artists, characters };
 };
 

@@ -21,7 +21,10 @@ const Navbar = (): JSX.Element => {
     const url = pageContext.urlOriginal;
 
 
-    const handleLogoClick = () => navigate(getRandomPostPath());
+    const handleLogoClick = async () => {
+        const path = await getRandomPostPath();
+        navigate(path);
+    };
 
     const isCurrent = (to: string) => currentTab === to;
 

@@ -13,9 +13,9 @@ const getRandomArtistPosts = <T>(arr: T[]): T[] => {
     return result.slice(0, RANDOM_ARTIST_POSTS_COUNT);
 };
 
-const data = (pageContext: PageContextServer) => {
+const data = async (pageContext: PageContextServer) => {
     const { id } = pageContext.routeParams;
-    const { posts, artists, characters } = fetchPostsData();
+    const { posts, artists, characters } = await fetchPostsData();
 
     const post = posts.find(p => extractRedditId(p.reddit) === id);
     if (!post || !post.url.length || !post.src) throw new Error(`Post not found for ID: ${id}`);

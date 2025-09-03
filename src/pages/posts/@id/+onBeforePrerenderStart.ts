@@ -7,7 +7,7 @@ type Return = { url: string };
 
 const onBeforePrerenderStart = async (): Promise<Return[]> => {
     try {
-        const posts = fetchPosts();
+        const posts = await fetchPosts();
 
         const postPages: Return[] = posts
             .map((post: Post) => {
