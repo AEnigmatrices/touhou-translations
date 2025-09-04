@@ -1,28 +1,36 @@
+import type { CSSProperties } from 'react';
 import type { SxProps } from '@mui/material/styles';
 
 interface Styles {
     videoContainer: SxProps;
     title: SxProps;
-    videoWrapper: React.CSSProperties;
-    iframe: React.CSSProperties;
+    videoWrapper: CSSProperties;
+    iframe: CSSProperties;
 }
 
 const styles: Styles = {
     videoContainer: {
-        p: 3,
         display: 'flex',
         flexDirection: 'column',
         gap: 2,
-        borderRadius: 3,
+        borderTopLeftRadius: 36,
+        borderTopRightRadius: 0,
+        borderBottomLeftRadius: 36,
+        borderBottomRightRadius: 36,
         boxShadow: 3,
         backgroundColor: 'background.paper',
+        width: '100%',
+        overflow: 'hidden',
     },
     title: {
-        mb: 2,
+        textAlign: 'center',
+        p: 2,
+        pb: 0
     },
     videoWrapper: {
         position: 'relative',
         paddingTop: '56.25%',
+        width: '100%',
     },
     iframe: {
         position: 'absolute',

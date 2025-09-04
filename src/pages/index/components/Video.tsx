@@ -1,10 +1,13 @@
-import { Paper, Typography } from '@mui/material';
+import { Paper, Typography, useTheme, useMediaQuery } from '@mui/material';
 import type { JSX } from 'react';
 import styles from '../styles/Video.styles';
 
 const Video = (): JSX.Element => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
-        <Paper sx={styles.videoContainer}>
+        <Paper sx={{ ...styles.videoContainer, maxWidth: isMobile ? '100%' : 800, mx: 'auto', p: 0, }}  >
             <Typography variant="h6" color="text.primary" sx={styles.title}>
                 Featured Video
             </Typography>
@@ -15,7 +18,7 @@ const Video = (): JSX.Element => {
                     title="Featured Video"
                     style={styles.iframe}
                     allowFullScreen
-                ></iframe>
+                />
             </div>
         </Paper>
     );
