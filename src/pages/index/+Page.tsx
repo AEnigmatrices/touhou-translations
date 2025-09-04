@@ -1,7 +1,7 @@
 import { useData } from 'vike-react/useData';
 import { Container, Grid } from '@mui/material';
-import About from './About';
-import DailyPost from './DailyPost';
+import About from './components/About';
+import DailyPost from './components/DailyPost';
 import type { JSX } from 'react';
 import type { Data } from './+data';
 

@@ -1,5 +1,5 @@
 import { Paper, Typography } from '@mui/material';
-import styles from './About.styles';
+import styles from '../styles/About.styles';
 import type { JSX } from 'react';
 
 const About = (): JSX.Element => {

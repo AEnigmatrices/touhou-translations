@@ -1,10 +1,10 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { Img } from 'react-image';
-import { extractRedditId } from '../../utils/extractRedditId';
-import LoadingIndicator from '../../components/LoadingIndicator';
-import styles from './DailyPost.styles';
+import { extractRedditId } from '../../../utils/extractRedditId';
+import LoadingIndicator from '../../../components/LoadingIndicator';
+import styles from '../styles/DailyPost.styles';
 import type { FC } from 'react';
-import type { Post } from '../../types/data';
+import type { Post } from '../../../types/data';
 
 const BASE_URL = import.meta.env.BASE_URL || '/';
 
