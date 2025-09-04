@@ -9,8 +9,6 @@ interface Styles {
 const styles: Styles = {
 
     item: {
-        width: 200,
-        height: 200,
         borderRadius: 2,
         overflow: 'hidden',
         cursor: 'pointer',
@@ -27,7 +25,8 @@ const styles: Styles = {
             outline: '2px solid #005fcc',
             outlineOffset: '2px',
         },
-        opacity: 1
+        opacity: 1,
+        aspectRatio: '1 / 1',
     },
 
     imageWrapper: {
