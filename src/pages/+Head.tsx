@@ -15,6 +15,7 @@ const Head = () => {
                     connect-src 'self' https://www.reddit.com https://i.redd.it;
                     object-src 'none';
                     base-uri 'self';
+                    frame-src https://www.youtube-nocookie.com;
                 "
             />
             <meta name="referrer" content="strict-origin" />
