@@ -11,7 +11,10 @@ const styles: Styles = {
         p: 3,
         display: 'flex',
         flexDirection: 'column',
-        gap: 2
+        gap: 2,
+        borderRadius: 3,
+        boxShadow: 3,
+        backgroundColor: 'background.paper',
     },
 
     aboutText: {
