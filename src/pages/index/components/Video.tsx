@@ -1,19 +1,19 @@
 import { Paper, Typography } from '@mui/material';
 import type { JSX } from 'react';
+import styles from '../styles/Video.styles';
 
 const Video = (): JSX.Element => {
     return (
-        <Paper sx={{ p: 3, display: 'flex', flexDirection: 'column', gap: 2, borderRadius: 3, boxShadow: 3, backgroundColor: 'background.paper' }}>
-            <Typography variant="h6" color="text.primary" sx={{ mb: 2 }}>
+        <Paper sx={styles.videoContainer}>
+            <Typography variant="h6" color="text.primary" sx={styles.title}>
                 Featured Video
             </Typography>
 
-            <div style={{ position: 'relative', paddingTop: '56.25%' }}>
+            <div style={styles.videoWrapper}>
                 <iframe
-                    src="https://www.youtube.com/embed/Gfev_ZEBRNk"
+                    src="https://www.youtube-nocookie.com/embed/Gfev_ZEBRNk"
                     title="Featured Video"
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    style={styles.iframe}
                     allowFullScreen
                 ></iframe>
             </div>
