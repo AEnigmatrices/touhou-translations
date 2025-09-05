@@ -1925,5 +1925,66 @@
         "name": "ヌゥ",
         "linkTwitter": "https://x.com/nuu_echo",
         "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "mishima",
+        "name": "みしま",
+        "linkTwitter": "https://x.com/misima426",
+        "linkPixiv": "https://www.pixiv.net/en/users/9167103",
+        "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "matsu_kitsune",
+        "name": "まつきつね",
+        "linkTwitter": "https://x.com/QebB7Rb9DL9dvUl",
+        "linkPixiv": "https://www.pixiv.net/en/users/34545752",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "akina",
+        "name": "Akina",
+        "linkTwitter": "https://x.com/akinashinokura",
+        "linkPixiv": "https://www.pixiv.net/en/users/12957749",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "miyo",
+        "name": "みよ",
+        "linkTwitter": "https://x.com/lfZ8aVIya4MjNx0/media",
+        "linkPixiv": "https://www.pixiv.net/en/users/68861801",
+        "portrait": "/portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "KWISSHY",
+        "name": "KWISSHY",
+        "linkTwitter": "https://x.com/Kitewilike17851",
+        "linkPixiv": "https://www.pixiv.net/en/users/45717864",
+        "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "216",
+        "name": "216",
+        "linkTwitter": "https://x.com/VJ_frmk",
+        "linkPixiv": "https://www.pixiv.net/en/users/17332144",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "star_21",
+        "name": "スター21",
+        "linkTwitter": "https://x.com/952_953_UMIKAZE",
+        "linkPixiv": "https://www.pixiv.net/en/users/2183495",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "yutou",
+        "name": "芋头Ay",
+        "linkTwitter": "https://x.com/Ay606078",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "aasoukai",
+        "name": "アアソウカイ",
+        "linkTwitter": "https://x.com/kqkqiwq",
+        "portrait": "/portraits/placeholders/demoman.webp"
     }
 ]
