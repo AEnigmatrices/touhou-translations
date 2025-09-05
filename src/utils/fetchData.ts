@@ -5,21 +5,38 @@ const BASE_PATH = import.meta.env.BASE_URL;
 
 
 const processArtists = (artistsRaw: ArtistRaw[], posts: Post[]): Artist[] => {
-    const countMap: Record<string, number> = {};
+    const artworkCountMap: Record<string, number> = {};
+    const characterCountMap: Record<string, number> = {};
+
     for (const post of posts) {
-        countMap[post.artistId] = (countMap[post.artistId] ?? 0) + 1;
+        artworkCountMap[post.artistId] = (artworkCountMap[post.artistId] ?? 0) + 1;
+        characterCountMap[post.artistId] = (characterCountMap[post.artistId] ?? 0) + post.characterIds.length;
     }
-    return artistsRaw.map(a => ({ ...a, artworkCount: countMap[a.id] ?? 0 }));
+
+    return artistsRaw.map(a => ({
+        ...a,
+        artworkCount: artworkCountMap[a.id] ?? 0,
+        characterCount: characterCountMap[a.id] ?? 0
+    }));
 };
 
 const processCharacters = (charactersRaw: CharacterRaw[], posts: Post[]): Character[] => {
-    const countMap: Record<string, number> = {};
+    const artworkCountMap: Record<string, number> = {};
+    const artistSetMap: Record<string, Set<string>> = {};
+
     for (const post of posts) {
         for (const id of post.characterIds) {
-            countMap[id] = (countMap[id] ?? 0) + 1;
+            artworkCountMap[id] = (artworkCountMap[id] ?? 0) + 1;
+            if (!artistSetMap[id]) artistSetMap[id] = new Set();
+            artistSetMap[id].add(post.artistId);
         }
     }
-    return charactersRaw.map(c => ({ ...c, artworkCount: countMap[c.id] ?? 0 }));
+
+    return charactersRaw.map(c => ({
+        ...c,
+        artworkCount: artworkCountMap[c.id] ?? 0,
+        artistCount: artistSetMap[c.id]?.size ?? 0
+    }));
 };
 
 
@@ -59,12 +76,20 @@ export const fetchArtistsData = async (): Promise<{ artists: Artist[] }> => {
     const artistsModule = await import('../../data/artists.json');
     const artistsRaw: ArtistRaw[] = artistsModule.default;
 
-    const countMap: Record<string, number> = {};
+    const artworkCountMap: Record<string, number> = {};
+    const characterCountMap: Record<string, number> = {};
+
     for (const post of posts) {
-        countMap[post.artistId] = (countMap[post.artistId] ?? 0) + 1;
+        artworkCountMap[post.artistId] = (artworkCountMap[post.artistId] ?? 0) + 1;
+        characterCountMap[post.artistId] = (characterCountMap[post.artistId] ?? 0) + post.characterIds.length;
     }
 
-    const artists: Artist[] = artistsRaw.map(a => ({ ...a, artworkCount: countMap[a.id] ?? 0 }));
+    const artists: Artist[] = artistsRaw.map(a => ({
+        ...a,
+        artworkCount: artworkCountMap[a.id] ?? 0,
+        characterCount: characterCountMap[a.id] ?? 0
+    }));
+
     return { artists };
 };
 
@@ -75,14 +100,23 @@ export const fetchCharactersData = async (): Promise<{ characters: Character[] }
     const charactersModule = await import('../../data/characters.json');
     const charactersRaw: CharacterRaw[] = charactersModule.default;
 
-    const countMap: Record<string, number> = {};
+    const artworkCountMap: Record<string, number> = {};
+    const artistSetMap: Record<string, Set<string>> = {};
+
     for (const post of posts) {
         for (const id of post.characterIds) {
-            countMap[id] = (countMap[id] ?? 0) + 1;
+            artworkCountMap[id] = (artworkCountMap[id] ?? 0) + 1;
+            if (!artistSetMap[id]) artistSetMap[id] = new Set();
+            artistSetMap[id].add(post.artistId);
         }
     }
 
-    const characters: Character[] = charactersRaw.map(c => ({ ...c, artworkCount: countMap[c.id] ?? 0 }));
+    const characters: Character[] = charactersRaw.map(c => ({
+        ...c,
+        artworkCount: artworkCountMap[c.id] ?? 0,
+        artistCount: artistSetMap[c.id]?.size ?? 0
+    }));
+
     return { characters };
 };
 

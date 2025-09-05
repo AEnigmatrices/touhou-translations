@@ -58,12 +58,14 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
             const id = item.id;
             const name = item.name;
             const artworkCountText = `${item.artworkCount} artwork${item.artworkCount !== 1 ? "s" : ""}`;
+            const extraCountText = mode === MODE_CHARACTER
+                ? `${(item as Character).artistCount} artist${(item as Character).artistCount !== 1 ? "s" : ""}`
+                : `${(item as Artist).characterCount} character${(item as Artist).characterCount !== 1 ? "s" : ""}`;
             const imageUrl = `${BASE_URL}${item.portrait}`;
             const toUrl = mode === MODE_CHARACTER
                 ? `${BASE_URL}gallery?character=${id}`
                 : `${BASE_URL}gallery?artist=${id}`;
-
-            return <ProfileItem key={id} name={name} imageUrl={imageUrl} description={artworkCountText} link={toUrl} />
+            return <ProfileItem key={id} name={name} imageUrl={imageUrl} description1={artworkCountText} description2={extraCountText} link={toUrl} />
         });
     };
 

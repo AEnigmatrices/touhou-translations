@@ -6,7 +6,7 @@ interface ProfileItemStyles {
     linkBox: SxProps;
     content: SxProps;
     textContainer: SxProps;
-    avatar: CSSProperties;
+    avatar: (isMdUp: boolean) => CSSProperties;
     placeholder: SxProps;
 }
 
@@ -41,12 +41,12 @@ const styles: ProfileItemStyles = {
     textContainer: {
         flexGrow: 1
     },
-    avatar: {
-        width: 120,
-        height: 120,
+    avatar: (isMdUp: boolean) => ({
+        width: isMdUp ? 80 : 120,
+        height: isMdUp ? 80 : 120,
         borderRadius: 20,
         flexShrink: 0
-    },
+    }),
     placeholder: {
         width: 120,
         height: 120,

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, useMediaQuery, useTheme } from "@mui/material";
 import { Img } from "react-image";
 import LoadingIndicator from "../../components/LoadingIndicator";
 import styles from "./ProfileItem.styles";
@@ -7,16 +7,18 @@ import styles from "./ProfileItem.styles";
 interface Props {
     name: string;
     imageUrl: string;
-    description?: string;
+    description1?: string;
+    description2?: string;
     link?: string;
 }
 
+const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, description2, link }) => {
 
-const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => {
+    const theme = useTheme();
+    const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
     const observerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
-
 
     useEffect(() => {
         const node = observerRef.current;
@@ -33,7 +35,6 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
         return () => observer.disconnect();
     }, []);
 
-
     const ImageContent = isVisible
         ? (
             <Img
@@ -42,7 +43,7 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
                 decode={false}
                 loader={<Box sx={styles.placeholder}><LoadingIndicator /></Box>}
                 unloader={<Box sx={styles.placeholder} aria-hidden><LoadingIndicator /></Box>}
-                style={styles.avatar}
+                style={styles.avatar(isMdUp)}
             />
         )
         : <Box sx={styles.placeholder} aria-hidden />;
@@ -52,15 +53,15 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description, link }) => 
             {ImageContent}
             <Box sx={styles.textContainer}>
                 <Typography variant="subtitle1" fontWeight={600}>{name}</Typography>
-                {description && (
-                    <Typography variant="body2" color="text.secondary">
-                        {description}
-                    </Typography>
+                {description1 && (
+                    <Typography variant="body2" color="text.secondary">{description1}</Typography>
+                )}
+                {description2 && (
+                    <Typography variant="body2" color="text.secondary">{description2}</Typography>
                 )}
             </Box>
         </Box>
     );
-
 
     return (
         <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper}>

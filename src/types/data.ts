@@ -15,6 +15,7 @@ export interface Artist {
     linkPixiv?: string;
     portrait: string;
     artworkCount: number;
+    characterCount: number;
 }
 
 export interface Character {
@@ -24,6 +25,7 @@ export interface Character {
     work: string[];
     portrait: string;
     artworkCount: number;
+    artistCount: number;
 }
 
 export interface PostEntryForm {
