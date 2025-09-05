@@ -1,12 +1,11 @@
 import type { CSSProperties } from 'react';
-import type { SxProps, Theme } from '@mui/material/styles';
+import type { SxProps } from '@mui/material/styles';
 
 interface Styles {
     card: SxProps;
     imageWrapper: SxProps;
     image: CSSProperties;
     errorText: SxProps;
-    title: SxProps<Theme>;
 }
 
 const styles: Styles = {
@@ -14,10 +13,11 @@ const styles: Styles = {
     card: {
         width: '100%',
         maxWidth: 960,
-        p: { xs: 2, sm: 3 },
+        p: 0,
         mx: 'auto',
-        borderRadius: 3,
-        boxShadow: 3,
+        borderRadius: { xs: 0, md: 3 },
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
         backgroundColor: 'background.paper',
     },
 
@@ -47,13 +47,6 @@ const styles: Styles = {
         mt: 4,
         px: 2,
     },
-
-    title: (theme) => ({
-        color: theme.palette.text.secondary,
-        fontWeight: 600,
-        mb: 4.5,
-        textAlign: 'center',
-    }),
 
 };
 

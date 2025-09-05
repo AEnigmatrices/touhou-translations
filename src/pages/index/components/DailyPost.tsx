@@ -19,9 +19,9 @@ const DailyPost: FC<Props> = ({ dailyPost }) => {
     return (
         <Card sx={styles.card}>
             <CardContent>
-                <Typography variant="h4" sx={styles.title}>
+                <Typography variant="h6" color="text.primary">
                     Post of the Day
-                </Typography>
+                </Typography>a
                 {imageUrl && <Box sx={styles.imageWrapper}>
                     <a
                         href={`${BASE_URL}posts/${redditId}/`}

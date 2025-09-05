@@ -12,8 +12,9 @@ const styles: Styles = {
         display: 'flex',
         flexDirection: 'column',
         gap: 2,
-        borderRadius: 3,
-        boxShadow: 3,
+        borderRadius: { xs: 0, md: 2 },
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
         backgroundColor: 'background.paper',
     },
 
