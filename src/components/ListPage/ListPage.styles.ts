@@ -11,6 +11,7 @@ interface ListPageStyles {
 
 const styles: ListPageStyles = {
     container: {
+        px: { xs: 0 },
         py: 4
     },
     box: {

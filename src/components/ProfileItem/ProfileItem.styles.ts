@@ -13,9 +13,11 @@ interface ProfileItemStyles {
 const styles: ProfileItemStyles = {
     paper: {
         p: 2,
-        borderRadius: 2,
+        borderRadius: { xs: 0, md: 2 },
         transition: "all 0.2s ease",
         cursor: "pointer",
+        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
         '&:hover': {
             bgcolor: "#f9f9f9",
             boxShadow: 3,
@@ -40,13 +42,14 @@ const styles: ProfileItemStyles = {
         flexGrow: 1
     },
     avatar: {
-        width: 80,
-        height: 80,
+        width: 120,
+        height: 120,
+        borderRadius: 20,
         flexShrink: 0
     },
     placeholder: {
-        width: 80,
-        height: 80,
+        width: 120,
+        height: 120,
         bgcolor: "#f0f0f0",
         borderRadius: 2,
         flexShrink: 0
