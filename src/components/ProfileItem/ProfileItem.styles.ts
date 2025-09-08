@@ -7,7 +7,7 @@ interface ProfileItemStyles {
     content: SxProps;
     textContainer: SxProps;
     avatar: (isMdUp: boolean) => CSSProperties;
-    placeholder: SxProps;
+    placeholder: (isMdUp: boolean) => SxProps;
 }
 
 const styles: ProfileItemStyles = {
@@ -47,13 +47,13 @@ const styles: ProfileItemStyles = {
         borderRadius: 20,
         flexShrink: 0
     }),
-    placeholder: {
-        width: 120,
-        height: 120,
+    placeholder: (isMdUp: boolean) => ({
+        width: isMdUp ? 80 : 120,
+        height: isMdUp ? 80 : 120,
         bgcolor: "#f0f0f0",
         borderRadius: 2,
         flexShrink: 0
-    }
+    })
 };
 
 export default styles;

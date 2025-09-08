@@ -41,12 +41,12 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
                 src={[imageUrl]}
                 alt={name}
                 decode={false}
-                loader={<Box sx={styles.placeholder}><LoadingIndicator /></Box>}
-                unloader={<Box sx={styles.placeholder} aria-hidden><LoadingIndicator /></Box>}
+                loader={<Box sx={styles.placeholder(isMdUp)}><LoadingIndicator /></Box>}
+                unloader={<Box sx={styles.placeholder(isMdUp)} aria-hidden><LoadingIndicator /></Box>}
                 style={styles.avatar(isMdUp)}
             />
         )
-        : <Box sx={styles.placeholder} aria-hidden />;
+        : <Box sx={styles.placeholder(isMdUp)} aria-hidden />;
 
     const Content = (
         <Box sx={styles.content}>
