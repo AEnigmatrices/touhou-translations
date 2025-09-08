@@ -1986,5 +1986,17 @@
         "name": "アアソウカイ",
         "linkTwitter": "https://x.com/kqkqiwq",
         "portrait": "/portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "wanko",
+        "name": "わんこ",
+        "linkTwitter": "https://x.com/kuuinusuki",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "rukija",
+        "name": "ルキージャ",
+        "linkTwitter": "https://x.com/rukija1558274",
+        "portrait": "/portraits/placeholders/pyro.webp"
     }
 ]
