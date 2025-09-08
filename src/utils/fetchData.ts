@@ -6,17 +6,22 @@ const BASE_PATH = import.meta.env.BASE_URL;
 
 const processArtists = (artistsRaw: ArtistRaw[], posts: Post[]): Artist[] => {
     const artworkCountMap: Record<string, number> = {};
-    const characterCountMap: Record<string, number> = {};
+    const characterSetMap: Record<string, Set<string>> = {};
 
     for (const post of posts) {
         artworkCountMap[post.artistId] = (artworkCountMap[post.artistId] ?? 0) + 1;
-        characterCountMap[post.artistId] = (characterCountMap[post.artistId] ?? 0) + post.characterIds.length;
+        if (!characterSetMap[post.artistId]) {
+            characterSetMap[post.artistId] = new Set();
+        }
+        for (const cid of post.characterIds) {
+            characterSetMap[post.artistId].add(cid);
+        }
     }
 
     return artistsRaw.map(a => ({
         ...a,
         artworkCount: artworkCountMap[a.id] ?? 0,
-        characterCount: characterCountMap[a.id] ?? 0
+        characterCount: characterSetMap[a.id]?.size ?? 0
     }));
 };
 
@@ -25,7 +30,8 @@ const processCharacters = (charactersRaw: CharacterRaw[], posts: Post[]): Charac
     const artistSetMap: Record<string, Set<string>> = {};
 
     for (const post of posts) {
-        for (const id of post.characterIds) {
+        const uniqueCharacterIds = new Set(post.characterIds);
+        for (const id of uniqueCharacterIds) {
             artworkCountMap[id] = (artworkCountMap[id] ?? 0) + 1;
             if (!artistSetMap[id]) artistSetMap[id] = new Set();
             artistSetMap[id].add(post.artistId);
@@ -77,17 +83,22 @@ export const fetchArtistsData = async (): Promise<{ artists: Artist[] }> => {
     const artistsRaw: ArtistRaw[] = artistsModule.default;
 
     const artworkCountMap: Record<string, number> = {};
-    const characterCountMap: Record<string, number> = {};
+    const characterSetMap: Record<string, Set<string>> = {};
 
     for (const post of posts) {
         artworkCountMap[post.artistId] = (artworkCountMap[post.artistId] ?? 0) + 1;
-        characterCountMap[post.artistId] = (characterCountMap[post.artistId] ?? 0) + post.characterIds.length;
+        if (!characterSetMap[post.artistId]) {
+            characterSetMap[post.artistId] = new Set();
+        }
+        for (const cid of post.characterIds) {
+            characterSetMap[post.artistId].add(cid);
+        }
     }
 
     const artists: Artist[] = artistsRaw.map(a => ({
         ...a,
         artworkCount: artworkCountMap[a.id] ?? 0,
-        characterCount: characterCountMap[a.id] ?? 0
+        characterCount: characterSetMap[a.id]?.size ?? 0
     }));
 
     return { artists };
