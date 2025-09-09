@@ -21,7 +21,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import type { SortOrder } from '../../types/data';
 import type { Data } from './+data';
 
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 12;
 
 
 const Page = () => {
@@ -58,7 +58,7 @@ const Page = () => {
 
     if (!posts.length) return <Box sx={styles.loaderBoxStyles}><CircularProgress /></Box>;
     return (
-        <Container maxWidth="lg" sx={styles.containerStyles}>
+        <Container maxWidth="xl" sx={styles.containerStyles}>
             <Stack direction="row" sx={styles.headerWrapperStyles}>
                 {character && (
                     <Box sx={styles.galleryHeaderBoxStyles}><GalleryHeaderCharacter character={character} /></Box>

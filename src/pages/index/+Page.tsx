@@ -10,7 +10,7 @@ import type { Data } from './+data';
 const Page = (): JSX.Element => {
     const { dailyPost } = useData<Data>();
     return (
-        <Container maxWidth="lg" sx={styles.container}>
+        <Container maxWidth="xl" sx={styles.container}>
             <Grid container spacing={{ xs: 2, md: 4 }}>
                 <Grid size={{ xs: 12, md: 7 }}>
                     <Stack spacing={{ xs: 1, md: 2 }}>

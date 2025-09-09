@@ -14,7 +14,7 @@ import styles from "./Footer.styles";
 const Footer: React.FC = () => {
     return (
         <Box component="footer" sx={styles.footer}>
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <Grid container spacing={{ xs: 4, md: 6 }}>
                     <Grid size={{ xs: 12, md: 6 }} sx={{ textAlign: "left" }}>
                         <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5 }}>

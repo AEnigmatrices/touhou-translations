@@ -51,7 +51,7 @@ const styles: ProfileItemStyles = {
     placeholder: {
         flex: 1,
         width: "100%",
-        height: "auto",
+        aspectRatio: "1 / 1", // maintains square ratio
         bgcolor: "#f0f0f0",
         borderRadius: 2
     },

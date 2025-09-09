@@ -95,7 +95,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
 
 
     return (
-        <Container maxWidth="lg" sx={styles.container}>
+        <Container maxWidth="xl" sx={styles.container}>
             <Box sx={styles.box}>
                 <Typography variant="h4" component="h2" sx={styles.typography}>{title}</Typography>
                 <TextField

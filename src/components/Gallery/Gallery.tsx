@@ -55,7 +55,7 @@ const Gallery: FC<Props> = ({ posts }) => {
                 const isVisible = index < visibleCount;
 
                 return (
-                    <Grid size={{ xs: 6, sm: 2.4 }} key={redditId}>
+                    <Grid size={{ xs: 6, sm: 2 }} key={redditId}>
                         <Box
                             sx={{
                                 ...styles.item,
