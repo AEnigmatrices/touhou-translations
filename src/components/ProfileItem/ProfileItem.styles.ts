@@ -6,8 +6,8 @@ interface ProfileItemStyles {
     linkBox: SxProps;
     content: SxProps;
     textContainer: SxProps;
-    avatar: (isMdUp: boolean) => CSSProperties;
-    placeholder: (isMdUp: boolean) => SxProps;
+    avatar: CSSProperties;
+    placeholder: SxProps;
 }
 
 const styles: ProfileItemStyles = {
@@ -39,21 +39,22 @@ const styles: ProfileItemStyles = {
         width: "100%"
     },
     textContainer: {
-        flexGrow: 1
+        flex: 1
     },
-    avatar: (isMdUp: boolean) => ({
-        width: isMdUp ? 80 : 120,
-        height: isMdUp ? 80 : 120,
+    avatar: {
+        flex: 1,
+        width: "100%",
+        height: "auto",
         borderRadius: 20,
-        flexShrink: 0
-    }),
-    placeholder: (isMdUp: boolean) => ({
-        width: isMdUp ? 80 : 120,
-        height: isMdUp ? 80 : 120,
+        objectFit: "cover"
+    },
+    placeholder: {
+        flex: 1,
+        width: "100%",
+        height: "auto",
         bgcolor: "#f0f0f0",
-        borderRadius: 2,
-        flexShrink: 0
-    })
+        borderRadius: 2
+    },
 };
 
 export default styles;

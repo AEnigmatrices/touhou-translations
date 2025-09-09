@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Typography, Paper, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
 import { Img } from "react-image";
 import LoadingIndicator from "../../components/LoadingIndicator";
 import styles from "./ProfileItem.styles";
@@ -13,9 +13,6 @@ interface Props {
 }
 
 const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, description2, link }) => {
-
-    const theme = useTheme();
-    const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
     const observerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -41,12 +38,12 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
                 src={[imageUrl]}
                 alt={name}
                 decode={false}
-                loader={<Box sx={styles.placeholder(isMdUp)}><LoadingIndicator /></Box>}
-                unloader={<Box sx={styles.placeholder(isMdUp)} aria-hidden><LoadingIndicator /></Box>}
-                style={styles.avatar(isMdUp)}
+                loader={<Box sx={styles.placeholder}><LoadingIndicator /></Box>}
+                unloader={<Box sx={styles.placeholder} aria-hidden><LoadingIndicator /></Box>}
+                style={styles.avatar}
             />
         )
-        : <Box sx={styles.placeholder(isMdUp)} aria-hidden />;
+        : <Box sx={styles.placeholder} aria-hidden />;
 
     const Content = (
         <Box sx={styles.content}>
