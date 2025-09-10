@@ -1,10 +1,10 @@
 import { Grid, Box } from '@mui/material';
 import { Img } from 'react-image';
-import { extractRedditId } from '../../utils/extractRedditId';
-import LoadingIndicator from '../LoadingIndicator';
-import styles from './Gallery.styles';
+import { extractRedditId } from '../../../../utils/extractRedditId';
+import LoadingIndicator from '../../../../components/LoadingIndicator';
+import styles from './styles';
 import type { FC } from 'react';
-import type { Post } from '../../types/data';
+import type { Post } from '../../../../types/data';
 
 interface Props { posts: Post[]; }
 
