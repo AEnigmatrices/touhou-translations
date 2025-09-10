@@ -6,5 +6,6 @@ export default {
     title: "Touhou Translations",
     description: "An archive of fan-translated Touhou Project comics and illustrations.",
     favicon: "/touhou-translations/icons/favicon.ico",
+    trailingSlash: true,
     extends: [vikeReact]
 } satisfies Config
