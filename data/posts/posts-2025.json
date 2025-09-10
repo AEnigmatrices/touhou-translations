@@ -6523,5 +6523,81 @@
         "characterIds": [
             "ubame"
         ]
+    },
+    {
+        "date": 1749480891000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1l76wky",
+        "url": [
+            "https://i.redd.it/aepovobw0x5f1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/130249248",
+        "desc": "It seems over at the Japanese side, Nareko's design is compared to a \"[**Hitoshi-kun Doll**](https://dic.pixiv.net/a/ひとし君人形)\". This distinctive doll comes from a really long-running [**quiz show**](https://ja.wikipedia.org/wiki/日立_世界・ふしぎ発見!) that... stopped airing just last year, actually (March 2024). In the show, these dolls are the point tokens of the game.",
+        "artistId": "solidus",
+        "characterIds": [
+            "nareko"
+        ]
+    },
+    {
+        "date": 1749559680000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1l7xuts",
+        "url": [
+            "https://i.redd.it/0bt7xya6j36f1.png"
+        ],
+        "src": "https://x.com/kanatan1_31/status/1931862068279591419",
+        "desc": "Kanatan hasn't given context for this illustration though, so I have no idea why Yatsuhashi is pointing at Merlin like that – or why Lyrica, Lunasa, and Miyoi have that reaction. Certainly related to how his previous illustration featuring Benben and Raiko was flagged as sensitive by Twitter, but any other link is tenuous.\n\nUme Suishō is shredded shark cartilage and plum. Hiyashi Tomato is, well, just chilled tomato. Sashimi is raw fish. Gesoage is deep-fried squid tentacles. Hiyayakko is cold tofu. And edamame is boiled/steamed green soybeans.\n\nAnd yeah, it seems there are different types to izakayas too, and \"taishū\" is the cheap and accessible kind.",
+        "artistId": "kamaya_kanatan",
+        "characterIds": [
+            "lunasa",
+            "merlin",
+            "lyrica",
+            "koishi",
+            "yatsuhashi",
+            "miyoi",
+            "nareko",
+            "chimi"
+        ]
+    },
+    {
+        "date": 1749564431000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1l7zn5w",
+        "url": [
+            "https://i.redd.it/5i0tdstax36f1.png"
+        ],
+        "src": "https://x.com/soboro_art0/status/1921141319809769616",
+        "desc": "Imagine Mokō's dish as ~~Nashville~~ Phoenix Hot Chicken. No relation to Phoenix, Arizona.\n\nActually... if we're gonna assign a Touhou character to each state, I suppose Arizona has to get Mokō just from that name, huh?",
+        "artistId": "soborou",
+        "characterIds": [
+            "mokou",
+            "kaguya"
+        ]
+    },
+    {
+        "date": 1749567102000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1l80qj3",
+        "url": [
+            "https://i.redd.it/b6gq88s8546f1.png"
+        ],
+        "src": "https://x.com/kuuinusuki/status/1921098717790077352",
+        "desc": "This is Evil Ryū's quote for the [***Messatsu Gōshōryū***](https://streetfighter.fandom.com/wiki/Messatsu_Goshoryu) combo.\n\nEvil Byakuren though... 🤔",
+        "artistId": "wanko",
+        "characterIds": [
+            "reimu",
+            "byakuren"
+        ]
+    },
+    {
+        "date": 1749646218000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1l8rua0",
+        "url": [
+            "https://i.redd.it/ks5faothoa6f1.png"
+        ],
+        "src": "https://x.com/saint_yohannes/status/1921163366933877038",
+        "desc": "It never crossed my mind before that Sakuya would quite literally overwork the fairies to ~~death~~ time-out.\n\n🤔 I suppose that angle wouldn't work 'cause they can just leave if they don't like it... So maybe the fairies enjoy the work anyway? Like, it's also playing to them. I mean, for a different instance, why would they come out of the woodwork whenever Reimu sets out to solve an incident only the ~~get killed~~ end up in the respawn pool anyway?",
+        "artistId": "arugon",
+        "characterIds": [
+            "reimu",
+            "marisa",
+            "sakuya"
+        ]
     }
 ]

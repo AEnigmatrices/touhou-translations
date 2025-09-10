@@ -1998,5 +1998,12 @@
         "name": "ルキージャ",
         "linkTwitter": "https://x.com/rukija1558274",
         "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "kamaya_kanatan",
+        "name": "釜屋 かなたん",
+        "linkTwitter": "https://x.com/kanatan1_31",
+        "linkPixiv": "https://www.pixiv.net/en/users/6733559",
+        "portrait": "/portraits/placeholders/sniper.webp"
     }
 ]
