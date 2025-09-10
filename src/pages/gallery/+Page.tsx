@@ -4,8 +4,8 @@ import { usePageContext } from 'vike-react/usePageContext';
 import useFilteredPosts from './useFilteredPosts';
 import useQueryParams from './useQueryParams';
 import Gallery from './components/Gallery';
-import GalleryHeaderCharacter from '../../components/GalleryHeader/GalleryHeaderCharacter';
-import GalleryHeaderArtist from '../../components/GalleryHeader/GalleryHeaderArtist';
+import GalleryHeaderCharacter from './components/GalleryHeaders/Character';
+import GalleryHeaderArtist from './components/GalleryHeaders/Artist';
 import DateSortButton from './DateSortButton';
 import useStyles from './gallery.styles';
 
