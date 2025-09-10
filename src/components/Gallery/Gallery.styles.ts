@@ -1,9 +1,11 @@
 import type { SxProps } from '@mui/material/styles';
+import type { CSSProperties } from 'react';
 
 interface Styles {
     item: SxProps;
     imageWrapper: SxProps;
-    placeholder: SxProps;
+    wrapper: SxProps;
+    image: CSSProperties;
 }
 
 const styles: Styles = {
@@ -23,7 +25,7 @@ const styles: Styles = {
         },
         '&:focus-visible': {
             outline: '2px solid #005fcc',
-            outlineOffset: '2px',
+            outlineOffset: 2,
         },
         opacity: 1,
         aspectRatio: '1 / 1',
@@ -32,17 +34,23 @@ const styles: Styles = {
     imageWrapper: {
         width: '100%',
         height: '100%',
-        display: 'flex'
+        display: 'flex',
     },
 
-    placeholder: {
+    wrapper: {
+        position: 'relative',
+        width: '100%',
+        overflow: 'hidden',
+        borderRadius: 1,
+    },
+
+    image: {
         width: '100%',
         height: '100%',
-        backgroundColor: '#f0f0f0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
+        display: 'block',
+        objectFit: 'cover',
+        transition: 'opacity 0.3s ease, filter 0.3s ease',
+    },
 
 };
 
