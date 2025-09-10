@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react';
-import { filterPosts } from '../../utils/filterPosts';
-import type { Post, SortOrder } from '../../types/data';
+import { filterPosts } from '../../../utils/filterPosts';
+import type { Post, SortOrder } from '../../../types/data';
 
 interface Props {
     posts: Post[];

@@ -4,7 +4,7 @@ import SortIcon from "@mui/icons-material/Sort";
 import NorthIcon from "@mui/icons-material/North";
 import SouthIcon from "@mui/icons-material/South";
 import type { FC } from "react";
-import type { SortOrder } from "../../types/data";
+import type { SortOrder } from "../../../../types/data";
 
 interface Props {
     sortOrder: SortOrder;

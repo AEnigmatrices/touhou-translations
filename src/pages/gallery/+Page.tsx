@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useData } from 'vike-react/useData';
 import { usePageContext } from 'vike-react/usePageContext';
-import useFilteredPosts from './useFilteredPosts';
-import useQueryParams from './useQueryParams';
+import useFilteredPosts from './hooks/useFilteredPosts';
+import useQueryParams from './hooks/useQueryParams';
 import Gallery from './components/Gallery';
 import GalleryHeader from './components/GalleryHeaders';
-import DateSortButton from './DateSortButton';
-import useStyles from './gallery.styles';
+import DateSortButton from './components/DateSortButton';
+import * as styles from './styles';
 
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -24,7 +24,6 @@ const POSTS_PER_PAGE = 12;
 
 
 const Page = () => {
-    const styles = useStyles();
     const [currentPage, setCurrentPage] = useState(1);
     const [dateSortOrder, setDateSortOrder] = useState<SortOrder>('none');
 
