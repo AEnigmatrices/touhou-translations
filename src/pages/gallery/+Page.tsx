@@ -4,8 +4,7 @@ import { usePageContext } from 'vike-react/usePageContext';
 import useFilteredPosts from './useFilteredPosts';
 import useQueryParams from './useQueryParams';
 import Gallery from './components/Gallery';
-import GalleryHeaderCharacter from './components/GalleryHeaders/Character';
-import GalleryHeaderArtist from './components/GalleryHeaders/Artist';
+import GalleryHeader from './components/GalleryHeaders';
 import DateSortButton from './DateSortButton';
 import useStyles from './gallery.styles';
 
@@ -61,10 +60,10 @@ const Page = () => {
         <Container maxWidth="xl" sx={styles.containerStyles}>
             <Stack direction="row" sx={styles.headerWrapperStyles}>
                 {character && (
-                    <Box sx={styles.galleryHeaderBoxStyles}><GalleryHeaderCharacter character={character} /></Box>
+                    <Box sx={styles.galleryHeaderBoxStyles}><GalleryHeader entity={character} type="character" /></Box>
                 )}
                 {artist && (
-                    <Box sx={styles.galleryHeaderBoxStyles}><GalleryHeaderArtist artist={artist} /></Box>
+                    <Box sx={styles.galleryHeaderBoxStyles}><GalleryHeader entity={artist} type="artist" /></Box>
                 )}
                 <FormControlLabel
                     control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" slotProps={styles.switchSlotProps} />}
