@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { navigate } from 'vike/client/router';
+import { useEffect, useState, useRef } from 'react';
+import { prefetch, navigate } from 'vike/client/router';
 import { usePageContext } from 'vike-react/usePageContext';
 import { getRandomPostPath } from '../../utils/fetchData';
 import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -10,8 +10,8 @@ import type { JSX } from 'react';
 
 
 const Navbar = (): JSX.Element => {
-
     const pageContext = usePageContext();
+    const prefetched = useRef<Set<string>>(new Set());
     const [currentTab, setCurrentTab] = useState<string | false>(false);
 
     const theme = useTheme();
@@ -21,6 +21,13 @@ const Navbar = (): JSX.Element => {
     const url = pageContext.urlOriginal;
 
 
+    const prefetchIfNeeded = (path: string) => {
+        if (!prefetched.current.has(path)) {
+            prefetch(path);
+            prefetched.current.add(path);
+        }
+    };
+
     const handleLogoClick = async () => {
         const path = await getRandomPostPath();
         navigate(path);
@@ -29,6 +36,8 @@ const Navbar = (): JSX.Element => {
     const isCurrent = (to: string) => currentTab === to;
 
 
+    useEffect(() => { tabPaths.forEach(prefetchIfNeeded); }, [tabPaths]);
+
     useEffect(() => { setCurrentTab(tabPaths.includes(url) ? url : false); }, [url, tabPaths]);
 
 
@@ -36,13 +45,20 @@ const Navbar = (): JSX.Element => {
         <ElevationScroll>
             <AppBar position="sticky" sx={styles.appBar}>
                 <Toolbar sx={styles.toolbar}>
-                    <Typography variant="h6" component="div" onClick={handleLogoClick} sx={styles.title(theme)} tabIndex={0} role="link" aria-label="Random post" >
+                    <Typography
+                        variant="h6" component="div" onClick={handleLogoClick} sx={styles.title(theme)}
+                        tabIndex={0} role="link" aria-label="Random post"
+                    >
                         Touhou Translations
                     </Typography>
+
                     {!isMobile && (
-                        <Tabs value={currentTab} textColor="primary" indicatorColor="primary" aria-label="navigation tabs" sx={styles.tabContainer} >
+                        <Tabs
+                            value={currentTab} textColor="primary" indicatorColor="primary"
+                            aria-label="navigation tabs" sx={styles.tabContainer}
+                        >
                             {navLinks.map(({ label, to }) => (
-                                <Tab key={to} value={to} label={label} component="a" href={to} sx={styles.tab(isCurrent(to))} />
+                                <Tab key={to} value={to} label={label} onClick={() => navigate(to)} sx={styles.tab(isCurrent(to))} />
                             ))}
                         </Tabs>
                     )}
