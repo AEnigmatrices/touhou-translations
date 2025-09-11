@@ -2005,5 +2005,85 @@
         "linkTwitter": "https://x.com/kanatan1_31",
         "linkPixiv": "https://www.pixiv.net/en/users/6733559",
         "portrait": "/portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "keikou_ryuudou",
+        "name": "蛍光流動",
+        "linkTwitter": "https://x.com/fluorescentflow",
+        "linkPixiv": "https://www.pixiv.net/en/users/407516",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "kirimori_mari",
+        "name": "霧森まり",
+        "linkTwitter": "https://x.com/MariKirimori",
+        "linkPixiv": "https://www.pixiv.net/en/users/73075651",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "matsumoto_oka",
+        "name": "松本岡",
+        "linkTwitter": "https://x.com/kan10na2",
+        "linkPixiv": "https://www.pixiv.net/en/users/33532818",
+        "portrait": "/portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "kangaenai_ashi",
+        "name": "考えない芦",
+        "linkTwitter": "https://x.com/ghostofhokkaido",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "san_maru_ni",
+        "name": "さんまるに",
+        "linkTwitter": "https://x.com/shiro3o2",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "sakuma",
+        "name": "サクマ",
+        "linkTwitter": "https://x.com/sunaguma",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "yoiyami_tori",
+        "name": "宵闇鳥",
+        "linkTwitter": "https://x.com/yoiyamitori",
+        "linkPixiv": "https://www.pixiv.net/en/users/4095088",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "yuuara",
+        "name": "ゆーあら",
+        "linkTwitter": "https://x.com/yuuuuuara2525",
+        "linkPixiv": "https://www.pixiv.net/en/users/56970644",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "satsusatsu",
+        "name": "颯颯",
+        "linkTwitter": "https://x.com/sassatu_r",
+        "linkPixiv": "https://www.pixiv.net/en/users/14494984",
+        "portrait": "/portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "shiromame_kei",
+        "name": "白まめけい",
+        "linkTwitter": "https://x.com/siromamekei",
+        "linkPixiv": "https://www.pixiv.net/en/users/878317",
+        "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "nagakuma_roku",
+        "name": "ながくま　ろこ",
+        "linkTwitter": "https://x.com/longbear65",
+        "linkPixiv": "https://www.pixiv.net/en/users/817796",
+        "portrait": "/portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "ruua",
+        "name": "ルーア",
+        "linkTwitter": "https://x.com/xbnGfE9vTFGSArB",
+        "portrait": "/portraits/placeholders/engineer.webp"
     }
 ]
