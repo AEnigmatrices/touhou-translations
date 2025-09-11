@@ -1,11 +1,10 @@
-import { useData } from 'vike-react/useData'
+import type { PageContext } from 'vike/types';
 import type { Data } from './+data'
 
 const baseUrl = import.meta.env.BASE_URL;
 
-const Head = () => {
-    const data = useData<Data>();
-    const { prevPostId, nextPostId } = data;
+const Head = (pageContext: PageContext<Data>) => {
+    const { prevPostId, nextPostId } = pageContext.data;
     return (
         <>
             {prevPostId && (
