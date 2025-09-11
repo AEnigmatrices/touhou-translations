@@ -1,9 +1,9 @@
-import { useEffect, useRef, type FC } from 'react';
-import { prefetch, navigate } from 'vike/client/router';
+import { navigate } from 'vike/client/router';
 import { Box, Typography, Grid } from '@mui/material';
 import { Img } from 'react-image';
 import LoadingIndicator from '../../../../../components/LoadingIndicator/index.tsx';
 import styles from './SeeMoreArtist.styles.ts';
+import type { FC } from 'react';
 
 interface Props {
     artistName?: string | null;
@@ -14,18 +14,6 @@ const baseUrl = import.meta.env.BASE_URL;
 
 
 const SeeMoreArtist: FC<Props> = ({ artistName, artistPosts }) => {
-    const prefetched = useRef<Set<string>>(new Set());
-
-    const prefetchIfNeeded = (postId: string | null) => {
-        if (postId && !prefetched.current.has(postId)) {
-            prefetch(`${baseUrl}posts/${postId}/`);
-            prefetched.current.add(postId);
-        }
-    };
-
-    useEffect(() => {
-        artistPosts.slice(0, 4).forEach(({ id }) => prefetchIfNeeded(id));
-    }, [artistPosts]);
 
     if (artistPosts.length === 0) return null;
 

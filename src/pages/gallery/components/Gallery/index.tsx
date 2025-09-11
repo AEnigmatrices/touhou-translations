@@ -1,10 +1,10 @@
-import { useEffect, useRef, type FC } from 'react';
-import { prefetch, navigate } from 'vike/client/router';
+import { navigate } from 'vike/client/router';
 import { Grid, Box } from '@mui/material';
 import { Img } from 'react-image';
 import { extractRedditId } from '../../../../utils/extractRedditId';
 import LoadingIndicator from '../../../../components/LoadingIndicator';
 import styles from './styles';
+import type { FC } from 'react';
 import type { Post } from '../../../../types/data';
 
 interface Props { posts: Post[]; }
@@ -13,26 +13,6 @@ const BASE_URL = import.meta.env.BASE_URL || '/';
 
 
 const Gallery: FC<Props> = ({ posts }) => {
-
-    const prefetched = useRef<Set<string>>(new Set());
-
-
-    const prefetchIfNeeded = (redditId: string) => {
-        const url = `${BASE_URL}posts/${redditId}/`;
-        if (!prefetched.current.has(url)) {
-            prefetch(url);
-            prefetched.current.add(url);
-        }
-    };
-
-
-    useEffect(() => {
-        posts.forEach((post) => {
-            const redditId = extractRedditId(post.reddit);
-            if (redditId) prefetchIfNeeded(redditId);
-        });
-    }, [posts]);
-
 
     if (!posts.length) return <p>No posts available.</p>;
 

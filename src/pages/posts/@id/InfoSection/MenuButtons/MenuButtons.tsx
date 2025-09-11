@@ -1,10 +1,10 @@
-import { useEffect, useRef, type FC } from 'react';
-import { prefetch, navigate } from 'vike/client/router';
+import { navigate } from 'vike/client/router';
 import { Button, Box } from '@mui/material';
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import DownloadIcon from '@mui/icons-material/Download';
 import styles from './MenuButtons.styles';
+import type { FC } from 'react';
 
 interface Props {
     prevPostId: string | null;
@@ -17,15 +17,6 @@ const isDev = import.meta.env.MODE === 'development';
 
 
 const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
-
-    const prefetched = useRef<Set<string>>(new Set());
-
-    const prefetchIfNeeded = (postId: string | null) => {
-        if (postId && !prefetched.current.has(postId)) {
-            prefetch(`${baseUrl}posts/${postId}/`);
-            prefetched.current.add(postId);
-        }
-    };
 
     const handleNavigate = (postId: string | null) => {
         if (postId) navigate(`${baseUrl}posts/${postId}/`);
@@ -51,9 +42,6 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
     };
 
     const handleDownload = async () => await Promise.all(urls.map(downloadFile));
-
-
-    useEffect(() => { prefetchIfNeeded(prevPostId); prefetchIfNeeded(nextPostId); }, [prevPostId, nextPostId]);
 
 
     return (

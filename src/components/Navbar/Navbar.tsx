@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
-import { prefetch, navigate } from 'vike/client/router';
+import { useEffect, useState } from 'react';
+import { navigate } from 'vike/client/router';
 import { usePageContext } from 'vike-react/usePageContext';
 import { getRandomPostPath } from '../../utils/fetchData';
 import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -11,7 +11,6 @@ import type { JSX } from 'react';
 
 const Navbar = (): JSX.Element => {
     const pageContext = usePageContext();
-    const prefetched = useRef<Set<string>>(new Set());
     const [currentTab, setCurrentTab] = useState<string | false>(false);
 
     const theme = useTheme();
@@ -21,13 +20,6 @@ const Navbar = (): JSX.Element => {
     const url = pageContext.urlOriginal;
 
 
-    const prefetchIfNeeded = (path: string) => {
-        if (!prefetched.current.has(path)) {
-            prefetch(path);
-            prefetched.current.add(path);
-        }
-    };
-
     const handleLogoClick = async () => {
         const path = await getRandomPostPath();
         navigate(path);
@@ -35,8 +27,6 @@ const Navbar = (): JSX.Element => {
 
     const isCurrent = (to: string) => currentTab === to;
 
-
-    useEffect(() => { tabPaths.forEach(prefetchIfNeeded); }, [tabPaths]);
 
     useEffect(() => { setCurrentTab(tabPaths.includes(url) ? url : false); }, [url, tabPaths]);
 
