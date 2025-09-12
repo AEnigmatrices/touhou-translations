@@ -2085,5 +2085,11 @@
         "name": "ルーア",
         "linkTwitter": "https://x.com/xbnGfE9vTFGSArB",
         "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "nekogusa_kanchou",
+        "name": "ねこぐさ艦長",
+        "linkTwitter": "https://x.com/neko_kantyo",
+        "portrait": "/portraits/placeholders/heavy.webp"
     }
 ]
