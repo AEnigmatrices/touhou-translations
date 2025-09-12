@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { navigate } from 'vike/client/router';
 import { usePageContext } from 'vike-react/usePageContext';
 import { getRandomPostPath } from '../../utils/fetchData';
 import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -22,7 +23,7 @@ const Navbar = (): JSX.Element => {
     const handleLogoClick = async (e: React.MouseEvent) => {
         e.preventDefault();
         const path = await getRandomPostPath();
-        window.location.href = path;
+        navigate(path);
     };
 
     const isCurrent = (to: string) => currentTab === to;
