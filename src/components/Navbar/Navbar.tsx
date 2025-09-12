@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { navigate } from 'vike/client/router';
 import { usePageContext } from 'vike-react/usePageContext';
 import { getRandomPostPath } from '../../utils/fetchData';
 import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -20,15 +19,18 @@ const Navbar = (): JSX.Element => {
     const url = pageContext.urlOriginal;
 
 
-    const handleLogoClick = async () => {
+    const handleLogoClick = async (e: React.MouseEvent) => {
+        e.preventDefault();
         const path = await getRandomPostPath();
-        navigate(path);
+        window.location.href = path;
     };
 
     const isCurrent = (to: string) => currentTab === to;
 
 
-    useEffect(() => { setCurrentTab(tabPaths.includes(url) ? url : false); }, [url, tabPaths]);
+    useEffect(() => {
+        setCurrentTab(tabPaths.includes(url) ? url : false);
+    }, [url, tabPaths]);
 
 
     return (
@@ -36,19 +38,35 @@ const Navbar = (): JSX.Element => {
             <AppBar position="sticky" sx={styles.appBar}>
                 <Toolbar sx={styles.toolbar}>
                     <Typography
-                        variant="h6" component="div" onClick={handleLogoClick} sx={styles.title(theme)}
-                        tabIndex={0} role="link" aria-label="Random post"
+                        variant="h6"
+                        component="a"
+                        href="#"
+                        onClick={handleLogoClick}
+                        sx={styles.title(theme)}
+                        tabIndex={0}
+                        role="link"
+                        aria-label="Random post"
                     >
                         Touhou Translations
                     </Typography>
 
                     {!isMobile && (
                         <Tabs
-                            value={currentTab} textColor="primary" indicatorColor="primary"
-                            aria-label="navigation tabs" sx={styles.tabContainer}
+                            value={currentTab}
+                            textColor="primary"
+                            indicatorColor="primary"
+                            aria-label="navigation tabs"
+                            sx={styles.tabContainer}
                         >
                             {navLinks.map(({ label, to }) => (
-                                <Tab key={to} value={to} label={label} onClick={() => navigate(to)} sx={styles.tab(isCurrent(to))} />
+                                <Tab
+                                    key={to}
+                                    value={to}
+                                    label={label}
+                                    component="a"
+                                    href={to}
+                                    sx={styles.tab(isCurrent(to))}
+                                />
                             ))}
                         </Tabs>
                     )}

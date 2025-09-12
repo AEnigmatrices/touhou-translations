@@ -1,4 +1,3 @@
-import { navigate } from 'vike/client/router';
 import { Box, Typography, Grid } from '@mui/material';
 import { Img } from 'react-image';
 import LoadingIndicator from '../../../../../components/LoadingIndicator/index.tsx';
@@ -20,17 +19,19 @@ const SeeMoreArtist: FC<Props> = ({ artistName, artistPosts }) => {
     return (
         <Box sx={styles.seeMoreContainer}>
             <Typography sx={styles.seeMoreTitle}>
-                See more by
+                See more by{' '}
                 <Box component="span" sx={styles.seeMoreArtistName}>
                     {artistName ?? 'this Artist'}
                 </Box>
             </Typography>
+
             <Grid container spacing={2} justifyContent="center">
                 {artistPosts.slice(0, 4).map(({ id, img }) => (
                     <Grid size={{ xs: 6, sm: 3 }} key={id} sx={styles.seeMoreGrid}>
                         <Box
+                            component="a"
+                            href={`${baseUrl}posts/${id}/`}
                             sx={styles.seeMoreImage}
-                            onClick={() => navigate(`${baseUrl}posts/${id}`)}
                         >
                             <Img
                                 src={[img]}

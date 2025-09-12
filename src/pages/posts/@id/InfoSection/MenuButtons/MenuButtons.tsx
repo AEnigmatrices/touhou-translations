@@ -1,4 +1,3 @@
-import { navigate } from 'vike/client/router';
 import { Button, Box } from '@mui/material';
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import ArrowBack from "@mui/icons-material/ArrowBack";
@@ -17,10 +16,6 @@ const isDev = import.meta.env.MODE === 'development';
 
 
 const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
-
-    const handleNavigate = (postId: string | null) => {
-        if (postId) navigate(`${baseUrl}posts/${postId}/`);
-    };
 
     const downloadFile = async (url: string) => {
         try {
@@ -47,24 +42,34 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
     return (
         <Box sx={styles.container}>
             <Button
-                variant="contained" disabled={!prevPostId} onClick={() => handleNavigate(prevPostId)}
-                startIcon={<ArrowBack />} sx={styles.button}
+                component="a"
+                href={prevPostId ? `${baseUrl}posts/${prevPostId}/` : undefined}
+                variant="contained"
+                disabled={!prevPostId}
+                startIcon={<ArrowBack />}
+                sx={styles.button}
             >
                 Previous
             </Button>
 
             {isDev && urls.length > 0 && (
                 <Button
-                    variant="contained" onClick={handleDownload}
-                    startIcon={<DownloadIcon />} sx={styles.downloadButton}
+                    variant="contained"
+                    onClick={handleDownload}
+                    startIcon={<DownloadIcon />}
+                    sx={styles.downloadButton}
                 >
                     Download
                 </Button>
             )}
 
             <Button
-                variant="contained" disabled={!nextPostId} onClick={() => handleNavigate(nextPostId)}
-                endIcon={<ArrowForward />} sx={styles.button}
+                component="a"
+                href={nextPostId ? `${baseUrl}posts/${nextPostId}/` : undefined}
+                variant="contained"
+                disabled={!nextPostId}
+                endIcon={<ArrowForward />}
+                sx={styles.button}
             >
                 Next
             </Button>

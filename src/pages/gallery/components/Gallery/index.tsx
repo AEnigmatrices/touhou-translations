@@ -1,4 +1,3 @@
-import { navigate } from 'vike/client/router';
 import { Grid, Box } from '@mui/material';
 import { Img } from 'react-image';
 import { extractRedditId } from '../../../../utils/extractRedditId';
@@ -28,14 +27,20 @@ const Gallery: FC<Props> = ({ posts }) => {
                 return (
                     <Grid size={{ xs: 6, sm: 2 }} key={redditId}>
                         <Box
-                            sx={styles.item} onClick={() => navigate(postUrl)} role="link" tabIndex={0}
+                            component="a"
+                            href={postUrl}
+                            sx={styles.item}
                             aria-label={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
                         >
                             <Box sx={styles.imageWrapper}>
                                 <Box sx={styles.wrapper}>
                                     <Img
-                                        src={[post.url[0]]} loader={<LoadingIndicator />} unloader={<LoadingIndicator />} decode={false}
-                                        alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`} style={styles.image}
+                                        src={[post.url[0]]}
+                                        loader={<LoadingIndicator />}
+                                        unloader={<LoadingIndicator />}
+                                        decode={false}
+                                        alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
+                                        style={styles.image}
                                     />
                                 </Box>
                             </Box>
