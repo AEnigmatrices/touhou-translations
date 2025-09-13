@@ -1258,5 +1258,14 @@
             "fw"
         ],
         "portrait": "/portraits/characters/ariya.webp"
+    },
+    {
+        "id": "nina",
+        "name": "Watari Nina",
+        "short_name": "Nina",
+        "work": [
+            "fw"
+        ],
+        "portrait": "/portraits/characters/nina.webp"
     }
 ]
