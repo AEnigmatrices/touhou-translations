@@ -5,22 +5,26 @@ import styles from './SeeMoreArtist.styles.ts';
 import type { FC } from 'react';
 
 interface Props {
+    artistId: string;
     artistName?: string | null;
     artistPosts: { id: string; img: string }[];
 }
 
 const baseUrl = import.meta.env.BASE_URL;
 
-
-const SeeMoreArtist: FC<Props> = ({ artistName, artistPosts }) => {
-
+const SeeMoreArtist: FC<Props> = ({ artistId, artistName, artistPosts }) => {
     if (artistPosts.length === 0) return null;
 
     return (
         <Box sx={styles.seeMoreContainer}>
             <Typography sx={styles.seeMoreTitle}>
                 See more by{' '}
-                <Box component="span" sx={styles.seeMoreArtistName}>
+                <Box
+                    component="a"
+                    href={`${baseUrl}gallery?artist=${artistId}`}
+                    sx={styles.seeMoreArtistName}
+                    aria-label={`View gallery for ${artistName ?? 'this Artist'}`}
+                >
                     {artistName ?? 'this Artist'}
                 </Box>
             </Typography>
