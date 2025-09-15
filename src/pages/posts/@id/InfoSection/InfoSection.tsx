@@ -38,6 +38,17 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPos
 
     const toggleUrl = () => setShowNitter((prev) => !prev);
 
+    const getDisplayUrl = (url: string): string => {
+        try {
+            const parsed = new URL(url);
+            const host = parsed.hostname.replace(/^www\./, '');
+            const path = parsed.pathname.length > 20 ? parsed.pathname.slice(0, 20) + '…' : parsed.pathname;
+            return `${host}${path}`;
+        } catch {
+            return url;
+        }
+    };
+
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) =>
         href ? (
             <Tooltip title={altText} arrow placement="top">
@@ -67,8 +78,8 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPos
                             Source:
                         </Typography>
                         <Box sx={styles.sourceContainer}>
-                            <Link href={displayedUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}>
-                                {displayedUrl}
+                            <Link href={displayedUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}   >
+                                {getDisplayUrl(displayedUrl)}
                             </Link>
                             {isTwitterUrl && nitterUrl && (
                                 <Chip
