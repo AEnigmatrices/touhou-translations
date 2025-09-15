@@ -2091,5 +2091,24 @@
         "name": "ねこぐさ艦長",
         "linkTwitter": "https://x.com/neko_kantyo",
         "portrait": "/portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "sumeshi",
+        "name": "すめし",
+        "linkTwitter": "https://x.com/komekawaii_yo",
+        "portrait": "/portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "ikanoshigai",
+        "name": "ikanoshigai",
+        "linkTwitter": "https://x.com/ikanoshigai",
+        "portrait": "/portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "ne_tochika",
+        "name": "ネートチカ",
+        "linkTwitter": "https://x.com/ne_tochika",
+        "linkPixiv": "https://www.pixiv.net/en/users/97974514",
+        "portrait": "/portraits/placeholders/sniper.webp"
     }
 ]

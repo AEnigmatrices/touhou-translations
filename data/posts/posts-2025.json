@@ -7188,5 +7188,106 @@
             "marisa",
             "flandre"
         ]
+    },
+    {
+        "date": 1750896105000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1lkloh7",
+        "url": [
+            "https://i.redd.it/3egxrgx1x59f1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1924427313439244472",
+        "desc": "While it's straightforward to assume that Sakuya cooks separate pots for this, the one-pot scenario can still make professional sense if Patchouli's vegetables were not stewed – but perhaps grilled instead and are toppings like Remilia's nattō.\n\nBoth \"Bon Curry\" and \"Satō Rice\" are popular brands over there, and both are, like, really ol- Wait, what the- 🤨 Is this the name basis of Mr. 2 \"Bon Clay\" in One Piece?",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "patchouli",
+            "sakuya",
+            "remilia",
+            "meiling"
+        ]
+    },
+    {
+        "date": 1750924879000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1lkueya",
+        "url": [
+            "https://i.redd.it/egvs7szla89f1.png"
+        ],
+        "src": "https://x.com/siturensindoro/status/1924399334327812587",
+        "desc": "The saying at the end refers to how surnames overlap a lot in Japan – Satō and Saitō being the most common. In English, I guess an equivalent would be Smith and Jones? I think it's because in Japan, if you're married, you're legally required to have the same surname.\n\nTo better visualize the problem for Japan, imagine you're at the front of the classroom. Look at a couple of columns of maybe a dozen students at their seats – that there are all **Watanabe**, and not a single one of them is related to another.",
+        "artistId": "kanonari",
+        "characterIds": [
+            "marisa",
+            "nue",
+            "chimi"
+        ]
+    },
+    {
+        "date": 1750953688000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ll3wu1",
+        "url": [
+            "https://i.redd.it/uhfjfx1aoa9f1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1925152092383289350",
+        "desc": "New Exterminatus-grade weaponry for the Lunar Capital crusade.\n\nAnd about the two names- Actually 🤨 we all here do know who these two are, right? Anyway, just in case... Bruno Bucciarati and (Young) Joseph Joestar.",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "hecatia",
+            "clownpiece"
+        ]
+    },
+    {
+        "date": 1750982609000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1llfr1k",
+        "url": [
+            "https://i.redd.it/ld2c1ps92d9f1.png"
+        ],
+        "src": "https://x.com/komekawaii_yo/status/1925131774503559339",
+        "desc": "HijiMiko where Miko is the sub seems rather rare? 🤨",
+        "artistId": "sumeshi",
+        "characterIds": [
+            "miko",
+            "byakuren"
+        ]
+    },
+    {
+        "date": 1751072251000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1lma70w",
+        "url": [
+            "https://i.redd.it/eivr3zqtgk9f1.png"
+        ],
+        "src": "https://x.com/ikanoshigai/status/1925470280467849614",
+        "desc": "Huh... if Zanmu is really the same Nichihaku Zanmu, then her Buddhism would be [**Rinzai Zen**](https://en.wikipedia.org/wiki/Rinzai_school). So while still Mahayana like Byakuren, it's a whole different school of thought – both stemmed from China though, Zhēnyán and Línjì.\n\nHuh... Reimu's ability to fly in the \"air\" is actually really special. 空 can also mean emptiness in a philosophical context. It is impermanence. It is detachment. Reimu's true ability is not flight. It is to not be bound by anything. Kinda like the Heroes of *The Elder Scrolls*. Or Xiaoli from *Baki*.\n\nAnd then we contrast Reimu's impermanent void with Zanmu's nihilistic void.",
+        "artistId": "ikanoshigai",
+        "characterIds": [
+            "reimu",
+            "zanmu"
+        ]
+    },
+    {
+        "date": 1751011378000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1lloblz",
+        "url": [
+            "https://i.redd.it/klwisoltff9f1.png"
+        ],
+        "src": "https://x.com/catfiield/status/1925366420743008403",
+        "desc": "I wonder what they'd order at **Waffle House** 🤔",
+        "artistId": "nekobatake",
+        "characterIds": [
+            "chiyari",
+            "yuuma"
+        ]
+    },
+    {
+        "date": 1751040093000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1llxlmd",
+        "url": [
+            "https://i.redd.it/yujhedd7th9f1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/130660411",
+        "desc": "Alright, do not be intimidated by what Sanae's saying. Peano's axioms are basically natural numbers as we all commonly count them. And ZF set theory is an alternative for really high-level mathematical proofs. That's it.",
+        "artistId": "ne_tochika",
+        "characterIds": [
+            "nareko",
+            "sanae"
+        ]
     }
 ]
