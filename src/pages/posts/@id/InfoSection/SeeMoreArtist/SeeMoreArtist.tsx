@@ -6,7 +6,7 @@ import type { FC } from 'react';
 
 interface Props {
     artistId: string;
-    artistName?: string | null;
+    artistName: string | null;
     artistPosts: { id: string; img: string }[];
 }
 
