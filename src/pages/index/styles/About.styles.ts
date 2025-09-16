@@ -1,8 +1,10 @@
+import type { CSSProperties } from 'react';
 import type { SxProps } from '@mui/material/styles';
 
 interface Styles {
     aboutContainer: SxProps;
     aboutText: SxProps;
+    redditLink: CSSProperties
 }
 
 const styles: Styles = {
@@ -20,6 +22,11 @@ const styles: Styles = {
 
     aboutText: {
         textAlign: { xs: 'center', md: 'left' }
+    },
+
+    redditLink: {
+        color: 'inherit',
+        textDecoration: 'underline',
     },
 
 };

@@ -10,7 +10,10 @@ const About = (): JSX.Element => {
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={styles.aboutText}>
                 This website is a personal archive and viewer for Touhou Project fan comics
-                and illustrations that I have translated into English and posted on r/touhou.
+                and illustrations that I have translated into English and posted on{' '}
+                <a href="https://www.reddit.com/r/touhou/" target="_blank" rel="noopener noreferrer" style={styles.redditLink}>
+                    r/touhou
+                </a>.
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={styles.aboutText}>
                 Honestly, I just want to have a convenient way to browse the artworks that I have already translated.
