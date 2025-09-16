@@ -43,12 +43,19 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
     }, [allItems, searchQuery]);
 
     const sortedItems = useMemo(() => {
-        if (sortOrder === "none") {
-            return mode === MODE_ARTIST
-                ? [...searchedItems].sort((a, b) => a.id.localeCompare(b.id))
-                : searchedItems;
-        }
-        return [...searchedItems].sort((a, b) => sortOrder === "asc" ? a.artworkCount - b.artworkCount : b.artworkCount - a.artworkCount);
+        const compare = (a: Character | Artist, b: Character | Artist) => {
+            if (sortOrder === "none") return mode === MODE_ARTIST ? a.id.localeCompare(b.id) : 0;
+            const primaryDiff = sortOrder === "asc"
+                ? a.artworkCount - b.artworkCount
+                : b.artworkCount - a.artworkCount;
+            if (primaryDiff !== 0) return primaryDiff;
+            const [aSecondary, bSecondary] = mode === MODE_CHARACTER
+                ? [(a as Character).artistCount, (b as Character).artistCount]
+                : [(a as Artist).characterCount, (b as Artist).characterCount];
+            return sortOrder === "asc" ? aSecondary - bSecondary : bSecondary - aSecondary;
+        };
+        return [...searchedItems].sort(compare);
+
     }, [searchedItems, sortOrder, mode]);
 
 
