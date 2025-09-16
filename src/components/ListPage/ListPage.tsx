@@ -4,6 +4,7 @@ import ProfileItem from "../ProfileItem/ProfileItem";
 import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
 import styles from "./ListPage.styles";
 import type { Character, Artist, SortOrder } from "../../types/data";
+
 interface Props {
     mode: typeof MODE_CHARACTER | typeof MODE_ARTIST;
     characters?: Character[];
@@ -29,7 +30,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
 
     const [searchInput, setSearchInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
-    const [sortOrder, setSortOrder] = useState<SortOrder>("none");
+    const [sortOrder, setSortOrder] = useState<SortOrder>(mode === MODE_ARTIST ? "desc" : "none");
     const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
     const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
@@ -42,10 +43,13 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
     }, [allItems, searchQuery]);
 
     const sortedItems = useMemo(() => {
-        if (sortOrder === "none") return searchedItems;
+        if (sortOrder === "none") {
+            return mode === MODE_ARTIST
+                ? [...searchedItems].sort((a, b) => a.id.localeCompare(b.id))
+                : searchedItems;
+        }
         return [...searchedItems].sort((a, b) => sortOrder === "asc" ? a.artworkCount - b.artworkCount : b.artworkCount - a.artworkCount);
-
-    }, [searchedItems, sortOrder]);
+    }, [searchedItems, sortOrder, mode]);
 
 
 
