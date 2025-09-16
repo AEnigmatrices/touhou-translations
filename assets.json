@@ -65,6 +65,16 @@
       "_chunk-BXpiIRfH.js"
     ]
   },
+  "_chunk-DTJKL3mh.js": {
+    "file": "assets/chunks/chunk-DTJKL3mh.js",
+    "name": "ListPage",
+    "imports": [
+      "_chunk-BXpiIRfH.js",
+      "_chunk-C6QDhvYY.js",
+      "_chunk-LtNUIpbQ.js",
+      "_chunk-DCr8_LMt.js"
+    ]
+  },
   "_chunk-DjZ6-zNJ.js": {
     "file": "assets/chunks/chunk-DjZ6-zNJ.js",
     "name": "mergeSlotProps",
@@ -78,16 +88,6 @@
     "imports": [
       "_chunk-BXpiIRfH.js",
       "_chunk-DBTWyUbL.js"
-    ]
-  },
-  "_chunk-Wuxhe04C.js": {
-    "file": "assets/chunks/chunk-Wuxhe04C.js",
-    "name": "ListPage",
-    "imports": [
-      "_chunk-BXpiIRfH.js",
-      "_chunk-C6QDhvYY.js",
-      "_chunk-LtNUIpbQ.js",
-      "_chunk-DCr8_LMt.js"
     ]
   },
   "_vike-react-9c9f96f4.BcWtY8Ol.css": {
@@ -119,7 +119,7 @@
     "isDynamicEntry": true
   },
   "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js": {
-    "file": "assets/entries/entry-client-routing.BE6pUe93.js",
+    "file": "assets/entries/entry-client-routing.BeLZX6bF.js",
     "name": "entries/entry-client-routing",
     "src": "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js",
     "isEntry": true,
@@ -172,7 +172,7 @@
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/artists": {
-    "file": "assets/entries/src_pages_artists.OkAO2XKT.js",
+    "file": "assets/entries/src_pages_artists.BqNfvckf.js",
     "name": "entries/src/pages/artists",
     "src": "virtual:vike:page-entry:client:/src/pages/artists",
     "isEntry": true,
@@ -180,7 +180,7 @@
     "imports": [
       "_chunk-BXpiIRfH.js",
       "_chunk-D65VyzDr.js",
-      "_chunk-Wuxhe04C.js",
+      "_chunk-DTJKL3mh.js",
       "_chunk-Cv7W3xNm.js",
       "_chunk-C6QDhvYY.js",
       "_chunk-LtNUIpbQ.js",
@@ -194,7 +194,7 @@
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/characters": {
-    "file": "assets/entries/src_pages_characters.BJj4Tw91.js",
+    "file": "assets/entries/src_pages_characters.VyWMhtqU.js",
     "name": "entries/src/pages/characters",
     "src": "virtual:vike:page-entry:client:/src/pages/characters",
     "isEntry": true,
@@ -202,7 +202,7 @@
     "imports": [
       "_chunk-BXpiIRfH.js",
       "_chunk-D65VyzDr.js",
-      "_chunk-Wuxhe04C.js",
+      "_chunk-DTJKL3mh.js",
       "_chunk-Cv7W3xNm.js",
       "_chunk-C6QDhvYY.js",
       "_chunk-LtNUIpbQ.js",
