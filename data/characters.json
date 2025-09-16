@@ -6,7 +6,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/reimu.webp"
+        "portrait": "portraits/characters/reimu.webp"
     },
     {
         "id": "marisa",
@@ -15,7 +15,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/marisa.webp"
+        "portrait": "portraits/characters/marisa.webp"
     },
     {
         "id": "rin",
@@ -24,7 +24,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/rin.webp"
+        "portrait": "portraits/characters/rin.webp"
     },
     {
         "id": "rumia",
@@ -33,7 +33,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/rumia.webp"
+        "portrait": "portraits/characters/rumia.webp"
     },
     {
         "id": "daiyousei",
@@ -42,7 +42,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/daiyousei.webp"
+        "portrait": "portraits/characters/daiyousei.webp"
     },
     {
         "id": "cirno",
@@ -51,7 +51,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/cirno.webp"
+        "portrait": "portraits/characters/cirno.webp"
     },
     {
         "id": "meiling",
@@ -60,7 +60,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/meiling.webp"
+        "portrait": "portraits/characters/meiling.webp"
     },
     {
         "id": "koakuma",
@@ -69,7 +69,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/koakuma.webp"
+        "portrait": "portraits/characters/koakuma.webp"
     },
     {
         "id": "patchouli",
@@ -78,7 +78,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/patchouli.webp"
+        "portrait": "portraits/characters/patchouli.webp"
     },
     {
         "id": "sakuya",
@@ -87,7 +87,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/sakuya.webp"
+        "portrait": "portraits/characters/sakuya.webp"
     },
     {
         "id": "remilia",
@@ -96,7 +96,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/remilia.webp"
+        "portrait": "portraits/characters/remilia.webp"
     },
     {
         "id": "flandre",
@@ -105,7 +105,7 @@
         "work": [
             "eosd"
         ],
-        "portrait": "/portraits/characters/flandre.webp"
+        "portrait": "portraits/characters/flandre.webp"
     },
     {
         "id": "letty",
@@ -114,7 +114,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/letty.webp"
+        "portrait": "portraits/characters/letty.webp"
     },
     {
         "id": "chen",
@@ -123,7 +123,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/chen.webp"
+        "portrait": "portraits/characters/chen.webp"
     },
     {
         "id": "alice",
@@ -132,7 +132,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/alice.webp"
+        "portrait": "portraits/characters/alice.webp"
     },
     {
         "id": "lily",
@@ -141,7 +141,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/lily.webp"
+        "portrait": "portraits/characters/lily.webp"
     },
     {
         "id": "lunasa",
@@ -150,7 +150,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/lunasa.webp"
+        "portrait": "portraits/characters/lunasa.webp"
     },
     {
         "id": "merlin",
@@ -159,7 +159,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/merlin.webp"
+        "portrait": "portraits/characters/merlin.webp"
     },
     {
         "id": "lyrica",
@@ -168,7 +168,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/lyrica.webp"
+        "portrait": "portraits/characters/lyrica.webp"
     },
     {
         "id": "youmu",
@@ -177,7 +177,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/youmu.webp"
+        "portrait": "portraits/characters/youmu.webp"
     },
     {
         "id": "yuyuko",
@@ -186,7 +186,7 @@
         "work": [
             "pcb"
         ],
-        "portrait": "/portraits/characters/yuyuko.webp"
+        "portrait": "portraits/characters/yuyuko.webp"
     },
     {
         "id": "ran",
@@ -196,7 +196,7 @@
             "pcb",
             "udoalg"
         ],
-        "portrait": "/portraits/characters/ran.webp"
+        "portrait": "portraits/characters/ran.webp"
     },
     {
         "id": "yukari",
@@ -211,7 +211,7 @@
             "soku",
             "aocf"
         ],
-        "portrait": "/portraits/characters/yukari.webp"
+        "portrait": "portraits/characters/yukari.webp"
     },
     {
         "id": "renko",
@@ -220,7 +220,7 @@
         "work": [
             "hifuu"
         ],
-        "portrait": "/portraits/characters/renko.webp"
+        "portrait": "portraits/characters/renko.webp"
     },
     {
         "id": "merry",
@@ -229,7 +229,7 @@
         "work": [
             "hifuu"
         ],
-        "portrait": "/portraits/characters/merry.webp"
+        "portrait": "portraits/characters/merry.webp"
     },
     {
         "id": "rinnosuke",
@@ -238,7 +238,7 @@
         "work": [
             "cola"
         ],
-        "portrait": "/portraits/characters/rinnosuke.webp"
+        "portrait": "portraits/characters/rinnosuke.webp"
     },
     {
         "id": "tokiko",
@@ -247,7 +247,7 @@
         "work": [
             "cola"
         ],
-        "portrait": "/portraits/characters/tokiko.webp"
+        "portrait": "portraits/characters/tokiko.webp"
     },
     {
         "id": "suika",
@@ -260,7 +260,7 @@
             "soku",
             "udoalg"
         ],
-        "portrait": "/portraits/characters/suika.webp"
+        "portrait": "portraits/characters/suika.webp"
     },
     {
         "id": "wriggle",
@@ -269,7 +269,7 @@
         "work": [
             "in"
         ],
-        "portrait": "/portraits/characters/wriggle.webp"
+        "portrait": "portraits/characters/wriggle.webp"
     },
     {
         "id": "mystia",
@@ -278,7 +278,7 @@
         "work": [
             "in"
         ],
-        "portrait": "/portraits/characters/mystia.webp"
+        "portrait": "portraits/characters/mystia.webp"
     },
     {
         "id": "keine",
@@ -287,7 +287,7 @@
         "work": [
             "in"
         ],
-        "portrait": "/portraits/characters/keine.webp"
+        "portrait": "portraits/characters/keine.webp"
     },
     {
         "id": "tewi",
@@ -296,7 +296,7 @@
         "work": [
             "in"
         ],
-        "portrait": "/portraits/characters/tewi.webp"
+        "portrait": "portraits/characters/tewi.webp"
     },
     {
         "id": "reisen",
@@ -305,7 +305,7 @@
         "work": [
             "in"
         ],
-        "portrait": "/portraits/characters/reisen.webp"
+        "portrait": "portraits/characters/reisen.webp"
     },
     {
         "id": "eirin",
@@ -314,7 +314,7 @@
         "work": [
             "in"
         ],
-        "portrait": "/portraits/characters/eirin.webp"
+        "portrait": "portraits/characters/eirin.webp"
     },
     {
         "id": "kaguya",
@@ -323,7 +323,7 @@
         "work": [
             "in"
         ],
-        "portrait": "/portraits/characters/kaguya.webp"
+        "portrait": "portraits/characters/kaguya.webp"
     },
     {
         "id": "mokou",
@@ -332,7 +332,7 @@
         "work": [
             "in"
         ],
-        "portrait": "/portraits/characters/mokou.webp"
+        "portrait": "portraits/characters/mokou.webp"
     },
     {
         "id": "sunny",
@@ -341,7 +341,7 @@
         "work": [
             "sgs"
         ],
-        "portrait": "/portraits/characters/sunny.webp"
+        "portrait": "portraits/characters/sunny.webp"
     },
     {
         "id": "luna",
@@ -350,7 +350,7 @@
         "work": [
             "sgs"
         ],
-        "portrait": "/portraits/characters/luna.webp"
+        "portrait": "portraits/characters/luna.webp"
     },
     {
         "id": "star",
@@ -359,7 +359,7 @@
         "work": [
             "sgs"
         ],
-        "portrait": "/portraits/characters/star.webp"
+        "portrait": "portraits/characters/star.webp"
     },
     {
         "id": "aya",
@@ -371,7 +371,7 @@
             "mof",
             "ds"
         ],
-        "portrait": "/portraits/characters/aya.webp"
+        "portrait": "portraits/characters/aya.webp"
     },
     {
         "id": "medicine",
@@ -380,7 +380,7 @@
         "work": [
             "pofv"
         ],
-        "portrait": "/portraits/characters/medicine.webp"
+        "portrait": "portraits/characters/medicine.webp"
     },
     {
         "id": "yuuka",
@@ -389,7 +389,7 @@
         "work": [
             "pofv"
         ],
-        "portrait": "/portraits/characters/yuuka.webp"
+        "portrait": "portraits/characters/yuuka.webp"
     },
     {
         "id": "komachi",
@@ -398,7 +398,7 @@
         "work": [
             "pofv"
         ],
-        "portrait": "/portraits/characters/komachi.webp"
+        "portrait": "portraits/characters/komachi.webp"
     },
     {
         "id": "eiki",
@@ -407,7 +407,7 @@
         "work": [
             "pofv"
         ],
-        "portrait": "/portraits/characters/eiki.webp"
+        "portrait": "portraits/characters/eiki.webp"
     },
     {
         "id": "reisen2",
@@ -416,7 +416,7 @@
         "work": [
             "ssib"
         ],
-        "portrait": "/portraits/characters/reisen2.webp"
+        "portrait": "portraits/characters/reisen2.webp"
     },
     {
         "id": "toyohime",
@@ -426,7 +426,7 @@
             "ssib",
             "fw"
         ],
-        "portrait": "/portraits/characters/toyohime.webp"
+        "portrait": "portraits/characters/toyohime.webp"
     },
     {
         "id": "yorihime",
@@ -435,7 +435,7 @@
         "work": [
             "ssib"
         ],
-        "portrait": "/portraits/characters/yorihime.webp"
+        "portrait": "portraits/characters/yorihime.webp"
     },
     {
         "id": "akyuu",
@@ -444,7 +444,7 @@
         "work": [
             "pmiss"
         ],
-        "portrait": "/portraits/characters/akyuu.webp"
+        "portrait": "portraits/characters/akyuu.webp"
     },
     {
         "id": "shizuha",
@@ -453,7 +453,7 @@
         "work": [
             "mof"
         ],
-        "portrait": "/portraits/characters/shizuha.webp"
+        "portrait": "portraits/characters/shizuha.webp"
     },
     {
         "id": "minoriko",
@@ -462,7 +462,7 @@
         "work": [
             "mof"
         ],
-        "portrait": "/portraits/characters/minoriko.webp"
+        "portrait": "portraits/characters/minoriko.webp"
     },
     {
         "id": "hina",
@@ -471,7 +471,7 @@
         "work": [
             "mof"
         ],
-        "portrait": "/portraits/characters/hina.webp"
+        "portrait": "portraits/characters/hina.webp"
     },
     {
         "id": "nitori",
@@ -480,7 +480,7 @@
         "work": [
             "mof"
         ],
-        "portrait": "/portraits/characters/nitori.webp"
+        "portrait": "portraits/characters/nitori.webp"
     },
     {
         "id": "momiji",
@@ -489,7 +489,7 @@
         "work": [
             "mof"
         ],
-        "portrait": "/portraits/characters/momiji.webp"
+        "portrait": "portraits/characters/momiji.webp"
     },
     {
         "id": "sanae",
@@ -505,7 +505,7 @@
             "um",
             "udoalg"
         ],
-        "portrait": "/portraits/characters/sanae.webp"
+        "portrait": "portraits/characters/sanae.webp"
     },
     {
         "id": "kanako",
@@ -514,7 +514,7 @@
         "work": [
             "mof"
         ],
-        "portrait": "/portraits/characters/kanako.webp"
+        "portrait": "portraits/characters/kanako.webp"
     },
     {
         "id": "suwako",
@@ -523,7 +523,7 @@
         "work": [
             "mof"
         ],
-        "portrait": "/portraits/characters/suwako.webp"
+        "portrait": "portraits/characters/suwako.webp"
     },
     {
         "id": "iku",
@@ -532,7 +532,7 @@
         "work": [
             "swr"
         ],
-        "portrait": "/portraits/characters/iku.webp"
+        "portrait": "portraits/characters/iku.webp"
     },
     {
         "id": "tenshi",
@@ -541,7 +541,7 @@
         "work": [
             "swr"
         ],
-        "portrait": "/portraits/characters/tenshi.webp"
+        "portrait": "portraits/characters/tenshi.webp"
     },
     {
         "id": "kisume",
@@ -550,7 +550,7 @@
         "work": [
             "sa"
         ],
-        "portrait": "/portraits/characters/kisume.webp"
+        "portrait": "portraits/characters/kisume.webp"
     },
     {
         "id": "yamame",
@@ -559,7 +559,7 @@
         "work": [
             "sa"
         ],
-        "portrait": "/portraits/characters/yamame.webp"
+        "portrait": "portraits/characters/yamame.webp"
     },
     {
         "id": "parsee",
@@ -568,7 +568,7 @@
         "work": [
             "sa"
         ],
-        "portrait": "/portraits/characters/parsee.webp"
+        "portrait": "portraits/characters/parsee.webp"
     },
     {
         "id": "yuugi",
@@ -577,7 +577,7 @@
         "work": [
             "sa"
         ],
-        "portrait": "/portraits/characters/yuugi.webp"
+        "portrait": "portraits/characters/yuugi.webp"
     },
     {
         "id": "satori",
@@ -586,7 +586,7 @@
         "work": [
             "sa"
         ],
-        "portrait": "/portraits/characters/satori.webp"
+        "portrait": "portraits/characters/satori.webp"
     },
     {
         "id": "orin",
@@ -596,7 +596,7 @@
             "sa",
             "udoalg"
         ],
-        "portrait": "/portraits/characters/orin.webp"
+        "portrait": "portraits/characters/orin.webp"
     },
     {
         "id": "okuu",
@@ -605,7 +605,7 @@
         "work": [
             "sa"
         ],
-        "portrait": "/portraits/characters/okuu.webp"
+        "portrait": "portraits/characters/okuu.webp"
     },
     {
         "id": "koishi",
@@ -614,7 +614,7 @@
         "work": [
             "sa"
         ],
-        "portrait": "/portraits/characters/koishi.webp"
+        "portrait": "portraits/characters/koishi.webp"
     },
     {
         "id": "nazrin",
@@ -623,7 +623,7 @@
         "work": [
             "ufo"
         ],
-        "portrait": "/portraits/characters/nazrin.webp"
+        "portrait": "portraits/characters/nazrin.webp"
     },
     {
         "id": "kogasa",
@@ -632,7 +632,7 @@
         "work": [
             "ufo"
         ],
-        "portrait": "/portraits/characters/kogasa.webp"
+        "portrait": "portraits/characters/kogasa.webp"
     },
     {
         "id": "ichirin",
@@ -641,7 +641,7 @@
         "work": [
             "ufo"
         ],
-        "portrait": "/portraits/characters/ichirin.webp"
+        "portrait": "portraits/characters/ichirin.webp"
     },
     {
         "id": "minamitsu",
@@ -650,7 +650,7 @@
         "work": [
             "ufo"
         ],
-        "portrait": "/portraits/characters/minamitsu.webp"
+        "portrait": "portraits/characters/minamitsu.webp"
     },
     {
         "id": "shou",
@@ -659,7 +659,7 @@
         "work": [
             "ufo"
         ],
-        "portrait": "/portraits/characters/shou.webp"
+        "portrait": "portraits/characters/shou.webp"
     },
     {
         "id": "byakuren",
@@ -668,7 +668,7 @@
         "work": [
             "ufo"
         ],
-        "portrait": "/portraits/characters/byakuren.webp"
+        "portrait": "portraits/characters/byakuren.webp"
     },
     {
         "id": "nue",
@@ -677,7 +677,7 @@
         "work": [
             "ufo"
         ],
-        "portrait": "/portraits/characters/nue.webp"
+        "portrait": "portraits/characters/nue.webp"
     },
     {
         "id": "hatate",
@@ -686,7 +686,7 @@
         "work": [
             "ds"
         ],
-        "portrait": "/portraits/characters/hatate.webp"
+        "portrait": "portraits/characters/hatate.webp"
     },
     {
         "id": "kasen",
@@ -695,7 +695,7 @@
         "work": [
             "aocf"
         ],
-        "portrait": "/portraits/characters/kasen.webp"
+        "portrait": "portraits/characters/kasen.webp"
     },
     {
         "id": "kyouko",
@@ -704,7 +704,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/kyouko.webp"
+        "portrait": "portraits/characters/kyouko.webp"
     },
     {
         "id": "yoshika",
@@ -713,7 +713,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/yoshika.webp"
+        "portrait": "portraits/characters/yoshika.webp"
     },
     {
         "id": "seiga",
@@ -722,7 +722,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/seiga.webp"
+        "portrait": "portraits/characters/seiga.webp"
     },
     {
         "id": "tojiko",
@@ -731,7 +731,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/tojiko.webp"
+        "portrait": "portraits/characters/tojiko.webp"
     },
     {
         "id": "futo",
@@ -740,7 +740,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/futo.webp"
+        "portrait": "portraits/characters/futo.webp"
     },
     {
         "id": "miko",
@@ -749,7 +749,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/miko.webp"
+        "portrait": "portraits/characters/miko.webp"
     },
     {
         "id": "mamizou",
@@ -758,7 +758,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/mamizou.webp"
+        "portrait": "portraits/characters/mamizou.webp"
     },
     {
         "id": "kosuzu",
@@ -767,7 +767,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/kosuzu.webp"
+        "portrait": "portraits/characters/kosuzu.webp"
     },
     {
         "id": "kokoro",
@@ -776,7 +776,7 @@
         "work": [
             "td"
         ],
-        "portrait": "/portraits/characters/kokoro.webp"
+        "portrait": "portraits/characters/kokoro.webp"
     },
     {
         "id": "wakasagihime",
@@ -785,7 +785,7 @@
         "work": [
             "ddc"
         ],
-        "portrait": "/portraits/characters/wakasagihime.webp"
+        "portrait": "portraits/characters/wakasagihime.webp"
     },
     {
         "id": "sekibanki",
@@ -794,7 +794,7 @@
         "work": [
             "ddc"
         ],
-        "portrait": "/portraits/characters/sekibanki.webp"
+        "portrait": "portraits/characters/sekibanki.webp"
     },
     {
         "id": "kagerou",
@@ -803,7 +803,7 @@
         "work": [
             "ddc"
         ],
-        "portrait": "/portraits/characters/kagerou.webp"
+        "portrait": "portraits/characters/kagerou.webp"
     },
     {
         "id": "benben",
@@ -812,7 +812,7 @@
         "work": [
             "ddc"
         ],
-        "portrait": "/portraits/characters/benben.webp"
+        "portrait": "portraits/characters/benben.webp"
     },
     {
         "id": "yatsuhashi",
@@ -821,7 +821,7 @@
         "work": [
             "ddc"
         ],
-        "portrait": "/portraits/characters/yatsuhashi.webp"
+        "portrait": "portraits/characters/yatsuhashi.webp"
     },
     {
         "id": "seija",
@@ -830,7 +830,7 @@
         "work": [
             "ddc"
         ],
-        "portrait": "/portraits/characters/seija.webp"
+        "portrait": "portraits/characters/seija.webp"
     },
     {
         "id": "shinmyoumaru",
@@ -839,7 +839,7 @@
         "work": [
             "ddc"
         ],
-        "portrait": "/portraits/characters/shinmyoumaru.webp"
+        "portrait": "portraits/characters/shinmyoumaru.webp"
     },
     {
         "id": "raiko",
@@ -848,7 +848,7 @@
         "work": [
             "ddc"
         ],
-        "portrait": "/portraits/characters/raiko.webp"
+        "portrait": "portraits/characters/raiko.webp"
     },
     {
         "id": "sumireko",
@@ -857,7 +857,7 @@
         "work": [
             "ulil"
         ],
-        "portrait": "/portraits/characters/sumireko.webp"
+        "portrait": "portraits/characters/sumireko.webp"
     },
     {
         "id": "seiran",
@@ -866,7 +866,7 @@
         "work": [
             "lolk"
         ],
-        "portrait": "/portraits/characters/seiran.webp"
+        "portrait": "portraits/characters/seiran.webp"
     },
     {
         "id": "ringo",
@@ -875,7 +875,7 @@
         "work": [
             "lolk"
         ],
-        "portrait": "/portraits/characters/ringo.webp"
+        "portrait": "portraits/characters/ringo.webp"
     },
     {
         "id": "doremy",
@@ -884,7 +884,7 @@
         "work": [
             "lolk"
         ],
-        "portrait": "/portraits/characters/doremy.webp"
+        "portrait": "portraits/characters/doremy.webp"
     },
     {
         "id": "sagume",
@@ -893,7 +893,7 @@
         "work": [
             "lolk"
         ],
-        "portrait": "/portraits/characters/sagume.webp"
+        "portrait": "portraits/characters/sagume.webp"
     },
     {
         "id": "clownpiece",
@@ -902,7 +902,7 @@
         "work": [
             "lolk"
         ],
-        "portrait": "/portraits/characters/clownpiece.webp"
+        "portrait": "portraits/characters/clownpiece.webp"
     },
     {
         "id": "junko",
@@ -911,7 +911,7 @@
         "work": [
             "lolk"
         ],
-        "portrait": "/portraits/characters/junko.webp"
+        "portrait": "portraits/characters/junko.webp"
     },
     {
         "id": "hecatia",
@@ -920,7 +920,7 @@
         "work": [
             "lolk"
         ],
-        "portrait": "/portraits/characters/hecatia.webp"
+        "portrait": "portraits/characters/hecatia.webp"
     },
     {
         "id": "joon",
@@ -929,7 +929,7 @@
         "work": [
             "aocf"
         ],
-        "portrait": "/portraits/characters/joon.webp"
+        "portrait": "portraits/characters/joon.webp"
     },
     {
         "id": "shion",
@@ -938,7 +938,7 @@
         "work": [
             "aocf"
         ],
-        "portrait": "/portraits/characters/shion.webp"
+        "portrait": "portraits/characters/shion.webp"
     },
     {
         "id": "larva",
@@ -947,7 +947,7 @@
         "work": [
             "hsifs"
         ],
-        "portrait": "/portraits/characters/larva.webp"
+        "portrait": "portraits/characters/larva.webp"
     },
     {
         "id": "nemuno",
@@ -956,7 +956,7 @@
         "work": [
             "hsifs"
         ],
-        "portrait": "/portraits/characters/nemuno.webp"
+        "portrait": "portraits/characters/nemuno.webp"
     },
     {
         "id": "aun",
@@ -965,7 +965,7 @@
         "work": [
             "hsifs"
         ],
-        "portrait": "/portraits/characters/aun.webp"
+        "portrait": "portraits/characters/aun.webp"
     },
     {
         "id": "narumi",
@@ -974,7 +974,7 @@
         "work": [
             "hsifs"
         ],
-        "portrait": "/portraits/characters/narumi.webp"
+        "portrait": "portraits/characters/narumi.webp"
     },
     {
         "id": "mai",
@@ -983,7 +983,7 @@
         "work": [
             "hsifs"
         ],
-        "portrait": "/portraits/characters/mai.webp"
+        "portrait": "portraits/characters/mai.webp"
     },
     {
         "id": "satono",
@@ -992,7 +992,7 @@
         "work": [
             "hsifs"
         ],
-        "portrait": "/portraits/characters/satono.webp"
+        "portrait": "portraits/characters/satono.webp"
     },
     {
         "id": "okina",
@@ -1001,7 +1001,7 @@
         "work": [
             "hsifs"
         ],
-        "portrait": "/portraits/characters/okina.webp"
+        "portrait": "portraits/characters/okina.webp"
     },
     {
         "id": "eika",
@@ -1010,7 +1010,7 @@
         "work": [
             "wbawc"
         ],
-        "portrait": "/portraits/characters/eika.webp"
+        "portrait": "portraits/characters/eika.webp"
     },
     {
         "id": "kutaka",
@@ -1019,7 +1019,7 @@
         "work": [
             "wbawc"
         ],
-        "portrait": "/portraits/characters/kutaka.webp"
+        "portrait": "portraits/characters/kutaka.webp"
     },
     {
         "id": "urumi",
@@ -1028,7 +1028,7 @@
         "work": [
             "wbawc"
         ],
-        "portrait": "/portraits/characters/urumi.webp"
+        "portrait": "portraits/characters/urumi.webp"
     },
     {
         "id": "yachie",
@@ -1038,7 +1038,7 @@
             "wbawc",
             "udoalg"
         ],
-        "portrait": "/portraits/characters/yachie.webp"
+        "portrait": "portraits/characters/yachie.webp"
     },
     {
         "id": "mayumi",
@@ -1047,7 +1047,7 @@
         "work": [
             "wbawc"
         ],
-        "portrait": "/portraits/characters/mayumi.webp"
+        "portrait": "portraits/characters/mayumi.webp"
     },
     {
         "id": "keiki",
@@ -1056,7 +1056,7 @@
         "work": [
             "wbawc"
         ],
-        "portrait": "/portraits/characters/keiki.webp"
+        "portrait": "portraits/characters/keiki.webp"
     },
     {
         "id": "saki",
@@ -1066,7 +1066,7 @@
             "wbawc",
             "udoalg"
         ],
-        "portrait": "/portraits/characters/saki.webp"
+        "portrait": "portraits/characters/saki.webp"
     },
     {
         "id": "miyoi",
@@ -1075,7 +1075,7 @@
         "work": [
             "le"
         ],
-        "portrait": "/portraits/characters/miyoi.webp"
+        "portrait": "portraits/characters/miyoi.webp"
     },
     {
         "id": "mizuchi",
@@ -1084,7 +1084,7 @@
         "work": [
             "fds"
         ],
-        "portrait": "/portraits/characters/mizuchi.webp"
+        "portrait": "portraits/characters/mizuchi.webp"
     },
     {
         "id": "yuuma",
@@ -1094,7 +1094,7 @@
             "sfw",
             "udoalg"
         ],
-        "portrait": "/portraits/characters/yuuma.webp"
+        "portrait": "portraits/characters/yuuma.webp"
     },
     {
         "id": "mike",
@@ -1103,7 +1103,7 @@
         "work": [
             "um"
         ],
-        "portrait": "/portraits/characters/mike.webp"
+        "portrait": "portraits/characters/mike.webp"
     },
     {
         "id": "takane",
@@ -1112,7 +1112,7 @@
         "work": [
             "um"
         ],
-        "portrait": "/portraits/characters/takane.webp"
+        "portrait": "portraits/characters/takane.webp"
     },
     {
         "id": "sannyo",
@@ -1121,7 +1121,7 @@
         "work": [
             "um"
         ],
-        "portrait": "/portraits/characters/sannyo.webp"
+        "portrait": "portraits/characters/sannyo.webp"
     },
     {
         "id": "misumaru",
@@ -1130,7 +1130,7 @@
         "work": [
             "um"
         ],
-        "portrait": "/portraits/characters/misumaru.webp"
+        "portrait": "portraits/characters/misumaru.webp"
     },
     {
         "id": "tsukasa",
@@ -1140,7 +1140,7 @@
             "um",
             "udoalg"
         ],
-        "portrait": "/portraits/characters/tsukasa.webp"
+        "portrait": "portraits/characters/tsukasa.webp"
     },
     {
         "id": "megumu",
@@ -1149,7 +1149,7 @@
         "work": [
             "um"
         ],
-        "portrait": "/portraits/characters/megumu.webp"
+        "portrait": "portraits/characters/megumu.webp"
     },
     {
         "id": "chimata",
@@ -1158,7 +1158,7 @@
         "work": [
             "um"
         ],
-        "portrait": "/portraits/characters/chimata.webp"
+        "portrait": "portraits/characters/chimata.webp"
     },
     {
         "id": "momoyo",
@@ -1167,7 +1167,7 @@
         "work": [
             "um"
         ],
-        "portrait": "/portraits/characters/momoyo.webp"
+        "portrait": "portraits/characters/momoyo.webp"
     },
     {
         "id": "biten",
@@ -1176,7 +1176,7 @@
         "work": [
             "udoalg"
         ],
-        "portrait": "/portraits/characters/biten.webp"
+        "portrait": "portraits/characters/biten.webp"
     },
     {
         "id": "enoko",
@@ -1185,7 +1185,7 @@
         "work": [
             "udoalg"
         ],
-        "portrait": "/portraits/characters/enoko.webp"
+        "portrait": "portraits/characters/enoko.webp"
     },
     {
         "id": "chiyari",
@@ -1194,7 +1194,7 @@
         "work": [
             "udoalg"
         ],
-        "portrait": "/portraits/characters/chiyari.webp"
+        "portrait": "portraits/characters/chiyari.webp"
     },
     {
         "id": "hisami",
@@ -1203,7 +1203,7 @@
         "work": [
             "udoalg"
         ],
-        "portrait": "/portraits/characters/hisami.webp"
+        "portrait": "portraits/characters/hisami.webp"
     },
     {
         "id": "zanmu",
@@ -1212,7 +1212,7 @@
         "work": [
             "udoalg"
         ],
-        "portrait": "/portraits/characters/zanmu.webp"
+        "portrait": "portraits/characters/zanmu.webp"
     },
     {
         "id": "ubame",
@@ -1221,7 +1221,7 @@
         "work": [
             "fw"
         ],
-        "portrait": "/portraits/characters/ubame.webp"
+        "portrait": "portraits/characters/ubame.webp"
     },
     {
         "id": "chimi",
@@ -1230,7 +1230,7 @@
         "work": [
             "fw"
         ],
-        "portrait": "/portraits/characters/chimi.webp"
+        "portrait": "portraits/characters/chimi.webp"
     },
     {
         "id": "nareko",
@@ -1239,7 +1239,7 @@
         "work": [
             "fw"
         ],
-        "portrait": "/portraits/characters/nareko.webp"
+        "portrait": "portraits/characters/nareko.webp"
     },
     {
         "id": "yuiman",
@@ -1248,7 +1248,7 @@
         "work": [
             "fw"
         ],
-        "portrait": "/portraits/characters/yuiman.webp"
+        "portrait": "portraits/characters/yuiman.webp"
     },
     {
         "id": "ariya",
@@ -1257,7 +1257,7 @@
         "work": [
             "fw"
         ],
-        "portrait": "/portraits/characters/ariya.webp"
+        "portrait": "portraits/characters/ariya.webp"
     },
     {
         "id": "nina",
@@ -1266,6 +1266,6 @@
         "work": [
             "fw"
         ],
-        "portrait": "/portraits/characters/nina.webp"
+        "portrait": "portraits/characters/nina.webp"
     }
 ]

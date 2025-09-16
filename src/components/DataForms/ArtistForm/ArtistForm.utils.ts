@@ -42,5 +42,5 @@ export const submitNewArtist = async (artist: ArtistFormInput): Promise<void> =>
 
 export const getRandomPlaceholder = (): string => {
     const index = Math.floor(Math.random() * PLACEHOLDER_FILENAMES.length);
-    return `/portraits/placeholders/${PLACEHOLDER_FILENAMES[index]}`;
+    return `portraits/placeholders/${PLACEHOLDER_FILENAMES[index]}`;
 }
