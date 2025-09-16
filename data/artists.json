@@ -164,7 +164,7 @@
         "name": "ネコバタケ",
         "linkTwitter": "https://x.com/catfiield",
         "linkPixiv": "https://www.pixiv.net/en/users/561777",
-        "portrait": "portraits/placeholders/pyro.webp"
+        "portrait": "portraits/artists/nekobatake.webp"
     },
     {
         "id": "shundou_heishirou",
@@ -319,7 +319,7 @@
         "name": "ミカヅキモ",
         "linkTwitter": "https://x.com/mikadukimo777",
         "linkPixiv": "https://www.pixiv.net/en/users/8543340",
-        "portrait": "portraits/placeholders/scout.webp"
+        "portrait": "portraits/artists/mikazukimo.webp"
     },
     {
         "id": "yudepii",
@@ -423,7 +423,8 @@
         "id": "shitace",
         "name": "したせ",
         "linkTwitter": "https://x.com/shitace1",
-        "portrait": "portraits/placeholders/pyro.webp"
+        "linkPixiv": "https://www.pixiv.net/en/users/5040504",
+        "portrait": "portraits/artists/shitace.webp"
     },
     {
         "id": "hashiro_fumi",
@@ -600,7 +601,7 @@
         "name": "休憩うさぎ",
         "linkTwitter": "https://x.com/QK_rabbit_2",
         "linkPixiv": "https://www.pixiv.net/en/users/15423708",
-        "portrait": "portraits/placeholders/demoman.webp"
+        "portrait": "portraits/artists/kyuukei_usagi.webp"
     },
     {
         "id": "arugon",
@@ -720,7 +721,7 @@
         "id": "kosaki",
         "name": "古崎",
         "linkTwitter": "https://x.com/sakiC43899",
-        "portrait": "portraits/placeholders/scout.webp"
+        "portrait": "portraits/artists/kosaki.webp"
     },
     {
         "id": "rose_gardena",
@@ -740,13 +741,13 @@
         "name": "いたたたた",
         "linkTwitter": "https://x.com/itatatata6",
         "linkPixiv": "https://www.pixiv.net/en/users/29434482",
-        "portrait": "portraits/placeholders/scout.webp"
+        "portrait": "portraits/artists/itatatata.webp"
     },
     {
         "id": "kna",
         "name": "Kna",
         "linkTwitter": "https://x.com/Kna28064212",
-        "portrait": "portraits/placeholders/engineer.webp"
+        "portrait": "portraits/artists/kna.webp"
     },
     {
         "id": "kumamoto",
@@ -775,11 +776,11 @@
         "portrait": "portraits/placeholders/sniper.webp"
     },
     {
-        "id": "io",
+        "id": "io_nano",
         "name": "いお",
         "linkTwitter": "https://x.com/io_nano",
         "linkPixiv": "https://www.pixiv.net/en/users/323684",
-        "portrait": "portraits/placeholders/scout.webp"
+        "portrait": "portraits/artists/io_nano.webp"
     },
     {
         "id": "opagi",
@@ -813,7 +814,7 @@
         "name": "Kオス",
         "linkTwitter": "https://x.com/konton_hakusai",
         "linkPixiv": "https://www.pixiv.net/en/users/18058067",
-        "portrait": "portraits/placeholders/sniper.webp"
+        "portrait": "portraits/artists/k-osu.webp"
     },
     {
         "id": "kuya",
@@ -959,7 +960,7 @@
         "name": "niru",
         "linkTwitter": "https://x.com/niru___05",
         "linkPixiv": "https://www.pixiv.net/en/users/38334959",
-        "portrait": "portraits/placeholders/medic.webp"
+        "portrait": "portraits/artists/niru.webp"
     },
     {
         "id": "marinne",
@@ -1033,7 +1034,7 @@
         "name": "うぃす",
         "linkTwitter": "https://x.com/whis11",
         "linkPixiv": "https://www.pixiv.net/en/users/135786",
-        "portrait": "portraits/placeholders/pyro.webp"
+        "portrait": "portraits/artists/whis.webp"
     },
     {
         "id": "myonmyon",
@@ -1126,7 +1127,7 @@
         "name": "野愛におし",
         "linkTwitter": "https://x.com/nioshi_noai",
         "linkPixiv": "https://www.pixiv.net/en/users/246328",
-        "portrait": "portraits/placeholders/demoman.webp"
+        "portrait": "portraits/artists/noai_nioshi.webp"
     },
     {
         "id": "shay",
@@ -1153,7 +1154,7 @@
         "id": "signal_mass",
         "name": "坂本しぐま",
         "linkTwitter": "https://x.com/SignalMass",
-        "portrait": "portraits/placeholders/medic.webp"
+        "portrait": "portraits/artists/signal_mass.webp"
     },
     {
         "id": "shigefumi",
@@ -1242,7 +1243,7 @@
         "name": "きゃろっと8",
         "linkTwitter": "https://x.com/ninzin_88hon",
         "linkPixiv": "https://www.pixiv.net/en/users/100513271",
-        "portrait": "portraits/placeholders/pyro.webp"
+        "portrait": "portraits/artists/carrot_8.webp"
     },
     {
         "id": "nekoa",
@@ -1301,14 +1302,14 @@
         "id": "mitsu",
         "name": "mitsu",
         "linkTwitter": "https://x.com/GhMfly8",
-        "portrait": "portraits/placeholders/engineer.webp"
+        "portrait": "portraits/artists/mitsu.webp"
     },
     {
         "id": "indo_sou",
         "name": "インド僧",
         "linkTwitter": "https://x.com/indozou",
         "linkPixiv": "https://www.pixiv.net/en/users/390501",
-        "portrait": "portraits/placeholders/heavy.webp"
+        "portrait": "portraits/artists/indo_sou.webp"
     },
     {
         "id": "kamepasuta",
@@ -1403,7 +1404,7 @@
         "name": "すしろう",
         "linkTwitter": "https://x.com/HeripanTomorrow",
         "linkPixiv": "https://www.pixiv.net/en/users/42276572",
-        "portrait": "portraits/placeholders/engineer.webp"
+        "portrait": "portraits/artists/sushirou.webp"
     },
     {
         "id": "258n",
@@ -1437,7 +1438,7 @@
         "id": "rome",
         "name": "ろめ",
         "linkTwitter": "https://x.com/ROME35793562",
-        "portrait": "portraits/placeholders/spy.webp"
+        "portrait": "portraits/artists/rome.webp"
     },
     {
         "id": "burijitou",
@@ -1464,7 +1465,7 @@
         "id": "yaan",
         "name": "夜餡",
         "linkTwitter": "https://x.com/tktkhappymchyr",
-        "portrait": "portraits/placeholders/sniper.webp"
+        "portrait": "portraits/artists/yaan.webp"
     },
     {
         "id": "ooeyama",
@@ -1489,7 +1490,7 @@
         "id": "machi_paterina",
         "name": "まちぱてりーな",
         "linkTwitter": "https://x.com/mati100311",
-        "portrait": "portraits/placeholders/heavy.webp"
+        "portrait": "portraits/artists/machi_paterina.webp"
     },
     {
         "id": "fuusan",
@@ -1502,7 +1503,7 @@
         "name": "siw0n",
         "linkTwitter": "https://x.com/siw0n_c",
         "linkPixiv": "https://www.pixiv.net/en/users/19848183",
-        "portrait": "portraits/placeholders/scout.webp"
+        "portrait": "portraits/artists/siw0n.webp"
     },
     {
         "id": "asaka_haru",
@@ -1541,7 +1542,7 @@
         "name": "白山どんどゅるま",
         "linkTwitter": "https://x.com/shiroyamadon",
         "linkPixiv": "https://www.pixiv.net/en/users/4823812",
-        "portrait": "portraits/placeholders/pyro.webp"
+        "portrait": "portraits/artists/shiroyama_dondyuruma.webp"
     },
     {
         "id": "pitchi",
@@ -1642,7 +1643,7 @@
         "name": "八咫ガラス",
         "linkTwitter": "https://x.com/yatagarasu150",
         "linkPixiv": "https://www.pixiv.net/en/users/16223891",
-        "portrait": "portraits/placeholders/engineer.webp"
+        "portrait": "portraits/artists/yatagarasu.webp"
     },
     {
         "id": "eo",
