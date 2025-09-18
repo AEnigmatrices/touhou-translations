@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { Box, Container, TextField, Typography } from "@mui/material";
 import ProfileItem from "../ProfileItem/ProfileItem";
-import ArtworkCountSortButton from "../ArtworkCountSortButton/ArtworkCountSortButton";
+import ArtworkCountSortButton from "./components/ArtworkCountSortButton/ArtworkCountSortButton";
 import styles from "./ListPage.styles";
 import type { Character, Artist, SortOrder } from "../../types/data";
 

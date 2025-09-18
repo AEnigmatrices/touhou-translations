@@ -1,4 +1,4 @@
-import artists from '../../../../data/artists.json';
+import artists from '../../../../../data/artists.json';
 
 interface ArtistFormInput {
     id: string;

@@ -2,7 +2,7 @@ import React from "react";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import { ariaSortMap, iconMap } from "./ArtworkCountSortButton.constants";
-import type { SortOrder } from "../../types/data";
+import type { SortOrder } from "../../../../types/data";
 
 interface Props { sortOrder: SortOrder; onToggleSortOrder: () => void; }
 

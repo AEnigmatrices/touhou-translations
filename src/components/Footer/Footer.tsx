@@ -7,7 +7,7 @@ import RedditIcon from "@mui/icons-material/Reddit";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import ImageIcon from "@mui/icons-material/Image";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import ExternalLink from "../ExternalLink/ExternalLink";
+import ExternalLink from "./components/ExternalLink/ExternalLink";
 import styles from "./Footer.styles";
 
 

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { TextField, Button, Stack, Typography, Box } from '@mui/material';
 import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId, getRandomPlaceholder } from './ArtistForm.utils';
 import styles from './ArtistForm.styles';
-import type { ArtistRaw } from '../../../types/data';
+import type { ArtistRaw } from '../../../../types/data';
 
 
 
