@@ -2111,5 +2111,11 @@
         "linkTwitter": "https://x.com/ne_tochika",
         "linkPixiv": "https://www.pixiv.net/en/users/97974514",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "majime",
+        "name": "真面目な学院生",
+        "linkTwitter": "https://x.com/mazime_1218",
+        "portrait": "portraits/placeholders/engineer.webp"
     }
 ]
