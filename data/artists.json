@@ -2117,5 +2117,38 @@
         "name": "真面目な学院生",
         "linkTwitter": "https://x.com/mazime_1218",
         "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "suzuna_kagura",
+        "name": "鈴奈神楽",
+        "linkTwitter": "https://x.com/Suzuna_Kagura",
+        "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "katasumi",
+        "name": "かたすみ",
+        "linkTwitter": "https://x.com/katasumicqcq",
+        "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "omochi",
+        "name": "尾持ち",
+        "linkTwitter": "https://x.com/GNwcq",
+        "linkPixiv": "https://www.pixiv.net/en/users/111912744",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "futahane",
+        "name": "ふたはね泥沼",
+        "linkTwitter": "https://x.com/futahane",
+        "linkPixiv": "https://www.pixiv.net/en/users/5072933",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "lunaluna",
+        "name": "ルナルナ",
+        "linkTwitter": "https://x.com/lunalunachild",
+        "linkPixiv": "https://www.pixiv.net/en/users/12906092",
+        "portrait": "portraits/placeholders/sniper.webp"
     }
 ]
