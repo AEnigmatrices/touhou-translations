@@ -2150,5 +2150,19 @@
         "linkTwitter": "https://x.com/lunalunachild",
         "linkPixiv": "https://www.pixiv.net/en/users/12906092",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "potato",
+        "name": "potato",
+        "linkTwitter": "https://x.com/comicomi0211",
+        "linkPixiv": "https://www.pixiv.net/en/users/56674527",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "suteruko",
+        "name": "すてる子",
+        "linkTwitter": "https://x.com/suteru_ko47",
+        "linkPixiv": "https://www.pixiv.net/en/users/113088782",
+        "portrait": "portraits/placeholders/heavy.webp"
     }
 ]

@@ -7618,5 +7618,56 @@
             "marisa",
             "aun"
         ]
+    },
+    {
+        "date": 1751762502000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1lsok2x",
+        "url": [
+            "https://i.redd.it/ctqjrcjah5bf1.png"
+        ],
+        "src": "https://x.com/_Akai_3_1415926/status/1929478105871348144",
+        "desc": "What exactly does Meikai look like? The name and nature made me assume gloomy. But looking at the stages, it looks... 🤨 perfectly normal. Maybe a little bit of fantastic landscaping. Still, it's bright there during the day.",
+        "artistId": "guanin",
+        "characterIds": [
+            "youmu"
+        ]
+    },
+    {
+        "date": 1751788901000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1lsvwoa",
+        "url": [
+            "https://i.redd.it/c3bcfxhsn7bf1.png"
+        ],
+        "src": "https://x.com/comicomi0211/status/1929478107502919888",
+        "desc": "In retrospect 🤔 I really should've put the browser on incognito before I lent my phone to her.",
+        "artistId": "potato",
+        "characterIds": [
+            "remilia"
+        ]
+    },
+    {
+        "date": 1751818422000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1lt51ns",
+        "url": [
+            "https://i.redd.it/qgd2krmk3abf1.png"
+        ],
+        "src": "https://x.com/suteru_ko47/status/1929704268338286941",
+        "desc": "Your honor, my client would like to plead guilty to having too much rizz for the court to handle 😤\n\nAnd I guess Yukari is being a witness up there? 🤔",
+        "artistId": "suteruko",
+        "characterIds": [
+            "reimu",
+            "marisa",
+            "patchouli",
+            "sakuya",
+            "remilia",
+            "flandre",
+            "alice",
+            "ran",
+            "yukari",
+            "komachi",
+            "eiki",
+            "sanae",
+            "nitori"
+        ]
     }
 ]
