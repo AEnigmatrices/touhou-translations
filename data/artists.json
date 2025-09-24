@@ -2164,5 +2164,12 @@
         "linkTwitter": "https://x.com/suteru_ko47",
         "linkPixiv": "https://www.pixiv.net/en/users/113088782",
         "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "nerihiko",
+        "name": "ねり彦",
+        "linkTwitter": "https://x.com/neritch",
+        "linkPixiv": "https://www.pixiv.net/en/users/9985441",
+        "portrait": "portraits/placeholders/sniper.webp"
     }
 ]
