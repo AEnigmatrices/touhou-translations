@@ -10,12 +10,21 @@ interface Props {
     description1?: string;
     description2?: string;
     link?: string;
+    isSelectMode?: boolean;
+    isSelected?: boolean;
+    onToggleSelect?: () => void;
 }
 
-const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, description2, link }) => {
+const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, description2, link, isSelectMode, isSelected, onToggleSelect }) => {
 
     const observerRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
+
+    const handleItemClick = () => {
+        if (isSelectMode && onToggleSelect) {
+            onToggleSelect();
+        }
+    };
 
     useEffect(() => {
         const node = observerRef.current;
@@ -46,16 +55,21 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
         : <Box sx={styles.placeholder} aria-hidden />;
 
     const Content = (
-        <Box sx={styles.content}>
+        <Box sx={styles.content} onClick={handleItemClick}>
             {ImageContent}
             <Box sx={styles.textContainer}>
+                {isSelectMode && onToggleSelect && (
+                    <input
+                        type="checkbox"
+                        checked={isSelected}
+                        readOnly
+                        style={{ marginRight: "8px" }}
+                        aria-label={`Select ${name}`}
+                    />
+                )}
                 <Typography variant="subtitle1" fontWeight={600}>{name}</Typography>
-                {description1 && (
-                    <Typography variant="body2" color="text.secondary">{description1}</Typography>
-                )}
-                {description2 && (
-                    <Typography variant="body2" color="text.secondary">{description2}</Typography>
-                )}
+                {description1 && <Typography variant="body2" color="text.secondary">{description1}</Typography>}
+                {description2 && <Typography variant="body2" color="text.secondary">{description2}</Typography>}
             </Box>
         </Box>
     );
