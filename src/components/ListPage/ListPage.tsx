@@ -74,8 +74,8 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
                 : `${(item as Artist).characterCount} character${(item as Artist).characterCount !== 1 ? "s" : ""}`;
             const imageUrl = `${BASE_URL}${item.portrait}`;
             const toUrl = mode === MODE_CHARACTER
-                ? `${BASE_URL}gallery?character=${id}`
-                : `${BASE_URL}gallery?artist=${id}`;
+                ? `${BASE_URL}gallery?characters=${id}`
+                : `${BASE_URL}gallery?artists=${id}`;
             return <ProfileItem key={id} name={name} imageUrl={imageUrl} description1={artworkCountText} description2={extraCountText} link={toUrl} />
         });
     };
