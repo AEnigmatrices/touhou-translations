@@ -2171,5 +2171,32 @@
         "linkTwitter": "https://x.com/neritch",
         "linkPixiv": "https://www.pixiv.net/en/users/9985441",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "honezuka",
+        "name": "骨塚",
+        "linkTwitter": "https://x.com/honezuka",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "poronegi",
+        "name": "ぽろねぎ",
+        "linkTwitter": "https://x.com/sasamorichou",
+        "linkPixiv": "https://www.pixiv.net/en/users/1347561",
+        "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "shicho",
+        "name": "史兆",
+        "linkTwitter": "https://x.com/sh1cho",
+        "linkPixiv": "https://www.pixiv.net/en/users/2743880",
+        "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "jadou_yashiro",
+        "name": "蛇道やしろ",
+        "linkTwitter": "https://x.com/oniyuri_2004",
+        "linkPixiv": "https://www.pixiv.net/en/users/10521523",
+        "portrait": "portraits/placeholders/pyro.webp"
     }
 ]
