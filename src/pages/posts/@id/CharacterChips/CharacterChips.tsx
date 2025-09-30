@@ -23,7 +23,7 @@ const CharacterChips: FC<Props> = ({ characters }) => {
                     key={c.id}
                     label={c.short_name}
                     component="a"
-                    href={`${baseUrl}gallery?character=${c.id}`}
+                    href={`${baseUrl}gallery?characters=${c.id}`}
                     clickable
                     sx={styles.chip}
                     avatar={c.portrait ? (<Avatar src={`${baseUrl}${c.portrait}`} alt={c.name} variant="rounded" />) : undefined}
