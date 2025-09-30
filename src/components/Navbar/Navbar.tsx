@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { navigate } from 'vike/client/router';
+import { navigate, prefetch } from 'vike/client/router';
 import { usePageContext } from 'vike-react/usePageContext';
 import { getRandomPostPath } from '../../utils/fetchData';
 import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -32,6 +32,8 @@ const Navbar = (): JSX.Element => {
     useEffect(() => {
         setCurrentTab(tabPaths.includes(url) ? url : false);
     }, [url, tabPaths]);
+
+    useEffect(() => { navLinks.forEach(({ to }) => prefetch(to)); }, []);
 
 
     return (
