@@ -26,7 +26,7 @@ const description = (pageContext: PageContext<Data>) => {
 
     const artistName = artist?.name ?? 'Unknown Artist';
 
-    return `Fan artwork of the Touhou Project featuring ${charactersText}, created by ${artistName}. Explore more Touhou fan artworks on Touhou Translations.`;
+    return `Touhou Project fan artwork featuring ${charactersText}, created by ${artistName}. Find more translated Touhou fanarts on Touhou Translations.`;
 };
 
 export default description;
