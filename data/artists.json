@@ -2198,5 +2198,24 @@
         "linkTwitter": "https://x.com/oniyuri_2004",
         "linkPixiv": "https://www.pixiv.net/en/users/10521523",
         "portrait": "portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "min_k",
+        "name": "min.k",
+        "linkTwitter": "https://x.com/min_k_2",
+        "linkPixiv": "https://www.pixiv.net/en/users/112923291",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "ryk",
+        "name": "RYK",
+        "linkTwitter": "https://x.com/rykyukkuri",
+        "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "akeboshi_saku",
+        "name": "あけぼしさく",
+        "linkTwitter": "https://x.com/saku_3_17",
+        "portrait": "portraits/placeholders/sniper.webp"
     }
 ]
