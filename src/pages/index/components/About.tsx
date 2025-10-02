@@ -1,13 +1,22 @@
-import { Paper, Typography } from '@mui/material';
+import { Paper, Typography, Box } from '@mui/material';
 import styles from '../styles/About.styles';
+import profileIcon from '/icons/touhou-translations-profile-icon.png';
 import type { JSX } from 'react';
 
 const About = (): JSX.Element => {
     return (
         <Paper sx={styles.aboutContainer}>
-            <Typography variant="h6" color="text.primary">
-                About This Site
-            </Typography>
+            <Box sx={styles.header}>
+                <Box
+                    component="img"
+                    src={profileIcon}
+                    alt="Touhou Project translations archive site profile icon"
+                    sx={styles.profileImage}
+                />
+                <Typography variant="h6" color="text.primary" sx={styles.title}>
+                    About This Site
+                </Typography>
+            </Box>
             <Typography variant="body1" color="text.secondary" sx={styles.aboutText}>
                 This website is a personal archive and viewer for Touhou Project fan comics
                 and illustrations that I have translated into English and posted on{' '}
@@ -16,7 +25,8 @@ const About = (): JSX.Element => {
                 </a>.
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={styles.aboutText}>
-                Honestly, I just want to have a convenient way to browse the artworks that I have already translated.
+                Honestly, I just want to have a convenient way to browse the artworks that I
+                have already translated.
             </Typography>
         </Paper>
     );
