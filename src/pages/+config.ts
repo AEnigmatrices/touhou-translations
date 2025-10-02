@@ -3,9 +3,8 @@ import vikeReact from 'vike-react/config'
 
 export default {
     prerender: true,
-    title: "Touhou Translations",
+    title: 'Home | Touhou Translations',
     description: "An archive of fan-translated Touhou Project comics and illustrations.",
-    favicon: "/touhou-translations/icons/favicon.ico",
     trailingSlash: true,
     extends: [vikeReact]
 } satisfies Config

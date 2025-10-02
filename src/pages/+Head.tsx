@@ -26,6 +26,7 @@ const Head = () => (
 
         {isProd && <link rel="manifest" href="/touhou-translations/manifest.webmanifest" />}
 
+        <link rel="icon" href="/touhou-translations/icons/favicon.ico" type="image/x-icon" />
         <link rel="preconnect" href="https://i.redd.it" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
