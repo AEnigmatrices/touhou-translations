@@ -34,6 +34,18 @@ const Head = () => (
         <link rel="stylesheet" href={fontsUrl} />
 
         {isProd && <script src="/touhou-translations/registerSW.js"></script>}
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    "name": "Touhou Translations",
+                    "alternateName": "TT",
+                    "url": "https://aenigmatrices.github.io/touhou-translations/"
+                })
+            }}
+        />
     </>
 );
 
