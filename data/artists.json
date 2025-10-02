@@ -2217,5 +2217,32 @@
         "name": "あけぼしさく",
         "linkTwitter": "https://x.com/saku_3_17",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "kuchiya_doro",
+        "name": "口屋どろ",
+        "linkTwitter": "https://x.com/zekamasichan",
+        "linkPixiv": "https://www.pixiv.net/en/users/5030072",
+        "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "toukoku",
+        "name": "東國",
+        "linkTwitter": "https://x.com/R_Agazma",
+        "linkPixiv": "https://www.pixiv.net/en/users/13026208",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "bagu",
+        "name": "BAGU*",
+        "linkTwitter": "https://x.com/BaguBagu_cr7",
+        "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "kirero",
+        "name": "kirero",
+        "linkTwitter": "https://x.com/kirero",
+        "linkPixiv": "https://www.pixiv.net/en/users/35490",
+        "portrait": "portraits/placeholders/medic.webp"
     }
 ]
