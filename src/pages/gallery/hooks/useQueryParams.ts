@@ -9,8 +9,8 @@ const useQueryParams = (urlParsed: any) => {
         .map(s => s.trim())
         .filter(Boolean);
 
-    const artistsParam = searchParams.get('artists') || '';
-    const artistQueries = artistsParam
+    const artistParam = searchParams.get('artist') || '';
+    const artistQueries = artistParam
         .split(',')
         .map(s => s.trim())
         .filter(Boolean);

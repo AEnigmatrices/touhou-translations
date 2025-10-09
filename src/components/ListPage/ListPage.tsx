@@ -101,7 +101,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
             const imageUrl = `${BASE_URL}${item.portrait}`;
 
             const selected = selectedItems.includes(id);
-            const galleryLink = `${BASE_URL}gallery?${mode === MODE_CHARACTER ? "characters" : "artists"}=${selectedItems.join(",") || id}`;
+            const galleryLink = `${BASE_URL}gallery?${mode === MODE_CHARACTER ? "characters" : "artist"}=${selectedItems.join(",") || id}`;
 
             return (
                 <ProfileItem
