@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type JSX } from "react";
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, IconButton, TextField, Typography } from "@mui/material";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import ProfileItem from "../ProfileItem/ProfileItem";
 import ArtworkCountSortButton from "./components/ArtworkCountSortButton/ArtworkCountSortButton";
 import styles from "./ListPage.styles";
@@ -66,7 +68,7 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
         setSortOrder(prev => (prev === "none" ? "desc" : prev === "desc" ? "asc" : "none"));
     };
 
-    const toggleSelectMode = () => {
+    const handleToggleSelectMode = () => {
         if (isSelectMode && selectedItems.length === 0) {
             setIsSelectMode(false);
         } else {
@@ -74,14 +76,11 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
         }
     };
 
-    const handleSelectButtonClick = () => {
-        if (isSelectMode && selectedItems.length > 0) {
-            const queryKey = mode === MODE_CHARACTER ? "characters" : "artists";
-            const url = `${BASE_URL}gallery?${queryKey}=${selectedItems.join(",")}`;
-            window.location.href = url;
-        } else {
-            toggleSelectMode();
-        }
+    const handleNavigateSelected = () => {
+        if (selectedItems.length === 0) return;
+        const queryKey = mode === MODE_CHARACTER ? "characters" : "artists";
+        const url = `${BASE_URL}gallery?${queryKey}=${selectedItems.join(",")}`;
+        window.location.href = url;
     };
 
     const handleToggleItem = (id: string) => {
@@ -152,13 +151,38 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
                     label="Search by ID or Name" variant="outlined" value={searchInput} sx={styles.textField}
                     onChange={(e) => setSearchInput(e.target.value)} slotProps={{ input: { "aria-label": ariaLabel } }}
                 />
-                <Button variant="contained" onClick={handleSelectButtonClick}>
-                    {isSelectMode
-                        ? selectedItems.length > 0
-                            ? `View ${selectedItems.length} Selected`
-                            : "Exit Select Mode"
-                        : "Select Multiple"}
-                </Button>
+                <Box display="flex" alignItems="center" sx={{ mr: 2 }}>
+                    <Box display="flex" alignItems="center" sx={{ cursor: "pointer" }} onClick={handleToggleSelectMode}>
+                        <IconButton
+                            color={isSelectMode ? "primary" : "default"}
+                            aria-label="Toggle multi-select mode"
+                        >
+                            {isSelectMode ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
+                        </IconButton>
+                        <Typography
+                            variant="body2"
+                            color={isSelectMode ? "primary" : "text.secondary"}
+                            sx={{ userSelect: "none" }}
+                        >
+                            {isSelectMode
+                                ? selectedItems.length > 0
+                                    ? `${selectedItems.length} Selected`
+                                    : "Multi-Select ON"
+                                : "Multi-Select OFF"}
+                        </Typography>
+                    </Box>
+
+                    {isSelectMode && selectedItems.length > 0 && (
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            sx={{ ml: 2 }}
+                            onClick={handleNavigateSelected}
+                        >
+                            View Selected
+                        </Button>
+                    )}
+                </Box>
                 <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
             </Box>
             <Box component="ul" sx={styles.listGrid}>
