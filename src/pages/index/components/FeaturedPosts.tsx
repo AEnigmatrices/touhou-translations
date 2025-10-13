@@ -1,34 +1,49 @@
-import { Box, Card, CardContent, Typography, Grid } from '@mui/material';
+import { Box, Card, CardContent, Typography } from '@mui/material';
 import { Img } from 'react-image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Mousewheel } from 'swiper/modules';
 import { extractRedditId } from '../../../utils/extractRedditId';
 import LoadingIndicator from '../../../components/LoadingIndicator';
 import styles from '../styles/FeaturedPosts.styles';
+import 'swiper/css';
+import 'swiper/css/mousewheel';
 import type { FC } from 'react';
 import type { Post } from '../../../types/data';
 
 const BASE_URL = import.meta.env.BASE_URL || '/';
 
-interface Props {
-    featuredPosts: Post[];
-}
-
-const FeaturedPosts: FC<Props> = ({ featuredPosts }) => {
+const FeaturedPosts: FC<{ featuredPosts: Post[] }> = ({ featuredPosts }) => {
     if (!featuredPosts.length) return <p>No featured posts available.</p>;
 
     return (
         <Card sx={styles.card}>
             <CardContent>
-                <Typography variant="h6" color="text.primary" gutterBottom>
+                <Typography variant="h6" color="text.primary" gutterBottom mb={3}>
                     Featured Posts
                 </Typography>
-                <Grid container spacing={2} justifyContent="center">
+
+                <Swiper
+                    modules={[Autoplay, Mousewheel]}
+                    slidesPerView="auto"
+                    spaceBetween={16}
+                    navigation
+                    pagination={{ clickable: true }}
+                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                    loop={true}
+                    breakpoints={{
+                        600: { slidesPerView: 2, spaceBetween: 16 },
+                        900: { slidesPerView: 3, spaceBetween: 20 },
+                        1200: { slidesPerView: 4, spaceBetween: 24 },
+                    }}
+                    mousewheel={true}
+                >
                     {featuredPosts.map((post) => {
                         const imageUrl = post.url?.[0];
                         const redditId = extractRedditId(post.reddit);
                         if (!imageUrl || !redditId) return null;
 
                         return (
-                            <Grid size={{ xs: 6, md: 3 }} key={redditId}>
+                            <SwiperSlide key={redditId}>
                                 <Box
                                     component="a"
                                     href={`${BASE_URL}posts/${redditId}/`}
@@ -45,14 +60,15 @@ const FeaturedPosts: FC<Props> = ({ featuredPosts }) => {
                                                 decode={false}
                                                 alt={`Featured post ${redditId}`}
                                                 style={styles.image}
+                                                onLoad={(e: React.SyntheticEvent<HTMLImageElement>) => { e.currentTarget.style.opacity = '1'; }}
                                             />
                                         </Box>
                                     </Box>
                                 </Box>
-                            </Grid>
+                            </SwiperSlide>
                         );
                     })}
-                </Grid>
+                </Swiper>
             </CardContent>
         </Card>
     );

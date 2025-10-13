@@ -20,46 +20,44 @@ const styles: Styles = {
         borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
         backgroundColor: 'background.paper',
     },
-
     item: {
+        flex: '0 0 auto',
         borderRadius: 2,
         overflow: 'hidden',
         cursor: 'pointer',
-        transition: 'transform 0.2s ease, box-shadow 0.3s ease',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#f9f9f9',
+        transition: 'transform 0.25s ease, box-shadow 0.3s ease',
+        aspectRatio: { xs: '4 / 3', md: '1 / 1' },
         '&:hover': {
-            transform: 'scale(1.05)',
-            boxShadow: '0 4px 10px rgba(0,0,0,0.15)',
+            transform: 'translateY(-4px) scale(1.05)',
+            boxShadow: '0 6px 16px rgba(0,0,0,0.2)',
         },
         '&:focus-visible': {
             outline: '2px solid #005fcc',
             outlineOffset: 2,
         },
-        aspectRatio: '1 / 1',
     },
-
     imageWrapper: {
         width: '100%',
         height: '100%',
         display: 'flex',
     },
-
     wrapper: {
         position: 'relative',
         width: '100%',
         overflow: 'hidden',
         borderRadius: 1,
     },
-
     image: {
         width: '100%',
         height: '100%',
         objectFit: 'cover',
         display: 'block',
-        transition: 'opacity 0.3s ease, filter 0.3s ease',
+        opacity: 0,
+        transition: 'opacity 0.5s ease-in-out',
     },
 };
 
