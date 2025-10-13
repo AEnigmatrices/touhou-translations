@@ -148,41 +148,48 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
             <Box sx={styles.box}>
                 <Typography variant="h4" component="h2" sx={styles.typography}>{title}</Typography>
                 <TextField
-                    label="Search by ID or Name" variant="outlined" value={searchInput} sx={styles.textField}
-                    onChange={(e) => setSearchInput(e.target.value)} slotProps={{ input: { "aria-label": ariaLabel } }}
+                    label="Search by ID or Name"
+                    variant="outlined"
+                    value={searchInput}
+                    sx={styles.textField}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    slotProps={{ input: { "aria-label": ariaLabel } }}
                 />
-                <Box display="flex" alignItems="center" sx={{ mr: 2 }}>
-                    <Box display="flex" alignItems="center" sx={{ cursor: "pointer" }} onClick={handleToggleSelectMode}>
-                        <IconButton
-                            color={isSelectMode ? "primary" : "default"}
-                            aria-label="Toggle multi-select mode"
-                        >
-                            {isSelectMode ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
-                        </IconButton>
-                        <Typography
-                            variant="body2"
-                            color={isSelectMode ? "primary" : "text.secondary"}
-                            sx={{ userSelect: "none" }}
-                        >
-                            {isSelectMode
-                                ? selectedItems.length > 0
-                                    ? `${selectedItems.length} Selected`
-                                    : "Multi-Select ON"
-                                : "Multi-Select OFF"}
-                        </Typography>
-                    </Box>
+                {mode === MODE_CHARACTER && (
+                    <Box display="flex" alignItems="center" sx={{ mr: 2 }}>
+                        <Box display="flex" alignItems="center" sx={{ cursor: "pointer" }} onClick={handleToggleSelectMode}>
+                            <IconButton
+                                color={isSelectMode ? "primary" : "default"}
+                                aria-label="Toggle multi-select mode"
+                            >
+                                {isSelectMode ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
+                            </IconButton>
+                            <Typography
+                                variant="body2"
+                                color={isSelectMode ? "primary" : "text.secondary"}
+                                sx={{ userSelect: "none" }}
+                            >
+                                {isSelectMode
+                                    ? selectedItems.length > 0
+                                        ? `${selectedItems.length} Selected`
+                                        : "Multi-Select ON"
+                                    : "Multi-Select OFF"}
+                            </Typography>
+                        </Box>
 
-                    {isSelectMode && selectedItems.length > 0 && (
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            sx={{ ml: 2 }}
-                            onClick={handleNavigateSelected}
-                        >
-                            View Selected
-                        </Button>
-                    )}
-                </Box>
+                        {isSelectMode && selectedItems.length > 0 && (
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                sx={{ ml: 2 }}
+                                onClick={handleNavigateSelected}
+                            >
+                                View Selected
+                            </Button>
+                        )}
+                    </Box>
+                )}
+
                 <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
             </Box>
             <Box component="ul" sx={styles.listGrid}>
