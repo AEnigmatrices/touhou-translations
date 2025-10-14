@@ -3,80 +3,18 @@
     "file": "assets/chunks/chunk--X6AgOBR.js",
     "name": "preload-helper"
   },
-  "_chunk-Bi8pgmn1.js": {
-    "file": "assets/chunks/chunk-Bi8pgmn1.js",
-    "name": "Button",
-    "imports": [
-      "_chunk-y0EkmYGv.js"
-    ]
-  },
-  "_chunk-BpxqQ4Cl.js": {
-    "file": "assets/chunks/chunk-BpxqQ4Cl.js",
-    "name": "Avatar",
-    "imports": [
-      "_chunk-y0EkmYGv.js"
-    ]
-  },
-  "_chunk-CqY4XHhN.js": {
-    "file": "assets/chunks/chunk-CqY4XHhN.js",
-    "name": "Tooltip",
-    "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-D4szgnyZ.js"
-    ]
-  },
-  "_chunk-CvoluSmm.js": {
-    "file": "assets/chunks/chunk-CvoluSmm.js",
-    "name": "ProfileItem",
-    "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-DvnUpqrm.js"
-    ]
-  },
-  "_chunk-D4TRpTb0.js": {
-    "file": "assets/chunks/chunk-D4TRpTb0.js",
-    "name": "useFormControl",
-    "imports": [
-      "_chunk-y0EkmYGv.js"
-    ]
-  },
-  "_chunk-D4szgnyZ.js": {
-    "file": "assets/chunks/chunk-D4szgnyZ.js",
-    "name": "Grow",
-    "imports": [
-      "_chunk-y0EkmYGv.js"
-    ]
-  },
-  "_chunk-DPrYt6A5.js": {
-    "file": "assets/chunks/chunk-DPrYt6A5.js",
-    "name": "ListPage",
-    "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-CvoluSmm.js",
-      "_chunk-CqY4XHhN.js",
-      "_chunk-wARRYto5.js",
-      "_chunk-Bi8pgmn1.js"
-    ]
-  },
-  "_chunk-DvnUpqrm.js": {
-    "file": "assets/chunks/chunk-DvnUpqrm.js",
-    "name": "index",
-    "imports": [
-      "_chunk-y0EkmYGv.js"
-    ]
-  },
-  "_chunk-wARRYto5.js": {
-    "file": "assets/chunks/chunk-wARRYto5.js",
+  "_chunk-5Z0cWwfW.js": {
+    "file": "assets/chunks/chunk-5Z0cWwfW.js",
     "name": "TextField",
     "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-D4TRpTb0.js",
-      "_chunk-D4szgnyZ.js",
-      "_chunk-Bi8pgmn1.js"
+      "_chunk-BLykHC2t.js",
+      "_chunk-Ce9KfZFM.js",
+      "_chunk-GLcV_Ats.js",
+      "_chunk-DGZq6TFC.js"
     ]
   },
-  "_chunk-y0EkmYGv.js": {
-    "file": "assets/chunks/chunk-y0EkmYGv.js",
+  "_chunk-BLykHC2t.js": {
+    "file": "assets/chunks/chunk-BLykHC2t.js",
     "name": "Loading",
     "imports": [
       "_chunk--X6AgOBR.js"
@@ -87,6 +25,76 @@
       "data/artists.json",
       "data/characters.json"
     ]
+  },
+  "_chunk-BgEiFX62.js": {
+    "file": "assets/chunks/chunk-BgEiFX62.js",
+    "name": "Tooltip",
+    "imports": [
+      "_chunk-BLykHC2t.js",
+      "_chunk-GLcV_Ats.js"
+    ]
+  },
+  "_chunk-CEVEB5Nd.js": {
+    "file": "assets/chunks/chunk-CEVEB5Nd.js",
+    "name": "ListPage",
+    "imports": [
+      "_chunk-BLykHC2t.js",
+      "_chunk-DKcsQkRa.js",
+      "_chunk-BgEiFX62.js",
+      "_chunk-5Z0cWwfW.js",
+      "_chunk-DGZq6TFC.js"
+    ]
+  },
+  "_chunk-Ce9KfZFM.js": {
+    "file": "assets/chunks/chunk-Ce9KfZFM.js",
+    "name": "useFormControl",
+    "imports": [
+      "_chunk-BLykHC2t.js"
+    ]
+  },
+  "_chunk-CvpPOSkF.js": {
+    "file": "assets/chunks/chunk-CvpPOSkF.js",
+    "name": "index",
+    "imports": [
+      "_chunk-BLykHC2t.js"
+    ]
+  },
+  "_chunk-DGZq6TFC.js": {
+    "file": "assets/chunks/chunk-DGZq6TFC.js",
+    "name": "Button",
+    "imports": [
+      "_chunk-BLykHC2t.js"
+    ]
+  },
+  "_chunk-DKcsQkRa.js": {
+    "file": "assets/chunks/chunk-DKcsQkRa.js",
+    "name": "ProfileItem",
+    "imports": [
+      "_chunk-BLykHC2t.js",
+      "_chunk-CvpPOSkF.js"
+    ]
+  },
+  "_chunk-GLcV_Ats.js": {
+    "file": "assets/chunks/chunk-GLcV_Ats.js",
+    "name": "Grow",
+    "imports": [
+      "_chunk-BLykHC2t.js"
+    ]
+  },
+  "_chunk-gOo2sqVs.js": {
+    "file": "assets/chunks/chunk-gOo2sqVs.js",
+    "name": "Avatar",
+    "imports": [
+      "_chunk-BLykHC2t.js"
+    ]
+  },
+  "_swiper-2a04c68e.C8ec8cn4.css": {
+    "file": "assets/static/swiper-2a04c68e.C8ec8cn4.css",
+    "src": "_swiper-2a04c68e.C8ec8cn4.css"
+  },
+  "_swiper-3b631a41.tn0RQdqM.css": {
+    "file": "assets/static/swiper-3b631a41.tn0RQdqM.css",
+    "src": "_swiper-3b631a41.tn0RQdqM.css"
   },
   "data/artists.json": {
     "file": "assets/chunks/chunk-CAMR_oJm.js",
@@ -113,7 +121,7 @@
     "isDynamicEntry": true
   },
   "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js": {
-    "file": "assets/entries/entry-client-routing.tzwtwvZN.js",
+    "file": "assets/entries/entry-client-routing.k28cqZuR.js",
     "name": "entries/entry-client-routing",
     "src": "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js",
     "isEntry": true,
@@ -131,113 +139,117 @@
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/_error": {
-    "file": "assets/entries/src_pages_error.CRcwmrvi.js",
+    "file": "assets/entries/src_pages_error.B251gx55.js",
     "name": "entries/src/pages/_error",
     "src": "virtual:vike:page-entry:client:/src/pages/_error",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-y0EkmYGv.js",
+      "_chunk-BLykHC2t.js",
       "_chunk--X6AgOBR.js"
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/admin": {
-    "file": "assets/entries/src_pages_admin.CYurKYle.js",
+    "file": "assets/entries/src_pages_admin.B7SfDkC9.js",
     "name": "entries/src/pages/admin",
     "src": "virtual:vike:page-entry:client:/src/pages/admin",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-y0EkmYGv.js",
+      "_chunk-BLykHC2t.js",
       "data/artists.json",
       "data/characters.json",
-      "_chunk-wARRYto5.js",
-      "_chunk-D4szgnyZ.js",
-      "_chunk-BpxqQ4Cl.js",
-      "_chunk-Bi8pgmn1.js",
+      "_chunk-5Z0cWwfW.js",
+      "_chunk-GLcV_Ats.js",
+      "_chunk-gOo2sqVs.js",
+      "_chunk-DGZq6TFC.js",
       "_chunk--X6AgOBR.js",
-      "_chunk-D4TRpTb0.js"
+      "_chunk-Ce9KfZFM.js"
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/artists": {
-    "file": "assets/entries/src_pages_artists.4oA22QPl.js",
+    "file": "assets/entries/src_pages_artists.DNxu9KLV.js",
     "name": "entries/src/pages/artists",
     "src": "virtual:vike:page-entry:client:/src/pages/artists",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-DvnUpqrm.js",
-      "_chunk-DPrYt6A5.js",
+      "_chunk-BLykHC2t.js",
+      "_chunk-CvpPOSkF.js",
+      "_chunk-CEVEB5Nd.js",
       "_chunk--X6AgOBR.js",
-      "_chunk-CvoluSmm.js",
-      "_chunk-CqY4XHhN.js",
-      "_chunk-D4szgnyZ.js",
-      "_chunk-wARRYto5.js",
-      "_chunk-D4TRpTb0.js",
-      "_chunk-Bi8pgmn1.js"
+      "_chunk-DKcsQkRa.js",
+      "_chunk-BgEiFX62.js",
+      "_chunk-GLcV_Ats.js",
+      "_chunk-5Z0cWwfW.js",
+      "_chunk-Ce9KfZFM.js",
+      "_chunk-DGZq6TFC.js"
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/characters": {
-    "file": "assets/entries/src_pages_characters.AT4zVlBB.js",
+    "file": "assets/entries/src_pages_characters.WTmOhKCa.js",
     "name": "entries/src/pages/characters",
     "src": "virtual:vike:page-entry:client:/src/pages/characters",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-DvnUpqrm.js",
-      "_chunk-DPrYt6A5.js",
+      "_chunk-BLykHC2t.js",
+      "_chunk-CvpPOSkF.js",
+      "_chunk-CEVEB5Nd.js",
       "_chunk--X6AgOBR.js",
-      "_chunk-CvoluSmm.js",
-      "_chunk-CqY4XHhN.js",
-      "_chunk-D4szgnyZ.js",
-      "_chunk-wARRYto5.js",
-      "_chunk-D4TRpTb0.js",
-      "_chunk-Bi8pgmn1.js"
+      "_chunk-DKcsQkRa.js",
+      "_chunk-BgEiFX62.js",
+      "_chunk-GLcV_Ats.js",
+      "_chunk-5Z0cWwfW.js",
+      "_chunk-Ce9KfZFM.js",
+      "_chunk-DGZq6TFC.js"
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/gallery": {
-    "file": "assets/entries/src_pages_gallery.Dlvs1snl.js",
+    "file": "assets/entries/src_pages_gallery.B-E05mDc.js",
     "name": "entries/src/pages/gallery",
     "src": "virtual:vike:page-entry:client:/src/pages/gallery",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-DvnUpqrm.js",
-      "_chunk-CvoluSmm.js",
-      "_chunk-CqY4XHhN.js",
-      "_chunk-D4TRpTb0.js",
-      "_chunk-D4szgnyZ.js",
+      "_chunk-BLykHC2t.js",
+      "_chunk-CvpPOSkF.js",
+      "_chunk-DKcsQkRa.js",
+      "_chunk-BgEiFX62.js",
+      "_chunk-Ce9KfZFM.js",
+      "_chunk-GLcV_Ats.js",
       "_chunk--X6AgOBR.js"
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/index": {
-    "file": "assets/entries/src_pages_index.5xv6VxEr.js",
+    "file": "assets/entries/src_pages_index.DO668trq.js",
     "name": "entries/src/pages/index",
     "src": "virtual:vike:page-entry:client:/src/pages/index",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-DvnUpqrm.js",
+      "_chunk-BLykHC2t.js",
+      "_chunk-CvpPOSkF.js",
       "_chunk--X6AgOBR.js"
+    ],
+    "css": [
+      "assets/static/swiper-2a04c68e.C8ec8cn4.css",
+      "assets/static/swiper-3b631a41.tn0RQdqM.css"
     ]
   },
   "virtual:vike:page-entry:client:/src/pages/posts/@id": {
-    "file": "assets/entries/src_pages_posts_-id.DOMorNwO.js",
+    "file": "assets/entries/src_pages_posts_-id.C7xn63M9.js",
     "name": "entries/src/pages/posts/@id",
     "src": "virtual:vike:page-entry:client:/src/pages/posts/@id",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_chunk-y0EkmYGv.js",
-      "_chunk-DvnUpqrm.js",
-      "_chunk-D4szgnyZ.js",
-      "_chunk-Bi8pgmn1.js",
-      "_chunk-CqY4XHhN.js",
-      "_chunk-BpxqQ4Cl.js",
+      "_chunk-BLykHC2t.js",
+      "_chunk-CvpPOSkF.js",
+      "_chunk-GLcV_Ats.js",
+      "_chunk-DGZq6TFC.js",
+      "_chunk-BgEiFX62.js",
+      "_chunk-gOo2sqVs.js",
       "_chunk--X6AgOBR.js"
     ]
   }
