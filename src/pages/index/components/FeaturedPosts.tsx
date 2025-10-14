@@ -12,8 +12,8 @@ import type { Post } from '../../../types/data';
 
 const BASE_URL = import.meta.env.BASE_URL || '/';
 
-const FeaturedPosts: FC<{ featuredPosts: Post[] }> = ({ featuredPosts }) => {
-    if (!featuredPosts.length) return <p>No featured posts available.</p>;
+const FeaturedPosts: FC<{ featuredPosts?: Post[] }> = ({ featuredPosts = [] }) => {
+    if (featuredPosts.length === 0) return <p>No featured posts available.</p>;
 
     return (
         <Card sx={styles.card}>
