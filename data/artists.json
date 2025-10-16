@@ -2244,5 +2244,26 @@
         "linkTwitter": "https://x.com/kirero",
         "linkPixiv": "https://www.pixiv.net/en/users/35490",
         "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "kusunoki_nanoha",
+        "name": "楠なのは",
+        "linkTwitter": "https://x.com/Melty_zo",
+        "linkPixiv": "https://www.pixiv.net/en/users/18906142",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "wwo",
+        "name": "wwo",
+        "linkTwitter": "https://x.com/wwo3302",
+        "linkPixiv": "https://www.pixiv.net/en/users/6328544",
+        "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "natane",
+        "name": "natane",
+        "linkTwitter": "https://x.com/ntntU",
+        "linkPixiv": "https://www.pixiv.net/en/users/99337",
+        "portrait": "portraits/placeholders/sniper.webp"
     }
 ]
