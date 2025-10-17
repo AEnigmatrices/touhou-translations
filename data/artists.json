@@ -2265,5 +2265,39 @@
         "linkTwitter": "https://x.com/ntntU",
         "linkPixiv": "https://www.pixiv.net/en/users/99337",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "koyane",
+        "name": "児屋",
+        "linkTwitter": "https://x.com/Silver81106",
+        "linkPixiv": "https://www.pixiv.net/en/users/1225841",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "shirocha_tei",
+        "name": "白茶てい",
+        "linkTwitter": "https://x.com/teatei_0424",
+        "linkPixiv": "https://www.pixiv.net/en/users/42671415",
+        "portrait": "portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "ohsaka",
+        "name": "櫻坂",
+        "linkTwitter": "https://x.com/oh_saka22",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "kuromaru",
+        "name": "黒丸",
+        "linkTwitter": "https://x.com/kuromaru_ira",
+        "linkPixiv": "https://www.pixiv.net/en/users/35695811",
+        "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "scavia",
+        "name": "すかびあ",
+        "linkTwitter": "https://x.com/scavia10",
+        "linkPixiv": "https://www.pixiv.net/en/users/47067018",
+        "portrait": "portraits/placeholders/engineer.webp"
     }
 ]
