@@ -2299,5 +2299,19 @@
         "linkTwitter": "https://x.com/scavia10",
         "linkPixiv": "https://www.pixiv.net/en/users/47067018",
         "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "honey",
+        "name": "はにー",
+        "linkTwitter": "https://x.com/choroattohoney",
+        "linkPixiv": "https://www.pixiv.net/en/users/31138436",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "ninomaru",
+        "name": "にの丸",
+        "linkTwitter": "https://x.com/ninomaru_3378",
+        "linkPixiv": "https://www.pixiv.net/en/users/14330975",
+        "portrait": "portraits/placeholders/demoman.webp"
     }
 ]
