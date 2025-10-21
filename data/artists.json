@@ -2313,5 +2313,77 @@
         "linkTwitter": "https://x.com/ninomaru_3378",
         "linkPixiv": "https://www.pixiv.net/en/users/14330975",
         "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "0_den",
+        "name": "0-DEN",
+        "linkTwitter": "https://x.com/monokuromanga",
+        "linkPixiv": "https://www.pixiv.net/en/users/752313",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "bebeneko",
+        "name": "べべねこ",
+        "linkTwitter": "https://x.com/bebenyanco",
+        "linkPixiv": "https://www.pixiv.net/en/users/805719",
+        "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "ryo_mochi",
+        "name": "ﾘｮもち",
+        "linkTwitter": "https://x.com/Wn_love64",
+        "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "masanaga",
+        "name": "政長",
+        "linkTwitter": "https://x.com/naga_masanaga",
+        "linkPixiv": "https://www.pixiv.net/en/users/2219278",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "picchi",
+        "name": "ピッチ",
+        "linkTwitter": "https://x.com/pittibuntyou",
+        "linkPixiv": "https://www.pixiv.net/en/users/54036017",
+        "portrait": "portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "hoshii",
+        "name": "Hoshii",
+        "linkTwitter": "https://x.com/Another_HoshII",
+        "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "momono",
+        "name": "桃乃",
+        "linkTwitter": "https://x.com/Momono_Aito",
+        "linkPixiv": "https://www.pixiv.net/en/users/17335723",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "konisuke",
+        "name": "こにすけ",
+        "linkTwitter": "https://x.com/konisuke52",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "shamu",
+        "name": "香港猫保護所のシャム",
+        "linkTwitter": "https://x.com/HKhogosho",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "yamori",
+        "name": "やもり",
+        "linkTwitter": "https://x.com/yamoyamo0909",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "hekaheka",
+        "name": "へかへか",
+        "linkTwitter": "https://x.com/hinaheka",
+        "linkPixiv": "https://www.pixiv.net/en/users/15430775",
+        "portrait": "portraits/placeholders/sniper.webp"
     }
 ]
