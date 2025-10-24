@@ -447,6 +447,24 @@
         "portrait": "portraits/characters/akyuu.webp"
     },
     {
+        "id": "mugetsu",
+        "name": "Mugetsu",
+        "short_name": "Mugetsu",
+        "work": [
+            "lls"
+        ],
+        "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "gengetsu",
+        "name": "Gengetsu",
+        "short_name": "Gengetsu",
+        "work": [
+            "lls"
+        ],
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
         "id": "shizuha",
         "name": "Aki Shizuha",
         "short_name": "Shizuha",

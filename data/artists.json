@@ -2385,5 +2385,71 @@
         "linkTwitter": "https://x.com/hinaheka",
         "linkPixiv": "https://www.pixiv.net/en/users/15430775",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "biinosuke",
+        "name": "びいのすけ",
+        "linkTwitter": "https://x.com/b_nosk",
+        "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "ishijougahara",
+        "name": "石城ヶ原",
+        "linkTwitter": "https://x.com/skjughr",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "sook2",
+        "name": "SOOK2",
+        "linkTwitter": "https://x.com/BVSOOK",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "tenchi_haru",
+        "name": "天地ハル",
+        "linkTwitter": "https://x.com/tenchihal",
+        "linkPixiv": "https://www.pixiv.net/en/users/6821121",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "zabuton",
+        "name": "座布団",
+        "linkTwitter": "https://x.com/NightMisting",
+        "linkPixiv": "https://www.pixiv.net/en/users/23802552",
+        "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "kokeshi",
+        "name": "鱗士",
+        "linkTwitter": "https://x.com/yoinokokeshi",
+        "linkPixiv": "https://www.pixiv.net/en/users/14137712",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "teruteruko",
+        "name": "てるてるこ",
+        "linkTwitter": "https://x.com/teruya_102",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "negi",
+        "name": "葱",
+        "linkTwitter": "https://x.com/potipoti93",
+        "linkPixiv": "https://www.pixiv.net/en/users/4582249",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "ts",
+        "name": "TS",
+        "linkTwitter": "https://x.com/TS02996158",
+        "linkPixiv": "https://www.pixiv.net/en/users/1998162",
+        "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "jakkoudou",
+        "name": "三輪",
+        "linkTwitter": "https://x.com/sousaku16451645",
+        "linkPixiv": "https://www.pixiv.net/en/users/92885325",
+        "portrait": "portraits/placeholders/soldier.webp"
     }
 ]
