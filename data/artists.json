@@ -2451,5 +2451,51 @@
         "linkTwitter": "https://x.com/sousaku16451645",
         "linkPixiv": "https://www.pixiv.net/en/users/92885325",
         "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "lunamoon",
+        "name": "るなむー",
+        "linkTwitter": "https://x.com/Lunamoon55",
+        "linkPixiv": "https://www.pixiv.net/en/users/141357",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "himajin_no_izu",
+        "name": "暇人のいず",
+        "linkTwitter": "https://x.com/izsabuaka9",
+        "linkPixiv": "https://www.pixiv.net/en/users/3907695",
+        "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "pio",
+        "name": "Pio",
+        "linkTwitter": "https://x.com/PioArtStuff",
+        "linkPixiv": "https://www.pixiv.net/en/users/46385589",
+        "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "danomu",
+        "name": "ダノム",
+        "linkTwitter": "https://x.com/Mo_Nad369",
+        "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "fuuyou",
+        "name": "風葉",
+        "linkTwitter": "https://x.com/starrysky14",
+        "linkPixiv": "https://www.pixiv.net/en/users/228643",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "inukoro",
+        "name": "戌足",
+        "linkTwitter": "https://x.com/inu_inukor",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "moganbo",
+        "name": "moganbo",
+        "linkTwitter": "https://x.com/Swampmoganbo",
+        "portrait": "portraits/placeholders/demoman.webp"
     }
 ]
