@@ -10,7 +10,8 @@
         "artistId": "gyoza",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737377579000,
@@ -24,7 +25,8 @@
         "characterIds": [
             "marisa",
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744984324000,
@@ -39,7 +41,8 @@
             "reimu",
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745416265000,
@@ -52,7 +55,8 @@
         "artistId": "owata",
         "characterIds": [
             "daiyousei"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745930980000,
@@ -65,7 +69,8 @@
         "artistId": "tatekae",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742907074000,
@@ -80,7 +85,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745157504000,
@@ -93,7 +99,8 @@
         "artistId": "mochitose_aguri",
         "characterIds": [
             "patchouli"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739191706000,
@@ -107,7 +114,8 @@
         "characterIds": [
             "meiling",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747408900000,
@@ -123,7 +131,8 @@
             "flandre",
             "cirno",
             "daiyousei"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735735825000,
@@ -138,7 +147,8 @@
             "aya",
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735740843000,
@@ -152,7 +162,8 @@
         "characterIds": [
             "mayumi",
             "keiki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735743016000,
@@ -165,7 +176,8 @@
         "artistId": "miranokaze_draw",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735822493000,
@@ -179,7 +191,8 @@
         "characterIds": [
             "cirno",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735825814000,
@@ -192,7 +205,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735829456000,
@@ -205,7 +219,8 @@
         "artistId": "carrot_8",
         "characterIds": [
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735908670000,
@@ -218,7 +233,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "kasen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735912224000,
@@ -232,7 +248,8 @@
         "characterIds": [
             "chen",
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735915708000,
@@ -246,7 +263,8 @@
         "artistId": "teoi",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735995102000,
@@ -260,7 +278,8 @@
         "characterIds": [
             "marisa",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1735998638000,
@@ -276,7 +295,8 @@
             "sumireko",
             "miko",
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736002157000,
@@ -289,7 +309,8 @@
         "artistId": "gokuu",
         "characterIds": [
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736081480000,
@@ -302,7 +323,8 @@
         "artistId": "io_nano",
         "characterIds": [
             "aun"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736085348000,
@@ -315,7 +337,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736088489000,
@@ -330,7 +353,8 @@
             "yukari",
             "ran",
             "chen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736167868000,
@@ -346,7 +370,8 @@
             "hatate",
             "aya",
             "momiji"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736173103000,
@@ -359,7 +384,8 @@
         "artistId": "nekobatake",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736174907000,
@@ -373,7 +399,8 @@
         "characterIds": [
             "seija",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736254314000,
@@ -386,7 +413,8 @@
         "artistId": "hikarabita",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736259185000,
@@ -400,7 +428,8 @@
         "characterIds": [
             "satori",
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736261390000,
@@ -417,7 +446,8 @@
             "flandre",
             "marisa",
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736340838000,
@@ -430,7 +460,8 @@
         "artistId": "itatatata",
         "characterIds": [
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736345890000,
@@ -444,7 +475,8 @@
         "characterIds": [
             "aya",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736347709000,
@@ -458,7 +490,8 @@
         "characterIds": [
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736427510000,
@@ -471,7 +504,8 @@
         "artistId": "garasuno",
         "characterIds": [
             "koakuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736430506000,
@@ -485,7 +519,8 @@
         "characterIds": [
             "kanako",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736435805000,
@@ -498,7 +533,8 @@
         "artistId": "kaeru_mikan",
         "characterIds": [
             "suwako"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736513308000,
@@ -512,7 +548,8 @@
         "characterIds": [
             "okuu",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736518867000,
@@ -527,7 +564,8 @@
             "momiji",
             "hatate",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736520856000,
@@ -541,7 +579,8 @@
         "characterIds": [
             "kisume",
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736600010000,
@@ -554,7 +593,8 @@
         "artistId": "tatsudango",
         "characterIds": [
             "seiran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736605383000,
@@ -568,7 +608,8 @@
         "characterIds": [
             "okuu",
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736607190000,
@@ -581,7 +622,8 @@
         "artistId": "kanpa",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736686314000,
@@ -594,7 +636,8 @@
         "artistId": "mendou15",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736689498000,
@@ -609,7 +652,8 @@
             "flandre",
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736693459000,
@@ -624,7 +668,8 @@
         "characterIds": [
             "marisa",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736772600000,
@@ -639,7 +684,8 @@
             "remilia",
             "marisa",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736777749000,
@@ -653,7 +699,8 @@
         "characterIds": [
             "sumireko",
             "merry"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736779950000,
@@ -667,7 +714,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736859609000,
@@ -681,7 +729,8 @@
         "characterIds": [
             "remilia",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736863579000,
@@ -695,7 +744,8 @@
         "characterIds": [
             "suika",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736866101000,
@@ -710,7 +760,8 @@
         "characterIds": [
             "kogasa",
             "sekibanki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736945598000,
@@ -725,7 +776,8 @@
             "kanako",
             "suwako",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736948864000,
@@ -739,7 +791,8 @@
         "artistId": "arugon",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1736952800000,
@@ -753,7 +806,8 @@
         "characterIds": [
             "sanae",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737032136000,
@@ -767,7 +821,8 @@
         "characterIds": [
             "rumia",
             "mike"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737035508000,
@@ -783,7 +838,8 @@
             "remilia",
             "reimu",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737039255000,
@@ -796,7 +852,8 @@
         "artistId": "carrot_8",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737118179000,
@@ -809,7 +866,8 @@
         "artistId": "arugon",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737121921000,
@@ -823,7 +881,8 @@
         "characterIds": [
             "kokoro",
             "sumireko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737125699000,
@@ -836,7 +895,8 @@
         "artistId": "seele",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737204731000,
@@ -850,7 +910,8 @@
         "characterIds": [
             "kokoro",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737208172000,
@@ -863,7 +924,8 @@
         "artistId": "kyuukei_usagi",
         "characterIds": [
             "hatate"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737212047000,
@@ -877,7 +939,8 @@
         "characterIds": [
             "sakuya",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737291506000,
@@ -891,7 +954,8 @@
         "characterIds": [
             "remilia",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737294628000,
@@ -904,7 +968,8 @@
         "artistId": "ebi",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737298620000,
@@ -917,7 +982,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "shion"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737380965000,
@@ -931,7 +997,8 @@
         "characterIds": [
             "ran",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737385064000,
@@ -945,7 +1012,8 @@
         "characterIds": [
             "momiji",
             "cirno"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737463905000,
@@ -958,7 +1026,8 @@
         "artistId": "yuugiri",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737467392000,
@@ -972,7 +1041,8 @@
         "characterIds": [
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737471352000,
@@ -985,7 +1055,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737550196000,
@@ -998,7 +1069,8 @@
         "artistId": "deetamu",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737553799000,
@@ -1011,7 +1083,8 @@
         "artistId": "seisumo",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737557865000,
@@ -1024,7 +1097,8 @@
         "artistId": "kamoi_nougu",
         "characterIds": [
             "zanmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737637174000,
@@ -1038,7 +1112,8 @@
         "characterIds": [
             "mokou",
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737640440000,
@@ -1051,7 +1126,8 @@
         "artistId": "shitace",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737644275000,
@@ -1066,7 +1142,8 @@
             "wakasagihime",
             "kagerou",
             "sekibanki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737722874000,
@@ -1079,7 +1156,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737726661000,
@@ -1092,7 +1170,8 @@
         "artistId": "aru",
         "characterIds": [
             "merlin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737730142000,
@@ -1105,7 +1184,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "minamitsu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737809366000,
@@ -1119,7 +1199,8 @@
         "characterIds": [
             "kogasa",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737813381000,
@@ -1132,7 +1213,8 @@
         "artistId": "kusatsuku",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737819465000,
@@ -1146,7 +1228,8 @@
         "characterIds": [
             "sagume",
             "doremy"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737896897000,
@@ -1161,7 +1244,8 @@
             "lunasa",
             "merlin",
             "lyrica"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737900692000,
@@ -1177,7 +1261,8 @@
             "okuu",
             "koishi",
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737903187000,
@@ -1192,7 +1277,8 @@
             "remilia",
             "flandre",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737982274000,
@@ -1206,7 +1292,8 @@
         "characterIds": [
             "reimu",
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737985698000,
@@ -1219,7 +1306,8 @@
         "artistId": "muntarou",
         "characterIds": [
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1737989804000,
@@ -1234,7 +1322,8 @@
         "characterIds": [
             "minamitsu",
             "yuuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738068562000,
@@ -1247,7 +1336,8 @@
         "artistId": "youyume",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738072122000,
@@ -1263,7 +1353,8 @@
             "seiga",
             "miko",
             "tojiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738076780000,
@@ -1278,7 +1369,8 @@
             "komachi",
             "eiki",
             "kutaka"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738155049000,
@@ -1291,7 +1383,8 @@
         "artistId": "deetamu",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738158275000,
@@ -1304,7 +1397,8 @@
         "artistId": "seele",
         "characterIds": [
             "minamitsu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738163673000,
@@ -1317,7 +1411,8 @@
         "artistId": "safupara",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738241423000,
@@ -1330,7 +1425,8 @@
         "artistId": "carrot_8",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738245045000,
@@ -1343,7 +1439,8 @@
         "artistId": "blue_hawaii",
         "characterIds": [
             "eiki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738249502000,
@@ -1357,7 +1454,8 @@
         "characterIds": [
             "miko",
             "keine"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738327827000,
@@ -1370,7 +1468,8 @@
         "artistId": "gokuu",
         "characterIds": [
             "yukari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738331344000,
@@ -1384,7 +1483,8 @@
         "characterIds": [
             "yuuma",
             "chiyari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738336385000,
@@ -1398,7 +1498,8 @@
         "characterIds": [
             "sakuya",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738414583000,
@@ -1412,7 +1513,8 @@
         "characterIds": [
             "patchouli",
             "koakuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738417875000,
@@ -1425,7 +1527,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "minoriko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738421569000,
@@ -1438,7 +1541,8 @@
         "artistId": "mitsu",
         "characterIds": [
             "yuuka"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738500810000,
@@ -1452,7 +1556,8 @@
         "characterIds": [
             "momiji",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738504138000,
@@ -1467,7 +1572,8 @@
             "miko",
             "okina",
             "yoshika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738508783000,
@@ -1480,7 +1586,8 @@
         "artistId": "chitose_hachi",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738586966000,
@@ -1496,7 +1603,8 @@
             "ran",
             "satori",
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738590540000,
@@ -1511,7 +1619,8 @@
             "reimu",
             "sanae",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738594313000,
@@ -1525,7 +1634,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738673463000,
@@ -1538,7 +1648,8 @@
         "artistId": "tebasaki_ni_hone",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738676989000,
@@ -1552,7 +1663,8 @@
         "characterIds": [
             "satori",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738682472000,
@@ -1566,7 +1678,8 @@
         "characterIds": [
             "chen",
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738759774000,
@@ -1579,7 +1692,8 @@
         "artistId": "shio",
         "characterIds": [
             "mystia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738763462000,
@@ -1592,7 +1706,8 @@
         "artistId": "258n",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738766827000,
@@ -1605,7 +1720,8 @@
         "artistId": "harakune",
         "characterIds": [
             "tojiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738846373000,
@@ -1620,7 +1736,8 @@
             "reimu",
             "nazrin",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738849759000,
@@ -1635,7 +1752,8 @@
             "reimu",
             "aun",
             "suika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738855266000,
@@ -1650,7 +1768,8 @@
         "characterIds": [
             "kokoro",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738932709000,
@@ -1666,7 +1785,8 @@
             "seiran",
             "ringo",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738936280000,
@@ -1682,7 +1802,8 @@
         "characterIds": [
             "reimu",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1738940454000,
@@ -1695,7 +1816,8 @@
         "artistId": "tattani",
         "characterIds": [
             "yuuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739019076000,
@@ -1708,7 +1830,8 @@
         "artistId": "suwaneko",
         "characterIds": [
             "cirno"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739022574000,
@@ -1723,7 +1846,8 @@
             "suwako",
             "kutaka",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739027107000,
@@ -1738,7 +1862,8 @@
             "seiga",
             "miko",
             "tojiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739105849000,
@@ -1755,7 +1880,8 @@
             "sanae",
             "kanako",
             "suwako"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739108937000,
@@ -1768,7 +1894,8 @@
         "artistId": "sobayu_to_tempura",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739113580000,
@@ -1781,7 +1908,8 @@
         "artistId": "rome",
         "characterIds": [
             "chimata"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739195339000,
@@ -1795,7 +1923,8 @@
         "characterIds": [
             "patchouli",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739200065000,
@@ -1809,7 +1938,8 @@
         "characterIds": [
             "keine",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739278318000,
@@ -1822,7 +1952,8 @@
         "artistId": "burijitou",
         "characterIds": [
             "wakasagihime"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739281798000,
@@ -1835,7 +1966,8 @@
         "artistId": "aotake_seijirou",
         "characterIds": [
             "shou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739285914000,
@@ -1848,7 +1980,8 @@
         "artistId": "kamepasuta",
         "characterIds": [
             "cirno"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739364733000,
@@ -1862,7 +1995,8 @@
         "characterIds": [
             "kokoro",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739368205000,
@@ -1877,7 +2011,8 @@
             "reimu",
             "yukari",
             "shinmyoumaru"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739372288000,
@@ -1891,7 +2026,8 @@
         "characterIds": [
             "marisa",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739451087000,
@@ -1905,7 +2041,8 @@
         "characterIds": [
             "reimu",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739454499000,
@@ -1918,7 +2055,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "keine"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739458212000,
@@ -1932,7 +2070,8 @@
         "characterIds": [
             "yuuka",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739537401000,
@@ -1946,7 +2085,8 @@
         "characterIds": [
             "minamitsu",
             "ichirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739541024000,
@@ -1959,7 +2099,8 @@
         "artistId": "zounose",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739546375000,
@@ -1974,7 +2115,8 @@
             "mai",
             "okina",
             "satono"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739624082000,
@@ -1987,7 +2129,8 @@
         "artistId": "mitsu",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739627525000,
@@ -2000,7 +2143,8 @@
         "artistId": "ooeyama",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739630945000,
@@ -2013,7 +2157,8 @@
         "artistId": "sobayu_to_tempura",
         "characterIds": [
             "mike"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739710313000,
@@ -2027,7 +2172,8 @@
         "characterIds": [
             "junko",
             "hecatia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739713956000,
@@ -2041,7 +2187,8 @@
         "characterIds": [
             "sakuya",
             "letty"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739717960000,
@@ -2054,7 +2201,8 @@
         "artistId": "shio",
         "characterIds": [
             "wriggle"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739796820000,
@@ -2067,7 +2215,8 @@
         "artistId": "sayoshima",
         "characterIds": [
             "kogasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739800139000,
@@ -2080,7 +2229,8 @@
         "artistId": "akamoku",
         "characterIds": [
             "eiki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739804021000,
@@ -2093,7 +2243,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739883228000,
@@ -2106,7 +2257,8 @@
         "artistId": "muntarou",
         "characterIds": [
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739886660000,
@@ -2120,7 +2272,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739890888000,
@@ -2134,7 +2287,8 @@
         "characterIds": [
             "okina",
             "yukari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739969331000,
@@ -2150,7 +2304,8 @@
             "yukari",
             "aya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739973123000,
@@ -2163,7 +2318,8 @@
         "artistId": "io_nano",
         "characterIds": [
             "minoriko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1739976489000,
@@ -2177,7 +2333,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740056068000,
@@ -2190,7 +2347,8 @@
         "artistId": "shitace",
         "characterIds": [
             "keine"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740059680000,
@@ -2205,7 +2363,8 @@
             "reisen",
             "eirin",
             "seiran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740063742000,
@@ -2218,7 +2377,8 @@
         "artistId": "fuusan",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740142282000,
@@ -2231,7 +2391,8 @@
         "artistId": "nekoda_maguro",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740146231000,
@@ -2247,7 +2408,8 @@
             "futo",
             "miko",
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740149772000,
@@ -2260,7 +2422,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740228556000,
@@ -2274,7 +2437,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740232292000,
@@ -2288,7 +2452,8 @@
         "characterIds": [
             "satori",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740235750000,
@@ -2302,7 +2467,8 @@
         "characterIds": [
             "aya",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740314940000,
@@ -2315,7 +2481,8 @@
         "artistId": "sushirou",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740318595000,
@@ -2339,7 +2506,8 @@
             "kagerou",
             "raiko",
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740322139000,
@@ -2353,7 +2521,8 @@
         "characterIds": [
             "clownpiece",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740401441000,
@@ -2366,7 +2535,8 @@
         "artistId": "asaka_haru",
         "characterIds": [
             "cirno"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740405119000,
@@ -2379,7 +2549,8 @@
         "artistId": "shirono",
         "characterIds": [
             "enoko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740409058000,
@@ -2392,7 +2563,8 @@
         "artistId": "youyume",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740487703000,
@@ -2405,7 +2577,8 @@
         "artistId": "mitsu",
         "characterIds": [
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740491360000,
@@ -2418,7 +2591,8 @@
         "artistId": "miroku",
         "characterIds": [
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740495535000,
@@ -2431,7 +2605,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "yukari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740574070000,
@@ -2446,7 +2621,8 @@
             "reimu",
             "marisa",
             "nitori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740577664000,
@@ -2464,7 +2640,8 @@
             "aya",
             "mamizou",
             "sannyo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740581364000,
@@ -2478,7 +2655,8 @@
         "characterIds": [
             "seija",
             "shinmyoumaru"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740660694000,
@@ -2492,7 +2670,8 @@
         "characterIds": [
             "suika",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740664273000,
@@ -2507,7 +2686,8 @@
             "kanako",
             "suwako",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740668116000,
@@ -2521,7 +2701,8 @@
         "characterIds": [
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740747013000,
@@ -2534,7 +2715,8 @@
         "artistId": "kikka",
         "characterIds": [
             "mystia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740749476000,
@@ -2548,7 +2730,8 @@
         "characterIds": [
             "marisa",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740754746000,
@@ -2564,7 +2747,8 @@
             "yamame",
             "momoyo",
             "larva"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740833329000,
@@ -2578,7 +2762,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740837164000,
@@ -2593,7 +2778,8 @@
             "koakuma",
             "patchouli",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740840508000,
@@ -2606,7 +2792,8 @@
         "artistId": "gurajio",
         "characterIds": [
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740920001000,
@@ -2620,7 +2807,8 @@
         "characterIds": [
             "seiran",
             "ringo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740923361000,
@@ -2633,7 +2821,8 @@
         "artistId": "zenji",
         "characterIds": [
             "sekibanki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1740926532000,
@@ -2646,7 +2835,8 @@
         "artistId": "itatatata",
         "characterIds": [
             "misumaru"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741006265000,
@@ -2659,7 +2849,8 @@
         "artistId": "kna",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741009743000,
@@ -2672,7 +2863,8 @@
         "artistId": "deetamu",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741014120000,
@@ -2685,7 +2877,8 @@
         "artistId": "purabird",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741092521000,
@@ -2699,7 +2892,8 @@
         "characterIds": [
             "lily",
             "letty"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741096125000,
@@ -2712,7 +2906,8 @@
         "artistId": "shiroyama_dondyuruma",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741099767000,
@@ -2726,7 +2921,8 @@
         "characterIds": [
             "futo",
             "hina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741178895000,
@@ -2739,7 +2935,8 @@
         "artistId": "pitchi",
         "characterIds": [
             "kutaka"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741182709000,
@@ -2754,7 +2951,8 @@
             "akyuu",
             "sekibanki",
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741186887000,
@@ -2767,7 +2965,8 @@
         "artistId": "sha_re",
         "characterIds": [
             "hina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741265468000,
@@ -2782,7 +2981,8 @@
             "parsee",
             "joon",
             "raiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741268943000,
@@ -2796,7 +2996,8 @@
         "characterIds": [
             "tewi",
             "hina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741273283000,
@@ -2810,7 +3011,8 @@
         "characterIds": [
             "tewi",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741351694000,
@@ -2824,7 +3026,8 @@
         "characterIds": [
             "futo",
             "tojiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741355304000,
@@ -2838,7 +3041,8 @@
         "characterIds": [
             "ran",
             "yuuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741359004000,
@@ -2851,7 +3055,8 @@
         "artistId": "ponzu",
         "characterIds": [
             "momiji"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741438266000,
@@ -2865,7 +3070,8 @@
         "characterIds": [
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741441864000,
@@ -2878,7 +3084,8 @@
         "artistId": "pico",
         "characterIds": [
             "mai"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741446508000,
@@ -2892,7 +3099,8 @@
         "characterIds": [
             "mayumi",
             "keiki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741525085000,
@@ -2906,7 +3114,8 @@
         "characterIds": [
             "shizuha",
             "minoriko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741528088000,
@@ -2919,7 +3128,8 @@
         "artistId": "suwaneko",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741531788000,
@@ -2932,7 +3142,8 @@
         "artistId": "shio",
         "characterIds": [
             "momiji"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741610889000,
@@ -2948,7 +3159,8 @@
             "remilia",
             "flandre",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741614695000,
@@ -2962,7 +3174,8 @@
         "characterIds": [
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741618334000,
@@ -2976,7 +3189,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741697429000,
@@ -2990,7 +3204,8 @@
         "characterIds": [
             "mystia",
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741701025000,
@@ -3003,7 +3218,8 @@
         "artistId": "mendou15",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741704560000,
@@ -3017,7 +3233,8 @@
         "characterIds": [
             "minamitsu",
             "ichirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741784187000,
@@ -3032,7 +3249,8 @@
             "reimu",
             "yuyuko",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741787324000,
@@ -3046,7 +3264,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "cirno"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741790877000,
@@ -3059,7 +3278,8 @@
         "artistId": "mitsu",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741870131000,
@@ -3072,7 +3292,8 @@
         "artistId": "yuzugoori",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741873666000,
@@ -3088,7 +3309,8 @@
             "marisa",
             "sanae",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741877239000,
@@ -3101,7 +3323,8 @@
         "artistId": "kna",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741956796000,
@@ -3114,7 +3337,8 @@
         "artistId": "indo_sou",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741960258000,
@@ -3129,7 +3353,8 @@
             "futo",
             "miko",
             "tojiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1741963815000,
@@ -3144,7 +3369,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742042949000,
@@ -3158,7 +3384,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742046785000,
@@ -3172,7 +3399,8 @@
         "characterIds": [
             "reimu",
             "koakuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742050713000,
@@ -3185,7 +3413,8 @@
         "artistId": "neru",
         "characterIds": [
             "yuyuko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742129330000,
@@ -3199,7 +3428,8 @@
         "characterIds": [
             "yuuma",
             "chiyari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742133018000,
@@ -3213,7 +3443,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742136449000,
@@ -3227,7 +3458,8 @@
         "characterIds": [
             "momiji",
             "hatate"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742216147000,
@@ -3243,7 +3475,8 @@
             "koakuma",
             "patchouli",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742219341000,
@@ -3257,7 +3490,8 @@
         "characterIds": [
             "zanmu",
             "hisami"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742223285000,
@@ -3271,7 +3505,8 @@
         "characterIds": [
             "suika",
             "miyoi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742302298000,
@@ -3285,7 +3520,8 @@
         "characterIds": [
             "marisa",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742305862000,
@@ -3298,7 +3534,8 @@
         "artistId": "guanin",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742388593000,
@@ -3312,7 +3549,8 @@
         "characterIds": [
             "aya",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742395937000,
@@ -3326,7 +3564,8 @@
         "characterIds": [
             "megumu",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742392088000,
@@ -3339,7 +3578,8 @@
         "artistId": "kna",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742481937000,
@@ -3352,7 +3592,8 @@
         "artistId": "mikazukimo",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742478467000,
@@ -3365,7 +3606,8 @@
         "artistId": "miragu",
         "characterIds": [
             "minamitsu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742475396000,
@@ -3378,7 +3620,8 @@
         "artistId": "kanpa",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742561219000,
@@ -3392,7 +3635,8 @@
         "characterIds": [
             "komachi",
             "eiki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742568335000,
@@ -3405,7 +3649,8 @@
         "artistId": "shiroyama_dondyuruma",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742565170000,
@@ -3418,7 +3663,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742641366000,
@@ -3432,7 +3678,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742633928000,
@@ -3446,7 +3693,8 @@
         "characterIds": [
             "ran",
             "yuuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742649217000,
@@ -3460,7 +3708,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742739394000,
@@ -3474,7 +3723,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742724661000,
@@ -3490,7 +3740,8 @@
             "flandre",
             "youmu",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742732337000,
@@ -3505,7 +3756,8 @@
         "characterIds": [
             "kogasa",
             "sekibanki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742820782000,
@@ -3519,7 +3771,8 @@
         "characterIds": [
             "remilia",
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742824420000,
@@ -3532,7 +3785,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742829197000,
@@ -3545,7 +3799,8 @@
         "artistId": "sha_re",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742910621000,
@@ -3559,7 +3814,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742914223000,
@@ -3574,7 +3830,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742997018000,
@@ -3589,7 +3846,8 @@
         "characterIds": [
             "shion",
             "joon"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1742993619000,
@@ -3602,7 +3860,8 @@
         "artistId": "ns-x",
         "characterIds": [
             "patchouli"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743000257000,
@@ -3616,7 +3875,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743087800000,
@@ -3630,7 +3890,8 @@
         "characterIds": [
             "tojiko",
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743083530000,
@@ -3644,7 +3905,8 @@
         "characterIds": [
             "seiga",
             "yoshika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743080062000,
@@ -3658,7 +3920,8 @@
         "characterIds": [
             "aun",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743166453000,
@@ -3672,7 +3935,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743169872000,
@@ -3685,7 +3949,8 @@
         "artistId": "youyume",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743174869000,
@@ -3698,7 +3963,8 @@
         "artistId": "machi_paterina",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743256301000,
@@ -3716,7 +3982,8 @@
             "mystia",
             "kutaka",
             "wakasagihime"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743252908000,
@@ -3730,7 +3997,8 @@
         "characterIds": [
             "mokou",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743259428000,
@@ -3743,7 +4011,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "nitori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743342455000,
@@ -3758,7 +4027,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743328848000,
@@ -3771,7 +4041,8 @@
         "artistId": "kna",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743338162000,
@@ -3785,7 +4056,8 @@
         "characterIds": [
             "keine",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743429191000,
@@ -3800,7 +4072,8 @@
             "tewi",
             "enoko",
             "eirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743425472000,
@@ -3813,7 +4086,8 @@
         "artistId": "kusatsuku",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743433080000,
@@ -3826,7 +4100,8 @@
         "artistId": "owata",
         "characterIds": [
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743511712000,
@@ -3839,7 +4114,8 @@
         "artistId": "kna",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743518998000,
@@ -3852,7 +4128,8 @@
         "artistId": "seele",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743515472000,
@@ -3866,7 +4143,8 @@
         "characterIds": [
             "yukari",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743598296000,
@@ -3880,7 +4158,8 @@
         "characterIds": [
             "miko",
             "mamizou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743601745000,
@@ -3894,7 +4173,8 @@
         "characterIds": [
             "miko",
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743605460000,
@@ -3907,7 +4187,8 @@
         "artistId": "kna",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743684653000,
@@ -3920,7 +4201,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743688215000,
@@ -3934,7 +4216,8 @@
         "characterIds": [
             "yuyuko",
             "kyouko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743691791000,
@@ -3948,7 +4231,8 @@
         "characterIds": [
             "eirin",
             "yoshika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743770992000,
@@ -3962,7 +4246,8 @@
         "characterIds": [
             "sakuya",
             "yuyuko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743774822000,
@@ -3975,7 +4260,8 @@
         "artistId": "yamazaki_tsukune",
         "characterIds": [
             "saki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743778276000,
@@ -3991,7 +4277,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743857395000,
@@ -4005,7 +4292,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743861151000,
@@ -4018,7 +4306,8 @@
         "artistId": "whis",
         "characterIds": [
             "shion"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743866617000,
@@ -4031,7 +4320,8 @@
         "artistId": "machi_paterina",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743944093000,
@@ -4045,7 +4335,8 @@
         "characterIds": [
             "sanae",
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743947466000,
@@ -4060,7 +4351,8 @@
             "junko",
             "hecatia",
             "clownpiece"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1743951091000,
@@ -4073,7 +4365,8 @@
         "artistId": "urashima",
         "characterIds": [
             "sagume"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744033999000,
@@ -4087,7 +4380,8 @@
         "characterIds": [
             "aya",
             "hatate"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744039388000,
@@ -4100,7 +4394,8 @@
         "artistId": "shio",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744117029000,
@@ -4113,7 +4408,8 @@
         "artistId": "muntarou",
         "characterIds": [
             "nitori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744120101000,
@@ -4128,7 +4424,8 @@
             "tojiko",
             "miko",
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744124808000,
@@ -4141,7 +4438,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744202916000,
@@ -4154,7 +4452,8 @@
         "artistId": "machi_paterina",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744206630000,
@@ -4168,7 +4467,8 @@
         "characterIds": [
             "kyouko",
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744211429000,
@@ -4181,7 +4481,8 @@
         "artistId": "carrot_8",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744289629000,
@@ -4194,7 +4495,8 @@
         "artistId": "shiroyama_dondyuruma",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744293204000,
@@ -4207,7 +4509,8 @@
         "artistId": "kamepasuta",
         "characterIds": [
             "cirno"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744297503000,
@@ -4221,7 +4524,8 @@
         "characterIds": [
             "cirno",
             "yukari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744378965000,
@@ -4236,7 +4540,8 @@
             "sanae",
             "hecatia",
             "clownpiece"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744390084000,
@@ -4250,7 +4555,8 @@
         "characterIds": [
             "mokou",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744393358000,
@@ -4263,7 +4569,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744448848000,
@@ -4276,7 +4583,8 @@
         "artistId": "miragu",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744453567000,
@@ -4289,7 +4597,8 @@
         "artistId": "itatatata",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744460689000,
@@ -4303,7 +4612,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744517508000,
@@ -4316,7 +4626,8 @@
         "artistId": "kurogarasu",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744548622000,
@@ -4330,7 +4641,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744552065000,
@@ -4343,7 +4655,8 @@
         "artistId": "nishikoo",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744637131000,
@@ -4357,7 +4670,8 @@
         "characterIds": [
             "akyuu",
             "kosuzu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744638726000,
@@ -4370,7 +4684,8 @@
         "artistId": "io_nano",
         "characterIds": [
             "letty"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744642894000,
@@ -4383,7 +4698,8 @@
         "artistId": "kujirai_minato",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744721558000,
@@ -4400,7 +4716,8 @@
             "seiran",
             "ringo",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744725114000,
@@ -4414,7 +4731,8 @@
         "characterIds": [
             "renko",
             "merry"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744729033000,
@@ -4428,7 +4746,8 @@
         "characterIds": [
             "lily",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744807815000,
@@ -4441,7 +4760,8 @@
         "artistId": "pico",
         "characterIds": [
             "momoyo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744811633000,
@@ -4454,7 +4774,8 @@
         "artistId": "rise",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744817459000,
@@ -4467,7 +4788,8 @@
         "artistId": "azuma_yoriko",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744894459000,
@@ -4483,7 +4805,8 @@
             "flandre",
             "mizuchi",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744897781000,
@@ -4496,7 +4819,8 @@
         "artistId": "muntarou",
         "characterIds": [
             "patchouli"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744901325000,
@@ -4510,7 +4834,8 @@
         "characterIds": [
             "mamizou",
             "nue"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744980816000,
@@ -4523,7 +4848,8 @@
         "artistId": "urizaku",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1744987751000,
@@ -4538,7 +4864,8 @@
             "eirin",
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745066970000,
@@ -4554,7 +4881,8 @@
             "reimu",
             "mokou",
             "yukari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745070592000,
@@ -4567,7 +4895,8 @@
         "artistId": "shiroyama_dondyuruma",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745075371000,
@@ -4582,7 +4911,8 @@
             "reimu",
             "marisa",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745153905000,
@@ -4595,7 +4925,8 @@
         "artistId": "nekobatake",
         "characterIds": [
             "chiyari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745160395000,
@@ -4608,7 +4939,8 @@
         "artistId": "diz",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745240036000,
@@ -4621,7 +4953,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745243300000,
@@ -4634,7 +4967,8 @@
         "artistId": "b_sanaeosi",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745247164000,
@@ -4648,7 +4982,8 @@
         "characterIds": [
             "nue",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745326408000,
@@ -4662,7 +4997,8 @@
         "characterIds": [
             "seija",
             "shinmyoumaru"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745329820000,
@@ -4676,7 +5012,8 @@
         "characterIds": [
             "mokou",
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745333353000,
@@ -4689,7 +5026,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745412540000,
@@ -4702,7 +5040,8 @@
         "artistId": "deetamu",
         "characterIds": [
             "yuyuko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745421007000,
@@ -4715,7 +5054,8 @@
         "artistId": "shigure",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745499023000,
@@ -4729,7 +5069,8 @@
         "characterIds": [
             "sakuya",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745502496000,
@@ -4742,7 +5083,8 @@
         "artistId": "shionoe",
         "characterIds": [
             "nazrin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745506933000,
@@ -4755,7 +5097,8 @@
         "artistId": "karubo",
         "characterIds": [
             "tojiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745585453000,
@@ -4768,7 +5111,8 @@
         "artistId": "morisshi",
         "characterIds": [
             "aun"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745589340000,
@@ -4781,7 +5125,8 @@
         "artistId": "io_nano",
         "characterIds": [
             "miyoi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745593287000,
@@ -4794,7 +5139,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745672244000,
@@ -4807,7 +5153,8 @@
         "artistId": "gondora",
         "characterIds": [
             "minamitsu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745675495000,
@@ -4821,7 +5168,8 @@
         "characterIds": [
             "aya",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745680865000,
@@ -4835,7 +5183,8 @@
         "characterIds": [
             "koakuma",
             "patchouli"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745754721000,
@@ -4851,7 +5200,8 @@
             "okuu",
             "sumireko",
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745758399000,
@@ -4873,7 +5223,8 @@
             "yukari",
             "mokou",
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745761747000,
@@ -4891,7 +5242,8 @@
             "orin",
             "okuu",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745844667000,
@@ -4904,7 +5256,8 @@
         "artistId": "sha_re",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745848175000,
@@ -4919,7 +5272,8 @@
             "remilia",
             "flandre",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745852598000,
@@ -4932,7 +5286,8 @@
         "artistId": "prim",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745934731000,
@@ -4945,7 +5300,8 @@
         "artistId": "waa",
         "characterIds": [
             "junko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1745939255000,
@@ -4958,7 +5314,8 @@
         "artistId": "teoi",
         "characterIds": [
             "sekibanki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746017834000,
@@ -4971,7 +5328,8 @@
         "artistId": "nagato_grey",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746021167000,
@@ -4984,7 +5342,8 @@
         "artistId": "deetamu",
         "characterIds": [
             "keine"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746026471000,
@@ -4997,7 +5356,8 @@
         "artistId": "unk",
         "characterIds": [
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746104119000,
@@ -5010,7 +5370,8 @@
         "artistId": "teoi",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746107581000,
@@ -5026,7 +5387,8 @@
             "yuyuko",
             "ringo",
             "seiran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746111586000,
@@ -5040,7 +5402,8 @@
         "characterIds": [
             "sanae",
             "shou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746190206000,
@@ -5053,7 +5416,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746193978000,
@@ -5067,7 +5431,8 @@
         "characterIds": [
             "tojiko",
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746197993000,
@@ -5080,7 +5445,8 @@
         "artistId": "suwaneko",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746276793000,
@@ -5094,7 +5460,8 @@
         "characterIds": [
             "mokou",
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746280525000,
@@ -5112,7 +5479,8 @@
             "reisen",
             "sanae",
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746285287000,
@@ -5126,7 +5494,8 @@
         "characterIds": [
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746366964000,
@@ -5139,7 +5508,8 @@
         "artistId": "nekobatake",
         "characterIds": [
             "chiyari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746372569000,
@@ -5152,7 +5522,8 @@
         "artistId": "io_nano",
         "characterIds": [
             "miyoi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746449584000,
@@ -5168,7 +5539,8 @@
             "remilia",
             "flandre",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746453017000,
@@ -5182,7 +5554,8 @@
         "characterIds": [
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746458031000,
@@ -5197,7 +5570,8 @@
         "characterIds": [
             "saki",
             "yachie"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746535954000,
@@ -5211,7 +5585,8 @@
         "characterIds": [
             "wriggle",
             "yuuka"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746539636000,
@@ -5224,7 +5599,8 @@
         "artistId": "kosaki",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746545264000,
@@ -5239,7 +5615,8 @@
             "chen",
             "ran",
             "yukari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746622360000,
@@ -5252,7 +5629,8 @@
         "artistId": "zeroko_san",
         "characterIds": [
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746626271000,
@@ -5265,7 +5643,8 @@
         "artistId": "mochimugi",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746630236000,
@@ -5279,7 +5658,8 @@
         "characterIds": [
             "reimu",
             "seija"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746708618000,
@@ -5292,7 +5672,8 @@
         "artistId": "kna",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746712140000,
@@ -5305,7 +5686,8 @@
         "artistId": "harushagi_9",
         "characterIds": [
             "yachie"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746716617000,
@@ -5318,7 +5700,8 @@
         "artistId": "amakaze",
         "characterIds": [
             "shion"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746881832000,
@@ -5333,7 +5716,8 @@
             "reimu",
             "marisa",
             "seija"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746885293000,
@@ -5346,7 +5730,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746888920000,
@@ -5361,7 +5746,8 @@
             "tojiko",
             "futo",
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746967989000,
@@ -5375,7 +5761,8 @@
         "characterIds": [
             "nazrin",
             "shou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746971460000,
@@ -5388,7 +5775,8 @@
         "artistId": "touto",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1746977358000,
@@ -5402,7 +5790,8 @@
         "characterIds": [
             "alice",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747054489000,
@@ -5415,7 +5804,8 @@
         "artistId": "teoi",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747057752000,
@@ -5429,7 +5819,8 @@
         "characterIds": [
             "megumu",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747062422000,
@@ -5442,7 +5833,8 @@
         "artistId": "solidus",
         "characterIds": [
             "yuuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747140714000,
@@ -5455,7 +5847,8 @@
         "artistId": "amakaze",
         "characterIds": [
             "chiyari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747144844000,
@@ -5470,7 +5863,8 @@
             "aya",
             "megumu",
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747147950000,
@@ -5483,7 +5877,8 @@
         "artistId": "sushirou",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747227057000,
@@ -5506,7 +5901,8 @@
             "koishi",
             "futo",
             "tewi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747230785000,
@@ -5520,7 +5916,8 @@
         "characterIds": [
             "yukari",
             "merry"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747235829000,
@@ -5533,7 +5930,8 @@
         "artistId": "shionoe",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747313642000,
@@ -5549,7 +5947,8 @@
         "characterIds": [
             "marisa",
             "patchouli"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747317096000,
@@ -5563,7 +5962,8 @@
         "characterIds": [
             "meiling",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747321322000,
@@ -5576,7 +5976,8 @@
         "artistId": "siw0n",
         "characterIds": [
             "shion"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747400022000,
@@ -5590,7 +5991,8 @@
         "characterIds": [
             "aya",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747403287000,
@@ -5604,7 +6006,8 @@
         "characterIds": [
             "yuugi",
             "suika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747487030000,
@@ -5618,7 +6021,8 @@
         "characterIds": [
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747489752000,
@@ -5631,7 +6035,8 @@
         "artistId": "ringo_no_ki",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747494704000,
@@ -5644,7 +6049,8 @@
         "artistId": "miragu",
         "characterIds": [
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747572648000,
@@ -5657,7 +6063,8 @@
         "artistId": "whis",
         "characterIds": [
             "merlin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747659329000,
@@ -5677,7 +6084,8 @@
             "yuuma",
             "momoyo",
             "seiga"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747662772000,
@@ -5691,7 +6099,8 @@
         "characterIds": [
             "aya",
             "megumu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747667696000,
@@ -5704,7 +6113,8 @@
         "artistId": "gyoza",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747745885000,
@@ -5720,7 +6130,8 @@
             "merlin",
             "lyrica",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747749044000,
@@ -5733,7 +6144,8 @@
         "artistId": "burijitou",
         "characterIds": [
             "yuuka"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747754030000,
@@ -5746,7 +6158,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "eirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747831832000,
@@ -5759,7 +6172,8 @@
         "artistId": "mikagezuka",
         "characterIds": [
             "mayumi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747835578000,
@@ -5772,7 +6186,8 @@
         "artistId": "pico",
         "characterIds": [
             "satono"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747839309000,
@@ -5786,7 +6201,8 @@
         "characterIds": [
             "sakuya",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747918203000,
@@ -5800,7 +6216,8 @@
         "characterIds": [
             "saki",
             "mayumi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747921842000,
@@ -5813,7 +6230,8 @@
         "artistId": "kawiten",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1747927620000,
@@ -5827,7 +6245,8 @@
         "characterIds": [
             "kyouko",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748020823000,
@@ -5840,7 +6259,8 @@
         "artistId": "tanasuke",
         "characterIds": [
             "nitori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748023899000,
@@ -5853,7 +6273,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748029521000,
@@ -5866,7 +6287,8 @@
         "artistId": "mitsusame",
         "characterIds": [
             "minamitsu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748091195000,
@@ -5880,7 +6302,8 @@
         "characterIds": [
             "reimu",
             "kosuzu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748094588000,
@@ -5893,7 +6316,8 @@
         "artistId": "carrot_8",
         "characterIds": [
             "patchouli"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748098145000,
@@ -5907,7 +6331,8 @@
         "characterIds": [
             "momiji",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748177479000,
@@ -5921,7 +6346,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748181048000,
@@ -5935,7 +6361,8 @@
         "characterIds": [
             "kosuzu",
             "mamizou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748186887000,
@@ -5949,7 +6376,8 @@
         "characterIds": [
             "reisen",
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748264084000,
@@ -5962,7 +6390,8 @@
         "artistId": "matsu_kitsune",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748272232000,
@@ -5975,7 +6404,8 @@
         "artistId": "gondora",
         "characterIds": [
             "minamitsu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748350414000,
@@ -5988,7 +6418,8 @@
         "artistId": "b_sanaeosi",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748353990000,
@@ -6001,7 +6432,8 @@
         "artistId": "carrot_8",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748359071000,
@@ -6014,7 +6446,8 @@
         "artistId": "io_nano",
         "characterIds": [
             "lily"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748436695000,
@@ -6028,7 +6461,8 @@
         "characterIds": [
             "patchouli",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748440265000,
@@ -6042,7 +6476,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748445774000,
@@ -6055,7 +6490,8 @@
         "artistId": "kanpa",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748523144000,
@@ -6069,7 +6505,8 @@
         "characterIds": [
             "ran",
             "chen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748526788000,
@@ -6082,7 +6519,8 @@
         "artistId": "youyume",
         "characterIds": [
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748531484000,
@@ -6096,7 +6534,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748609867000,
@@ -6109,7 +6548,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "cirno"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748613113000,
@@ -6123,7 +6563,8 @@
         "characterIds": [
             "meiling",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748620581000,
@@ -6138,7 +6579,8 @@
             "reimu",
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748695927000,
@@ -6151,7 +6593,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "eirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748699508000,
@@ -6164,7 +6607,8 @@
         "artistId": "suwaneko",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748704253000,
@@ -6177,7 +6621,8 @@
         "artistId": "hatome",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748782366000,
@@ -6190,7 +6635,8 @@
         "artistId": "kanpa",
         "characterIds": [
             "megumu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748785854000,
@@ -6203,7 +6649,8 @@
         "artistId": "sayoshima",
         "characterIds": [
             "kogasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748792256000,
@@ -6217,7 +6664,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748869329000,
@@ -6230,7 +6678,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748875984000,
@@ -6244,7 +6693,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748955539000,
@@ -6260,7 +6710,8 @@
             "clownpiece",
             "aun",
             "suika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748958885000,
@@ -6274,7 +6725,8 @@
         "characterIds": [
             "hecatia",
             "tewi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1748962129000,
@@ -6291,7 +6743,8 @@
             "megumu",
             "chimata",
             "momoyo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749043101000,
@@ -6306,7 +6759,8 @@
             "chen",
             "orin",
             "mike"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749045028000,
@@ -6319,7 +6773,8 @@
         "artistId": "piaki",
         "characterIds": [
             "momoyo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749048792000,
@@ -6332,7 +6787,8 @@
         "artistId": "sayoshima",
         "characterIds": [
             "kyouko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749127883000,
@@ -6345,7 +6801,8 @@
         "artistId": "shiroyama_dondyuruma",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749132287000,
@@ -6359,7 +6816,8 @@
         "characterIds": [
             "ubame",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749135620000,
@@ -6373,7 +6831,8 @@
         "characterIds": [
             "reimu",
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749214653000,
@@ -6388,7 +6847,8 @@
             "reimu",
             "yukari",
             "aun"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749218916000,
@@ -6401,7 +6861,8 @@
         "artistId": "uramyai",
         "characterIds": [
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749221381000,
@@ -6415,7 +6876,8 @@
         "characterIds": [
             "reimu",
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749300646000,
@@ -6428,7 +6890,8 @@
         "artistId": "aasoukai",
         "characterIds": [
             "chimi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749304343000,
@@ -6442,7 +6905,8 @@
         "characterIds": [
             "eirin",
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749307579000,
@@ -6456,7 +6920,8 @@
         "characterIds": [
             "minamitsu",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749387003000,
@@ -6470,7 +6935,8 @@
         "characterIds": [
             "seija",
             "eiki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749390171000,
@@ -6483,7 +6949,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749394620000,
@@ -6496,7 +6963,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749473597000,
@@ -6509,7 +6977,8 @@
         "artistId": "whis",
         "characterIds": [
             "seija"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749478633000,
@@ -6522,7 +6991,8 @@
         "artistId": "shope",
         "characterIds": [
             "ubame"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749480891000,
@@ -6535,7 +7005,8 @@
         "artistId": "solidus",
         "characterIds": [
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749559680000,
@@ -6555,7 +7026,8 @@
             "miyoi",
             "nareko",
             "chimi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749564431000,
@@ -6569,7 +7041,8 @@
         "characterIds": [
             "mokou",
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749567102000,
@@ -6583,7 +7056,8 @@
         "characterIds": [
             "reimu",
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749646218000,
@@ -6598,7 +7072,8 @@
             "reimu",
             "marisa",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749650368000,
@@ -6613,7 +7088,8 @@
             "narumi",
             "nareko",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749653653000,
@@ -6627,7 +7103,8 @@
         "characterIds": [
             "miko",
             "tojiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749744474000,
@@ -6641,7 +7118,8 @@
         "characterIds": [
             "rinnosuke",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749773040000,
@@ -6655,7 +7133,8 @@
         "characterIds": [
             "renko",
             "merry"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749801690000,
@@ -6671,7 +7150,8 @@
             "chimi",
             "nareko",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749831884000,
@@ -6685,7 +7165,8 @@
         "characterIds": [
             "keiki",
             "mayumi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749861320000,
@@ -6698,7 +7179,8 @@
         "artistId": "kangaenai_ashi",
         "characterIds": [
             "nazrin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749892385000,
@@ -6711,7 +7193,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749917433000,
@@ -6725,7 +7208,8 @@
         "characterIds": [
             "eirin",
             "medicine"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749946216000,
@@ -6739,7 +7223,8 @@
         "characterIds": [
             "koishi",
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1749975565000,
@@ -6754,7 +7239,8 @@
             "eirin",
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750003364000,
@@ -6769,7 +7255,8 @@
             "mamizou",
             "chimi",
             "zanmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750033032000,
@@ -6783,7 +7270,8 @@
         "characterIds": [
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750061044000,
@@ -6797,7 +7285,8 @@
         "characterIds": [
             "marisa",
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750089910000,
@@ -6811,7 +7300,8 @@
         "characterIds": [
             "nareko",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750118544000,
@@ -6825,7 +7315,8 @@
         "characterIds": [
             "reimu",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750147707000,
@@ -6839,7 +7330,8 @@
         "characterIds": [
             "marisa",
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750176292000,
@@ -6853,7 +7345,8 @@
         "characterIds": [
             "youmu",
             "yuyuko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750205047000,
@@ -6867,7 +7360,8 @@
         "characterIds": [
             "nareko",
             "chimi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750235180000,
@@ -6880,7 +7374,8 @@
         "artistId": "sushirou",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750262488000,
@@ -6893,7 +7388,8 @@
         "artistId": "sakuma",
         "characterIds": [
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750291539000,
@@ -6907,7 +7403,8 @@
         "characterIds": [
             "eirin",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750320082000,
@@ -6921,7 +7418,8 @@
         "characterIds": [
             "reimu",
             "kogasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750348899000,
@@ -6934,7 +7432,8 @@
         "artistId": "yoiyami_tori",
         "characterIds": [
             "mystia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750377486000,
@@ -6948,7 +7447,8 @@
         "characterIds": [
             "koishi",
             "kokoro"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750406502000,
@@ -6963,7 +7463,8 @@
             "reimu",
             "marisa",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750435265000,
@@ -6978,7 +7479,8 @@
             "kasen",
             "seiga",
             "yoshika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750465688000,
@@ -6992,7 +7494,8 @@
         "characterIds": [
             "marisa",
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750493055000,
@@ -7008,7 +7511,8 @@
             "clownpiece",
             "hecatia",
             "tewi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750521700000,
@@ -7021,7 +7525,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750553568000,
@@ -7035,7 +7540,8 @@
         "characterIds": [
             "remilia",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750581772000,
@@ -7049,7 +7555,8 @@
         "characterIds": [
             "suika",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750608544000,
@@ -7063,7 +7570,8 @@
         "characterIds": [
             "chen",
             "yukari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750636902000,
@@ -7076,7 +7584,8 @@
         "artistId": "k-osu",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750665845000,
@@ -7090,7 +7599,8 @@
         "characterIds": [
             "aya",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750694495000,
@@ -7104,7 +7614,8 @@
         "characterIds": [
             "marisa",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750723500000,
@@ -7118,7 +7629,8 @@
         "characterIds": [
             "ubame",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750752135000,
@@ -7131,7 +7643,8 @@
         "artistId": "nagakuma_roku",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750781329000,
@@ -7145,7 +7658,8 @@
         "characterIds": [
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750809893000,
@@ -7160,7 +7674,8 @@
             "byakuren",
             "nue",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750838903000,
@@ -7173,7 +7688,8 @@
         "artistId": "nekogusa_kanchou",
         "characterIds": [
             "chimi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750867297000,
@@ -7187,7 +7703,8 @@
         "characterIds": [
             "marisa",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750896105000,
@@ -7203,7 +7720,8 @@
             "sakuya",
             "remilia",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750924879000,
@@ -7218,7 +7736,8 @@
             "marisa",
             "nue",
             "chimi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750953688000,
@@ -7232,7 +7751,8 @@
         "characterIds": [
             "hecatia",
             "clownpiece"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1750982609000,
@@ -7246,7 +7766,8 @@
         "characterIds": [
             "miko",
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751072251000,
@@ -7260,7 +7781,8 @@
         "characterIds": [
             "reimu",
             "zanmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751011378000,
@@ -7274,7 +7796,8 @@
         "characterIds": [
             "chiyari",
             "yuuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751040093000,
@@ -7288,7 +7811,8 @@
         "characterIds": [
             "nareko",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751097706000,
@@ -7302,7 +7826,8 @@
         "characterIds": [
             "reimu",
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751126484000,
@@ -7315,7 +7840,8 @@
         "artistId": "teoi",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751159059000,
@@ -7328,7 +7854,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "yachie"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751184132000,
@@ -7341,7 +7868,8 @@
         "artistId": "amakaze",
         "characterIds": [
             "ubame"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751213251000,
@@ -7354,7 +7882,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751241887000,
@@ -7368,7 +7897,8 @@
         "characterIds": [
             "miko",
             "seiga"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751270470000,
@@ -7384,7 +7914,8 @@
             "raiko",
             "mizuchi",
             "seija"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751299274000,
@@ -7398,7 +7929,8 @@
         "characterIds": [
             "reimu",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751328117000,
@@ -7420,7 +7952,8 @@
             "mizuchi",
             "yuuma",
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751356913000,
@@ -7433,7 +7966,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751385694000,
@@ -7446,7 +7980,8 @@
         "artistId": "kusatsuku",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751414414000,
@@ -7460,7 +7995,8 @@
         "characterIds": [
             "okina",
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751443426000,
@@ -7473,7 +8009,8 @@
         "artistId": "katasumi",
         "characterIds": [
             "koakuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751472088000,
@@ -7486,7 +8023,8 @@
         "artistId": "yatagarasu",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751500890000,
@@ -7499,7 +8037,8 @@
         "artistId": "omochi",
         "characterIds": [
             "nazrin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751529872000,
@@ -7512,7 +8051,8 @@
         "artistId": "futahane",
         "characterIds": [
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751558515000,
@@ -7526,7 +8066,8 @@
         "characterIds": [
             "renko",
             "merry"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751587429000,
@@ -7541,7 +8082,8 @@
             "yoshika",
             "tojiko",
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751616046000,
@@ -7556,7 +8098,8 @@
             "reimu",
             "mizuchi",
             "aun"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751644914000,
@@ -7572,7 +8115,8 @@
             "byakuren",
             "miko",
             "kanako"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751679113000,
@@ -7586,7 +8130,8 @@
         "characterIds": [
             "reimu",
             "sannyo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751702906000,
@@ -7601,7 +8146,8 @@
             "reimu",
             "nareko",
             "mike"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751731581000,
@@ -7617,7 +8163,8 @@
             "reimu",
             "marisa",
             "aun"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751762502000,
@@ -7630,7 +8177,8 @@
         "artistId": "guanin",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751788901000,
@@ -7643,7 +8191,8 @@
         "artistId": "potato",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751818422000,
@@ -7668,7 +8217,8 @@
             "eiki",
             "sanae",
             "nitori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751846752000,
@@ -7683,7 +8233,8 @@
             "reimu",
             "marisa",
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751875266000,
@@ -7697,7 +8248,8 @@
         "characterIds": [
             "tsukasa",
             "chimata"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751904345000,
@@ -7711,7 +8263,8 @@
         "characterIds": [
             "chen",
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751933049000,
@@ -7725,7 +8278,8 @@
         "characterIds": [
             "minamitsu",
             "komachi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751961681000,
@@ -7738,7 +8292,8 @@
         "artistId": "ne_tochika",
         "characterIds": [
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1751990552000,
@@ -7751,7 +8306,8 @@
         "artistId": "jiru",
         "characterIds": [
             "sekibanki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752019494000,
@@ -7764,7 +8320,8 @@
         "artistId": "yatagarasu",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752048121000,
@@ -7777,7 +8334,8 @@
         "artistId": "whis",
         "characterIds": [
             "kogasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752077400000,
@@ -7790,7 +8348,8 @@
         "artistId": "nerihiko",
         "characterIds": [
             "suwako"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752105998000,
@@ -7803,7 +8362,8 @@
         "artistId": "mochimugi",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752134460000,
@@ -7817,7 +8377,8 @@
         "characterIds": [
             "nue",
             "seija"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752163576000,
@@ -7830,7 +8391,8 @@
         "artistId": "jiru",
         "characterIds": [
             "wakasagihime"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752193583000,
@@ -7845,7 +8407,8 @@
             "youmu",
             "yuyuko",
             "wakasagihime"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752220860000,
@@ -7858,7 +8421,8 @@
         "artistId": "asaka_haru",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752249911000,
@@ -7871,7 +8435,8 @@
         "artistId": "honezuka",
         "characterIds": [
             "junko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752281573000,
@@ -7887,7 +8452,8 @@
             "eirin",
             "suwako",
             "junko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752307436000,
@@ -7901,7 +8467,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752336087000,
@@ -7914,7 +8481,8 @@
         "artistId": "poronegi",
         "characterIds": [
             "suika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752364878000,
@@ -7928,7 +8496,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752393785000,
@@ -7941,7 +8510,8 @@
         "artistId": "azuma_yoriko",
         "characterIds": [
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752423417000,
@@ -7955,7 +8525,8 @@
         "characterIds": [
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752451343000,
@@ -7972,7 +8543,8 @@
             "futo",
             "miko",
             "nazrin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752480204000,
@@ -7986,7 +8558,8 @@
         "characterIds": [
             "reimu",
             "aun"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752508944000,
@@ -8002,7 +8575,8 @@
             "mizuchi",
             "chimata",
             "zanmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752537702000,
@@ -8016,7 +8590,8 @@
         "characterIds": [
             "yamame",
             "ichirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752566476000,
@@ -8029,7 +8604,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752595279000,
@@ -8042,7 +8618,8 @@
         "artistId": "rukija",
         "characterIds": [
             "seija"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752624124000,
@@ -8055,7 +8632,8 @@
         "artistId": "shigure",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752652857000,
@@ -8069,7 +8647,8 @@
         "characterIds": [
             "suika",
             "yuugi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752681695000,
@@ -8082,7 +8661,8 @@
         "artistId": "arinu",
         "characterIds": [
             "minoriko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752710567000,
@@ -8096,7 +8676,8 @@
         "characterIds": [
             "tojiko",
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752739379000,
@@ -8110,7 +8691,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752768559000,
@@ -8123,7 +8705,8 @@
         "artistId": "shundou_heishirou",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752796872000,
@@ -8141,7 +8724,8 @@
             "shou",
             "nareko",
             "kyouko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752825860000,
@@ -8158,7 +8742,8 @@
             "sakuya",
             "youmu",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752854497000,
@@ -8172,7 +8757,8 @@
         "characterIds": [
             "miko",
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752884059000,
@@ -8185,7 +8771,8 @@
         "artistId": "piaki",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752914279000,
@@ -8198,7 +8785,8 @@
         "artistId": "shundou_heishirou",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752940901000,
@@ -8211,7 +8799,8 @@
         "artistId": "hiiro",
         "characterIds": [
             "mike"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752973436000,
@@ -8224,7 +8813,8 @@
         "artistId": "guanin",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1752998472000,
@@ -8238,7 +8828,8 @@
         "characterIds": [
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753027296000,
@@ -8253,7 +8844,8 @@
         "characterIds": [
             "megumu",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759248119000,
@@ -8267,7 +8859,8 @@
         "artistId": "deetamu",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753056143000,
@@ -8281,7 +8874,8 @@
         "characterIds": [
             "seija",
             "shinmyoumaru"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753084910000,
@@ -8299,7 +8893,8 @@
             "hecatia",
             "megumu",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753113650000,
@@ -8313,7 +8908,8 @@
         "characterIds": [
             "marisa",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753142566000,
@@ -8326,7 +8922,8 @@
         "artistId": "teoi",
         "characterIds": [
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753171682000,
@@ -8340,7 +8937,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753200976000,
@@ -8354,7 +8952,8 @@
         "characterIds": [
             "sunny",
             "star"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753229089000,
@@ -8367,7 +8966,8 @@
         "artistId": "whis",
         "characterIds": [
             "kogasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753257715000,
@@ -8380,7 +8980,8 @@
         "artistId": "min_k",
         "characterIds": [
             "momiji"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753286619000,
@@ -8394,7 +8995,8 @@
         "characterIds": [
             "futo",
             "miko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753316277000,
@@ -8407,7 +9009,8 @@
         "artistId": "whis",
         "characterIds": [
             "kosuzu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753344062000,
@@ -8421,7 +9024,8 @@
         "characterIds": [
             "yamame",
             "parsee"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753372902000,
@@ -8435,7 +9039,8 @@
         "characterIds": [
             "reimu",
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753401753000,
@@ -8448,7 +9053,8 @@
         "artistId": "mendou15",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753430779000,
@@ -8462,7 +9068,8 @@
         "characterIds": [
             "reimu",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753459311000,
@@ -8476,7 +9083,8 @@
         "characterIds": [
             "yuuka",
             "eiki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753492133000,
@@ -8496,7 +9104,8 @@
             "sanae",
             "kosuzu",
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753516977000,
@@ -8510,7 +9119,8 @@
         "characterIds": [
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753546276000,
@@ -8524,7 +9134,8 @@
         "characterIds": [
             "aya",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753580191000,
@@ -8537,7 +9148,8 @@
         "artistId": "akeboshi_saku",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753603454000,
@@ -8551,7 +9163,8 @@
         "characterIds": [
             "yuuma",
             "chiyari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753632082000,
@@ -8565,7 +9178,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753667504000,
@@ -8579,7 +9193,8 @@
         "characterIds": [
             "megumu",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753689680000,
@@ -8593,7 +9208,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753718524000,
@@ -8606,7 +9222,8 @@
         "artistId": "kuchiya_doro",
         "characterIds": [
             "reisen2"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753747363000,
@@ -8619,7 +9236,8 @@
         "artistId": "kyuukei_usagi",
         "characterIds": [
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753776315000,
@@ -8632,7 +9250,8 @@
         "artistId": "toukoku",
         "characterIds": [
             "shinmyoumaru"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753805037000,
@@ -8646,7 +9265,8 @@
         "characterIds": [
             "ichirin",
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753834122000,
@@ -8659,7 +9279,8 @@
         "artistId": "kna",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753862497000,
@@ -8672,7 +9293,8 @@
         "artistId": "bagu",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753891312000,
@@ -8685,7 +9307,8 @@
         "artistId": "kirero",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753920217000,
@@ -8699,7 +9322,8 @@
         "characterIds": [
             "momiji",
             "hatate"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753948906000,
@@ -8718,7 +9342,8 @@
             "sanae",
             "aun",
             "suika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1753978180000,
@@ -8731,7 +9356,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754006627000,
@@ -8745,7 +9371,8 @@
         "characterIds": [
             "kogasa",
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754035419000,
@@ -8759,7 +9386,8 @@
         "characterIds": [
             "suika",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754064160000,
@@ -8776,7 +9404,8 @@
             "satori",
             "koishi",
             "okuu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754097419000,
@@ -8790,7 +9419,8 @@
         "characterIds": [
             "cirno",
             "daiyousei"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754122296000,
@@ -8803,7 +9433,8 @@
         "artistId": "yatagarasu",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754150470000,
@@ -8817,7 +9448,8 @@
         "characterIds": [
             "luna",
             "yuyuko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754183543000,
@@ -8830,7 +9462,8 @@
         "artistId": "s_a_murai",
         "characterIds": [
             "chen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754208836000,
@@ -8844,7 +9477,8 @@
         "characterIds": [
             "sakuya",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754236876000,
@@ -8857,7 +9491,8 @@
         "artistId": "nekobatake",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754265829000,
@@ -8870,7 +9505,8 @@
         "artistId": "carrot_8",
         "characterIds": [
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754295128000,
@@ -8883,7 +9519,8 @@
         "artistId": "berusuke",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754323259000,
@@ -8896,7 +9533,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "yukari"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754352887000,
@@ -8909,7 +9547,8 @@
         "artistId": "shio",
         "characterIds": [
             "keine"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754380895000,
@@ -8923,7 +9562,8 @@
         "characterIds": [
             "flandre",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754410084000,
@@ -8936,7 +9576,8 @@
         "artistId": "shio",
         "characterIds": [
             "misumaru"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754438650000,
@@ -8950,7 +9591,8 @@
         "characterIds": [
             "hisami",
             "zanmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754467569000,
@@ -8963,7 +9605,8 @@
         "artistId": "k-osu",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754496718000,
@@ -8980,7 +9623,8 @@
             "ran",
             "yukari",
             "mike"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754524926000,
@@ -8994,7 +9638,8 @@
         "characterIds": [
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754553727000,
@@ -9007,7 +9652,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "cirno"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754582887000,
@@ -9021,7 +9667,8 @@
         "artistId": "shio",
         "characterIds": [
             "miyoi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754611412000,
@@ -9035,7 +9682,8 @@
         "characterIds": [
             "yuuma",
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754640058000,
@@ -9049,7 +9697,8 @@
         "characterIds": [
             "orin",
             "okuu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754668963000,
@@ -9062,7 +9711,8 @@
         "artistId": "zenji",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754702321000,
@@ -9076,7 +9726,8 @@
         "characterIds": [
             "reimu",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754726515000,
@@ -9090,7 +9741,8 @@
         "characterIds": [
             "suika",
             "miyoi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754755772000,
@@ -9104,7 +9756,8 @@
         "characterIds": [
             "sanae",
             "kogasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754791009000,
@@ -9119,7 +9772,8 @@
         "characterIds": [
             "aya",
             "momiji"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754812997000,
@@ -9134,7 +9788,8 @@
             "reimu",
             "orin",
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754841695000,
@@ -9151,7 +9806,8 @@
             "hisami",
             "zanmu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754870651000,
@@ -9165,7 +9821,8 @@
         "characterIds": [
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754899309000,
@@ -9181,7 +9838,8 @@
         "artistId": "koyane",
         "characterIds": [
             "momiji"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754928483000,
@@ -9195,7 +9853,8 @@
         "characterIds": [
             "byakuren",
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754956904000,
@@ -9208,7 +9867,8 @@
         "artistId": "gokuu",
         "characterIds": [
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1754985824000,
@@ -9222,7 +9882,8 @@
         "characterIds": [
             "zanmu",
             "hisami"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755014522000,
@@ -9236,7 +9897,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755043986000,
@@ -9249,7 +9911,8 @@
         "artistId": "shirocha_tei",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755072504000,
@@ -9262,7 +9925,8 @@
         "artistId": "ohsaka",
         "characterIds": [
             "chimata"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755101322000,
@@ -9275,7 +9939,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755129842000,
@@ -9288,7 +9953,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755158460000,
@@ -9301,7 +9967,8 @@
         "artistId": "kuromaru",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755187302000,
@@ -9314,7 +9981,8 @@
         "artistId": "kasuya_baian",
         "characterIds": [
             "eirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755217324000,
@@ -9327,7 +9995,8 @@
         "artistId": "k-osu",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755244987000,
@@ -9340,7 +10009,8 @@
         "artistId": "satsuki",
         "characterIds": [
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755274019000,
@@ -9353,7 +10023,8 @@
         "artistId": "urashima",
         "characterIds": [
             "doremy"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755303222000,
@@ -9367,7 +10038,8 @@
         "characterIds": [
             "hisami",
             "zanmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755331246000,
@@ -9380,7 +10052,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755360116000,
@@ -9395,7 +10068,8 @@
             "shion",
             "chimata",
             "tsukasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755391354000,
@@ -9408,7 +10082,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755417662000,
@@ -9422,7 +10097,8 @@
         "characterIds": [
             "reimu",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755446732000,
@@ -9435,7 +10111,8 @@
         "artistId": "scavia",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755475660000,
@@ -9449,7 +10126,8 @@
         "characterIds": [
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755504091000,
@@ -9466,7 +10144,8 @@
         "characterIds": [
             "aya",
             "hatate"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755532991000,
@@ -9479,7 +10158,8 @@
         "artistId": "ebi",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755562202000,
@@ -9492,7 +10172,8 @@
         "artistId": "satsuki",
         "characterIds": [
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755590575000,
@@ -9506,7 +10187,8 @@
         "characterIds": [
             "meiling",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755619268000,
@@ -9519,7 +10201,8 @@
         "artistId": "ninomaru",
         "characterIds": [
             "koakuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755648212000,
@@ -9533,7 +10216,8 @@
         "characterIds": [
             "cirno",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755676908000,
@@ -9546,7 +10230,8 @@
         "artistId": "onyasai",
         "characterIds": [
             "koakuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755705668000,
@@ -9560,7 +10245,8 @@
         "characterIds": [
             "shinmyoumaru",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755734588000,
@@ -9575,7 +10261,8 @@
             "reimu",
             "marisa",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755763953000,
@@ -9588,7 +10275,8 @@
         "artistId": "hidaruma",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755792092000,
@@ -9605,7 +10293,8 @@
         "characterIds": [
             "sakuya",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755820972000,
@@ -9620,7 +10309,8 @@
             "reimu",
             "mokou",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755849659000,
@@ -9635,7 +10325,8 @@
             "kanako",
             "suwako",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755878489000,
@@ -9649,7 +10340,8 @@
         "characterIds": [
             "patchouli",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755909597000,
@@ -9663,7 +10355,8 @@
         "characterIds": [
             "seija",
             "sekibanki"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755936667000,
@@ -9681,7 +10374,8 @@
             "aun",
             "saki",
             "sannyo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755964930000,
@@ -9696,7 +10390,8 @@
         "characterIds": [
             "kaguya",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1755999209000,
@@ -9710,7 +10405,8 @@
         "characterIds": [
             "seiga",
             "yoshika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756022498000,
@@ -9726,7 +10422,8 @@
         "characterIds": [
             "keine",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756051299000,
@@ -9740,7 +10437,8 @@
         "artistId": "nekobatake",
         "characterIds": [
             "shou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756081310000,
@@ -9753,7 +10451,8 @@
         "artistId": "shio",
         "characterIds": [
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756108859000,
@@ -9767,7 +10466,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756138192000,
@@ -9781,7 +10481,8 @@
         "characterIds": [
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756167586000,
@@ -9803,7 +10504,8 @@
             "miko",
             "tsukasa",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756195447000,
@@ -9816,7 +10518,8 @@
         "artistId": "onyasai",
         "characterIds": [
             "koakuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756224803000,
@@ -9829,7 +10532,8 @@
         "artistId": "ebi",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756252948000,
@@ -9843,7 +10547,8 @@
         "characterIds": [
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756281665000,
@@ -9857,7 +10562,8 @@
         "characterIds": [
             "sakuya",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756310466000,
@@ -9870,7 +10576,8 @@
         "artistId": "0_den",
         "characterIds": [
             "kasen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756339525000,
@@ -9883,7 +10590,8 @@
         "artistId": "bebeneko",
         "characterIds": [
             "tewi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756368266000,
@@ -9896,7 +10604,8 @@
         "artistId": "shigure",
         "characterIds": [
             "parsee"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756397192000,
@@ -9910,7 +10619,8 @@
         "characterIds": [
             "zanmu",
             "hisami"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756426268000,
@@ -9924,7 +10634,8 @@
         "characterIds": [
             "medicine",
             "yuuka"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756454804000,
@@ -9938,7 +10649,8 @@
         "characterIds": [
             "reimu",
             "youmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756483288000,
@@ -9951,7 +10663,8 @@
         "artistId": "ryo_mochi",
         "characterIds": [
             "wriggle"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756514903000,
@@ -9964,7 +10677,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756541268000,
@@ -9978,7 +10692,8 @@
         "characterIds": [
             "minoriko",
             "shizuha"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756570971000,
@@ -9994,7 +10709,8 @@
             "sakuya",
             "seija",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756599125000,
@@ -10008,7 +10724,8 @@
         "characterIds": [
             "reimu",
             "seija"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756627287000,
@@ -10022,7 +10739,8 @@
         "characterIds": [
             "iku",
             "tenshi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756656384000,
@@ -10045,7 +10763,8 @@
             "okina",
             "yuuma",
             "yuyuko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756685052000,
@@ -10059,7 +10778,8 @@
         "characterIds": [
             "yukari",
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756713845000,
@@ -10072,7 +10792,8 @@
         "artistId": "shigure",
         "characterIds": [
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756742482000,
@@ -10085,7 +10806,8 @@
         "artistId": "hoshii",
         "characterIds": [
             "kasen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756773836000,
@@ -10100,7 +10822,8 @@
             "reimu",
             "aun",
             "mizuchi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756800157000,
@@ -10114,7 +10837,8 @@
         "characterIds": [
             "sakuya",
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756828947000,
@@ -10127,7 +10851,8 @@
         "artistId": "momono",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756858151000,
@@ -10140,7 +10865,8 @@
         "artistId": "kajiya",
         "characterIds": [
             "akyuu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756886451000,
@@ -10153,7 +10879,8 @@
         "artistId": "momono",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756915260000,
@@ -10167,7 +10894,8 @@
         "characterIds": [
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756944434000,
@@ -10182,7 +10910,8 @@
             "reisen",
             "mokou",
             "doremy"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1756972951000,
@@ -10196,7 +10925,8 @@
         "characterIds": [
             "keine",
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757001664000,
@@ -10209,7 +10939,8 @@
         "artistId": "tofuya",
         "characterIds": [
             "megumu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757030620000,
@@ -10223,7 +10954,8 @@
         "characterIds": [
             "sakuya",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757059314000,
@@ -10239,7 +10971,8 @@
             "luna",
             "star",
             "lily"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757088244000,
@@ -10254,7 +10987,8 @@
         "characterIds": [
             "kanako",
             "yuiman"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757122418000,
@@ -10271,7 +11005,8 @@
             "orin",
             "mike",
             "seiga"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757145765000,
@@ -10285,7 +11020,8 @@
         "artistId": "teoi",
         "characterIds": [
             "patchouli"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757174466000,
@@ -10303,7 +11039,8 @@
             "wakasagihime",
             "sekibanki",
             "kagerou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757208397000,
@@ -10316,7 +11053,8 @@
         "artistId": "satsuki",
         "characterIds": [
             "okina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757232185000,
@@ -10330,7 +11068,8 @@
         "characterIds": [
             "patchouli",
             "koakuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757260896000,
@@ -10345,7 +11084,8 @@
             "marisa",
             "flandre",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757291291000,
@@ -10359,7 +11099,8 @@
         "characterIds": [
             "aya",
             "megumu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757318695000,
@@ -10372,7 +11113,8 @@
         "artistId": "migisune",
         "characterIds": [
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757347548000,
@@ -10389,7 +11131,8 @@
             "orin",
             "mike",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757376191000,
@@ -10403,7 +11146,8 @@
         "characterIds": [
             "satori",
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757404976000,
@@ -10418,7 +11162,8 @@
             "reisen",
             "eirin",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757433678000,
@@ -10435,7 +11180,8 @@
             "eirin",
             "kanako",
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757463985000,
@@ -10448,7 +11194,8 @@
         "artistId": "teoi",
         "characterIds": [
             "alice"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757491253000,
@@ -10463,7 +11210,8 @@
             "flandre",
             "yuuma",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757520167000,
@@ -10477,7 +11225,8 @@
         "characterIds": [
             "keiki",
             "mayumi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757549013000,
@@ -10491,7 +11240,8 @@
         "characterIds": [
             "marisa",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757578179000,
@@ -10504,7 +11254,8 @@
         "artistId": "hikarabita",
         "characterIds": [
             "ariya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757606771000,
@@ -10518,7 +11269,8 @@
         "characterIds": [
             "tenshi",
             "iku"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757635413000,
@@ -10532,7 +11284,8 @@
         "characterIds": [
             "yachie",
             "biten"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757664012000,
@@ -10548,7 +11301,8 @@
             "clownpiece",
             "yachie",
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757692934000,
@@ -10562,7 +11316,8 @@
         "characterIds": [
             "eirin",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757724858000,
@@ -10576,7 +11331,8 @@
         "characterIds": [
             "keiki",
             "mayumi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757750447000,
@@ -10589,7 +11345,8 @@
         "artistId": "jiru",
         "characterIds": [
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757779763000,
@@ -10602,7 +11359,8 @@
         "artistId": "piaki",
         "characterIds": [
             "suwako"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757819432000,
@@ -10617,7 +11375,8 @@
             "saki",
             "yuuma",
             "yachie"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757836866000,
@@ -10630,7 +11389,8 @@
         "artistId": "azuma_yoriko",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757865653000,
@@ -10644,7 +11404,8 @@
         "characterIds": [
             "ariya",
             "chimi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757895246000,
@@ -10663,7 +11424,8 @@
             "eirin",
             "kaguya",
             "medicine"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757923360000,
@@ -10677,7 +11439,8 @@
         "characterIds": [
             "yuiman",
             "ariya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757952046000,
@@ -10690,7 +11453,8 @@
         "artistId": "ishijougahara",
         "characterIds": [
             "keine"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1757980998000,
@@ -10711,7 +11475,8 @@
             "ariya",
             "nina",
             "chimi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758009661000,
@@ -10725,7 +11490,8 @@
         "characterIds": [
             "koishi",
             "satori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758038435000,
@@ -10739,7 +11505,8 @@
         "characterIds": [
             "youmu",
             "yuyuko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758067354000,
@@ -10754,7 +11521,8 @@
             "reimu",
             "marisa",
             "nina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758096122000,
@@ -10767,7 +11535,8 @@
         "artistId": "piaki",
         "characterIds": [
             "sagume"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758124909000,
@@ -10785,7 +11554,8 @@
             "joon",
             "shion",
             "mugetsu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758153741000,
@@ -10799,7 +11569,8 @@
         "characterIds": [
             "yuiman",
             "yachie"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758182470000,
@@ -10814,7 +11585,8 @@
             "toyohime",
             "yorihime",
             "ariya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758211242000,
@@ -10827,7 +11599,8 @@
         "artistId": "zabuton",
         "characterIds": [
             "toyohime"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758240206000,
@@ -10841,7 +11614,8 @@
         "characterIds": [
             "ariya",
             "yuiman"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758268859000,
@@ -10855,7 +11629,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758297816000,
@@ -10868,7 +11643,8 @@
         "artistId": "sushirou",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758331963000,
@@ -10882,7 +11658,8 @@
         "characterIds": [
             "nina",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758355251000,
@@ -10895,7 +11672,8 @@
         "artistId": "nagakuma_roku",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758384877000,
@@ -10909,7 +11687,8 @@
         "characterIds": [
             "yuiman",
             "ariya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758419462000,
@@ -10924,7 +11703,8 @@
             "renko",
             "merry",
             "yuugi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758441654000,
@@ -10938,7 +11718,8 @@
         "characterIds": [
             "marisa",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758470482000,
@@ -10951,7 +11732,8 @@
         "artistId": "lunaluna",
         "characterIds": [
             "zanmu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758500995000,
@@ -10966,7 +11748,8 @@
         "characterIds": [
             "yuiman",
             "ariya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758528145000,
@@ -10984,7 +11767,8 @@
             "parsee",
             "yuiman",
             "yamame"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758556877000,
@@ -10997,7 +11781,8 @@
         "artistId": "blue_hawaii",
         "characterIds": [
             "nina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758585836000,
@@ -11010,7 +11795,8 @@
         "artistId": "shigure",
         "characterIds": [
             "hina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758614657000,
@@ -11024,7 +11810,8 @@
         "characterIds": [
             "ichirin",
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758643581000,
@@ -11038,7 +11825,8 @@
         "characterIds": [
             "sakuya",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758672237000,
@@ -11052,7 +11840,8 @@
         "characterIds": [
             "reimu",
             "ariya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758700890000,
@@ -11066,7 +11855,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758729663000,
@@ -11080,7 +11870,8 @@
         "characterIds": [
             "sakuya",
             "meiling"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758759706000,
@@ -11093,7 +11884,8 @@
         "artistId": "shope",
         "characterIds": [
             "enoko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758788320000,
@@ -11107,7 +11899,8 @@
         "characterIds": [
             "yuiman",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758816057000,
@@ -11121,7 +11914,8 @@
         "characterIds": [
             "mokou",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758847992000,
@@ -11136,7 +11930,8 @@
             "chimi",
             "ariya",
             "yuiman"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758873647000,
@@ -11149,7 +11944,8 @@
         "artistId": "piaki",
         "characterIds": [
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758902676000,
@@ -11163,7 +11959,8 @@
         "characterIds": [
             "shizuha",
             "minoriko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758931630000,
@@ -11177,7 +11974,8 @@
         "characterIds": [
             "ran",
             "chen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758961901000,
@@ -11190,7 +11988,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1758989049000,
@@ -11205,7 +12004,8 @@
             "reimu",
             "aun",
             "rinnosuke"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759022800000,
@@ -11219,7 +12019,8 @@
         "characterIds": [
             "cirno",
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759046497000,
@@ -11232,7 +12033,8 @@
         "artistId": "sushirou",
         "characterIds": [
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759075452000,
@@ -11245,7 +12047,8 @@
         "artistId": "shigure",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759104272000,
@@ -11258,7 +12061,8 @@
         "artistId": "mendou15",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759133192000,
@@ -11273,7 +12077,8 @@
             "reimu",
             "toyohime",
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759163932000,
@@ -11288,7 +12093,8 @@
             "sakuya",
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759194999000,
@@ -11301,7 +12107,8 @@
         "artistId": "iroiro_yaru_hito",
         "characterIds": [
             "kogasa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759219252000,
@@ -11316,7 +12123,8 @@
             "reimu",
             "aun",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759276981000,
@@ -11331,7 +12139,8 @@
             "toyohime",
             "yuiman",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759305670000,
@@ -11345,7 +12154,8 @@
         "characterIds": [
             "yuiman",
             "yachie"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759334503000,
@@ -11360,7 +12170,8 @@
             "toyohime",
             "yuiman",
             "ariya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759364831000,
@@ -11376,7 +12187,8 @@
             "megumu",
             "momoyo",
             "chimata"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759392022000,
@@ -11389,7 +12201,8 @@
         "artistId": "jakkoudou",
         "characterIds": [
             "aya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759420849000,
@@ -11402,7 +12215,8 @@
         "artistId": "itsumizu",
         "characterIds": [
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759449742000,
@@ -11420,7 +12234,8 @@
             "yorihime",
             "sagume",
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759478513000,
@@ -11434,7 +12249,8 @@
         "characterIds": [
             "reimu",
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759507347000,
@@ -11447,7 +12263,8 @@
         "artistId": "deetamu",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759540437000,
@@ -11460,7 +12277,8 @@
         "artistId": "chuumukade",
         "characterIds": [
             "nina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759564943000,
@@ -11475,7 +12293,8 @@
             "marisa",
             "ariya",
             "kanako"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759593669000,
@@ -11490,7 +12309,8 @@
             "reimu",
             "minoriko",
             "shizuha"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759631894000,
@@ -11506,7 +12326,8 @@
             "cirno",
             "koakuma",
             "daiyousei"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759651794000,
@@ -11519,7 +12340,8 @@
         "artistId": "lunamoon",
         "characterIds": [
             "tenshi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759681270000,
@@ -11532,7 +12354,8 @@
         "artistId": "piaki",
         "characterIds": [
             "nareko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759712562000,
@@ -11546,7 +12369,8 @@
         "characterIds": [
             "zanmu",
             "suika"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759737660000,
@@ -11559,7 +12383,8 @@
         "artistId": "shio",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759766909000,
@@ -11573,7 +12398,8 @@
         "characterIds": [
             "reimu",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759798761000,
@@ -11587,7 +12413,8 @@
         "characterIds": [
             "reimu",
             "kasen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759824290000,
@@ -11600,7 +12427,8 @@
         "artistId": "kapuri",
         "characterIds": [
             "ran"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759852911000,
@@ -11613,7 +12441,8 @@
         "artistId": "iroiro_yaru_hito",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759881899000,
@@ -11626,7 +12455,8 @@
         "artistId": "piaki",
         "characterIds": [
             "sagume"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759910483000,
@@ -11639,7 +12469,8 @@
         "artistId": "himajin_no_izu",
         "characterIds": [
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759939370000,
@@ -11652,7 +12483,8 @@
         "artistId": "pio",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1759968122000,
@@ -11666,7 +12498,8 @@
         "characterIds": [
             "tojiko",
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760054546000,
@@ -11679,7 +12512,8 @@
         "artistId": "hikarabita",
         "characterIds": [
             "nina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760083275000,
@@ -11693,7 +12527,8 @@
         "characterIds": [
             "reimu",
             "toyohime"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760112064000,
@@ -11706,7 +12541,8 @@
         "artistId": "danomu",
         "characterIds": [
             "byakuren"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760144780000,
@@ -11719,7 +12555,8 @@
         "artistId": "karubo",
         "characterIds": [
             "tojiko"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760171946000,
@@ -11733,7 +12570,8 @@
         "characterIds": [
             "rumia",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760198496000,
@@ -11748,7 +12586,8 @@
             "yuiman",
             "ariya",
             "chimata"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760234719000,
@@ -11762,7 +12601,8 @@
         "characterIds": [
             "nina",
             "yachie"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760256084000,
@@ -11777,7 +12617,8 @@
         "characterIds": [
             "ariya",
             "yuiman"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760285074000,
@@ -11794,7 +12635,8 @@
             "sakuya",
             "remilia",
             "flandre"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760313809000,
@@ -11807,7 +12649,8 @@
         "artistId": "iroiro_yaru_hito",
         "characterIds": [
             "iku"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760401455000,
@@ -11821,7 +12664,8 @@
         "characterIds": [
             "reimu",
             "toyohime"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760429039000,
@@ -11834,7 +12678,8 @@
         "artistId": "tanasuke",
         "characterIds": [
             "patchouli"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760342465000,
@@ -11847,7 +12692,8 @@
         "artistId": "shigefumi",
         "characterIds": [
             "nina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760371490000,
@@ -11861,7 +12707,8 @@
         "characterIds": [
             "chimata",
             "ariya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760457844000,
@@ -11875,7 +12722,8 @@
         "characterIds": [
             "sakuya",
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760486643000,
@@ -11889,7 +12737,8 @@
         "characterIds": [
             "akyuu",
             "kosuzu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760515276000,
@@ -11903,7 +12752,8 @@
         "characterIds": [
             "reisen",
             "eirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760544057000,
@@ -11917,7 +12767,8 @@
         "characterIds": [
             "kaguya",
             "eirin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760573097000,
@@ -11931,7 +12782,8 @@
         "artistId": "teoi",
         "characterIds": [
             "remilia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760601664000,
@@ -11944,7 +12796,8 @@
         "artistId": "mendou15",
         "characterIds": [
             "reisen"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760630454000,
@@ -11958,7 +12811,8 @@
         "characterIds": [
             "reimu",
             "ubame"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760659470000,
@@ -11971,7 +12825,8 @@
         "artistId": "jiru",
         "characterIds": [
             "miyoi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760688079000,
@@ -11984,7 +12839,8 @@
         "artistId": "shigure",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760716852000,
@@ -11997,7 +12853,8 @@
         "artistId": "nagakuma_roku",
         "characterIds": [
             "rumia"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760746663000,
@@ -12013,7 +12870,8 @@
             "yorihime",
             "ariya",
             "yuiman"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760774694000,
@@ -12029,7 +12887,8 @@
             "flandre",
             "okina",
             "yuuma"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760803363000,
@@ -12044,7 +12903,8 @@
             "reimu",
             "marisa",
             "sanae"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760835937000,
@@ -12057,7 +12917,8 @@
         "artistId": "kapuri",
         "characterIds": [
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760920081000,
@@ -12071,7 +12932,8 @@
         "characterIds": [
             "ariya",
             "yuiman"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1760958763000,
@@ -12085,7 +12947,8 @@
         "characterIds": [
             "meiling",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761004957000,
@@ -12099,7 +12962,8 @@
         "characterIds": [
             "hina",
             "nitori"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761033849000,
@@ -12112,7 +12976,8 @@
         "artistId": "keikou_ryuudou",
         "characterIds": [
             "mayumi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761062912000,
@@ -12125,7 +12990,8 @@
         "artistId": "deetamu",
         "characterIds": [
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761091596000,
@@ -12138,7 +13004,8 @@
         "artistId": "maruten",
         "characterIds": [
             "mokou"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761120046000,
@@ -12153,7 +13020,8 @@
             "satori",
             "koishi",
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761164337000,
@@ -12167,7 +13035,8 @@
         "characterIds": [
             "marisa",
             "kisume"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761177753000,
@@ -12181,7 +13050,8 @@
         "characterIds": [
             "medicine",
             "kaguya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761206570000,
@@ -12195,7 +13065,8 @@
         "characterIds": [
             "rumia",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761235383000,
@@ -12210,7 +13081,8 @@
             "clownpiece",
             "hecatia",
             "toyohime"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761264104000,
@@ -12226,7 +13098,8 @@
         "characterIds": [
             "reimu",
             "aun"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761292881000,
@@ -12239,7 +13112,8 @@
         "artistId": "noai_nioshi",
         "characterIds": [
             "orin"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761321696000,
@@ -12253,7 +13127,8 @@
         "characterIds": [
             "sagume",
             "yuiman"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761354848000,
@@ -12266,7 +13141,8 @@
         "artistId": "b_sanaeosi",
         "characterIds": [
             "suwako"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761379286000,
@@ -12279,7 +13155,8 @@
         "artistId": "kapuri",
         "characterIds": [
             "futo"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761408102000,
@@ -12294,7 +13171,8 @@
         "characterIds": [
             "flandre",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761438330000,
@@ -12307,7 +13185,8 @@
         "artistId": "rome",
         "characterIds": [
             "nina"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761465663000,
@@ -12321,7 +13200,8 @@
         "characterIds": [
             "remilia",
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761494461000,
@@ -12336,7 +13216,8 @@
             "reimu",
             "nina",
             "marisa"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761523773000,
@@ -12349,7 +13230,8 @@
         "artistId": "zumoten",
         "characterIds": [
             "sakuya"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761554758000,
@@ -12365,7 +13247,8 @@
             "flandre",
             "satori",
             "koishi"
-        ]
+        ],
+        "nsfw": false
     },
     {
         "date": 1761581850000,
@@ -12379,6 +13262,7 @@
         "characterIds": [
             "sanae",
             "reimu"
-        ]
+        ],
+        "nsfw": false
     }
 ]

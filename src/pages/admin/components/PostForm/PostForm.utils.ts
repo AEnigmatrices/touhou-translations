@@ -28,7 +28,8 @@ const buildPostEntry = ({ date, reddit, urls, src, desc, artistId, characterIds 
     src,
     desc,
     artistId,
-    characterIds
+    characterIds,
+    nsfw: false
 });
 
 
