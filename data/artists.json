@@ -2523,5 +2523,12 @@
         "linkTwitter": "https://x.com/chroo_x",
         "linkPixiv": "https://www.pixiv.net/en/users/2520711",
         "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "zack",
+        "name": "ザック",
+        "linkTwitter": "https://x.com/zack_tobako",
+        "linkPixiv": "https://www.pixiv.net/en/users/4158564",
+        "portrait": "portraits/placeholders/medic.webp"
     }
 ]
