@@ -7,7 +7,7 @@ import type { FC } from 'react';
 interface Props {
     artistId: string;
     artistName: string | null;
-    artistPosts: { id: string; img: string }[];
+    artistPosts: { id: string; img: string; nsfw: boolean; }[];
 }
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -30,7 +30,7 @@ const SeeMoreArtist: FC<Props> = ({ artistId, artistName, artistPosts }) => {
             </Typography>
 
             <Grid container spacing={2} justifyContent="center">
-                {artistPosts.slice(0, 4).map(({ id, img }) => (
+                {artistPosts.slice(0, 4).map(({ id, img, nsfw }) => (
                     <Grid size={{ xs: 6, sm: 3 }} key={id} sx={styles.seeMoreGrid}>
                         <Box
                             component="a"
@@ -43,7 +43,7 @@ const SeeMoreArtist: FC<Props> = ({ artistId, artistName, artistPosts }) => {
                                 decode={false}
                                 loader={<LoadingIndicator />}
                                 unloader={<LoadingIndicator />}
-                                style={styles.imageStyle}
+                                style={{ ...styles.imageStyle, filter: nsfw ? 'blur(10px)' : 'none' }}
                             />
                         </Box>
                     </Grid>

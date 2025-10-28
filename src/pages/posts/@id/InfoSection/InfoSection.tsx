@@ -14,7 +14,7 @@ interface Props {
     post: Post;
     artist: Artist | null;
     characters: Character[];
-    artistPosts: { id: string; img: string }[];
+    artistPosts: { id: string; img: string; nsfw: boolean; }[];
     prevPostId: string | null;
     nextPostId: string | null;
 }

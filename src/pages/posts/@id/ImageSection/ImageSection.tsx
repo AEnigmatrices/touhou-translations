@@ -7,7 +7,7 @@ import LoadingIndicator from '../../../../components/LoadingIndicator';
 import styles from './ImageSection.styles';
 
 
-const ImageSection: FC<{ urls: string[] }> = ({ urls }) => {
+const ImageSection: FC<{ urls: string[]; nsfw?: boolean }> = ({ urls, nsfw }) => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -42,7 +42,7 @@ const ImageSection: FC<{ urls: string[] }> = ({ urls }) => {
                         draggable={false}
                         loader={<><Box sx={styles.loadingBackdrop} /><LoadingIndicator /></>}
                         unloader={<LoadingIndicator />}
-                        style={zoomed ? styles.zoomed : styles.zoomOut}
+                        style={{ ...(zoomed ? styles.zoomed : styles.zoomOut), filter: nsfw ? 'blur(10px)' : 'none' }}
                     />
                 </Paper>
             </Box>

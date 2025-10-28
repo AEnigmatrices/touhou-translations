@@ -35,7 +35,7 @@ const DailyPost: FC<Props> = ({ dailyPost }) => {
                             decode={false}
                             loader={<LoadingIndicator />}
                             unloader={<LoadingIndicator />}
-                            style={styles.image}
+                            style={{ ...styles.image, filter: dailyPost?.nsfw ? 'blur(10px)' : 'none' }}
                         />
                     </a>
                 </Box>}

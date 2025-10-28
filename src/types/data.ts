@@ -6,6 +6,7 @@ export interface Post {
     desc: string;
     artistId: string;
     characterIds: string[];
+    nsfw: boolean;
 }
 
 export interface Artist {

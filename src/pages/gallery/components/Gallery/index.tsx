@@ -40,7 +40,7 @@ const Gallery: FC<Props> = ({ posts }) => {
                                         unloader={<LoadingIndicator />}
                                         decode={false}
                                         alt={`Gallery post from ${new Date(post.date).toLocaleDateString()}`}
-                                        style={styles.image}
+                                        style={{ ...styles.image, filter: post.nsfw ? 'blur(10px)' : 'none' }}
                                     />
                                 </Box>
                             </Box>

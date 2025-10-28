@@ -59,7 +59,7 @@ const FeaturedPosts: FC<{ featuredPosts?: Post[] }> = ({ featuredPosts = [] }) =
                                                 unloader={<LoadingIndicator />}
                                                 decode={false}
                                                 alt={`Featured post ${redditId}`}
-                                                style={styles.image}
+                                                style={{ ...styles.image, filter: post.nsfw ? 'blur(10px)' : 'none' }}
                                                 onLoad={(e: React.SyntheticEvent<HTMLImageElement>) => { e.currentTarget.style.opacity = '1'; }}
                                             />
                                         </Box>

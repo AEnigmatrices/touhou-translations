@@ -11,7 +11,7 @@ const Page = () => {
 
     return (
         <Box sx={styles.root}>
-            <ImageSection urls={post.url} />
+            <ImageSection urls={post.url} nsfw={post.nsfw} />
             <InfoSection
                 post={post} artist={artist} characters={characters}
                 artistPosts={randomArtistPosts} prevPostId={prevPostId} nextPostId={nextPostId}

@@ -24,7 +24,7 @@ const data = async (pageContext: PageContextServer) => {
     const postCharacters = characters.filter(c => post.characterIds.includes(c.id));
 
     const artistPosts = posts.filter(p => p.artistId === post.artistId && p.reddit !== post.reddit);
-    const randomArtistPosts = getRandomArtistPosts(artistPosts).map(p => ({ id: extractRedditId(p.reddit), img: p.url[0] }));
+    const randomArtistPosts = getRandomArtistPosts(artistPosts).map(p => ({ id: extractRedditId(p.reddit), img: p.url[0], nsfw: p.nsfw }));
 
     const validPosts = posts.filter(p => p.date != null);
     let prevPost: typeof post | null = null;
