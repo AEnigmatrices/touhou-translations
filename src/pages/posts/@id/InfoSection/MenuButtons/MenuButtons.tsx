@@ -1,3 +1,5 @@
+import { useCallback, useEffect } from 'react';
+import { navigate } from 'vike/client/router';
 import { Button, Box } from '@mui/material';
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import ArrowBack from "@mui/icons-material/ArrowBack";
@@ -36,14 +38,44 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
         }
     };
 
-    const handleDownload = async () => await Promise.all(urls.map(downloadFile));
+    const handleDownload = useCallback(async () => {
+        if (urls.length > 0) await Promise.all(urls.map(downloadFile));
+    }, [urls]);
 
+    const handlePrev = useCallback(() => {
+        if (prevPostId) navigate(`${baseUrl}posts/${prevPostId}/`);
+    }, [prevPostId]);
+
+    const handleNext = useCallback(() => {
+        if (nextPostId) navigate(`${baseUrl}posts/${nextPostId}/`);
+    }, [nextPostId]);
+
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            const tag = (e.target as HTMLElement).tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || e.ctrlKey || e.metaKey || e.altKey) return;
+
+            switch (e.key.toLowerCase()) {
+                case 'a':
+                    handlePrev();
+                    break;
+                case 'd':
+                    handleNext();
+                    break;
+                default:
+                    break;
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [handlePrev, handleNext, handleDownload]);
 
     return (
         <Box sx={styles.container}>
             <Button
-                component="a"
-                href={prevPostId ? `${baseUrl}posts/${prevPostId}/` : undefined}
+                onClick={handlePrev}
                 variant="contained"
                 disabled={!prevPostId}
                 startIcon={<ArrowBack />}
@@ -64,8 +96,7 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
             )}
 
             <Button
-                component="a"
-                href={nextPostId ? `${baseUrl}posts/${nextPostId}/` : undefined}
+                onClick={handleNext}
                 variant="contained"
                 disabled={!nextPostId}
                 endIcon={<ArrowForward />}
