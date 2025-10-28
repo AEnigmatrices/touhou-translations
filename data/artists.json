@@ -2497,5 +2497,31 @@
         "name": "moganbo",
         "linkTwitter": "https://x.com/Swampmoganbo",
         "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "maruten",
+        "name": "。。",
+        "linkTwitter": "https://x.com/maruten_moko",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "kawayabug",
+        "name": "かわやばぐ",
+        "linkTwitter": "https://x.com/kawayabug",
+        "linkPixiv": "https://www.pixiv.net/en/users/35279138",
+        "portrait": "portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "flape",
+        "name": "フラッペ",
+        "linkTwitter": "https://x.com/Flape_Youtube",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "coa",
+        "name": "coa",
+        "linkTwitter": "https://x.com/chroo_x",
+        "linkPixiv": "https://www.pixiv.net/en/users/2520711",
+        "portrait": "portraits/placeholders/demoman.webp"
     }
 ]
