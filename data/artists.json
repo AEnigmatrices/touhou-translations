@@ -2530,5 +2530,18 @@
         "linkTwitter": "https://x.com/zack_tobako",
         "linkPixiv": "https://www.pixiv.net/en/users/4158564",
         "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "dagu",
+        "name": "駄具",
+        "linkTwitter": "https://x.com/zaqo_Daaken573",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "tamahana",
+        "name": "たまはな",
+        "linkTwitter": "https://x.com/tamakohanabi",
+        "linkPixiv": "https://www.pixiv.net/en/users/611549",
+        "portrait": "portraits/placeholders/heavy.webp"
     }
 ]

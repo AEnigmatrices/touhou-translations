@@ -13325,5 +13325,51 @@
             "mizuchi"
         ],
         "nsfw": true
+    },
+    {
+        "date": 1761698135000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oiqjwf",
+        "url": [
+            "https://i.redd.it/d2jlyn415yxf1.png"
+        ],
+        "src": "https://x.com/zaqo_Daaken573/status/1971618953941471368",
+        "desc": "Hmm... you know, strictly speaking – Tojiko is a bōrei. Meaning, she's the same thing as Yuyuko. There's no reason beyond looks for her to not have legs if Yuyuko can sport them just fine...",
+        "artistId": "dagu",
+        "characterIds": [
+            "miko",
+            "tojiko"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1761724824000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oiyl1v",
+        "url": [
+            "https://i.redd.it/5678kc5ec0yf1.png"
+        ],
+        "src": "https://x.com/suwaneko2/status/1971542718443876742",
+        "desc": "I haven't terminologically considered this for a long time, but otokonoko and femboy are pretty much equivalent, right?",
+        "artistId": "suwaneko",
+        "characterIds": [
+            "patchouli",
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1761753402000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oj8btn",
+        "url": [
+            "https://i.redd.it/rzi9uubdp2yf1.png"
+        ],
+        "src": "https://x.com/tamakohanabi/status/1971864549927407637",
+        "desc": "I was entertaining the idea of keeping fairies as pets when I realized – that's essentially what Remilia does with the fairy maids!",
+        "artistId": "tamahana",
+        "characterIds": [
+            "wakasagihime",
+            "sekibanki",
+            "kagerou"
+        ],
+        "nsfw": false
     }
 ]
