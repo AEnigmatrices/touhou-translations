@@ -4106,7 +4106,9 @@
         "artistId": "suzume_suzume",
         "characterIds": [
             "marisa",
-            "reimu"
+            "reimu",
+            "yukari",
+            "alice"
         ],
         "nsfw": false
     },
