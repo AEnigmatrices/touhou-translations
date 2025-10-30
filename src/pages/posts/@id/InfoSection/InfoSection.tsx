@@ -136,6 +136,7 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPos
                     prevPostId={prevPostId}
                     nextPostId={nextPostId}
                     urls={post.url}
+                    redditUrl={post.reddit}
                 />
             )}
 

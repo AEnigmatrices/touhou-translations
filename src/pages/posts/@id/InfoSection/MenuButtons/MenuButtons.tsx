@@ -11,15 +11,22 @@ interface Props {
     prevPostId: string | null;
     nextPostId: string | null;
     urls?: string[];
+    redditUrl?: string | null;
 }
 
 const baseUrl = import.meta.env.BASE_URL;
 const isDev = import.meta.env.MODE === 'development';
 
 
-const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
+const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [], redditUrl }) => {
 
-    const downloadFile = async (url: string) => {
+    const extractRedditId = (url?: string | null): string | null => {
+        if (!url) return null;
+        const match = url.match(/comments\/([a-z0-9]+)/i);
+        return match ? match[1] : null;
+    };
+
+    const downloadFile = async (url: string, filename: string) => {
         try {
             const res = await fetch(url);
             if (!res.ok) throw new Error(`Failed to fetch ${url} (status: ${res.status})`);
@@ -29,7 +36,7 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
             const objectUrl = URL.createObjectURL(blob);
 
             link.href = objectUrl;
-            link.download = url.split('/').pop() || 'file';
+            link.download = filename;
             link.click();
 
             URL.revokeObjectURL(objectUrl);
@@ -39,8 +46,19 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [] }) => {
     };
 
     const handleDownload = useCallback(async () => {
-        if (urls.length > 0) await Promise.all(urls.map(downloadFile));
-    }, [urls]);
+        if (!urls.length) return;
+
+        const redditId = extractRedditId(redditUrl) || 'image';
+
+        await Promise.all(
+            urls.map((url, index) => {
+                const sequenceSuffix = urls.length > 1 ? `-${index + 1}` : '';
+                const extension = url.split('.').pop() || 'jpg';
+                const filename = `${redditId}${sequenceSuffix}.${extension}`;
+                return downloadFile(url, filename);
+            })
+        );
+    }, [urls, redditUrl]);
 
     const handlePrev = useCallback(() => {
         if (prevPostId) navigate(`${baseUrl}posts/${prevPostId}/`);
