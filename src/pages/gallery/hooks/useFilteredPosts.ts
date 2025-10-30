@@ -9,21 +9,33 @@ interface Props {
     mode: 'and' | 'or';
     galleryOnly: boolean;
     dateSortOrder?: SortOrder;
+    startDate?: string | null;
+    endDate?: string | null;
 }
 
-const useFilteredPosts = ({ posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder = "none" }: Props) => {
+const useFilteredPosts = ({ posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder = "none", startDate, endDate }: Props) => {
     const filteredPosts = useMemo(() => {
         const base = filterPosts(posts, characterQueries, artistQueries, mode)
             .filter(post => !galleryOnly || post.url.length > 1);
 
-        if (dateSortOrder === "none") return base;
+        const start = startDate ? new Date(startDate).getTime() : null;
+        const end = endDate ? new Date(endDate).getTime() : null;
 
-        return [...base].sort((a, b) => {
+        const dateFiltered = base.filter(post => {
+            const postDate = post.date || 0;
+            if (start && postDate < start) return false;
+            if (end && postDate > end) return false;
+            return true;
+        });
+
+        if (dateSortOrder === "none") return dateFiltered;
+
+        return [...dateFiltered].sort((a, b) => {
             const dateA = a.date || 0;
             const dateB = b.date || 0;
             return dateSortOrder === "asc" ? dateA - dateB : dateB - dateA;
         });
-    }, [posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder]);
+    }, [posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder, startDate, endDate]);
 
     const shuffledOnceRef = useRef<Post[] | null>(null);
 

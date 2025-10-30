@@ -6,6 +6,7 @@ import useQueryParams from './hooks/useQueryParams';
 import Gallery from './components/Gallery';
 import GalleryHeader from './components/GalleryHeaders';
 import DateSortButton from './components/DateSortButton';
+import DateFilter from './components/DateFilter';
 import * as styles from './styles';
 
 import Container from '@mui/material/Container';
@@ -26,6 +27,8 @@ const POSTS_PER_PAGE = 12;
 const Page = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [dateSortOrder, setDateSortOrder] = useState<SortOrder>('none');
+    const [startDate, setStartDate] = useState<string | null>(null);
+    const [endDate, setEndDate] = useState<string | null>(null);
 
     const { posts, artists, characters } = useData<Data>();
 
@@ -33,7 +36,7 @@ const Page = () => {
     const { urlParsed } = pageContext;
     const { characterQueries, artistQueries, mode, galleryOnly, toggleGalleryOnly } = useQueryParams(urlParsed);
 
-    const { shuffledPosts } = useFilteredPosts({ posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder });
+    const { shuffledPosts } = useFilteredPosts({ posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder, startDate, endDate });
 
     const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
     const endIndex = startIndex + POSTS_PER_PAGE;
@@ -52,6 +55,12 @@ const Page = () => {
     const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
         setCurrentPage(value);
         window.scrollTo({ top: 0, behavior: 'auto' });
+    };
+
+    const handleDateChange = (field: "startDate" | "endDate", value: string | null) => {
+        if (field === "startDate") setStartDate(value);
+        else setEndDate(value);
+        setCurrentPage(1);
     };
 
 
@@ -73,7 +82,7 @@ const Page = () => {
                     control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" slotProps={styles.switchSlotProps} />}
                     label={<Typography variant="body1">Gallery Only</Typography>} sx={styles.switchLabelStyles}
                 />
-
+                <DateFilter startDate={startDate} endDate={endDate} onDateChange={handleDateChange} />
                 <DateSortButton sortOrder={dateSortOrder} onToggleSortOrder={handleToggleDateSort} />
             </Stack>
 
