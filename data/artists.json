@@ -2543,5 +2543,11 @@
         "linkTwitter": "https://x.com/tamakohanabi",
         "linkPixiv": "https://www.pixiv.net/en/users/611549",
         "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "kakunoshin",
+        "name": "岩津隠之進",
+        "linkTwitter": "https://x.com/Kakunoshin22",
+        "portrait": "portraits/placeholders/demoman.webp"
     }
 ]

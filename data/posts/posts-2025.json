@@ -13417,5 +13417,49 @@
             "yukari"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1761869909000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1okg96o",
+        "url": [
+            "https://i.redd.it/sjvjf6wsbcyf1.png"
+        ],
+        "src": "https://x.com/ukei624/status/1971917807161131369",
+        "desc": "Remilia just can't help but to sneak a bite of that crispy pork belly 😋\n\nActually... 🤔 in canon, has there ever been an explicit indication that Sakuya cooks? Ah, there it is. She plans to cook eel for dinner after defeating Iku. And she's cooking something too when the Three Fairies sneaked in.",
+        "artistId": "migisune",
+        "characterIds": [
+            "meiling"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1761898574000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1okovfg",
+        "url": [
+            "https://i.redd.it/pfwindg1peyf1.png"
+        ],
+        "src": "https://x.com/Kakunoshin22/status/1972069635265909194",
+        "desc": "Why would Miyoi smell like Yukari? 🤔\n\nI do like how ZUN basically shot down the prospect early on in the manga. Yukari would have fit right in being a Geidontei semi-regular – maybe having Miyoi make more classy drinks for her.\n\nCome to think of it, this kind of setting would have been so interesting. That instead of being a place for the regulars to discuss the events of the chapter, we have Geidontei as a more neutral establishment where many other characters get to interact with one another in such a setting. A ***Restaurant to Another World*** kind of vibe where ZUN may play around with different characters in a more flexible context.\n\nYeah, I like [***Purple Summit.***](https://mangadex.org/title/4a84ecda-e5be-42c8-bddf-c4c0dc8dbf5d/touhou-purple-summit)",
+        "artistId": "kakunoshin",
+        "characterIds": [
+            "reimu",
+            "miyoi"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1761926479000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1okyicu",
+        "url": [
+            "https://i.redd.it/hzosvwf00hyf1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/135644101",
+        "desc": "You might want to get that pyramid button checked, Kokoro 🤨 Actually, do the buttons symbolize anything in particular? It's definitely not the same as Suika's trinity since the square is missing.\n\nI do wonder if the harmony, finitude and infinity set is ZUN's invention, or is there a deeper lore to it... wait, Suika actually has a constellation named after her.",
+        "artistId": "piaki",
+        "characterIds": [
+            "nina",
+            "kokoro"
+        ],
+        "nsfw": false
     }
 ]
