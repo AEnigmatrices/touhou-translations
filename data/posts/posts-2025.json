@@ -13461,5 +13461,52 @@
             "kokoro"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1761957511000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1olauma",
+        "url": [
+            "https://i.redd.it/7v0yfyeakjyf1.png"
+        ],
+        "src": "https://x.com/moyashiseizoujo/status/1972156319726817438",
+        "desc": "Aun. 🗿 Can you go to the mansion and scream out from the top of your lungs – **STAR PLATINUM**",
+        "artistId": "moyazou",
+        "characterIds": [
+            "reimu",
+            "marisa",
+            "sanae",
+            "aun",
+            "clownpiece"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1761984095000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oli990",
+        "url": [
+            "https://i.redd.it/cp6ccw3crlyf1.png"
+        ],
+        "src": "https://x.com/sakatuki_07/status/1972165936603156943",
+        "desc": "Imagine if Alice can just go **Doflamingo** and outright manipulate people through her strings like that.",
+        "artistId": "sakatsuki",
+        "characterIds": [
+            "alice",
+            "marisa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762012895000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1olrhp6",
+        "url": [
+            "https://i.redd.it/4enqt73z4oyf1.png"
+        ],
+        "src": "https://x.com/mati10110302/status/1972289890302959764",
+        "desc": "I don't think Merasmus has ever mentioned any \"come back to life\" pills. 🤔 I'm gonna go ask him. Meanwhile, how about I introduce you t- ***MEDIC***",
+        "artistId": "machi_paterina",
+        "characterIds": [
+            "marisa"
+        ],
+        "nsfw": false
     }
 ]

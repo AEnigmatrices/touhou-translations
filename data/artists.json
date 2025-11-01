@@ -2549,5 +2549,11 @@
         "name": "岩津隠之進",
         "linkTwitter": "https://x.com/Kakunoshin22",
         "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "sakatsuki",
+        "name": "さかつき",
+        "linkTwitter": "https://x.com/sakatuki_07",
+        "portrait": "portraits/placeholders/soldier.webp"
     }
 ]
