@@ -2555,5 +2555,12 @@
         "name": "さかつき",
         "linkTwitter": "https://x.com/sakatuki_07",
         "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "momokichi",
+        "name": "桃吉",
+        "linkTwitter": "https://x.com/momokc17",
+        "linkPixiv": "https://www.pixiv.net/en/users/221446",
+        "portrait": "portraits/placeholders/scout.webp"
     }
 ]

@@ -13508,5 +13508,52 @@
             "marisa"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762045064000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1om482p",
+        "url": [
+            "https://i.redd.it/q6z1glwmsqyf1.png",
+            "https://i.redd.it/ahc6qqkmsqyf1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/135670492",
+        "desc": "This is the artist's headcanon (i.e. this is his design for Konoha)\n\nBut still... 🤔 There's no way that this is coincidence. ZUN has to be aware of this relation of having an \"Asama\" associated with Ariya.",
+        "artistId": "yatagarasu",
+        "characterIds": [
+            "sagume",
+            "yuiman"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762070488000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ombp63",
+        "url": [
+            "https://i.redd.it/jevljfa8wsyf1.png"
+        ],
+        "src": "https://x.com/nioshi_noai/status/1972497959234453901",
+        "desc": "Reimu, just let Shion have Mike 😉 I know another calico cat. Well, technically [**a cocainico...**](https://youtu.be/cXcakfyreoQ) But still!",
+        "artistId": "noai_nioshi",
+        "characterIds": [
+            "reimu",
+            "mike",
+            "shion"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762099318000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oml2f4",
+        "url": [
+            "https://i.redd.it/vgsb4d3y9vyf1.png",
+            "https://i.redd.it/uplv3hfy9vyf1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/135687292",
+        "desc": "Fine, I'll just say it. 🤨 I had figured you'd wear spats... there are spats in Beastrealm, right?",
+        "artistId": "momokichi",
+        "characterIds": [
+            "saki"
+        ],
+        "nsfw": false
     }
 ]
