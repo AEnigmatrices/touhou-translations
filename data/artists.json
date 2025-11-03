@@ -2562,5 +2562,12 @@
         "linkTwitter": "https://x.com/momokc17",
         "linkPixiv": "https://www.pixiv.net/en/users/221446",
         "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "io_16",
+        "name": "いお",
+        "linkTwitter": "https://x.com/io16sii",
+        "linkPixiv": "https://www.pixiv.net/en/users/118153806",
+        "portrait": "portraits/placeholders/pyro.webp"
     }
 ]

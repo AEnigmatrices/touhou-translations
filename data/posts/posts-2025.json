@@ -13555,5 +13555,50 @@
             "saki"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762129588000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1omxkri",
+        "url": [
+            "https://i.redd.it/zsr30ppyrxyf1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/109765843",
+        "desc": "Clearly Okina wants to be a God of Destruction too 🤔 But if we make the Mahakala relation, then Okina already is a god of **destruction.** In particular, \"kala\" means **time,** and the word is also associated with **fate...**",
+        "artistId": "miragu",
+        "characterIds": [
+            "okina",
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762156912000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1on60su",
+        "url": [
+            "https://i.redd.it/quwjibl710zf1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/118491947",
+        "desc": "Huh... the black-and-white on Doremy might have stemmed from the fact that the Chinese equivalent is not a tapir, but a **panda**? 🤨\n\nStill though. Imagine looking at Doremy's spheres and go – ***Yep, that's definitely [Thousand Eyes](https://yugioh.fandom.com/wiki/Thousand-Eyes_Restrict).***",
+        "artistId": "iroiro_yaru_hito",
+        "characterIds": [
+            "doremy",
+            "sagume"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762185767000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1onfo27",
+        "url": [
+            "https://i.redd.it/xos987b0f2zf1.png"
+        ],
+        "src": "https://x.com/io16sii/status/1972572262076412030",
+        "desc": "Huh. It seems if we go by historical records that we know so far, it's only written that Shōtoku and his wife (which is not Tojiko, by the way) passed away at about the same time.\n\nLeaving plenty of room to fill in on what – or who – killed them.",
+        "artistId": "io_16",
+        "characterIds": [
+            "tojiko",
+            "miko"
+        ],
+        "nsfw": false
     }
 ]
