@@ -13600,5 +13600,50 @@
             "miko"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762216561000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ont98e",
+        "url": [
+            "https://i.redd.it/802u9mtky4zf1.png",
+            "https://i.redd.it/rct7xyhky4zf1.png"
+        ],
+        "src": "https://x.com/sakatuki_07/status/1972429103153443313",
+        "desc": "I think with Alice, a lot of focus seems to be on her dolls and not much on her strings? 🤔",
+        "artistId": "sakatsuki",
+        "characterIds": [
+            "alice",
+            "marisa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762243587000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oo1sy5",
+        "url": [
+            "https://i.redd.it/whtnyowx67zf1.png"
+        ],
+        "src": "https://x.com/niseneko21/status/1973098830422749202",
+        "desc": "I do wonder though, whether Mizuchi's ability to possess people is exclusive to her to some extent, or that any ghost can do it? 🤔 Maybe Yuyuko and Tojiko can possess people too?",
+        "artistId": "niseneko",
+        "characterIds": [
+            "flandre",
+            "mizuchi"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762273133000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oobi4w",
+        "url": [
+            "https://i.redd.it/ujhgf7osm9zf1.png"
+        ],
+        "src": "https://x.com/zaqo_Daaken573/status/1973385267886145933",
+        "desc": "Huh. I'd assumed that Yoshika was made specifically to guard Miko's tomb during the crucial moment of resurrection. But then with the way it's worded, I suppose Yoshika must have been Seiga's companion for a long time.\n\nHmm? Yoshika would have also been Byakuren's contemporary too, going by years. Maybe in addition to Kasen, Byakuren might have known Yoshika too? 🤔 And that might just be why she couldn't take the matter to her own fists? Seiga put Yoshika specifically there not to deter just any intruders, but Byakuren in particular.",
+        "artistId": "dagu",
+        "characterIds": [
+            "seiga"
+        ],
+        "nsfw": false
     }
 ]
