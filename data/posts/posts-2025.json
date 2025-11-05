@@ -13645,5 +13645,48 @@
             "seiga"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762302282000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oooa49",
+        "url": [
+            "https://i.redd.it/br6q94wg1czf1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1973349675278159994",
+        "desc": "And for anybody wondering about the **763:**\n- 7 = **Na**na\n- 6 = **Mu**\n- 3 = **San**",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "seiran",
+            "byakuren"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762329743000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oox3al",
+        "url": [
+            "https://i.redd.it/x5i733k4bezf1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1973712062732996907",
+        "desc": "This Dragon Ball reference is brought to you as – [**Special Beam Cannon**](https://dragonball.fandom.com/wiki/Special_Beam_Cannon)",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762359213000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1op73hp",
+        "url": [
+            "https://i.redd.it/afkvwmcrqgzf1.png"
+        ],
+        "src": "https://x.com/flexible_B/status/1973691520391012608",
+        "desc": "Oh, yeah. Spiders produce different kinds of silk. In particular, there's a type that's not sticky. And that's how spiders crawl on their webs without getting stuck.",
+        "artistId": "tog.",
+        "characterIds": [
+            "yamame"
+        ],
+        "nsfw": false
     }
 ]
