@@ -13688,5 +13688,49 @@
             "yamame"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762388617000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1opk7va",
+        "url": [
+            "https://i.redd.it/i5mje3u66jzf1.png"
+        ],
+        "src": "https://x.com/momom_pancake/status/1973626070554525901",
+        "desc": "Huh... a recent angle ZUN seems to have for Medicine is that the very substances that drive living things are technically poison. And through that vector, Medicine may manipulate humans like a puppeteer.\n\nDon't accept the doll's proposal. Your body is compromised. She has poisoned your judgment.",
+        "artistId": "sakuraba_medi",
+        "characterIds": [
+            "medicine"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762416088000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1opt4bo",
+        "url": [
+            "https://i.redd.it/xda8epdvflzf1.png"
+        ],
+        "src": "https://x.com/yatagarasu150/status/1973928970841436421",
+        "desc": "ZUN definitely had the opportunity to continue the younger sister Extra stage boss there in Fossilized Wonders.\n\nOn a side note, I really like the image of Yuiman actually standing taller than Ariya.",
+        "artistId": "yatagarasu",
+        "characterIds": [
+            "yuiman",
+            "ariya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762444940000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oq2ti2",
+        "url": [
+            "https://i.redd.it/dsgdlfzntnzf1.png"
+        ],
+        "src": "https://x.com/hidaruma_/status/1974036718199218649",
+        "desc": "Hmm... 🤔 my impression for the Moon Peoples at this point is that they have Lunar Sages? Like, it's also an oligarchy. While Tsukuyomi seems to be the figurehead, there were definitely more people involved – like, not just Eirin.",
+        "artistId": "hidaruma",
+        "characterIds": [
+            "reimu",
+            "toyohime"
+        ],
+        "nsfw": false
     }
 ]
