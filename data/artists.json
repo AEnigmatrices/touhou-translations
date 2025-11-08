@@ -2569,5 +2569,12 @@
         "linkTwitter": "https://x.com/io16sii",
         "linkPixiv": "https://www.pixiv.net/en/users/118153806",
         "portrait": "portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "konkon",
+        "name": "こんこン",
+        "linkTwitter": "https://x.com/koncong_",
+        "linkPixiv": "https://www.pixiv.net/en/users/10654840",
+        "portrait": "portraits/placeholders/demoman.webp"
     }
 ]
