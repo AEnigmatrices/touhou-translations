@@ -13825,5 +13825,51 @@
             "yoshika"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762651030000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1os66tj",
+        "url": [
+            "https://i.redd.it/m1u9yeahu40g1.png"
+        ],
+        "src": "https://x.com/papiermesser/status/1974094476718289126",
+        "desc": "Okay, so a lot of you may know that Kokoro's urban legend is the Kuchisake-onna – the one with the surgical mask that asks you whether she's pretty, and then proceeds to show you her slit mouth. Generally a bad outcome for the person who encounter her of the Joker's scars kind, depending on the telling.\n\nA popular deterrent would be a pomade – either shouting the word three times (or six times), actually applying a pomade, or any of the various usage of the concept – would deter her from attacking you. The explanation seems to be that in life, this woman had plastic surgery, and they used a lot of pomade on her. That is why she came to hate the smell.\n\nAnd of course, there's a variation that the pomade will actually make her angry, and she'll outright kill you instead of just slicing your cheeks.",
+        "artistId": "fumisetsu",
+        "characterIds": [
+            "sumireko",
+            "kokoro"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762675542000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1osds3m",
+        "url": [
+            "https://i.redd.it/deazk96dv60g1.png"
+        ],
+        "src": "https://x.com/NYAN_SHITAI/status/1974416705896989175",
+        "desc": "Really digging the idea that in addition to the usual ships, our Touhou girls also have exes. 😋 Delicious narrative.\n\nMy favorite so far has to be how Yukari actually has a **restraining order** on Okina in *Ladies of Kōmakan.*",
+        "artistId": "nyan",
+        "characterIds": [
+            "yuuma",
+            "ran"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762704049000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1osmy3m",
+        "url": [
+            "https://i.redd.it/cmy42zn4890g1.png"
+        ],
+        "src": "https://x.com/oniyuri_2004/status/1974760903259353506",
+        "desc": "Now Reimu definitely can't beat the Oni Miko allegations.",
+        "artistId": "jadou_yashiro",
+        "characterIds": [
+            "suika",
+            "kasen",
+            "yuugi"
+        ],
+        "nsfw": false
     }
 ]

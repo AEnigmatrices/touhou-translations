@@ -2576,5 +2576,18 @@
         "linkTwitter": "https://x.com/koncong_",
         "linkPixiv": "https://www.pixiv.net/en/users/10654840",
         "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "fumisetsu",
+        "name": "ふみ切",
+        "linkTwitter": "https://x.com/papiermesser",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "nyan",
+        "name": "にゃん",
+        "linkTwitter": "https://x.com/NYAN_SHITAI",
+        "linkPixiv": "https://www.pixiv.net/en/users/16976929",
+        "portrait": "portraits/placeholders/soldier.webp"
     }
 ]
