@@ -13871,5 +13871,52 @@
             "yuugi"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762733042000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1osz21o",
+        "url": [
+            "https://i.redd.it/x5lbtlbcmb0g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/135870783",
+        "desc": "Can you imagine if Kogasa's actually an ojō-sama, and she has like a mansion and all that – from her blacksmithing craft, of course.\n\nHuh... 🤨 I just read [**her entry in *WOoHS***](https://en.touhouwiki.net/wiki/Whispered_Oracle_of_Hakurei_Shrine/Kogasa_Tatara). It seems ZUN has floated the idea that Kogasa might not actually be a karakasa, but a tatara (forge bellows) yōkai – specifically from the possible injuries to the eye and leg.\n\nSo I guess Kogasa is legit limping on one leg, and the blue eye is actually blind?",
+        "artistId": "atsurou",
+        "characterIds": [
+            "kogasa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762762279000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ot87xm",
+        "url": [
+            "https://i.redd.it/i2wlcx1a1e0g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/118836366",
+        "desc": "I really like the idea that Yūka just likes flowers... it seems to be fanon that she treasures her flower field? Like, she's not gonna be pissed if you're just minding your own business picking and freezing flowers.\n\nFor all we know, she probably just enjoys slow walks surrounded by the flowers blooming by her power. She wouldn't mind you picking one or two when she can easily grow ten more in that same timespan.\n\nBut still, that wherever she goes becomes a flower field is such a powerful image.",
+        "artistId": "iroiro_yaru_hito",
+        "characterIds": [
+            "yuuka"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762790477000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1othm3q",
+        "url": [
+            "https://i.redd.it/yqk10274dg0g1.png",
+            "https://i.redd.it/b5ys3fh4dg0g1.png",
+            "https://i.redd.it/chvhjyk4dg0g1.png"
+        ],
+        "src": "https://x.com/zounose/status/1974781700992647612",
+        "desc": "For real though, what's Yuiman been up to after the end of Fossilized Wonders? Did she really go back to Ariya 🤨 But why would she? Despite the shipping, it really seems more like Ariya couldn't give two shits about Yuiman.\n\nIt might be more likely that she just settles somewhere in the holy ground hunting deer. Maybe with Ubame showing her the ropes on how things work now these days and age.",
+        "artistId": "zounose",
+        "characterIds": [
+            "kanako",
+            "suwako",
+            "yuiman",
+            "ariya"
+        ],
+        "nsfw": false
     }
 ]

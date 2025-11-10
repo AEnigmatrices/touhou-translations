@@ -2589,5 +2589,12 @@
         "linkTwitter": "https://x.com/NYAN_SHITAI",
         "linkPixiv": "https://www.pixiv.net/en/users/16976929",
         "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "atsurou",
+        "name": "あつろう",
+        "linkTwitter": "https://x.com/atsuro0771",
+        "linkPixiv": "https://www.pixiv.net/en/users/79787388",
+        "portrait": "portraits/placeholders/scout.webp"
     }
 ]
