@@ -2596,5 +2596,11 @@
         "linkTwitter": "https://x.com/atsuro0771",
         "linkPixiv": "https://www.pixiv.net/en/users/79787388",
         "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "fuuin",
+        "name": "封印",
+        "linkTwitter": "https://x.com/saharanrann8556",
+        "portrait": "portraits/placeholders/scout.webp"
     }
 ]

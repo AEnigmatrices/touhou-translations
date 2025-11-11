@@ -13918,5 +13918,49 @@
             "ariya"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762819511000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1otui40",
+        "url": [
+            "https://i.redd.it/s0iyjyigri0g1.png"
+        ],
+        "src": "https://x.com/saharanrann8556/status/1974692881828094391",
+        "desc": "Figured that something like \"I'll cut open my own stomach\" would be crossing the NSFW line as a joke here, so I opted for a full censorship route.\n\nBottom left is a [**Chainsaw Man reference.**](https://youtu.be/FVahWr9eQps&amp;t=8)",
+        "artistId": "fuuin",
+        "characterIds": [
+            "ariya",
+            "yuiman"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762848254000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ou3sjq",
+        "url": [
+            "https://i.redd.it/0q5a31ex4l0g1.png"
+        ],
+        "src": "https://x.com/suwaneko2/status/1974803663953756512",
+        "desc": "I suppose it's the reciprocity? If Sakuya can already do anything, what the hell are you to her? 🤔 The dynamic is imbalanced. Imagine as a regular human – if you have a fight with her, you're pretty much dead meat if you stand your ground.\n\nYour best bet is probably to become either Remilia's thrall or Patchouli's apprentice. Acquire power so you may stand next to her. 🗿 Hell, for all we know, maybe Patchouli's the one who taught time magic to Sakuya. So if you can just get her to teach you that too...",
+        "artistId": "suwaneko",
+        "characterIds": [
+            "remilia",
+            "sakuya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762876932000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oud902",
+        "url": [
+            "https://i.redd.it/8o423c87in0g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/135945417",
+        "desc": "I really like the angle that Sanae is an anime fan when she was still outside. Like, if we take this Gundam example, I can totally imagine her in a bidding war for outside world items that includes a blu-ray for the latest movie.\n\nOr hell, maybe she asks Yukari (and by proxy, Ran) to get one for her, but they would more often than not get it wrong – so she would usually ask Sumireko instead.",
+        "artistId": "tofuya",
+        "characterIds": [
+            "sanae"
+        ],
+        "nsfw": false
     }
 ]
