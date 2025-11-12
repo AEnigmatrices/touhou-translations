@@ -13962,5 +13962,50 @@
             "sanae"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762908443000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ouqz8b",
+        "url": [
+            "https://i.redd.it/922v3nfw3q0g1.png"
+        ],
+        "src": "https://x.com/sniper16783072/status/1923702837097398591",
+        "desc": "I mean, while they're both so old that age difference doesn't matter anymore, if you really think about it, Kaguya has that element of seniority to Mokō.\n\nLike, rather than an immortal peer, perhaps Kaguya actually sees Mokō more like this sassy child who keeps (and has successfully so) trying to kill her.",
+        "artistId": "sniper",
+        "characterIds": [
+            "kaguya",
+            "mokou"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762934469000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ouzcs5",
+        "url": [
+            "https://i.redd.it/71jz23ea9s0g1.png"
+        ],
+        "src": "https://x.com/TYUMUKADE/status/1975182093505483188",
+        "desc": "Yeah. Can't really deny the white dress shirt and black vest combo there... 🤨\n\nStill though, it seems there is a minority that believes it's actually a black one-piece dress for Koakuma.",
+        "artistId": "chuumukade",
+        "characterIds": [
+            "koakuma",
+            "rumia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1762963389000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ov94ba",
+        "url": [
+            "https://i.redd.it/ddy05o2anu0g1.png"
+        ],
+        "src": "https://x.com/baystarsapphire/status/1974951855756329414",
+        "desc": "Reimu... 🗿 I think she meant tails.",
+        "artistId": "shigefumi",
+        "characterIds": [
+            "ran",
+            "reimu"
+        ],
+        "nsfw": false
     }
 ]
