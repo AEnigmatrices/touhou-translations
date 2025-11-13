@@ -2602,5 +2602,12 @@
         "name": "封印",
         "linkTwitter": "https://x.com/saharanrann8556",
         "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "uchouten_akako",
+        "name": "卯鳥天 赤子",
+        "linkTwitter": "https://x.com/utyouten_akako",
+        "linkPixiv": "https://www.pixiv.net/en/users/3244023",
+        "portrait": "portraits/placeholders/heavy.webp"
     }
 ]

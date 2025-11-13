@@ -14007,5 +14007,51 @@
             "reimu"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1762992208000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ovm0iu",
+        "url": [
+            "https://i.redd.it/gfifsm0z0x0g1.png",
+            "https://i.redd.it/214y2kcz0x0g1.png"
+        ],
+        "src": "https://x.com/utyouten_akako/status/1975509923346719156",
+        "desc": "For real though, don't come to our world 😔 It's a shithole out here.",
+        "artistId": "uchouten_akako",
+        "characterIds": [
+            "reimu",
+            "marisa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763020867000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ovveje",
+        "url": [
+            "https://i.redd.it/3v6uc7z6ez0g1.png"
+        ],
+        "src": "https://x.com/yatagarasu150/status/1975427657228820972",
+        "desc": "Alright, so ZUN has confirmed that Ariya's avian aspect is based on the **Archaeopteryx** – iconically the earliest known bird in the world.\n\nAn alternative name for this is **Urvogel**, which is literally ***\"proto-bird\"*** in German, and it's actually translated just like that for the Japanese equivalent – ***shisochou.***\n\nAnd since the name in Japanese is so simple, the bird actually shows up in school tests a lot. And so in all likelihood, ZUN probably got the image of the bird while reading through his kids' homework or something.",
+        "artistId": "yatagarasu",
+        "characterIds": [
+            "cirno",
+            "yuiman",
+            "ariya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763049682000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ow4vib",
+        "url": [
+            "https://i.redd.it/nflc17z3s11g1.png"
+        ],
+        "src": "https://x.com/ninzin_88hon/status/1975553433240543640",
+        "desc": "Cropped because beyond that down there would be a bloody box cutter – and self-harm would be crossing the NSFW line even if most people ignore the detail.\n\nThere is a little joke at the end with the Etizolam prescription being from Helpmerin Pharmacy, but that's about it.",
+        "artistId": "carrot_8",
+        "characterIds": [
+            "sanae"
+        ],
+        "nsfw": false
     }
 ]
