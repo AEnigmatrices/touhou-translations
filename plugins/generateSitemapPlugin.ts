@@ -7,20 +7,19 @@ const generateSitemapPlugin: Plugin = {
     name: 'generate-sitemap',
     closeBundle() {
         const BASE_URL = 'https://aenigmatrices.github.io/touhou-translations/';
-
+        const outDir = path.resolve(__dirname, '../dist/client');
         const postsDir = path.resolve(__dirname, '../data/posts');
 
         const staticRoutes = ['', 'gallery', 'artists', 'characters'];
-        const urls: string[] = staticRoutes.map(route =>
+        const generalUrls = staticRoutes.map(route =>
             `${BASE_URL}${route}${route ? '/' : ''}`
         );
 
         let posts: { reddit: string }[] = [];
         try {
-            const files = fs.readdirSync(postsDir).filter(file => file.endsWith('.json'));
+            const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.json'));
             for (const file of files) {
-                const filePath = path.join(postsDir, file);
-                const raw = fs.readFileSync(filePath, 'utf-8');
+                const raw = fs.readFileSync(path.join(postsDir, file), 'utf-8');
                 const data = JSON.parse(raw);
                 if (Array.isArray(data)) {
                     posts = posts.concat(data.filter((p): p is { reddit: string } => !!p?.reddit));
@@ -30,24 +29,42 @@ const generateSitemapPlugin: Plugin = {
             console.warn('Failed to read or parse post files:', error);
         }
 
+        const postUrls: string[] = [];
         posts.forEach(post => {
-            const redditId = extractRedditId(post.reddit);
-            if (redditId) {
-                urls.push(`${BASE_URL}posts/${redditId}/`);
-            }
+            const id = extractRedditId(post.reddit);
+            if (id) postUrls.push(`${BASE_URL}posts/${id}/`);
         });
 
-        urls.sort();
+        generalUrls.sort();
+        postUrls.sort();
 
-        const xml = `<?xml version="1.0" encoding="UTF-8"?>
+        const makeXml = (urls: string[]) => (
+            `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(url => `  <url><loc>${url}</loc></url>`).join('\n')}
-</urlset>`.trim();
+${urls.map(u => `  <url><loc>${u}</loc></url>`).join('\n')}
+</urlset>`
+        );
 
-        const outputPath = path.resolve(__dirname, '../dist/client', 'sitemap.xml');
-        fs.writeFileSync(outputPath, xml, 'utf-8');
+        const generalPath = path.join(outDir, 'sitemap-general.xml');
+        const postsPath = path.join(outDir, 'sitemap-posts.xml');
+        const indexPath = path.join(outDir, 'sitemap.xml');
 
-        console.log(`✅ Sitemap generated with ${urls.length} URLs at ${outputPath}`);
+        fs.writeFileSync(generalPath, makeXml(generalUrls), 'utf-8');
+        fs.writeFileSync(postsPath, makeXml(postUrls), 'utf-8');
+
+        const indexXml =
+            `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap><loc>${BASE_URL}sitemap-general.xml</loc></sitemap>
+  <sitemap><loc>${BASE_URL}sitemap-posts.xml</loc></sitemap>
+</sitemapindex>`;
+
+        fs.writeFileSync(indexPath, indexXml, 'utf-8');
+
+        console.log(`Generated:
+  • ${generalUrls.length} general URLs
+  • ${postUrls.length} post URLs
+  • sitemap index at ${indexPath}`);
     }
 };
 
