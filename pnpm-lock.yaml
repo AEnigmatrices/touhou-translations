@@ -21,19 +21,19 @@ importers:
         specifier: ^11.14.1
         version: 11.14.1(@emotion/react@11.14.0(@types/react@19.2.4)(react@19.2.0))(@types/react@19.2.4)(react@19.2.0)
       '@mui/icons-material':
-        specifier: ^7.2.0
+        specifier: ^7.3.5
         version: 7.3.5(@mui/material@7.3.5(@emotion/react@11.14.0(@types/react@19.2.4)(react@19.2.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.4)(react@19.2.0))(@types/react@19.2.4)(react@19.2.0))(@types/react@19.2.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@types/react@19.2.4)(react@19.2.0)
       '@mui/material':
-        specifier: ^7.2.0
+        specifier: ^7.3.5
         version: 7.3.5(@emotion/react@11.14.0(@types/react@19.2.4)(react@19.2.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.4)(react@19.2.0))(@types/react@19.2.4)(react@19.2.0))(@types/react@19.2.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react:
-        specifier: ^19.1.0
+        specifier: ^19.2.0
         version: 19.2.0
       react-dom:
-        specifier: ^19.1.0
+        specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
       react-hook-form:
-        specifier: ^7.62.0
+        specifier: ^7.66.0
         version: 7.66.0(react@19.2.0)
       react-image:
         specifier: ^4.1.0
@@ -45,38 +45,38 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1
       swiper:
-        specifier: ^12.0.2
+        specifier: ^12.0.3
         version: 12.0.3
       vike:
-        specifier: ^0.4.236
+        specifier: ^0.4.246
         version: 0.4.246(react-streaming@0.4.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(vite@7.2.2(@types/node@24.10.1)(terser@5.44.1)(tsx@4.20.6))
       vike-react:
-        specifier: ^0.6.5
-        version: 0.6.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vike@0.4.246(react-streaming@0.4.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(vite@7.2.2(@types/node@24.10.1)(terser@5.44.1)(tsx@4.20.6)))
+        specifier: ^0.6.13
+        version: 0.6.13(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vike@0.4.246(react-streaming@0.4.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(vite@7.2.2(@types/node@24.10.1)(terser@5.44.1)(tsx@4.20.6)))
     devDependencies:
       '@eslint/js':
-        specifier: ^9.32.0
+        specifier: ^9.39.1
         version: 9.39.1
       '@types/node':
-        specifier: ^24.1.0
+        specifier: ^24.10.1
         version: 24.10.1
       '@types/react':
-        specifier: ^19.1.2
+        specifier: ^19.2.4
         version: 19.2.4
       '@types/react-dom':
-        specifier: ^19.1.2
+        specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.4)
       '@vitejs/plugin-react':
-        specifier: ^5.0.2
+        specifier: ^5.1.1
         version: 5.1.1(vite@7.2.2(@types/node@24.10.1)(terser@5.44.1)(tsx@4.20.6))
       eslint:
-        specifier: ^9.30.1
+        specifier: ^9.39.1
         version: 9.39.1
       eslint-plugin-react-hooks:
-        specifier: ^7.0.0
+        specifier: ^7.0.1
         version: 7.0.1(eslint@9.39.1)
       eslint-plugin-react-refresh:
-        specifier: ^0.4.19
+        specifier: ^0.4.24
         version: 0.4.24(eslint@9.39.1)
       gh-pages:
         specifier: ^6.3.0
@@ -85,22 +85,22 @@ importers:
         specifier: ^11.0.3
         version: 11.0.3
       globals:
-        specifier: ^16.3.0
+        specifier: ^16.5.0
         version: 16.5.0
       tsx:
-        specifier: ^4.20.3
+        specifier: ^4.20.6
         version: 4.20.6
       typescript:
-        specifier: ^5.9.2
+        specifier: ^5.9.3
         version: 5.9.3
       typescript-eslint:
-        specifier: ^8.38.0
+        specifier: ^8.46.4
         version: 8.46.4(eslint@9.39.1)(typescript@5.9.3)
       vite:
-        specifier: ^7.0.6
+        specifier: ^7.2.2
         version: 7.2.2(@types/node@24.10.1)(terser@5.44.1)(tsx@4.20.6)
       vite-plugin-pwa:
-        specifier: ^1.0.2
+        specifier: ^1.1.0
         version: 1.1.0(vite@7.2.2(@types/node@24.10.1)(terser@5.44.1)(tsx@4.20.6))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0)
 
 packages:
@@ -1591,8 +1591,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  baseline-browser-mapping@2.8.27:
-    resolution: {integrity: sha512-2CXFpkjVnY2FT+B6GrSYxzYf65BJWEqz5tIRHCvNsZZ2F3CmsCB37h8SpYgKG7y9C4YAeTipIPWG7EmFmhAeXA==}
+  baseline-browser-mapping@2.8.28:
+    resolution: {integrity: sha512-gYjt7OIqdM0PcttNYP2aVrr2G0bMALkBaoehD4BuRGjAOtipg0b6wHg1yNL+s5zSnLZZrGHOw4IrND8CD+3oIQ==}
     hasBin: true
 
   brace-expansion@1.1.12:
@@ -1713,8 +1713,8 @@ packages:
     resolution: {integrity: sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==}
     engines: {node: '>=8'}
 
-  csstype@3.1.3:
-    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
+  csstype@3.2.0:
+    resolution: {integrity: sha512-si++xzRAY9iPp60roQiFta7OFbhrgvcthrhlNAGeQptSY25uJjkfUV8OArC3KLocB8JT8ohz+qgxWCmz8RhjIg==}
 
   data-view-buffer@1.0.2:
     resolution: {integrity: sha512-EmKO5V3OLXh1rtK2wgXRansaK1/mtVdTUEiEI0W8RkvgT05kfxaH29PliLnpLP73yYO6142Q72QNa8Wx/A5CqQ==}
@@ -1784,8 +1784,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.250:
-    resolution: {integrity: sha512-/5UMj9IiGDMOFBnN4i7/Ry5onJrAGSbOGo3s9FEKmwobGq6xw832ccET0CE3CkkMBZ8GJSlUIesZofpyurqDXw==}
+  electron-to-chromium@1.5.252:
+    resolution: {integrity: sha512-53uTpjtRgS7gjIxZ4qCgFdNO2q+wJt/Z8+xAvxbCqXPJrY6h7ighUkadQmNMXH96crtpa6gPFNP7BF4UBGDuaA==}
 
   email-addresses@5.0.0:
     resolution: {integrity: sha512-4OIPYlA6JXqtVn8zpHpGiI7vE6EQOAg16aGnDMIAlZVinnoZ8208tW1hAbjWydgN/4PLTT9q+O1K6AH/vALJGw==}
@@ -3249,12 +3249,12 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vike-react@0.6.12:
-    resolution: {integrity: sha512-pHDXiCrEW+D74dXBiMo6RdQhmh7KwTLRa0j1Shd6HfBriWcKJ7GWQn5YMjAMajevnkyN7rMrCzjbmeZR7/ACFQ==}
+  vike-react@0.6.13:
+    resolution: {integrity: sha512-XcIwoUsdsU2ipgxARn2/1y9pYo+JbSb2oZcihoWM1eCiv6uWboK3sB18j4DWLYtOw2rfGFD8/2UhPOeVtYC4uw==}
     peerDependencies:
       react: '>=19'
       react-dom: '>=19'
-      vike: '>=0.4.182'
+      vike: '>=0.4.242'
 
   vike@0.4.246:
     resolution: {integrity: sha512-hHYm0p6krBivZxUOHHEKGWsEj72lCAdGtGNvO/USQeg/x0TFxOkkxfio3lcLfdnGSy1wsw1a0Zy5yAHmd21GmQ==}
@@ -4179,7 +4179,7 @@ snapshots:
       '@emotion/memoize': 0.9.0
       '@emotion/unitless': 0.10.0
       '@emotion/utils': 1.4.2
-      csstype: 3.1.3
+      csstype: 3.2.0
 
   '@emotion/server@11.11.0':
     dependencies:
@@ -4487,7 +4487,7 @@ snapshots:
       '@popperjs/core': 2.11.8
       '@types/react-transition-group': 4.4.12(@types/react@19.2.4)
       clsx: 2.1.1
-      csstype: 3.1.3
+      csstype: 3.2.0
       prop-types: 15.8.1
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -4513,7 +4513,7 @@ snapshots:
       '@emotion/cache': 11.14.0
       '@emotion/serialize': 1.3.3
       '@emotion/sheet': 1.4.0
-      csstype: 3.1.3
+      csstype: 3.2.0
       prop-types: 15.8.1
       react: 19.2.0
     optionalDependencies:
@@ -4528,7 +4528,7 @@ snapshots:
       '@mui/types': 7.4.8(@types/react@19.2.4)
       '@mui/utils': 7.3.5(@types/react@19.2.4)(react@19.2.0)
       clsx: 2.1.1
-      csstype: 3.1.3
+      csstype: 3.2.0
       prop-types: 15.8.1
       react: 19.2.0
     optionalDependencies:
@@ -4758,7 +4758,7 @@ snapshots:
 
   '@types/react@19.2.4':
     dependencies:
-      csstype: 3.1.3
+      csstype: 3.2.0
 
   '@types/resolve@1.20.2': {}
 
@@ -4968,7 +4968,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  baseline-browser-mapping@2.8.27: {}
+  baseline-browser-mapping@2.8.28: {}
 
   brace-expansion@1.1.12:
     dependencies:
@@ -4985,9 +4985,9 @@ snapshots:
 
   browserslist@4.28.0:
     dependencies:
-      baseline-browser-mapping: 2.8.27
+      baseline-browser-mapping: 2.8.28
       caniuse-lite: 1.0.30001754
-      electron-to-chromium: 1.5.250
+      electron-to-chromium: 1.5.252
       node-releases: 2.0.27
       update-browserslist-db: 1.1.4(browserslist@4.28.0)
 
@@ -5079,7 +5079,7 @@ snapshots:
 
   crypto-random-string@2.0.0: {}
 
-  csstype@3.1.3: {}
+  csstype@3.2.0: {}
 
   data-view-buffer@1.0.2:
     dependencies:
@@ -5136,7 +5136,7 @@ snapshots:
   dom-helpers@5.2.1:
     dependencies:
       '@babel/runtime': 7.28.4
-      csstype: 3.1.3
+      csstype: 3.2.0
 
   dunder-proto@1.0.1:
     dependencies:
@@ -5154,7 +5154,7 @@ snapshots:
     dependencies:
       jake: 10.9.4
 
-  electron-to-chromium@1.5.250: {}
+  electron-to-chromium@1.5.252: {}
 
   email-addresses@5.0.0: {}
 
@@ -7078,7 +7078,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vike-react@0.6.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vike@0.4.246(react-streaming@0.4.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(vite@7.2.2(@types/node@24.10.1)(terser@5.44.1)(tsx@4.20.6))):
+  vike-react@0.6.13(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vike@0.4.246(react-streaming@0.4.12(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(vite@7.2.2(@types/node@24.10.1)(terser@5.44.1)(tsx@4.20.6))):
     dependencies:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
