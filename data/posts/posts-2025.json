@@ -14053,5 +14053,35 @@
             "sanae"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763080053000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1owhwda",
+        "url": [
+            "https://i.redd.it/1z30z5m6a41g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/136030426",
+        "desc": "I like the idea that Nareko would quiz other people beyond the pyramid. Like, imagine her hosting a sort of quiz booth at a shrine festival.\n\nThe BGM is the [**Stage 3 theme**](https://youtu.be/jPjGCgP4cnE) of *Fossilized Wonders.*",
+        "artistId": "azuma_yoriko",
+        "characterIds": [
+            "cirno",
+            "nareko"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763151597000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ox7dzp",
+        "url": [
+            "https://i.redd.it/dp4ib77x6a1g1.png"
+        ],
+        "src": "https://x.com/flexible_B/status/1975846383363187002",
+        "desc": "Eirin's kinda behind the times. We humans have managed to trick rocks to write very, very little texts. 🤔 I reckon your billions of years worth of entries wouldn't have a hard time fitting into just one data center.\n\nThough I suppose that's what Moon tech's capable of already too.",
+        "artistId": "tog.",
+        "characterIds": [
+            "eirin",
+            "kaguya"
+        ],
+        "nsfw": false
     }
 ]
