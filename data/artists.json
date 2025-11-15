@@ -2609,5 +2609,11 @@
         "linkTwitter": "https://x.com/utyouten_akako",
         "linkPixiv": "https://www.pixiv.net/en/users/3244023",
         "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "sasame",
+        "name": "笹芽",
+        "linkTwitter": "https://x.com/sasamesa_sasame",
+        "portrait": "portraits/placeholders/sniper.webp"
     }
 ]

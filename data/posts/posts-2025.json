@@ -14083,5 +14083,48 @@
             "kaguya"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763176086000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oxgtxy",
+        "url": [
+            "https://i.redd.it/65r7smnq7c1g1.png"
+        ],
+        "src": "https://x.com/sakatuki_07/status/1975927422584566116",
+        "desc": "It's a rare work where Marisa is depicted as an evil one. 🤔 I recall one where Reimu has to kill a father and his daughter who transformed themselves into yōkai – and it's revealed at the end that it's Marisa who used them as experiments.",
+        "artistId": "sakatsuki",
+        "characterIds": [
+            "marisa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763193679000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oxm3a4",
+        "url": [
+            "https://i.redd.it/x7phozv1od1g1.png"
+        ],
+        "src": "https://x.com/transfooorm/status/1976226787622518848",
+        "desc": "Yeah, I was hoping for some interesting explanation to why she's got two left arms.",
+        "artistId": "soregashi",
+        "characterIds": [
+            "kasen"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763223013000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oxviwz",
+        "url": [
+            "https://i.redd.it/n8z9dez93g1g1.png"
+        ],
+        "src": "https://x.com/sasamesa_sasame/status/1976228749642518835",
+        "desc": "Seems pretty hard to build a custom ship for Mizuchi since her story is still in-progress – unlike the Three Fairies, Kasen, Kosuzu, Miyoi... I don't really know what Mizuchi's deal is. And the upcoming chapters might just address this.\n\nActually, I still don't quite know what Miyoi's deal is, either.",
+        "artistId": "sasame",
+        "characterIds": [
+            "flandre",
+            "mizuchi"
+        ],
+        "nsfw": false
     }
 ]
