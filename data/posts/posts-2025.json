@@ -14126,5 +14126,52 @@
             "mizuchi"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763256346000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oy8rsf",
+        "url": [
+            "https://i.redd.it/0yl8mp4eui1g1.png"
+        ],
+        "src": "https://x.com/W178_/status/1976237739378127238",
+        "desc": "Now this is a more natural dynamic for the two – both Kasen and Yoshika are gluttons.",
+        "artistId": "waa",
+        "characterIds": [
+            "kasen",
+            "yoshika"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763281886000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oygiob",
+        "url": [
+            "https://i.redd.it/x95x4o5cyk1g1.png"
+        ],
+        "src": "https://x.com/ne_tochika/status/1976266693119967721",
+        "desc": "Clearly, the one who really messed the room up would be Tsukasa herself when she bro- 🤨 Oh, uh. Who else other than Megumu do people ship Tsukasa with? Sanae? Ran?",
+        "artistId": "ne_tochika",
+        "characterIds": [
+            "aya",
+            "momiji",
+            "tsukasa",
+            "megumu",
+            "hatate"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763309821000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oyprj5",
+        "url": [
+            "https://i.redd.it/t24hd4ge9n1g1.png"
+        ],
+        "src": "https://x.com/nioshi_noai/status/1976483857345188321",
+        "desc": "By the way, what would be your take on the trolley problem? Remember, it's not about finding the best answer, but more on how you reason your answer. Like, no – you're not supposed to derail the trolley and save everybody. And no – you're not supposed to kill everybody so the trolley kills nobody.\n\nPersonally, I see pulling the lever and not pulling lever as both conscious choices. In this scenario, you will walk away either killing one or killing five. There is no pretty way out.",
+        "artistId": "noai_nioshi",
+        "characterIds": [
+            "koishi"
+        ],
+        "nsfw": false
     }
 ]
