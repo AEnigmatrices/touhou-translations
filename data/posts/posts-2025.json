@@ -14173,5 +14173,52 @@
             "koishi"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763339184000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1oz1wtw",
+        "url": [
+            "https://i.redd.it/cjtluukpop1g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/119695150",
+        "desc": "Yeah... with how proactive Kosuzu is, especially with running her very own book rental, I actually forgot that Kosuzu is a literal kid – quite possibly about the same physical age as Akyū, and definitely younger than Reimu and Marisa.\n\n🤔 Is Kosuzu already considered an adult by the village's standard? She doesn't go to school. In all likelihood, education like with Keine's terakoya probably doesn't go beyond primary/elementary.\n\nMaybe, she does have friends from back when she's at school despite her interests, but they're all adults with responsibilities now, so they don't really hang out that much – and Kosuzu herself prefers to stick with her books anyway. Might be an interesting story. Akyū finding out about Kosuzu's own circle of villager friends.",
+        "artistId": "iroiro_yaru_hito",
+        "characterIds": [
+            "reimu",
+            "akyuu",
+            "kosuzu",
+            "yukari"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763372979000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ozc87s",
+        "url": [
+            "https://i.redd.it/vadjh2b7hs1g1.png"
+        ],
+        "src": "https://x.com/sigure0210/status/1976289272153231392",
+        "desc": "Huh... 🤔 I think this might be interesting. To apply the immortal position on Sakuya herself. Can you imagine the idea of this chrono-abomination actually outliving everybody else?\n\nActually, what if Sakuya will **regenerate** eventually? She's not Lunarian at all! She's Gallifreyan! Remilia! You made a Time Lord your chief maid?!",
+        "artistId": "shigure",
+        "characterIds": [
+            "sakuya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763395487000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ozk67s",
+        "url": [
+            "https://i.redd.it/tyl0nzs4cu1g1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1976611168786489575",
+        "desc": "I do like the joke potential here. It can explain why Reimu almost doesn't care about running the business aspect of the shrine unless it's a relatively low-investment festival. That she basically mooches food off the people she visits. Like, imagine her dinner schedule:\n\n- Monday – Moon Banquet at Eientei\n- Tuesday – Fusion Grill with Satori at Chireiden\n- Wednesday – Street Food with Komachi at the Road of Liminality\n- Thursday – Kaiseki Meal with Yuyuko at Hakugyokurō\n- Friday – 16-Course Menu with Remilia at Kōmakan\n- Saturday – All-You-Can-Eat Buffet with Yūma at Beastrealm\n- Sunday – Sandvich Cookout with Heavy at Suijin",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "sakuya",
+            "remilia",
+            "reimu"
+        ],
+        "nsfw": false
     }
 ]
