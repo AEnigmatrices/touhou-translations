@@ -14220,5 +14220,48 @@
             "reimu"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763425766000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ozxg7z",
+        "url": [
+            "https://i.redd.it/iygndpz5uw1g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/136110850",
+        "desc": "You know what would be even more fitting for her? A **mace.** What weapon would be more appropriate for a yōkai of darkness than the one that will knock your lights out?",
+        "artistId": "nagakuma_roku",
+        "characterIds": [
+            "rumia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763453043000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p069g1",
+        "url": [
+            "https://i.redd.it/ircdp1v93z1g1.png"
+        ],
+        "src": "https://x.com/yamadainari_/status/1976643915408458177",
+        "desc": "Now I'm imagining those mochi mallets both Earth and Moon rabbits use to actually be rifles, with the head doubling as both the stock and the magazine (or the receiver that the magazine goes into)\n\nAnd Seiran says this to [**Reimu in LoLK.**](https://en.touhouwiki.net/wiki/Legacy_of_Lunatic_Kingdom/Story/Marisa's_Scenario#:~:text=しょうがないから)",
+        "artistId": "inari",
+        "characterIds": [
+            "seiran"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763481670000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p0fq0q",
+        "url": [
+            "https://i.redd.it/l33kcs5eg12g1.png"
+        ],
+        "src": "https://x.com/xx_mozumozu_xx/status/1976786572285821373",
+        "desc": "I mean, we only know that Kaguya had a Tenshi moment when she got Eirin to make the elixir, right? 🤔 What was Kaguya's status on the Moon anyway? Was she always a moon princess? Was she really born out of a bamboo stalk?\n\nI do like the idea that she used to be Eirin's student though, which would make her a sort of senpai to the Watatsukis.",
+        "artistId": "mozu",
+        "characterIds": [
+            "kaguya",
+            "eirin"
+        ],
+        "nsfw": false
     }
 ]

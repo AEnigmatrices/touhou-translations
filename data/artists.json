@@ -2615,5 +2615,12 @@
         "name": "笹芽",
         "linkTwitter": "https://x.com/sasamesa_sasame",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "mozu",
+        "name": "百舌",
+        "linkTwitter": "https://x.com/xx_mozumozu_xx",
+        "linkPixiv": "https://www.pixiv.net/en/users/566393",
+        "portrait": "portraits/placeholders/pyro.webp"
     }
 ]
