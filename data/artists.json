@@ -2622,5 +2622,12 @@
         "linkTwitter": "https://x.com/xx_mozumozu_xx",
         "linkPixiv": "https://www.pixiv.net/en/users/566393",
         "portrait": "portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "menotama",
+        "name": "めのたま",
+        "linkTwitter": "https://x.com/nnonnonno_2",
+        "linkPixiv": "https://www.pixiv.net/en/users/18433772",
+        "portrait": "portraits/placeholders/engineer.webp"
     }
 ]

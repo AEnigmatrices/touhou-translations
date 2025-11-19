@@ -14263,5 +14263,49 @@
             "eirin"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763510592000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p0sdir",
+        "url": [
+            "https://i.redd.it/2ylkqjbeu32g1.png"
+        ],
+        "src": "https://x.com/jirufun/status/1976664385558126834",
+        "desc": "😂: What are you gonna do? Surprise me?\n\n[**Kogasa:**](https://youtu.be/BKaHpTdsS8k&amp;t=5)",
+        "artistId": "jiru",
+        "characterIds": [
+            "kogasa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763539233000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p11oa2",
+        "url": [
+            "https://i.redd.it/sl17dy6k762g1.png"
+        ],
+        "src": "https://x.com/nnonnonno_2/status/1976945714086531528",
+        "desc": "Yeah... the whole quiz thing really overshadows what Nareko actually does. She's a quintessential stage boss. She blocks your path, your progression.",
+        "artistId": "menotama",
+        "characterIds": [
+            "marisa",
+            "nareko",
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763568049000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p1bio3",
+        "url": [
+            "https://i.redd.it/rn07f9w8l82g1.png"
+        ],
+        "src": "https://x.com/suwaneko2/status/1976987825406144548",
+        "desc": "Miss Pauling just hired Sakuya to stock the resupply cabinets.",
+        "artistId": "suwaneko",
+        "characterIds": [
+            "sakuya"
+        ],
+        "nsfw": false
     }
 ]
