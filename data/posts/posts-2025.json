@@ -14307,5 +14307,50 @@
             "sakuya"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763597032000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p1o9sh",
+        "url": [
+            "https://i.redd.it/rfvy6cgfza2g1.png"
+        ],
+        "src": "https://x.com/io_nano/status/1977019855703621658",
+        "desc": "I mean, I usually look at the color of the leaves (i.e. your work, Shizuha), but I guess that works 🤨\n\nStill, though. I do like the idea that these two are green through spring and summer 🍃",
+        "artistId": "io_nano",
+        "characterIds": [
+            "minoriko",
+            "shizuha"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763625680000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p1xivk",
+        "url": [
+            "https://i.redd.it/c7xaem5mcd2g1.png"
+        ],
+        "src": "https://x.com/papiermesser/status/1976991946792186197",
+        "desc": "Yeah... I think it makes sense. That there would be supernatural equivalents to diseases. That the girls do get sick and shit after catching a disease that affects them. That they do get hangovers and shit after drinking too much. That do have the runs and shit after eating a Florida Man.\n\nEirin probably works around the clock just to keep up with the health issues of Tewi's rabbits alone. And there are other clinics (or possibly hospitals) out there.",
+        "artistId": "fumisetsu",
+        "characterIds": [
+            "remilia",
+            "sakuya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763654558000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p26xt0",
+        "url": [
+            "https://i.redd.it/tco4979hqf2g1.png"
+        ],
+        "src": "https://x.com/flexible_B/status/1978399841077391766",
+        "desc": "I do like the image of magic shows always drawing a crowd just because of how impressionable fairies are.\n\nHmm... I seem to recall that the usual magic tricks would be Sakuya's domain – though that kind of separate magician character would be nice.",
+        "artistId": "tog.",
+        "characterIds": [
+            "sumireko",
+            "cirno"
+        ],
+        "nsfw": false
     }
 ]
