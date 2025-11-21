@@ -2629,5 +2629,12 @@
         "linkTwitter": "https://x.com/nnonnonno_2",
         "linkPixiv": "https://www.pixiv.net/en/users/18433772",
         "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "isagi",
+        "name": "イサギ",
+        "linkTwitter": "https://x.com/isaisaisaisagi",
+        "linkPixiv": "https://www.pixiv.net/en/users/2600941",
+        "portrait": "portraits/placeholders/spy.webp"
     }
 ]

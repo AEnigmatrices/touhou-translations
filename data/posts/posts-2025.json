@@ -14352,5 +14352,49 @@
             "cirno"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763683974000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p2jqmp",
+        "url": [
+            "https://i.redd.it/c5sb2x5y5i2g1.png"
+        ],
+        "src": "https://x.com/roowen_taro/status/1978439828376007037",
+        "desc": "I don't know why, but it just feels almost natural and canon to me that the kappa runs a laundry service – or at least a laundromat.",
+        "artistId": "rowen_taro",
+        "characterIds": [
+            "miko",
+            "tojiko"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763712083000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p2swc3",
+        "url": [
+            "https://i.redd.it/x5h01s3jhk2g1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1978423105316892823",
+        "desc": "Akyū? 🤨 Why does your Gensōkyō Chronicles have an entry on... Piccolo?\n\nStill though I like the idea that Akyū is actually really fit, following the advice of recent health trends. I mean, in canon we haven't really seen her being frail, right?",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "akyuu",
+            "kosuzu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763740885000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p32fel",
+        "url": [
+            "https://i.redd.it/xmrofxc6vm2g1.png"
+        ],
+        "src": "https://x.com/isaisaisaisagi/status/1978785639450423759",
+        "desc": "The reference is [**this anime.**](https://crayonshinchan.fandom.com/wiki/Hiroshi_Nohara:_Style_of_Noon_Meal) \n\nNow that I think about it... Crayon Shin-chan is definitely not aimed at kids. 🤨 Yeah... I've always felt sorta detached when I watched it as a kid. Like, there are definitely a lot of things that kids won't pick up, but adults will definitely do.",
+        "artistId": "isagi",
+        "characterIds": [
+            "mokou"
+        ],
+        "nsfw": false
     }
 ]
