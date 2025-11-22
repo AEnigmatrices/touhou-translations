@@ -14396,5 +14396,49 @@
             "mokou"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763769775000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p3em8t",
+        "url": [
+            "https://i.redd.it/sh53nfyg1u2g1.png",
+            "https://i.redd.it/70mixtw29p2g1.png"
+        ],
+        "src": "https://x.com/utyouten_akako/status/1979146534869750159",
+        "desc": "I just had an image of Sakuya going full Esidisi in time stop after having her arm cut off by Demoman.",
+        "artistId": "uchouten_akako",
+        "characterIds": [
+            "sakuya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763800120000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p3o5y0",
+        "url": [
+            "https://i.redd.it/hbbznq6brr2g1.png"
+        ],
+        "src": "https://x.com/Pico_kimuchi/status/1979142745458368918",
+        "desc": "Yesterday, huh? 🤔\n\nWait, \"Girl?\" 🤨 You mean Scout?",
+        "artistId": "pico",
+        "characterIds": [
+            "nareko"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763827679000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p3wx0g",
+        "url": [
+            "https://i.redd.it/dzaje2e91u2g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/136394162",
+        "desc": "It is a good question though. Why does Rumia – a yōkai of darkness – have [**a spell card**](https://www.pixiv.net/en/artworks/136394162) that is very light in theme? 🤔 Light can be darkness though, I suppose, if it blinds you. 'Cause that seems to be the theme? She also has a night blind bird thing (i.e. Mystia) there too.\n\nSo Rumia's darkness is metaphorical too. It's not just the black stuff.",
+        "artistId": "nagakuma_roku",
+        "characterIds": [
+            "rumia",
+            "daiyousei"
+        ],
+        "nsfw": false
     }
 ]
