@@ -14440,5 +14440,50 @@
             "daiyousei"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763858383000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p48zr9",
+        "url": [
+            "https://i.redd.it/pvevti1kkw2g1.png"
+        ],
+        "src": "https://x.com/zakozakoY/status/1979512178450608606",
+        "desc": "I'd like to point out that Chimata's name is really weird in a simple way. 🤨 The \"Chi\" part is literally thousand, and the \"Mata\" part is literally \"again\". I mean, sure, it's supposed to be crossroads and relate her to being a chimatagami, but still.\n\nHmm... maybe \"again\" is a way of saying thousand twice? So it's technically \"Chiji\" (千々) which would basically be \"thousands\"",
+        "artistId": "zakozako_y",
+        "characterIds": [
+            "chimata"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763885353000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p4hai2",
+        "url": [
+            "https://i.redd.it/u0ev5a2rsy2g1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1979510272361713666",
+        "desc": "Come to think of it, WaHH really threw me off a bit with Tenshi 🤔 Like, why would Komachi question Tenshi so much about what she's doing on the surface like it's abnormal for her be there? I mean, she pretty much just goes everywhere in the fighting games, right?",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "iku",
+            "tenshi",
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763913798000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p4qccc",
+        "url": [
+            "https://i.redd.it/3u5ctj1c513g1.png"
+        ],
+        "src": "https://x.com/TYUMUKADE/status/1979969044016218243",
+        "desc": "The Ancient Greek blood is still very strong.\n\nHmm... while the goddesses aren't depicted as promiscuous as the male gods – this is Touhou, so in all likelihood, gods like Zeus and Poseidon and Apollo are probably girls too.\n\nRight! There's this little idea with how Apollo is also known as Hekatos. And if we play the conflation game, Hecatia is Apollo.",
+        "artistId": "chuumukade",
+        "characterIds": [
+            "hecatia",
+            "junko"
+        ],
+        "nsfw": false
     }
 ]
