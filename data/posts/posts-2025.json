@@ -14485,5 +14485,51 @@
             "junko"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1763944199000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p52qt6",
+        "url": [
+            "https://i.redd.it/qcd5f2bqn33g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/120277002",
+        "desc": "Huh, Iroiro seems to point out that there's an inconsistency among people drawing Momiji. Like, there are people who draw her without the dog ears 🤨 which personally is rather unimaginable. I don't think I've ever seen a Momiji art without the dog ears... Oh, [**Azmaya on AFiEU.**](https://en.touhouwiki.net/wiki/File:AFiEUMomijiArticle.jpg)\n\nI love that big sword though.",
+        "artistId": "iroiro_yaru_hito",
+        "characterIds": [
+            "momiji",
+            "aya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1763971266000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p5bbct",
+        "url": [
+            "https://i.redd.it/va85eow7w53g1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1980235045433737636",
+        "desc": "You know... \"pagoda\" works because the object is the Buddhist structure. But the word is also used in general to describe a tower.\n\nIn particular with tarot cards, it's used for the Tower too. 🤔",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "shou",
+            "nazrin"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764000100000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p5kuby",
+        "url": [
+            "https://i.redd.it/jodw14cy983g1.png"
+        ],
+        "src": "https://x.com/papiermesser/status/1980252323952947246",
+        "desc": "The context is that this is after the Four Seasons incident.\n\nOh yeah... it's midsummer at the time.",
+        "artistId": "fumisetsu",
+        "characterIds": [
+            "lily",
+            "minoriko",
+            "shizuha"
+        ],
+        "nsfw": false
     }
 ]
