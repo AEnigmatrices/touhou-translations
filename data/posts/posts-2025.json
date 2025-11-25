@@ -14531,5 +14531,52 @@
             "shizuha"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1764029084000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p5xm40",
+        "url": [
+            "https://i.redd.it/7fwzxn05oa3g1.png"
+        ],
+        "src": "https://x.com/flexible_B/status/1980565852455059651",
+        "desc": "Might be a good business to offer post danmaku fight cleanup 🤔 Reimu and Marisa probably leave lines and lines of craters and scorch marks in their wake when they resolve incidents.",
+        "artistId": "tog.",
+        "characterIds": [
+            "cirno",
+            "wriggle",
+            "yuuka",
+            "rumia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764057719000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p66tq9",
+        "url": [
+            "https://i.redd.it/qhvkpjca1d3g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/136514698",
+        "desc": "Never thought of imagining the black tights not just on the MUGEN Sendai Hakurei before...\n\nI still love that character idea though. 🤔 That Reimu's predecessor, her mom, literally beats rowdy yōkai to submission. That spell card rules and the danmaku game were swiftly accepted since the locals also really don't want her daughter to possibly follow in those footsteps.",
+        "artistId": "matsu_kitsune",
+        "characterIds": [
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764086743000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p6gcm7",
+        "url": [
+            "https://i.redd.it/mwf7xl3lff3g1.png"
+        ],
+        "src": "https://x.com/oniyuri_2004/status/1981341252806464004",
+        "desc": "Ladies and gentlemen. 🗿 Your verdict on Mama Suika.",
+        "artistId": "jadou_yashiro",
+        "characterIds": [
+            "suika",
+            "yuugi",
+            "kasen"
+        ],
+        "nsfw": false
     }
 ]
