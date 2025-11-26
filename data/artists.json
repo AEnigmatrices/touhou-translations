@@ -2636,5 +2636,26 @@
         "linkTwitter": "https://x.com/isaisaisaisagi",
         "linkPixiv": "https://www.pixiv.net/en/users/2600941",
         "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "ganseki",
+        "name": "がんせき",
+        "linkTwitter": "https://x.com/ganseki_illust",
+        "linkPixiv": "https://www.pixiv.net/en/users/107718923",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "itomugi_kun",
+        "name": "糸麦くん",
+        "linkTwitter": "https://x.com/1106gi_ugis794",
+        "linkPixiv": "https://www.pixiv.net/en/users/207827",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "kureku",
+        "name": "くれく",
+        "linkTwitter": "https://x.com/re_ghotion",
+        "linkPixiv": "https://www.pixiv.net/en/users/16151090",
+        "portrait": "portraits/placeholders/medic.webp"
     }
 ]
