@@ -14624,5 +14624,49 @@
             "shion"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1764201744000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p7noq1",
+        "url": [
+            "https://i.redd.it/dnfeq7ojxo3g1.png"
+        ],
+        "src": "https://x.com/9rtn/status/1981001140583149589",
+        "desc": "I don't know, Yukari 🤨 I don't think that apro- tabard will last you through Barnblitz...",
+        "artistId": "zeroko_san",
+        "characterIds": [
+            "yukari"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764230499000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p7wnus",
+        "url": [
+            "https://i.redd.it/icpl7mv1br3g1.png"
+        ],
+        "src": "https://x.com/warabe12/status/1368029687604076551",
+        "desc": "Yeah, I maintain that Sagume can actually activate her ability at will. Otherwise, she'd be way, way too difficult to use as a character.\n\nAnd of course, Sagume × Seiran 🤔 Why though?",
+        "artistId": "warabe",
+        "characterIds": [
+            "seiran",
+            "sagume"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764259330000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1p85sp3",
+        "url": [
+            "https://i.redd.it/0bwmhbzrot3g1.png"
+        ],
+        "src": "https://x.com/yatagarasu150/status/1981176028849721421",
+        "desc": "Yeah, [**she says this**](https://en.touhouwiki.net/wiki/Fossilized_Wonders/Story/Reimu's_Scenario_(Red)#:~:text=今度こそ人類に) before the fight.\n\nBut still though 🤔 if the events did not go exactly by the myth... did Konoha basically stole Ariya's boyfriend?",
+        "artistId": "yatagarasu",
+        "characterIds": [
+            "ariya",
+            "reimu"
+        ],
+        "nsfw": false
     }
 ]

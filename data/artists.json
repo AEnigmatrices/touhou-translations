@@ -2657,5 +2657,12 @@
         "linkTwitter": "https://x.com/re_ghotion",
         "linkPixiv": "https://www.pixiv.net/en/users/16151090",
         "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "warabe",
+        "name": "わらべ",
+        "linkTwitter": "https://x.com/warabe12",
+        "linkPixiv": "https://www.pixiv.net/en/users/4329998",
+        "portrait": "portraits/placeholders/scout.webp"
     }
 ]
