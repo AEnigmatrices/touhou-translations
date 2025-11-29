@@ -2664,5 +2664,19 @@
         "linkTwitter": "https://x.com/warabe12",
         "linkPixiv": "https://www.pixiv.net/en/users/4329998",
         "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "ice",
+        "name": "Ice",
+        "linkTwitter": "https://x.com/frostcolumns",
+        "linkPixiv": "https://www.pixiv.net/en/users/2781411",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "otowa",
+        "name": "音羽",
+        "linkTwitter": "https://x.com/otoha4634",
+        "linkPixiv": "https://www.pixiv.net/en/users/3348106",
+        "portrait": "portraits/placeholders/sniper.webp"
     }
 ]
