@@ -14739,5 +14739,51 @@
             "youmu"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1764462415000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pa4bp0",
+        "url": [
+            "https://i.redd.it/bms9gknnga4g1.png"
+        ],
+        "src": "https://x.com/hidaruma_/status/1981646856519082481",
+        "desc": "Toyohime was the manager of the facility, but she wouldn't be the one to brainwash Yuiman now, right? 🤔 From the wording, it seems Yuiman was enslaved way before Tsukuyomi got the Lunar Capital going.",
+        "artistId": "hidaruma",
+        "characterIds": [
+            "toyohime",
+            "yorihime",
+            "yuiman",
+            "ariya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764489652000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pactf9",
+        "url": [
+            "https://i.redd.it/jjtnri7npc4g1.png"
+        ],
+        "src": "https://x.com/capuriwa/status/1981642529905983613",
+        "desc": "Re-establishing oni dominance in Gensōkyō, one tengu at a time. ",
+        "artistId": "kapuri",
+        "characterIds": [
+            "suika",
+            "momiji"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764518717000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1palvmw",
+        "url": [
+            "https://i.redd.it/4xfe3cn24f4g1.png"
+        ],
+        "src": "https://x.com/sigure0210/status/1981644593423909067",
+        "desc": "😃: Awwwww~\n\n😐: Tewi pulled that shit on me just last week.",
+        "artistId": "shigure",
+        "characterIds": [
+            "tsukasa"
+        ],
+        "nsfw": false
     }
 ]
