@@ -14829,5 +14829,50 @@
             "nue"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1764634011000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pbtcir",
+        "url": [
+            "https://i.redd.it/sc0ovldwmo4g1.png"
+        ],
+        "src": "https://x.com/zenji029/status/1981299568831582703",
+        "desc": "Kinda nasty now that I think about how Gensōkyō will most likely acquire swimsuits. 😐 I hope they're washed thoroughly.",
+        "artistId": "zenji",
+        "characterIds": [
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764662724000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pc2wk4",
+        "url": [
+            "https://i.redd.it/44vcm8z90r4g1.png"
+        ],
+        "src": "https://x.com/baystarsapphire/status/1981758686625489272",
+        "desc": "Yep... \"convenient\" in Japanese is also basically a person who doesn't take responsibility – in this case, remembering your acquaintances. So, yeah. Toyohime here is actually calling humans self-serving back there, I think.",
+        "artistId": "shigefumi",
+        "characterIds": [
+            "reimu",
+            "toyohime",
+            "yorihime"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764691269000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pcc7l7",
+        "url": [
+            "https://i.redd.it/dv7taco5dt4g1.png"
+        ],
+        "src": "https://x.com/skjughr/status/1982021944305385850",
+        "desc": "Huh... this dynamic might be interesting. What if... the time-stop is out of the equation, and Marisa is actually an even better maid than Sakuya? 🤔",
+        "artistId": "ishijougahara",
+        "characterIds": [
+            "patchouli",
+            "marisa"
+        ],
+        "nsfw": false
     }
 ]
