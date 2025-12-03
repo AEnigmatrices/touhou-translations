@@ -2678,5 +2678,12 @@
         "linkTwitter": "https://x.com/otoha4634",
         "linkPixiv": "https://www.pixiv.net/en/users/3348106",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "amami_idora",
+        "name": "天見いどら",
+        "linkTwitter": "https://x.com/Amami_Idora88",
+        "linkPixiv": "https://www.pixiv.net/en/users/106381176",
+        "portrait": "portraits/placeholders/spy.webp"
     }
 ]
