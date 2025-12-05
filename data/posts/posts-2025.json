@@ -14936,5 +14936,49 @@
             "koishi"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1764806674000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pdkxru",
+        "url": [
+            "https://i.redd.it/gir5ygabw25g1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1982409373855916050",
+        "desc": "***\"Bun Bun Hello YouTube\"*** is a HIKAKIN intro – a very, very, very big Japanese YouTuber.",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "parsee",
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764836839000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pdusmh",
+        "url": [
+            "https://i.redd.it/dh32q5a0e55g1.png"
+        ],
+        "src": "https://x.com/AG47583124/status/1982363868778405941",
+        "desc": "Man, if Nina was in... around the time of *Sunken Fossil World,* people would definitely be drawing her Naruto-running into Area 51.",
+        "artistId": "ag",
+        "characterIds": [
+            "nina",
+            "satori"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764864059000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pe3pdp",
+        "url": [
+            "https://i.redd.it/u4hjor6ym75g1.png"
+        ],
+        "src": "https://x.com/sakatuki_07/status/1982934194071408742",
+        "desc": "I suppose from a work-related angle, she keeps track of people crossing the bridge and report to Satori? 🤔",
+        "artistId": "sakatsuki",
+        "characterIds": [
+            "parsee"
+        ],
+        "nsfw": false
     }
 ]
