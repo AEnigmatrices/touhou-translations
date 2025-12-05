@@ -2692,5 +2692,17 @@
         "linkTwitter": "https://x.com/AG47583124",
         "linkPixiv": "https://www.pixiv.net/en/users/95596543",
         "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "danna",
+        "name": "だんな",
+        "linkTwitter": "https://x.com/dng_satou",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "mozupoko",
+        "name": "モズポコ",
+        "linkTwitter": "https://x.com/SABU_MOZUPOKO",
+        "portrait": "portraits/placeholders/scout.webp"
     }
 ]

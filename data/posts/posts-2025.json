@@ -14980,5 +14980,36 @@
             "parsee"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1764892187000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1peftg8",
+        "url": [
+            "https://i.redd.it/nvie2g7ly95g1.png"
+        ],
+        "src": "https://x.com/dng_satou/status/1983564805798506692",
+        "desc": "Tengu aside, who else wears heels in Touhou? 🤔 They all seem to wear loafers.\n\nI like the angle though, that Sakuya is \"tall\" the same way Aya is tall – and she might actually be the same height as Reimu.",
+        "artistId": "danna",
+        "characterIds": [
+            "sakuya",
+            "meiling"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1764950887000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1peyzoz",
+        "url": [
+            "https://i.redd.it/yxu4y9u4te5g1.png"
+        ],
+        "src": "https://x.com/SABU_MOZUPOKO/status/1984206522147311920",
+        "desc": "[**Both of them**](https://x.com/SABU_MOZUPOKO/status/1984191194763854145) do look pretty good with it on though. But imagine though...\n\n# BBO NEWS – VAMPIRE HAKUREI MIKOS LEFT HUNDREDS OF FAIRIES ANEMIC",
+        "artistId": "mozupoko",
+        "characterIds": [
+            "reimu",
+            "remilia",
+            "flandre"
+        ],
+        "nsfw": false
     }
 ]
