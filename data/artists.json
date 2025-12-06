@@ -2705,5 +2705,25 @@
         "name": "モズポコ",
         "linkTwitter": "https://x.com/SABU_MOZUPOKO",
         "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "shiso_imo",
+        "name": "しそいも",
+        "linkTwitter": "https://x.com/siso_imo",
+        "portrait": "portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "hiyoi",
+        "name": "ひよい",
+        "linkTwitter": "https://x.com/hiyoi03",
+        "linkPixiv": "https://www.pixiv.net/en/users/3225263",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "necono",
+        "name": "necono",
+        "linkTwitter": "https://x.com/nekonosora1207",
+        "linkPixiv": "https://www.pixiv.net/en/users/23619",
+        "portrait": "portraits/placeholders/engineer.webp"
     }
 ]

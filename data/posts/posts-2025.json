@@ -15011,5 +15011,50 @@
             "flandre"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1764979277000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pfaupa",
+        "url": [
+            "https://i.redd.it/1wb62fvj5h5g1.png"
+        ],
+        "src": "https://x.com/siso_imo/status/1984287457907818630",
+        "desc": "But yeah, this is a Halloween art.",
+        "artistId": "shiso_imo",
+        "characterIds": [
+            "rumia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765008243000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pfjyat",
+        "url": [
+            "https://i.redd.it/zhes5lmojj5g1.png"
+        ],
+        "src": "https://x.com/hiyoi03/status/1984573952287752246",
+        "desc": "Wait, what? Kasha originally wasn't a cat, but just the cart. The cat came later... 🤔 So Orin... is the cart?",
+        "artistId": "hiyoi",
+        "characterIds": [
+            "chen",
+            "orin",
+            "ran"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765036976000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pfspwm",
+        "url": [
+            "https://i.redd.it/n9dvtc94xl5g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/136968034",
+        "desc": "Have we been told of how exactly Komachi cleaned up and ferried this influx of souls? I just had an image of Komachi loading her boat full of flowers and taking them all across in batches.\n\nThough we must also note that the crossing itself is also part of the individual process 🤔 So in all likelihood, Komachi literally had to ferry one flower at a time – though given that it's an exceptional case, I can imagine Eiki requesting whole fleets of shinigami for this.",
+        "artistId": "necono",
+        "characterIds": [
+            "reimu",
+            "eiki"
+        ],
+        "nsfw": false
     }
 ]
