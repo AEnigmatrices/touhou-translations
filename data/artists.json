@@ -2725,5 +2725,18 @@
         "linkTwitter": "https://x.com/nekonosora1207",
         "linkPixiv": "https://www.pixiv.net/en/users/23619",
         "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "takahata_souta",
+        "name": "高畠宗太",
+        "linkTwitter": "https://x.com/ponpePE6",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "uzumibi",
+        "name": "うずみび",
+        "linkTwitter": "https://x.com/bankedfireXXX",
+        "linkPixiv": "https://www.pixiv.net/en/users/76448344",
+        "portrait": "portraits/placeholders/spy.webp"
     }
 ]

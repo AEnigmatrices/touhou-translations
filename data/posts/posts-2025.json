@@ -15056,5 +15056,56 @@
             "eiki"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1765065795000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pg3zxp",
+        "url": [
+            "https://i.redd.it/0yfoy8atao5g1.png"
+        ],
+        "src": "https://x.com/ponpePE6/status/1984966388143075470",
+        "desc": "Forget ships, what would be some interesting trios? 🤔",
+        "artistId": "takahata_souta",
+        "characterIds": [
+            "reimu",
+            "marisa",
+            "sakuya",
+            "remilia",
+            "flandre",
+            "youmu",
+            "mokou",
+            "sanae",
+            "meiling"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765094840000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pgd22y",
+        "url": [
+            "https://i.redd.it/2y534ne6pq5g1.png"
+        ],
+        "src": "https://x.com/bankedfireXXX/status/1984994678165655677",
+        "desc": "# And so here I am, the most American of the group...",
+        "artistId": "uzumibi",
+        "characterIds": [
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765124255000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pgm9vk",
+        "url": [
+            "https://i.redd.it/l85xr27n4t5g1.png"
+        ],
+        "src": "https://x.com/mikadukimo777/status/1985308474520076561",
+        "desc": "Kōgien is game guides. Like Prima Games.",
+        "artistId": "mikazukimo",
+        "characterIds": [
+            "flandre",
+            "patchouli"
+        ],
+        "nsfw": false
     }
 ]
