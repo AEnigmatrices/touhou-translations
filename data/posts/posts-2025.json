@@ -15107,5 +15107,47 @@
             "patchouli"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1765151925000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pgxmvi",
+        "url": [
+            "https://i.redd.it/qvcbid4xev5g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/121822159",
+        "desc": "So with kimonos, you'd have excess fabric that will have to be folded to your waist – that part is the ohashori. Normally, it's supposed to be just this little bundle of fabric visible below the sash.\n\nBut for Futo here, it's pretty much her entire hip.",
+        "artistId": "iroiro_yaru_hito",
+        "characterIds": [
+            "futo"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765180850000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ph6uia",
+        "url": [
+            "https://i.redd.it/1l2ujflxsx5g1.png"
+        ],
+        "src": "https://x.com/rwFt3BpgzZQk634/status/1840368455876218929",
+        "desc": "If Flandre wants to shut you up 🤔 Would she destroy your vocal chords, or your ability to speak?",
+        "artistId": "mochimugi",
+        "characterIds": [
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765210121000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1phgcwv",
+        "url": [
+            "https://i.redd.it/cblp5hvy706g1.png"
+        ],
+        "src": "https://x.com/mochitoseaguri/status/1994920964875071917",
+        "desc": "One of Seiga's spell cards is [**Yǎng Xiǎoguǐ**](https://en.touhouwiki.net/wiki/List_of_Spell_Cards/Touhou_Project_2#:~:text=ヤンシャオグイ) – literally \"Raise Little Demon\". And yes, they're dead babies. You know, lucky charms and all that.\n\nThere is also an angle that these spirits chased after Reimu/Marisa/Sanae/Yōmu because since they're miscarried fetuses, they yearn to go back to the womb.",
+        "artistId": "mochitose_aguri",
+        "characterIds": [
+            "seiga"
+        ],
+        "nsfw": false
     }
 ]
