@@ -15149,5 +15149,48 @@
             "seiga"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1765238530000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1phsohv",
+        "url": [
+            "https://i.redd.it/17eg761gk26g1.png"
+        ],
+        "src": "https://x.com/TYUMUKADE/status/1996427728208437750",
+        "desc": "I think it might look cool that if Hecatia takes off her collar, it means the other two bodies will manifest in the same realm 🤔 That is to say, they're behind you right now.",
+        "artistId": "chuumukade",
+        "characterIds": [
+            "hecatia",
+            "junko"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765267346000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pi1wta",
+        "url": [
+            "https://i.redd.it/metylmo4y46g1.png"
+        ],
+        "src": "https://x.com/mati10110302/status/1997638595054600602",
+        "desc": "# The hell you mean Reimu's real name is Ib? 🤨",
+        "artistId": "machi_paterina",
+        "characterIds": [
+            "marisa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765296603000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pibefp",
+        "url": [
+            "https://i.redd.it/smu27ri4d76g1.png"
+        ],
+        "src": "https://x.com/illu_stra_tion/status/1993642321196486834",
+        "desc": "Perhaps she wears black when there's a solar eclipse? 🤔",
+        "artistId": "seno_sutora",
+        "characterIds": [
+            "remilia"
+        ],
+        "nsfw": false
     }
 ]

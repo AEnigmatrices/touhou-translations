@@ -2738,5 +2738,11 @@
         "linkTwitter": "https://x.com/bankedfireXXX",
         "linkPixiv": "https://www.pixiv.net/en/users/76448344",
         "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "seno_sutora",
+        "name": "瀬乃すとら",
+        "linkTwitter": "https://x.com/illu_stra_tion",
+        "portrait": "portraits/placeholders/heavy.webp"
     }
 ]
