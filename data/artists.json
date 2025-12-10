@@ -2744,5 +2744,11 @@
         "name": "瀬乃すとら",
         "linkTwitter": "https://x.com/illu_stra_tion",
         "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "motsuchigire",
+        "name": "もつちぎれ",
+        "linkTwitter": "x.com/motutigire",
+        "portrait": "portraits/placeholders/soldier.webp"
     }
 ]
