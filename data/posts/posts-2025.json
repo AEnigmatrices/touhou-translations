@@ -15280,5 +15280,51 @@
             "yachie"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1765497639000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pkd3es",
+        "url": [
+            "https://i.redd.it/nmb0diqwyn6g1.png"
+        ],
+        "src": "https://x.com/skhdrhcs/status/1872962196814086249",
+        "desc": "You know, if not for the Kawakatsu link 🤔 Okina would be Miko's enemy. Okina is a Buddhist god, after all.",
+        "artistId": "fugu_shogun",
+        "characterIds": [
+            "miko",
+            "okina"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765526444000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pkmf84",
+        "url": [
+            "https://i.redd.it/naicd74kcq6g1.png"
+        ],
+        "src": "https://x.com/zakozakoY/status/1472128522521300993",
+        "desc": "This seems to be a [**meme**](https://x.com/MELI391/status/1948694171537342952) featuring Hulk Hogan and Stan Hansen in the [**Pro Wrestling Superstar Retsuden.**](https://mangadex.org/title/98dee1d0-1d7e-4b12-9819-e2b865538bff/pro-wrestling-superstar-biographies)",
+        "artistId": "zakozako_y",
+        "characterIds": [
+            "yuuma",
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765555731000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pkvqdj",
+        "url": [
+            "https://i.redd.it/tu6r087nrs6g1.png"
+        ],
+        "src": "https://x.com/Moijochu/status/1832629140211823041",
+        "desc": "Hmm... 🤔 I suppose there are two spots where this joke might not work.\n\n- If we assume a complete foreign approach, Remilia would call this custard – and pudding would be a very different image for her.\n\n- Since Remilia has Meiling, she is definitely acquainted with Chinese cuisine. Steamed eggs is a common side dish.",
+        "artistId": "pechika",
+        "characterIds": [
+            "remilia",
+            "flandre",
+            "reimu"
+        ],
+        "nsfw": false
     }
 ]
