@@ -15372,5 +15372,46 @@
             "reimu"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1765675424000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pm1lm8",
+        "url": [
+            "https://i.redd.it/zbb0y9ujn27g1.png",
+            "https://i.redd.it/583eus0rn47g1.png",
+            "https://i.redd.it/em881xib077g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/135000668",
+        "desc": "The idea that Yuyuko is technically Tojiko's great-great-niece...\n\n Kanako being a half-sister to those two, huh...\n\nBy the way, I just realized the reason why Kanako fanarts with combat would usually give her a sword – the \"to\" in Yasakatome is literally sword. \n\nThe horror. Miko × Tojiko is technically incestuous. 🤔 Though I suppose it depends on how far up the tree the shared lineage is.\n\nSoga no Umako is Tojiko's dad.\n\nTo illustrate how terrifying Mahākāla is, his name means \"Great Time\" with a nuance of the time part also being death (out of time). Of course, when he arrived in Japan, he transformed into the almost completely different Daikokuten – in the same group of seven Buddhist gods as Bishamonten – which is also conflated with Ōkuninushi.\n\nThat is to say, Okina has links to both Shō and Tewi, among many, many more. \n\n* [Reddit #2](https://www.reddit.com/r/touhou/comments/1pm8vho/touhou_divine_genealogy_20_addendum_tl/)\n\n* [Reddit #3](https://www.reddit.com/r/touhou/comments/1pmhi9f/touhou_divine_genealogy_20_with_additional_info_tl/)",
+        "artistId": "nantara",
+        "characterIds": [
+            "yuyuko",
+            "eirin",
+            "kaguya",
+            "mokou",
+            "toyohime",
+            "yorihime",
+            "akyuu",
+            "sanae",
+            "kanako",
+            "suwako",
+            "tojiko",
+            "futo",
+            "miko",
+            "seija",
+            "shinmyoumaru",
+            "sagume",
+            "junko",
+            "hecatia",
+            "larva",
+            "eika",
+            "kutaka",
+            "keiki",
+            "misumaru",
+            "chimata",
+            "ariya",
+            "okina"
+        ],
+        "nsfw": false
     }
 ]
