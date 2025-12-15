@@ -15413,5 +15413,49 @@
             "okina"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1765756967000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pmt2ne",
+        "url": [
+            "https://i.redd.it/2z4gdgt0e97g1.png"
+        ],
+        "src": "https://x.com/arinutan/status/1960707742840316114",
+        "desc": "Huh... it seems this only applies to low orbit satellites? 🤨 Like, the high orbit ones actually run faster because of the weaker gravity.",
+        "artistId": "arinu",
+        "characterIds": [
+            "renko",
+            "merry"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765787125000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pn2c91",
+        "url": [
+            "https://i.redd.it/fo84la8pvb7g1.png"
+        ],
+        "src": "https://x.com/rwFt3BpgzZQk634/status/1998741510058328299",
+        "desc": "Yeah... I wonder what kind of judgements Eiki gave to the fortune teller.",
+        "artistId": "mochimugi",
+        "characterIds": [
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1765815398000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pnbfid",
+        "url": [
+            "https://i.redd.it/z0ci7opr7e7g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/73526120",
+        "desc": "Maybe they were fighting... the monsters from a Western Gensōkyō equivalent (maybe Atlantis?) that followed the Apollo program... 🤔",
+        "artistId": "john_mcclane",
+        "characterIds": [
+            "seiran",
+            "reisen2"
+        ],
+        "nsfw": false
     }
 ]
