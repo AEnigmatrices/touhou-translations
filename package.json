@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "homepage": "https://aenigmatrices.github.io/touhou-translations",
+    "homepage": "https://aenigmatrices.github.io/touhou-translations/",
     "description": "A viewer for English-translated Touhou Project fan comics and illustrations built with React and Vite",
     "repository": {
         "type": "git",
