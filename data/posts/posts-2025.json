@@ -15616,5 +15616,50 @@
             "marisa"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1766190148000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pr0lwl",
+        "url": [
+            "https://i.redd.it/5al3wd73698g1.png"
+        ],
+        "src": "https://x.com/maridangonotane/status/1999900111573549078",
+        "desc": "I do like the bubblily clueless take on Yoshika's personality.",
+        "artistId": "maridango",
+        "characterIds": [
+            "kasen",
+            "yoshika"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766217806000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pr963h",
+        "url": [
+            "https://i.redd.it/rlmw1uzbgb8g1.png"
+        ],
+        "src": "https://x.com/shitace1/status/1998718803967094844",
+        "desc": "I was going to say insecticides wouldn't do shit on bats 🤔 but hey, if it works on **mosquitoes...**",
+        "artistId": "shitace",
+        "characterIds": [
+            "reimu",
+            "remilia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766246548000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1prhpwn",
+        "url": [
+            "https://i.redd.it/ysh30destd8g1.png",
+            "https://i.redd.it/br0y5gqstd8g1.png"
+        ],
+        "src": "https://x.com/MATEO2023_ex/status/1996161115446006090",
+        "desc": "Huh. We don't really see Marisa depicted looking like this often, do we? 🤔 Maybe it's all of her manga depictions? Like, I have a feeling if I only knew her from the games, I'd assume Marisa to be mischievous-brat-looking like this.",
+        "artistId": "teoi",
+        "characterIds": [
+            "marisa"
+        ],
+        "nsfw": false
     }
 ]

@@ -2750,5 +2750,12 @@
         "name": "もつちぎれ",
         "linkTwitter": "x.com/motutigire",
         "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "maridango",
+        "name": "まりだんご",
+        "linkTwitter": "https://x.com/maridangonotane",
+        "linkPixiv": "https://www.pixiv.net/en/users/102491106",
+        "portrait": "portraits/placeholders/engineer.webp"
     }
 ]
