@@ -15661,5 +15661,34 @@
             "marisa"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1766304195000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ps1be6",
+        "url": [
+            "https://i.redd.it/vyz18tm7li8g1.png"
+        ],
+        "src": "https://x.com/Ww333v/status/1992650973626646786",
+        "desc": "Why didn't you make a stone out of Byakuren's incident?!\n\nHmm... 🤔 While it would be funny if the stone for Byakuren's incident is literally the pagoda, that wouldn't really represent it? Like, while the premise is that the three girls chased after the Seirensen – I think what made it an incident was the fact that Nue's UFOs were spotted all over the place?",
+        "artistId": "gondora",
+        "characterIds": [
+            "misumaru"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766332883000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ps9twp",
+        "url": [
+            "https://i.redd.it/owbfh7kiyk8g1.png"
+        ],
+        "src": "https://x.com/TYUMUKADE/status/1990462164189261869",
+        "desc": "All the other gods will be so jealous when she shows off the White Hare of Inaba while taking Tewi out to the jade rabbit park.",
+        "artistId": "chuumukade",
+        "characterIds": [
+            "tewi",
+            "toyohime"
+        ],
+        "nsfw": false
     }
 ]
