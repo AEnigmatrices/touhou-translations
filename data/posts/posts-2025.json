@@ -15690,5 +15690,48 @@
             "toyohime"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1766361681000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1psl0gk",
+        "url": [
+            "https://i.redd.it/4ljy1hd5cn8g1.png"
+        ],
+        "src": "https://x.com/sigure0210/status/1988915983289872491",
+        "desc": "😏: Oh... so she did something to somebody while stopping time. Is it real if nothing else in the world knew about it?\n\n\\*👓: *\\*Reads again*\n\n🤨: Wait, is this a cuck POV?",
+        "artistId": "shigure",
+        "characterIds": [
+            "sakuya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766390587000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1psu3h9",
+        "url": [
+            "https://i.redd.it/2ij86xm3qp8g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/137862043",
+        "desc": "Huh... Kinda refreshing to see an alternative sleeve design.",
+        "artistId": "piaki",
+        "characterIds": [
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766419307000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pt37cg",
+        "url": [
+            "https://i.redd.it/yckam44i3s8g1.png"
+        ],
+        "src": "https://x.com/motutigire/status/1989561826028441899",
+        "desc": "Actually kinda cool image to think about that you can set Yūma's blood on fire.",
+        "artistId": "motsuchigire",
+        "characterIds": [
+            "yuuma",
+            "flandre"
+        ],
+        "nsfw": false
     }
 ]
