@@ -15733,5 +15733,47 @@
             "flandre"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1766448119000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ptf4eb",
+        "url": [
+            "https://i.redd.it/l15fl786hu8g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/138815163",
+        "desc": "I like to think other than kids, the villagers are also already used to Kogasa's antics since she's a relatively regular visitor.",
+        "artistId": "tofuya",
+        "characterIds": [
+            "kogasa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766477025000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ptogel",
+        "url": [
+            "https://i.redd.it/i8fm4lj4vw8g1.png"
+        ],
+        "src": "https://x.com/transfooorm/status/2000157033698644301",
+        "desc": "Right... the black part of Byakuren's outfit is practically really just a jacket. 🤔 And I don't think I've ever seen anybody draw her with just the turtleneck. ",
+        "artistId": "soregashi",
+        "characterIds": [
+            "byakuren"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766505837000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ptxlpf",
+        "url": [
+            "https://i.redd.it/6r5jhoip8z8g1.png"
+        ],
+        "src": "https://x.com/hidaruma_/status/2003390132825862571",
+        "desc": "Where in the U.S. would a Gensōkyō equivalent be? 🤔 Area 51?",
+        "artistId": "hidaruma",
+        "characterIds": [
+            "yukari"
+        ],
+        "nsfw": false
     }
 ]
