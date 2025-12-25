@@ -465,6 +465,15 @@
         "portrait": "portraits/placeholders/demoman.webp"
     },
     {
+        "id": "shinki",
+        "name": "Shinki",
+        "short_name": "Shinki",
+        "work": [
+            "ms"
+        ],
+        "portrait": "portraits/characters/shinki.webp"
+    },
+    {
         "id": "shizuha",
         "name": "Aki Shizuha",
         "short_name": "Shizuha",
