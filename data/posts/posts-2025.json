@@ -15818,5 +15818,50 @@
             "remilia"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1766621485000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pv0wx7",
+        "url": [
+            "https://i.redd.it/9e90crgos89g1.png"
+        ],
+        "src": "https://x.com/ukei624/status/1998741914154340416",
+        "desc": "No doubt tears of joy.",
+        "artistId": "migisune",
+        "characterIds": [
+            "meiling"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766649677000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pv8hqb",
+        "url": [
+            "https://i.redd.it/7hpzi86i4b9g1.png"
+        ],
+        "src": "https://x.com/kyunmarifukko/status/1759190326504567084",
+        "desc": "The mushroom 🍄 × 🎍 bamboo shoots duo.",
+        "artistId": "fuko",
+        "characterIds": [
+            "marisa",
+            "mokou"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766679240000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pvgla7",
+        "url": [
+            "https://i.redd.it/v7zfrfubkd9g1.png"
+        ],
+        "src": "https://x.com/ne_tochika/status/2004161939916931575",
+        "desc": "I was going to remark that Sariel's in Makai too, but... 🤨 she's Jewish.",
+        "artistId": "ne_tochika",
+        "characterIds": [
+            "marisa",
+            "alice",
+            "shinki"
+        ],
+        "nsfw": false
     }
 ]
