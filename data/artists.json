@@ -2757,5 +2757,12 @@
         "linkTwitter": "https://x.com/maridangonotane",
         "linkPixiv": "https://www.pixiv.net/en/users/102491106",
         "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "somvu",
+        "name": "そむ゙",
+        "linkTwitter": "https://x.com/userposts",
+        "linkPixiv": "https://www.pixiv.net/en/users/106562283",
+        "portrait": "portraits/placeholders/engineer.webp"
     }
 ]

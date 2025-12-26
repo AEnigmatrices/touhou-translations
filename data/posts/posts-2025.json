@@ -15863,5 +15863,50 @@
             "shinki"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1766706741000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pvq6rl",
+        "url": [
+            "https://i.redd.it/htkx03v6uf9g1.png"
+        ],
+        "src": "https://x.com/userposts/status/1992557791442297299",
+        "desc": "I just have a good feeling that Meiling can actually beat Sakuya at this game 🤔 I mean, Sakuya's got good legs, but Meiling's definitely superior.",
+        "artistId": "somvu",
+        "characterIds": [
+            "patchouli",
+            "sakuya",
+            "remilia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766736061000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pvz0zd",
+        "url": [
+            "https://i.redd.it/3au0o9fd9i9g1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/108785248",
+        "desc": "Lunarian grenade – you put the pin in before you toss.",
+        "artistId": "sasa",
+        "characterIds": [
+            "reisen"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766767241000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pw8lvz",
+        "url": [
+            "https://i.redd.it/x8jqn350uk9g1.png"
+        ],
+        "src": "https://x.com/sniper16783072/status/2003820378117046444",
+        "desc": "I wonder what treasure Kaguya will give me 🤔",
+        "artistId": "sniper",
+        "characterIds": [
+            "kaguya",
+            "mokou"
+        ],
+        "nsfw": false
     }
 ]
