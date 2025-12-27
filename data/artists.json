@@ -2764,5 +2764,11 @@
         "linkTwitter": "https://x.com/userposts",
         "linkPixiv": "https://www.pixiv.net/en/users/106562283",
         "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "soba",
+        "name": "側",
+        "linkTwitter": "https://x.com/floor_ok_",
+        "portrait": "portraits/placeholders/heavy.webp"
     }
 ]
