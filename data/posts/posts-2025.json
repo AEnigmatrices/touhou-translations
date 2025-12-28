@@ -15951,5 +15951,51 @@
             "okina"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1766881348000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pxd1rk",
+        "url": [
+            "https://i.redd.it/nmjoik999u9g1.png"
+        ],
+        "src": "https://x.com/shiya_re04/status/1870810654447481280",
+        "desc": "I mean, *Impossible Spell Card* is kind of a cliffhanger, isn't it? 'Cause we know Seija's later integrated into Gensōkyō society anyway (i.e. not hunted).",
+        "artistId": "sha_re",
+        "characterIds": [
+            "reimu",
+            "seija"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766908950000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pxlz1g",
+        "url": [
+            "https://i.redd.it/al88xh3ajw9g1.png"
+        ],
+        "src": "https://x.com/Otofu_seller/status/2004921330941173911",
+        "desc": "Considering how we know Suika's gourd works, I suppose the liquid might be kinda disgusting after all? 🤔 It gathers evaporated liquor from the surroundings, but what would be the conditions to what counts as a bottle of liquor?\n\nLike, if it's not just sake, we're talking about all sorts of flavors being mixed in there. And even if the gourd specifically takes sake from other gourds, can it even distinguish spoiled sake?",
+        "artistId": "tofuya",
+        "characterIds": [
+            "suika",
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766937631000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pxuros",
+        "url": [
+            "https://i.redd.it/x4gmyo5pwy9g1.png"
+        ],
+        "src": "https://x.com/simerike5/status/2005215313923838144",
+        "desc": "I just can't get enough of this Reimu × Sanae dynamic – ***If you can't beat her, adopt her.***",
+        "artistId": "deetamu",
+        "characterIds": [
+            "reimu",
+            "marisa",
+            "sanae"
+        ],
+        "nsfw": false
     }
 ]
