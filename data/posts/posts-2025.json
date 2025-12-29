@@ -15997,5 +15997,49 @@
             "sanae"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1766966522000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1py6qw5",
+        "url": [
+            "https://i.redd.it/i5fp8pina1ag1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/121685957",
+        "desc": "It is kinda interesting to think that the most powerful thing at Myōrenji is in fact not Byakuren, but Shō who is an avatar of Bishamonten – who if we apply the Okina method would be Kubera, King of the Yakshas.\n\nShō is a fairy queen.",
+        "artistId": "muntarou",
+        "characterIds": [
+            "shou",
+            "byakuren"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1766995582000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pygltm",
+        "url": [
+            "https://i.redd.it/klyntn72p3ag1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/91898629",
+        "desc": "**Momiji** is the word in Japanese that refers to red autumn leaves. So imagine NOT naming the character whose entire theme is autumn leaves that.",
+        "artistId": "arinu",
+        "characterIds": [
+            "momiji",
+            "shizuha"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767024407000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1pyq4lw",
+        "url": [
+            "https://i.redd.it/5elw02cr26ag1.png"
+        ],
+        "src": "https://x.com/Otofu_seller/status/2005632987950710814",
+        "desc": "Clearly Reimu knows how to write/enchant a 100% magic resistance charm.",
+        "artistId": "tofuya",
+        "characterIds": [
+            "sakuya"
+        ],
+        "nsfw": false
     }
 ]
