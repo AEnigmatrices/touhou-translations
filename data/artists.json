@@ -2770,5 +2770,12 @@
         "name": "側",
         "linkTwitter": "https://x.com/floor_ok_",
         "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "nana",
+        "name": "なゝ",
+        "linkTwitter": "https://x.com/929mura",
+        "linkPixiv": "https://www.pixiv.net/en/users/100824662",
+        "portrait": "portraits/placeholders/sniper.webp"
     }
 ]

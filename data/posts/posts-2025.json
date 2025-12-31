@@ -16086,5 +16086,49 @@
             "reimu"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1767147618000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q013tw",
+        "url": [
+            "https://i.redd.it/ywj7poh39gag1.png"
+        ],
+        "src": "https://x.com/929mura/status/2006036088247517189",
+        "desc": "The [**panel**](https://mangadex.org/chapter/6104168d-47df-4130-a890-d3a99d62811e/2) in question.\n\nAnd you know, from my impression of Shō's lines in Japanese so far – she seems to be the polite kind? Like, not at all rowdy from looking like a tiger or being an avatar of a war god.\n\nBut I can't be sure yet if it's a few fan authors' specific thing or not. She does sound very polite in [**Lost Word**](https://www.youtube.com/watch?v=8ZeAQFmiOzA) though.",
+        "artistId": "nana",
+        "characterIds": [
+            "shou",
+            "nazrin"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767170609000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q089s2",
+        "url": [
+            "https://i.redd.it/hdjby48f5iag1.png"
+        ],
+        "src": "https://x.com/kusatsuku1/status/1975581296610144580",
+        "desc": "Might be fun to imagine what archetypes the girls will play.",
+        "artistId": "kusatsuku",
+        "characterIds": [
+            "rumia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767197276000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q0gjsb",
+        "url": [
+            "https://i.redd.it/mtoqe6mqckag1.png"
+        ],
+        "src": "https://x.com/simerike5/status/2006295888894071031",
+        "desc": "Imagine Reimu and Marisa's first time at Remilia's banquet, and Marisa curtsies Remilia out of habit.",
+        "artistId": "deetamu",
+        "characterIds": [
+            "marisa",
+            "reimu"
+        ],
+        "nsfw": false
     }
 ]
