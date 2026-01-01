@@ -16130,5 +16130,48 @@
             "reimu"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1767234460000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q0tkdu",
+        "url": [
+            "https://i.redd.it/qxynevebfnag1.png"
+        ],
+        "src": "https://x.com/W178_/status/2005598909754966412",
+        "desc": "There are also super faint texts in the background that say ***\"Why is it only her?\"*** and ***\"It's so unfair.\"***\n\nOther moon rabbits are jealous of Reisen 😕",
+        "artistId": "waa",
+        "characterIds": [
+            "reisen"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767254356000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q0z0j5",
+        "url": [
+            "https://i.redd.it/rgktjxye2pag1.png"
+        ],
+        "src": "https://x.com/whis11/status/1783087484567703691",
+        "desc": "I just like the extrapolation from her profile – the fact that she's self-conscious about getting hairier under the full moon – to mean that she's normally already pretty hairy.",
+        "artistId": "whis",
+        "characterIds": [
+            "kagerou"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767282644000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q17919",
+        "url": [
+            "https://i.redd.it/18muvoqmerag1.png"
+        ],
+        "src": "https://x.com/simerike5/status/2006675198876234112",
+        "desc": "You reckon Marisa's dad has been supplying Marisa using Rinnosuke as proxy? 🤔 Like, her dad bought this kimono set for her.",
+        "artistId": "deetamu",
+        "characterIds": [
+            "reimu",
+            "marisa"
+        ],
+        "nsfw": false
     }
 ]
