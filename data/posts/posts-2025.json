@@ -16173,5 +16173,52 @@
             "marisa"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1767314825000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q1kcrl",
+        "url": [
+            "https://i.redd.it/ovvp9o4a2uag1.png"
+        ],
+        "src": "https://x.com/indozou/status/2006574796906299430",
+        "desc": "Of course she's a New Year God. 🤨 I mean, shit, she's also a God of Sericulture – silkworms.\n\nImagine this kind of joke gets embedded in the fandom. We have boundaries to explain Yukari messing around. We have medicines to explain Eirin messing around. And now we have obscure divine identities to explain Okina messing around.\n\nWhat do you mean you're a God of Traffic?",
+        "artistId": "indo_sou",
+        "characterIds": [
+            "flandre",
+            "okina"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767342774000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q1terr",
+        "url": [
+            "https://i.redd.it/4al8b10cdwag1.png"
+        ],
+        "src": "https://x.com/tRh6yD4dHBadSa1/status/2006394421089382803",
+        "desc": "Holding hands is too lewd for animals to understand 😤",
+        "artistId": "echigo_yaya",
+        "characterIds": [
+            "patchouli",
+            "remilia",
+            "yachie",
+            "saki"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767373093000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q23wf1",
+        "url": [
+            "https://i.redd.it/nlo2da3jvyag1.png"
+        ],
+        "src": "https://x.com/capuriwa/status/2007063959518756890",
+        "desc": "I feel like Satori has used her Third Eye like a view camera before in FDS 🤨 Or did I read that from a different doujin?",
+        "artistId": "kapuri",
+        "characterIds": [
+            "satori",
+            "orin"
+        ],
+        "nsfw": false
     }
 ]

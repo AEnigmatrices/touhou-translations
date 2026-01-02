@@ -2777,5 +2777,11 @@
         "linkTwitter": "https://x.com/929mura",
         "linkPixiv": "https://www.pixiv.net/en/users/100824662",
         "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "echigo_yaya",
+        "name": "越後やや",
+        "linkTwitter": "https://x.com/tRh6yD4dHBadSa1",
+        "portrait": "portraits/placeholders/soldier.webp"
     }
 ]
