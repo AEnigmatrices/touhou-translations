@@ -16220,5 +16220,49 @@
             "orin"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1767405459000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q2hoo6",
+        "url": [
+            "https://i.redd.it/twlq7f4sj1bg1.png"
+        ],
+        "src": "https://x.com/ukei624/status/2007112758354145428",
+        "desc": "See, the problem is Sakuya can't do it with anybody else in the mansion. The fairies run away. Patchouli and Koakuma, being magical entities, create static shocks upon contact without thaumaturgical insulation. And the two mistresses are cold to the touch.",
+        "artistId": "migisune",
+        "characterIds": [
+            "sakuya",
+            "meiling"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767427845000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q2p59s",
+        "url": [
+            "https://i.redd.it/0ak2ope6e3bg1.png"
+        ],
+        "src": "https://x.com/jirufun/status/2007048647155093718",
+        "desc": "It's clearly just her quest pointer 🗿",
+        "artistId": "jiru",
+        "characterIds": [
+            "nue",
+            "minamitsu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767458285000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q2z4sw",
+        "url": [
+            "https://i.redd.it/13psftavw5bg1.png"
+        ],
+        "src": "https://x.com/simerike5/status/2007398048184611130",
+        "desc": "I've never thought about it before 🤨 But I guess I've just been assuming they're solid rather than holograms.",
+        "artistId": "deetamu",
+        "characterIds": [
+            "byakuren"
+        ],
+        "nsfw": false
     }
 ]
