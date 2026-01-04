@@ -2783,5 +2783,12 @@
         "name": "越後やや",
         "linkTwitter": "https://x.com/tRh6yD4dHBadSa1",
         "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "magochi",
+        "name": "真鯒",
+        "linkTwitter": "https://x.com/MagotI40",
+        "linkPixiv": "https://www.pixiv.net/en/users/97145114",
+        "portrait": "portraits/placeholders/spy.webp"
     }
 ]
