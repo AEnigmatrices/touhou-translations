@@ -16261,7 +16261,8 @@
         "desc": "I've never thought about it before 🤨 But I guess I've just been assuming they're solid rather than holograms.",
         "artistId": "deetamu",
         "characterIds": [
-            "byakuren"
+            "byakuren",
+            "nue"
         ],
         "nsfw": false
     },
@@ -16306,6 +16307,52 @@
             "saki",
             "yuuma",
             "yachie"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767570757000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q45qwk",
+        "url": [
+            "https://i.redd.it/oa18a3oc7fbg1.png"
+        ],
+        "src": "https://x.com/nashikajyu/status/2007448240929812530",
+        "desc": "You know, what if Tewi never recovered from the trauma from being skinned? 🤔",
+        "artistId": "nashikaju",
+        "characterIds": [
+            "tewi"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767600080000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q4fvuy",
+        "url": [
+            "https://i.redd.it/5r3tsuojmhbg1.png"
+        ],
+        "src": "https://x.com/jirufun/status/2007795742896009690",
+        "desc": "Imagine the western yōkai actually invading the Lunar Capital, following behind the Apollo program 💀 With M16s and shit.",
+        "artistId": "jiru",
+        "characterIds": [
+            "seiran",
+            "ringo"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767629224000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q4ppft",
+        "url": [
+            "https://i.redd.it/x22apjd61kbg1.png"
+        ],
+        "src": "https://x.com/simerike5/status/2008119228659122508",
+        "desc": "Yeah... I think quite a lot of people like to draw Byakuren with her skirt long even though going by ZUN art, it looks pretty short.",
+        "artistId": "deetamu",
+        "characterIds": [
+            "ichirin",
+            "minamitsu",
+            "byakuren",
+            "nue"
         ],
         "nsfw": false
     }

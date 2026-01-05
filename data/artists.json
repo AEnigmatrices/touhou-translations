@@ -2790,5 +2790,12 @@
         "linkTwitter": "https://x.com/MagotI40",
         "linkPixiv": "https://www.pixiv.net/en/users/97145114",
         "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "nashikaju",
+        "name": "梨果汁",
+        "linkTwitter": "https://x.com/nashikajyu",
+        "linkPixiv": "https://www.pixiv.net/en/users/74396146",
+        "portrait": "portraits/placeholders/soldier.webp"
     }
 ]
