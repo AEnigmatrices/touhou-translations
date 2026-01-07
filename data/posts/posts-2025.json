@@ -16399,5 +16399,49 @@
             "orin"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1767721453000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q5pd81",
+        "url": [
+            "https://i.redd.it/ovggohsfnrbg1.png"
+        ],
+        "src": "https://x.com/mochitoseaguri/status/2007587429826580730",
+        "desc": "Huh... [***\"Shinzan Hoihoi\"***](https://dic.pixiv.net/a/新参ホイホイ) is used to refer to characters like Reisen, whose design is a big attraction to newcomers.",
+        "artistId": "mochitose_aguri",
+        "characterIds": [
+            "reisen"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767772730000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q69jih",
+        "url": [
+            "https://i.redd.it/bpwoq9swvvbg1.png",
+            "https://i.redd.it/k2n6944xvvbg1.png"
+        ],
+        "src": "https://x.com/floor_ok_/status/1999833212693164359",
+        "desc": "Can boundary manipulation bypass 2FA? 🤔",
+        "artistId": "soba",
+        "characterIds": [
+            "yukari"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767805185000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q6ktmk",
+        "url": [
+            "https://i.redd.it/49ygmlrekybg1.png"
+        ],
+        "src": "https://x.com/kiyo_mariari/status/2008880110653644872",
+        "desc": "It actually alluded me that Marisa would be smaller than Alice – by a lot. 🤨 Alice is definitely not short.",
+        "artistId": "kiyo",
+        "characterIds": [
+            "marisa",
+            "alice"
+        ],
+        "nsfw": false
     }
 ]

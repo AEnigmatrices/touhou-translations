@@ -2797,5 +2797,12 @@
         "linkTwitter": "https://x.com/nashikajyu",
         "linkPixiv": "https://www.pixiv.net/en/users/74396146",
         "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "kiyo",
+        "name": "KIYO",
+        "linkTwitter": "https://x.com/kiyo_mariari",
+        "linkPixiv": "https://www.pixiv.net/en/users/54868449",
+        "portrait": "portraits/placeholders/medic.webp"
     }
 ]
