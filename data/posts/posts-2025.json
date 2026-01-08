@@ -16443,5 +16443,50 @@
             "alice"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1767806917000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q6lmxk",
+        "url": [
+            "https://i.redd.it/uvhw58jjpybg1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/139621812",
+        "desc": "A reminder that Chimi is literally older than all yōkai. She's a mononoke.",
+        "artistId": "piaki",
+        "characterIds": [
+            "chimi"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767875596000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q7am9g",
+        "url": [
+            "https://i.redd.it/z2oc8zbqd4cg1.png"
+        ],
+        "src": "https://x.com/shitace1/status/2008500541014593739",
+        "desc": "Since Harvest Moon is a farm game, I defaulted \"bokujou\" to farm. 🗿 Turns out it's specifically the livestock kind of farm – so ranch.",
+        "artistId": "shitace",
+        "characterIds": [
+            "reimu",
+            "marisa",
+            "saki",
+            "yuuma"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1767881138000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q7cngh",
+        "url": [
+            "https://i.redd.it/1nmt1rm8u4cg1.png"
+        ],
+        "src": "https://x.com/merihari07/status/2009210352744190316",
+        "desc": "I still stand by my headcanon that the mansion was originally Patchouli's, and Remilia and Flandre were her vampire maids until she decided to outright retire and handed the estate over to them.",
+        "artistId": "merihari",
+        "characterIds": [
+            "remilia"
+        ],
+        "nsfw": false
     }
 ]
