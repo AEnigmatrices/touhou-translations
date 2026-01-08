@@ -16,5 +16,6 @@ const productionPlugins = [
 
 export default defineConfig({
     plugins: [react(), vike(), postDataPlugin, ...productionPlugins],
-    base: '/touhou-translations/'
+    base: '/touhou-translations/',
+    server: { open: '/touhou-translations/' }
 });
