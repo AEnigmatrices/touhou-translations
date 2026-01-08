@@ -3,7 +3,7 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import type { Post, Artist } from '../src/types/data';
 
-const postsPath = path.resolve(__dirname, '../data/posts/posts-2025.json');
+const postsPath = path.resolve(__dirname, '../data/posts/posts-2026.json');
 const artistsPath = path.resolve(__dirname, '../data/artists.json');
 
 const readRequestBody = async (req: any): Promise<string> => {
