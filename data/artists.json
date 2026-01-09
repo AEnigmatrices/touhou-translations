@@ -2302,13 +2302,6 @@
         "portrait": "portraits/placeholders/engineer.webp"
     },
     {
-        "id": "honey",
-        "name": "はにー",
-        "linkTwitter": "https://x.com/choroattohoney",
-        "linkPixiv": "https://www.pixiv.net/en/users/31138436",
-        "portrait": "portraits/placeholders/sniper.webp"
-    },
-    {
         "id": "ninomaru",
         "name": "にの丸",
         "linkTwitter": "https://x.com/ninomaru_3378",
@@ -2804,5 +2797,12 @@
         "linkTwitter": "https://x.com/kiyo_mariari",
         "linkPixiv": "https://www.pixiv.net/en/users/54868449",
         "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "choroa",
+        "name": "チョロあ",
+        "linkTwitter": "https://x.com/choroattohani_",
+        "linkPixiv": "https://www.pixiv.net/en/users/31138436",
+        "portrait": "portraits/placeholders/demoman.webp"
     }
 ]
