@@ -496,5 +496,49 @@
             "sakuya"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768224868000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qav0hn",
+        "url": [
+            "https://i.redd.it/ilookw4b8xcg1.png"
+        ],
+        "src": "https://x.com/Amakaze16/status/2010659353964257384",
+        "desc": "Imagine if there's a secret CD out there with Yorihime as the Phantasm Sta-\n\n... 🤔 Actually, given both, would you rather have Toyohime or Yorihime be on Stage 5?",
+        "artistId": "amakaze",
+        "characterIds": [
+            "toyohime",
+            "yorihime"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768231524000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qaxs43",
+        "url": [
+            "https://i.redd.it/mqva6n6yrxcg1.png"
+        ],
+        "src": "https://x.com/Tatsudango/status/2010363663857877065",
+        "desc": "Seiran, I recommend you try drizzling your dango in maple syrup. Where to get one? Well... I mean, Gensōkyō should have a wendigo or two, right?",
+        "artistId": "tatsudango",
+        "characterIds": [
+            "seiran"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768235963000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qazta7",
+        "url": [
+            "https://i.redd.it/qcyinv7a5ycg1.png"
+        ],
+        "src": "https://x.com/suwaneko10/status/2010681534358200410",
+        "desc": "Legal age in Japan was 20, but it was reduced to 18 back in 2018 – and I guess there still hasn't been a consensus on whether to celebrate this day at 18 or 20?",
+        "artistId": "suwaneko",
+        "characterIds": [
+            "ran",
+            "yukari"
+        ],
+        "nsfw": false
     }
 ]
