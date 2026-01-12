@@ -2804,5 +2804,11 @@
         "linkTwitter": "https://x.com/choroattohani_",
         "linkPixiv": "https://www.pixiv.net/en/users/31138436",
         "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "mi",
+        "name": "み",
+        "linkTwitter": "https://x.com/Myac4vv_21",
+        "portrait": "portraits/placeholders/spy.webp"
     }
 ]

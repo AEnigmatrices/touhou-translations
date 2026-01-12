@@ -453,5 +453,48 @@
             "yuuma"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768135503000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q9yhbq",
+        "url": [
+            "https://i.redd.it/5umln2pkupcg1.png"
+        ],
+        "src": "https://x.com/nashikajyu/status/2008446243635105837",
+        "desc": "🤔 You reckon Reisen was tagged while she was a moon rabbit. Like **microchips**. And Eirin removed it after adopting her into Eientei – and perhaps she brought Seiran and Ringo over to remove theirs as well.",
+        "artistId": "nashikaju",
+        "characterIds": [
+            "reisen"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768138385000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1q9zfxm",
+        "url": [
+            "https://i.redd.it/ymu2m6f63qcg1.png"
+        ],
+        "src": "https://x.com/Myac4vv_21/status/2010255564786545144",
+        "desc": "You know, this wouldn't be the first time I've seen a joke about [**Okina being insecure**](https://www.reddit.com/r/touhou/comments/1kikk8p/size_descriptions_for_various_touhou_characters_2/) about something...",
+        "artistId": "mi",
+        "characterIds": [
+            "okina"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768144648000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qa1v5n",
+        "url": [
+            "https://i.redd.it/8fi3fgrrlqcg1.png"
+        ],
+        "src": "https://x.com/ukei624/status/2010191108404637784",
+        "desc": "Would you like to be wrapped by Meiling's beard?",
+        "artistId": "migisune",
+        "characterIds": [
+            "meiling",
+            "sakuya"
+        ],
+        "nsfw": false
     }
 ]
