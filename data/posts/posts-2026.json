@@ -540,5 +540,48 @@
             "yukari"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768310609000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qbr6q5",
+        "url": [
+            "https://i.redd.it/y1xmsux9b4dg1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/139865793",
+        "desc": "So... yeah. 🤨 Moonshining is illegal in Japan. Mixing grapes into alcohol will make them ferment, and thus it counts as moonshining. But the traditional plum wine is fine because... it's not fermenting that much?",
+        "artistId": "tofuya",
+        "characterIds": [
+            "suika"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768317746000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qbu4d3",
+        "url": [
+            "https://i.redd.it/vbhc77xiw4dg1.png"
+        ],
+        "src": "https://x.com/hua88331/status/2011040185690259667",
+        "desc": "Dammit. That Market Gardener hit was going to register.",
+        "artistId": "ebi",
+        "characterIds": [
+            "marisa",
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768322335000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qbw6un",
+        "url": [
+            "https://i.redd.it/ziwqil26a5dg1.png"
+        ],
+        "src": "https://x.com/Suzuna_Kagura/status/2010353018253070706",
+        "desc": "I do like the idea that Marisa continuously dyes her hair to maintain the western witch look though.",
+        "artistId": "suzuna_kagura",
+        "characterIds": [
+            "marisa"
+        ],
+        "nsfw": false
     }
 ]
