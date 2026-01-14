@@ -2810,5 +2810,12 @@
         "name": "み",
         "linkTwitter": "https://x.com/Myac4vv_21",
         "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "meimei",
+        "name": "盟々",
+        "linkTwitter": "https://x.com/meimei89008309",
+        "linkPixiv": "https://www.pixiv.net/en/users/13360388",
+        "portrait": "portraits/placeholders/scout.webp"
     }
 ]

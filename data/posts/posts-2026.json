@@ -583,5 +583,47 @@
             "marisa"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768396926000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qcn492",
+        "url": [
+            "https://i.redd.it/ko12mxrwfbdg1.png"
+        ],
+        "src": "https://x.com/meimei89008309/status/2011363948046786994",
+        "desc": "For those unaware, ***\"Let's dig up!\"*** is Momoyo's catchphrase, apparently – like Nina's *\"For real?\"*",
+        "artistId": "meimei",
+        "characterIds": [
+            "momoyo"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768399995000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qcoax6",
+        "url": [
+            "https://i.redd.it/wx8sk701pbdg1.png"
+        ],
+        "src": "https://x.com/nashikajyu/status/2011278029843222552",
+        "desc": "It might be an interesting twist though. That Koishi's third eye can and does open – that the other personality surfaces from time to time.",
+        "artistId": "nashikaju",
+        "characterIds": [
+            "koishi"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768403946000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qcpy3e",
+        "url": [
+            "https://i.redd.it/7b35y6au0cdg1.png"
+        ],
+        "src": "https://x.com/jirufun/status/2011430084578824575",
+        "desc": "# Rare meat. No. *Raw* meat.",
+        "artistId": "jiru",
+        "characterIds": [
+            "remilia"
+        ],
+        "nsfw": false
     }
 ]
