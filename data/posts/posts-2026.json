@@ -625,5 +625,49 @@
             "remilia"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768491245000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qdmof6",
+        "url": [
+            "https://i.redd.it/zafowoya8jdg1.png",
+            "https://i.redd.it/6w32hgxa8jdg1.png",
+            "https://i.redd.it/8r9b1uva8jdg1.png"
+        ],
+        "src": "https://x.com/kyunmarifukko/status/2011726149228118334",
+        "desc": "Girl, you have a literal pocket furnace. 🔥 Use that.",
+        "artistId": "fuko",
+        "characterIds": [
+            "marisa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768493029000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qdnhb5",
+        "url": [
+            "https://i.redd.it/5i2562epdjdg1.png"
+        ],
+        "src": "https://x.com/Kna28064212/status/2011727476054208678",
+        "desc": "Yeah, I really like the angle that garlic doesn't really hurt Remilia and Flandre like sunlight – they just racially find it disgusting.",
+        "artistId": "kna",
+        "characterIds": [
+            "remilia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768494175000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qdo0c3",
+        "url": [
+            "https://i.redd.it/topm2wpzgjdg1.png"
+        ],
+        "src": "https://x.com/jirufun/status/2011802087747940769",
+        "desc": "***EIRINNN. SEND REISEN OVER, PRONTO. AKYŪ FORGOT TO TAKE HER SUPPLEMENTS.***",
+        "artistId": "jiru",
+        "characterIds": [
+            "kosuzu"
+        ],
+        "nsfw": false
     }
 ]
