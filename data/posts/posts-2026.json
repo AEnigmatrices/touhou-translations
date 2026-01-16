@@ -669,5 +669,48 @@
             "kosuzu"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768580651000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qekibx",
+        "url": [
+            "https://i.redd.it/0execk19mqdg1.png"
+        ],
+        "src": "https://x.com/capuriwa/status/2012014843243741559",
+        "desc": "Does Mokō know English? 🤔",
+        "artistId": "kapuri",
+        "characterIds": [
+            "mokou"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768585798000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qemx3q",
+        "url": [
+            "https://i.redd.it/u3i4u6ej1rdg1.png"
+        ],
+        "src": "https://x.com/Momono_Aito/status/2008140469050683880",
+        "desc": "Tewi is much more open-minded. — *\\*Pulls out an Escape Plan* — **Come here, cupcake.**",
+        "artistId": "momono",
+        "characterIds": [
+            "reisen"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768587081000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qenj9y",
+        "url": [
+            "https://i.redd.it/sifl56yd5rdg1.png"
+        ],
+        "src": "https://x.com/suwaneko2/status/1999809257148203502",
+        "desc": "See, Cirno tried taking off her ribbon, and it didn't do shit. 🤔",
+        "artistId": "suwaneko",
+        "characterIds": [
+            "rumia",
+            "cirno"
+        ],
+        "nsfw": false
     }
 ]
