@@ -712,5 +712,49 @@
             "cirno"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768658378000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qfdwnn",
+        "url": [
+            "https://i.redd.it/3vllga3d1xdg1.png"
+        ],
+        "src": "https://x.com/flexible_B/status/2008831024118346021",
+        "desc": "Probably why Seiga keeps her arms locked? 🤔",
+        "artistId": "tog.",
+        "characterIds": [
+            "yoshika"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768702172000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qfvxj5",
+        "url": [
+            "https://i.redd.it/mf43895ln0eg1.png"
+        ],
+        "src": "https://x.com/Otofu_seller/status/2008087919643460088",
+        "desc": "Flandre better have four shot types if she's ever made playable – Clubs, Spades, Hearts, and Diamonds.",
+        "artistId": "tofuya",
+        "characterIds": [
+            "marisa",
+            "sanae"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768703616000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qfwg5u",
+        "url": [
+            "https://i.redd.it/rhz6j2awr0eg1.png",
+            "https://i.redd.it/5kmrtiawr0eg1.png"
+        ],
+        "src": "https://x.com/kyunmarifukko/status/2012460604339175546",
+        "desc": "While imagining the POV, it got me thinking... yōkai are warm to the touch, right? Like, they will show up on thermal vision, right? 🤔",
+        "artistId": "fuko",
+        "characterIds": [
+            "marisa"
+        ],
+        "nsfw": false
     }
 ]
