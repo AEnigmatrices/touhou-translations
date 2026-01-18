@@ -756,5 +756,50 @@
             "marisa"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768741524000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qg834o",
+        "url": [
+            "https://i.redd.it/umfqmlbkw3eg1.png",
+            "https://i.redd.it/dxi2kn8kw3eg1.png",
+            "https://i.redd.it/ut7th79kw3eg1.png"
+        ],
+        "src": "https://x.com/ninzin_88hon/status/1991917087284179391",
+        "desc": "It really does solve the dilemma though 🤔 That Remilia dies first.",
+        "artistId": "carrot_8",
+        "characterIds": [
+            "remilia",
+            "sakuya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768747507000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qgad7s",
+        "url": [
+            "https://i.redd.it/gilg8dobe4eg1.png"
+        ],
+        "src": "https://x.com/Suzuna_Kagura/status/2012547842749976714",
+        "desc": "Yeah, with attitude like that, it does seem likely that Ariya's the one who dumped Ninigi.\n\nOr 🤔 being dumped by Ninigi (or losing to her sister Konohana) was such a traumatic experience that this is now her entire personality.",
+        "artistId": "suzuna_kagura",
+        "characterIds": [
+            "ariya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768751422000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qgc061",
+        "url": [
+            "https://i.redd.it/v5k8r691q4eg1.png"
+        ],
+        "src": "https://x.com/konton_hakusai/status/2010920182857023827",
+        "desc": "Wait... 🤔 in Star Wars, is it supposed to be \"Ex-wing starfighter\" or \"Cross-wing starfighter\" ?",
+        "artistId": "k-osu",
+        "characterIds": [
+            "aya"
+        ],
+        "nsfw": false
     }
 ]
