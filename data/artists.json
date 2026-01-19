@@ -2817,5 +2817,11 @@
         "linkTwitter": "https://x.com/meimei89008309",
         "linkPixiv": "https://www.pixiv.net/en/users/13360388",
         "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "nanokino",
+        "name": "なのきの",
+        "linkTwitter": "https://x.com/nanoki__no",
+        "portrait": "portraits/placeholders/medic.webp"
     }
 ]

@@ -801,5 +801,50 @@
             "aya"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1768829637000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qh49fm",
+        "url": [
+            "https://i.redd.it/3npdl4ml6beg1.png"
+        ],
+        "src": "https://x.com/NFWTKDaily/status/2013197743792034032",
+        "desc": "And Eiki takes a day off every a couple of days to lecture people in Gensōkyō 🗿",
+        "artistId": "piaki",
+        "characterIds": [
+            "kutaka",
+            "eiki"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768830709000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qh4ob1",
+        "url": [
+            "https://i.redd.it/5okhse0s9beg1.png"
+        ],
+        "src": "https://x.com/kiyo_mariari/status/2013222588302897575",
+        "desc": "Slaanesh-certified proselytization.",
+        "artistId": "kiyo",
+        "characterIds": [
+            "sanae",
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1768832791000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qh5jlj",
+        "url": [
+            "https://i.redd.it/8ijzot10gbeg1.png"
+        ],
+        "src": "https://x.com/nanoki__no/status/2010194960222740554",
+        "desc": "I think it's refreshing to also imagine that the hair dye was a spur of a moment. Like a girl's night between Miko and Okina back the-\n\n🤔... Seiga?",
+        "artistId": "nanokino",
+        "characterIds": [
+            "miko",
+            "okina"
+        ],
+        "nsfw": false
     }
 ]
