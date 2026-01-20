@@ -2823,5 +2823,19 @@
         "name": "なのきの",
         "linkTwitter": "https://x.com/nanoki__no",
         "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "kiringi",
+        "name": "きりんぎ",
+        "linkTwitter": "https://x.com/kiringi4649",
+        "linkPixiv": "https://www.pixiv.net/en/users/38996509",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "inudori",
+        "name": "いぬどり",
+        "linkTwitter": "https://x.com/inudo_riru",
+        "linkPixiv": "https://www.pixiv.net/en/users/104474933",
+        "portrait": "portraits/placeholders/soldier.webp"
     }
 ]
