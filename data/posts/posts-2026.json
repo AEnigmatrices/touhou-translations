@@ -889,5 +889,47 @@
             "koishi"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769004328000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qiyr81",
+        "url": [
+            "https://i.redd.it/4bo8wi00mpeg1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/140187065",
+        "desc": "I was about to dare Aya to go smell Yoshika 🤔 But now that I really think about it, Yoshika should be embalmed, right? To prevent rot and all that. So she might actually smell cleaner than most of the cast. Like chemicals, if anything.",
+        "artistId": "tofuya",
+        "characterIds": [
+            "aya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769010565000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qj1gxu",
+        "url": [
+            "https://i.redd.it/bm3s59nj4qeg1.png"
+        ],
+        "src": "https://x.com/ne_tochika/status/2013964473753800959",
+        "desc": "You know... 🤔 What if Tewi's stunt back in BAiJR really was to prove a point? Like, see? There's nothing wrong with your shrine. I walked around with a box and could get donations just fine. Girl, you're just lazy.",
+        "artistId": "ne_tochika",
+        "characterIds": [
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769011973000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qj24kj",
+        "url": [
+            "https://i.redd.it/bhib3xcs8qeg1.png"
+        ],
+        "src": "https://x.com/mokotan802/status/2010133275768221839",
+        "desc": "Oh? Apparently, the quintuple consisting of Yuyuko, Yukari, Eirin, Kanako, and Byakuren is called [**Five Elders.** ](https://en.wikipedia.org/wiki/Council_of_Five_Elders)",
+        "artistId": "mabohan",
+        "characterIds": [
+            "yukari"
+        ],
+        "nsfw": false
     }
 ]

@@ -2837,5 +2837,11 @@
         "linkTwitter": "https://x.com/inudo_riru",
         "linkPixiv": "https://www.pixiv.net/en/users/104474933",
         "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "mabohan",
+        "name": "麻婆飯",
+        "linkTwitter": "https://x.com/mokotan802",
+        "portrait": "portraits/placeholders/pyro.webp"
     }
 ]
