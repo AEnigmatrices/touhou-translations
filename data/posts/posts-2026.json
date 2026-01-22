@@ -931,5 +931,51 @@
             "yukari"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769087237000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qju1vs",
+        "url": [
+            "https://i.redd.it/dmdo4y0mgweg1.png"
+        ],
+        "src": "https://x.com/merihari07/status/2014292520788979870",
+        "desc": "Would you like Remilia to pat your head? 🦇",
+        "artistId": "merihari",
+        "characterIds": [
+            "remilia",
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769090972000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qjvhy9",
+        "url": [
+            "https://i.redd.it/e6929ayprweg1.png"
+        ],
+        "src": "https://x.com/TYUMUKADE/status/2010327093041922392",
+        "desc": "An interesting angle might just be that Okina managed to conflate herself with a western god who's blonde?",
+        "artistId": "chuumukade",
+        "characterIds": [
+            "mai",
+            "okina",
+            "satono"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769106436000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qk2fnd",
+        "url": [
+            "https://i.redd.it/b1kibkdp1yeg1.png"
+        ],
+        "src": "https://x.com/scavia10/status/2014303284887179281",
+        "desc": "Yeah... Can Koishi even get drunk? 🤔",
+        "artistId": "scavia",
+        "characterIds": [
+            "koishi",
+            "satori"
+        ],
+        "nsfw": false
     }
 ]
