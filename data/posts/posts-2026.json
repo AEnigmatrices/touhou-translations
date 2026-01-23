@@ -977,5 +977,51 @@
             "satori"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769169903000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qkp17c",
+        "url": [
+            "https://i.redd.it/p92sl1kea3fg1.png"
+        ],
+        "src": "https://x.com/Suzuna_Kagura/status/2013982443619967011",
+        "desc": "So... Tokoyo seems to be a place with the keyword \"eternity\".\n\nOh? Omoikane is also known as Tokoyo-no-Omoikane?",
+        "artistId": "suzuna_kagura",
+        "characterIds": [
+            "okina",
+            "nareko",
+            "shinmyoumaru"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769179492000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qksnwe",
+        "url": [
+            "https://i.redd.it/kwhciruw24fg1.png"
+        ],
+        "src": "https://x.com/dng_satou/status/2008032500933874172",
+        "desc": "I really like exploring the idea of maintaining Meiling's sheer seniority over Sakuya by figuring out why she would call her Sakuya-san. 🤔 The first idea I found is that Meiling was the original chief maid before Sakuya, and since a gate guard is needed, Meiling was reassigned there – and since it's technically a demotion in terms of hierarchy, she uses the suffix to refer to Sakuya.\n\nNow, I'm just assuming that \"Qomolangma (Mt. Everest)\" here means pile high up like a mountain since this is clearly a ramen order reference, but I couldn't find any reference to the term – only a ramen restaurant using the name.",
+        "artistId": "danna",
+        "characterIds": [
+            "meiling",
+            "sakuya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769211162000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1ql6njc",
+        "url": [
+            "https://i.redd.it/mhm6iqsno6fg1.png"
+        ],
+        "src": "https://x.com/hua88331/status/2014683249784799238",
+        "desc": "I like to think Patchouli collects hair and nail trimmings from Remilia and Flandre, ground them up, and mix the dust with chaurus eggs to make invisibility potions.",
+        "artistId": "ebi",
+        "characterIds": [
+            "remilia",
+            "patchouli"
+        ],
+        "nsfw": false
     }
 ]
