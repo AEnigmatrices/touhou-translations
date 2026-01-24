@@ -1023,5 +1023,48 @@
             "patchouli"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769276590000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qltfjt",
+        "url": [
+            "https://i.redd.it/k1hthonn3cfg1.png"
+        ],
+        "src": "https://www.pixiv.net/en/artworks/140313864",
+        "desc": "I wholeheartedly support long-skirt Touhous 😤",
+        "artistId": "tofuya",
+        "characterIds": [
+            "remilia",
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769279235000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qlun22",
+        "url": [
+            "https://i.redd.it/aulnoa1jbcfg1.png"
+        ],
+        "src": "https://x.com/kyunmarifukko/status/1975940612336816144",
+        "desc": "Ah. Memetic hazard. Classic.",
+        "artistId": "fuko",
+        "characterIds": [
+            "koakuma"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769280844000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qlvdxs",
+        "url": [
+            "https://i.redd.it/y3bicfdagcfg1.png"
+        ],
+        "src": "https://x.com/Momono_Aito/status/2007645510619017703",
+        "desc": "Do people on the Moon swim in that sea? 🤔",
+        "artistId": "momono",
+        "characterIds": [
+            "reisen"
+        ],
+        "nsfw": false
     }
 ]
