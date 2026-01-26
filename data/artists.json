@@ -2843,5 +2843,18 @@
         "name": "麻婆飯",
         "linkTwitter": "https://x.com/mokotan802",
         "portrait": "portraits/placeholders/pyro.webp"
+    },
+    {
+        "id": "chitoku",
+        "name": "智徳",
+        "linkTwitter": "https://x.com/Titoku_Housi",
+        "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "yunomi",
+        "name": "第三のビール",
+        "linkTwitter": "https://x.com/TH_400_",
+        "linkPixiv": "https://www.pixiv.net/en/users/18470393",
+        "portrait": "portraits/placeholders/scout.webp"
     }
 ]

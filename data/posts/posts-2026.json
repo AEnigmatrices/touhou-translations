@@ -1066,5 +1066,49 @@
             "reisen"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769341364000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qmgzqe",
+        "url": [
+            "https://i.redd.it/5qjkj8bvfhfg1.png"
+        ],
+        "src": "https://x.com/Titoku_Housi/status/2014986538229416279",
+        "desc": "# SASUGA SHINKI-SAMA\n\nThis is what [**Shinki says**](https://en.touhouwiki.net/wiki/Mystic_Square/Story/Reimu's_Scenario#:~:text=生意気に) before fighting Reimu.",
+        "artistId": "chitoku",
+        "characterIds": [
+            "reimu",
+            "shinki"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769351133000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qmkg9f",
+        "url": [
+            "https://i.redd.it/fuqy2gha9ifg1.png"
+        ],
+        "src": "https://x.com/Shameimarulike/status/2015379129949126829",
+        "desc": "Miracle mallet taking a day off today.",
+        "artistId": "gurajio",
+        "characterIds": [
+            "ichirin",
+            "futo"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769352531000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qml0yx",
+        "url": [
+            "https://i.redd.it/vifbtxefdifg1.png"
+        ],
+        "src": "https://x.com/TH_400_/status/2015303856343876059",
+        "desc": "I think it's refreshing to think about. That Mishaguji is not a bunch of snakes, but a separate character.",
+        "artistId": "yunomi",
+        "characterIds": [
+            "suwako"
+        ],
+        "nsfw": false
     }
 ]
