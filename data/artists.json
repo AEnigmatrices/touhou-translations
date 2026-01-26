@@ -2856,5 +2856,18 @@
         "linkTwitter": "https://x.com/TH_400_",
         "linkPixiv": "https://www.pixiv.net/en/users/18470393",
         "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "kotonafu",
+        "name": "こトなふ",
+        "linkTwitter": "https://x.com/Ktune_udon",
+        "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "teiburu",
+        "name": "テイブル",
+        "linkTwitter": "https://x.com/msn00100hyaksh1",
+        "linkPixiv": "https://www.pixiv.net/en/users/10214161",
+        "portrait": "portraits/placeholders/heavy.webp"
     }
 ]

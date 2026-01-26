@@ -1110,5 +1110,50 @@
             "suwako"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769448891000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qnmr9l",
+        "url": [
+            "https://i.redd.it/irixpwzzbqfg1.png"
+        ],
+        "src": "https://x.com/Ktune_udon/status/2015694290517954907",
+        "desc": "Does she preen them with her hands or mouth? 🤔",
+        "artistId": "kotonafu",
+        "characterIds": [
+            "aya"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769449667000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qnn46c",
+        "url": [
+            "https://i.redd.it/sjmmfch9eqfg1.png"
+        ],
+        "src": "https://x.com/ne_tochika/status/2015776230742823229",
+        "desc": "Allow me to rephrase the question – would you rather be dommed by Sakuya or Meiling? 🗿",
+        "artistId": "ne_tochika",
+        "characterIds": [
+            "sakuya",
+            "remilia",
+            "flandre",
+            "meiling"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769450481000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qnnjb6",
+        "url": [
+            "https://i.redd.it/qhkqpyepgqfg1.png"
+        ],
+        "src": "https://x.com/msn00100hyaksh1/status/2015391966528405901",
+        "desc": "This is a [**Jujutsu Kaisen reference.**](https://dic.pixiv.net/a/人の心とかないんか%3F)",
+        "artistId": "teiburu",
+        "characterIds": [
+            "kaguya"
+        ],
+        "nsfw": false
     }
 ]
