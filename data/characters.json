@@ -447,6 +447,15 @@
         "portrait": "portraits/characters/akyuu.webp"
     },
     {
+        "id": "elly",
+        "name": "Elly",
+        "short_name": "Elly",
+        "work": [
+            "lls"
+        ],
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
         "id": "mugetsu",
         "name": "Mugetsu",
         "short_name": "Mugetsu",
