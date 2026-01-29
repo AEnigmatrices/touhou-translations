@@ -1245,5 +1245,49 @@
             "eiki"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769694836000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qq95ik",
+        "url": [
+            "https://i.redd.it/zskvu5abnagg1.png"
+        ],
+        "src": "https://x.com/suwaneko2/status/2016842022712463529",
+        "desc": "Patchouli summoned MONOCULUS at the mansion, Reimu! That has to be an incident!",
+        "artistId": "suwaneko",
+        "characterIds": [
+            "reimu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769697838000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qqaf15",
+        "url": [
+            "https://i.redd.it/gu08exh8wagg1.png"
+        ],
+        "src": "https://x.com/dng_satou/status/2016553069883125989",
+        "desc": "#1 – Danna just drew a piece of [**Komachi visiting Flandre**](https://x.com/dng_satou/status/2016160926291132745) to play around.\n\n#2 – Danna ships MeiSaku, hence Meiling being the dad.",
+        "artistId": "danna",
+        "characterIds": [
+            "meiling",
+            "komachi",
+            "flandre"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769706925000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qqemls",
+        "url": [
+            "https://i.redd.it/3lbn9pd9nbgg1.png"
+        ],
+        "src": "https://x.com/jirufun/status/2016806306020282826",
+        "desc": "Yeah... she doesn't seem the kind to actually hang out and visit other places. Like, she preaches, but that's it. You're not gonna find her hanging out at Kōrindō-\n\nWait, has Sanae met Rinnosuke? 🤔",
+        "artistId": "jiru",
+        "characterIds": [
+            "sanae"
+        ],
+        "nsfw": false
     }
 ]
