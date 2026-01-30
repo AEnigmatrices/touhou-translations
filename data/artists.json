@@ -2875,5 +2875,12 @@
         "name": "豚斬 男",
         "linkTwitter": "https://x.com/bko_pigslicer",
         "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "okishi",
+        "name": "おきし",
+        "linkTwitter": "https://x.com/psychooxy",
+        "linkPixiv": "https://www.pixiv.net/en/users/3360430",
+        "portrait": "portraits/placeholders/engineer.webp"
     }
 ]
