@@ -1334,5 +1334,49 @@
             "flandre"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769873091000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qs564q",
+        "url": [
+            "https://i.redd.it/ew2d0kzbdpgg1.png"
+        ],
+        "src": "https://x.com/remyaruku65/status/2016797216242094259",
+        "desc": "I actually forgot that Mina's ladle is supposed to be bottom-less like that...",
+        "artistId": "mitsusame",
+        "characterIds": [
+            "minamitsu"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769882899000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qs9j86",
+        "url": [
+            "https://i.redd.it/juwtqjui6qgg1.png"
+        ],
+        "src": "https://x.com/Arom_0217/status/2017541191504633857",
+        "desc": "When the people voted for `cp_dustbowl` again.",
+        "artistId": "arom",
+        "characterIds": [
+            "remilia"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769885417000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qsaoy4",
+        "url": [
+            "https://i.redd.it/irz1q3uldqgg1.png"
+        ],
+        "src": "https://x.com/Suzuna_Kagura/status/2006743851793527243",
+        "desc": "A question of whether to use the solar calendar or the lunar calendar, I suppose.",
+        "artistId": "suzuna_kagura",
+        "characterIds": [
+            "saki",
+            "yuuma",
+            "yachie"
+        ],
+        "nsfw": false
     }
 ]

@@ -2882,5 +2882,11 @@
         "linkTwitter": "https://x.com/psychooxy",
         "linkPixiv": "https://www.pixiv.net/en/users/3360430",
         "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "arom",
+        "name": "畳の部屋",
+        "linkTwitter": "https://x.com/Arom_0217",
+        "portrait": "portraits/placeholders/engineer.webp"
     }
 ]
