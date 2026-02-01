@@ -1378,5 +1378,49 @@
             "yachie"
         ],
         "nsfw": false
+    },
+    {
+        "date": 1769955772000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qszq5u",
+        "url": [
+            "https://i.redd.it/rpk79ev47wgg1.png"
+        ],
+        "src": "https://x.com/kyunmarifukko/status/1812391272465699293",
+        "desc": "Huh. I don't think doujins usually touch this, right? What Reimu and Marisa would fight when they're full adults. Usually adult-timelines depict them in a more civil manner.\n\nLike, imagine the cast all older, all mature – using danmaku to fight [**dakka.**](https://youtu.be/bBRy6H7lUKI)",
+        "artistId": "fuko",
+        "characterIds": [
+            "reimu",
+            "marisa"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769963745000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qt36xv",
+        "url": [
+            "https://i.redd.it/udejl25uuwgg1.png"
+        ],
+        "src": "https://x.com/motutigire/status/1999042038248112614",
+        "desc": "Is Chiyari a reptile or an amphibian? 🤔",
+        "artistId": "motsuchigire",
+        "characterIds": [
+            "yuuma",
+            "chiyari"
+        ],
+        "nsfw": false
+    },
+    {
+        "date": 1769965160000,
+        "reddit": "https://www.reddit.com/r/touhou/comments/1qt3u40",
+        "url": [
+            "https://i.redd.it/3xpwiko4zwgg1.png"
+        ],
+        "src": "https://x.com/Blue_Hawaii_KGS/status/2014470405671813531",
+        "desc": "Context: Blue Hawaii's Megumu three-times between Tsukasa, Chimata, and Momoyo.",
+        "artistId": "blue_hawaii",
+        "characterIds": [
+            "megumu"
+        ],
+        "nsfw": false
     }
 ]
