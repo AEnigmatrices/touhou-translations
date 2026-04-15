@@ -30,5 +30,5 @@ export default VitePWA({
             new RegExp('^/robots\\.txt')
         ]
     },
-    includeAssets: ['icons/favicon.ico', 'robots.txt']
+    includeAssets: ['favicon.ico', 'robots.txt']
 });
