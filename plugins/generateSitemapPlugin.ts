@@ -65,7 +65,7 @@ ${urls.map(u => `  <url>
 
         const generalPath = path.join(outDir, 'sitemap-general.xml');
         const postsPath = path.join(outDir, 'sitemap-posts.xml');
-        const indexPath = path.join(outDir, 'sitemap.xml');
+        const indexPath = path.join(outDir, 'sitemap_index.xml');
 
         fs.writeFileSync(generalPath, makeXml(generalUrls), 'utf-8');
         fs.writeFileSync(postsPath, makeXml(postUrls), 'utf-8');
