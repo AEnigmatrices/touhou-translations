@@ -29,7 +29,7 @@ const SeeMoreArtist: FC<Props> = ({ artistId, artistName, artistPosts }) => {
                 </Box>
             </Typography>
 
-            <Grid container spacing={2} justifyContent="center">
+            <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
                 {artistPosts.slice(0, 4).map(({ id, img, nsfw }) => (
                     <Grid size={{ xs: 6, sm: 3 }} key={id} sx={styles.seeMoreGrid}>
                         <Box

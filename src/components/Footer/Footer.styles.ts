@@ -40,6 +40,8 @@ const styles: FooterStyles = {
     bottomBar: {
         textAlign: { xs: "center", sm: "left" },
         paddingBottom: { xs: "56px", sm: 0 },
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     link: {
         color: "inherit",

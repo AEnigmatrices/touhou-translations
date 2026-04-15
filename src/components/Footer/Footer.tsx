@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
                                 <Typography variant="h6" sx={styles.sectionTitle}>
                                     Project
                                 </Typography>
-                                <Stack spacing={0.75} alignItems="flex-end">
+                                <Stack spacing={0.75} sx={{ alignItems: 'flex-end' }}>
                                     <ExternalLink href="https://github.com/AEnigmatrices/touhou-translations" label="GitHub Repository" startIcon={<GitHubIcon fontSize="small" />}>
                                         GitHub Repository
                                     </ExternalLink>
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
 
                 <Divider sx={styles.divider} />
 
-                <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, sm: 3 }} justifyContent="space-between" alignItems="center" sx={styles.bottomBar} >
+                <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, sm: 3 }} sx={styles.bottomBar} >
                     <Stack direction="row" spacing={2}>
                         <IconButton component="a" href="https://www.reddit.com/user/Aenigmatrix/" target="_blank" aria-label="Reddit" sx={styles.iconButton} >
                             <RedditIcon />

@@ -61,7 +61,7 @@ const ArtistForm: React.FC = () => {
                         <Typography variant="h6" gutterBottom>
                             Artist Information
                         </Typography>
-                        <Stack direction="row" spacing={2} flexWrap="wrap">
+                        <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap' }}>
                             <Box sx={styles.artistIdBox}>
                                 <TextField
                                     label="Artist ID" error={!!errors.id} helperText={errors.id?.message} fullWidth
@@ -82,7 +82,7 @@ const ArtistForm: React.FC = () => {
                         <Typography variant="h6" gutterBottom>
                             Links
                         </Typography>
-                        <Stack direction="row" spacing={2} flexWrap="wrap">
+                        <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap' }}>
                             <Box sx={styles.twitterBox}>
                                 <TextField
                                     label="Twitter Link" error={!!errors.linkTwitter} helperText={errors.linkTwitter?.message} fullWidth
@@ -101,7 +101,7 @@ const ArtistForm: React.FC = () => {
                         </Stack>
                     </Box>
 
-                    <Stack direction="row" justifyContent="center">
+                    <Stack direction="row" sx={{ justifyContent: 'center' }}>
                         <Button type="submit" variant="contained" disabled={isSubmitting} sx={styles.submitButton} >
                             {isSubmitting ? 'Submitting...' : 'Add Artist'}
                         </Button>

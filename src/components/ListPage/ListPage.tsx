@@ -156,8 +156,8 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
                     slotProps={{ input: { "aria-label": ariaLabel } }}
                 />
                 {mode === MODE_CHARACTER && (
-                    <Box display="flex" alignItems="center" sx={{ mr: 2 }}>
-                        <Box display="flex" alignItems="center" sx={{ cursor: "pointer" }} onClick={handleToggleSelectMode}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={handleToggleSelectMode}>
                             <IconButton
                                 color={isSelectMode ? "primary" : "default"}
                                 aria-label="Toggle multi-select mode"

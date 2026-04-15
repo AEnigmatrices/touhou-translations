@@ -100,7 +100,7 @@ const PostForm: React.FC = () => {
                         <Typography variant="h6" gutterBottom>
                             Post Details
                         </Typography>
-                        <Stack direction="row" spacing={2} flexWrap="wrap">
+                        <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap' }}>
                             <Box sx={styles.inputBoxSmall}>
                                 <TextField
                                     label="UNIX Timestamp" type="number" error={!!errors.date} helperText={errors.date?.message} fullWidth
@@ -203,7 +203,7 @@ const PostForm: React.FC = () => {
                         />
                     </Box>
 
-                    <Stack direction="row" spacing={2} justifyContent="center" flexWrap="wrap">
+                    <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', flexWrap: 'wrap' }}>
                         <Button variant="contained" onClick={handleFetchRedditData} disabled={loadingRedditData} sx={styles.actionButton} >
                             {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
                         </Button>

@@ -9,7 +9,7 @@ interface Props {
 
 const DateFilter: FC<Props> = ({ startDate, endDate, onDateChange }) => {
     return (
-        <Stack direction="row" alignItems="center" spacing={2}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
             <TextField
                 label="Start Date"
                 type="date"

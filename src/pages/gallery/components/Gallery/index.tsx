@@ -16,7 +16,7 @@ const Gallery: FC<Props> = ({ posts }) => {
     if (!posts.length) return <p>No posts available.</p>;
 
     return (
-        <Grid container spacing={2} justifyContent="center">
+        <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
             {posts.map((post) => {
                 if (!post.url?.length) return null;
 
