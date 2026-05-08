@@ -41,18 +41,24 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
         return () => observer.disconnect();
     }, []);
 
-    const ImageContent = isVisible
-        ? (
-            <Img
-                src={[imageUrl]}
-                alt={name}
-                decode={false}
-                loader={<Box sx={styles.placeholder}><LoadingIndicator /></Box>}
-                unloader={<Box sx={styles.placeholder} aria-hidden><LoadingIndicator /></Box>}
-                style={styles.avatar}
-            />
-        )
-        : <Box sx={styles.placeholder} aria-hidden />;
+    const ImageContent = <Box sx={styles.imageFrame}>
+        {isVisible ? <Img
+            src={[imageUrl]}
+            alt={name}
+            decode={false}
+            loader={
+                <Box sx={styles.imageFill}>
+                    <LoadingIndicator />
+                </Box>
+            }
+            unloader={
+                <Box sx={styles.imageFill} aria-hidden>
+                    <LoadingIndicator />
+                </Box>
+            }
+            style={styles.avatar}
+        /> : <Box sx={styles.imageFill} aria-hidden />}
+    </Box>;
 
     const Content = (
         <Box sx={styles.content} onClick={handleItemClick}>
@@ -67,7 +73,7 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
                         aria-label={`Select ${name}`}
                     />
                 )}
-                <Typography variant="subtitle1" fontWeight={600}>{name}</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>{name}</Typography>
                 {description1 && <Typography variant="body2" color="text.secondary">{description1}</Typography>}
                 {description2 && <Typography variant="body2" color="text.secondary">{description2}</Typography>}
             </Box>

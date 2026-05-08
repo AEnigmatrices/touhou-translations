@@ -6,8 +6,9 @@ interface ProfileItemStyles {
     linkBox: SxProps;
     content: SxProps;
     textContainer: SxProps;
+    imageFrame: SxProps;
+    imageFill: SxProps;
     avatar: CSSProperties;
-    placeholder: SxProps;
 }
 
 const styles: ProfileItemStyles = {
@@ -41,19 +42,31 @@ const styles: ProfileItemStyles = {
     textContainer: {
         flex: 1
     },
-    avatar: {
-        flex: 1,
-        width: "100%",
-        height: "auto",
-        borderRadius: 20,
-        objectFit: "cover"
+    imageFrame: {
+        position: "relative",
+        flex: { xs: "0 0 120px", sm: "0 0 144px", md: "0 0 168px" },
+        width: { xs: 120, sm: 144, md: 168 },
+        aspectRatio: "1 / 1",
+        borderRadius: 2,
+        overflow: "hidden",
+        bgcolor: "#ffffff"
     },
-    placeholder: {
-        flex: 1,
+    imageFill: {
+        position: "absolute",
+        inset: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         width: "100%",
-        aspectRatio: "1 / 1", // maintains square ratio
-        bgcolor: "#f0f0f0",
-        borderRadius: 2
+        height: "100%"
+    },
+    avatar: {
+        position: "absolute",
+        inset: 0,
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        display: "block"
     },
 };
 
