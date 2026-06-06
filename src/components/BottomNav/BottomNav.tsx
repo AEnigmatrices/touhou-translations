@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { GearIcon } from '@phosphor-icons/react/Gear';
+import { HouseIcon } from '@phosphor-icons/react/House';
+import { ImagesIcon } from '@phosphor-icons/react/Images';
+import { PaintBrushIcon } from '@phosphor-icons/react/PaintBrush';
+import { UsersIcon } from '@phosphor-icons/react/Users';
 import { navLinks } from '../../utils/navLinks';
 import styles from './styles.module.css';
 
-const iconMap: Record<string, string> = {
-    Home: '⌂',
-    Characters: '人',
-    Artists: '✎',
-    Gallery: '▦',
-    Admin: '⚙',
+const iconMap: Record<string, React.ReactNode> = {
+    Home: <HouseIcon size={20} weight="bold" />,
+    Characters: <UsersIcon size={20} weight="bold" />,
+    Artists: <PaintBrushIcon size={20} weight="bold" />,
+    Gallery: <ImagesIcon size={20} weight="bold" />,
+    Admin: <GearIcon size={20} weight="bold" />,
 };
 
 const BottomNav: React.FC = () => {
@@ -28,7 +33,7 @@ const BottomNav: React.FC = () => {
                     aria-current={value === index ? 'page' : undefined}
                     onClick={() => setValue(index)}
                 >
-                    <span className={styles.icon} aria-hidden="true">{iconMap[label] ?? '•'}</span>
+                    <span className={styles.icon} aria-hidden="true">{iconMap[label] ?? <PaintBrushIcon size={20} weight="bold" />}</span>
                     <span className={styles.label}>{label}</span>
                 </a>
             ))}

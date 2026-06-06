@@ -1,4 +1,7 @@
 import { useCallback, useEffect } from 'react';
+import { ArrowLeftIcon } from '@phosphor-icons/react/ArrowLeft';
+import { ArrowRightIcon } from '@phosphor-icons/react/ArrowRight';
+import { DownloadSimpleIcon } from '@phosphor-icons/react/DownloadSimple';
 import { navigate } from 'vike/client/router';
 import styles from './styles.module.css';
 import type { FC } from 'react';
@@ -94,7 +97,7 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [], redditUrl }
                 disabled={!prevPostId}
                 className={styles.button}
             >
-                <span aria-hidden="true">←</span> Previous
+                <ArrowLeftIcon size={18} weight="bold" aria-hidden="true" /> Previous
             </button>
 
             {isDev && urls.length > 0 && (
@@ -103,7 +106,7 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [], redditUrl }
                     onClick={handleDownload}
                     className={`${styles.button} ${styles.downloadButton}`}
                 >
-                    <span aria-hidden="true">↓</span> Download
+                    <DownloadSimpleIcon size={18} weight="bold" aria-hidden="true" /> Download
                 </button>
             )}
 
@@ -113,7 +116,7 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [], redditUrl }
                 disabled={!nextPostId}
                 className={styles.button}
             >
-                Next <span aria-hidden="true">→</span>
+                Next <ArrowRightIcon size={18} weight="bold" aria-hidden="true" />
             </button>
         </div>
     );
