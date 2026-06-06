@@ -555,7 +555,7 @@
     {
         "id": "kiyo_nuts",
         "name": "キヨナッツ",
-        "linkTwitter": "x.com/stun_oyik",
+        "linkTwitter": "https://x.com/stun_oyik",
         "portrait": "portraits/placeholders/sniper.webp"
     },
     {
@@ -925,7 +925,7 @@
     {
         "id": "yanotsuki",
         "name": "ヤノツキ",
-        "linkTwitter": "x.com/yanotsuki8",
+        "linkTwitter": "https://x.com/yanotsuki8",
         "portrait": "portraits/placeholders/demoman.webp"
     },
     {
@@ -2741,7 +2741,7 @@
     {
         "id": "motsuchigire",
         "name": "もつちぎれ",
-        "linkTwitter": "x.com/motutigire",
+        "linkTwitter": "https://x.com/motutigire",
         "portrait": "portraits/placeholders/soldier.webp"
     },
     {

@@ -24,7 +24,7 @@ const moveClientToDist = () => {
         console.log("✅ Moved files from dist/client to dist/.");
 
         if (fs.existsSync(serverDir)) {
-            fs.rmdirSync(serverDir, { recursive: true });
+            fs.rmSync(serverDir, { recursive: true, force: true });
             console.log("✅ Deleted dist/server directory.");
         } else {
             console.log("ℹ️ Server directory does not exist, no deletion needed.");

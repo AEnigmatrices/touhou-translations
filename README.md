@@ -48,11 +48,12 @@ Run verification commands:
 ```sh
 pnpm run typecheck
 pnpm run lint
+pnpm run validate:data
 pnpm run test
 pnpm run build
 ```
 
-`lint` currently runs the strict TypeScript project checks without pretty output. `test` runs the available verification path for this project, which is the TypeScript build check.
+`lint` currently runs the strict TypeScript project checks without pretty output. `validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation and the TypeScript build check.
 
 ## Content Data
 
