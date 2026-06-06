@@ -1,6 +1,3 @@
-import type { PageContextServer } from 'vike/types';
-import type { Data } from './+data';
-
-const image = (pageContext: PageContextServer<Data>) => pageContext.data.post.url[0];
+const image = `${import.meta.env.BASE_URL}icons/touhou-translations-profile-icon.png`;
 
 export default image;
