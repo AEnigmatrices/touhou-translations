@@ -1,10 +1,9 @@
-import type { JSX } from 'react';
 import styles from './styles.module.css';
 
-const Video = (): JSX.Element => {
+const Video = () => {
     return (
         <section className={styles.videoContainer}>
-            <h2 className={styles.title}>
+            <h2 className={styles.videoTitle}>
                 Featured Video
             </h2>
 
