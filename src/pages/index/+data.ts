@@ -1,5 +1,5 @@
 import type { PageContextServer } from 'vike/types';
-import { fetchPosts } from '../../utils/fetchData';
+import { fetchDerivedData } from '../../utils/fetchData';
 import { extractRedditId } from '../../utils/extractRedditId';
 
 const FEATURED_IDS = [
@@ -8,7 +8,7 @@ const FEATURED_IDS = [
 ];
 
 const data = async (_pageContext: PageContextServer) => {
-    const allPosts = await fetchPosts();
+    const { posts: allPosts } = await fetchDerivedData();
 
     const featuredPosts = allPosts.filter(post => {
         const id = extractRedditId(post.reddit);
