@@ -1,4 +1,8 @@
 const isProd = process.env.NODE_ENV === 'production';
+
+const siteName = 'Touhou Translations';
+const siteUrl = 'https://aenigmatrices.github.io/touhou-translations/';
+
 const fontsUrl =
     "https://fonts.googleapis.com/css2?" +
     "family=Noto+Sans+JP:wght@400;500;600;700&" +
@@ -7,7 +11,15 @@ const fontsUrl =
 
 const Head = () => (
     <>
+        <title>{siteName}</title>
+
         <meta name="google-site-verification" content="0HESLIqydO91EGI_Nz10xq3aAxhdqBAfCHes6Q6oXrE" />
+
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:title" content={siteName} />
+        <meta property="og:url" content={siteUrl} />
+        <meta name="application-name" content={siteName} />
+
         <meta
             httpEquiv="Content-Security-Policy"
             content="
@@ -22,6 +34,7 @@ const Head = () => (
                 frame-src https://www.youtube-nocookie.com;
             "
         />
+
         <meta name="referrer" content="strict-origin" />
 
         {isProd && <link rel="manifest" href="/touhou-translations/manifest.webmanifest" />}
@@ -34,15 +47,16 @@ const Head = () => (
         <link rel="stylesheet" href={fontsUrl} />
 
         {isProd && <script src="/touhou-translations/registerSW.js"></script>}
+
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
                 __html: JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "WebSite",
-                    "name": "Touhou Translations",
-                    "alternateName": "TT",
-                    "url": "https://aenigmatrices.github.io/touhou-translations/"
+                    "name": siteName,
+                    "alternateName": "Touhou TL",
+                    "url": siteUrl
                 })
             }}
         />
