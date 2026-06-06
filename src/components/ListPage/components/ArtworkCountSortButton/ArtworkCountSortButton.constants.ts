@@ -1,7 +1,7 @@
 import CollectionsIcon from "@mui/icons-material/Collections";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import type { SortOrder } from "../../types/data";
+import type { SortOrder } from "../../../../types/data";
 
 export const ariaSortMap: Record<SortOrder, "none" | "ascending" | "descending"> = {
     none: "none",

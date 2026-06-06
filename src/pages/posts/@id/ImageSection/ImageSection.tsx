@@ -33,7 +33,7 @@ const ImageSection: FC<{ urls: string[]; nsfw?: boolean }> = ({ urls, nsfw }) =>
 
     return (
         <Box sx={styles.root}>
-            <Box sx={styles.imageDisplay} position="relative">
+            <Box sx={{ ...(styles.imageDisplay as Record<string, unknown>), position: 'relative' }}>
                 <Paper onClick={handleImageClick} elevation={zoomed ? 8 : 1} sx={getPaperSx(zoomed, isMobile)}>
                     <Img
                         src={[currentImage]}

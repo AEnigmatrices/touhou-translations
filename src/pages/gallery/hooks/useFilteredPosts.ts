@@ -37,14 +37,19 @@ const useFilteredPosts = ({ posts, characterQueries, artistQueries, mode, galler
         });
     }, [posts, characterQueries, artistQueries, mode, galleryOnly, dateSortOrder, startDate, endDate]);
 
-    const shuffledOnceRef = useRef<Post[] | null>(null);
+    const shuffledOnceRef = useRef<{ key: string; posts: Post[] } | null>(null);
 
     const shuffledPosts = useMemo(() => {
         if (dateSortOrder !== "none") return filteredPosts;
-        if (!shuffledOnceRef.current || shuffledOnceRef.current.length !== filteredPosts.length) {
-            shuffledOnceRef.current = [...filteredPosts].sort(() => Math.random() - 0.5);
+
+        const filterKey = filteredPosts.map(post => post.reddit).join('|');
+        if (!shuffledOnceRef.current || shuffledOnceRef.current.key !== filterKey) {
+            shuffledOnceRef.current = {
+                key: filterKey,
+                posts: [...filteredPosts].sort(() => Math.random() - 0.5)
+            };
         }
-        return shuffledOnceRef.current;
+        return shuffledOnceRef.current.posts;
     }, [filteredPosts, dateSortOrder]);
 
     return { filteredPosts, shuffledPosts };

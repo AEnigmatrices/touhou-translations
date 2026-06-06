@@ -1,7 +1,6 @@
 import { Avatar, Box, Typography, SpeedDial, SpeedDialAction, type SxProps, type Theme } from '@mui/material';
 import styles from './ArtistSpeedDial.styles';
 import type { FC } from 'react';
-import type { SystemStyleObject } from '@mui/system';
 import type { ArtistSpeedDialProps } from './ArtistSpeedDial.types';
 
 
@@ -11,7 +10,11 @@ const ArtistSpeedDialMobile: FC<ArtistSpeedDialProps> = ({ artist, speedDialActi
         const base = typeof styles.container === 'function'
             ? styles.container(theme)
             : styles.container;
-        return { ...(base as SystemStyleObject<Theme>), pointerEvents: open ? 'auto' : 'none' };
+
+        return {
+            ...(base as Record<string, unknown>),
+            pointerEvents: open ? 'auto' : 'none',
+        };
     };
 
     return (

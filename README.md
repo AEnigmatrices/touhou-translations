@@ -1,90 +1,90 @@
 # Touhou Translations
 
-This is a personal archive and viewer for English translations of Touhou Project fan comics and illustrations. The site is built with [React](https://react.dev/) and [Vite](https://vitejs.dev/), using TypeScript, and is deployed as a static site on [GitHub Pages](https://pages.github.com/).
+Touhou Translations is a personal archive and viewer for English-translated Touhou Project fan comics and illustrations. It is built with React, TypeScript, Vite, and Vike, then prerendered as a static site for GitHub Pages.
 
 ## Purpose
 
-This project hosts manually translated Touhou fan art and comics, preserving attribution to the original creators wherever possible. It serves as a centralized viewer for fans interested in translated content.
+The project collects manually translated Touhou fan art and comics while preserving attribution to the original creators wherever possible. It is intended as a centralized, non-commercial viewer for translated fan works.
 
 ## Tech Stack
 
-The project leverages the following technologies and tools:
-
--   **Vite** – Fast frontend build tool and development server.
--   **React 19** – Component-based UI framework with TypeScript support.
--   **Vike** – SSR/SSG framework for React, used here primarily for building a static site.
--   **MUI (Material UI)** – React component library for UI elements.
--   **React Router DOM v7** – For client-side routing.
--   **gh-pages** – To automate deployment to GitHub Pages.
--   **GitHub Actions** – For continuous integration and deployment workflow.
--   **TypeScript** – For type-safe JavaScript development.
--   **ESLint** – For code linting.
+- **React 19** - Component-based UI.
+- **Vike** - File-based routing and prerendering.
+- **Vite** - Development server and production build tooling.
+- **TypeScript** - Static checking for app, build, and plugin code.
+- **MUI** - UI components, theming, and icons.
+- **PNPM** - Package management.
+- **vite-plugin-pwa** - Service worker and web app manifest generation.
+- **GitHub Pages** - Static hosting through GitHub Actions.
 
 ## Repository Structure
 
-*(Based on standard Vite + Vike structure and the provided config)*
-
--   `public/` – Static assets.
--   `src/` – Main application source code:
-    -   `pages/` – Vike pages.
-    -   `components/`, `layouts/`, `types/`, `utils/` – Application logic and components.
-    -   `renderer/` – Vike renderer logic.
--   `data/` – JSON data files for translation content.
--   `scripts/` – Custom scripts (e.g., `copyIndexTo404.ts`, `moveDist.ts`).
--   `plugins/` – Custom Vite plugins (e.g., `pwaPlugin.ts`, `postDataPlugin.ts`, `generateSitemapPlugin.ts`).
--   `dist/` – Output directory for the built static site.
--   `vite.config.ts` – Vite configuration with base path set for GitHub Pages.
--   `.github/workflows/` – GitHub Actions workflows.
+- `src/pages/` - Vike page routes, route configs, and page data loaders.
+- `src/components/` - Shared UI components.
+- `src/utils/` - Shared data-loading, filtering, and URL helpers.
+- `src/types/` - Shared TypeScript data models.
+- `data/` - JSON source data for posts, artists, and characters.
+- `public/` - Static assets such as icons and portraits.
+- `plugins/` - Custom Vite plugins for local data submission, PWA setup, and sitemap generation.
+- `scripts/` - Post-build helpers used by deployment.
+- `.github/workflows/` - GitHub Pages deployment workflow.
 
 ## Development
 
-To run the project locally:
+Install dependencies:
 
-```
-npm install
-npm run dev
+```sh
+pnpm install
 ```
 
-This starts the Vite development server (based on the `base` config), enabling hot module replacement for efficient development.
+Start the local development server:
+
+```sh
+pnpm run dev
+```
+
+Run verification commands:
+
+```sh
+pnpm run typecheck
+pnpm run lint
+pnpm run test
+pnpm run build
+```
+
+`lint` currently runs the strict TypeScript project checks without pretty output. `test` runs the available verification path for this project, which is the TypeScript build check.
+
+## Content Data
+
+Posts, artists, and characters are stored as JSON under `data/`. The application imports this data at build time, derives artist and character counts, and prerenders one static route per post.
+
+The `/admin` route is a local development helper for adding posts and artists through the Vite dev server middleware. It is not a production dashboard and is excluded from prerendering.
 
 ## Deployment
 
-Deployment to GitHub Pages is automated via GitHub Actions and the `gh-pages` package. Key points:
+The site is deployed to:
 
--   The site is hosted at: `https://aenigmatrices.github.io/touhou-translations/`
--   The `base` option in `vite.config.ts` (`/touhou-translations/`) is set accordingly for correct asset path resolution on GitHub Pages.
--   The GitHub Actions workflow (`.github/workflows/...`) triggers on pushes to the `main` branch.
--   The workflow performs the following steps:
-    1.  Checks out the repository.
-    2.  Sets up Node.js.
-    3.  Installs dependencies (`npm ci`).
-    4.  Builds the project (`npm run build`).
-    5.  Runs custom post-build scripts (`copyIndexTo404.ts`, `moveDist.ts`).
-    6.  Deploys the `dist` directory to the `gh-pages` branch using `peaceiris/actions-gh-pages`.
--   You can also deploy manually with:
-
-```
-npm run deploy
+```txt
+https://aenigmatrices.github.io/touhou-translations/
 ```
 
-*(This script runs `npm run build` followed by `gh-pages` CLI to deploy the `dist` directory.)*
+The production build uses the `/touhou-translations/` base path configured in `vite.config.ts`. The GitHub Actions workflow installs dependencies with PNPM, runs the production build, runs the post-build scripts, and uploads the generated `dist` directory as a GitHub Pages artifact.
 
-## Usage
+Manual deployment is also available:
 
-Once deployed, users can browse and read translated Touhou fan comics and illustrations organized via the React frontend. Content is dynamically loaded from the JSON files in the data directory.
+```sh
+pnpm run deploy
+```
 
 ## License and Attribution
 
-This project's software and website code are licensed under the MIT License © AEnigmatrices.
+The website code is licensed under the MIT License.
 
-The Touhou fan comics, illustrations, and translated content hosted here are non-commercial fan works and remain the intellectual property of their original creators.
+The hosted Touhou fan comics, illustrations, and translated content are non-commercial fan works and remain the intellectual property of their original creators.
 
-Third-party assets are used under the following terms:
+Third-party assets are used under their respective permissions:
 
--   Non-commercial use only; redistribution and commercial use are prohibited.
--   Touhou character portraits are by [**dairi**](https://www.pixiv.net/en/users/4920496) ([**haruka**](https://www.nicovideo.jp/user/3494232)), used accordingly to the specified permissions.
--   The project complies with the [**Touhou Project fan work guidelines**](https://touhou-project.news/guidelines_en/).
+- Touhou character portraits are by [dairi](https://www.pixiv.net/en/users/4920496) / [haruka](https://www.nicovideo.jp/user/3494232).
+- The project aims to follow the [Touhou Project fan work guidelines](https://touhou-project.news/guidelines_en/).
 
-If you are an artist and wish to have your work removed or credited differently, please open an issue or contact me.
-
-© AEnigmatrices, 2025
+If you are an artist and want work removed or credited differently, please open an issue or contact the maintainer.

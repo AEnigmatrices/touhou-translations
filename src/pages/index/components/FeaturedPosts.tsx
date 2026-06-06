@@ -18,7 +18,7 @@ const FeaturedPosts: FC<{ featuredPosts?: Post[] }> = ({ featuredPosts = [] }) =
     return (
         <Card sx={styles.card}>
             <CardContent>
-                <Typography variant="h6" color="text.primary" gutterBottom mb={3}>
+                <Typography variant="h6" color="text.primary" gutterBottom sx={{ mb: 3 }}>
                     Featured Posts
                 </Typography>
 
