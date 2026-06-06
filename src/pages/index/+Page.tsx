@@ -9,7 +9,7 @@ import type { JSX } from 'react';
 import type { Data } from './+data';
 
 const Page = (): JSX.Element => {
-    const { dailyPost, featuredPosts } = useData<Data>();
+    const { dailyPostCandidates, featuredPosts } = useData<Data>();
     return (
         <Container maxWidth="xl" sx={styles.container}>
             <Grid container spacing={{ xs: 2, md: 4 }}>
@@ -23,7 +23,7 @@ const Page = (): JSX.Element => {
                     </Stack>
                 </Grid>
                 <Grid size={{ xs: 12, md: 5 }}>
-                    <DailyPost dailyPost={dailyPost} />
+                    <DailyPost posts={dailyPostCandidates} />
                 </Grid>
             </Grid>
         </Container>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { Img } from 'react-image';
 import { extractRedditId } from '../../../utils/extractRedditId';
@@ -8,11 +9,32 @@ import type { Post } from '../../../types/data';
 
 const BASE_URL = import.meta.env.BASE_URL || '/';
 
+type DailyPostCandidate = Pick<Post, 'reddit' | 'url' | 'nsfw'>;
+
 interface Props {
-    dailyPost: Post | null;
+    posts: DailyPostCandidate[];
 }
 
-const DailyPost: FC<Props> = ({ dailyPost }) => {
+const getLocalDailyPost = (posts: DailyPostCandidate[]): DailyPostCandidate | null => {
+    if (posts.length === 0) return null;
+
+    const today = new Date();
+    const index = (
+        today.getFullYear() * 10000 +
+        (today.getMonth() + 1) * 100 +
+        today.getDate()
+    ) % posts.length;
+
+    return posts[index];
+};
+
+const DailyPost: FC<Props> = ({ posts }) => {
+    const [dailyPost, setDailyPost] = useState<DailyPostCandidate | null>(null);
+
+    useEffect(() => {
+        setDailyPost(getLocalDailyPost(posts));
+    }, [posts]);
+
     const imageUrl = dailyPost?.url?.[0];
     const redditId = dailyPost ? extractRedditId(dailyPost.reddit) : null;
 
@@ -22,7 +44,7 @@ const DailyPost: FC<Props> = ({ dailyPost }) => {
                 <Typography variant="h6" color="text.primary">
                     Post of the Day
                 </Typography>
-                {imageUrl && <Box sx={styles.imageWrapper}>
+                {imageUrl && redditId && <Box sx={styles.imageWrapper}>
                     <a
                         href={`${BASE_URL}posts/${redditId}/`}
                         aria-label="View post details"

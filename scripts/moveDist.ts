@@ -17,6 +17,11 @@ const moveClientToDist = () => {
         for (const file of files) {
             const src = path.join(clientDir, file);
             const dest = path.join(distDir, file);
+
+            if (fs.existsSync(dest)) {
+                fs.rmSync(dest, { recursive: true, force: true });
+            }
+
             fs.renameSync(src, dest);
         }
 

@@ -1,5 +1,5 @@
 import type { PageContextServer } from 'vike/types';
-import { fetchDailyPost, fetchPosts } from '../../utils/fetchData';
+import { fetchPosts } from '../../utils/fetchData';
 import { extractRedditId } from '../../utils/extractRedditId';
 
 const FEATURED_IDS = [
@@ -8,7 +8,6 @@ const FEATURED_IDS = [
 ];
 
 const data = async (_pageContext: PageContextServer) => {
-    const dailyPost = await fetchDailyPost();
     const allPosts = await fetchPosts();
 
     const featuredPosts = allPosts.filter(post => {
@@ -16,7 +15,9 @@ const data = async (_pageContext: PageContextServer) => {
         return id && FEATURED_IDS.includes(id);
     });
 
-    return { dailyPost, featuredPosts };
+    const dailyPostCandidates = allPosts.map(({ reddit, url, nsfw }) => ({ reddit, url, nsfw }));
+
+    return { dailyPostCandidates, featuredPosts };
 };
 
 export { data };
