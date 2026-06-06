@@ -5,12 +5,23 @@ const distDir = path.resolve("dist");
 const clientDir = path.join(distDir, "client");
 const serverDir = path.join(distDir, "server");
 
+const cleanDistRoot = () => {
+    const entries = fs.readdirSync(distDir);
+
+    for (const entry of entries) {
+        if (entry === "client" || entry === "server") continue;
+        fs.rmSync(path.join(distDir, entry), { recursive: true, force: true });
+    }
+};
+
 const moveClientToDist = () => {
     try {
         if (!fs.existsSync(clientDir)) {
             console.error("❌ Client directory does not exist:", clientDir);
             process.exit(1);
         }
+
+        cleanDistRoot();
 
         const files = fs.readdirSync(clientDir);
 
