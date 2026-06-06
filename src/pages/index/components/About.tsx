@@ -1,34 +1,32 @@
-import { Paper, Typography, Box } from '@mui/material';
-import styles from '../styles/About.styles';
+import styles from './styles.module.css';
 import profileIcon from '/icons/touhou-translations-profile-icon.png';
 import type { JSX } from 'react';
 
 const About = (): JSX.Element => {
     return (
-        <Paper sx={styles.aboutContainer}>
-            <Box sx={styles.header}>
-                <Box
-                    component="img"
+        <section className={styles.aboutContainer}>
+            <div className={styles.header}>
+                <img
                     src={profileIcon}
                     alt="Touhou Project translations archive site profile icon"
-                    sx={styles.profileImage}
+                    className={styles.profileImage}
                 />
-                <Typography variant="h6" color="text.primary" sx={styles.title}>
+                <h2 className={styles.title}>
                     About This Site
-                </Typography>
-            </Box>
-            <Typography variant="body1" color="text.secondary" sx={styles.aboutText}>
+                </h2>
+            </div>
+            <p className={styles.aboutText}>
                 This website is a personal archive and viewer for Touhou Project fan comics
                 and illustrations that I have translated into English and posted on{' '}
-                <a href="https://www.reddit.com/r/touhou/" target="_blank" rel="noopener noreferrer" style={styles.redditLink}>
+                <a href="https://www.reddit.com/r/touhou/" target="_blank" rel="noopener noreferrer" className={styles.redditLink}>
                     r/touhou
                 </a>.
-            </Typography>
-            <Typography variant="body1" color="text.secondary" sx={styles.aboutText}>
+            </p>
+            <p className={styles.aboutText}>
                 Honestly, I just want to have a convenient way to browse the artworks that I
                 have already translated.
-            </Typography>
-        </Paper>
+            </p>
+        </section>
     );
 };
 

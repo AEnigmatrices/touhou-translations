@@ -1,10 +1,9 @@
-import { Box, Card, CardContent, Typography } from '@mui/material';
 import { Img } from 'react-image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 import { extractRedditId } from '../../../utils/extractRedditId';
 import LoadingIndicator from '../../../components/LoadingIndicator';
-import styles from '../styles/FeaturedPosts.styles';
+import styles from './styles.module.css';
 import 'swiper/css';
 import 'swiper/css/mousewheel';
 import type { FC } from 'react';
@@ -16,11 +15,11 @@ const FeaturedPosts: FC<{ featuredPosts?: Post[] }> = ({ featuredPosts = [] }) =
     if (featuredPosts.length === 0) return <p>No featured posts available.</p>;
 
     return (
-        <Card sx={styles.card}>
-            <CardContent>
-                <Typography variant="h6" color="text.primary" gutterBottom sx={{ mb: 3 }}>
+        <section className={styles.card}>
+            <div className={styles.cardContent}>
+                <h2 className={styles.title}>
                     Featured Posts
-                </Typography>
+                </h2>
 
                 <Swiper
                     modules={[Autoplay, Mousewheel]}
@@ -44,33 +43,33 @@ const FeaturedPosts: FC<{ featuredPosts?: Post[] }> = ({ featuredPosts = [] }) =
 
                         return (
                             <SwiperSlide key={redditId}>
-                                <Box
-                                    component="a"
+                                <a
                                     href={`${BASE_URL}posts/${redditId}/`}
                                     aria-label={`View featured post ${redditId}`}
                                     rel="noopener noreferrer"
-                                    sx={styles.item}
+                                    className={styles.item}
                                 >
-                                    <Box sx={styles.imageWrapper}>
-                                        <Box sx={styles.wrapper}>
+                                    <div className={styles.imageWrapper}>
+                                        <div className={styles.wrapper}>
                                             <Img
                                                 src={[imageUrl]}
                                                 loader={<LoadingIndicator />}
                                                 unloader={<LoadingIndicator />}
                                                 decode={false}
                                                 alt={`Featured post ${redditId}`}
-                                                style={{ ...styles.image, filter: post.nsfw ? 'blur(10px)' : 'none' }}
+                                                className={styles.image}
+                                                style={{ filter: post.nsfw ? 'blur(10px)' : 'none' }}
                                                 onLoad={(e: React.SyntheticEvent<HTMLImageElement>) => { e.currentTarget.style.opacity = '1'; }}
                                             />
-                                        </Box>
-                                    </Box>
-                                </Box>
+                                        </div>
+                                    </div>
+                                </a>
                             </SwiperSlide>
                         );
                     })}
                 </Swiper>
-            </CardContent>
-        </Card>
+            </div>
+        </section>
     );
 };
 

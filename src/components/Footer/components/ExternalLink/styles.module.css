@@ -1,0 +1,18 @@
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-secondary);
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.icon {
+    color: var(--color-muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+}

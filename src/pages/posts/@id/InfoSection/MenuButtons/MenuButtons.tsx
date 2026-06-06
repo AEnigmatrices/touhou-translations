@@ -1,10 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { navigate } from 'vike/client/router';
-import { Button, Box } from '@mui/material';
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import DownloadIcon from '@mui/icons-material/Download';
-import styles from './MenuButtons.styles';
+import styles from './styles.module.css';
 import type { FC } from 'react';
 
 interface Props {
@@ -91,38 +87,35 @@ const MenuButtons: FC<Props> = ({ prevPostId, nextPostId, urls = [], redditUrl }
     }, [handlePrev, handleNext, handleDownload]);
 
     return (
-        <Box sx={styles.container}>
-            <Button
+        <div className={styles.container}>
+            <button
+                type="button"
                 onClick={handlePrev}
-                variant="contained"
                 disabled={!prevPostId}
-                startIcon={<ArrowBack />}
-                sx={styles.button}
+                className={styles.button}
             >
-                Previous
-            </Button>
+                <span aria-hidden="true">←</span> Previous
+            </button>
 
             {isDev && urls.length > 0 && (
-                <Button
-                    variant="contained"
+                <button
+                    type="button"
                     onClick={handleDownload}
-                    startIcon={<DownloadIcon />}
-                    sx={styles.downloadButton}
+                    className={`${styles.button} ${styles.downloadButton}`}
                 >
-                    Download
-                </Button>
+                    <span aria-hidden="true">↓</span> Download
+                </button>
             )}
 
-            <Button
+            <button
+                type="button"
                 onClick={handleNext}
-                variant="contained"
                 disabled={!nextPostId}
-                endIcon={<ArrowForward />}
-                sx={styles.button}
+                className={styles.button}
             >
-                Next
-            </Button>
-        </Box>
+                Next <span aria-hidden="true">→</span>
+            </button>
+        </div>
     );
 };
 

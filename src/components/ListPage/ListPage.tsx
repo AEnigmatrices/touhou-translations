@@ -1,10 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type JSX } from "react";
-import { Box, Button, Container, IconButton, TextField, Typography } from "@mui/material";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import ProfileItem from "../ProfileItem/ProfileItem";
 import ArtworkCountSortButton from "./components/ArtworkCountSortButton/ArtworkCountSortButton";
-import styles from "./ListPage.styles";
+import styles from "./styles.module.css";
 import type { Character, Artist, SortOrder } from "../../types/data";
 
 interface Props {
@@ -144,59 +141,57 @@ const ListPage = ({ mode, characters, artists }: Props): JSX.Element => {
 
 
     return (
-        <Container maxWidth="xl" sx={styles.container}>
-            <Box sx={styles.box}>
-                <Typography variant="h4" component="h2" sx={styles.typography}>{title}</Typography>
-                <TextField
-                    label="Search by ID or Name"
-                    variant="outlined"
+        <section className={styles.container}>
+            <div className={styles.toolbar}>
+                <h2 className={styles.title}>{title}</h2>
+                <label className={styles.searchLabel}>
+                    <span className={styles.visuallyHidden}>Search by ID or Name</span>
+                    <input
+                    placeholder="Search by ID or Name"
                     value={searchInput}
-                    sx={styles.textField}
                     onChange={(e) => setSearchInput(e.target.value)}
-                    slotProps={{ input: { "aria-label": ariaLabel } }}
-                />
+                    aria-label={ariaLabel}
+                    className={styles.searchInput}
+                    />
+                </label>
                 {mode === MODE_CHARACTER && (
-                    <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={handleToggleSelectMode}>
-                            <IconButton
-                                color={isSelectMode ? "primary" : "default"}
-                                aria-label="Toggle multi-select mode"
-                            >
-                                {isSelectMode ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon />}
-                            </IconButton>
-                            <Typography
-                                variant="body2"
-                                color={isSelectMode ? "primary" : "text.secondary"}
-                                sx={{ userSelect: "none" }}
-                            >
+                    <div className={styles.selectTools}>
+                        <button
+                            type="button"
+                            className={`${styles.selectToggle} ${isSelectMode ? styles.selectToggleActive : ''}`}
+                            onClick={handleToggleSelectMode}
+                            aria-label="Toggle multi-select mode"
+                            aria-pressed={isSelectMode}
+                        >
+                            <span aria-hidden="true">{isSelectMode ? '☑' : '☐'}</span>
+                            <span>
                                 {isSelectMode
                                     ? selectedItems.length > 0
                                         ? `${selectedItems.length} Selected`
                                         : "Multi-Select ON"
                                     : "Multi-Select OFF"}
-                            </Typography>
-                        </Box>
+                            </span>
+                        </button>
 
                         {isSelectMode && selectedItems.length > 0 && (
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                sx={{ ml: 2 }}
+                            <button
+                                type="button"
+                                className={styles.primaryButton}
                                 onClick={handleNavigateSelected}
                             >
                                 View Selected
-                            </Button>
+                            </button>
                         )}
-                    </Box>
+                    </div>
                 )}
 
                 <ArtworkCountSortButton sortOrder={sortOrder} onToggleSortOrder={toggleSortOrder} />
-            </Box>
-            <Box component="ul" sx={styles.listGrid}>
+            </div>
+            <ul className={styles.listGrid}>
                 {renderListItems()}
-            </Box>
-            {visibleCount < sortedItems.length && <Box ref={loadMoreRef} sx={{ height: "1px" }} />}
-        </Container>
+            </ul>
+            {visibleCount < sortedItems.length && <div ref={loadMoreRef} className={styles.loadMore} />}
+        </section>
     );
 };
 

@@ -7,16 +7,7 @@ import Gallery from './components/Gallery';
 import GalleryHeader from './components/GalleryHeaders';
 import DateSortButton from './components/DateSortButton';
 import DateFilter from './components/DateFilter';
-import * as styles from './styles';
-
-import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import Typography from '@mui/material/Typography';
-import Pagination from '@mui/material/Pagination';
-import CircularProgress from '@mui/material/CircularProgress';
+import styles from './styles.module.css';
 
 import type { SortOrder } from '../../types/data';
 import type { Data } from './+data';
@@ -52,7 +43,7 @@ const Page = () => {
         });
     };
 
-    const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
+    const handlePageChange = (value: number) => {
         setCurrentPage(value);
         window.scrollTo({ top: 0, behavior: 'auto' });
     };
@@ -64,39 +55,47 @@ const Page = () => {
     };
 
 
-    if (!posts.length) return <Box sx={styles.loaderBoxStyles}><CircularProgress /></Box>;
+    if (!posts.length) return <div className={styles.loader} aria-label="Loading posts" />;
     return (
-        <Container maxWidth="xl" sx={styles.containerStyles}>
-            <Stack direction="row" sx={styles.headerWrapperStyles}>
+        <section className={styles.container}>
+            <div className={styles.headerWrapper}>
                 {characterQueries.map((cid) => {
                     const character = characters.find((c) => c.id === cid);
-                    return character ? (<Box key={cid} sx={styles.galleryHeaderBoxStyles}><GalleryHeader entity={character} type="character" /></Box>) : null;
+                    return character ? (<div key={cid} className={styles.galleryHeaderBox}><GalleryHeader entity={character} type="character" /></div>) : null;
                 })}
 
                 {artistQueries.map((aid) => {
                     const artist = artists.find((a) => a.id === aid);
-                    return artist ? (<Box key={aid} sx={styles.galleryHeaderBoxStyles}> <GalleryHeader entity={artist} type="artist" /></Box>) : null;
+                    return artist ? (<div key={aid} className={styles.galleryHeaderBox}> <GalleryHeader entity={artist} type="artist" /></div>) : null;
                 })}
 
-                <FormControlLabel
-                    control={<Switch checked={galleryOnly} onChange={toggleGalleryOnly} color="primary" slotProps={styles.switchSlotProps} />}
-                    label={<Typography variant="body1">Gallery Only</Typography>} sx={styles.switchLabelStyles}
-                />
+                <label className={styles.switchLabel}>
+                    <input className={styles.switchInput} type="checkbox" checked={galleryOnly} onChange={toggleGalleryOnly} />
+                    <span className={styles.switchTrack} aria-hidden="true" />
+                    <span>Gallery Only</span>
+                </label>
                 <DateFilter startDate={startDate} endDate={endDate} onDateChange={handleDateChange} />
                 <DateSortButton sortOrder={dateSortOrder} onToggleSortOrder={handleToggleDateSort} />
-            </Stack>
+            </div>
 
             <Gallery posts={visiblePosts} />
 
             {shuffledPosts.length > POSTS_PER_PAGE && (
-                <Box sx={styles.paginationWrapperStyles}>
-                    <Pagination
-                        count={totalPages} page={currentPage} onChange={handlePageChange} siblingCount={1} boundaryCount={1}
-                        color="primary" variant="outlined" shape="rounded" sx={styles.paginationStyles}
-                    />
-                </Box>
+                <nav className={styles.paginationWrapper} aria-label="Gallery pagination">
+                    {Array.from({ length: totalPages }, (_, index) => index + 1).map(page => (
+                        <button
+                            key={page}
+                            type="button"
+                            className={`${styles.pageButton} ${page === currentPage ? styles.pageButtonActive : ''}`}
+                            onClick={() => handlePageChange(page)}
+                            aria-current={page === currentPage ? 'page' : undefined}
+                        >
+                            {page}
+                        </button>
+                    ))}
+                </nav>
             )}
-        </Container>
+        </section>
     );
 };
 

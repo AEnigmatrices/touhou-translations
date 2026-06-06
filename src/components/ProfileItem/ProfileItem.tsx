@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box, Typography, Paper } from "@mui/material";
 import { Img } from "react-image";
 import LoadingIndicator from "../../components/LoadingIndicator";
-import styles from "./ProfileItem.styles";
+import styles from "./styles.module.css";
 
 interface Props {
     name: string;
@@ -41,29 +40,29 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
         return () => observer.disconnect();
     }, []);
 
-    const ImageContent = <Box sx={styles.imageFrame}>
+    const ImageContent = <div className={styles.imageFrame}>
         {isVisible ? <Img
             src={[imageUrl]}
             alt={name}
             decode={false}
             loader={
-                <Box sx={styles.imageFill}>
+                <div className={styles.imageFill}>
                     <LoadingIndicator />
-                </Box>
+                </div>
             }
             unloader={
-                <Box sx={styles.imageFill} aria-hidden>
+                <div className={styles.imageFill} aria-hidden>
                     <LoadingIndicator />
-                </Box>
+                </div>
             }
-            style={styles.avatar}
-        /> : <Box sx={styles.imageFill} aria-hidden />}
-    </Box>;
+            className={styles.avatar}
+        /> : <div className={styles.imageFill} aria-hidden />}
+    </div>;
 
     const Content = (
-        <Box sx={styles.content} onClick={handleItemClick}>
+        <div className={styles.content} onClick={handleItemClick}>
             {ImageContent}
-            <Box sx={styles.textContainer}>
+            <div className={styles.textContainer}>
                 {isSelectMode && onToggleSelect && (
                     <input
                         type="checkbox"
@@ -73,22 +72,22 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
                         aria-label={`Select ${name}`}
                     />
                 )}
-                <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>{name}</Typography>
-                {description1 && <Typography variant="body2" color="text.secondary">{description1}</Typography>}
-                {description2 && <Typography variant="body2" color="text.secondary">{description2}</Typography>}
-            </Box>
-        </Box>
+                <p className={styles.name}>{name}</p>
+                {description1 && <p className={styles.description}>{description1}</p>}
+                {description2 && <p className={styles.description}>{description2}</p>}
+            </div>
+        </div>
     );
 
     return (
-        <Paper component="li" elevation={1} role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} sx={styles.paper}>
-            <Box ref={observerRef}>
+        <li role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} className={styles.paper}>
+            <div ref={observerRef}>
                 {link
-                    ? <Box component="a" href={link} sx={styles.linkBox}>{Content}</Box>
-                    : <Box sx={styles.linkBox}>{Content}</Box>
+                    ? <a href={link} className={styles.linkBox}>{Content}</a>
+                    : <div className={styles.linkBox}>{Content}</div>
                 }
-            </Box>
-        </Paper>
+            </div>
+        </li>
     );
 };
 

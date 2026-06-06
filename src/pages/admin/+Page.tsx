@@ -1,37 +1,30 @@
-import { Typography, Paper, Accordion, AccordionSummary, AccordionDetails, Stack, useTheme } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PostForm from './components/PostForm/PostForm';
 import ArtistForm from './components/ArtistForm/ArtistForm';
-import styles from './admin.styles';
+import styles from './styles.module.css';
 
 const Page = () => {
-    const theme = useTheme();
     return (
-        <Stack sx={styles.adminContainer} direction="column" spacing={3}>
-            <Typography variant="h4" component="h2" sx={styles.header}>Admin Dashboard</Typography>
+        <section className={styles.adminContainer}>
+            <h2 className={styles.header}>Admin Dashboard</h2>
 
-            <Paper elevation={3} sx={styles.paperFullHeight}>
-                <Typography variant="h6" component="h3" sx={styles.contentTitle(theme)}>Content Submission</Typography>
+            <div className={styles.panel}>
+                <h3 className={styles.contentTitle}>Content Submission</h3>
 
-                <Accordion sx={styles.accordionMargin}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography variant="subtitle1">Reddit Posts</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
+                <details className={styles.details} open>
+                    <summary className={styles.summary}>Reddit Posts</summary>
+                    <div className={styles.detailsBody}>
                         <PostForm />
-                    </AccordionDetails>
-                </Accordion>
+                    </div>
+                </details>
 
-                <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography variant="subtitle1">Artists</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
+                <details className={styles.details}>
+                    <summary className={styles.summary}>Artists</summary>
+                    <div className={styles.detailsBody}>
                         <ArtistForm />
-                    </AccordionDetails>
-                </Accordion>
-            </Paper>
-        </Stack>
+                    </div>
+                </details>
+            </div>
+        </section>
     );
 }
 

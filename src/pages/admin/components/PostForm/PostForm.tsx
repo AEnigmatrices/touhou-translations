@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Autocomplete, Avatar, Box, Chip, Button, Stack, TextField, Typography } from '@mui/material';
 import { fetchPosts } from '../../../../utils/fetchData';
 import { extractBaseRedditUrl, fetchRedditData, validateRedditUrl, validateArtistId, submitPostEntry } from './PostForm.utils';
-import styles from './PostForm.styles';
+import styles from './styles.module.css';
 import type { Post, PostEntryForm } from "../../../../types/data";
 import artists from '../../../../../data/artists.json';
 import characters from '../../../../../data/characters.json';
@@ -93,128 +92,130 @@ const PostForm: React.FC = () => {
 
 
     return (
-        <Box sx={styles.containerBox}>
+        <div className={styles.containerBox}>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <Stack spacing={4}>
-                    <Box>
-                        <Typography variant="h6" gutterBottom>
-                            Post Details
-                        </Typography>
-                        <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap' }}>
-                            <Box sx={styles.inputBoxSmall}>
-                                <TextField
-                                    label="UNIX Timestamp" type="number" error={!!errors.date} helperText={errors.date?.message} fullWidth
-                                    {...register('date', { required: 'Date is required', valueAsNumber: true })} slotProps={{ inputLabel: { shrink: !!watch('date') } }}
-                                />
-                            </Box>
+                <div className={styles.stack}>
+                    <fieldset className={styles.fieldset}>
+                        <legend>Post Details</legend>
+                        <div className={styles.row}>
+                            <label className={styles.field}>
+                                <span>UNIX Timestamp</span>
+                                <input className={styles.input} type="number" aria-invalid={!!errors.date} {...register('date', { required: 'Date is required', valueAsNumber: true })} />
+                                {errors.date?.message && <small className={styles.error}>{errors.date.message}</small>}
+                            </label>
 
-                            <Box sx={styles.inputBoxSmall}>
-                                <Autocomplete
-                                    options={artistIds} freeSolo value={watch('artistId') || ''}
-                                    onInputChange={(_, value) => setValue('artistId', value, { shouldValidate: true, shouldDirty: true })}
-                                    renderInput={(params) => (
-                                        <TextField
-                                            {...params} label="Artist ID" error={!!errors.artistId} helperText={errors.artistId?.message}
-                                            slotProps={{ inputLabel: { shrink: !!watch('artistId') } }}
-                                        />
-                                    )}
+                            <label className={styles.field}>
+                                <span>Artist ID</span>
+                                <input
+                                    className={styles.input}
+                                    list="artist-ids"
+                                    value={watch('artistId') || ''}
+                                    onChange={(e) => setValue('artistId', e.target.value, { shouldValidate: true, shouldDirty: true })}
+                                    aria-invalid={!!errors.artistId}
                                 />
-                            </Box>
+                                <datalist id="artist-ids">
+                                    {artistIds.map(id => <option key={id} value={id} />)}
+                                </datalist>
+                                {errors.artistId?.message && <small className={styles.error}>{errors.artistId.message}</small>}
+                            </label>
 
-                            <Box sx={styles.inputBoxSmall}>
-                                <TextField
-                                    label="Source URL" error={!!errors.src} helperText={errors.src?.message} fullWidth
-                                    {...register('src', { required: 'Source URL is required' })} slotProps={{ inputLabel: { shrink: !!watch('src') } }}
-                                />
-                            </Box>
-                        </Stack>
-                    </Box>
+                            <label className={styles.field}>
+                                <span>Source URL</span>
+                                <input className={styles.input} aria-invalid={!!errors.src} {...register('src', { required: 'Source URL is required' })} />
+                                {errors.src?.message && <small className={styles.error}>{errors.src.message}</small>}
+                            </label>
+                        </div>
+                    </fieldset>
 
-                    <Box>
-                        <Typography variant="h6" gutterBottom>
-                            URLs
-                        </Typography>
-                        <Stack spacing={2}>
-                            <TextField
-                                label="Image URLs (comma separated)" error={!!errors.urls} helperText={errors.urls?.message} fullWidth
-                                {...register('urls', { required: 'Image URLs are required' })} slotProps={{ inputLabel: { shrink: !!watch('urls') } }}
-                            />
+                    <fieldset className={styles.fieldset}>
+                        <legend>URLs</legend>
+                        <div className={styles.stack}>
+                            <label className={styles.field}>
+                                <span>Image URLs (comma separated)</span>
+                                <input className={styles.input} aria-invalid={!!errors.urls} {...register('urls', { required: 'Image URLs are required' })} />
+                                {errors.urls?.message && <small className={styles.error}>{errors.urls.message}</small>}
+                            </label>
                             {watch('urls') && (
-                                <Box sx={styles.imagePreviewContainer}>
+                                <div className={styles.imagePreviewContainer}>
                                     {watch('urls')
                                         .split(',')
                                         .map(url => url.trim())
                                         .filter(Boolean)
                                         .map((url, index) => (
-                                            <Box key={index} sx={styles.imageBox}>
-                                                <Typography variant="caption">Image {index + 1}</Typography>
-                                                <Box
-                                                    component="img" src={url} alt={`Image ${index + 1}`} sx={styles.previewImage}
+                                            <div key={index} className={styles.imageBox}>
+                                                <span>Image {index + 1}</span>
+                                                <img
+                                                    src={url} alt={`Image ${index + 1}`} className={styles.previewImage}
                                                     onError={(e) => (e.currentTarget.style.display = 'none')}
                                                 />
-                                            </Box>
+                                            </div>
                                         ))}
-                                </Box>
+                                </div>
                             )}
-                            <Autocomplete
-                                multiple options={characterOptions} getOptionLabel={(option) => option.id}
-                                value={characterOptions.filter(opt => (watch('characterIds') || []).includes(opt.id))}
-                                onChange={(_, selected) => {
-                                    const ids = selected.map(opt => opt.id);
-                                    setValue('characterIds', ids, { shouldValidate: true });
-                                }}
-                                isOptionEqualToValue={(option, value) => option.id === value.id}
-                                renderValue={(selected) => (
-                                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                                        {selected.map((option) => (
-                                            <Chip
-                                                key={option.id} label={option.id}
-                                                avatar={<Avatar src={`${import.meta.env.BASE_URL}${option.portrait}`} />}
-                                            />
-                                        ))}
-                                    </Box>
-                                )}
-                                renderInput={(params) => (
-                                    <TextField  {...params} label="Character IDs"
-                                        error={!!errors.characterIds} helperText={errors.characterIds?.message}
-                                    />
-                                )}
-                            />
-                        </Stack>
-                    </Box>
+                            <label className={styles.field}>
+                                <span>Character IDs</span>
+                                <select
+                                    className={styles.select}
+                                    multiple
+                                    value={watch('characterIds') || []}
+                                    onChange={(event) => {
+                                        const ids = Array.from(event.target.selectedOptions).map(option => option.value);
+                                        setValue('characterIds', ids, { shouldValidate: true });
+                                    }}
+                                    aria-invalid={!!errors.characterIds}
+                                >
+                                    {characterOptions.map(option => (
+                                        <option key={option.id} value={option.id}>{option.id}</option>
+                                    ))}
+                                </select>
+                                {errors.characterIds?.message && <small className={styles.error}>{errors.characterIds.message}</small>}
+                            </label>
+                            {(watch('characterIds') || []).length > 0 && (
+                                <div className={styles.chipList}>
+                                    {(watch('characterIds') || []).map(id => {
+                                        const option = characterOptions.find(item => item.id === id);
+                                        return (
+                                            <span key={id} className={styles.chip}>
+                                                {option && <img src={`${import.meta.env.BASE_URL}${option.portrait}`} alt="" />}
+                                                {id}
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+                            )}
+                        </div>
+                    </fieldset>
 
-                    <Box>
-                        <Typography variant="h6" gutterBottom>
-                            Description
-                        </Typography>
-                        <TextField
-                            label="Description" error={!!errors.desc} helperText={errors.desc?.message} multiline minRows={6} fullWidth
-                            {...register('desc', { required: 'Description is required' })} slotProps={{ inputLabel: { shrink: !!watch('desc') } }}
-                        />
-                    </Box>
+                    <fieldset className={styles.fieldset}>
+                        <legend>Description</legend>
+                        <label className={styles.field}>
+                            <span>Description</span>
+                            <textarea className={styles.textarea} rows={6} aria-invalid={!!errors.desc} {...register('desc', { required: 'Description is required' })} />
+                            {errors.desc?.message && <small className={styles.error}>{errors.desc.message}</small>}
+                        </label>
+                    </fieldset>
 
-                    <Box>
-                        <Typography variant="h6" gutterBottom>
-                            Reddit URL
-                        </Typography>
-                        <TextField
-                            label="Reddit URL" error={!!errors.reddit} helperText={errors.reddit?.message} fullWidth
-                            {...register('reddit', { required: 'Reddit URL is required' })} slotProps={{ inputLabel: { shrink: !!watch('reddit') } }}
-                        />
-                    </Box>
+                    <fieldset className={styles.fieldset}>
+                        <legend>Reddit URL</legend>
+                        <label className={styles.field}>
+                            <span>Reddit URL</span>
+                            <input className={styles.input} aria-invalid={!!errors.reddit} {...register('reddit', { required: 'Reddit URL is required' })} />
+                            {errors.reddit?.message && <small className={styles.error}>{errors.reddit.message}</small>}
+                        </label>
+                    </fieldset>
 
-                    <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <Button variant="contained" onClick={handleFetchRedditData} disabled={loadingRedditData} sx={styles.actionButton} >
+                    <div className={styles.actions}>
+                        <button type="button" onClick={handleFetchRedditData} disabled={loadingRedditData} className={styles.actionButton} >
                             {loadingRedditData ? 'Loading...' : 'Fetch from Reddit'}
-                        </Button>
+                        </button>
 
-                        <Button type="submit" variant="contained" disabled={isSubmitting} sx={styles.actionButton} >
+                        <button type="submit" disabled={isSubmitting} className={styles.actionButton} >
                             {isSubmitting ? 'Submitting...' : 'Add Post'}
-                        </Button>
-                    </Stack>
-                </Stack>
+                        </button>
+                    </div>
+                </div>
             </form>
-        </Box>
+        </div>
     );
 };
 

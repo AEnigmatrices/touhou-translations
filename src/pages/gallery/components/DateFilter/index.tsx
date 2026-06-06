@@ -1,4 +1,4 @@
-import { Stack, TextField } from "@mui/material";
+import styles from './styles.module.css';
 import type { FC } from "react";
 
 interface Props {
@@ -9,24 +9,26 @@ interface Props {
 
 const DateFilter: FC<Props> = ({ startDate, endDate, onDateChange }) => {
     return (
-        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-            <TextField
-                label="Start Date"
+        <div className={styles.root}>
+            <label className={styles.label}>
+                <span>Start Date</span>
+                <input
                 type="date"
                 value={startDate || ""}
                 onChange={(e) => onDateChange("startDate", e.target.value || null)}
-                slotProps={{ inputLabel: { shrink: true } }}
-                size="small"
-            />
-            <TextField
-                label="End Date"
+                className={styles.input}
+                />
+            </label>
+            <label className={styles.label}>
+                <span>End Date</span>
+                <input
                 type="date"
                 value={endDate || ""}
                 onChange={(e) => onDateChange("endDate", e.target.value || null)}
-                slotProps={{ inputLabel: { shrink: true } }}
-                size="small"
-            />
-        </Stack>
+                className={styles.input}
+                />
+            </label>
+        </div>
     );
 };
 

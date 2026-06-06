@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme, useMediaQuery, BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
 import { navLinks } from '../../utils/navLinks';
-import styles from './BottomNav.styles';
+import styles from './styles.module.css';
 
-import HomeIcon from '@mui/icons-material/Home';
-import PeopleIcon from '@mui/icons-material/People';
-import BrushIcon from '@mui/icons-material/Brush';
-import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-
-const iconMap: Record<string, React.ReactNode> = {
-    Home: <HomeIcon />,
-    Characters: <PeopleIcon />,
-    Artists: <BrushIcon />,
-    Gallery: <PhotoLibraryIcon />,
-    Admin: <AdminPanelSettingsIcon />,
+const iconMap: Record<string, string> = {
+    Home: '⌂',
+    Characters: '人',
+    Artists: '✎',
+    Gallery: '▦',
+    Admin: '⚙',
 };
 
 const BottomNav: React.FC = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [value, setValue] = useState(0);
 
     useEffect(() => {
@@ -27,15 +18,21 @@ const BottomNav: React.FC = () => {
         if (currentIndex !== -1) setValue(currentIndex);
     }, []);
 
-    if (!isMobile) return null;
     return (
-        <Paper elevation={8} sx={styles.root} component="footer" role="navigation" aria-label="Bottom navigation"   >
-            <BottomNavigation showLabels value={value} onChange={(_event, newValue) => setValue(newValue)}>
-                {navLinks.map(({ label, to }) => (
-                    <BottomNavigationAction key={label} label={label} icon={iconMap[label] ?? <BrushIcon />} component="a" href={to} />
-                ))}
-            </BottomNavigation>
-        </Paper>
+        <footer className={styles.root} role="navigation" aria-label="Bottom navigation">
+            {navLinks.map(({ label, to }, index) => (
+                <a
+                    key={label}
+                    href={to}
+                    className={`${styles.item} ${value === index ? styles.active : ''}`}
+                    aria-current={value === index ? 'page' : undefined}
+                    onClick={() => setValue(index)}
+                >
+                    <span className={styles.icon} aria-hidden="true">{iconMap[label] ?? '•'}</span>
+                    <span className={styles.label}>{label}</span>
+                </a>
+            ))}
+        </footer>
     );
 };
 

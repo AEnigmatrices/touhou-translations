@@ -1,16 +1,26 @@
 import { useState, type FC } from 'react';
 import { Img } from 'react-image';
-import { useMediaQuery, useTheme, Box, IconButton, Typography, Paper } from '@mui/material';
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import LoadingIndicator from '../../../../components/LoadingIndicator';
-import styles from './ImageSection.styles';
+import styles from './styles.module.css';
 
+const ImageSkeleton: FC = () => (
+    <div className={styles.skeletonMedia} aria-hidden="true">
+        <div className={styles.skeletonImage} />
+        <div className={styles.skeletonCaption}>
+            <div className={styles.skeletonLine} />
+            <div className={styles.skeletonLineShort} />
+        </div>
+    </div>
+);
+
+export const ImageSectionSkeleton: FC = () => (
+    <div className={styles.root}>
+        <div className={`${styles.paper} ${styles.paperOut}`}>
+            <ImageSkeleton />
+        </div>
+    </div>
+);
 
 const ImageSection: FC<{ urls: string[]; nsfw?: boolean }> = ({ urls, nsfw }) => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
     const [currentIndex, setCurrentIndex] = useState(0);
     const [zoomed, setZoomed] = useState(false);
 
@@ -22,45 +32,45 @@ const ImageSection: FC<{ urls: string[]; nsfw?: boolean }> = ({ urls, nsfw }) =>
     };
 
     const handleImageClick = () => {
-        if (!isMobile) setZoomed((prev) => !prev);
+        if (!window.matchMedia('(max-width: 640px)').matches) setZoomed((prev) => !prev);
     };
 
-    const getPaperSx = (zoomed: boolean, isMobile: boolean) => ({
-        ...styles.paper,
-        ...(zoomed ? styles.paperZoomIn : styles.paperZoomOut),
-        ...(isMobile ? styles.cursorDefault : zoomed ? styles.cursorZoomOut : styles.cursorZoomIn),
-    });
-
     return (
-        <Box sx={styles.root}>
-            <Box sx={{ ...(styles.imageDisplay as Record<string, unknown>), position: 'relative' }}>
-                <Paper onClick={handleImageClick} elevation={zoomed ? 8 : 1} sx={getPaperSx(zoomed, isMobile)}>
+        <div className={styles.root}>
+            <div className={styles.imageDisplay}>
+                <button
+                    type="button"
+                    onClick={handleImageClick}
+                    className={`${styles.paper} ${zoomed ? styles.paperZoomed : styles.paperOut}`}
+                    aria-label={zoomed ? 'Zoom image out' : 'Zoom image in'}
+                >
                     <Img
                         src={[currentImage]}
                         alt="Translated Image"
                         decode={false}
                         draggable={false}
-                        loader={<><Box sx={styles.loadingBackdrop} /><LoadingIndicator /></>}
-                        unloader={<LoadingIndicator />}
-                        style={{ ...(zoomed ? styles.zoomed : styles.zoomOut), filter: nsfw ? 'blur(10px)' : 'none' }}
+                        loader={<ImageSkeleton />}
+                        unloader={<div className={styles.unavailableImage}>Image unavailable</div>}
+                        className={zoomed ? styles.zoomed : styles.zoomOut}
+                        style={{ filter: nsfw ? 'blur(10px)' : 'none' }}
                     />
-                </Paper>
-            </Box>
+                </button>
+            </div>
 
             {isGallery && !zoomed && (
-                <Box sx={styles.galleryControls}>
-                    <IconButton onClick={() => handleChangeIndex(-1)} aria-label="Previous image" sx={styles.galleryButton}>
-                        <NavigateBeforeIcon />
-                    </IconButton>
-                    <Typography sx={styles.galleryIndex}>
+                <div className={styles.galleryControls}>
+                    <button type="button" onClick={() => handleChangeIndex(-1)} aria-label="Previous image" className={styles.galleryButton}>
+                        ‹
+                    </button>
+                    <span className={styles.galleryIndex}>
                         {currentIndex + 1} / {urls.length}
-                    </Typography>
-                    <IconButton onClick={() => handleChangeIndex(1)} aria-label="Next image" sx={styles.galleryButton}>
-                        <NavigateNextIcon />
-                    </IconButton>
-                </Box>
+                    </span>
+                    <button type="button" onClick={() => handleChangeIndex(1)} aria-label="Next image" className={styles.galleryButton}>
+                        ›
+                    </button>
+                </div>
             )}
-        </Box>
+        </div>
     );
 };
 

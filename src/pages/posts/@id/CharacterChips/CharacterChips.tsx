@@ -1,6 +1,5 @@
 import { useState, type FC } from 'react';
-import { Box, Chip, Avatar } from '@mui/material';
-import styles from './CharacterChips.styles';
+import styles from './styles.module.css';
 import type { Character } from '../../../../types/data';
 
 interface Props {
@@ -17,29 +16,29 @@ const CharacterChips: FC<Props> = ({ characters }) => {
     const visibleCharacters = showAll ? characters : characters.slice(0, previewCount);
 
     return (
-        <Box sx={styles.container}>
+        <div className={styles.container}>
             {visibleCharacters.map((c) => (
-                <Chip
+                <a
                     key={c.id}
-                    label={c.short_name}
-                    component="a"
                     href={`${baseUrl}gallery?characters=${c.id}`}
-                    clickable
-                    sx={styles.chip}
-                    avatar={c.portrait ? (<Avatar src={`${baseUrl}${c.portrait}`} alt={c.name} variant="rounded" />) : undefined}
-                />
+                    className={styles.chip}
+                >
+                    {c.portrait && <img src={`${baseUrl}${c.portrait}`} alt="" className={styles.avatar} />}
+                    <span>{c.short_name}</span>
+                </a>
             ))}
             {characters.length > previewCount && (
-                <Box sx={styles.toggleWrapper}>
-                    <Chip
-                        label={showAll ? 'Show fewer' : `Show all (${characters.length})`}
+                <div className={styles.toggleWrapper}>
+                    <button
+                        type="button"
                         onClick={() => setShowAll(prev => !prev)}
-                        clickable
-                        sx={styles.toggle}
-                    />
-                </Box>
+                        className={styles.toggle}
+                    >
+                        {showAll ? 'Show fewer' : `Show all (${characters.length})`}
+                    </button>
+                </div>
             )}
-        </Box>
+        </div>
     );
 };
 

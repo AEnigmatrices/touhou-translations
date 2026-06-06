@@ -1,0 +1,25 @@
+.button {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.button:hover,
+.active {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.button:hover {
+    transform: translateY(-1px);
+}

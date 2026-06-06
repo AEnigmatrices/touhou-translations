@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { usePageContext } from 'vike-react/usePageContext'
-import { Box, Typography } from '@mui/material'
-import ImageSection from './ImageSection/ImageSection'
+import ImageSection, { ImageSectionSkeleton } from './ImageSection/ImageSection'
 import InfoSection from './InfoSection/InfoSection'
-import styles from './posts.styles'
-import LoadingIndicator from '../../../components/LoadingIndicator'
+import styles from './styles.module.css'
 import { fetchDerivedData } from '../../../utils/fetchData'
 import { extractRedditId } from '../../../utils/extractRedditId'
 import type { Artist, Character, Post } from '../../../types/data'
@@ -75,30 +73,30 @@ const Page = () => {
 
     if (loading) {
         return (
-            <Box sx={styles.root}>
-                <LoadingIndicator />
-            </Box>
+            <section className={styles.root}>
+                <ImageSectionSkeleton />
+            </section>
         );
     }
 
     if (!data) {
         return (
-            <Box sx={styles.root}>
-                <Typography variant="h6">Post not found.</Typography>
-            </Box>
+            <section className={styles.root}>
+                <h2 className={styles.notFound}>Post not found.</h2>
+            </section>
         );
     }
 
     const { post, artist, characters, randomArtistPosts, prevPostId, nextPostId } = data
 
     return (
-        <Box sx={styles.root}>
+        <section className={styles.root}>
             <ImageSection urls={post.url} nsfw={post.nsfw} />
             <InfoSection
                 post={post} artist={artist} characters={characters}
                 artistPosts={randomArtistPosts} prevPostId={prevPostId} nextPostId={nextPostId}
             />
-        </Box>
+        </section>
     )
 }
 

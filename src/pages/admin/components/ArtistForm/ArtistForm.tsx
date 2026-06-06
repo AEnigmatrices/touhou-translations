@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { TextField, Button, Stack, Typography, Box } from '@mui/material';
 import { PIXIV_URL_PATTERN, TWITTER_URL_PATTERN, submitNewArtist, validateNewArtistId, getRandomPlaceholder } from './ArtistForm.utils';
-import styles from './ArtistForm.styles';
+import styles from './styles.module.css';
 import type { ArtistRaw } from '../../../../types/data';
 
 
@@ -54,61 +53,51 @@ const ArtistForm: React.FC = () => {
 
 
     return (
-        <Box sx={styles.containerBox}>
+        <div className={styles.containerBox}>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <Stack spacing={3}>
-                    <Box>
-                        <Typography variant="h6" gutterBottom>
-                            Artist Information
-                        </Typography>
-                        <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap' }}>
-                            <Box sx={styles.artistIdBox}>
-                                <TextField
-                                    label="Artist ID" error={!!errors.id} helperText={errors.id?.message} fullWidth
-                                    {...register('id', { required: 'ID is required' })} slotProps={{ inputLabel: { shrink: !!watch('id') } }}
-                                />
-                            </Box>
+                <div className={styles.stack}>
+                    <fieldset className={styles.fieldset}>
+                        <legend>Artist Information</legend>
+                        <div className={styles.row}>
+                            <label className={styles.field}>
+                                <span>Artist ID</span>
+                                <input className={styles.input} aria-invalid={!!errors.id} {...register('id', { required: 'ID is required' })} />
+                                {errors.id?.message && <small className={styles.error}>{errors.id.message}</small>}
+                            </label>
 
-                            <Box sx={styles.nameBox}>
-                                <TextField
-                                    label="Name" error={!!errors.name} helperText={errors.name?.message} fullWidth
-                                    {...register('name', { required: 'Name is required' })} slotProps={{ inputLabel: { shrink: !!watch('name') } }}
-                                />
-                            </Box>
-                        </Stack>
-                    </Box>
+                            <label className={styles.field}>
+                                <span>Name</span>
+                                <input className={styles.input} aria-invalid={!!errors.name} {...register('name', { required: 'Name is required' })} />
+                                {errors.name?.message && <small className={styles.error}>{errors.name.message}</small>}
+                            </label>
+                        </div>
+                    </fieldset>
 
-                    <Box>
-                        <Typography variant="h6" gutterBottom>
-                            Links
-                        </Typography>
-                        <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap' }}>
-                            <Box sx={styles.twitterBox}>
-                                <TextField
-                                    label="Twitter Link" error={!!errors.linkTwitter} helperText={errors.linkTwitter?.message} fullWidth
-                                    {...register('linkTwitter', { pattern: { value: TWITTER_URL_PATTERN, message: 'Invalid Twitter URL' } })}
-                                    slotProps={{ inputLabel: { shrink: !!watch('linkTwitter') } }}
-                                />
-                            </Box>
+                    <fieldset className={styles.fieldset}>
+                        <legend>Links</legend>
+                        <div className={styles.row}>
+                            <label className={styles.field}>
+                                <span>Twitter Link</span>
+                                <input className={styles.input} aria-invalid={!!errors.linkTwitter} {...register('linkTwitter', { pattern: { value: TWITTER_URL_PATTERN, message: 'Invalid Twitter URL' } })} />
+                                {errors.linkTwitter?.message && <small className={styles.error}>{errors.linkTwitter.message}</small>}
+                            </label>
 
-                            <Box sx={styles.pixivBox}>
-                                <TextField
-                                    label="Pixiv Link" error={!!errors.linkPixiv} helperText={errors.linkPixiv?.message} fullWidth
-                                    {...register('linkPixiv', { pattern: { value: PIXIV_URL_PATTERN, message: 'Invalid Pixiv URL' } })}
-                                    slotProps={{ inputLabel: { shrink: !!watch('linkPixiv') } }}
-                                />
-                            </Box>
-                        </Stack>
-                    </Box>
+                            <label className={styles.field}>
+                                <span>Pixiv Link</span>
+                                <input className={styles.input} aria-invalid={!!errors.linkPixiv} {...register('linkPixiv', { pattern: { value: PIXIV_URL_PATTERN, message: 'Invalid Pixiv URL' } })} />
+                                {errors.linkPixiv?.message && <small className={styles.error}>{errors.linkPixiv.message}</small>}
+                            </label>
+                        </div>
+                    </fieldset>
 
-                    <Stack direction="row" sx={{ justifyContent: 'center' }}>
-                        <Button type="submit" variant="contained" disabled={isSubmitting} sx={styles.submitButton} >
+                    <div className={styles.actions}>
+                        <button type="submit" disabled={isSubmitting} className={styles.submitButton} >
                             {isSubmitting ? 'Submitting...' : 'Add Artist'}
-                        </Button>
-                    </Stack>
-                </Stack>
+                        </button>
+                    </div>
+                </div>
             </form>
-        </Box>
+        </div>
     );
 };
 

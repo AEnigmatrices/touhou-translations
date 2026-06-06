@@ -1,8 +1,6 @@
 import { useState, type FC } from 'react';
-import { Avatar } from '@mui/material';
-import ArtistSpeedDialDesktop from './ArtistSpeedDial.desktop';
-import ArtistSpeedDialMobile from './ArtistSpeedDial.mobile';
-import type { Artist, SpeedDialAction } from './ArtistSpeedDial.types';
+import styles from './styles.module.css';
+import type { Artist } from './ArtistSpeedDial.types';
 
 const baseUrl = import.meta.env.BASE_URL;
 const twitterIcon = `${baseUrl}icons/social/twitter.webp`;
@@ -17,33 +15,57 @@ interface Props {
 const ArtistSpeedDial: FC<Props> = ({ artist, isMobile }) => {
     const imageUrl = `${baseUrl}${artist.portrait}`;
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
-    const speedDialActions: SpeedDialAction[] = [
+    const actions = [
         ...(artist.linkTwitter
             ? [{
-                icon: <Avatar src={twitterIcon} alt="Twitter" sx={{ width: 52, height: 52 }} />,
+                icon: twitterIcon,
                 name: 'Twitter',
                 href: artist.linkTwitter,
             },
             {
-                icon: <Avatar src={nitterIcon} alt="Nitter" sx={{ width: 52, height: 52 }} />,
+                icon: nitterIcon,
                 name: 'Nitter',
                 href: artist.linkTwitter.replace('x.com', 'nitter.net'),
             },] : []),
         ...(artist.linkPixiv
             ? [{
-                icon: <Avatar src={pixivIcon} alt="Pixiv" sx={{ width: 52, height: 52 }} />,
+                icon: pixivIcon,
                 name: 'Pixiv',
                 href: artist.linkPixiv,
             },] : []),
     ];
 
-    return isMobile ? (
-        <ArtistSpeedDialMobile artist={artist} speedDialActions={speedDialActions} open={open} onOpen={handleOpen} onClose={handleClose} imageUrl={imageUrl} />
-    ) : (
-        <ArtistSpeedDialDesktop artist={artist} speedDialActions={speedDialActions} open={open} onOpen={handleOpen} onClose={handleClose} imageUrl={imageUrl} />
+    return (
+        <div className={`${styles.root} ${isMobile ? styles.mobile : styles.desktop}`}>
+            <button
+                type="button"
+                className={styles.trigger}
+                onClick={() => setOpen(prev => !prev)}
+                aria-expanded={open}
+                aria-label={`Artist links for ${artist.name}`}
+            >
+                <img src={imageUrl} alt="" className={styles.avatar} />
+            </button>
+            <span className={`${styles.nameTag} ${open ? styles.open : ''}`}>{artist.name}</span>
+            {open && (
+                <div className={styles.actions}>
+                    {actions.map(action => (
+                        <a
+                            key={action.name}
+                            href={action.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.action}
+                            aria-label={action.name}
+                            title={action.name}
+                        >
+                            <img src={action.icon} alt="" />
+                        </a>
+                    ))}
+                </div>
+            )}
+        </div>
     );
 };
 

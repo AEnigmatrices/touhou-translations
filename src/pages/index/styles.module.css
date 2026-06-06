@@ -1,0 +1,30 @@
+.container {
+    width: min(1280px, 100%);
+    margin: 0 auto;
+    padding: 0.25rem 0 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(280px, 5fr);
+    gap: 1.25rem;
+}
+
+.featured {
+    grid-column: 1 / -1;
+}
+
+.mainStack {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

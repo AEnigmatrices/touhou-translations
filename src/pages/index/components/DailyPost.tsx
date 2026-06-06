@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Box, Card, CardContent, Typography } from '@mui/material';
 import { Img } from 'react-image';
 import { extractRedditId } from '../../../utils/extractRedditId';
 import LoadingIndicator from '../../../components/LoadingIndicator';
-import styles from '../styles/DailyPost.styles';
+import styles from './styles.module.css';
 import type { FC } from 'react';
 import type { Post } from '../../../types/data';
 
@@ -39,12 +38,12 @@ const DailyPost: FC<Props> = ({ posts }) => {
     const redditId = dailyPost ? extractRedditId(dailyPost.reddit) : null;
 
     return (
-        <Card sx={styles.card}>
-            <CardContent>
-                <Typography variant="h6" color="text.primary">
+        <section className={styles.card}>
+            <div className={styles.cardContent}>
+                <h2 className={styles.title}>
                     Post of the Day
-                </Typography>
-                {imageUrl && redditId && <Box sx={styles.imageWrapper}>
+                </h2>
+                {imageUrl && redditId && <div className={styles.imageWrapper}>
                     <a
                         href={`${BASE_URL}posts/${redditId}/`}
                         aria-label="View post details"
@@ -57,12 +56,13 @@ const DailyPost: FC<Props> = ({ posts }) => {
                             decode={false}
                             loader={<LoadingIndicator />}
                             unloader={<LoadingIndicator />}
-                            style={{ ...styles.image, filter: dailyPost?.nsfw ? 'blur(10px)' : 'none' }}
+                            className={styles.image}
+                            style={{ filter: dailyPost?.nsfw ? 'blur(10px)' : 'none' }}
                         />
                     </a>
-                </Box>}
-            </CardContent>
-        </Card>
+                </div>}
+            </div>
+        </section>
     );
 };
 

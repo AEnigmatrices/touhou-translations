@@ -1,0 +1,102 @@
+.card,
+.aboutContainer,
+.videoContainer {
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.cardContent,
+.aboutContainer,
+.videoContainer {
+    padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.title {
+    margin: 0 0 1rem;
+    color: var(--color-ink);
+    font-size: 1.12rem;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.profileImage {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.aboutText {
+    margin: 0.6rem 0 0;
+    color: var(--color-muted);
+    text-align: left;
+}
+
+.redditLink {
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+.videoContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.videoContainer .title {
+    padding: 1.25rem 1.25rem 0;
+}
+
+.videoWrapper {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.imageWrapper {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.wrapper {
+    aspect-ratio: 4 / 5;
+    background: var(--color-bg-soft);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.item:hover .wrapper {
+    transform: translateY(-2px);
+    filter: saturate(1.05);
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+
+.item {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}

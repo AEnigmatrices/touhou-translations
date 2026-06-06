@@ -1,26 +1,22 @@
-import { Paper, Typography, useTheme, useMediaQuery } from '@mui/material';
 import type { JSX } from 'react';
-import styles from '../styles/Video.styles';
+import styles from './styles.module.css';
 
 const Video = (): JSX.Element => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
     return (
-        <Paper sx={{ ...styles.videoContainer, maxWidth: isMobile ? '100%' : 800, mx: 'auto', p: 0, }}  >
-            <Typography variant="h6" color="text.primary" sx={styles.title}>
+        <section className={styles.videoContainer}>
+            <h2 className={styles.title}>
                 Featured Video
-            </Typography>
+            </h2>
 
-            <div style={styles.videoWrapper}>
+            <div className={styles.videoWrapper}>
                 <iframe
                     src="https://www.youtube-nocookie.com/embed/Gfev_ZEBRNk"
                     title="Featured Video"
-                    style={styles.iframe}
+                    className={styles.iframe}
                     allowFullScreen
                 />
             </div>
-        </Paper>
+        </section>
     );
 };
 

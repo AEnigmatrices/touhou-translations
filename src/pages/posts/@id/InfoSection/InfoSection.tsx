@@ -1,13 +1,12 @@
 import { useState, type FC } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Box, Typography, Link, IconButton, Tooltip, Chip, useTheme, useMediaQuery } from '@mui/material';
 import ArtistSpeedDial from '../ArtistSpeedDial/ArtistSpeedDial';
 import { dateFormatOptions, replaceXWithNitter } from '../posts.utils';
 import CharacterChips from '../CharacterChips/CharacterChips';
 import MenuButtons from './MenuButtons/MenuButtons';
 import SeeMoreArtist from './SeeMoreArtist/SeeMoreArtist';
-import styles from './InfoSection.styles';
+import styles from './styles.module.css';
 import type { Post, Artist, Character } from '../../../../types/data';
 
 interface Props {
@@ -24,9 +23,8 @@ const redditIcon = `${baseUrl}icons/social/reddit.webp`;
 
 
 const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPostId, nextPostId }) => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const [showNitter, setShowNitter] = useState(false);
+    const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches;
 
     const isTwitterUrl = post.src ? /^(https?:\/\/)?(www\.)?(twitter\.com|x\.com)/.test(post.src) : false;
     const nitterUrl = post.src ? replaceXWithNitter(post.src) : null;
@@ -51,84 +49,82 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPos
 
     const renderIconLink = (href: string | undefined, ariaLabel: string, iconSrc: string, altText: string) =>
         href ? (
-            <Tooltip title={altText} arrow placement="top">
-                <IconButton component="a" href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} sx={styles.iconButton} size="small">
-                    <img src={iconSrc} alt={altText} />
-                </IconButton>
-            </Tooltip>
+            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} title={altText} className={styles.iconButton}>
+                <img src={iconSrc} alt="" />
+            </a>
         ) : null;
 
 
 
     return (
-        <Box sx={styles.root}>
-            <Box sx={styles.infoGrid}>
+        <aside className={styles.root}>
+            <div className={styles.infoGrid}>
                 {artist && !isMobile && (
                     <>
-                        <Typography component="div" sx={styles.infoItemLabel}>
+                        <div className={styles.infoItemLabel}>
                             Artist:
-                        </Typography>
+                        </div>
                         <ArtistSpeedDial artist={artist} isMobile={false} />
                     </>
                 )}
 
                 {post.src && (
                     <>
-                        <Typography component="div" sx={styles.infoItemLabel}>
+                        <div className={styles.infoItemLabel}>
                             Source:
-                        </Typography>
-                        <Box sx={styles.sourceContainer}>
-                            <Link href={displayedUrl} target="_blank" rel="noopener noreferrer" sx={styles.sourceLink}   >
+                        </div>
+                        <div className={styles.sourceContainer}>
+                            <a href={displayedUrl} target="_blank" rel="noopener noreferrer" className={styles.sourceLink}>
                                 {getDisplayUrl(displayedUrl)}
-                            </Link>
+                            </a>
                             {isTwitterUrl && nitterUrl && (
-                                <Chip
-                                    size="small"
-                                    label={showNitter ? 'Show Twitter Mirror' : 'Show Nitter Mirror'}
+                                <button
+                                    type="button"
                                     onClick={toggleUrl}
-                                    clickable
-                                    sx={{ cursor: 'pointer', userSelect: 'none' }}
-                                />
+                                    className={styles.chipButton}
+                                >
+                                    {showNitter ? 'Show Twitter Mirror' : 'Show Nitter Mirror'}
+                                </button>
                             )}
-                        </Box>
+                        </div>
                     </>
                 )}
 
                 {post.date && (
                     <>
-                        <Typography component="div" sx={styles.infoItemLabel}>
+                        <div className={styles.infoItemLabel}>
                             Translated:
-                        </Typography>
-                        <Typography sx={styles.infoItemValue}>
+                        </div>
+                        <div className={styles.infoItemValue}>
                             {formattedDate}
-                        </Typography>
+                        </div>
                     </>
                 )}
-            </Box>
+            </div>
 
             {characters.length > 0 && (
-                <Box sx={{ mt: 2 }}>
-                    <Typography sx={{ fontWeight: 600, fontSize: '1.1rem', mb: 1 }} >
+                <section className={styles.block}>
+                    <h3 className={styles.sectionTitle}>
                         {characters.length === 1 ? 'Character' : 'Characters'}
-                    </Typography>
+                    </h3>
                     <CharacterChips characters={characters} />
-                </Box>
+                </section>
             )}
 
             {post.desc && (
-                <Box sx={{ mt: 2 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }} >
+                <section className={styles.block}>
+                    <div className={styles.commentHeader}>
                         {post.reddit && renderIconLink(post.reddit, 'Reddit post', redditIcon, 'Reddit')}
-                        <Typography sx={{ fontWeight: 600, fontSize: '1.25rem' }}>
+                        <h3 className={styles.commentTitle}>
                             TL Commentary
-                        </Typography>
-                    </Box>
-                    <Box sx={styles.infoItemValueComment}>
+                        </h3>
+                    </div>
+                    <div className={styles.infoItemValueComment}>
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>
                             {post.desc}
                         </ReactMarkdown>
-                    </Box>
-                </Box>
+                    </div>
+                </section>
             )}
 
             {(prevPostId || nextPostId) && (
@@ -149,7 +145,7 @@ const InfoSection: FC<Props> = ({ post, artist, characters, artistPosts, prevPos
             )}
 
             {artist && isMobile && <ArtistSpeedDial artist={artist} isMobile={true} />}
-        </Box>
+        </aside>
     );
 };
 

@@ -1,5 +1,5 @@
-import { Box, Typography } from '@mui/material'
 import { usePageContext } from 'vike-react/usePageContext'
+import styles from './styles.module.css'
 
 const Page = () => {
     const pageContext = usePageContext()
@@ -12,14 +12,11 @@ const Page = () => {
             : 'Something went wrong.'
 
     return (
-        <Box
-            component="main"
-            sx={{ height: 'calc(100vh - 100px)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-        >
-            <Typography variant="h6" sx={{ fontSize: '1.3em' }}>
+        <main className={styles.root}>
+            <h1 className={styles.message}>
                 {displayMessage}
-            </Typography>
-        </Box>
+            </h1>
+        </main>
     )
 }
 

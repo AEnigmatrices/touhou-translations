@@ -2,20 +2,14 @@ import { useEffect, useState } from 'react';
 import { navigate, prefetch } from 'vike/client/router';
 import { usePageContext } from 'vike-react/usePageContext';
 import { getRandomPostPath } from '../../utils/fetchData';
-import { AppBar, Toolbar, Tabs, Tab, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { ElevationScroll } from './Navbar.utils';
 import { navLinks } from '../../utils/navLinks';
-import styles from './Navbar.styles';
+import styles from './styles.module.css';
 import type { JSX } from 'react';
 
 
 const Navbar = (): JSX.Element => {
     const pageContext = usePageContext();
     const [currentTab, setCurrentTab] = useState<string | false>(false);
-
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
     const tabPaths = navLinks.map(link => link.to);
     const url = pageContext.urlOriginal;
 
@@ -37,45 +31,26 @@ const Navbar = (): JSX.Element => {
 
 
     return (
-        <ElevationScroll>
-            <AppBar position="sticky" sx={styles.appBar}>
-                <Toolbar sx={styles.toolbar}>
-                    <Typography
-                        variant="h6"
-                        component="a"
-                        href="#"
-                        onClick={handleLogoClick}
-                        sx={styles.title(theme)}
-                        tabIndex={0}
-                        role="link"
-                        aria-label="Random post"
-                    >
-                        Touhou Translations
-                    </Typography>
+        <header className={styles.appBar}>
+            <nav className={styles.toolbar} aria-label="Primary navigation">
+                <a href="#" onClick={handleLogoClick} className={styles.title} aria-label="Random post">
+                    Touhou Translations
+                </a>
 
-                    {!isMobile && (
-                        <Tabs
-                            value={currentTab}
-                            textColor="primary"
-                            indicatorColor="primary"
-                            aria-label="navigation tabs"
-                            sx={styles.tabContainer}
+                <div className={styles.tabContainer} role="tablist" aria-label="Navigation tabs">
+                    {navLinks.map(({ label, to }) => (
+                        <a
+                            key={to}
+                            href={to}
+                            className={`${styles.tab} ${isCurrent(to) ? styles.tabActive : ''}`}
+                            aria-current={isCurrent(to) ? 'page' : undefined}
                         >
-                            {navLinks.map(({ label, to }) => (
-                                <Tab
-                                    key={to}
-                                    value={to}
-                                    label={label}
-                                    component="a"
-                                    href={to}
-                                    sx={styles.tab(isCurrent(to))}
-                                />
-                            ))}
-                        </Tabs>
-                    )}
-                </Toolbar>
-            </AppBar>
-        </ElevationScroll>
+                            {label}
+                        </a>
+                    ))}
+                </div>
+            </nav>
+        </header>
     );
 };
 
