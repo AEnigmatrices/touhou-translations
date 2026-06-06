@@ -9,10 +9,24 @@ const splitClean = (input: string) => input.split(',').map(s => s.trim()).filter
 
 const getApiUrl = (url: string) => url.endsWith('.json') ? url : `${url}.json`;
 
-const buildImageUrls = (postData: any): string[] => {
+interface RedditPostData {
+    media_metadata?: Record<string, { m?: string }>;
+    url?: string;
+    created_utc?: number;
+    selftext?: string;
+}
+
+type RedditApiResponse = Array<{
+    data?: {
+        children?: Array<{
+            data?: RedditPostData;
+        }>;
+    };
+}>;
+
+const buildImageUrls = (postData: RedditPostData): string[] => {
     if (postData.media_metadata) {
-        const metadata = postData.media_metadata as Record<string, { m?: string }>;
-        return Object.entries(metadata)
+        return Object.entries(postData.media_metadata)
             .map(([id, media]) => {
                 const ext = media.m?.includes('png') ? 'png' : 'jpg';
                 return `https://i.redd.it/${id}.${ext}`;
@@ -70,9 +84,9 @@ export const fetchRedditData = async (redditUrl: string) => {
     try {
         const response = await fetch(getApiUrl(redditUrl));
         if (!response.ok) throw new Error('Failed to fetch Reddit data');
-        const jsonData = await response.json();
+        const jsonData = await response.json() as RedditApiResponse;
 
-        const postData = jsonData[0]?.data?.children[0]?.data;
+        const postData = jsonData[0]?.data?.children?.[0]?.data;
         if (!postData) throw new Error('Invalid Reddit data structure');
 
         const createdDate = postData.created_utc ? postData.created_utc * 1000 : null;

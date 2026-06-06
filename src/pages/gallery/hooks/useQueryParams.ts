@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-const useQueryParams = (urlParsed: any) => {
+interface UrlParsed {
+    searchOriginal?: string | null;
+}
+
+const useQueryParams = (urlParsed: UrlParsed) => {
     const searchParams = new URLSearchParams(urlParsed.searchOriginal || '');
 
     const charactersParam = searchParams.get('characters') || '';

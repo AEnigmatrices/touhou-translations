@@ -1,37 +1,44 @@
 import fs from 'fs';
 import path from 'path';
 import type { Plugin } from 'vite';
+import type { IncomingMessage } from 'http';
 import type { Post, Artist } from '../src/types/data';
 
 const postsPath = path.resolve(__dirname, '../data/posts/posts-2026.json');
 const artistsPath = path.resolve(__dirname, '../data/artists.json');
 
-const readRequestBody = async (req: any): Promise<string> => {
+const readRequestBody = async (req: IncomingMessage): Promise<string> => {
     const chunks: Uint8Array[] = [];
     for await (const chunk of req) chunks.push(chunk);
     return Buffer.concat(chunks).toString();
 };
 
-const isValidPost = (entry: any): entry is Post => (
-    entry !== null &&
-    typeof entry === 'object' &&
+const isRecord = (entry: unknown): entry is Record<string, unknown> => (
+    entry !== null && typeof entry === 'object'
+);
+
+const isStringArray = (value: unknown): value is string[] => (
+    Array.isArray(value) && value.every(item => typeof item === 'string')
+);
+
+const isValidPost = (entry: unknown): entry is Post => (
+    isRecord(entry) &&
     typeof entry.date === 'number' &&
     typeof entry.reddit === 'string' &&
-    Array.isArray(entry.url) && entry.url.every((u: any) => typeof u === 'string') &&
+    isStringArray(entry.url) &&
     typeof entry.src === 'string' &&
     typeof entry.desc === 'string' &&
     typeof entry.artistId === 'string' &&
-    Array.isArray(entry.characterIds) && entry.characterIds.every((id: any) => typeof id === 'string')
+    isStringArray(entry.characterIds)
 );
 
-const isValidArtist = (entry: any): entry is Artist => (
-    entry !== null &&
-    typeof entry === 'object' &&
+const isValidArtist = (entry: unknown): entry is Artist => (
+    isRecord(entry) &&
     typeof entry.id === 'string' &&
     typeof entry.name === 'string'
 );
 
-const readJsonFile = (filePath: string): any[] => {
+const readJsonFile = (filePath: string): unknown[] => {
     try {
         const content = fs.readFileSync(filePath, 'utf-8');
         const data = JSON.parse(content);
@@ -41,7 +48,7 @@ const readJsonFile = (filePath: string): any[] => {
     }
 };
 
-const writeJsonFile = (filePath: string, data: any[]): void => {
+const writeJsonFile = (filePath: string, data: unknown[]): void => {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 4), 'utf-8');
 };
 

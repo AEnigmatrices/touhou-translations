@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { navigate, prefetch } from 'vike/client/router';
 import { usePageContext } from 'vike-react/usePageContext';
 import { getRandomPostPath } from '../../utils/fetchData';
@@ -9,13 +9,12 @@ import type { JSX } from 'react';
 
 const Navbar = (): JSX.Element => {
     const pageContext = usePageContext();
-    const [currentTab, setCurrentTab] = useState<string | false>(false);
     const tabPaths = navLinks.map(link => link.to);
     const url = pageContext.urlOriginal;
+    const currentTab = tabPaths.includes(url) ? url : false;
 
 
-    const handleLogoClick = async (e: React.MouseEvent) => {
-        e.preventDefault();
+    const handleLogoClick = async () => {
         const path = await getRandomPostPath();
         navigate(path);
     };
@@ -23,19 +22,15 @@ const Navbar = (): JSX.Element => {
     const isCurrent = (to: string) => currentTab === to;
 
 
-    useEffect(() => {
-        setCurrentTab(tabPaths.includes(url) ? url : false);
-    }, [url, tabPaths]);
-
     useEffect(() => { navLinks.forEach(({ to }) => prefetch(to)); }, []);
 
 
     return (
         <header className={styles.appBar}>
             <nav className={styles.toolbar} aria-label="Primary navigation">
-                <a href="#" onClick={handleLogoClick} className={styles.title} aria-label="Random post">
+                <button type="button" onClick={handleLogoClick} className={styles.title} aria-label="Random post">
                     Touhou Translations
-                </a>
+                </button>
 
                 <div className={styles.tabContainer} role="tablist" aria-label="Navigation tabs">
                     {navLinks.map(({ label, to }) => (

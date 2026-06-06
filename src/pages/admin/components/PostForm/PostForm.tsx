@@ -145,7 +145,7 @@ const PostForm: React.FC = () => {
                                             <div key={index} className={styles.imageBox}>
                                                 <span>Image {index + 1}</span>
                                                 <img
-                                                    src={url} alt={`Image ${index + 1}`} className={styles.previewImage}
+                                                    src={url} alt={`Preview ${index + 1}`} className={styles.previewImage}
                                                     onError={(e) => (e.currentTarget.style.display = 'none')}
                                                 />
                                             </div>

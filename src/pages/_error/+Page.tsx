@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 
 const Page = () => {
     const pageContext = usePageContext()
-    let { is404, abortReason } = pageContext
+    const { is404, abortReason } = pageContext
 
     const displayMessage = abortReason && typeof abortReason === 'string'
         ? abortReason

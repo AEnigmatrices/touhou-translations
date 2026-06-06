@@ -137,12 +137,12 @@ const buildDerivedData = (posts: Post[], artistsRaw: ArtistRaw[], charactersRaw:
 
 
 export const fetchPosts = async (): Promise<Post[]> => {
-    const postModules = import.meta.glob('../../data/posts/*.json');
+    const postModules = import.meta.glob<{ default: Post[] }>('../../data/posts/*.json');
     const loaded = await Promise.all(
         Object.values(postModules).map(loader => loader())
     );
     return loaded
-        .map((m: any) => m.default)
+        .map(m => m.default)
         .flat()
         .filter((p): p is Post => !!p && typeof p === 'object' && 'date' in p)
         .sort((a, b) => a.date - b.date);

@@ -60,7 +60,7 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
     </div>;
 
     const Content = (
-        <div className={styles.content} onClick={handleItemClick}>
+        <div className={styles.content}>
             {ImageContent}
             <div className={styles.textContainer}>
                 {isSelectMode && onToggleSelect && (
@@ -80,10 +80,12 @@ const ProfileItem: React.FC<Props> = ({ name, imageUrl, description1, descriptio
     );
 
     return (
-        <li role="listitem" aria-label={`Profile: ${name}`} tabIndex={link ? undefined : 0} className={styles.paper}>
+        <li aria-label={`Profile: ${name}`} className={styles.paper}>
             <div ref={observerRef}>
                 {link
                     ? <a href={link} className={styles.linkBox}>{Content}</a>
+                    : isSelectMode && onToggleSelect
+                        ? <button type="button" className={styles.linkBox} onClick={handleItemClick}>{Content}</button>
                     : <div className={styles.linkBox}>{Content}</div>
                 }
             </div>

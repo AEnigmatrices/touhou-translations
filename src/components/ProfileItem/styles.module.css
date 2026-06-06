@@ -15,7 +15,14 @@
 
 .linkBox {
     display: block;
+    width: 100%;
+    padding: 0;
     color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
     text-decoration: none;
 }
 
@@ -24,7 +31,6 @@
     align-items: center;
     gap: 0.9rem;
     padding: 0.85rem;
-    cursor: pointer;
 }
 
 .imageFrame {

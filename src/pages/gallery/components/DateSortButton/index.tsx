@@ -10,8 +10,6 @@ interface Props {
     onToggleSortOrder: () => void;
 }
 
-const ariaSortMap = { none: "none", asc: "ascending", desc: "descending" } as const;
-
 const iconMap = {
     none: <ArrowsDownUpIcon size={18} weight="bold" />,
     asc: <ArrowUpIcon size={18} weight="bold" />,
@@ -26,7 +24,6 @@ const DateSortButton: FC<Props> = ({ sortOrder, onToggleSortOrder }) => {
             className={`${styles.button} ${sortOrder !== "none" ? styles.active : ''}`}
             aria-label="Sort by Date"
             aria-pressed={sortOrder !== "none"}
-            aria-sort={ariaSortMap[sortOrder]}
             onClick={onToggleSortOrder}
             title="Sort by Date"
         >
