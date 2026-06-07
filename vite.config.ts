@@ -1,21 +1,21 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import vike from "vike/plugin";
-
-import pwaPlugin from "./plugins/pwaPlugin";
+import { sveltekit } from '@sveltejs/kit/vite';
+import { fileURLToPath } from 'node:url';
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
+import pwaPlugin from './plugins/pwaPlugin';
 import postDataPlugin from './plugins/postDataPlugin';
-import generateSitemapPlugin from './plugins/generateSitemapPlugin';
 
+const dataPath = fileURLToPath(new URL('./data', import.meta.url));
 
-
-const productionPlugins = [
-    ...(process.env.NODE_ENV === 'production' ? [pwaPlugin, generateSitemapPlugin] : [])
-];
-
-
+const productionPlugins = process.env.NODE_ENV === 'production'
+    ? [pwaPlugin]
+    : [];
 
 export default defineConfig({
-    plugins: [react(), vike(), postDataPlugin, ...productionPlugins],
-    base: '/touhou-translations/',
-    server: { open: '/touhou-translations/' }
+    plugins: [sveltekit(), postDataPlugin, ...productionPlugins],
+    server: {
+        fs: {
+            allow: [searchForWorkspaceRoot(process.cwd()), dataPath]
+        },
+        open: '/'
+    }
 });
