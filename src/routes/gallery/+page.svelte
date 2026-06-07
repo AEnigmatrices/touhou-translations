@@ -1,7 +1,8 @@
 <script lang="ts">
-    import { base } from '$app/paths';
     import { onMount } from 'svelte';
-    import { extractRedditId } from '../../utils/extractRedditId';
+    import GalleryGrid from '$lib/components/gallery/GalleryGrid.svelte';
+    import GalleryPagination from '$lib/components/gallery/GalleryPagination.svelte';
+    import GalleryToolbar from '$lib/components/gallery/GalleryToolbar.svelte';
     import type { Artist, Character, Post, SortOrder } from '../../types/data';
 
     interface Props {
@@ -47,6 +48,10 @@
 
     function toggleSort() {
         dateSort = dateSort === 'desc' ? 'asc' : 'desc';
+    }
+
+    function setCurrentPage(page: number) {
+        currentPage = page;
     }
 
     function openJumpInput(item: 'ellipsis-start' | 'ellipsis-end') {
@@ -109,73 +114,30 @@
 </svelte:head>
 
 <section class="container">
-    <div class="toolbar">
-        <div>
-            <h1>Gallery</h1>
-            <p>{filteredPosts.length} post{filteredPosts.length === 1 ? '' : 's'}</p>
-        </div>
-        <div class="controls">
-            <button type="button" onclick={() => galleryOnly = !galleryOnly} aria-pressed={galleryOnly}>
-                {galleryOnly ? 'SFW Only' : 'All Posts'}
-            </button>
-            <button type="button" onclick={toggleSort}>{dateSort === 'desc' ? 'Newest First' : 'Oldest First'}</button>
-        </div>
-    </div>
+    <GalleryToolbar
+        postCount={filteredPosts.length}
+        {galleryOnly}
+        {dateSort}
+        onToggleGalleryOnly={() => galleryOnly = !galleryOnly}
+        onToggleSort={toggleSort}
+    />
 
-    <div class="grid">
-        {#each visiblePosts as post}
-            {@const id = extractRedditId(post.reddit)}
-            {#if id}
-                <a class="tile" href={`${base}/posts/${id}/`} aria-label={`View post ${id}`}>
-                    <img src={post.url[0]} alt="" loading="lazy" decoding="async" />
-                    {#if post.nsfw}<span>NSFW</span>{/if}
-                </a>
-            {/if}
-        {/each}
-    </div>
+    <GalleryGrid posts={visiblePosts} />
 
     {#if totalPages > 1}
-        <nav class="pagination" aria-label="Gallery pages">
-            <button type="button" disabled={currentPage === 1} onclick={() => currentPage -= 1}>Previous</button>
-            {#each paginationItems as item}
-                {#if typeof item === 'number'}
-                    <button
-                        type="button"
-                        class:active={item === currentPage}
-                        aria-current={item === currentPage ? 'page' : undefined}
-                        onclick={() => currentPage = item}
-                    >
-                        {item}
-                    </button>
-                {:else}
-                    {#if openJump === item}
-                        <form class="jump-form" onsubmit={event => {
-                            event.preventDefault();
-                            submitJump();
-                        }}>
-                            <input
-                                type="number"
-                                min="1"
-                                max={totalPages}
-                                bind:value={jumpPage}
-                                aria-label={`Jump to page between 1 and ${totalPages}`}
-                                oninput={syncJumpPage}
-                                onblur={finalizeJumpPage}
-                                onkeydown={event => {
-                                    if (event.key === 'Escape') openJump = null;
-                                }}
-                            />
-                            <button type="submit">Go</button>
-                        </form>
-                    {:else}
-                        <button class="ellipsis" type="button" onclick={() => openJumpInput(item)} aria-label={`Jump to page between 1 and ${totalPages}`}>
-                            ...
-                        </button>
-                    {/if}
-                {/if}
-            {/each}
-            <button type="button" disabled={currentPage === totalPages} onclick={() => currentPage += 1}>Next</button>
-        </nav>
+        <GalleryPagination
+            {currentPage}
+            {totalPages}
+            {paginationItems}
+            {openJump}
+            {jumpPage}
+            onPageChange={setCurrentPage}
+            onOpenJumpInput={openJumpInput}
+            onJumpPageInput={value => jumpPage = value}
+            onJumpPageBlur={finalizeJumpPage}
+            onJumpSubmit={submitJump}
+            onCloseJump={() => openJump = null}
+        />
     {/if}
 </section>
 
@@ -185,162 +147,9 @@
         margin: 0 auto;
     }
 
-    .toolbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        text-align: left;
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-lg);
-    }
-
-    h1,
-    p {
-        margin: 0;
-    }
-
-    h1 {
-        color: var(--color-ink);
-    }
-
-    p {
-        color: var(--color-muted);
-    }
-
-    .controls {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-    }
-
-    button {
-        min-height: 38px;
-        padding: 0 0.8rem;
-        color: var(--color-muted);
-        cursor: pointer;
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
-    }
-
-    button[aria-pressed="true"],
-    button.active {
-        color: var(--color-primary);
-        background: var(--color-primary-soft);
-        border-color: rgba(180, 35, 59, 0.24);
-    }
-
-    button:disabled {
-        color: var(--color-faint);
-        cursor: not-allowed;
-        background: var(--color-bg-soft);
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        gap: 0.9rem;
-    }
-
-    .tile {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        aspect-ratio: 1;
-        background: var(--color-bg-soft);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-sm);
-    }
-
-    img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.2s ease;
-    }
-
-    .tile:hover img {
-        transform: scale(1.04);
-    }
-
-    span {
-        position: absolute;
-        right: 0.5rem;
-        bottom: 0.5rem;
-        padding: 0.2rem 0.45rem;
-        color: white;
-        font-size: 0.72rem;
-        font-weight: 800;
-        background: rgba(24, 33, 47, 0.78);
-        border-radius: 999px;
-    }
-
-    .pagination {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 0.35rem;
-        margin-top: 1.25rem;
-    }
-
-    .pagination button {
-        min-width: 42px;
-    }
-
-    .ellipsis {
-        display: inline-flex;
-        min-width: 28px;
-        height: 38px;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-muted);
-        font-weight: 700;
-    }
-
-    .jump-form {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
-    }
-
-    .jump-form input {
-        width: 84px;
-        height: 38px;
-        padding: 0 0.55rem;
-        color: var(--color-ink);
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
-    }
-
-    .jump-form button {
-        min-width: 42px;
-    }
-
-    @media (max-width: 1180px) {
-        .grid {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-    }
-
     @media (max-width: 700px) {
         .container {
             padding: 1rem;
-        }
-
-        .toolbar {
-            align-items: stretch;
-            flex-direction: column;
-        }
-
-        .grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
 </style>
