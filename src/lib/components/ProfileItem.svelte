@@ -107,35 +107,34 @@
     }
 
     .content {
-        display: flex;
-        min-height: 96px;
-        align-items: center;
-        gap: 0.875rem;
-        padding: 0.875rem;
+        display: grid;
+        grid-template-columns: 84px minmax(0, 1fr);
+        min-height: 116px;
+        align-items: stretch;
+        gap: 0.9rem;
+        padding: 0.75rem;
     }
 
     .large-content {
+        grid-template-columns: minmax(116px, 34%) minmax(0, 1fr);
         height: 100%;
-        min-height: 0;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.75rem;
+        min-height: 150px;
+        gap: 1rem;
     }
 
     .image-frame {
-        width: 72px;
-        height: 72px;
-        flex: 0 0 auto;
+        aspect-ratio: 1;
+        width: 100%;
+        min-width: 0;
         overflow: hidden;
         background: var(--color-bg-soft);
         border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
+        border-radius: calc(var(--radius-lg) - 4px);
     }
 
     .large-image {
-        width: 100%;
-        height: 140px;
-        border-radius: calc(var(--radius-lg) - 2px);
+        align-self: stretch;
+        height: auto;
     }
 
     img {
@@ -146,13 +145,18 @@
     }
 
     .text {
+        display: flex;
         min-width: 0;
         flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.2rem 0.25rem 0.2rem 0;
     }
 
     .large-text {
+        min-width: 0;
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
 
     .checkbox-row {
@@ -166,7 +170,7 @@
         overflow: hidden;
         margin: 0;
         color: var(--color-ink);
-        font-size: 0.9rem;
+        font-size: 0.98rem;
         font-weight: 700;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -175,7 +179,7 @@
     .large-name {
         display: -webkit-box;
         overflow: hidden;
-        font-size: 0.95rem;
+        font-size: 1.02rem;
         text-overflow: unset;
         white-space: normal;
         -webkit-box-orient: vertical;
@@ -185,42 +189,29 @@
 
     .desc {
         overflow: hidden;
-        margin: 0.2rem 0 0;
+        margin: 0.35rem 0 0;
         color: var(--color-muted);
-        font-size: 0.8rem;
-        line-height: 1.3;
+        font-size: 0.82rem;
+        line-height: 1.4;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
     .large-text .desc {
-        font-size: 0.78rem;
+        font-size: 0.82rem;
         white-space: normal;
     }
 
     @media (max-width: 640px) {
         .content {
-            min-height: 80px;
+            grid-template-columns: 76px minmax(0, 1fr);
+            min-height: 92px;
             padding: 0.75rem;
         }
 
         .large-content {
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .large-text {
-            text-align: left;
-        }
-
-        .image-frame {
-            width: 60px;
-            height: 60px;
-        }
-
-        .large-image {
-            width: 80px;
-            height: 80px;
+            grid-template-columns: 88px minmax(0, 1fr);
+            min-height: 104px;
         }
     }
 </style>

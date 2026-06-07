@@ -6,7 +6,7 @@
 
     export let data: { posts: Post[]; artists: Artist[]; characters: Character[] };
 
-    const postsPerPage = 60;
+    const postsPerPage = 12;
     let currentPage = 1;
     let dateSort: SortOrder = 'desc';
     let galleryOnly = false;
@@ -32,6 +32,7 @@
     });
     $: sortedPosts = [...filteredPosts].sort((a, b) => dateSort === 'asc' ? a.date - b.date : b.date - a.date);
     $: totalPages = Math.max(1, Math.ceil(sortedPosts.length / postsPerPage));
+    $: if (currentPage > totalPages) currentPage = totalPages;
     $: visiblePosts = sortedPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
 
     function toggleSort() {
