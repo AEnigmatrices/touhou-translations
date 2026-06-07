@@ -11,6 +11,19 @@
         "sourceMap": true,
         "strict": true,
         "module": "esnext",
-        "target": "esnext"
-    }
+        "target": "esnext",
+        "types": ["node"]
+    },
+    "include": [
+        ".svelte-kit/ambient.d.ts",
+        ".svelte-kit/env.d.ts",
+        ".svelte-kit/non-ambient.d.ts",
+        ".svelte-kit/types/**/$types.d.ts",
+        "src/**/*.js",
+        "src/**/*.ts",
+        "src/**/*.svelte",
+        "scripts/**/*.ts",
+        "vite.config.js",
+        "vite.config.ts"
+    ]
 }
