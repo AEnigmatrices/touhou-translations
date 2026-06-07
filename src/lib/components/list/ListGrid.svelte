@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { asset } from '$app/paths';
     import ProfileItem from '../profile/ProfileItem.svelte';
     import type { Artist, Character } from '../../../types/data';
 
@@ -19,7 +19,7 @@
     {#each items as item (item.id)}
         <ProfileItem
             name={item.name}
-            imageUrl={`${base}/${item.portrait}`}
+            imageUrl={asset(`/${item.portrait}`)}
             description1={`${item.artworkCount} artwork${item.artworkCount === 1 ? '' : 's'}`}
             description2={mode === 'character'
                 ? `${(item as Character).artistCount} artist${(item as Character).artistCount === 1 ? '' : 's'}`

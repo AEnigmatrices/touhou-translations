@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
     import emblaCarouselSvelte from 'embla-carousel-svelte';
 
     interface FeaturedPost {
@@ -69,7 +69,7 @@
         <div class="embla-track">
             {#each posts as post}
                 <div class="embla-slide">
-                    <a class="thumb" href={`${base}/posts/${post.id}/`} aria-label={`View featured post ${post.id}`}>
+                    <a class="thumb" href={resolve('/posts/[id]', { id: post.id })} aria-label={`View featured post ${post.id}`}>
                         <img src={post.img} alt="" loading="lazy" decoding="async" />
                     </a>
                 </div>

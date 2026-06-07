@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { asset } from '$app/paths';
 </script>
 
 <section class="card about">
     <div class="about-head">
-        <img src={`${base}/icons/touhou-translations-profile-icon.png`} alt="Touhou Translations profile icon" />
+        <img src={asset('/icons/touhou-translations-profile-icon.png')} alt="Touhou Translations profile icon" />
         <h2>About This Site</h2>
     </div>
     <p>

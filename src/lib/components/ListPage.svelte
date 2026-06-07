@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
     import ListGrid from './list/ListGrid.svelte';
     import ListToolbar from './list/ListToolbar.svelte';
     import type { Artist, Character, SortOrder } from '../../types/data';
@@ -63,7 +63,7 @@
 
     function selectedGalleryUrl(id: string) {
         const key = mode === 'character' ? 'characters' : 'artist';
-        return `${base}/gallery/?${key}=${selectedItems.join(',') || id}`;
+        return `${resolve('/gallery')}?${key}=${selectedItems.join(',') || id}`;
     }
 </script>
 

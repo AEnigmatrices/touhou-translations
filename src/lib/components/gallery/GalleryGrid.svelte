@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
     import { extractRedditId } from '../../../utils/extractRedditId';
     import type { Post } from '../../../types/data';
 
@@ -14,7 +14,7 @@
     {#each posts as post}
         {@const id = extractRedditId(post.reddit)}
         {#if id}
-            <a class="tile" href={`${base}/posts/${id}/`} aria-label={`View post ${id}`}>
+            <a class="tile" href={resolve('/posts/[id]', { id })} aria-label={`View post ${id}`}>
                 <img src={post.url[0]} alt="" loading="lazy" decoding="async" />
                 {#if post.nsfw}<span>NSFW</span>{/if}
             </a>

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
 
     interface DailyPost {
         id: string;
@@ -16,7 +16,7 @@
 <section class="card daily">
     <h2>Post of the Day</h2>
     {#if post}
-        <a class="daily-link" href={`${base}/posts/${post.id}/`}>
+        <a class="daily-link" href={resolve('/posts/[id]', { id: post.id })}>
             <img src={post.img} alt="Post of the day" loading="lazy" decoding="async" />
         </a>
     {/if}

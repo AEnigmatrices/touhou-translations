@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
     import { page } from '$app/state';
     import { marked } from 'marked';
     import LoadingIndicator from '$lib/components/LoadingIndicator.svelte';
@@ -94,8 +94,8 @@
                 <div class="links">
                     <a href={postData.post.reddit} target="_blank" rel="noopener noreferrer">Reddit</a>
                     <a href={postData.post.src} target="_blank" rel="noopener noreferrer">Source</a>
-                    {#if postData.prevPostId}<a href={`${base}/posts/${postData.prevPostId}/`}>Previous</a>{/if}
-                    {#if postData.nextPostId}<a href={`${base}/posts/${postData.nextPostId}/`}>Next</a>{/if}
+                    {#if postData.prevPostId}<a href={resolve('/posts/[id]', { id: postData.prevPostId })}>Previous</a>{/if}
+                    {#if postData.nextPostId}<a href={resolve('/posts/[id]', { id: postData.nextPostId })}>Next</a>{/if}
                 </div>
             </div>
 
@@ -104,7 +104,7 @@
                     <p class="eyebrow">Characters</p>
                     <div class="chips">
                         {#each postData.characters as character}
-                            <a href={`${base}/gallery/?characters=${character.id}`}>{character.name}</a>
+                            <a href={`${resolve('/gallery')}?characters=${character.id}`}>{character.name}</a>
                         {/each}
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                     <p class="eyebrow">More by this artist</p>
                     <div class="more-grid">
                         {#each postData.randomArtistPosts as item}
-                            <a href={`${base}/posts/${item.id}/`}>
+                            <a href={resolve('/posts/[id]', { id: item.id })}>
                                 <img src={item.img} alt="" loading="lazy" decoding="async" />
                             </a>
                         {/each}

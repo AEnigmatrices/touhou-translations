@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from '$app/state';
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
     import { goto } from '$app/navigation';
     import type { Snippet } from 'svelte';
     import '../styles/global.css';
@@ -14,10 +14,10 @@
     } = $props();
 
     const links = [
-        { label: 'Home', href: '/' },
-        { label: 'Characters', href: '/characters/' },
-        { label: 'Artists', href: '/artists/' },
-        { label: 'Gallery', href: '/gallery/' },
+        { label: 'Home', href: resolve('/') },
+        { label: 'Characters', href: resolve('/characters') },
+        { label: 'Artists', href: resolve('/artists') },
+        { label: 'Gallery', href: resolve('/gallery') },
     ];
 
     const socialLinks = [
@@ -27,13 +27,11 @@
         { label: 'Pixiv', href: 'https://www.pixiv.net/en/users/4920496' },
     ];
 
-    const withBase = (href: string) => `${base}${href}`;
-
     function goToRandomPost() {
         if (data.randomPostIds.length === 0) return;
 
         const id = data.randomPostIds[Math.floor(Math.random() * data.randomPostIds.length)];
-        void goto(withBase(`/posts/${id}/`));
+        void goto(resolve('/posts/[id]', { id }));
     }
 </script>
 
@@ -52,20 +50,20 @@
 <div class="layout">
     <header class="app-bar">
         <nav class="toolbar" aria-label="Primary navigation">
-            <a class="brand" href={withBase('/')}>Touhou Translations</a>
+            <a class="brand" href={resolve('/')}>Touhou Translations</a>
             <div class="tabs" aria-label="Navigation tabs">
                 {#each links as link}
                     <a
-                        class:active={page.url.pathname === withBase(link.href)}
-                        href={withBase(link.href)}
+                        class:active={page.url.pathname === link.href}
+                        href={link.href}
                     >
                         {link.label}
                     </a>
                 {/each}
                 <button
                     type="button"
-                    class:active={page.url.pathname.startsWith(withBase('/posts/'))}
-                    aria-current={page.url.pathname.startsWith(withBase('/posts/')) ? 'page' : undefined}
+                    class:active={page.route.id === '/posts/[id]'}
+                    aria-current={page.route.id === '/posts/[id]' ? 'page' : undefined}
                     onclick={goToRandomPost}
                 >
                     Post

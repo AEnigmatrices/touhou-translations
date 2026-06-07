@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { base } from '$app/paths';
+    import { resolve } from '$app/paths';
     import type { SortOrder } from '../../../types/data';
 
     interface Props {
@@ -51,7 +51,7 @@
                 {isSelectMode ? `${selectedCount || 'Multi'} Selected` : 'Multi-Select OFF'}
             </button>
             {#if isSelectMode && selectedItems.length > 0}
-                <a class="primary" href={`${base}/gallery/?characters=${selectedItems.join(',')}`}>View Selected</a>
+                <a class="primary" href={`${resolve('/gallery')}?characters=${selectedItems.join(',')}`}>View Selected</a>
             {/if}
         </div>
     {/if}
