@@ -10,8 +10,6 @@ export default tseslint.config(
             'node_modules/**',
             'public/**',
             'src/**/*.svelte',
-            'src/**/*.tsx',
-            'src/pages/**',
             '*.config.js',
         ],
     },

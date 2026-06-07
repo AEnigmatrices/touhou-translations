@@ -12,9 +12,5 @@
         "strict": true,
         "module": "esnext",
         "target": "esnext"
-    },
-    "exclude": [
-        "src/pages/**",
-        "src/**/*.tsx"
-    ]
+    }
 }
