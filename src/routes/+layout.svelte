@@ -1,10 +1,17 @@
 <script lang="ts">
     import { page } from '$app/state';
     import { base } from '$app/paths';
+    import { goto } from '$app/navigation';
     import type { Snippet } from 'svelte';
     import '../styles/global.css';
 
-    let { children }: { children: Snippet } = $props();
+    let {
+        children,
+        data,
+    }: {
+        children: Snippet;
+        data: { randomPostIds: string[] };
+    } = $props();
 
     const links = [
         { label: 'Home', href: '/' },
@@ -21,6 +28,13 @@
     ];
 
     const withBase = (href: string) => `${base}${href}`;
+
+    function goToRandomPost() {
+        if (data.randomPostIds.length === 0) return;
+
+        const id = data.randomPostIds[Math.floor(Math.random() * data.randomPostIds.length)];
+        void goto(withBase(`/posts/${id}/`));
+    }
 </script>
 
 <svelte:head>
@@ -48,6 +62,14 @@
                         {link.label}
                     </a>
                 {/each}
+                <button
+                    type="button"
+                    class:active={page.url.pathname.startsWith(withBase('/posts/'))}
+                    aria-current={page.url.pathname.startsWith(withBase('/posts/')) ? 'page' : undefined}
+                    onclick={goToRandomPost}
+                >
+                    Post
+                </button>
             </div>
         </nav>
     </header>
@@ -133,7 +155,8 @@
         border-radius: 999px;
     }
 
-    .tabs a {
+    .tabs a,
+    .tabs button {
         display: inline-flex;
         min-height: 38px;
         align-items: center;
@@ -142,11 +165,16 @@
         font-size: 0.93rem;
         font-weight: 700;
         text-decoration: none;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
         border-radius: 999px;
     }
 
     .tabs a:hover,
-    .tabs a.active {
+    .tabs button:hover,
+    .tabs a.active,
+    .tabs button.active {
         color: var(--color-primary);
         background: var(--color-surface);
         box-shadow: var(--shadow-sm);
