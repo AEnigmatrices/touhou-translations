@@ -1,17 +1,21 @@
 <script lang="ts">
     import { base } from '$app/paths';
 
-    export let data: {
-        featuredPosts: { id: string; img: string; nsfw: boolean; date: number }[];
-        dailyPostCandidates: { id: string; img: string; nsfw: boolean; date: number }[];
-    };
+    interface Props {
+        data: {
+            featuredPosts: { id: string; img: string; nsfw: boolean; date: number }[];
+            dailyPostCandidates: { id: string; img: string; nsfw: boolean; date: number }[];
+        };
+    }
+
+    let { data }: Props = $props();
 
     const day = Math.floor(Date.now() / 86_400_000);
-    let showFeaturedVideo = false;
+    let showFeaturedVideo = $state(false);
 
-    $: dailyPost = data.dailyPostCandidates.length
+    const dailyPost = $derived(data.dailyPostCandidates.length
         ? data.dailyPostCandidates[day % data.dailyPostCandidates.length]
-        : null;
+        : null);
 </script>
 
 <svelte:head>
@@ -56,7 +60,7 @@
                             allowfullscreen
                         ></iframe>
                     {:else}
-                        <button class="video-poster" type="button" on:click={() => showFeaturedVideo = true} aria-label="Play featured video">
+                        <button class="video-poster" type="button" onclick={() => showFeaturedVideo = true} aria-label="Play featured video">
                             <img src="https://i.ytimg.com/vi/Gfev_ZEBRNk/hqdefault.jpg" alt="" loading="lazy" decoding="async" />
                             <span class="play" aria-hidden="true"></span>
                         </button>

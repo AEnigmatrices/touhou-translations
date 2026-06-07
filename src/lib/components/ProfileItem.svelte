@@ -1,16 +1,30 @@
 <script lang="ts">
-    export let name: string;
-    export let imageUrl: string;
-    export let description1: string | undefined = undefined;
-    export let description2: string | undefined = undefined;
-    export let link: string | undefined = undefined;
-    export let isSelectMode = false;
-    export let isSelected = false;
-    export let size: 'default' | 'large' = 'default';
-    export let onToggleSelect: (() => void) | undefined = undefined;
+    interface Props {
+        name: string;
+        imageUrl: string;
+        description1?: string;
+        description2?: string;
+        link?: string;
+        isSelectMode?: boolean;
+        isSelected?: boolean;
+        size?: 'default' | 'large';
+        onToggleSelect?: () => void;
+    }
 
-    $: isLarge = size === 'large';
-    $: isSelectable = Boolean(isSelectMode && onToggleSelect);
+    let {
+        name,
+        imageUrl,
+        description1 = undefined,
+        description2 = undefined,
+        link = undefined,
+        isSelectMode = false,
+        isSelected = false,
+        size = 'default',
+        onToggleSelect = undefined,
+    }: Props = $props();
+
+    const isLarge = $derived(size === 'large');
+    const isSelectable = $derived(Boolean(isSelectMode && onToggleSelect));
 </script>
 
 <li class:selected={isSelected} class:large={isLarge} aria-label={`Profile: ${name}`}>
@@ -28,7 +42,7 @@
             </div>
         </a>
     {:else if isSelectable}
-        <button class="box" type="button" on:click={onToggleSelect}>
+        <button class="box" type="button" onclick={onToggleSelect}>
             <div class:large-content={isLarge} class="content">
                 <div class:large-image={isLarge} class="image-frame">
                     <img src={imageUrl} alt={name} loading="lazy" decoding="async" />

@@ -2,7 +2,7 @@
     import artists from '../../../data/artists.json';
     import type { ArtistRaw, PostEntryForm } from '../../types/data';
 
-    let form: PostEntryForm = {
+    let form = $state<PostEntryForm>({
         date: Date.now(),
         reddit: '',
         urls: '',
@@ -10,9 +10,9 @@
         desc: '',
         artistId: '',
         characterIds: [],
-    };
-    let characters = '';
-    let status = '';
+    });
+    let characters = $state('');
+    let status = $state('');
 
     function splitClean(input: string) {
         return input.split(',').map(item => item.trim()).filter(Boolean);
@@ -46,7 +46,10 @@
 </svelte:head>
 
 <section class="root">
-    <form on:submit|preventDefault={submitPost}>
+    <form onsubmit={event => {
+        event.preventDefault();
+        submitPost();
+    }}>
         <h1>Add Post</h1>
         <label>
             <span>Date</span>

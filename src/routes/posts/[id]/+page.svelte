@@ -1,6 +1,6 @@
 <script lang="ts">
     import { base } from '$app/paths';
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
     import { marked } from 'marked';
     import LoadingIndicator from '$lib/components/LoadingIndicator.svelte';
     import { fetchDerivedData } from '../../../utils/fetchData';
@@ -16,12 +16,12 @@
         nextPostId: string | null;
     }
 
-    let loading = true;
-    let postData: ClientPostData | null = null;
-    let loadedId = '';
+    let loading = $state(true);
+    let postData = $state<ClientPostData | null>(null);
+    let loadedId = $state('');
 
-    $: id = $page.params.id;
-    $: htmlDescription = postData ? marked.parse(postData.post.desc) : '';
+    const id = $derived(page.params.id);
+    const htmlDescription = $derived(postData ? marked.parse(postData.post.desc) : '');
 
     const getRandomArtistPosts = <T,>(arr: T[]): T[] => {
         const result = [...arr];
@@ -62,9 +62,11 @@
         loading = false;
     }
 
-    $: if (typeof window !== 'undefined' && id && id !== loadedId) {
-        void loadPost(id);
-    }
+    $effect(() => {
+        if (typeof window !== 'undefined' && id && id !== loadedId) {
+            void loadPost(id);
+        }
+    });
 </script>
 
 <svelte:head>

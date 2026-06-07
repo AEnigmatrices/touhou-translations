@@ -4,17 +4,21 @@
     import { extractRedditId } from '../../utils/extractRedditId';
     import type { Artist, Character, Post, SortOrder } from '../../types/data';
 
-    export let data: { posts: Post[]; artists: Artist[]; characters: Character[] };
+    interface Props {
+        data: { posts: Post[]; artists: Artist[]; characters: Character[] };
+    }
+
+    let { data }: Props = $props();
 
     const postsPerPage = 12;
-    let currentPage = 1;
-    let dateSort: SortOrder = 'desc';
-    let galleryOnly = false;
-    let characterQueries: string[] = [];
-    let artistQueries: string[] = [];
-    let mode: 'and' | 'or' = 'and';
-    let openJump: 'ellipsis-start' | 'ellipsis-end' | null = null;
-    let jumpPage = '';
+    let currentPage = $state(1);
+    let dateSort = $state<SortOrder>('desc');
+    let galleryOnly = $state(false);
+    let characterQueries = $state<string[]>([]);
+    let artistQueries = $state<string[]>([]);
+    let mode = $state<'and' | 'or'>('and');
+    let openJump = $state<'ellipsis-start' | 'ellipsis-end' | null>(null);
+    let jumpPage = $state('');
 
     onMount(() => {
         const search = new URLSearchParams(window.location.search);
@@ -23,7 +27,7 @@
         mode = search.get('mode') === 'or' ? 'or' : 'and';
     });
 
-    $: filteredPosts = data.posts.filter(post => {
+    const filteredPosts = $derived(data.posts.filter(post => {
         if (galleryOnly && post.nsfw) return false;
         const characterMatch = characterQueries.length === 0
             || (mode === 'and'
@@ -31,12 +35,15 @@
                 : characterQueries.some(id => post.characterIds.includes(id)));
         const artistMatch = artistQueries.length === 0 || artistQueries.includes(post.artistId);
         return characterMatch && artistMatch;
+    }));
+    const sortedPosts = $derived([...filteredPosts].sort((a, b) => dateSort === 'asc' ? a.date - b.date : b.date - a.date));
+    const totalPages = $derived(Math.max(1, Math.ceil(sortedPosts.length / postsPerPage)));
+    const visiblePosts = $derived(sortedPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage));
+    const paginationItems = $derived(getPaginationItems(currentPage, totalPages));
+
+    $effect(() => {
+        if (currentPage > totalPages) currentPage = totalPages;
     });
-    $: sortedPosts = [...filteredPosts].sort((a, b) => dateSort === 'asc' ? a.date - b.date : b.date - a.date);
-    $: totalPages = Math.max(1, Math.ceil(sortedPosts.length / postsPerPage));
-    $: if (currentPage > totalPages) currentPage = totalPages;
-    $: visiblePosts = sortedPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
-    $: paginationItems = getPaginationItems(currentPage, totalPages);
 
     function toggleSort() {
         dateSort = dateSort === 'desc' ? 'asc' : 'desc';
@@ -108,10 +115,10 @@
             <p>{filteredPosts.length} post{filteredPosts.length === 1 ? '' : 's'}</p>
         </div>
         <div class="controls">
-            <button type="button" on:click={() => galleryOnly = !galleryOnly} aria-pressed={galleryOnly}>
+            <button type="button" onclick={() => galleryOnly = !galleryOnly} aria-pressed={galleryOnly}>
                 {galleryOnly ? 'SFW Only' : 'All Posts'}
             </button>
-            <button type="button" on:click={toggleSort}>{dateSort === 'desc' ? 'Newest First' : 'Oldest First'}</button>
+            <button type="button" onclick={toggleSort}>{dateSort === 'desc' ? 'Newest First' : 'Oldest First'}</button>
         </div>
     </div>
 
@@ -129,42 +136,45 @@
 
     {#if totalPages > 1}
         <nav class="pagination" aria-label="Gallery pages">
-            <button type="button" disabled={currentPage === 1} on:click={() => currentPage -= 1}>Previous</button>
+            <button type="button" disabled={currentPage === 1} onclick={() => currentPage -= 1}>Previous</button>
             {#each paginationItems as item}
                 {#if typeof item === 'number'}
                     <button
                         type="button"
                         class:active={item === currentPage}
                         aria-current={item === currentPage ? 'page' : undefined}
-                        on:click={() => currentPage = item}
+                        onclick={() => currentPage = item}
                     >
                         {item}
                     </button>
                 {:else}
                     {#if openJump === item}
-                        <form class="jump-form" on:submit|preventDefault={submitJump}>
+                        <form class="jump-form" onsubmit={event => {
+                            event.preventDefault();
+                            submitJump();
+                        }}>
                             <input
                                 type="number"
                                 min="1"
                                 max={totalPages}
                                 bind:value={jumpPage}
                                 aria-label={`Jump to page between 1 and ${totalPages}`}
-                                on:input={syncJumpPage}
-                                on:blur={finalizeJumpPage}
-                                on:keydown={event => {
+                                oninput={syncJumpPage}
+                                onblur={finalizeJumpPage}
+                                onkeydown={event => {
                                     if (event.key === 'Escape') openJump = null;
                                 }}
                             />
                             <button type="submit">Go</button>
                         </form>
                     {:else}
-                        <button class="ellipsis" type="button" on:click={() => openJumpInput(item)} aria-label={`Jump to page between 1 and ${totalPages}`}>
+                        <button class="ellipsis" type="button" onclick={() => openJumpInput(item)} aria-label={`Jump to page between 1 and ${totalPages}`}>
                             ...
                         </button>
                     {/if}
                 {/if}
             {/each}
-            <button type="button" disabled={currentPage === totalPages} on:click={() => currentPage += 1}>Next</button>
+            <button type="button" disabled={currentPage === totalPages} onclick={() => currentPage += 1}>Next</button>
         </nav>
     {/if}
 </section>

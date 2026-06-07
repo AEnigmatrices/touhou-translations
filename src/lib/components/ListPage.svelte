@@ -3,24 +3,36 @@
     import ProfileItem from './ProfileItem.svelte';
     import type { Artist, Character, SortOrder } from '../../types/data';
 
-    export let mode: 'character' | 'artist';
-    export let characters: Character[] = [];
-    export let artists: Artist[] = [];
+    interface Props {
+        mode: 'character' | 'artist';
+        characters?: Character[];
+        artists?: Artist[];
+    }
+
+    let { mode, characters = [], artists = [] }: Props = $props();
 
     const pageSize = 50;
-    let searchInput = '';
-    let isSelectMode = false;
-    let selectedItems: string[] = [];
-    let sortOrder: SortOrder = mode === 'artist' ? 'desc' : 'none';
-    let visibleCount = pageSize;
+    let searchInput = $state('');
+    let isSelectMode = $state(false);
+    let selectedItems = $state<string[]>([]);
+    let hasInitializedSortOrder = $state(false);
+    let sortOrder = $state<SortOrder>('none');
+    let visibleCount = $state(pageSize);
 
-    $: title = mode === 'character' ? 'Character List' : 'Artist List';
-    $: allItems = mode === 'character' ? characters : artists;
-    $: searchedItems = searchInput
+    const title = $derived(mode === 'character' ? 'Character List' : 'Artist List');
+    const allItems = $derived(mode === 'character' ? characters : artists);
+    const searchedItems = $derived(searchInput
         ? allItems.filter(({ id, name }) => [id, name].some(field => field.toLowerCase().includes(searchInput.toLowerCase())))
-        : allItems;
-    $: sortedItems = [...searchedItems].sort(compareItems);
-    $: visibleItems = sortedItems.slice(0, visibleCount);
+        : allItems);
+    const sortedItems = $derived([...searchedItems].sort(compareItems));
+    const visibleItems = $derived(sortedItems.slice(0, visibleCount));
+
+    $effect(() => {
+        if (hasInitializedSortOrder) return;
+
+        sortOrder = mode === 'artist' ? 'desc' : 'none';
+        hasInitializedSortOrder = true;
+    });
 
     function compareItems(a: Character | Artist, b: Character | Artist) {
         if (sortOrder === 'none') return mode === 'artist' ? a.id.localeCompare(b.id) : 0;
@@ -66,7 +78,7 @@
                     type="button"
                     class:active={isSelectMode}
                     aria-pressed={isSelectMode}
-                    on:click={() => {
+                    onclick={() => {
                         if (isSelectMode && selectedItems.length === 0) isSelectMode = false;
                         else isSelectMode = !isSelectMode;
                     }}
@@ -78,7 +90,7 @@
                 {/if}
             </div>
         {/if}
-        <button type="button" class="sort" on:click={toggleSortOrder} aria-pressed={sortOrder !== 'none'}>
+        <button type="button" class="sort" onclick={toggleSortOrder} aria-pressed={sortOrder !== 'none'}>
             {sortOrder === 'none' ? 'Sort' : sortOrder === 'desc' ? 'Count ↓' : 'Count ↑'}
         </button>
     </div>
@@ -102,7 +114,7 @@
     </ul>
 
     {#if visibleCount < sortedItems.length}
-        <button class="load-more" type="button" on:click={() => visibleCount += pageSize}>Load More</button>
+        <button class="load-more" type="button" onclick={() => visibleCount += pageSize}>Load More</button>
     {/if}
 </section>
 

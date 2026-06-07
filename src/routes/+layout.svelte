@@ -1,7 +1,10 @@
 <script lang="ts">
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
     import { base } from '$app/paths';
+    import type { Snippet } from 'svelte';
     import '../styles/global.css';
+
+    let { children }: { children: Snippet } = $props();
 
     const links = [
         { label: 'Home', href: '/' },
@@ -39,7 +42,7 @@
             <div class="tabs" aria-label="Navigation tabs">
                 {#each links as link}
                     <a
-                        class:active={$page.url.pathname === withBase(link.href)}
+                        class:active={page.url.pathname === withBase(link.href)}
                         href={withBase(link.href)}
                     >
                         {link.label}
@@ -50,7 +53,7 @@
     </header>
 
     <main class="main">
-        <slot />
+        {@render children()}
     </main>
 
     <footer class="footer">

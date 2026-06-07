@@ -2,7 +2,7 @@
     import ListPage from '$lib/components/ListPage.svelte';
     import type { Artist } from '../../types/data';
 
-    export let data: { artists: Artist[] };
+    let { data }: { data: { artists: Artist[] } } = $props();
 </script>
 
 <ListPage mode="artist" artists={data.artists} />
