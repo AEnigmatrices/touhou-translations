@@ -13,6 +13,8 @@
     let characterQueries: string[] = [];
     let artistQueries: string[] = [];
     let mode: 'and' | 'or' = 'and';
+    let openJump: 'ellipsis-start' | 'ellipsis-end' | null = null;
+    let jumpPage = '';
 
     onMount(() => {
         const search = new URLSearchParams(window.location.search);
@@ -34,9 +36,64 @@
     $: totalPages = Math.max(1, Math.ceil(sortedPosts.length / postsPerPage));
     $: if (currentPage > totalPages) currentPage = totalPages;
     $: visiblePosts = sortedPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
+    $: paginationItems = getPaginationItems(currentPage, totalPages);
 
     function toggleSort() {
         dateSort = dateSort === 'desc' ? 'asc' : 'desc';
+    }
+
+    function openJumpInput(item: 'ellipsis-start' | 'ellipsis-end') {
+        openJump = item;
+        jumpPage = String(currentPage);
+    }
+
+    function submitJump() {
+        const page = clampPage(jumpPage);
+        jumpPage = String(page);
+        currentPage = page;
+        openJump = null;
+    }
+
+    function clampPage(value: string) {
+        const page = Number(value);
+        if (!Number.isInteger(page)) return currentPage;
+
+        return Math.min(totalPages, Math.max(1, page));
+    }
+
+    function syncJumpPage() {
+        const digitsOnly = jumpPage.replace(/\D/g, '');
+        if (!digitsOnly) {
+            jumpPage = '';
+            return;
+        }
+
+        jumpPage = String(Math.min(totalPages, Math.max(1, Number(digitsOnly))));
+    }
+
+    function finalizeJumpPage() {
+        jumpPage = String(clampPage(jumpPage));
+    }
+
+    function getPaginationItems(page: number, pageCount: number): Array<number | 'ellipsis-start' | 'ellipsis-end'> {
+        if (pageCount <= 7) return Array.from({ length: pageCount }, (_, index) => index + 1);
+
+        const pages = new Set([1, pageCount, page - 1, page, page + 1]);
+        const validPages = [...pages]
+            .filter(pageNumber => pageNumber >= 1 && pageNumber <= pageCount)
+            .sort((a, b) => a - b);
+
+        const items: Array<number | 'ellipsis-start' | 'ellipsis-end'> = [];
+
+        validPages.forEach((pageNumber, index) => {
+            const previous = validPages[index - 1];
+            if (previous && pageNumber - previous > 1) {
+                items.push(previous === 1 ? 'ellipsis-start' : 'ellipsis-end');
+            }
+            items.push(pageNumber);
+        });
+
+        return items;
     }
 </script>
 
@@ -72,16 +129,42 @@
 
     {#if totalPages > 1}
         <nav class="pagination" aria-label="Gallery pages">
-            {#each Array.from({ length: totalPages }, (_, index) => index + 1) as pageNumber}
-                <button
-                    type="button"
-                    class:active={pageNumber === currentPage}
-                    aria-current={pageNumber === currentPage ? 'page' : undefined}
-                    on:click={() => currentPage = pageNumber}
-                >
-                    {pageNumber}
-                </button>
+            <button type="button" disabled={currentPage === 1} on:click={() => currentPage -= 1}>Previous</button>
+            {#each paginationItems as item}
+                {#if typeof item === 'number'}
+                    <button
+                        type="button"
+                        class:active={item === currentPage}
+                        aria-current={item === currentPage ? 'page' : undefined}
+                        on:click={() => currentPage = item}
+                    >
+                        {item}
+                    </button>
+                {:else}
+                    {#if openJump === item}
+                        <form class="jump-form" on:submit|preventDefault={submitJump}>
+                            <input
+                                type="number"
+                                min="1"
+                                max={totalPages}
+                                bind:value={jumpPage}
+                                aria-label={`Jump to page between 1 and ${totalPages}`}
+                                on:input={syncJumpPage}
+                                on:blur={finalizeJumpPage}
+                                on:keydown={event => {
+                                    if (event.key === 'Escape') openJump = null;
+                                }}
+                            />
+                            <button type="submit">Go</button>
+                        </form>
+                    {:else}
+                        <button class="ellipsis" type="button" on:click={() => openJumpInput(item)} aria-label={`Jump to page between 1 and ${totalPages}`}>
+                            ...
+                        </button>
+                    {/if}
+                {/if}
             {/each}
+            <button type="button" disabled={currentPage === totalPages} on:click={() => currentPage += 1}>Next</button>
         </nav>
     {/if}
 </section>
@@ -141,9 +224,15 @@
         border-color: rgba(180, 35, 59, 0.24);
     }
 
+    button:disabled {
+        color: var(--color-faint);
+        cursor: not-allowed;
+        background: var(--color-bg-soft);
+    }
+
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 0.9rem;
     }
 
@@ -184,9 +273,50 @@
     .pagination {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         justify-content: center;
         gap: 0.35rem;
         margin-top: 1.25rem;
+    }
+
+    .pagination button {
+        min-width: 42px;
+    }
+
+    .ellipsis {
+        display: inline-flex;
+        min-width: 28px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-muted);
+        font-weight: 700;
+    }
+
+    .jump-form {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .jump-form input {
+        width: 84px;
+        height: 38px;
+        padding: 0 0.55rem;
+        color: var(--color-ink);
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+    }
+
+    .jump-form button {
+        min-width: 42px;
+    }
+
+    @media (max-width: 1180px) {
+        .grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
     }
 
     @media (max-width: 700px) {
@@ -200,7 +330,7 @@
         }
 
         .grid {
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
 </style>
