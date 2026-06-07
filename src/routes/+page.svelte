@@ -1,5 +1,6 @@
 <script lang="ts">
     import { base } from '$app/paths';
+    import emblaCarouselSvelte from 'embla-carousel-svelte';
 
     interface Props {
         data: {
@@ -8,14 +9,62 @@
         };
     }
 
+    interface EmblaApi {
+        off: (event: 'select' | 'reInit', callback: () => void) => void;
+        on: (event: 'select' | 'reInit', callback: () => void) => void;
+        scrollNext: () => void;
+        scrollPrev: () => void;
+        scrollSnapList: () => unknown[];
+        scrollTo: (index: number) => void;
+        selectedScrollSnap: () => number;
+    }
+
     let { data }: Props = $props();
 
     const day = Math.floor(Date.now() / 86_400_000);
+    const carouselConfig = {
+        options: {
+            align: 'start' as const,
+            containScroll: 'trimSnaps' as const,
+            loop: true,
+        },
+        plugins: [],
+    };
+
     let showFeaturedVideo = $state(false);
+    let emblaApi = $state<EmblaApi | null>(null);
+    let selectedSlide = $state(0);
+    let slideCount = $state(0);
+    let removeEmblaListeners: (() => void) | null = null;
 
     const dailyPost = $derived(data.dailyPostCandidates.length
         ? data.dailyPostCandidates[day % data.dailyPostCandidates.length]
         : null);
+
+    function syncCarouselState(api = emblaApi) {
+        if (!api) return;
+
+        selectedSlide = api.selectedScrollSnap();
+        slideCount = api.scrollSnapList().length;
+    }
+
+    function handleEmblaInit(event: CustomEvent<EmblaApi>) {
+        removeEmblaListeners?.();
+        emblaApi = event.detail;
+
+        const sync = () => syncCarouselState(event.detail);
+        event.detail.on('select', sync);
+        event.detail.on('reInit', sync);
+        removeEmblaListeners = () => {
+            event.detail.off('select', sync);
+            event.detail.off('reInit', sync);
+        };
+        sync();
+    }
+
+    $effect(() => () => {
+        removeEmblaListeners?.();
+    });
 </script>
 
 <svelte:head>
@@ -25,14 +74,33 @@
 <section class="container">
     <div class="grid">
         <section class="card featured">
-            <h1>Featured Posts</h1>
-            <div class="featured-grid">
-                {#each data.featuredPosts as post}
-                    <a class="thumb" href={`${base}/posts/${post.id}/`} aria-label={`View featured post ${post.id}`}>
-                        <img src={post.img} alt="" loading="lazy" decoding="async" />
-                    </a>
-                {/each}
+            <div class="section-head">
+                <h1>Featured Posts</h1>
             </div>
+            <div class="embla" use:emblaCarouselSvelte={carouselConfig} onemblaInit={handleEmblaInit}>
+                <div class="embla-track">
+                    {#each data.featuredPosts as post}
+                        <div class="embla-slide">
+                            <a class="thumb" href={`${base}/posts/${post.id}/`} aria-label={`View featured post ${post.id}`}>
+                                <img src={post.img} alt="" loading="lazy" decoding="async" />
+                            </a>
+                        </div>
+                    {/each}
+                </div>
+            </div>
+            {#if slideCount > 1}
+                <div class="carousel-dots" aria-label="Featured post pages">
+                    {#each Array.from({ length: slideCount }, (_, index) => index) as index}
+                        <button
+                            type="button"
+                            class:active={index === selectedSlide}
+                            aria-label={`Show featured post page ${index + 1}`}
+                            aria-current={index === selectedSlide ? 'true' : undefined}
+                            onclick={() => emblaApi?.scrollTo(index)}
+                        ></button>
+                    {/each}
+                </div>
+            {/if}
         </section>
 
         <div class="stack">
@@ -119,10 +187,24 @@
         font-size: 1.1rem;
     }
 
-    .featured-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 0.75rem;
+    .section-head h1 {
+        margin-bottom: 0.85rem;
+    }
+
+    .embla {
+        overflow: hidden;
+    }
+
+    .embla-track {
+        display: flex;
+        margin-left: -0.75rem;
+        touch-action: pan-y pinch-zoom;
+    }
+
+    .embla-slide {
+        min-width: 0;
+        flex: 0 0 18%;
+        padding-left: 0.75rem;
     }
 
     .thumb,
@@ -139,6 +221,28 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.35rem;
+        margin-top: 0.85rem;
+    }
+
+    .carousel-dots button {
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        cursor: pointer;
+        background: var(--color-border-strong);
+        border: 0;
+        border-radius: 999px;
+    }
+
+    .carousel-dots button.active {
+        width: 24px;
+        background: var(--color-primary);
     }
 
     .about-head {
@@ -240,6 +344,16 @@
 
         .grid {
             grid-template-columns: 1fr;
+        }
+
+        .embla-slide {
+            flex-basis: 28%;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .embla-slide {
+            flex-basis: 48%;
         }
     }
 </style>
