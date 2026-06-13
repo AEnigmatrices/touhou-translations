@@ -23,6 +23,10 @@
     const id = $derived(page.params.id);
     const htmlDescription = $derived(postData ? marked.parse(postData.post.desc) : '');
 
+    function galleryArtistUrl(artistId: string) {
+        return `${resolve('/gallery')}?artist=${encodeURIComponent(artistId)}`;
+    }
+
     const getRandomArtistPosts = <T,>(arr: T[]): T[] => {
         const result = [...arr];
         for (let i = 0; i < Math.min(4, result.length); i += 1) {
@@ -90,7 +94,11 @@
         <aside class="info">
             <div class="panel">
                 <p class="eyebrow">Artist</p>
-                <h1>{postData.artist?.name ?? postData.post.artistId}</h1>
+                <h1>
+                    <a class="artist-pill" href={galleryArtistUrl(postData.post.artistId)}>
+                        {postData.artist?.name ?? postData.post.artistId}
+                    </a>
+                </h1>
                 <div class="links">
                     <a href={postData.post.reddit} target="_blank" rel="noopener noreferrer">Reddit</a>
                     <a href={postData.post.src} target="_blank" rel="noopener noreferrer">Source</a>
@@ -194,6 +202,25 @@
         margin: 0;
         color: var(--color-ink);
         font-size: 1.35rem;
+    }
+
+    .artist-pill {
+        display: inline-flex;
+        max-width: 100%;
+        align-items: center;
+        padding: 0.45rem 0.8rem;
+        color: var(--color-primary);
+        line-height: 1.2;
+        text-decoration: none;
+        overflow-wrap: anywhere;
+        background: var(--color-primary-soft);
+        border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+        border-radius: 999px;
+    }
+
+    .artist-pill:hover {
+        color: var(--color-surface);
+        background: var(--color-primary);
     }
 
     .links,
