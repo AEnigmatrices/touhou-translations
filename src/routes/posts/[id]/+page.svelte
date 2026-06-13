@@ -20,6 +20,7 @@
     let postData = $state<ClientPostData | null>(null);
     let imageBackgrounds = $state<Record<string, string>>({});
     let loadedId = $state('');
+    let showNsfw = $state(false);
 
     const id = $derived(page.params.id);
     const htmlDescription = $derived(postData ? marked.parse(postData.post.desc) : '');
@@ -96,6 +97,7 @@
     async function loadPost(postId: string) {
         loadedId = postId;
         loading = true;
+        showNsfw = false;
         const {
             artistById,
             characterByPostId,
@@ -144,6 +146,7 @@
             {#each postData.post.url as url, index}
                 <figure style:background-color={imageBackgrounds[url] ?? undefined}>
                     <img
+                        class:nsfw={postData.post.nsfw && !showNsfw}
                         src={url}
                         alt={`Translated artwork page ${index + 1}`}
                         onload={() => setImageBackground(url)}
@@ -166,6 +169,16 @@
                     {#if postData.prevPostId}<a href={resolve('/posts/[id]', { id: postData.prevPostId })}>Previous</a>{/if}
                     {#if postData.nextPostId}<a href={resolve('/posts/[id]', { id: postData.nextPostId })}>Next</a>{/if}
                 </div>
+                {#if postData.post.nsfw}
+                    <button
+                        class="uncensor-button"
+                        type="button"
+                        aria-pressed={showNsfw}
+                        onclick={() => showNsfw = !showNsfw}
+                    >
+                        {showNsfw ? 'Censor images' : 'Uncensor images'}
+                    </button>
+                {/if}
             </div>
 
             {#if postData.characters.length}
@@ -189,7 +202,7 @@
                     <div class="more-grid">
                         {#each postData.randomArtistPosts as item}
                             <a href={resolve('/posts/[id]', { id: item.id })}>
-                                <img src={item.img} alt="" loading="lazy" decoding="async" />
+                                <img class:nsfw={item.nsfw && !showNsfw} src={item.img} alt="" loading="lazy" decoding="async" />
                             </a>
                         {/each}
                     </div>
@@ -234,6 +247,10 @@
         max-width: 100%;
         height: auto;
         margin-inline: auto;
+    }
+
+    figure img.nsfw {
+        filter: blur(10px);
     }
 
     .info {
@@ -305,6 +322,24 @@
         border-radius: 999px;
     }
 
+    .uncensor-button {
+        width: 100%;
+        padding: 0.65rem 0.8rem;
+        margin-top: 0.85rem;
+        color: var(--color-surface);
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 800;
+        cursor: pointer;
+        background: var(--color-primary);
+        border: 0;
+        border-radius: 999px;
+    }
+
+    .uncensor-button:hover {
+        background: var(--color-primary-hover);
+    }
+
     .prose :global(p:first-child) {
         margin-top: 0;
     }
@@ -330,6 +365,10 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    .more-grid img.nsfw {
+        filter: blur(10px);
     }
 
     @media (max-width: 900px) {

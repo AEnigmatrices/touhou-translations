@@ -15,7 +15,7 @@
         {@const id = extractRedditId(post.reddit)}
         {#if id}
             <a class="tile" href={resolve('/posts/[id]', { id })} aria-label={`View post ${id}`}>
-                <img src={post.url[0]} alt="" loading="lazy" decoding="async" />
+                <img class:nsfw={post.nsfw} src={post.url[0]} alt="" loading="lazy" decoding="async" />
                 {#if post.nsfw}<span>NSFW</span>{/if}
             </a>
         {/if}
@@ -45,6 +45,10 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.2s ease;
+    }
+
+    img.nsfw {
+        filter: blur(10px);
     }
 
     .tile:hover img {

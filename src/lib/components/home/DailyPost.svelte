@@ -4,6 +4,7 @@
     interface DailyPost {
         id: string;
         img: string;
+        nsfw: boolean;
     }
 
     interface Props {
@@ -17,7 +18,7 @@
     <h2>Post of the Day</h2>
     {#if post}
         <a class="daily-link" href={resolve('/posts/[id]', { id: post.id })}>
-            <img src={post.img} alt="Post of the day" loading="lazy" decoding="async" />
+            <img class:nsfw={post.nsfw} src={post.img} alt="Post of the day" loading="lazy" decoding="async" />
         </a>
     {/if}
 </section>
@@ -52,5 +53,9 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    img.nsfw {
+        filter: blur(10px);
     }
 </style>

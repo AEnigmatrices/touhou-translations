@@ -5,6 +5,7 @@
     interface FeaturedPost {
         id: string;
         img: string;
+        nsfw: boolean;
     }
 
     interface Props {
@@ -70,7 +71,7 @@
             {#each posts as post}
                 <div class="embla-slide">
                     <a class="thumb" href={resolve('/posts/[id]', { id: post.id })} aria-label={`View featured post ${post.id}`}>
-                        <img src={post.img} alt="" loading="lazy" decoding="async" />
+                        <img class:nsfw={post.nsfw} src={post.img} alt="" loading="lazy" decoding="async" />
                     </a>
                 </div>
             {/each}
@@ -145,6 +146,10 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    img.nsfw {
+        filter: blur(10px);
     }
 
     .carousel-dots {
