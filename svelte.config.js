@@ -15,6 +15,9 @@ const config = {
         },
         paths: {
             base: dev ? '' : '/touhou-translations'
+        },
+        serviceWorker: {
+            files: file => /^(favicon\.ico|robots\.txt|manifest\.webmanifest|icons\/pwa\/.*\.png)$/.test(file)
         }
     }
 };

@@ -12,7 +12,7 @@ The project collects manually translated Touhou fan art and comics while preserv
 - **Vite** - Development server and production build tooling.
 - **TypeScript** - Static checking for app, build, and plugin code.
 - **PNPM** - Package management.
-- **vite-plugin-pwa** - Service worker and web app manifest generation.
+- **SvelteKit service worker** - Manual app-shell caching and web app manifest.
 - **GitHub Pages** - Static hosting through GitHub Actions.
 
 ## Repository Structure
@@ -24,7 +24,7 @@ The project collects manually translated Touhou fan art and comics while preserv
 - `src/types/` - Shared TypeScript data models.
 - `data/` - JSON source data for posts, artists, and characters.
 - `public/` - Static assets such as icons and portraits.
-- `plugins/` - Custom Vite plugins for local data submission and PWA setup.
+- `plugins/` - Custom Vite plugins for local data submission.
 - `scripts/` - Data validation and sitemap generation helpers.
 - `.github/workflows/` - GitHub Pages deployment workflow.
 
