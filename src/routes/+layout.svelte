@@ -37,6 +37,7 @@
 
 <svelte:head>
     <title>Touhou Translations</title>
+    <link rel="preconnect" href="https://i.redd.it" />
     <meta name="description" content="An archive of fan-translated Touhou Project comics and illustrations." />
     <meta property="og:site_name" content="Touhou Translations" />
     <meta property="og:title" content="Touhou Translations" />
