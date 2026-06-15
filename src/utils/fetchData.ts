@@ -3,7 +3,7 @@ import type { Post, ArtistRaw, Artist, CharacterRaw, Character } from "../types/
 
 const BASE_PATH = import.meta.env.BASE_URL;
 
-interface DerivedData {
+export interface DerivedData {
     posts: Post[];
     artists: Artist[];
     characters: Character[];
@@ -18,7 +18,7 @@ interface DerivedData {
 let derivedDataPromise: Promise<DerivedData> | null = null;
 
 
-const processArtists = (artistsRaw: ArtistRaw[], posts: Post[]): Artist[] => {
+export const processArtists = (artistsRaw: ArtistRaw[], posts: Post[]): Artist[] => {
     const artworkCountMap: Record<string, number> = {};
     const characterSetMap: Record<string, Set<string>> = {};
 
@@ -39,7 +39,7 @@ const processArtists = (artistsRaw: ArtistRaw[], posts: Post[]): Artist[] => {
     }));
 };
 
-const processCharacters = (charactersRaw: CharacterRaw[], posts: Post[]): Character[] => {
+export const processCharacters = (charactersRaw: CharacterRaw[], posts: Post[]): Character[] => {
     const artworkCountMap: Record<string, number> = {};
     const artistSetMap: Record<string, Set<string>> = {};
 
@@ -59,7 +59,7 @@ const processCharacters = (charactersRaw: CharacterRaw[], posts: Post[]): Charac
     }));
 };
 
-const buildDerivedData = (posts: Post[], artistsRaw: ArtistRaw[], charactersRaw: CharacterRaw[]): DerivedData => {
+export const buildDerivedData = (posts: Post[], artistsRaw: ArtistRaw[], charactersRaw: CharacterRaw[]): DerivedData => {
     const artists = processArtists(artistsRaw, posts);
     const characters = processCharacters(charactersRaw, posts);
 
