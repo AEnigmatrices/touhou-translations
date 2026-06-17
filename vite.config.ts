@@ -14,6 +14,9 @@ export default defineConfig({
         },
         open: '/'
     },
+    build: {
+        sourcemap: true
+    },
     test: {
         environment: 'node',
         include: ['src/**/*.test.ts', 'scripts/**/*.test.ts']
