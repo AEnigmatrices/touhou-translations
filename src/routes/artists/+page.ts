@@ -1,3 +1,3 @@
-import { fetchArtistsData } from '../../utils/fetchData';
+import { fetchArtistsData } from '../../utils/generatedData';
 
 export const load = async () => fetchArtistsData();

@@ -3,8 +3,7 @@
     import { page } from '$app/state';
     import { marked } from 'marked';
     import LoadingIndicator from '$lib/components/LoadingIndicator.svelte';
-    import { fetchDerivedData } from '../../../utils/fetchData';
-    import { extractRedditId } from '../../../utils/extractRedditId';
+    import { fetchPostDetail } from '../../../utils/generatedData';
     import type { Artist, Character, Post } from '../../../types/data';
 
     interface ClientPostData {
@@ -98,28 +97,19 @@
         loadedId = postId;
         loading = true;
         showNsfw = false;
-        const {
-            artistById,
-            characterByPostId,
-            artistPostsByArtistId,
-            adjacentPostIdsByPostId,
-            postByRedditId
-        } = await fetchDerivedData();
-
-        const post = postByRedditId.get(postId);
+        const detail = await fetchPostDetail(postId);
+        const post = detail?.post;
         if (!post || !post.url.length || !post.src) {
             postData = null;
             loading = false;
             return;
         }
 
-        const artist = artistById.get(post.artistId) || null;
-        const characters = characterByPostId.get(postId) ?? [];
-        const artistPosts = (artistPostsByArtistId.get(post.artistId) ?? []).filter(item => item.reddit !== post.reddit);
-        const randomArtistPosts = getRandomArtistPosts(artistPosts)
-            .map(item => ({ id: extractRedditId(item.reddit), img: item.url[0], nsfw: item.nsfw }))
-            .filter(item => item.id);
-        const { prevPostId, nextPostId } = adjacentPostIdsByPostId.get(postId) ?? { prevPostId: null, nextPostId: null };
+        const artist = detail.artist;
+        const characters = detail.characters;
+        const artistPosts = detail.artistPosts.filter(item => item.id !== postId);
+        const randomArtistPosts = getRandomArtistPosts(artistPosts);
+        const { prevPostId, nextPostId } = detail;
 
         postData = { post, artist, characters, randomArtistPosts, prevPostId, nextPostId };
         loading = false;

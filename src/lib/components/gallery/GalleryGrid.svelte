@@ -1,10 +1,9 @@
 <script lang="ts">
     import { resolve } from '$app/paths';
-    import { extractRedditId } from '../../../utils/extractRedditId';
-    import type { Post } from '../../../types/data';
+    import type { GalleryPost } from '../../../types/data';
 
     interface Props {
-        posts: Post[];
+        posts: GalleryPost[];
     }
 
     let { posts }: Props = $props();
@@ -12,13 +11,10 @@
 
 <div class="grid">
     {#each posts as post}
-        {@const id = extractRedditId(post.reddit)}
-        {#if id}
-            <a class="tile" href={resolve('/posts/[id]', { id })} aria-label={`View post ${id}`}>
-                <img class:nsfw={post.nsfw} src={post.url[0]} alt="" loading="lazy" decoding="async" />
-                {#if post.nsfw}<span>NSFW</span>{/if}
-            </a>
-        {/if}
+        <a class="tile" href={resolve('/posts/[id]', { id: post.id })} aria-label={`View post ${post.id}`}>
+            <img class:nsfw={post.nsfw} src={post.img} alt="" loading="lazy" decoding="async" />
+            {#if post.nsfw}<span>NSFW</span>{/if}
+        </a>
     {/each}
 </div>
 

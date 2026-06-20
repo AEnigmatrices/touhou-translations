@@ -3,10 +3,10 @@
     import GalleryGrid from '$lib/components/gallery/GalleryGrid.svelte';
     import GalleryPagination from '$lib/components/gallery/GalleryPagination.svelte';
     import GalleryToolbar from '$lib/components/gallery/GalleryToolbar.svelte';
-    import type { Artist, Character, Post, SortOrder } from '../../types/data';
+    import type { GalleryPost, SortOrder } from '../../types/data';
 
     interface Props {
-        data: { posts: Post[]; artists: Artist[]; characters: Character[] };
+        data: { posts: GalleryPost[] };
     }
 
     let { data }: Props = $props();

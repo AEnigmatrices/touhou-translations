@@ -1,3 +1,3 @@
-import { fetchCharactersData } from '../../utils/fetchData';
+import { fetchCharactersData } from '../../utils/generatedData';
 
 export const load = async () => fetchCharactersData();

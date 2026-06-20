@@ -3,6 +3,7 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import type { IncomingMessage } from 'http';
 import type { Post, Artist } from '../src/types/data';
+import { generateDerivedData } from '../scripts/generateDerivedData';
 
 const postsPath = path.resolve(__dirname, '../data/posts/posts-2026.json');
 const artistsPath = path.resolve(__dirname, '../data/artists.json');
@@ -79,6 +80,8 @@ const postDataPlugin: Plugin = {
                 const existing = readJsonFile(config.path);
                 existing.push(entry);
                 writeJsonFile(config.path, existing);
+                generateDerivedData(path.resolve(__dirname, '..'));
+                server.ws.send({ type: 'full-reload' });
 
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');

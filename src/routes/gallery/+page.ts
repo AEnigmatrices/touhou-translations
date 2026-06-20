@@ -1,3 +1,3 @@
-import { fetchPostsData } from '../../utils/fetchData';
+import { fetchGalleryData } from '../../utils/generatedData';
 
-export const load = async () => fetchPostsData();
+export const load = async () => fetchGalleryData();

@@ -1,8 +1,6 @@
 import { extractRedditId } from "./extractRedditId";
 import type { Post, ArtistRaw, Artist, CharacterRaw, Character } from "../types/data";
 
-const BASE_PATH = import.meta.env.BASE_URL;
-
 export interface DerivedData {
     posts: Post[];
     artists: Artist[];
@@ -14,9 +12,6 @@ export interface DerivedData {
     artistPostsByArtistId: Map<string, Post[]>;
     adjacentPostIdsByPostId: Map<string, { prevPostId: string | null; nextPostId: string | null }>;
 }
-
-let derivedDataPromise: Promise<DerivedData> | null = null;
-
 
 export const processArtists = (artistsRaw: ArtistRaw[], posts: Post[]): Artist[] => {
     const artworkCountMap: Record<string, number> = {};
@@ -58,7 +53,6 @@ export const processCharacters = (charactersRaw: CharacterRaw[], posts: Post[]):
         artistCount: artistSetMap[c.id]?.size ?? 0
     }));
 };
-
 export const buildDerivedData = (posts: Post[], artistsRaw: ArtistRaw[], charactersRaw: CharacterRaw[]): DerivedData => {
     const artists = processArtists(artistsRaw, posts);
     const characters = processCharacters(charactersRaw, posts);
@@ -132,64 +126,4 @@ export const buildDerivedData = (posts: Post[], artistsRaw: ArtistRaw[], charact
         artistPostsByArtistId,
         adjacentPostIdsByPostId
     };
-};
-
-
-
-export const fetchPosts = async (): Promise<Post[]> => {
-    const postModules = import.meta.glob<{ default: Post[] }>('../../data/posts/*.json');
-    const loaded = await Promise.all(
-        Object.values(postModules).map(loader => loader())
-    );
-    return loaded
-        .map(m => m.default)
-        .flat()
-        .filter((p): p is Post => !!p && typeof p === 'object' && 'date' in p)
-        .sort((a, b) => a.date - b.date);
-};
-
-export const fetchDerivedData = async (): Promise<DerivedData> => {
-    derivedDataPromise ??= (async () => {
-        const posts = await fetchPosts();
-        const [artistsModule, charactersModule] = await Promise.all([
-            import('../../data/artists.json'),
-            import('../../data/characters.json'),
-        ]);
-        const artistsRaw: ArtistRaw[] = artistsModule.default;
-        const charactersRaw: CharacterRaw[] = charactersModule.default;
-
-        return buildDerivedData(posts, artistsRaw, charactersRaw);
-    })();
-
-    return derivedDataPromise;
-};
-
-
-export const fetchPostsData = async (): Promise<{ posts: Post[]; artists: Artist[]; characters: Character[] }> => {
-    const { posts, artists, characters } = await fetchDerivedData();
-
-    return { posts, artists, characters };
-};
-
-
-export const fetchArtistsData = async (): Promise<{ artists: Artist[] }> => {
-    const { artists } = await fetchDerivedData();
-    return { artists };
-};
-
-
-export const fetchCharactersData = async (): Promise<{ characters: Character[] }> => {
-    const { characters } = await fetchDerivedData();
-    return { characters };
-};
-
-
-export const getRandomPostPath = async (): Promise<string> => {
-    const { posts } = await fetchDerivedData();
-    if (!posts || posts.length === 0) return BASE_PATH;
-
-    const randomPost = posts[Math.floor(Math.random() * posts.length)];
-    const redditId = extractRedditId(randomPost.reddit);
-
-    return redditId ? `${BASE_PATH}posts/${redditId}/` : BASE_PATH;
 };

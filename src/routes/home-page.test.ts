@@ -1,50 +1,31 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { Post } from '../types/data';
-import type { DerivedData } from '../utils/fetchData';
-import { fetchDerivedData } from '../utils/fetchData';
+import type { HomePost } from '../types/data';
+import { fetchHomePosts } from '../utils/generatedData';
 import { load } from './+page';
 
-vi.mock('../utils/fetchData', () => ({
-    fetchDerivedData: vi.fn()
+vi.mock('../utils/generatedData', () => ({
+    fetchHomePosts: vi.fn()
 }));
 
-const makePost = (id: string, overrides: Partial<Post> = {}): Post => ({
+const makePost = (id: string, overrides: Partial<HomePost> = {}): HomePost => ({
+    id,
     date: 1,
-    reddit: `https://www.reddit.com/r/touhou/comments/${id}/title/`,
-    url: [`https://example.com/${id}.jpg`],
-    src: `https://example.com/${id}`,
-    desc: '',
-    artistId: 'artist-a',
-    characterIds: ['reimu'],
+    img: `https://example.com/${id}.jpg`,
     nsfw: false,
     ...overrides
 });
 
-const makeDerivedData = (posts: Post[]): DerivedData => ({
-    posts,
-    artists: [],
-    characters: [],
-    postByRedditId: new Map(),
-    artistById: new Map(),
-    characterById: new Map(),
-    characterByPostId: new Map(),
-    artistPostsByArtistId: new Map(),
-    adjacentPostIdsByPostId: new Map()
-});
-
 describe('home page load', () => {
     beforeEach(() => {
-        vi.mocked(fetchDerivedData).mockReset();
+        vi.mocked(fetchHomePosts).mockReset();
     });
 
     it('builds featured posts and daily candidates from valid gallery posts', async () => {
-        vi.mocked(fetchDerivedData).mockResolvedValue(makeDerivedData([
+        vi.mocked(fetchHomePosts).mockResolvedValue([
             makePost('1gkxrh2', { date: 10, nsfw: true }),
             makePost('notfeatured', { date: 20 }),
-            makePost('1ftq7bi', { date: 30 }),
-            makePost('noimage', { url: [] }),
-            makePost('invalidreddit', { reddit: 'https://www.reddit.com/r/touhou/' })
-        ]));
+            makePost('1ftq7bi', { date: 30 })
+        ]);
 
         await expect(load()).resolves.toEqual({
             featuredPosts: [

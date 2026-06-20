@@ -9,6 +9,24 @@ export interface Post {
     nsfw: boolean;
 }
 
+export interface HomePost {
+    id: string;
+    img: string;
+    nsfw: boolean;
+    date: number;
+}
+
+export interface GalleryPost extends HomePost {
+    artistId: string;
+    characterIds: string[];
+}
+
+export interface RelatedPost {
+    id: string;
+    img: string;
+    nsfw: boolean;
+}
+
 export interface Artist {
     id: string;
     name: string;
