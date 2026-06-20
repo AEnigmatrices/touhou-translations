@@ -10,12 +10,13 @@ const config = {
         adapter: adapter({
             fallback: '404.html'
         }),
+        inlineStyleThreshold: 8192,
         csp: {
             directives: {
                 'default-src': ['self'],
                 'base-uri': ['self'],
                 'connect-src': ['self'],
-                'font-src': ['self', 'https://fonts.gstatic.com'],
+                'font-src': ['self'],
                 'form-action': ['self'],
                 'frame-src': ['https://www.youtube-nocookie.com'],
                 'img-src': [
@@ -26,7 +27,7 @@ const config = {
                 ],
                 'object-src': ['none'],
                 'script-src': ['self'],
-                'style-src': ['self', 'https://fonts.googleapis.com'],
+                'style-src': ['self'],
                 'style-src-attr': ['unsafe-inline'],
                 'worker-src': ['self']
             }
