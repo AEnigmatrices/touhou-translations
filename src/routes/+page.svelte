@@ -1,12 +1,10 @@
 <script lang="ts">
     import AboutCard from '$lib/components/home/AboutCard.svelte';
     import DailyPost from '$lib/components/home/DailyPost.svelte';
-    import FeaturedCarousel from '$lib/components/home/FeaturedCarousel.svelte';
     import FeaturedVideo from '$lib/components/home/FeaturedVideo.svelte';
 
     interface Props {
         data: {
-            featuredPosts: { id: string; img: string; nsfw: boolean; date: number }[];
             dailyPostCandidates: { id: string; img: string; nsfw: boolean; date: number }[];
         };
     }
@@ -26,8 +24,6 @@
 
 <section class="container">
     <div class="grid">
-        <FeaturedCarousel posts={data.featuredPosts} />
-
         <div class="stack">
             <AboutCard />
             <FeaturedVideo />
