@@ -24,8 +24,7 @@ The project collects manually translated Touhou fan art and comics while preserv
 - `src/types/` - Shared TypeScript data models.
 - `data/` - JSON source data for posts, artists, and characters.
 - `public/` - Static assets such as icons and portraits.
-- `plugins/` - Custom Vite plugins for local data submission.
-- `scripts/` - Data validation and sitemap generation helpers.
+- `scripts/` - Build tooling, data validation, and sitemap generation helpers.
 - `.github/workflows/` - GitHub Pages deployment workflow.
 
 ## Development
@@ -50,9 +49,10 @@ pnpm run lint
 pnpm run validate:data
 pnpm run test
 pnpm run build
+pnpm run clean
 ```
 
-`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, Svelte/TypeScript checks, and linting.
+`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, Svelte/TypeScript checks, linting, and unit tests. `clean` removes generated data, framework caches, and build output.
 
 ## Content Data
 

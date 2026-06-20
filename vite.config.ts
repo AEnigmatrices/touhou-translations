@@ -2,7 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { fileURLToPath } from 'node:url';
 import { searchForWorkspaceRoot } from 'vite';
 import { defineConfig } from 'vitest/config';
-import postDataPlugin from './plugins/postDataPlugin';
+import postDataPlugin from './scripts/vite/postDataPlugin';
 
 const dataPath = fileURLToPath(new URL('./data', import.meta.url));
 

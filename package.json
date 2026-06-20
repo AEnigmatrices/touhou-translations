@@ -12,6 +12,7 @@
     "license": "MIT",
     "author": "AEnigmatrices",
     "scripts": {
+        "clean": "tsx scripts/clean.ts",
         "generate:data": "tsx scripts/generateDerivedData.ts",
         "dev": "pnpm run generate:data && vite dev --mode development",
         "build": "pnpm run generate:data && vite build --mode production && tsx scripts/generateSitemap.ts",

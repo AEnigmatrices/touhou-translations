@@ -2,11 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import type { Plugin } from 'vite';
 import type { IncomingMessage } from 'http';
-import type { Post, Artist } from '../src/types/data';
-import { generateDerivedData } from '../scripts/generateDerivedData';
+import type { Post, Artist } from '../../src/types/data';
+import { generateDerivedData } from '../generateDerivedData';
 
-const postsPath = path.resolve(__dirname, '../data/posts/posts-2026.json');
-const artistsPath = path.resolve(__dirname, '../data/artists.json');
+const rootDir = path.resolve(__dirname, '../..');
+const postsPath = path.join(rootDir, 'data/posts/posts-2026.json');
+const artistsPath = path.join(rootDir, 'data/artists.json');
 
 const readRequestBody = async (req: IncomingMessage): Promise<string> => {
     const chunks: Uint8Array[] = [];
@@ -80,7 +81,7 @@ const postDataPlugin: Plugin = {
                 const existing = readJsonFile(config.path);
                 existing.push(entry);
                 writeJsonFile(config.path, existing);
-                generateDerivedData(path.resolve(__dirname, '..'));
+                generateDerivedData(rootDir);
                 server.ws.send({ type: 'full-reload' });
 
                 res.statusCode = 200;
