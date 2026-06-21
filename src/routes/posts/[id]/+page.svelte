@@ -3,12 +3,11 @@
     import { page } from '$app/state';
     import LoadingIndicator from '$lib/components/LoadingIndicator.svelte';
     import { fetchPostDetail } from '../../../utils/generatedData';
-    import { markdownExcerpt, renderMarkdown } from '../../../utils/renderMarkdown';
     import { absoluteSiteUrl } from '../../../utils/siteMetadata';
-    import type { Artist, Character, Post } from '../../../types/data';
+    import type { Artist, Character, GeneratedPost } from '../../../types/data';
 
     interface ClientPostData {
-        post: Post;
+        post: GeneratedPost;
         artist: Artist | null;
         characters: Character[];
         randomArtistPosts: { id: string; img: string; nsfw: boolean }[];
@@ -23,9 +22,8 @@
     let showNsfw = $state(false);
 
     const id = $derived(page.params.id);
-    const htmlDescription = $derived(postData ? renderMarkdown(postData.post.desc) : '');
     const metadataDescription = $derived(postData
-        ? markdownExcerpt(postData.post.desc) || `A translated Touhou Project work by ${postData.artist?.name ?? postData.post.artistId}.`
+        ? postData.post.metadataDescription || `A translated Touhou Project work by ${postData.artist?.name ?? postData.post.artistId}.`
         : 'View a translated Touhou Project comic or illustration.');
     const metadataTitle = $derived(`${postData?.artist?.name ?? 'Post'} | Touhou Translations`);
     const canonicalUrl = $derived(absoluteSiteUrl(`posts/${id}`));
@@ -203,7 +201,7 @@
             <div class="panel prose">
                 <!-- The HTML is generated and allowlist-sanitized by renderMarkdown. -->
                 <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-                {@html htmlDescription}
+                {@html postData.post.htmlDescription}
             </div>
 
             {#if postData.randomArtistPosts.length}

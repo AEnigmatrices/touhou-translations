@@ -13,4 +13,8 @@ describe('renderMarkdown', () => {
     it('creates a bounded plain-text metadata excerpt', () => {
         expect(markdownExcerpt('**A useful** description', 12)).toBe('A useful de…');
     });
+
+    it('does not split Unicode surrogate pairs when truncating', () => {
+        expect(markdownExcerpt('1234 🤔 ending', 7)).toBe('1234 🤔…');
+    });
 });

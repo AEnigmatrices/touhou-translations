@@ -3,7 +3,8 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { buildDerivedData } from '../src/utils/fetchData';
 import { extractRedditId } from '../src/utils/extractRedditId';
-import type { ArtistRaw, CharacterRaw, GalleryPost, HomePost, Post, RelatedPost } from '../src/types/data';
+import { markdownExcerpt, renderMarkdown } from '../src/utils/renderMarkdown';
+import type { ArtistRaw, CharacterRaw, GalleryPost, GeneratedPost, HomePost, Post, RelatedPost } from '../src/types/data';
 import { printValidationResult, validateData } from './validateData';
 
 interface PostIndexEntry {
@@ -38,7 +39,7 @@ export const generateDerivedData = (rootDir = process.cwd()): void => {
     fs.rmSync(generatedDir, { recursive: true, force: true });
     fs.mkdirSync(generatedPostsDir, { recursive: true });
 
-    const chunks = new Map<string, Post[]>();
+    const chunks = new Map<string, GeneratedPost[]>();
     const postIndex: Record<string, PostIndexEntry> = {};
     const artistPosts: Record<string, RelatedPost[]> = {};
     const homePosts: HomePost[] = [];
@@ -52,7 +53,12 @@ export const generateDerivedData = (rootDir = process.cwd()): void => {
         const date = new Date(post.date);
         const chunk = `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
         const chunkPosts = chunks.get(chunk) ?? [];
-        chunkPosts.push(post);
+        const { desc, ...postWithoutDescription } = post;
+        chunkPosts.push({
+            ...postWithoutDescription,
+            htmlDescription: renderMarkdown(desc),
+            metadataDescription: markdownExcerpt(desc)
+        });
         chunks.set(chunk, chunkPosts);
 
         const adjacent = derived.adjacentPostIdsByPostId.get(id) ?? { prevPostId: null, nextPostId: null };

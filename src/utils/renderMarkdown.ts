@@ -23,8 +23,9 @@ export const markdownExcerpt = (markdown: string, maxLength = 160): string => {
         allowedTags: [],
         allowedAttributes: {}
     }).replace(/\s+/g, ' ').trim();
+    const characters = Array.from(plainText);
 
-    return plainText.length > maxLength
-        ? `${plainText.slice(0, maxLength - 1).trimEnd()}…`
+    return characters.length > maxLength
+        ? `${characters.slice(0, maxLength - 1).join('').trimEnd()}…`
         : plainText;
 };

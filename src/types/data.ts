@@ -27,6 +27,11 @@ export interface RelatedPost {
     nsfw: boolean;
 }
 
+export interface GeneratedPost extends Omit<Post, 'desc'> {
+    htmlDescription: string;
+    metadataDescription: string;
+}
+
 export interface Artist {
     id: string;
     name: string;

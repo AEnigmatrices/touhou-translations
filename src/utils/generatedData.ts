@@ -1,4 +1,4 @@
-import type { Artist, Character, GalleryPost, HomePost, Post, RelatedPost } from '../types/data';
+import type { Artist, Character, GalleryPost, GeneratedPost, HomePost, RelatedPost } from '../types/data';
 
 interface PostIndexEntry {
     chunk: string;
@@ -7,7 +7,7 @@ interface PostIndexEntry {
 }
 
 interface PostDetailData {
-    post: Post;
+    post: GeneratedPost;
     artist: Artist | null;
     characters: Character[];
     artistPosts: RelatedPost[];
@@ -15,7 +15,7 @@ interface PostDetailData {
     nextPostId: string | null;
 }
 
-const postChunkModules = import.meta.glob<{ default: Post[] }>('../../generated/posts/*.json');
+const postChunkModules = import.meta.glob<{ default: GeneratedPost[] }>('../../generated/posts/*.json');
 
 export const fetchPostIds = async (): Promise<string[]> =>
     (await import('../../generated/post-ids.json')).default;
