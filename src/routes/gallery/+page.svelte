@@ -4,6 +4,7 @@
     import GalleryPagination from '$lib/components/gallery/GalleryPagination.svelte';
     import GalleryToolbar from '$lib/components/gallery/GalleryToolbar.svelte';
     import type { GalleryPost, SortOrder } from '../../types/data';
+    import { absoluteSiteUrl } from '../../utils/siteMetadata';
 
     interface Props {
         data: { posts: GalleryPost[] };
@@ -73,16 +74,6 @@
         return Math.min(totalPages, Math.max(1, page));
     }
 
-    function syncJumpPage() {
-        const digitsOnly = jumpPage.replace(/\D/g, '');
-        if (!digitsOnly) {
-            jumpPage = '';
-            return;
-        }
-
-        jumpPage = String(Math.min(totalPages, Math.max(1, Number(digitsOnly))));
-    }
-
     function finalizeJumpPage() {
         jumpPage = String(clampPage(jumpPage));
     }
@@ -111,6 +102,12 @@
 
 <svelte:head>
     <title>Gallery | Touhou Translations</title>
+    <meta name="description" content="Browse English-translated Touhou Project comics and illustrations by artist and character." />
+    <link rel="canonical" href={absoluteSiteUrl('gallery')} />
+    <meta property="og:title" content="Gallery | Touhou Translations" />
+    <meta property="og:description" content="Browse English-translated Touhou Project comics and illustrations by artist and character." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={absoluteSiteUrl('gallery')} />
 </svelte:head>
 
 <section class="container">

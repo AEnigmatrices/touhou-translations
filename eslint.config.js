@@ -1,4 +1,5 @@
 import globals from 'globals';
+import svelte from 'eslint-plugin-svelte';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
@@ -9,10 +10,10 @@ export default tseslint.config(
             'dist/**',
             'node_modules/**',
             'public/**',
-            'src/**/*.svelte',
             '*.config.js',
         ],
     },
+    ...svelte.configs['flat/recommended'],
     {
         files: ['**/*.ts'],
         extends: [
@@ -34,6 +35,26 @@ export default tseslint.config(
             }],
             '@typescript-eslint/no-explicit-any': 'warn',
             'no-console': ['warn', { allow: ['warn', 'error'] }],
+        },
+    },
+    {
+        files: ['**/*.svelte'],
+        plugins: {
+            '@typescript-eslint': tseslint.plugin,
+        },
+        languageOptions: {
+            parserOptions: {
+                parser: tseslint.parser,
+            },
+        },
+        rules: {
+            '@typescript-eslint/no-unused-vars': ['warn', {
+                argsIgnorePattern: '^_',
+                caughtErrorsIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+            }],
+            '@typescript-eslint/no-explicit-any': 'warn',
+            'svelte/no-navigation-without-resolve': 'off',
         },
     },
     {

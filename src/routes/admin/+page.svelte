@@ -75,7 +75,7 @@
             <span>Artist ID</span>
             <input list="artists" bind:value={form.artistId} />
             <datalist id="artists">
-                {#each artists as artist}
+                {#each artists as artist ((artist as ArtistRaw).id)}
                     <option value={(artist as ArtistRaw).id}>{(artist as ArtistRaw).name}</option>
                 {/each}
             </datalist>

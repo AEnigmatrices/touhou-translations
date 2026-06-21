@@ -10,7 +10,7 @@
 </script>
 
 <div class="grid">
-    {#each posts as post}
+    {#each posts as post (post.id)}
         <a class="tile" href={resolve('/posts/[id]', { id: post.id })} aria-label={`View post ${post.id}`}>
             <img class:nsfw={post.nsfw} src={post.img} alt="" loading="lazy" decoding="async" />
             {#if post.nsfw}<span>NSFW</span>{/if}

@@ -3,6 +3,7 @@
     import ListGrid from './list/ListGrid.svelte';
     import ListToolbar from './list/ListToolbar.svelte';
     import type { Artist, Character, SortOrder } from '../../types/data';
+    import { absoluteSiteUrl } from '../../utils/siteMetadata';
 
     interface Props {
         mode: 'character' | 'artist';
@@ -21,6 +22,10 @@
     let visibleCount = $state(pageSize);
 
     const title = $derived(mode === 'character' ? 'Character List' : 'Artist List');
+    const description = $derived(mode === 'character'
+        ? 'Browse Touhou Project characters featured in the translated archive.'
+        : 'Browse artists featured in the Touhou Translations archive.');
+    const canonicalUrl = $derived(absoluteSiteUrl(mode === 'character' ? 'characters' : 'artists'));
     const allItems = $derived(mode === 'character' ? characters : artists);
     const searchedItems = $derived(searchInput
         ? allItems.filter(({ id, name }) => [id, name].some(field => field.toLowerCase().includes(searchInput.toLowerCase())))
@@ -69,6 +74,12 @@
 
 <svelte:head>
     <title>{title} | Touhou Translations</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={`${title} | Touhou Translations`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
 </svelte:head>
 
 <section class="container">

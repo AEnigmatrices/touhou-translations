@@ -33,7 +33,7 @@
 
 <nav class="pagination" aria-label="Gallery pages">
     <button type="button" disabled={currentPage === 1} onclick={() => onPageChange(currentPage - 1)}>Previous</button>
-    {#each paginationItems as item}
+    {#each paginationItems as item (item)}
         {#if typeof item === 'number'}
             <button
                 type="button"

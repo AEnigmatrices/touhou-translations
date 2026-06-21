@@ -1,9 +1,10 @@
 <script lang="ts">
     import { resolve } from '$app/paths';
     import { page } from '$app/state';
-    import { marked } from 'marked';
     import LoadingIndicator from '$lib/components/LoadingIndicator.svelte';
     import { fetchPostDetail } from '../../../utils/generatedData';
+    import { markdownExcerpt, renderMarkdown } from '../../../utils/renderMarkdown';
+    import { absoluteSiteUrl } from '../../../utils/siteMetadata';
     import type { Artist, Character, Post } from '../../../types/data';
 
     interface ClientPostData {
@@ -22,7 +23,15 @@
     let showNsfw = $state(false);
 
     const id = $derived(page.params.id);
-    const htmlDescription = $derived(postData ? marked.parse(postData.post.desc) : '');
+    const htmlDescription = $derived(postData ? renderMarkdown(postData.post.desc) : '');
+    const metadataDescription = $derived(postData
+        ? markdownExcerpt(postData.post.desc) || `A translated Touhou Project work by ${postData.artist?.name ?? postData.post.artistId}.`
+        : 'View a translated Touhou Project comic or illustration.');
+    const metadataTitle = $derived(`${postData?.artist?.name ?? 'Post'} | Touhou Translations`);
+    const canonicalUrl = $derived(absoluteSiteUrl(`posts/${id}`));
+    const socialImage = $derived(postData && !postData.post.nsfw
+        ? postData.post.url[0]
+        : absoluteSiteUrl('icons/touhou-translations-profile-icon.png'));
 
     function galleryArtistUrl(artistId: string) {
         return `${resolve('/gallery')}?artist=${encodeURIComponent(artistId)}`;
@@ -49,6 +58,8 @@
         context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
         const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+        // This map is local computation state and never participates in Svelte reactivity.
+        // eslint-disable-next-line svelte/prefer-svelte-reactivity
         const buckets = new Map<string, { count: number; r: number; g: number; b: number }>();
 
         for (let index = 0; index < pixels.length; index += 4) {
@@ -123,7 +134,14 @@
 </script>
 
 <svelte:head>
-    <title>{postData?.artist?.name ?? 'Post'} | Touhou Translations</title>
+    <title>{metadataTitle}</title>
+    <meta name="description" content={metadataDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={metadataTitle} />
+    <meta property="og:description" content={metadataDescription} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
 </svelte:head>
 
 <section class="root">
@@ -133,7 +151,7 @@
         <h1 class="not-found">Post not found.</h1>
     {:else}
         <div class="images">
-            {#each postData.post.url as url, index}
+            {#each postData.post.url as url, index (url)}
                 <figure style:background-color={imageBackgrounds[url] ?? undefined}>
                     <img
                         class:nsfw={postData.post.nsfw && !showNsfw}
@@ -175,7 +193,7 @@
                 <div class="panel">
                     <p class="eyebrow">Characters</p>
                     <div class="chips">
-                        {#each postData.characters as character}
+                        {#each postData.characters as character (character.id)}
                             <a href={`${resolve('/gallery')}?characters=${character.id}`}>{character.name}</a>
                         {/each}
                     </div>
@@ -183,6 +201,8 @@
             {/if}
 
             <div class="panel prose">
+                <!-- The HTML is generated and allowlist-sanitized by renderMarkdown. -->
+                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                 {@html htmlDescription}
             </div>
 
@@ -190,7 +210,7 @@
                 <div class="panel">
                     <p class="eyebrow">More by this artist</p>
                     <div class="more-grid">
-                        {#each postData.randomArtistPosts as item}
+                        {#each postData.randomArtistPosts as item (item.id)}
                             <a href={resolve('/posts/[id]', { id: item.id })}>
                                 <img class:nsfw={item.nsfw && !showNsfw} src={item.img} alt="" loading="lazy" decoding="async" />
                             </a>

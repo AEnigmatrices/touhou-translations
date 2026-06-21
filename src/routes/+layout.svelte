@@ -3,6 +3,7 @@
     import { resolve } from '$app/paths';
     import { goto } from '$app/navigation';
     import type { Snippet } from 'svelte';
+    import { SITE_NAME } from '../utils/siteMetadata';
     import '../styles/global.css';
 
     let {
@@ -14,10 +15,10 @@
     } = $props();
 
     const links = [
-        { label: 'Home', href: resolve('/') },
-        { label: 'Characters', href: resolve('/characters') },
-        { label: 'Artists', href: resolve('/artists') },
-        { label: 'Gallery', href: resolve('/gallery') },
+        { label: 'Home', href: resolve('/'), routeId: '/' },
+        { label: 'Characters', href: resolve('/characters'), routeId: '/characters' },
+        { label: 'Artists', href: resolve('/artists'), routeId: '/artists' },
+        { label: 'Gallery', href: resolve('/gallery'), routeId: '/gallery' },
     ];
 
     const socialLinks = [
@@ -36,15 +37,11 @@
 </script>
 
 <svelte:head>
-    <title>Touhou Translations</title>
     <link rel="preconnect" href="https://i.redd.it" />
-    <meta name="description" content="An archive of fan-translated Touhou Project comics and illustrations." />
-    <meta property="og:site_name" content="Touhou Translations" />
-    <meta property="og:title" content="Touhou Translations" />
-    <meta property="og:description" content="An archive of fan-translated Touhou Project comics and illustrations." />
-    <meta property="og:url" content="https://aenigmatrices.github.io/touhou-translations/" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"WebSite","name":"Touhou Translations","alternateName":"Touhou TL","url":"https://aenigmatrices.github.io/touhou-translations/"}
+        {"@context":"https://schema.org","@type":"WebSite","name":"Touhou Translations","alternateName":"Touhou TL","url":"https://aenigmatrices.github.io/touhou-translations/","description":"An archive of fan-translated Touhou Project comics and illustrations."}
     </script>
 </svelte:head>
 
@@ -53,9 +50,10 @@
         <nav class="toolbar" aria-label="Primary navigation">
             <a class="brand" href={resolve('/')}>Touhou Translations</a>
             <div class="tabs" aria-label="Navigation tabs">
-                {#each links as link}
+                {#each links as link (link.href)}
                     <a
-                        class:active={page.url.pathname === link.href}
+                        class:active={page.route.id === link.routeId}
+                        aria-current={page.route.id === link.routeId ? 'page' : undefined}
                         href={link.href}
                     >
                         {link.label}
@@ -72,6 +70,26 @@
             </div>
         </nav>
     </header>
+
+    <nav class="mobile-tabs" aria-label="Mobile navigation">
+        {#each links as link (link.href)}
+            <a
+                class:active={page.route.id === link.routeId}
+                aria-current={page.route.id === link.routeId ? 'page' : undefined}
+                href={link.href}
+            >
+                {link.label}
+            </a>
+        {/each}
+        <button
+            type="button"
+            class:active={page.route.id === '/posts/[id]'}
+            aria-current={page.route.id === '/posts/[id]' ? 'page' : undefined}
+            onclick={goToRandomPost}
+        >
+            Post
+        </button>
+    </nav>
 
     <main class="main">
         {@render children()}
@@ -99,7 +117,7 @@
         </div>
         <div class="footer-bottom">
             <div class="socials">
-                {#each socialLinks as link}
+                {#each socialLinks as link (link.href)}
                     <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>{link.label}</a>
                 {/each}
             </div>
@@ -182,6 +200,10 @@
     .main {
         flex: 1;
         padding: var(--space-page);
+    }
+
+    .mobile-tabs {
+        display: none;
     }
 
     .footer {
@@ -280,6 +302,44 @@
             justify-content: center;
             min-height: 56px;
             padding: 0 1rem;
+        }
+
+        .mobile-tabs {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 110;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            padding: 0.35rem max(0.35rem, env(safe-area-inset-right)) max(0.35rem, env(safe-area-inset-bottom)) max(0.35rem, env(safe-area-inset-left));
+            background: rgba(255, 255, 255, 0.94);
+            border-top: 1px solid var(--color-border);
+            box-shadow: 0 -3px 18px rgba(24, 33, 47, 0.12);
+            backdrop-filter: blur(12px);
+        }
+
+        .mobile-tabs a,
+        .mobile-tabs button {
+            display: inline-flex;
+            min-width: 0;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem;
+            color: var(--color-muted);
+            font-size: 0.72rem;
+            font-weight: 750;
+            text-decoration: none;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            border-radius: var(--radius-md);
+        }
+
+        .mobile-tabs .active {
+            color: var(--color-primary);
+            background: var(--color-primary-soft);
         }
 
         .footer-inner {

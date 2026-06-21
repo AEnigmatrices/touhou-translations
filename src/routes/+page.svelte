@@ -2,6 +2,7 @@
     import AboutCard from '$lib/components/home/AboutCard.svelte';
     import DailyPost from '$lib/components/home/DailyPost.svelte';
     import FeaturedVideo from '$lib/components/home/FeaturedVideo.svelte';
+    import { absoluteSiteUrl, DEFAULT_DESCRIPTION, SITE_NAME } from '../utils/siteMetadata';
 
     interface Props {
         data: {
@@ -20,6 +21,13 @@
 
 <svelte:head>
     <title>Home | Touhou Translations</title>
+    <meta name="description" content={DEFAULT_DESCRIPTION} />
+    <link rel="canonical" href={absoluteSiteUrl()} />
+    <meta property="og:title" content={SITE_NAME} />
+    <meta property="og:description" content={DEFAULT_DESCRIPTION} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={absoluteSiteUrl()} />
+    <meta property="og:image" content={absoluteSiteUrl('icons/touhou-translations-profile-icon.png')} />
 </svelte:head>
 
 <section class="container">
