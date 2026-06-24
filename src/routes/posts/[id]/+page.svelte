@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { resolve } from '$app/paths';
+    import { asset, resolve } from '$app/paths';
     import { page } from '$app/state';
     import LoadingIndicator from '$lib/components/LoadingIndicator.svelte';
     import { fetchPostDetail } from '../../../utils/generatedData';
@@ -192,7 +192,16 @@
                     <p class="eyebrow">Characters</p>
                     <div class="chips">
                         {#each postData.characters as character (character.id)}
-                            <a href={`${resolve('/gallery')}?characters=${character.id}`}>{character.name}</a>
+                            <a href={`${resolve('/gallery')}?characters=${character.id}`}>
+                                <img
+                                    class="character-avatar"
+                                    src={asset(`/${character.portrait}`)}
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <span>{character.name}</span>
+                            </a>
                         {/each}
                     </div>
                 </div>
@@ -328,6 +337,19 @@
         text-decoration: none;
         background: var(--color-primary-soft);
         border-radius: 999px;
+    }
+
+    .chips a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+    }
+
+    .character-avatar {
+        width: 26px;
+        height: 26px;
+        object-fit: cover;
+        border-radius: var(--radius-sm);
     }
 
     .uncensor-button {
