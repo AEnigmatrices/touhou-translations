@@ -1,5 +1,5 @@
-import { extractRedditId } from "./extractRedditId";
-import type { Post, ArtistRaw, Artist, CharacterRaw, Character } from "../types/data";
+import { extractRedditId } from "./extractRedditId.ts";
+import type { Post, ArtistRaw, Artist, CharacterRaw, Character } from "../types/data.ts";
 
 export interface DerivedData {
     posts: Post[];

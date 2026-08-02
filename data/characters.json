@@ -447,6 +447,15 @@
         "portrait": "portraits/characters/akyuu.webp"
     },
     {
+        "id": "ellen",
+        "name": "Ellen",
+        "short_name": "Ellen",
+        "work": [
+            "podd"
+        ],
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
         "id": "elly",
         "name": "Elly",
         "short_name": "Elly",
@@ -472,6 +481,24 @@
             "lls"
         ],
         "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "wayousei",
+        "name": "Wayōsei",
+        "short_name": "Wayōsei",
+        "work": [
+            "ms"
+        ],
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "ayana",
+        "name": "Ayana",
+        "short_name": "Ayana",
+        "work": [
+            "ms"
+        ],
+        "portrait": "portraits/placeholders/spy.webp"
     },
     {
         "id": "shinki",

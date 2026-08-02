@@ -2888,5 +2888,79 @@
         "name": "畳の部屋",
         "linkTwitter": "https://x.com/Arom_0217",
         "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "kakunohito",
+        "name": "サブアカの人",
+        "linkTwitter": "https://x.com/tktgm0703",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "uni",
+        "name": "うに",
+        "linkTwitter": "https://x.com/83MkNeiNLSQMebq",
+        "portrait": "portraits/placeholders/heavy.webp"
+    },
+    {
+        "id": "ia",
+        "name": "いあ",
+        "linkTwitter": "https://x.com/yu11261012",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "ilice",
+        "name": "アイリスさん",
+        "linkTwitter": "https://x.com/ilice_suiten",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "sugata",
+        "name": "すガタ",
+        "linkTwitter": "https://x.com/Su_gata",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "nanashime",
+        "name": "NaNa",
+        "linkTwitter": "https://x.com/NaNashime_77x",
+        "linkPixiv": "https://www.pixiv.net/en/users/35838099",
+        "portrait": "portraits/placeholders/soldier.webp"
+    },
+    {
+        "id": "kurotaro",
+        "name": "くろたろ",
+        "linkTwitter": "https://x.com/kuroi38",
+        "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "furorina",
+        "name": "ふろりな",
+        "linkTwitter": "https://x.com/fooshindo",
+        "portrait": "portraits/placeholders/demoman.webp"
+    },
+    {
+        "id": "salmon",
+        "name": "サーモン",
+        "linkTwitter": "https://x.com/salmon082",
+        "portrait": "portraits/placeholders/scout.webp"
+    },
+    {
+        "id": "maguro",
+        "name": "まぐろ",
+        "linkTwitter": "https://x.com/maguro468",
+        "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "jack",
+        "name": "JACK",
+        "linkTwitter": "https://x.com/jack74959",
+        "portrait": "portraits/placeholders/sniper.webp"
+    },
+    {
+        "id": "eyami_doori",
+        "name": "えやみ通り",
+        "linkTwitter": "https://x.com/Eyamigusa8823",
+        "linkPixiv": "https://www.pixiv.net/en/users/104915297",
+        "portrait": "portraits/placeholders/spy.webp"
     }
 ]

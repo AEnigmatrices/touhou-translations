@@ -1,11 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { buildDerivedData } from '../src/utils/fetchData';
-import { extractRedditId } from '../src/utils/extractRedditId';
-import { markdownExcerpt, renderMarkdown } from '../src/utils/renderMarkdown';
-import type { ArtistRaw, CharacterRaw, GalleryPost, GeneratedPost, HomePost, Post, RelatedPost } from '../src/types/data';
-import { printValidationResult, validateData } from './validateData';
+import { buildDerivedData } from '../src/utils/fetchData.ts';
+import { extractRedditId } from '../src/utils/extractRedditId.ts';
+import { markdownExcerpt, renderMarkdown } from '../src/utils/renderMarkdown.ts';
+import type { ArtistRaw, CharacterRaw, GalleryPost, GeneratedPost, HomePost, Post, RelatedPost } from '../src/types/data.ts';
+import { printValidationResult, validateData } from './validateData.ts';
 
 interface PostIndexEntry {
     chunk: string;
