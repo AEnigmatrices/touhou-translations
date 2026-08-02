@@ -35,10 +35,6 @@
         return `${resolve('/gallery')}?artist=${encodeURIComponent(artistId)}`;
     }
 
-    function redditTopUrl(url: string) {
-        return `${url}${url.includes('?') ? '&' : '?'}sort=top`;
-    }
-
     const getRandomArtistPosts = <T,>(arr: T[]): T[] => {
         const result = [...arr];
         for (let i = 0; i < Math.min(4, result.length); i += 1) {
@@ -174,7 +170,7 @@
                     </a>
                 </h1>
                 <div class="links">
-                    <a href={redditTopUrl(postData.post.reddit)} target="_blank" rel="noopener noreferrer">Reddit</a>
+                    <a href={postData.post.reddit} target="_blank" rel="noopener noreferrer">Reddit</a>
                     <a href={postData.post.src} target="_blank" rel="noopener noreferrer">Source</a>
                     {#if postData.prevPostId}<a href={resolve('/posts/[id]', { id: postData.prevPostId })}>Previous</a>{/if}
                     {#if postData.nextPostId}<a href={resolve('/posts/[id]', { id: postData.nextPostId })}>Next</a>{/if}
