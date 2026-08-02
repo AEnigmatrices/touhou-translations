@@ -3,6 +3,7 @@ import {
     parseRedditData,
     type RedditFormData
 } from '../../src/routes/admin/postForm.ts';
+import sanitizeHtml from 'sanitize-html';
 
 export { extractBaseRedditUrl };
 
@@ -44,10 +45,15 @@ const htmlToText = (html: string): string => {
         .replace(/<(?:em|i)\b[^>]*>([\s\S]*?)<\/(?:em|i)>/gi, '*$1*')
         .replace(/<li\b[^>]*>/gi, '- ')
         .replace(/<\/(?:p|div|li|blockquote|h[1-6])>/gi, '\n\n')
-        .replace(/<br\s*\/?>/gi, '\n')
-        .replace(/<[^>]+>/g, '');
+        .replace(/<br\s*\/?>/gi, '\n');
 
-    return decodeHtmlEntities(withMarkdownHints)
+    const plainText = sanitizeHtml(decodeHtmlEntities(withMarkdownHints), {
+        allowedTags: [],
+        allowedAttributes: {}
+    });
+
+    return plainText
+        .replaceAll('&amp;', '&')
         .split('\n')
         .map(line => line.trim())
         .join('\n')
@@ -127,11 +133,24 @@ export const parseOldRedditHtml = (html: string, postId: string): RedditFormData
     };
 };
 
-const request = async (fetcher: Fetcher, url: string): Promise<Response> => fetcher(url, {
-    headers: REQUEST_HEADERS,
-    redirect: 'follow',
-    signal: AbortSignal.timeout(15_000)
-});
+const ALLOWED_REDDIT_REQUEST_HOSTS = new Set([
+    'www.reddit.com',
+    'embed.reddit.com',
+    'old.reddit.com'
+]);
+
+const request = async (fetcher: Fetcher, value: string): Promise<Response> => {
+    const url = new URL(value);
+    if (url.protocol !== 'https:' || !ALLOWED_REDDIT_REQUEST_HOSTS.has(url.hostname)) {
+        throw new Error('Refusing to request an untrusted Reddit URL.');
+    }
+
+    return fetcher(url.toString(), {
+        headers: REQUEST_HEADERS,
+        redirect: 'error',
+        signal: AbortSignal.timeout(15_000)
+    });
+};
 
 export const fetchRedditData = async (
     value: string,

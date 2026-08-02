@@ -83,8 +83,8 @@ describe('Reddit data fetching', () => {
 
     it('prefers JSON data while fetching all sources concurrently', async () => {
         const fetcher = vi.fn<typeof fetch>().mockImplementation(async input => {
-            const url = input.toString();
-            if (url.includes('.json')) {
+            const url = new URL(input.toString());
+            if (url.hostname === 'www.reddit.com' && url.pathname.endsWith('.json')) {
                 return new Response(JSON.stringify([{
                     data: {
                         children: [{
@@ -110,6 +110,7 @@ describe('Reddit data fetching', () => {
             }
         });
         expect(fetcher).toHaveBeenCalledTimes(3);
+        expect(fetcher.mock.calls[0]?.[1]).toEqual(expect.objectContaining({ redirect: 'error' }));
     });
 
     it('combines public RSS and embed data when JSON is blocked', async () => {
@@ -159,14 +160,14 @@ describe('Reddit data fetching', () => {
             <div class="commentarea"></div>
         `;
         const fetcher = vi.fn<typeof fetch>().mockImplementation(async input => {
-            const url = input.toString();
-            if (url.includes('.json?')) {
+            const url = new URL(input.toString());
+            if (url.hostname === 'www.reddit.com' && url.pathname.endsWith('.json')) {
                 return new Response('Blocked', { status: 403 });
             }
-            if (url.includes('embed.reddit.com')) {
+            if (url.hostname === 'embed.reddit.com') {
                 return new Response(embed, { status: 200 });
             }
-            if (url.includes('old.reddit.com')) {
+            if (url.hostname === 'old.reddit.com') {
                 return new Response(oldRedditHtml, { status: 200 });
             }
             return new Response('Rate limited', { status: 429 });
@@ -196,11 +197,11 @@ describe('Reddit data fetching', () => {
             <span data="{&quot;created_timestamp&quot;:1772963835976}"></span>
         `;
         const fetcher = vi.fn<typeof fetch>().mockImplementation(async input => {
-            const url = input.toString();
-            if (url.includes('.json?')) {
+            const url = new URL(input.toString());
+            if (url.hostname === 'www.reddit.com' && url.pathname.endsWith('.json')) {
                 return new Response('Blocked', { status: 403 });
             }
-            if (url.includes('embed.reddit.com')) {
+            if (url.hostname === 'embed.reddit.com') {
                 return new Response(embed, { status: 200 });
             }
             return new Response('Rate limited', {
@@ -219,5 +220,33 @@ describe('Reddit data fetching', () => {
             }
         });
         expect(fetcher).toHaveBeenCalledTimes(4);
+    });
+
+    it('rejects URLs outside the Reddit host allowlist without fetching them', async () => {
+        const fetcher = vi.fn<typeof fetch>();
+
+        await expect(fetchRedditData(
+            'https://www.reddit.com.example.com/r/touhou/comments/abc123/title',
+            fetcher
+        )).rejects.toThrow('Enter a valid Reddit post URL.');
+        expect(fetcher).not.toHaveBeenCalled();
+    });
+
+    it('removes malformed nested HTML tags completely', () => {
+        const rss = `
+            <entry>
+                <content type="html">
+                    &lt;!-- SC_OFF --&gt;&lt;div class="md"&gt;
+                    &lt;p&gt;Safe text&lt;/p&gt;
+                    &lt;&lt;script&gt;script&gt;alert(1)&lt;&lt;/script&gt;/script&gt;
+                    &lt;/div&gt;&lt;!-- SC_ON --&gt;
+                </content>
+                <id>t3_abc123</id>
+            </entry>
+        `;
+
+        const result = parseRedditRss(rss, 'abc123');
+        expect(result?.description).not.toMatch(/<\s*\/?\s*script/i);
+        expect(result?.description).toContain('Safe text');
     });
 });
