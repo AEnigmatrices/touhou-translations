@@ -33,7 +33,8 @@ const config = {
             }
         },
         files: {
-            assets: 'public'
+            assets: 'public',
+            routes: process.env.SVELTEKIT_ROUTES_DIR ?? 'src/routes'
         },
         paths: {
             base: dev ? '' : '/touhou-translations'

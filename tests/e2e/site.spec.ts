@@ -48,3 +48,10 @@ test('a direct post URL loads its archive metadata and content', async ({ page }
     );
     await expect(page.locator('.prose script')).toHaveCount(0);
 });
+
+test('the local admin route is absent from the production application', async ({ page }) => {
+    const response = await page.goto('admin/');
+
+    expect(response?.status()).toBe(404);
+    await expect(page.getByRole('heading', { name: 'Add Reddit Post' })).toHaveCount(0);
+});

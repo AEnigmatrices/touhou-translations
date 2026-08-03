@@ -58,7 +58,7 @@ pnpm run clean
 
 Posts, artists, and characters are stored as JSON under `data/`. The application imports this data at build time, derives artist and character counts, and prerenders the index, gallery, artist, and character pages.
 
-Individual `/posts/[id]` pages are client-side routes served through the GitHub Pages fallback rather than prerendered one by one. The `/admin` route is a local development helper for adding posts and artists through the Vite dev server middleware. It is not a production dashboard and is excluded from prerendering.
+Individual `/posts/[id]` pages are client-side routes served through the GitHub Pages fallback rather than prerendered one by one. The `/admin` route is a local development helper for adding posts and artists through the Vite dev server middleware. The production build uses a route tree that omits `/admin`, so neither the route nor its client code is included in the deployed artifact.
 
 ## Deployment
 

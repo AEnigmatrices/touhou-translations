@@ -11,6 +11,7 @@ node_modules
 .svelte-kit
 build
 generated
+.production-routes
 dist
 dist-ssr
 playwright-report
