@@ -2962,5 +2962,18 @@
         "linkTwitter": "https://x.com/Eyamigusa8823",
         "linkPixiv": "https://www.pixiv.net/en/users/104915297",
         "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "neon",
+        "name": "neon",
+        "linkTwitter": "https://x.com/Ne10_neon",
+        "linkPixiv": "https://www.pixiv.net/en/users/1508297",
+        "portrait": "portraits/placeholders/medic.webp"
+    },
+    {
+        "id": "feizi",
+        "name": "妃子",
+        "linkTwitter": "https://x.com/Feizi017",
+        "portrait": "portraits/placeholders/spy.webp"
     }
 ]
