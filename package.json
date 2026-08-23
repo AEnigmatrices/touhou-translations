@@ -28,27 +28,27 @@
     },
     "dependencies": {
         "@sveltejs/adapter-static": "3.0.10",
-        "@sveltejs/kit": "2.70.2",
+        "@sveltejs/kit": "2.70.3",
         "@sveltejs/vite-plugin-svelte": "7.3.0",
-        "svelte": "5.56.8"
+        "svelte": "5.56.10"
     },
     "devDependencies": {
         "@playwright/test": "^1.62.1",
         "@types/node": "26.2.0",
         "@types/sanitize-html": "^2.16.1",
-        "eslint": "10.8.1",
-        "eslint-plugin-svelte": "^3.22.0",
+        "eslint": "10.9.0",
+        "eslint-plugin-svelte": "^3.23.0",
         "gh-pages": "6.3.0",
         "glob": "13.0.6",
-        "globals": "17.9.0",
-        "marked": "18.0.9",
-        "sanitize-html": "2.17.6",
-        "svelte-check": "4.7.5",
-        "tsx": "4.23.11",
+        "globals": "17.11.0",
+        "marked": "18.0.10",
+        "sanitize-html": "2.17.7",
+        "svelte-check": "4.7.6",
+        "tsx": "4.23.12",
         "typescript": "6.0.3",
-        "typescript-eslint": "8.66.0",
-        "vite": "8.2.1",
-        "vitest": "^4.1.10"
+        "typescript-eslint": "8.67.0",
+        "vite": "8.2.2",
+        "vitest": "^4.1.11"
     },
-    "packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c"
+    "packageManager": "pnpm@11.23.0+sha512.f00082e5b283a199b74e079da28d155c008fe232f44c8a06ea7ddfa014ecf719fc362f790ecc67b28106ddac2afb24c49a9a079159da560b2ce7d1e98efd11af"
 }
