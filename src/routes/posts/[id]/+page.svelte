@@ -1,5 +1,6 @@
 <script lang="ts">
     import { asset, resolve } from '$app/paths';
+    import { responsiveSrcset } from '../../../utils/responsiveImage';
     import { absoluteSiteUrl } from '../../../utils/siteMetadata';
     import type { PageData } from './$types';
 
@@ -100,10 +101,13 @@
     <div class="images">
         {#each data.post.url as url, index (url)}
             {@const dimensions = data.post.imageDimensions?.[index]}
+            {@const sources = data.post.imageSources?.[index]}
             <figure style:background-color={imageBackgrounds[url] ?? undefined}>
                 <img
                     class:nsfw={data.post.nsfw && !showNsfw}
                     src={url}
+                    srcset={responsiveSrcset(sources, url, dimensions?.width)}
+                    sizes="(max-width: 900px) calc(100vw - 2rem), min(1050px, calc(100vw - 490px))"
                     alt={`Translated artwork page ${index + 1}`}
                     width={dimensions?.width}
                     height={dimensions?.height}
@@ -176,7 +180,15 @@
                             href={resolve('/posts/[id]', { id: item.id })}
                             aria-label={`View another translated work by ${artistName}`}
                         >
-                            <img class:nsfw={item.nsfw && !showNsfw} src={item.img} alt="" loading="lazy" decoding="async" />
+                            <img
+                                class:nsfw={item.nsfw && !showNsfw}
+                                src={item.img}
+                                srcset={responsiveSrcset(item.imgSources, item.img)}
+                                sizes="210px"
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </a>
                     {/each}
                 </div>
