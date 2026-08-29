@@ -12,7 +12,8 @@ import type {
     HomePost,
     ImageDimensions,
     Post,
-    RelatedPost
+    RelatedPost,
+    ResponsiveImageSource
 } from '../src/types/data.ts';
 import { printValidationResult, validateData } from './validateData.ts';
 
@@ -26,9 +27,43 @@ interface GenerateOptions {
     includeImageDimensions?: boolean;
 }
 
+interface RedditPreviewSource {
+    url?: string;
+    u?: string;
+    width?: number;
+    x?: number;
+}
+
+interface RedditMediaMetadata {
+    p?: RedditPreviewSource[];
+    s?: RedditPreviewSource;
+}
+
+interface RedditPostMetadata {
+    id?: string;
+    media_metadata?: Record<string, RedditMediaMetadata>;
+    preview?: {
+        images?: Array<{
+            source?: RedditPreviewSource;
+            resolutions?: RedditPreviewSource[];
+        }>;
+    };
+}
+
+interface RedditInfoResponse {
+    data?: {
+        children?: Array<{
+            data?: RedditPostMetadata;
+        }>;
+    };
+}
+
 const imageMetadataConcurrency = 16;
 const imageHeaderBytes = 64 * 1024;
 const imageRequestTimeoutMs = 8_000;
+const redditBatchSize = 50;
+const redditMetadataConcurrency = 2;
+const redditRequestTimeoutMs = 10_000;
 
 const readJson = <T>(filePath: string): T => JSON.parse(fs.readFileSync(filePath, 'utf8')) as T;
 const writeJson = (filePath: string, value: unknown): void => {
@@ -225,6 +260,115 @@ const resolveImageDimensions = async (posts: Post[]): Promise<Map<string, ImageD
     return result;
 };
 
+const decodeRedditUrl = (value: string): string => value.replaceAll('&amp;', '&');
+
+const imageStem = (value: string): string => {
+    try {
+        const filename = new URL(value).pathname.split('/').at(-1) ?? '';
+        return filename.replace(/\.[^.]+$/, '');
+    } catch {
+        return '';
+    }
+};
+
+const normalizeResponsiveSource = (source: RedditPreviewSource | undefined): ResponsiveImageSource | null => {
+    const rawUrl = source?.url ?? source?.u;
+    const width = source?.width ?? source?.x;
+    if (!rawUrl || !width || width <= 0) return null;
+
+    const url = decodeRedditUrl(rawUrl);
+    try {
+        const parsed = new URL(url);
+        if (parsed.protocol !== 'https:' || !['preview.redd.it', 'i.redd.it'].includes(parsed.hostname)) return null;
+        return { url: parsed.toString(), width };
+    } catch {
+        return null;
+    }
+};
+
+const normalizeResponsiveSources = (sources: Array<RedditPreviewSource | undefined>): ResponsiveImageSource[] => {
+    const byWidth = new Map<number, ResponsiveImageSource>();
+    for (const source of sources) {
+        const normalized = normalizeResponsiveSource(source);
+        if (normalized) byWidth.set(normalized.width, normalized);
+    }
+    return [...byWidth.values()].sort((a, b) => a.width - b.width);
+};
+
+const fetchRedditMetadataBatch = async (postIds: string[]): Promise<RedditPostMetadata[]> => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), redditRequestTimeoutMs);
+    const fullnames = postIds.map(id => `t3_${id}`).join(',');
+
+    try {
+        const response = await fetch(`https://www.reddit.com/api/info.json?id=${encodeURIComponent(fullnames)}&raw_json=1`, {
+            headers: {
+                Accept: 'application/json',
+                'User-Agent': 'touhou-translations-build/1.0'
+            },
+            signal: controller.signal
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json() as RedditInfoResponse;
+        return payload.data?.children?.map(child => child.data).filter((post): post is RedditPostMetadata => Boolean(post)) ?? [];
+    } finally {
+        clearTimeout(timeout);
+    }
+};
+
+const resolveResponsiveImageSources = async (posts: Post[]): Promise<Map<string, ResponsiveImageSource[]>> => {
+    const postsById = new Map<string, Post>();
+    for (const post of posts) {
+        const id = extractRedditId(post.reddit);
+        if (id) postsById.set(id, post);
+    }
+
+    const ids = [...postsById.keys()];
+    const batches = Array.from(
+        { length: Math.ceil(ids.length / redditBatchSize) },
+        (_, index) => ids.slice(index * redditBatchSize, (index + 1) * redditBatchSize)
+    );
+
+    let failedBatches = 0;
+    const metadataBatches = await mapConcurrent(batches, redditMetadataConcurrency, async batch => {
+        try {
+            return await fetchRedditMetadataBatch(batch);
+        } catch (error) {
+            failedBatches += 1;
+            const message = error instanceof Error ? error.message : String(error);
+            console.warn(`Could not resolve Reddit responsive metadata for a batch of ${batch.length} posts: ${message}`);
+            return [];
+        }
+    });
+
+    const result = new Map<string, ResponsiveImageSource[]>();
+    for (const metadata of metadataBatches.flat()) {
+        if (!metadata.id) continue;
+        const post = postsById.get(metadata.id);
+        if (!post) continue;
+
+        const mediaByStem = new Map<string, RedditMediaMetadata>();
+        for (const [mediaId, media] of Object.entries(metadata.media_metadata ?? {})) {
+            mediaByStem.set(mediaId, media);
+        }
+
+        post.url.forEach((url, index) => {
+            const media = mediaByStem.get(imageStem(url));
+            const previewImage = metadata.preview?.images?.[index] ?? (index === 0 ? metadata.preview?.images?.[0] : undefined);
+            const sources = media
+                ? normalizeResponsiveSources([...(media.p ?? []), media.s])
+                : normalizeResponsiveSources([...(previewImage?.resolutions ?? []), previewImage?.source]);
+            if (sources.length > 0) result.set(url, sources);
+        });
+    }
+
+    console.log(
+        `Resolved responsive sources for ${result.size}/${new Set(posts.flatMap(post => post.url)).size} artwork images`
+        + `${failedBatches ? ` (${failedBatches} Reddit metadata batches unavailable)` : ''}.`
+    );
+    return result;
+};
+
 export const generateDerivedData = async (
     rootDir = process.cwd(),
     options: GenerateOptions = {}
@@ -244,9 +388,12 @@ export const generateDerivedData = async (
     const artistsRaw = readJson<ArtistRaw[]>(path.join(rootDir, 'data', 'artists.json'));
     const charactersRaw = readJson<CharacterRaw[]>(path.join(rootDir, 'data', 'characters.json'));
     const derived = buildDerivedData(posts, artistsRaw, charactersRaw);
-    const imageDimensions = options.includeImageDimensions
-        ? await resolveImageDimensions(posts)
-        : new Map<string, ImageDimensions>();
+    const [imageDimensions, responsiveImageSources] = options.includeImageDimensions
+        ? await Promise.all([
+            resolveImageDimensions(posts),
+            resolveResponsiveImageSources(posts)
+        ])
+        : [new Map<string, ImageDimensions>(), new Map<string, ResponsiveImageSource[]>()];
 
     fs.rmSync(generatedDir, { recursive: true, force: true });
     fs.mkdirSync(generatedPostsDir, { recursive: true });
@@ -267,9 +414,10 @@ export const generateDerivedData = async (
         const chunkPosts = chunks.get(chunk) ?? [];
         const { desc, ...postWithoutDescription } = post;
         const dimensions = post.url.map(url => imageDimensions.get(url) ?? null);
+        const imageSources = post.url.map(url => responsiveImageSources.get(url) ?? []);
         chunkPosts.push({
             ...postWithoutDescription,
-            ...(options.includeImageDimensions ? { imageDimensions: dimensions } : {}),
+            ...(options.includeImageDimensions ? { imageDimensions: dimensions, imageSources } : {}),
             htmlDescription: renderMarkdown(desc),
             metadataDescription: markdownExcerpt(desc)
         });
@@ -279,12 +427,24 @@ export const generateDerivedData = async (
         postIndex[id] = { chunk, ...adjacent };
         postIds.push(id);
 
-        const summary: HomePost = { id, img: post.url[0], nsfw: post.nsfw, date: post.date };
+        const firstImageSources = responsiveImageSources.get(post.url[0]) ?? [];
+        const summary: HomePost = {
+            id,
+            img: post.url[0],
+            ...(firstImageSources.length ? { imgSources: firstImageSources } : {}),
+            nsfw: post.nsfw,
+            date: post.date
+        };
         homePosts.push(summary);
         galleryPosts.push({ ...summary, artistId: post.artistId, characterIds: post.characterIds });
 
         const related = artistPosts[post.artistId] ?? [];
-        related.push({ id, img: post.url[0], nsfw: post.nsfw });
+        related.push({
+            id,
+            img: post.url[0],
+            ...(firstImageSources.length ? { imgSources: firstImageSources } : {}),
+            nsfw: post.nsfw
+        });
         artistPosts[post.artistId] = related;
     }
 
