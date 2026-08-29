@@ -45,14 +45,13 @@ Run verification commands:
 
 ```sh
 pnpm run typecheck
-pnpm run lint
 pnpm run validate:data
 pnpm run test
 pnpm run build
 pnpm run clean
 ```
 
-`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, Svelte/TypeScript checks, linting, and unit tests. `clean` removes generated data, framework caches, and build output.
+`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, TypeScript checks, and unit tests. `clean` removes generated data, framework caches, and build output.
 
 ## Content Data
 
@@ -68,7 +67,7 @@ The site is deployed to:
 https://aenigmatrices.github.io/touhou-translations/
 ```
 
-The production build uses the `/touhou-translations/` base path configured in `svelte.config.js`. The GitHub Actions workflow installs dependencies with PNPM, runs the production build, and uploads the generated `build` directory as a GitHub Pages artifact.
+The production build uses the `/touhou-translations/` base path configured in `svelte.config.ts`. The GitHub Actions workflow installs dependencies with PNPM, runs the production build, and uploads the generated `build` directory as a GitHub Pages artifact.
 
 Manual deployment is also available:
 
