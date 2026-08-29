@@ -1,6 +1,7 @@
 <script lang="ts">
     import { resolve } from '$app/paths';
     import type { GalleryPost } from '../../../types/data';
+    import { responsiveSrcset } from '../../../utils/responsiveImage';
 
     interface Props {
         posts: GalleryPost[];
@@ -12,7 +13,15 @@
 <div class="grid">
     {#each posts as post (post.id)}
         <a class="tile" href={resolve('/posts/[id]', { id: post.id })} aria-label={`View post ${post.id}`}>
-            <img class:nsfw={post.nsfw} src={post.img} alt="" loading="lazy" decoding="async" />
+            <img
+                class:nsfw={post.nsfw}
+                src={post.img}
+                srcset={responsiveSrcset(post.imgSources, post.img)}
+                sizes="(max-width: 700px) 50vw, (max-width: 1180px) 25vw, 17vw"
+                alt=""
+                loading="lazy"
+                decoding="async"
+            />
             {#if post.nsfw}<span>NSFW</span>{/if}
         </a>
     {/each}

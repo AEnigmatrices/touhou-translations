@@ -1,9 +1,12 @@
 <script lang="ts">
     import { resolve } from '$app/paths';
+    import type { ResponsiveImageSource } from '../../../types/data';
+    import { responsiveSrcset } from '../../../utils/responsiveImage';
 
     interface DailyPost {
         id: string;
         img: string;
+        imgSources?: ResponsiveImageSource[];
         nsfw: boolean;
     }
 
@@ -18,7 +21,15 @@
     <h2>Post of the Day</h2>
     {#if post}
         <a class="daily-link" href={resolve('/posts/[id]', { id: post.id })}>
-            <img class:nsfw={post.nsfw} src={post.img} alt="Post of the day" loading="lazy" decoding="async" />
+            <img
+                class:nsfw={post.nsfw}
+                src={post.img}
+                srcset={responsiveSrcset(post.imgSources, post.img)}
+                sizes="(max-width: 900px) calc(100vw - 2rem), min(40vw, 500px)"
+                alt="Post of the day"
+                loading="lazy"
+                decoding="async"
+            />
         </a>
     {/if}
 </section>
