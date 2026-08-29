@@ -27,7 +27,13 @@ export interface RelatedPost {
     nsfw: boolean;
 }
 
+export interface ImageDimensions {
+    width: number;
+    height: number;
+}
+
 export interface GeneratedPost extends Omit<Post, 'desc'> {
+    imageDimensions?: Array<ImageDimensions | null>;
     htmlDescription: string;
     metadataDescription: string;
 }
