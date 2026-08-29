@@ -5,7 +5,6 @@
     import type { PageData } from './$types';
 
     let { data }: { data: PageData } = $props();
-    let imageBackgrounds = $state<Record<string, string>>({});
     let showNsfw = $state(false);
 
     const artistName = $derived(data.artist?.name ?? data.post.artistId);
@@ -22,67 +21,9 @@
         return `${resolve('/gallery')}?artist=${encodeURIComponent(artistId)}`;
     }
 
-    function getDominantColor(image: HTMLImageElement): string | null {
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d', { willReadFrequently: true });
-        if (!context || image.naturalWidth === 0 || image.naturalHeight === 0) return null;
-
-        const sampleSize = 32;
-        const scale = Math.min(sampleSize / image.naturalWidth, sampleSize / image.naturalHeight, 1);
-        canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
-        canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
-
-        const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
-        const buckets = new Map<string, { count: number; r: number; g: number; b: number }>();
-
-        for (let index = 0; index < pixels.length; index += 4) {
-            const alpha = pixels[index + 3];
-            if (alpha < 128) continue;
-
-            const r = pixels[index];
-            const g = pixels[index + 1];
-            const b = pixels[index + 2];
-            const key = `${r >> 4},${g >> 4},${b >> 4}`;
-            const bucket = buckets.get(key) ?? { count: 0, r: 0, g: 0, b: 0 };
-            bucket.count += 1;
-            bucket.r += r;
-            bucket.g += g;
-            bucket.b += b;
-            buckets.set(key, bucket);
-        }
-
-        const dominant = [...buckets.values()].sort((a, b) => b.count - a.count)[0];
-        if (!dominant) return null;
-
-        return `rgb(${Math.round(dominant.r / dominant.count)} ${Math.round(dominant.g / dominant.count)} ${Math.round(dominant.b / dominant.count)})`;
-    }
-
-    function setImageBackground(url: string) {
-        if (imageBackgrounds[url]) return;
-
-        const image = new Image();
-        image.crossOrigin = 'anonymous';
-        image.onload = () => {
-            try {
-                const color = getDominantColor(image);
-                if (!color) return;
-                imageBackgrounds = { ...imageBackgrounds, [url]: color };
-            } catch {
-                imageBackgrounds = { ...imageBackgrounds, [url]: 'var(--color-surface)' };
-            }
-        };
-        image.onerror = () => {
-            imageBackgrounds = { ...imageBackgrounds, [url]: 'var(--color-surface)' };
-        };
-        image.src = url;
-    }
-
     $effect(() => {
         if (!data.id) return;
-
         showNsfw = false;
-        imageBackgrounds = {};
     });
 </script>
 
@@ -102,7 +43,7 @@
         {#each data.post.url as url, index (url)}
             {@const dimensions = data.post.imageDimensions?.[index]}
             {@const sources = data.post.imageSources?.[index]}
-            <figure style:background-color={imageBackgrounds[url] ?? undefined}>
+            <figure>
                 <img
                     class:nsfw={data.post.nsfw && !showNsfw}
                     src={url}
@@ -114,7 +55,6 @@
                     loading={index === 0 ? 'eager' : 'lazy'}
                     fetchpriority={index === 0 ? 'high' : 'auto'}
                     decoding="async"
-                    onload={() => setImageBackground(url)}
                 />
             </figure>
         {/each}
