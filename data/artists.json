@@ -2975,5 +2975,19 @@
         "name": "妃子",
         "linkTwitter": "https://x.com/Feizi017",
         "portrait": "portraits/placeholders/spy.webp"
+    },
+    {
+        "id": "aonosapphire",
+        "name": "*青乃さふぁいあ*",
+        "linkTwitter": "https://x.com/Safaia495123",
+        "linkPixiv": "https://www.pixiv.net/en/users/117276479",
+        "portrait": "portraits/placeholders/engineer.webp"
+    },
+    {
+        "id": "aiueo",
+        "name": "葵植夫",
+        "linkTwitter": "https://x.com/aoiueo12",
+        "linkPixiv": "https://www.pixiv.net/en/users/69710986",
+        "portrait": "portraits/placeholders/heavy.webp"
     }
 ]
