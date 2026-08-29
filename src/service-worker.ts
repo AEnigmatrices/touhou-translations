@@ -79,11 +79,6 @@ async function matchNavigation(request: Request): Promise<Response | undefined> 
         ?? await cache.match(request, { ignoreSearch: true });
 }
 
-async function matchData(request: Request): Promise<Response | undefined> {
-    const cache = await caches.open(cacheName);
-    return await cache.match(request);
-}
-
 worker.addEventListener('install', event => {
     event.waitUntil(
         caches.open(cacheName)
@@ -113,7 +108,7 @@ worker.addEventListener('fetch', event => {
     }
 
     if (isDataRequest(url)) {
-        event.respondWith(networkFirst(event, () => matchData(event.request)));
+        event.respondWith(cacheFirst(event));
         return;
     }
 
