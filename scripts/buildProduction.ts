@@ -13,6 +13,7 @@ const isInsideAdminRoute = (source: string): boolean => {
 };
 
 fs.rmSync(productionRoutesDir, { recursive: true, force: true });
+const buildStartedAt = performance.now();
 
 try {
     fs.cpSync(sourceRoutesDir, productionRoutesDir, {
@@ -22,6 +23,8 @@ try {
 
     process.env.SVELTEKIT_ROUTES_DIR = 'src/.production-routes';
     await build({ mode: 'production' });
+    const elapsedSeconds = (performance.now() - buildStartedAt) / 1000;
+    console.log(`Production build completed in ${elapsedSeconds.toFixed(1)} seconds.`);
 } finally {
     delete process.env.SVELTEKIT_ROUTES_DIR;
     fs.rmSync(productionRoutesDir, { recursive: true, force: true });

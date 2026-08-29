@@ -1,48 +1,25 @@
 <script lang="ts">
     import { asset, resolve } from '$app/paths';
-    import { page } from '$app/state';
-    import LoadingIndicator from '$lib/components/LoadingIndicator.svelte';
-    import { fetchPostDetail } from '../../../utils/generatedData';
     import { absoluteSiteUrl } from '../../../utils/siteMetadata';
-    import type { Artist, Character, GeneratedPost } from '../../../types/data';
+    import type { PageData } from './$types';
 
-    interface ClientPostData {
-        post: GeneratedPost;
-        artist: Artist | null;
-        characters: Character[];
-        randomArtistPosts: { id: string; img: string; nsfw: boolean }[];
-        prevPostId: string | null;
-        nextPostId: string | null;
-    }
-
-    let loading = $state(true);
-    let postData = $state<ClientPostData | null>(null);
+    let { data }: { data: PageData } = $props();
     let imageBackgrounds = $state<Record<string, string>>({});
-    let loadedId = $state('');
     let showNsfw = $state(false);
 
-    const id = $derived(page.params.id);
-    const metadataDescription = $derived(postData
-        ? postData.post.metadataDescription || `A translated Touhou Project work by ${postData.artist?.name ?? postData.post.artistId}.`
-        : 'View a translated Touhou Project comic or illustration.');
-    const metadataTitle = $derived(`${postData?.artist?.name ?? 'Post'} | Touhou Translations`);
-    const canonicalUrl = $derived(absoluteSiteUrl(`posts/${id}`));
-    const socialImage = $derived(postData && !postData.post.nsfw
-        ? postData.post.url[0]
+    const artistName = $derived(data.artist?.name ?? data.post.artistId);
+    const metadataDescription = $derived(
+        data.post.metadataDescription || `A translated Touhou Project work by ${artistName}.`
+    );
+    const metadataTitle = $derived(`${artistName} | Touhou Translations`);
+    const canonicalUrl = $derived(absoluteSiteUrl(`posts/${data.id}`));
+    const socialImage = $derived(!data.post.nsfw
+        ? data.post.url[0]
         : absoluteSiteUrl('icons/touhou-translations-profile-icon.png'));
 
     function galleryArtistUrl(artistId: string) {
         return `${resolve('/gallery')}?artist=${encodeURIComponent(artistId)}`;
     }
-
-    const getRandomArtistPosts = <T,>(arr: T[]): T[] => {
-        const result = [...arr];
-        for (let i = 0; i < Math.min(4, result.length); i += 1) {
-            const j = i + Math.floor(Math.random() * (result.length - i));
-            [result[i], result[j]] = [result[j], result[i]];
-        }
-        return result.slice(0, 4);
-    };
 
     function getDominantColor(image: HTMLImageElement): string | null {
         const canvas = document.createElement('canvas');
@@ -56,8 +33,6 @@
         context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
         const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
-        // This map is local computation state and never participates in Svelte reactivity.
-        // eslint-disable-next-line svelte/prefer-svelte-reactivity
         const buckets = new Map<string, { count: number; r: number; g: number; b: number }>();
 
         for (let index = 0; index < pixels.length; index += 4) {
@@ -82,12 +57,12 @@
         return `rgb(${Math.round(dominant.r / dominant.count)} ${Math.round(dominant.g / dominant.count)} ${Math.round(dominant.b / dominant.count)})`;
     }
 
-    function setImageBackground(url: string) {
-        if (imageBackgrounds[url]) return;
-
+    function setImageBackground(url: string, postId: string) {
         const image = new Image();
         image.crossOrigin = 'anonymous';
         image.onload = () => {
+            if (data.id !== postId) return;
+
             try {
                 const color = getDominantColor(image);
                 if (!color) return;
@@ -97,37 +72,19 @@
             }
         };
         image.onerror = () => {
+            if (data.id !== postId) return;
             imageBackgrounds = { ...imageBackgrounds, [url]: 'var(--color-surface)' };
         };
         image.src = url;
     }
 
-    async function loadPost(postId: string) {
-        loadedId = postId;
-        loading = true;
-        showNsfw = false;
-        const detail = await fetchPostDetail(postId);
-        const post = detail?.post;
-        if (!post || !post.url.length || !post.src) {
-            postData = null;
-            loading = false;
-            return;
-        }
-
-        const artist = detail.artist;
-        const characters = detail.characters;
-        const artistPosts = detail.artistPosts.filter(item => item.id !== postId);
-        const randomArtistPosts = getRandomArtistPosts(artistPosts);
-        const { prevPostId, nextPostId } = detail;
-
-        postData = { post, artist, characters, randomArtistPosts, prevPostId, nextPostId };
-        loading = false;
-    }
-
     $effect(() => {
-        if (typeof window !== 'undefined' && id && id !== loadedId) {
-            void loadPost(id);
-        }
+        const postId = data.id;
+        const imageUrls = [...data.post.url];
+
+        showNsfw = false;
+        imageBackgrounds = {};
+        imageUrls.forEach(url => setImageBackground(url, postId));
     });
 </script>
 
@@ -143,90 +100,87 @@
 </svelte:head>
 
 <section class="root">
-    {#if loading}
-        <div class="loading"><LoadingIndicator /></div>
-    {:else if !postData}
-        <h1 class="not-found">Post not found.</h1>
-    {:else}
-        <div class="images">
-            {#each postData.post.url as url, index (url)}
-                <figure style:background-color={imageBackgrounds[url] ?? undefined}>
-                    <img
-                        class:nsfw={postData.post.nsfw && !showNsfw}
-                        src={url}
-                        alt={`Translated artwork page ${index + 1}`}
-                        onload={() => setImageBackground(url)}
-                    />
-                </figure>
-            {/each}
+    <div class="images">
+        {#each data.post.url as url, index (url)}
+            <figure style:background-color={imageBackgrounds[url] ?? undefined}>
+                <img
+                    class:nsfw={data.post.nsfw && !showNsfw}
+                    src={url}
+                    alt={`Translated artwork page ${index + 1}`}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                />
+            </figure>
+        {/each}
+    </div>
+
+    <aside class="info">
+        <div class="panel">
+            <p class="eyebrow">Artist</p>
+            <h1>
+                <a class="artist-pill" href={galleryArtistUrl(data.post.artistId)}>
+                    {artistName}
+                </a>
+            </h1>
+            <div class="links">
+                <a href={data.post.reddit} target="_blank" rel="noopener noreferrer">Reddit</a>
+                <a href={data.post.src} target="_blank" rel="noopener noreferrer">Source</a>
+                {#if data.prevPostId}<a href={resolve('/posts/[id]', { id: data.prevPostId })}>Previous</a>{/if}
+                {#if data.nextPostId}<a href={resolve('/posts/[id]', { id: data.nextPostId })}>Next</a>{/if}
+            </div>
+            {#if data.post.nsfw}
+                <button
+                    class="uncensor-button"
+                    type="button"
+                    aria-pressed={showNsfw}
+                    onclick={() => showNsfw = !showNsfw}
+                >
+                    {showNsfw ? 'Censor images' : 'Uncensor images'}
+                </button>
+            {/if}
         </div>
 
-        <aside class="info">
+        {#if data.characters.length}
             <div class="panel">
-                <p class="eyebrow">Artist</p>
-                <h1>
-                    <a class="artist-pill" href={galleryArtistUrl(postData.post.artistId)}>
-                        {postData.artist?.name ?? postData.post.artistId}
-                    </a>
-                </h1>
-                <div class="links">
-                    <a href={postData.post.reddit} target="_blank" rel="noopener noreferrer">Reddit</a>
-                    <a href={postData.post.src} target="_blank" rel="noopener noreferrer">Source</a>
-                    {#if postData.prevPostId}<a href={resolve('/posts/[id]', { id: postData.prevPostId })}>Previous</a>{/if}
-                    {#if postData.nextPostId}<a href={resolve('/posts/[id]', { id: postData.nextPostId })}>Next</a>{/if}
+                <p class="eyebrow">Characters</p>
+                <div class="chips">
+                    {#each data.characters as character (character.id)}
+                        <a href={`${resolve('/gallery')}?characters=${character.id}`}>
+                            <img
+                                class="character-avatar"
+                                src={asset(`/${character.portrait}`)}
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                            />
+                            <span>{character.name}</span>
+                        </a>
+                    {/each}
                 </div>
-                {#if postData.post.nsfw}
-                    <button
-                        class="uncensor-button"
-                        type="button"
-                        aria-pressed={showNsfw}
-                        onclick={() => showNsfw = !showNsfw}
-                    >
-                        {showNsfw ? 'Censor images' : 'Uncensor images'}
-                    </button>
-                {/if}
             </div>
+        {/if}
 
-            {#if postData.characters.length}
-                <div class="panel">
-                    <p class="eyebrow">Characters</p>
-                    <div class="chips">
-                        {#each postData.characters as character (character.id)}
-                            <a href={`${resolve('/gallery')}?characters=${character.id}`}>
-                                <img
-                                    class="character-avatar"
-                                    src={asset(`/${character.portrait}`)}
-                                    alt=""
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <span>{character.name}</span>
-                            </a>
-                        {/each}
-                    </div>
+        <div class="panel prose">
+            <!-- The HTML is generated and allowlist-sanitized by renderMarkdown. -->
+            {@html data.post.htmlDescription}
+        </div>
+
+        {#if data.relatedPosts.length}
+            <div class="panel">
+                <p class="eyebrow">More by this artist</p>
+                <div class="more-grid">
+                    {#each data.relatedPosts as item (item.id)}
+                        <a
+                            href={resolve('/posts/[id]', { id: item.id })}
+                            aria-label={`View another translated work by ${artistName}`}
+                        >
+                            <img class:nsfw={item.nsfw && !showNsfw} src={item.img} alt="" loading="lazy" decoding="async" />
+                        </a>
+                    {/each}
                 </div>
-            {/if}
-
-            <div class="panel prose">
-                <!-- The HTML is generated and allowlist-sanitized by renderMarkdown. -->
-                <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-                {@html postData.post.htmlDescription}
             </div>
-
-            {#if postData.randomArtistPosts.length}
-                <div class="panel">
-                    <p class="eyebrow">More by this artist</p>
-                    <div class="more-grid">
-                        {#each postData.randomArtistPosts as item (item.id)}
-                            <a href={resolve('/posts/[id]', { id: item.id })}>
-                                <img class:nsfw={item.nsfw && !showNsfw} src={item.img} alt="" loading="lazy" decoding="async" />
-                            </a>
-                        {/each}
-                    </div>
-                </div>
-            {/if}
-        </aside>
-    {/if}
+        {/if}
+    </aside>
 </section>
 
 <style>
@@ -236,11 +190,6 @@
         grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
         gap: 1.5rem;
         margin: 0 auto;
-    }
-
-    .loading,
-    .not-found {
-        grid-column: 1 / -1;
     }
 
     .images {

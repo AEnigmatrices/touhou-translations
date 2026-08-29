@@ -6,13 +6,11 @@
     import { SITE_NAME } from '../utils/siteMetadata';
     import '../styles/global.css';
 
-    let {
-        children,
-        data,
-    }: {
-        children: Snippet;
-        data: { randomPostIds: string[] };
-    } = $props();
+    let { children }: { children: Snippet } = $props();
+
+    let randomPostIdsPromise: Promise<string[]> | undefined;
+    let randomPostLoading = $state(false);
+    let randomPostUnavailable = $state(false);
 
     const links = [
         { label: 'Home', href: resolve('/'), routeId: '/' },
@@ -28,11 +26,44 @@
         { label: 'Pixiv', href: 'https://www.pixiv.net/en/users/4920496' },
     ];
 
-    function goToRandomPost() {
-        if (data.randomPostIds.length === 0) return;
+    function fetchRandomPostIds(): Promise<string[]> {
+        randomPostIdsPromise ??= fetch(resolve('/post-ids.json'))
+            .then(async response => {
+                if (!response.ok) throw new Error(`Post index request failed with ${response.status}.`);
 
-        const id = data.randomPostIds[Math.floor(Math.random() * data.randomPostIds.length)];
-        void goto(resolve('/posts/[id]', { id }));
+                const value: unknown = await response.json();
+                if (!Array.isArray(value) || !value.every(id => typeof id === 'string')) {
+                    throw new TypeError('Post index response was invalid.');
+                }
+
+                return value;
+            })
+            .catch(error => {
+                randomPostIdsPromise = undefined;
+                throw error;
+            });
+
+        return randomPostIdsPromise;
+    }
+
+    async function goToRandomPost() {
+        if (randomPostLoading) return;
+
+        randomPostLoading = true;
+        randomPostUnavailable = false;
+
+        try {
+            const postIds = await fetchRandomPostIds();
+            if (postIds.length === 0) throw new Error('No posts are available.');
+
+            const id = postIds[Math.floor(Math.random() * postIds.length)];
+            await goto(resolve('/posts/[id]', { id }));
+        } catch (error) {
+            console.error('Unable to open a random post.', error);
+            randomPostUnavailable = true;
+        } finally {
+            randomPostLoading = false;
+        }
     }
 </script>
 
@@ -63,9 +94,11 @@
                     type="button"
                     class:active={page.route.id === '/posts/[id]'}
                     aria-current={page.route.id === '/posts/[id]' ? 'page' : undefined}
-                    onclick={goToRandomPost}
+                    aria-busy={randomPostLoading}
+                    disabled={randomPostLoading}
+                    onclick={() => void goToRandomPost()}
                 >
-                    Post
+                    {randomPostLoading ? 'Loading…' : randomPostUnavailable ? 'Retry' : 'Post'}
                 </button>
             </div>
         </nav>
@@ -85,9 +118,11 @@
             type="button"
             class:active={page.route.id === '/posts/[id]'}
             aria-current={page.route.id === '/posts/[id]' ? 'page' : undefined}
-            onclick={goToRandomPost}
+            aria-busy={randomPostLoading}
+            disabled={randomPostLoading}
+            onclick={() => void goToRandomPost()}
         >
-            Post
+            {randomPostLoading ? 'Loading…' : randomPostUnavailable ? 'Retry' : 'Post'}
         </button>
     </nav>
 

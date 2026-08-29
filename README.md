@@ -10,7 +10,7 @@ The project collects manually translated Touhou fan art and comics while preserv
 
 - **SvelteKit** - File-based routing, static generation, and client-side routes.
 - **Vite** - Development server and production build tooling.
-- **TypeScript** - Static checking for app, build, and plugin code.
+- **TypeScript** - Static checking for route modules, build tooling, and plugin code.
 - **PNPM** - Package management.
 - **SvelteKit service worker** - Manual app-shell caching and web app manifest.
 - **GitHub Pages** - Static hosting through GitHub Actions.
@@ -18,7 +18,7 @@ The project collects manually translated Touhou fan art and comics while preserv
 ## Repository Structure
 
 - `src/routes/` - SvelteKit routes and route-level styles.
-- `src/lib/` - Shared Svelte components.
+- `src/lib/` - Shared Svelte components and server-only post data assembly.
 - `src/styles/` - Global CSS and design tokens.
 - `src/utils/` - Shared data-loading, filtering, and URL helpers.
 - `src/types/` - Shared TypeScript data models.
@@ -48,16 +48,20 @@ pnpm run typecheck
 pnpm run validate:data
 pnpm run test
 pnpm run build
+pnpm exec playwright install chromium
+pnpm run test:e2e
 pnpm run clean
 ```
 
-`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, TypeScript checks, and unit tests. `clean` removes generated data, framework caches, and build output.
+`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, TypeScript checks, and unit tests. `build` generates and verifies every static post artifact, while `test:e2e` checks the production site in Chromium, including server-rendered post metadata and offline caching. `clean` removes generated data, framework caches, and build output.
 
 ## Content Data
 
-Posts, artists, and characters are stored as JSON under `data/`. The application imports this data at build time, derives artist and character counts, and prerenders the index, gallery, artist, and character pages.
+Posts, artists, and characters are stored as JSON under `data/`. The application imports this data at build time, derives artist and character counts, and prerenders the index, gallery, artist, character, and individual post pages.
 
-Individual `/posts/[id]` pages are client-side routes served through the GitHub Pages fallback rather than prerendered one by one. The `/admin` route is a local development helper for adding posts and artists through the Vite dev server middleware. The production build uses a route tree that omits `/admin`, so neither the route nor its client code is included in the deployed artifact.
+Each `/posts/[id]` URL is emitted as a real static page with its content and social metadata in the initial HTML. Post details are assembled by server-only build code, and the random-post control fetches the shared ID index only when it is used. The service worker precaches the application shell and shared build assets, then caches successful post visits at runtime instead of downloading the entire archive during installation.
+
+The `/admin` route is a local development helper for adding posts and artists through the Vite dev server middleware. The production build uses a route tree that omits `/admin`, so neither the route nor its client code is included in the deployed artifact.
 
 ## Deployment
 
