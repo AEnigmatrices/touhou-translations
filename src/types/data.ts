@@ -9,9 +9,15 @@ export interface Post {
     nsfw: boolean;
 }
 
+export interface ResponsiveImageSource {
+    url: string;
+    width: number;
+}
+
 export interface HomePost {
     id: string;
     img: string;
+    imgSources?: ResponsiveImageSource[];
     nsfw: boolean;
     date: number;
 }
@@ -24,6 +30,7 @@ export interface GalleryPost extends HomePost {
 export interface RelatedPost {
     id: string;
     img: string;
+    imgSources?: ResponsiveImageSource[];
     nsfw: boolean;
 }
 
@@ -34,6 +41,7 @@ export interface ImageDimensions {
 
 export interface GeneratedPost extends Omit<Post, 'desc'> {
     imageDimensions?: Array<ImageDimensions | null>;
+    imageSources?: ResponsiveImageSource[][];
     htmlDescription: string;
     metadataDescription: string;
 }
