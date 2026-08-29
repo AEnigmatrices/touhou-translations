@@ -1,8 +1,6 @@
 import globals from 'globals';
-import svelte from 'eslint-plugin-svelte';
-import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+export default [
     {
         ignores: [
             '.svelte-kit/**',
@@ -10,15 +8,13 @@ export default tseslint.config(
             'dist/**',
             'node_modules/**',
             'public/**',
-            '*.config.js',
+            // Restore TypeScript and Svelte linting when the parser supports TypeScript 7.
+            '**/*.svelte',
+            '**/*.ts',
         ],
     },
-    ...svelte.configs['flat/recommended'],
     {
-        files: ['**/*.ts'],
-        extends: [
-            ...tseslint.configs.recommended,
-        ],
+        files: ['**/*.js'],
         languageOptions: {
             ecmaVersion: 'latest',
             sourceType: 'module',
@@ -28,39 +24,12 @@ export default tseslint.config(
             },
         },
         rules: {
-            '@typescript-eslint/no-unused-vars': ['warn', {
+            'no-unused-vars': ['warn', {
                 argsIgnorePattern: '^_',
                 caughtErrorsIgnorePattern: '^_',
                 varsIgnorePattern: '^_',
             }],
-            '@typescript-eslint/no-explicit-any': 'warn',
             'no-console': ['warn', { allow: ['warn', 'error'] }],
         },
     },
-    {
-        files: ['**/*.svelte'],
-        plugins: {
-            '@typescript-eslint': tseslint.plugin,
-        },
-        languageOptions: {
-            parserOptions: {
-                parser: tseslint.parser,
-            },
-        },
-        rules: {
-            '@typescript-eslint/no-unused-vars': ['warn', {
-                argsIgnorePattern: '^_',
-                caughtErrorsIgnorePattern: '^_',
-                varsIgnorePattern: '^_',
-            }],
-            '@typescript-eslint/no-explicit-any': 'warn',
-            'svelte/no-navigation-without-resolve': 'off',
-        },
-    },
-    {
-        files: ['scripts/**/*.ts'],
-        rules: {
-            'no-console': 'off',
-        },
-    },
-);
+];
