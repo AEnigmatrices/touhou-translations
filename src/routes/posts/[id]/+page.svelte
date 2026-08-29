@@ -99,11 +99,14 @@
 <section class="root">
     <div class="images">
         {#each data.post.url as url, index (url)}
+            {@const dimensions = data.post.imageDimensions?.[index]}
             <figure style:background-color={imageBackgrounds[url] ?? undefined}>
                 <img
                     class:nsfw={data.post.nsfw && !showNsfw}
                     src={url}
                     alt={`Translated artwork page ${index + 1}`}
+                    width={dimensions?.width}
+                    height={dimensions?.height}
                     loading={index === 0 ? 'eager' : 'lazy'}
                     fetchpriority={index === 0 ? 'high' : 'auto'}
                     decoding="async"
