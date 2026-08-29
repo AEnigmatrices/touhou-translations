@@ -57,12 +57,12 @@
         return `rgb(${Math.round(dominant.r / dominant.count)} ${Math.round(dominant.g / dominant.count)} ${Math.round(dominant.b / dominant.count)})`;
     }
 
-    function setImageBackground(url: string, postId: string) {
+    function setImageBackground(url: string) {
+        if (imageBackgrounds[url]) return;
+
         const image = new Image();
         image.crossOrigin = 'anonymous';
         image.onload = () => {
-            if (data.id !== postId) return;
-
             try {
                 const color = getDominantColor(image);
                 if (!color) return;
@@ -72,19 +72,16 @@
             }
         };
         image.onerror = () => {
-            if (data.id !== postId) return;
             imageBackgrounds = { ...imageBackgrounds, [url]: 'var(--color-surface)' };
         };
         image.src = url;
     }
 
     $effect(() => {
-        const postId = data.id;
-        const imageUrls = [...data.post.url];
+        if (!data.id) return;
 
         showNsfw = false;
         imageBackgrounds = {};
-        imageUrls.forEach(url => setImageBackground(url, postId));
     });
 </script>
 
@@ -108,7 +105,9 @@
                     src={url}
                     alt={`Translated artwork page ${index + 1}`}
                     loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={index === 0 ? 'high' : 'auto'}
                     decoding="async"
+                    onload={() => setImageBackground(url)}
                 />
             </figure>
         {/each}
