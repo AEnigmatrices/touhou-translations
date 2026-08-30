@@ -37,7 +37,14 @@ const initializeListPage = (): void => {
     const selectModeButton = root.querySelector<HTMLButtonElement>('[data-select-mode]');
     const viewSelectedLink = root.querySelector<HTMLAnchorElement>('[data-view-selected]');
     const loadMoreButton = root.querySelector<HTMLButtonElement>('[data-load-more]');
+    const portraitImagesTemplate = root.querySelector<HTMLTemplateElement>('[data-portrait-images]');
     const pageSize = Number(root.dataset.pageSize) || 24;
+    const portraitImages = new Map<string, HTMLImageElement>();
+
+    for (const image of portraitImagesTemplate?.content.querySelectorAll<HTMLImageElement>('[data-portrait-key]') ?? []) {
+        const key = image.dataset.portraitKey;
+        if (key) portraitImages.set(key, image);
+    }
 
     let itemsRequest: Promise<ListItem[]> | undefined;
     let searchValue = '';
@@ -88,6 +95,9 @@ const initializeListPage = (): void => {
 
     const renderItem = (item: ListItem): HTMLLIElement => {
         const selected = selectedItems.includes(item.id);
+        const portraitImage = portraitImages.get(item.portrait);
+        if (!portraitImage) throw new Error(`Optimized portrait template is missing for ${item.portrait}.`);
+
         const listItem = document.createElement('li');
         listItem.className = `profile-item large${selected ? ' selected' : ''}`;
         listItem.dataset.itemId = item.id;
@@ -110,11 +120,9 @@ const initializeListPage = (): void => {
         content.className = 'content large-content';
         const imageFrame = document.createElement('div');
         imageFrame.className = 'image-frame large-image';
-        const image = document.createElement('img');
-        image.src = assetPath(item.portrait);
+        const image = portraitImage.cloneNode(true) as HTMLImageElement;
+        image.removeAttribute('data-portrait-key');
         image.alt = item.name;
-        image.loading = 'lazy';
-        image.decoding = 'async';
         imageFrame.append(image);
 
         const text = document.createElement('div');

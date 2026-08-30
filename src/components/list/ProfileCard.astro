@@ -1,13 +1,15 @@
 ---
-import type { Artist, Character } from '../../types/data';
-import { assetPath, pagePathWithQuery } from '../../utils/paths';
+import type { Artist, Character, PortraitImage } from '../../types/data';
+import { pagePathWithQuery } from '../../utils/paths';
+import { PORTRAIT_SIZES } from '../../lib/server/portraitImages';
 
 interface Props {
     item: Artist | Character;
     mode: 'character' | 'artist';
+    portraitImage: PortraitImage;
 }
 
-const { item, mode } = Astro.props;
+const { item, mode, portraitImage } = Astro.props;
 const description2 = mode === 'character'
     ? `${(item as Character).artistCount} artist${(item as Character).artistCount === 1 ? '' : 's'}`
     : `${(item as Artist).characterCount} character${(item as Artist).characterCount === 1 ? '' : 's'}`;
@@ -18,7 +20,16 @@ const href = pagePathWithQuery('gallery', `${mode === 'character' ? 'characters'
     <a class="box" href={href}>
         <div class="content large-content">
             <div class="image-frame large-image">
-                <img src={assetPath(item.portrait)} alt={item.name} loading="lazy" decoding="async" />
+                <img
+                    src={portraitImage.src}
+                    srcset={portraitImage.srcset || undefined}
+                    sizes={PORTRAIT_SIZES}
+                    width={portraitImage.width}
+                    height={portraitImage.height}
+                    alt={item.name}
+                    loading="lazy"
+                    decoding="async"
+                />
             </div>
             <div class="text large-text">
                 <p class="name large-name">{item.name}</p>
