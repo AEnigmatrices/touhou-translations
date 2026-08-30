@@ -21,7 +21,7 @@ const scheduleIdleTask = (task: () => void): void => {
         window.requestIdleCallback(task, { timeout: 2_000 });
         return;
     }
-    window.setTimeout(task, 500);
+    setTimeout(task, 500);
 };
 
 const warmVisiblePostDocuments = (grid: HTMLElement | null): void => {
