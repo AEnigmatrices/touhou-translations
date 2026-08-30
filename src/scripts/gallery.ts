@@ -10,6 +10,7 @@ type NavigatorWithConnection = Navigator & {
     };
 };
 
+const GALLERY_POSTS_PER_PAGE = 12;
 let postsRequest: Promise<GalleryPost[]> | undefined;
 const warmedPostUrls = new Set<string>();
 
@@ -29,7 +30,7 @@ const warmVisiblePostDocuments = (grid: HTMLElement | null): void => {
 
     scheduleIdleTask(() => {
         const urls = [...grid.querySelectorAll<HTMLAnchorElement>('a.tile')]
-            .slice(0, 4)
+            .slice(0, GALLERY_POSTS_PER_PAGE)
             .map(link => link.href)
             .filter(url => !warmedPostUrls.has(url));
 
@@ -71,7 +72,7 @@ const initializeGallery = (): void => {
     const root = document.querySelector<HTMLElement>('[data-gallery-page]');
     if (!root) return;
 
-    const postsPerPage = 12;
+    const postsPerPage = GALLERY_POSTS_PER_PAGE;
     const grid = root.querySelector<HTMLElement>('[data-gallery-grid]');
     const postCount = root.querySelector<HTMLElement>('[data-post-count]');
     const galleryOnlyButton = root.querySelector<HTMLButtonElement>('[data-gallery-only]');
