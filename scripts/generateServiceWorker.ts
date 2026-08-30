@@ -32,13 +32,13 @@ const collectFiles = (directory: string): string[] => {
     return files;
 };
 
-const assertBuildFile = (relativePath: string): PrecacheEntry => {
+const buildFileEntry = (relativePath: string, url = `${basePath}${relativePath}`): PrecacheEntry => {
     const filePath = path.join(buildDir, ...relativePath.split('/'));
     if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
         throw new Error(`Required build asset is missing: ${relativePath}`);
     }
 
-    return { filePath, url: `${basePath}${relativePath}` };
+    return { filePath, url };
 };
 
 if (!fs.existsSync(buildDir) || !fs.statSync(buildDir).isDirectory()) {
@@ -51,6 +51,12 @@ if (!fs.existsSync(appShellPath) || !fs.statSync(appShellPath).isFile()) {
 }
 
 const metadataAssetPaths = ['favicon.ico', 'robots.txt', 'manifest.webmanifest'];
+const primaryNavigationEntries = [
+    buildFileEntry('characters/index.html', `${basePath}characters/`),
+    buildFileEntry('artists/index.html', `${basePath}artists/`),
+    buildFileEntry('gallery/index.html', `${basePath}gallery/`),
+    buildFileEntry('post-ids.json')
+];
 const pwaIconPaths = collectFiles(path.join(publicDir, 'icons', 'pwa'))
     .filter(filePath => /\.png$/i.test(filePath))
     .map(filePath => toPortablePath(path.relative(publicDir, filePath)));
@@ -64,7 +70,10 @@ const runtimeDataPaths = collectFiles(path.join(buildDir, 'runtime-data'))
 const entriesByUrl = new Map<string, PrecacheEntry>();
 entriesByUrl.set(basePath, { filePath: appShellPath, url: basePath });
 for (const relativePath of [...metadataAssetPaths, ...pwaIconPaths]) {
-    const entry = assertBuildFile(relativePath);
+    const entry = buildFileEntry(relativePath);
+    entriesByUrl.set(entry.url, entry);
+}
+for (const entry of primaryNavigationEntries) {
     entriesByUrl.set(entry.url, entry);
 }
 
