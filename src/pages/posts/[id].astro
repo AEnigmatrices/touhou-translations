@@ -3,7 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPostIds, getPostPageData } from '../../lib/server/postPageData';
 import { assetPath, pagePath, pagePathWithQuery } from '../../utils/paths';
-import { boundedResponsiveSrcset, responsiveSrcset } from '../../utils/responsiveImage';
+import { responsiveSrcset } from '../../utils/responsiveImage';
 import { absoluteSiteUrl } from '../../utils/siteMetadata';
 
 export const getStaticPaths = (async () => (
@@ -25,34 +25,16 @@ const canonicalUrl = absoluteSiteUrl(`posts/${data.id}`);
 const socialImage = !data.post.nsfw
     ? data.post.url[0]
     : absoluteSiteUrl('icons/touhou-translations-profile-icon.png');
-
-const mobileImageMaxWidth = 1080;
-const mobileImageSizes = 'calc(100vw - 2rem)';
-const desktopImageSizes = 'min(1050px, calc(100vw - 490px))';
-const imageSizes = `(max-width: 900px) ${mobileImageSizes}, ${desktopImageSizes}`;
-const firstImageUrl = data.post.url[0];
-const firstImageDimensions = data.post.imageDimensions?.[0];
-const firstImageSources = data.post.imageSources?.[0];
-const firstImageSrcset = responsiveSrcset(firstImageSources, firstImageUrl, firstImageDimensions?.width);
-const firstMobileSrcset = boundedResponsiveSrcset(
-    firstImageSources,
-    firstImageUrl,
-    firstImageDimensions?.width,
-    mobileImageMaxWidth
-);
-const firstMobileSourceUrls = (firstImageSources ?? [])
-    .filter(source => source.width > 0 && source.width <= mobileImageMaxWidth)
-    .map(source => source.url);
-const preconnectOrigins = [...new Set((
-    firstMobileSourceUrls.length > 0 ? firstMobileSourceUrls : [firstImageUrl]
-).flatMap(url => {
+const preconnectOrigins = [...new Set([
+    data.post.url[0],
+    ...(data.post.imageSources?.[0] ?? []).map(source => source.url)
+].flatMap(url => {
     try {
-        const origin = new URL(url).origin;
-        return origin === 'https://i.redd.it' || origin === 'https://preview.redd.it' ? [origin] : [];
+        return [new URL(url).origin];
     } catch {
         return [];
     }
-}))];
+}).filter(origin => origin === 'https://i.redd.it' || origin === 'https://preview.redd.it'))];
 ---
 
 <BaseLayout
@@ -65,61 +47,26 @@ const preconnectOrigins = [...new Set((
     currentSection="post"
     {preconnectOrigins}
 >
-    <Fragment slot="head">
-        <link
-            rel="preload"
-            as="image"
-            href={firstImageUrl}
-            imagesrcset={firstMobileSrcset}
-            imagesizes={mobileImageSizes}
-            media="(max-width: 900px)"
-            fetchpriority="high"
-        />
-        <link
-            rel="preload"
-            as="image"
-            href={firstImageUrl}
-            imagesrcset={firstImageSrcset}
-            imagesizes={desktopImageSizes}
-            media="(min-width: 901px)"
-            fetchpriority="high"
-        />
-    </Fragment>
-
     <section class="post-page" data-post-page>
         <div class="images">
             {data.post.url.map((url, index) => {
                 const dimensions = data.post.imageDimensions?.[index];
                 const sources = data.post.imageSources?.[index];
-                const srcset = responsiveSrcset(sources, url, dimensions?.width);
-                const mobileSrcset = index === 0
-                    ? firstMobileSrcset
-                    : undefined;
-
                 return (
                     <figure>
-                        <picture>
-                            {mobileSrcset && (
-                                <source
-                                    media="(max-width: 900px)"
-                                    srcset={mobileSrcset}
-                                    sizes={mobileImageSizes}
-                                />
-                            )}
-                            <img
-                                class:list={{ nsfw: data.post.nsfw }}
-                                src={url}
-                                srcset={srcset}
-                                sizes={imageSizes}
-                                alt={`Translated artwork page ${index + 1}`}
-                                width={dimensions?.width}
-                                height={dimensions?.height}
-                                loading={index === 0 ? 'eager' : 'lazy'}
-                                fetchpriority={index === 0 ? 'high' : 'auto'}
-                                decoding={index === 0 ? undefined : 'async'}
-                                data-nsfw-image={data.post.nsfw ? '' : undefined}
-                            />
-                        </picture>
+                        <img
+                            class:list={{ nsfw: data.post.nsfw }}
+                            src={url}
+                            srcset={responsiveSrcset(sources, url, dimensions?.width)}
+                            sizes="(max-width: 900px) calc(100vw - 2rem), min(1050px, calc(100vw - 490px))"
+                            alt={`Translated artwork page ${index + 1}`}
+                            width={dimensions?.width}
+                            height={dimensions?.height}
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            fetchpriority={index === 0 ? 'high' : 'auto'}
+                            decoding="async"
+                            data-nsfw-image={data.post.nsfw ? '' : undefined}
+                        />
                     </figure>
                 );
             })}
@@ -263,7 +210,6 @@ const preconnectOrigins = [...new Set((
 
     .images { display: grid; gap: 1rem; }
     figure { overflow: hidden; padding: 0; margin: 0; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
-    figure picture { display: block; }
     figure img { display: block; width: auto; max-width: 100%; height: auto; margin-inline: auto; }
     figure img.nsfw { filter: blur(10px); }
     .info { position: sticky; top: 88px; display: grid; align-self: start; gap: 1rem; }
@@ -289,11 +235,6 @@ const preconnectOrigins = [...new Set((
 
     @media (max-width: 900px) {
         .post-page { grid-template-columns: 1fr; padding: 1rem; }
-        .images figure:not(:first-child),
-        .info > :not(:first-child) {
-            content-visibility: auto;
-            contain-intrinsic-size: auto 420px;
-        }
         .info { position: static; }
         .more-panel summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
         .more-panel summary .eyebrow { margin: 0; }
