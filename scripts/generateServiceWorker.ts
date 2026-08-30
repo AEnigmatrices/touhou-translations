@@ -143,7 +143,7 @@ async function cacheAdjacentPostDocuments(response) {
     }
 
     const adjacentUrls = new Set();
-    const adjacentLinkPattern = /<a\b[^>]*href=(['\"])([^'\"]+)\1[^>]*>\s*(?:Previous|Next)\s*<\/a>/gi;
+    const adjacentLinkPattern = /<a[^>]*href=(["'])([^"']+)["'][^>]*>[^<]*(?:Previous|Next)[^<]*<[/]a>/gi;
     for (const match of html.matchAll(adjacentLinkPattern)) {
         try {
             const url = new URL(match[2], self.location.origin);
