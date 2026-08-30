@@ -25,6 +25,16 @@ const canonicalUrl = absoluteSiteUrl(`posts/${data.id}`);
 const socialImage = !data.post.nsfw
     ? data.post.url[0]
     : absoluteSiteUrl('icons/touhou-translations-profile-icon.png');
+const preconnectOrigins = [...new Set([
+    data.post.url[0],
+    ...(data.post.imageSources?.[0] ?? []).map(source => source.url)
+].flatMap(url => {
+    try {
+        return [new URL(url).origin];
+    } catch {
+        return [];
+    }
+}).filter(origin => origin === 'https://i.redd.it' || origin === 'https://preview.redd.it'))];
 ---
 
 <BaseLayout
@@ -35,6 +45,7 @@ const socialImage = !data.post.nsfw
     ogType="article"
     ogImage={socialImage}
     currentSection="post"
+    {preconnectOrigins}
 >
     <section class="post-page" data-post-page>
         <div class="images">
@@ -72,8 +83,8 @@ const socialImage = !data.post.nsfw
                 <div class="links">
                     <a href={data.post.reddit} target="_blank" rel="noopener noreferrer">Reddit</a>
                     <a href={data.post.src} target="_blank" rel="noopener noreferrer">Source</a>
-                    {data.prevPostId && <a href={pagePath(`posts/${data.prevPostId}`)} data-astro-prefetch="viewport">Previous</a>}
-                    {data.nextPostId && <a href={pagePath(`posts/${data.nextPostId}`)} data-astro-prefetch="viewport">Next</a>}
+                    {data.prevPostId && <a href={pagePath(`posts/${data.prevPostId}`)}>Previous</a>}
+                    {data.nextPostId && <a href={pagePath(`posts/${data.nextPostId}`)}>Next</a>}
                 </div>
                 {data.post.nsfw && (
                     <button class="uncensor-button" type="button" aria-pressed="false" data-nsfw-toggle>
@@ -134,20 +145,8 @@ const socialImage = !data.post.nsfw
     </section>
 
     <script>
-        let cleanupPostPage: (() => void) | undefined;
-
-        const initializePostPage = (): void => {
-            const root = document.querySelector<HTMLElement>('[data-post-page]');
-            if (!root) {
-                cleanupPostPage?.();
-                cleanupPostPage = undefined;
-                return;
-            }
-            if (root.dataset.initialized === 'true') return;
-
-            cleanupPostPage?.();
-            root.dataset.initialized = 'true';
-
+        const root = document.querySelector<HTMLElement>('[data-post-page]');
+        if (root) {
             const toggle = root.querySelector<HTMLButtonElement>('[data-nsfw-toggle]');
             const morePanel = root.querySelector<HTMLDetailsElement>('[data-more-panel]');
             const moreGrid = morePanel?.querySelector<HTMLElement>('[data-more-grid]');
@@ -179,40 +178,24 @@ const socialImage = !data.post.nsfw
                 if (moreAction) moreAction.textContent = morePanel.open ? 'Hide' : 'Show';
             };
 
-            const onToggle = (): void => {
-                if (morePanel?.open) loadMoreImages();
+            morePanel?.addEventListener('toggle', () => {
+                if (morePanel.open) loadMoreImages();
                 updateMorePanel();
-            };
-            const onSummaryClick = (event: MouseEvent): void => {
+            });
+            moreSummary?.addEventListener('click', event => {
                 if (!mobileLayout.matches) event.preventDefault();
-            };
-            const onToggleNsfw = (): void => {
+            });
+            mobileLayout.addEventListener('change', updateMorePanel);
+            toggle?.addEventListener('click', () => {
                 revealed = !revealed;
                 for (const image of root.querySelectorAll<HTMLElement>('[data-nsfw-image]')) {
                     image.classList.toggle('nsfw', !revealed);
                 }
-                if (toggle) {
-                    toggle.setAttribute('aria-pressed', String(revealed));
-                    toggle.textContent = revealed ? 'Censor images' : 'Uncensor images';
-                }
-            };
-
-            morePanel?.addEventListener('toggle', onToggle);
-            moreSummary?.addEventListener('click', onSummaryClick);
-            mobileLayout.addEventListener('change', updateMorePanel);
-            toggle?.addEventListener('click', onToggleNsfw);
+                toggle.setAttribute('aria-pressed', String(revealed));
+                toggle.textContent = revealed ? 'Censor images' : 'Uncensor images';
+            });
             updateMorePanel();
-
-            cleanupPostPage = () => {
-                morePanel?.removeEventListener('toggle', onToggle);
-                moreSummary?.removeEventListener('click', onSummaryClick);
-                mobileLayout.removeEventListener('change', updateMorePanel);
-                toggle?.removeEventListener('click', onToggleNsfw);
-            };
-        };
-
-        document.addEventListener('astro:page-load', initializePostPage);
-        initializePostPage();
+        }
     </script>
 </BaseLayout>
 
@@ -258,9 +241,4 @@ const socialImage = !data.post.nsfw
         .more-action { display: inline; color: var(--color-primary); font-size: 0.86rem; font-weight: 800; }
         .more-panel[open] summary { margin-bottom: 0.55rem; }
     }
-</style>
-
-<style is:global>
-    .post-page .prose p:first-child { margin-top: 0; }
-    .post-page .prose p:last-child { margin-bottom: 0; }
 </style>

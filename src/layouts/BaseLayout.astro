@@ -12,6 +12,7 @@ interface Props {
     ogImage?: string;
     currentSection?: 'home' | 'characters' | 'artists' | 'gallery' | 'post';
     noindex?: boolean;
+    preconnectOrigins?: string[];
 }
 
 const {
@@ -22,7 +23,8 @@ const {
     ogType = 'website',
     ogImage,
     currentSection,
-    noindex = false
+    noindex = false,
+    preconnectOrigins
 } = Astro.props;
 
 const links = [
@@ -47,6 +49,12 @@ const websiteSchema = {
     url: 'https://aenigmatrices.github.io/touhou-translations/',
     description: DEFAULT_DESCRIPTION
 };
+
+const resolvedPreconnectOrigins = preconnectOrigins ?? (
+    currentSection === 'home' || currentSection === 'gallery'
+        ? ['https://i.redd.it', 'https://preview.redd.it']
+        : []
+);
 ---
 
 <!doctype html>
@@ -65,8 +73,7 @@ const websiteSchema = {
         <link rel="manifest" href={assetPath('manifest.webmanifest')} />
         <link rel="icon" href={assetPath('favicon.ico')} type="image/x-icon" />
         <link rel="apple-touch-icon" href={assetPath('icons/pwa/pwa-icon-192x192.png')} />
-        <link rel="preconnect" href="https://i.redd.it" />
-        <link rel="preconnect" href="https://preview.redd.it" />
+        {resolvedPreconnectOrigins.map(origin => <link rel="preconnect" href={origin} />)}
         <meta property="og:site_name" content={SITE_NAME} />
         <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={description} />
@@ -155,11 +162,16 @@ const websiteSchema = {
         </div>
 
         <script>
-            import { assetPath, pagePath } from '../utils/paths';
+            const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+                ? import.meta.env.BASE_URL
+                : `${import.meta.env.BASE_URL}/`;
+            const postIdsUrl = `${baseUrl}post-ids.json`;
+            const postsBaseUrl = `${baseUrl}posts/`;
+            const serviceWorkerUrl = `${baseUrl}service-worker.js`;
+            const serviceWorkerScope = baseUrl;
 
             let postIdRequest: Promise<string[]> | undefined;
             let randomPostLoading = false;
-
             const randomPostButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-random-post]')];
 
             const setRandomPostState = (label: string, busy: boolean): void => {
@@ -171,7 +183,7 @@ const websiteSchema = {
             };
 
             const fetchRandomPostIds = (): Promise<string[]> => {
-                postIdRequest ??= fetch(assetPath('post-ids.json'))
+                postIdRequest ??= fetch(postIdsUrl)
                     .then(async response => {
                         if (!response.ok) throw new Error(`Post index request failed with ${response.status}.`);
                         const value: unknown = await response.json();
@@ -197,7 +209,7 @@ const websiteSchema = {
                     const postIds = await fetchRandomPostIds();
                     if (postIds.length === 0) throw new Error('No posts are available.');
                     const id = postIds[Math.floor(Math.random() * postIds.length)];
-                    window.location.assign(pagePath(`posts/${id}`));
+                    window.location.assign(`${postsBaseUrl}${encodeURIComponent(id)}/`);
                 } catch (error) {
                     console.error('Unable to open a random post.', error);
                     randomPostLoading = false;
@@ -211,8 +223,8 @@ const websiteSchema = {
 
             if (import.meta.env.PROD && 'serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
-                    void navigator.serviceWorker.register(assetPath('service-worker.js'), {
-                        scope: pagePath()
+                    void navigator.serviceWorker.register(serviceWorkerUrl, {
+                        scope: serviceWorkerScope
                     });
                 }, { once: true });
             }

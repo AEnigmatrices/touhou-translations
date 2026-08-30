@@ -24,8 +24,7 @@ const loadPosts = (): Promise<GalleryPost[]> => {
 
 const initializeGallery = (): void => {
     const root = document.querySelector<HTMLElement>('[data-gallery-page]');
-    if (!root || root.dataset.initialized === 'true') return;
-    root.dataset.initialized = 'true';
+    if (!root) return;
 
     const postsPerPage = 12;
     const grid = root.querySelector<HTMLElement>('[data-gallery-grid]');
@@ -206,5 +205,4 @@ const initializeGallery = (): void => {
     if (characterQueries.length > 0 || artistQueries.length > 0 || search.has('mode')) void render().catch(reportLoadError);
 };
 
-document.addEventListener('astro:page-load', initializeGallery);
 initializeGallery();
