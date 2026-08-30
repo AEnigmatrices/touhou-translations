@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import { assetPath, pagePath } from '../utils/paths';
 import { DEFAULT_DESCRIPTION, SITE_NAME } from '../utils/siteMetadata';
@@ -25,8 +24,6 @@ const {
     currentSection,
     noindex = false
 } = Astro.props;
-
-const enableClientRouter = currentSection === 'post';
 
 const links = [
     { label: 'Home', href: pagePath(), section: 'home' },
@@ -69,6 +66,7 @@ const websiteSchema = {
         <link rel="icon" href={assetPath('favicon.ico')} type="image/x-icon" />
         <link rel="apple-touch-icon" href={assetPath('icons/pwa/pwa-icon-192x192.png')} />
         <link rel="preconnect" href="https://i.redd.it" />
+        <link rel="preconnect" href="https://preview.redd.it" />
         <meta property="og:site_name" content={SITE_NAME} />
         <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={description} />
@@ -77,9 +75,8 @@ const websiteSchema = {
         {ogImage && <meta property="og:image" content={ogImage} />}
         <meta name="twitter:card" content="summary_large_image" />
         <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
-        {enableClientRouter && <ClientRouter fallback="swap" />}
     </head>
-    <body transition:animate="none">
+    <body>
         <div class="layout">
             <header class="app-bar">
                 <nav class="toolbar" aria-label="Primary navigation">
@@ -163,11 +160,10 @@ const websiteSchema = {
             let postIdRequest: Promise<string[]> | undefined;
             let randomPostLoading = false;
 
-            const currentRandomPostButtons = (): HTMLButtonElement[] =>
-                [...document.querySelectorAll<HTMLButtonElement>('[data-random-post]')];
+            const randomPostButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-random-post]')];
 
             const setRandomPostState = (label: string, busy: boolean): void => {
-                for (const button of currentRandomPostButtons()) {
+                for (const button of randomPostButtons) {
                     button.textContent = label;
                     button.disabled = busy;
                     button.setAttribute('aria-busy', String(busy));
@@ -209,14 +205,9 @@ const websiteSchema = {
                 }
             };
 
-            document.addEventListener('click', event => {
-                const button = (event.target as Element | null)?.closest<HTMLButtonElement>('[data-random-post]');
-                if (button) void goToRandomPost();
-            });
-
-            document.addEventListener('astro:page-load', () => {
-                randomPostLoading = false;
-            });
+            for (const button of randomPostButtons) {
+                button.addEventListener('click', () => void goToRandomPost());
+            }
 
             if (import.meta.env.PROD && 'serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
@@ -230,6 +221,15 @@ const websiteSchema = {
 </html>
 
 <style>
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 120ms;
+    }
+
     .layout {
         display: flex;
         min-height: 100vh;
@@ -392,6 +392,13 @@ const websiteSchema = {
         color: var(--color-primary);
         background: var(--color-primary-soft);
         border-color: var(--color-primary);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation-duration: 0s;
+        }
     }
 
     @media (max-width: 900px) {
