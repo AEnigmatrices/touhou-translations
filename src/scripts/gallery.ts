@@ -5,9 +5,28 @@ import { responsiveSrcset } from '../utils/responsiveImage';
 type JumpItem = 'ellipsis-start' | 'ellipsis-end';
 type PaginationItem = number | JumpItem;
 
-const root = document.querySelector<HTMLElement>('[data-gallery-page]');
+let postsRequest: Promise<GalleryPost[]> | undefined;
 
-if (root) {
+const loadPosts = (): Promise<GalleryPost[]> => {
+    postsRequest ??= fetch(assetPath('runtime-data/gallery-posts.json'))
+        .then(async response => {
+            if (!response.ok) throw new Error(`Gallery data request failed with ${response.status}.`);
+            const value: unknown = await response.json();
+            if (!Array.isArray(value)) throw new TypeError('Gallery data response was invalid.');
+            return value as GalleryPost[];
+        })
+        .catch(error => {
+            postsRequest = undefined;
+            throw error;
+        });
+    return postsRequest;
+};
+
+const initializeGallery = (): void => {
+    const root = document.querySelector<HTMLElement>('[data-gallery-page]');
+    if (!root || root.dataset.initialized === 'true') return;
+    root.dataset.initialized = 'true';
+
     const postsPerPage = 12;
     const grid = root.querySelector<HTMLElement>('[data-gallery-grid]');
     const postCount = root.querySelector<HTMLElement>('[data-post-count]');
@@ -16,43 +35,23 @@ if (root) {
     const pagination = root.querySelector<HTMLElement>('[data-pagination]');
     const search = new URLSearchParams(window.location.search);
 
-    let postsRequest: Promise<GalleryPost[]> | undefined;
     let currentPage = 1;
     let dateSort: SortOrder = 'desc';
     let galleryOnly = false;
-    let characterQueries = (search.get('characters') || '').split(',').map(value => value.trim()).filter(Boolean);
-    let artistQueries = (search.get('artist') || search.get('artists') || '').split(',').map(value => value.trim()).filter(Boolean);
-    let mode: 'and' | 'or' = search.get('mode') === 'or' ? 'or' : 'and';
+    const characterQueries = (search.get('characters') || '').split(',').map(value => value.trim()).filter(Boolean);
+    const artistQueries = (search.get('artist') || search.get('artists') || '').split(',').map(value => value.trim()).filter(Boolean);
+    const mode: 'and' | 'or' = search.get('mode') === 'or' ? 'or' : 'and';
     let openJump: JumpItem | null = null;
     let jumpPage = '';
-
-    const loadPosts = (): Promise<GalleryPost[]> => {
-        postsRequest ??= fetch(assetPath('runtime-data/gallery-posts.json'))
-            .then(async response => {
-                if (!response.ok) throw new Error(`Gallery data request failed with ${response.status}.`);
-                const value: unknown = await response.json();
-                if (!Array.isArray(value)) throw new TypeError('Gallery data response was invalid.');
-                return value as GalleryPost[];
-            })
-            .catch(error => {
-                postsRequest = undefined;
-                throw error;
-            });
-        return postsRequest;
-    };
 
     const getPaginationItems = (page: number, pageCount: number): PaginationItem[] => {
         if (pageCount <= 7) return Array.from({ length: pageCount }, (_, index) => index + 1);
         const pages = new Set([1, pageCount, page - 1, page, page + 1]);
-        const validPages = [...pages]
-            .filter(pageNumber => pageNumber >= 1 && pageNumber <= pageCount)
-            .sort((left, right) => left - right);
+        const validPages = [...pages].filter(pageNumber => pageNumber >= 1 && pageNumber <= pageCount).sort((a, b) => a - b);
         const items: PaginationItem[] = [];
         validPages.forEach((pageNumber, index) => {
             const previous = validPages[index - 1];
-            if (previous && pageNumber - previous > 1) {
-                items.push(previous === 1 ? 'ellipsis-start' : 'ellipsis-end');
-            }
+            if (previous && pageNumber - previous > 1) items.push(previous === 1 ? 'ellipsis-start' : 'ellipsis-end');
             items.push(pageNumber);
         });
         return items;
@@ -89,32 +88,30 @@ if (root) {
         return link;
     };
 
+    const clampPage = (value: string, totalPages: number): number => {
+        const page = Number(value);
+        if (!Number.isInteger(page)) return currentPage;
+        return Math.min(totalPages, Math.max(1, page));
+    };
+
     const renderPagination = (totalPages: number): void => {
         if (!pagination) return;
         pagination.hidden = totalPages <= 1;
         if (totalPages <= 1) return;
 
         const children: HTMLElement[] = [];
-        const previous = createButton('Previous', () => {
-            currentPage -= 1;
-            void render();
-        });
+        const previous = createButton('Previous', () => { currentPage -= 1; void render(); });
         previous.disabled = currentPage === 1;
         children.push(previous);
 
         for (const item of getPaginationItems(currentPage, totalPages)) {
             if (typeof item === 'number') {
-                const button = createButton(String(item), () => {
-                    currentPage = item;
-                    openJump = null;
-                    void render();
-                });
+                const button = createButton(String(item), () => { currentPage = item; openJump = null; void render(); });
                 button.classList.toggle('active', item === currentPage);
                 if (item === currentPage) button.setAttribute('aria-current', 'page');
                 children.push(button);
                 continue;
             }
-
             if (openJump === item) {
                 const form = document.createElement('form');
                 form.className = 'jump-form';
@@ -125,16 +122,8 @@ if (root) {
                 input.value = jumpPage;
                 input.setAttribute('aria-label', `Jump to page between 1 and ${totalPages}`);
                 input.addEventListener('input', () => jumpPage = input.value);
-                input.addEventListener('blur', () => {
-                    jumpPage = String(clampPage(jumpPage, totalPages));
-                    input.value = jumpPage;
-                });
-                input.addEventListener('keydown', event => {
-                    if (event.key === 'Escape') {
-                        openJump = null;
-                        void render();
-                    }
-                });
+                input.addEventListener('blur', () => { jumpPage = String(clampPage(jumpPage, totalPages)); input.value = jumpPage; });
+                input.addEventListener('keydown', event => { if (event.key === 'Escape') { openJump = null; void render(); } });
                 const submit = document.createElement('button');
                 submit.type = 'submit';
                 submit.textContent = 'Go';
@@ -159,41 +148,26 @@ if (root) {
             }
         }
 
-        const next = createButton('Next', () => {
-            currentPage += 1;
-            void render();
-        });
+        const next = createButton('Next', () => { currentPage += 1; void render(); });
         next.disabled = currentPage === totalPages;
         children.push(next);
         pagination.replaceChildren(...children);
-    };
-
-    const clampPage = (value: string, totalPages: number): number => {
-        const page = Number(value);
-        if (!Number.isInteger(page)) return currentPage;
-        return Math.min(totalPages, Math.max(1, page));
     };
 
     const render = async (): Promise<void> => {
         const posts = await loadPosts();
         const filteredPosts = posts.filter(post => {
             if (galleryOnly && post.nsfw) return false;
-            const characterMatch = characterQueries.length === 0
-                || (mode === 'and'
-                    ? characterQueries.every(id => post.characterIds.includes(id))
-                    : characterQueries.some(id => post.characterIds.includes(id)));
+            const characterMatch = characterQueries.length === 0 || (mode === 'and'
+                ? characterQueries.every(id => post.characterIds.includes(id))
+                : characterQueries.some(id => post.characterIds.includes(id)));
             const artistMatch = artistQueries.length === 0 || artistQueries.includes(post.artistId);
             return characterMatch && artistMatch;
         });
-        const sortedPosts = [...filteredPosts].sort((left, right) => (
-            dateSort === 'asc' ? left.date - right.date : right.date - left.date
-        ));
+        const sortedPosts = [...filteredPosts].sort((left, right) => dateSort === 'asc' ? left.date - right.date : right.date - left.date);
         const totalPages = Math.max(1, Math.ceil(sortedPosts.length / postsPerPage));
         if (currentPage > totalPages) currentPage = totalPages;
-        const visiblePosts = sortedPosts.slice(
-            (currentPage - 1) * postsPerPage,
-            currentPage * postsPerPage
-        );
+        const visiblePosts = sortedPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
 
         grid?.replaceChildren(...visiblePosts.map(makeTile));
         if (postCount) postCount.textContent = `${filteredPosts.length} post${filteredPosts.length === 1 ? '' : 's'}`;
@@ -205,20 +179,10 @@ if (root) {
         renderPagination(totalPages);
     };
 
-    const reportLoadError = (error: unknown): void => {
-        console.error('Unable to load gallery data.', error);
-    };
+    const reportLoadError = (error: unknown): void => console.error('Unable to load gallery data.', error);
 
-    galleryOnlyButton?.addEventListener('click', () => {
-        galleryOnly = !galleryOnly;
-        currentPage = 1;
-        void render().catch(reportLoadError);
-    });
-    dateSortButton?.addEventListener('click', () => {
-        dateSort = dateSort === 'desc' ? 'asc' : 'desc';
-        currentPage = 1;
-        void render().catch(reportLoadError);
-    });
+    galleryOnlyButton?.addEventListener('click', () => { galleryOnly = !galleryOnly; currentPage = 1; void render().catch(reportLoadError); });
+    dateSortButton?.addEventListener('click', () => { dateSort = dateSort === 'desc' ? 'asc' : 'desc'; currentPage = 1; void render().catch(reportLoadError); });
 
     pagination?.addEventListener('click', event => {
         const button = (event.target as Element | null)?.closest<HTMLButtonElement>('button');
@@ -239,7 +203,8 @@ if (root) {
         }).catch(reportLoadError);
     });
 
-    if (characterQueries.length > 0 || artistQueries.length > 0 || search.has('mode')) {
-        void render().catch(reportLoadError);
-    }
-}
+    if (characterQueries.length > 0 || artistQueries.length > 0 || search.has('mode')) void render().catch(reportLoadError);
+};
+
+document.addEventListener('astro:page-load', initializeGallery);
+initializeGallery();

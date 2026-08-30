@@ -3,10 +3,6 @@ import { assetPath, pagePath } from '../utils/paths';
 import { responsiveSrcset } from '../utils/responsiveImage';
 
 const millisecondsPerDay = 86_400_000;
-const root = document.querySelector<HTMLElement>('[data-daily-post]');
-const link = root?.querySelector<HTMLAnchorElement>('[data-daily-link]');
-const image = root?.querySelector<HTMLImageElement>('[data-daily-image]');
-const postCount = Number(root?.dataset.dailyCount ?? 0);
 
 const isHomePost = (value: unknown): value is HomePost => {
     if (!value || typeof value !== 'object') return false;
@@ -17,7 +13,16 @@ const isHomePost = (value: unknown): value is HomePost => {
         && typeof post.date === 'number';
 };
 
-if (postCount > 0 && link && image) {
+const initializeDailyPost = (): void => {
+    const root = document.querySelector<HTMLElement>('[data-daily-post]');
+    if (!root || root.dataset.initialized === 'true') return;
+    root.dataset.initialized = 'true';
+
+    const link = root.querySelector<HTMLAnchorElement>('[data-daily-link]');
+    const image = root.querySelector<HTMLImageElement>('[data-daily-image]');
+    const postCount = Number(root.dataset.dailyCount ?? 0);
+    if (postCount <= 0 || !link || !image) return;
+
     const day = Math.floor(Date.now() / millisecondsPerDay);
     const index = ((day % postCount) + postCount) % postCount;
 
@@ -40,4 +45,7 @@ if (postCount > 0 && link && image) {
             // Keep the server-rendered build-time daily post as a resilient fallback.
             console.error('Unable to refresh the post of the day.', error);
         });
-}
+};
+
+document.addEventListener('astro:page-load', initializeDailyPost);
+initializeDailyPost();
