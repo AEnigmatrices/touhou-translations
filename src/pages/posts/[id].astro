@@ -105,9 +105,13 @@ const socialImage = !data.post.nsfw
             <div class="panel prose" set:html={data.post.htmlDescription}></div>
 
             {data.relatedPosts.length > 0 && (
-                <div class="panel">
-                    <p class="eyebrow">More by this artist</p>
-                    <div class="more-grid">
+                <details class="panel more-panel" data-more-panel>
+                    <summary>
+                        <span class="eyebrow">More by this artist</span>
+                        <span class="more-action" data-more-action>Show</span>
+                    </summary>
+                    <div class="more-grid" data-more-grid></div>
+                    <template data-more-template>
                         {data.relatedPosts.map(item => (
                             <a
                                 href={pagePath(`posts/${item.id}`)}
@@ -126,15 +130,53 @@ const socialImage = !data.post.nsfw
                                 />
                             </a>
                         ))}
-                    </div>
-                </div>
+                    </template>
+                </details>
             )}
         </aside>
     </section>
 
     <script>
         const toggle = document.querySelector<HTMLButtonElement>('[data-nsfw-toggle]');
+        const morePanel = document.querySelector<HTMLDetailsElement>('[data-more-panel]');
+        const moreGrid = morePanel?.querySelector<HTMLElement>('[data-more-grid]');
+        const moreTemplate = morePanel?.querySelector<HTMLTemplateElement>('[data-more-template]');
+        const moreAction = morePanel?.querySelector<HTMLElement>('[data-more-action]');
+        const moreSummary = morePanel?.querySelector<HTMLElement>('summary');
+        const mobileLayout = window.matchMedia('(max-width: 900px)');
         let revealed = false;
+        let moreImagesLoaded = false;
+
+        const loadMoreImages = (): void => {
+            if (moreImagesLoaded || !moreGrid || !moreTemplate) return;
+            moreGrid.append(moreTemplate.content.cloneNode(true));
+            moreImagesLoaded = true;
+
+            if (revealed) {
+                for (const image of moreGrid.querySelectorAll<HTMLElement>('[data-nsfw-image]')) {
+                    image.classList.remove('nsfw');
+                }
+            }
+        };
+
+        const updateMorePanel = (): void => {
+            if (!morePanel) return;
+            if (!mobileLayout.matches) {
+                morePanel.open = true;
+                loadMoreImages();
+            }
+            if (moreAction) moreAction.textContent = morePanel.open ? 'Hide' : 'Show';
+        };
+
+        morePanel?.addEventListener('toggle', () => {
+            if (morePanel.open) loadMoreImages();
+            updateMorePanel();
+        });
+        moreSummary?.addEventListener('click', event => {
+            if (!mobileLayout.matches) event.preventDefault();
+        });
+        mobileLayout.addEventListener('change', updateMorePanel);
+        updateMorePanel();
 
         toggle?.addEventListener('click', () => {
             revealed = !revealed;
@@ -289,6 +331,22 @@ const socialImage = !data.post.nsfw
         gap: 0.55rem;
     }
 
+    .more-panel summary {
+        list-style: none;
+    }
+
+    .more-panel summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .more-panel summary .eyebrow {
+        margin-bottom: 0.35rem;
+    }
+
+    .more-action {
+        display: none;
+    }
+
     .more-grid a {
         overflow: hidden;
         aspect-ratio: 1;
@@ -314,6 +372,28 @@ const socialImage = !data.post.nsfw
 
         .info {
             position: static;
+        }
+
+        .more-panel summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .more-panel summary .eyebrow {
+            margin: 0;
+        }
+
+        .more-action {
+            display: inline;
+            color: var(--color-primary);
+            font-size: 0.86rem;
+            font-weight: 800;
+        }
+
+        .more-panel[open] summary {
+            margin-bottom: 0.55rem;
         }
     }
 </style>
