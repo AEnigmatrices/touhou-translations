@@ -117,9 +117,14 @@ test('post pages warm related artist documents after primary artwork settles', a
 
     const relatedUrls = await page.evaluate(() => {
         const template = document.querySelector<HTMLTemplateElement>('[data-more-template]');
-        return template
-            ? [...template.content.querySelectorAll<HTMLAnchorElement>('a')].slice(0, 4).map(link => link.href)
-            : [];
+        if (!template) return [];
+
+        return [...template.content.querySelectorAll<HTMLAnchorElement>('a')]
+            .slice(0, 4)
+            .flatMap(link => {
+                const href = link.getAttribute('href');
+                return href ? [new URL(href, document.baseURI).href] : [];
+            });
     });
     expect(relatedUrls.length).toBeGreaterThan(0);
 
