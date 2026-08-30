@@ -25,7 +25,7 @@ const dailyPost = selectDailyPost(dailyPostCandidates);
                 <AboutCard />
                 <FeaturedVideo />
             </div>
-            <DailyPost post={dailyPost} />
+            <DailyPost post={dailyPost} postCount={dailyPostCandidates.length} />
         </div>
     </section>
     <script src="../scripts/dailyPost.ts"></script>

@@ -28,7 +28,9 @@ const initialPagination: Array<number | 'ellipsis-start' | 'ellipsis-end'> = tot
     </div>
 
     <div class="grid gallery-grid" data-gallery-grid>
-        {sortedPosts.slice(0, postsPerPage).map(post => <GalleryTile {post} />)}
+        {sortedPosts.slice(0, postsPerPage).map((post, index) => (
+            <GalleryTile {post} priority={index === 0} />
+        ))}
     </div>
 
     <nav class="pagination" aria-label="Gallery pages" data-pagination hidden={totalPages <= 1}>

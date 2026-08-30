@@ -9,10 +9,13 @@ lerna-debug.log*
 
 node_modules
 .astro
+.cache
 build
 generated
 dist
 dist-ssr
+public/post-ids.json
+public/runtime-data
 playwright-report
 test-results
 *.local

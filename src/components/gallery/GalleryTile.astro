@@ -5,9 +5,10 @@ import { responsiveSrcset } from '../../utils/responsiveImage';
 
 interface Props {
     post: GalleryPost;
+    priority?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, priority = false } = Astro.props;
 ---
 
 <a class="tile" href={pagePath(`posts/${post.id}`)} aria-label={`View post ${post.id}`}>
@@ -17,7 +18,8 @@ const { post } = Astro.props;
         srcset={responsiveSrcset(post.imgSources, post.img)}
         sizes="(max-width: 700px) 50vw, (max-width: 1180px) 25vw, 17vw"
         alt=""
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
         decoding="async"
     />
     {post.nsfw && <span>NSFW</span>}

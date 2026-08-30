@@ -5,12 +5,13 @@ import { responsiveSrcset } from '../../utils/responsiveImage';
 
 interface Props {
     post: HomePost | null;
+    postCount: number;
 }
 
-const { post } = Astro.props;
+const { post, postCount } = Astro.props;
 ---
 
-<section class="card daily" data-daily-post>
+<section class="card daily" data-daily-post data-daily-count={postCount}>
     <h2>Post of the Day</h2>
     {post && (
         <a class="daily-link" href={pagePath(`posts/${post.id}`)} data-daily-link>
