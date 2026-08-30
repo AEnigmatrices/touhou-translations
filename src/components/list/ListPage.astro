@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import type { Artist, Character } from '../../types/data';
 import { absoluteSiteUrl } from '../../utils/siteMetadata';
-import { serializeForScript } from '../../utils/serializeForScript';
 import ProfileCard from './ProfileCard.astro';
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 }
 
 const { mode, items } = Astro.props;
-const pageSize = 50;
+const pageSize = 24;
 const title = mode === 'character' ? 'Character List' : 'Artist List';
 const description = mode === 'character'
     ? 'Browse Touhou Project characters featured in the translated archive.'
@@ -33,7 +32,7 @@ const initialItems = mode === 'artist'
     ogTitle={`${title} | Touhou Translations`}
     currentSection={mode === 'character' ? 'characters' : 'artists'}
 >
-    <section class="list-page" data-list-page data-mode={mode}>
+    <section class="list-page" data-list-page data-mode={mode} data-page-size={pageSize}>
         <div class="list-toolbar">
             <h1>{title}</h1>
             <label>
@@ -61,7 +60,6 @@ const initialItems = mode === 'artist'
         </ul>
 
         <button class="load-more" type="button" data-load-more hidden={initialItems.length <= pageSize}>Load More</button>
-        <script is:inline type="application/json" data-list-data set:html={serializeForScript(items)}></script>
     </section>
     <script src="../../scripts/listPage.ts"></script>
 </BaseLayout>
@@ -161,6 +159,8 @@ const initialItems = mode === 'artist'
     .list-page .profile-item {
         height: 100%;
         overflow: hidden;
+        content-visibility: auto;
+        contain-intrinsic-size: auto 150px;
         background: var(--color-surface);
         border: 1px solid var(--color-border);
         border-radius: var(--radius-lg);
