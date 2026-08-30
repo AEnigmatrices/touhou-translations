@@ -1,6 +1,5 @@
-import galleryPostsData from '../../generated/gallery-posts.json';
 import type { GalleryPost, SortOrder } from '../types/data';
-import { pagePath } from '../utils/paths';
+import { assetPath, pagePath } from '../utils/paths';
 import { responsiveSrcset } from '../utils/responsiveImage';
 
 type JumpItem = 'ellipsis-start' | 'ellipsis-end';
@@ -9,7 +8,6 @@ type PaginationItem = number | JumpItem;
 const root = document.querySelector<HTMLElement>('[data-gallery-page]');
 
 if (root) {
-    const posts = galleryPostsData as GalleryPost[];
     const postsPerPage = 12;
     const grid = root.querySelector<HTMLElement>('[data-gallery-grid]');
     const postCount = root.querySelector<HTMLElement>('[data-post-count]');
@@ -18,6 +16,7 @@ if (root) {
     const pagination = root.querySelector<HTMLElement>('[data-pagination]');
     const search = new URLSearchParams(window.location.search);
 
+    let postsRequest: Promise<GalleryPost[]> | undefined;
     let currentPage = 1;
     let dateSort: SortOrder = 'desc';
     let galleryOnly = false;
@@ -26,6 +25,21 @@ if (root) {
     let mode: 'and' | 'or' = search.get('mode') === 'or' ? 'or' : 'and';
     let openJump: JumpItem | null = null;
     let jumpPage = '';
+
+    const loadPosts = (): Promise<GalleryPost[]> => {
+        postsRequest ??= fetch(assetPath('runtime-data/gallery-posts.json'))
+            .then(async response => {
+                if (!response.ok) throw new Error(`Gallery data request failed with ${response.status}.`);
+                const value: unknown = await response.json();
+                if (!Array.isArray(value)) throw new TypeError('Gallery data response was invalid.');
+                return value as GalleryPost[];
+            })
+            .catch(error => {
+                postsRequest = undefined;
+                throw error;
+            });
+        return postsRequest;
+    };
 
     const getPaginationItems = (page: number, pageCount: number): PaginationItem[] => {
         if (pageCount <= 7) return Array.from({ length: pageCount }, (_, index) => index + 1);
@@ -83,7 +97,7 @@ if (root) {
         const children: HTMLElement[] = [];
         const previous = createButton('Previous', () => {
             currentPage -= 1;
-            render();
+            void render();
         });
         previous.disabled = currentPage === 1;
         children.push(previous);
@@ -93,7 +107,7 @@ if (root) {
                 const button = createButton(String(item), () => {
                     currentPage = item;
                     openJump = null;
-                    render();
+                    void render();
                 });
                 button.classList.toggle('active', item === currentPage);
                 if (item === currentPage) button.setAttribute('aria-current', 'page');
@@ -118,7 +132,7 @@ if (root) {
                 input.addEventListener('keydown', event => {
                     if (event.key === 'Escape') {
                         openJump = null;
-                        render();
+                        void render();
                     }
                 });
                 const submit = document.createElement('button');
@@ -129,7 +143,7 @@ if (root) {
                     currentPage = clampPage(jumpPage, totalPages);
                     jumpPage = String(currentPage);
                     openJump = null;
-                    render();
+                    void render();
                 });
                 form.append(input, submit);
                 children.push(form);
@@ -137,8 +151,7 @@ if (root) {
                 const ellipsis = createButton('...', () => {
                     openJump = item;
                     jumpPage = String(currentPage);
-                    render();
-                    pagination.querySelector<HTMLInputElement>('.jump-form input')?.focus();
+                    void render().then(() => pagination.querySelector<HTMLInputElement>('.jump-form input')?.focus());
                 });
                 ellipsis.className = 'ellipsis';
                 ellipsis.setAttribute('aria-label', `Jump to page between 1 and ${totalPages}`);
@@ -148,7 +161,7 @@ if (root) {
 
         const next = createButton('Next', () => {
             currentPage += 1;
-            render();
+            void render();
         });
         next.disabled = currentPage === totalPages;
         children.push(next);
@@ -161,7 +174,8 @@ if (root) {
         return Math.min(totalPages, Math.max(1, page));
     };
 
-    const render = (): void => {
+    const render = async (): Promise<void> => {
+        const posts = await loadPosts();
         const filteredPosts = posts.filter(post => {
             if (galleryOnly && post.nsfw) return false;
             const characterMatch = characterQueries.length === 0
@@ -191,14 +205,41 @@ if (root) {
         renderPagination(totalPages);
     };
 
+    const reportLoadError = (error: unknown): void => {
+        console.error('Unable to load gallery data.', error);
+    };
+
     galleryOnlyButton?.addEventListener('click', () => {
         galleryOnly = !galleryOnly;
-        render();
+        currentPage = 1;
+        void render().catch(reportLoadError);
     });
     dateSortButton?.addEventListener('click', () => {
         dateSort = dateSort === 'desc' ? 'asc' : 'desc';
-        render();
+        currentPage = 1;
+        void render().catch(reportLoadError);
     });
 
-    render();
+    pagination?.addEventListener('click', event => {
+        const button = (event.target as Element | null)?.closest<HTMLButtonElement>('button');
+        if (!button || button.disabled || postsRequest) return;
+
+        const label = button.textContent?.trim() ?? '';
+        void loadPosts().then(() => {
+            if (label === 'Next') currentPage += 1;
+            else if (label === 'Previous') currentPage = Math.max(1, currentPage - 1);
+            else if (/^\d+$/.test(label)) currentPage = Number(label);
+            else if (label === '...') {
+                openJump = 'ellipsis-start';
+                jumpPage = String(currentPage);
+            }
+            return render();
+        }).then(() => {
+            if (label === '...') pagination.querySelector<HTMLInputElement>('.jump-form input')?.focus();
+        }).catch(reportLoadError);
+    });
+
+    if (characterQueries.length > 0 || artistQueries.length > 0 || search.has('mode')) {
+        void render().catch(reportLoadError);
+    }
 }

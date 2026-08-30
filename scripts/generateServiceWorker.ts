@@ -23,11 +23,8 @@ const collectFiles = (directory: string): string[] => {
     const visit = (currentDirectory: string): void => {
         for (const entry of fs.readdirSync(currentDirectory, { withFileTypes: true })) {
             const entryPath = path.join(currentDirectory, entry.name);
-            if (entry.isDirectory()) {
-                visit(entryPath);
-            } else if (entry.isFile()) {
-                files.push(entryPath);
-            }
+            if (entry.isDirectory()) visit(entryPath);
+            else if (entry.isFile()) files.push(entryPath);
         }
     };
 
@@ -41,10 +38,7 @@ const assertBuildFile = (relativePath: string): PrecacheEntry => {
         throw new Error(`Required build asset is missing: ${relativePath}`);
     }
 
-    return {
-        filePath,
-        url: `${basePath}${relativePath}`
-    };
+    return { filePath, url: `${basePath}${relativePath}` };
 };
 
 if (!fs.existsSync(buildDir) || !fs.statSync(buildDir).isDirectory()) {
@@ -56,22 +50,14 @@ if (!fs.existsSync(appShellPath) || !fs.statSync(appShellPath).isFile()) {
     throw new Error(`Astro app shell not found: ${appShellPath}`);
 }
 
-const emittedAssetPaths = collectFiles(buildDir)
-    .map(filePath => toPortablePath(path.relative(buildDir, filePath)))
-    .filter(relativePath => /\.(?:css|js)$/i.test(relativePath) && relativePath !== 'service-worker.js');
-
-const metadataAssetPaths = [
-    'favicon.ico',
-    'robots.txt',
-    'manifest.webmanifest'
-];
+const metadataAssetPaths = ['favicon.ico', 'robots.txt', 'manifest.webmanifest'];
 const pwaIconPaths = collectFiles(path.join(publicDir, 'icons', 'pwa'))
     .filter(filePath => /\.png$/i.test(filePath))
     .map(filePath => toPortablePath(path.relative(publicDir, filePath)));
 
 const entriesByUrl = new Map<string, PrecacheEntry>();
 entriesByUrl.set(basePath, { filePath: appShellPath, url: basePath });
-for (const relativePath of [...emittedAssetPaths, ...metadataAssetPaths, ...pwaIconPaths]) {
+for (const relativePath of [...metadataAssetPaths, ...pwaIconPaths]) {
     const entry = assertBuildFile(relativePath);
     entriesByUrl.set(entry.url, entry);
 }
@@ -137,17 +123,11 @@ function cacheFirst(event) {
     const result = caches.open(CACHE_NAME).then(async cache => {
         const cachedResponse = await cache.match(event.request);
         if (cachedResponse) {
-            return {
-                response: cachedResponse,
-                cacheUpdate: Promise.resolve()
-            };
+            return { response: cachedResponse, cacheUpdate: Promise.resolve() };
         }
 
         const response = await fetch(event.request);
-        return {
-            response,
-            cacheUpdate: updateCache(event.request, response)
-        };
+        return { response, cacheUpdate: updateCache(event.request, response) };
     });
 
     event.waitUntil(
