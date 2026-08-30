@@ -35,7 +35,7 @@ const extractRedditId = (url: string): string => {
 export const validateData = (rootDir = process.cwd()): DataValidationResult => {
     const dataDir = path.join(rootDir, "data");
     const postsDir = path.join(dataDir, "posts");
-    const publicDir = path.join(rootDir, "public");
+    const portraitDir = path.join(rootDir, "src", "assets");
     const errors: string[] = [];
     const warnings: string[] = [];
 
@@ -59,12 +59,12 @@ export const validateData = (rootDir = process.cwd()): DataValidationResult => {
 
         const normalized = portrait.replaceAll("\\", "/");
         if (path.isAbsolute(normalized) || normalized.split("/").includes("..")) {
-            errors.push(`${label}.portrait must be a relative public asset path.`);
+            errors.push(`${label}.portrait must be a relative portrait asset path.`);
             return;
         }
 
-        const filePath = path.resolve(publicDir, normalized);
-        if (!filePath.startsWith(publicDir) || !fs.existsSync(filePath)) {
+        const filePath = path.resolve(portraitDir, normalized);
+        if (!filePath.startsWith(portraitDir) || !fs.existsSync(filePath)) {
             errors.push(`${label}.portrait points to a missing file: ${portrait}`);
         }
     };
