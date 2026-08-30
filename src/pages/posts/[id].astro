@@ -199,30 +199,42 @@ const preconnectOrigins = [...new Set([
             const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
             if (!connection?.saveData) {
                 const primaryImage = root.querySelector<HTMLImageElement>('.images img');
-                const adjacentLinks = [...root.querySelectorAll<HTMLAnchorElement>('[data-adjacent-post]')];
-                let adjacentPostsWarmed = false;
+                const adjacentUrls = [...root.querySelectorAll<HTMLAnchorElement>('[data-adjacent-post]')]
+                    .map(link => link.href);
+                const relatedUrls = moreTemplate
+                    ? [...moreTemplate.content.querySelectorAll<HTMLAnchorElement>('a')]
+                        .slice(0, 4)
+                        .flatMap(link => {
+                            // Template descendants live in an inert owner document, so resolve the raw
+                            // href against the live page rather than relying on link.href here.
+                            const href = link.getAttribute('href');
+                            return href ? [new URL(href, document.baseURI).href] : [];
+                        })
+                    : [];
+                const warmUrls = [...new Set([...adjacentUrls, ...relatedUrls])];
+                let postDocumentsWarmed = false;
 
-                const warmAdjacentPosts = (): void => {
-                    if (adjacentPostsWarmed || adjacentLinks.length === 0) return;
-                    adjacentPostsWarmed = true;
-                    for (const link of adjacentLinks) {
-                        void fetch(link.href).catch(() => undefined);
+                const warmPostDocuments = (): void => {
+                    if (postDocumentsWarmed || warmUrls.length === 0) return;
+                    postDocumentsWarmed = true;
+                    for (const url of warmUrls) {
+                        void fetch(url).catch(() => undefined);
                     }
                 };
 
-                const scheduleAdjacentWarm = (): void => {
+                const schedulePostDocumentWarm = (): void => {
                     if ('requestIdleCallback' in window) {
-                        window.requestIdleCallback(warmAdjacentPosts, { timeout: 2_000 });
+                        window.requestIdleCallback(warmPostDocuments, { timeout: 2_000 });
                         return;
                     }
-                    setTimeout(warmAdjacentPosts, 500);
+                    setTimeout(warmPostDocuments, 500);
                 };
 
                 if (!primaryImage || primaryImage.complete) {
-                    scheduleAdjacentWarm();
+                    schedulePostDocumentWarm();
                 } else {
-                    primaryImage.addEventListener('load', scheduleAdjacentWarm, { once: true });
-                    primaryImage.addEventListener('error', scheduleAdjacentWarm, { once: true });
+                    primaryImage.addEventListener('load', schedulePostDocumentWarm, { once: true });
+                    primaryImage.addEventListener('error', schedulePostDocumentWarm, { once: true });
                 }
             }
         }

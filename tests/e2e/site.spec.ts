@@ -18,6 +18,12 @@ const posts = fs.readdirSync(postsDirectory)
 const artists = JSON.parse(
     fs.readFileSync(new URL('../../data/artists.json', import.meta.url), 'utf8')
 ) as Array<{ id: string; name: string }>;
+const generatedPosts = posts.filter(post => extractRedditId(post.reddit) !== '');
+const artistPostCounts = generatedPosts.reduce((counts, post) => {
+    counts.set(post.artistId, (counts.get(post.artistId) ?? 0) + 1);
+    return counts;
+}, new Map<string, number>());
+const postWithRelatedWork = generatedPosts.find(post => (artistPostCounts.get(post.artistId) ?? 0) > 1);
 
 const makeIdleCallbacksImmediate = async (page: import('@playwright/test').Page): Promise<void> => {
     await page.addInitScript(() => {
@@ -92,19 +98,37 @@ test('gallery warms a bounded set of visible post documents after primary artwor
     await warmedPost;
 });
 
-test('post pages warm adjacent documents only after primary artwork settles', async ({ page }) => {
+test('post pages warm related artist documents after primary artwork settles', async ({ page }) => {
+    if (!postWithRelatedWork) throw new Error('Expected at least one artist with multiple generated posts.');
+
     await makeIdleCallbacksImmediate(page);
     await stubRedditImages(page);
-    const postId = extractRedditId(posts[0].reddit);
+    const postId = extractRedditId(postWithRelatedWork.reddit);
     expect(postId).not.toBe('');
-    const warmedAdjacent = page.waitForRequest(request =>
-        request.resourceType() === 'fetch'
-        && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)
-    );
+
+    const warmedPostUrls = new Set<string>();
+    page.on('request', request => {
+        if (request.resourceType() === 'fetch' && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)) {
+            warmedPostUrls.add(request.url());
+        }
+    });
 
     await page.goto(`posts/${postId}/`, { waitUntil: 'domcontentloaded' });
-    await warmedAdjacent;
-    await expect(page.locator('[data-adjacent-post]')).not.toHaveCount(0);
+
+    const relatedUrls = await page.evaluate(() => {
+        const template = document.querySelector<HTMLTemplateElement>('[data-more-template]');
+        if (!template) return [];
+
+        return [...template.content.querySelectorAll<HTMLAnchorElement>('a')]
+            .slice(0, 4)
+            .flatMap(link => {
+                const href = link.getAttribute('href');
+                return href ? [new URL(href, document.baseURI).href] : [];
+            });
+    });
+    expect(relatedUrls.length).toBeGreaterThan(0);
+
+    await expect.poll(() => relatedUrls.some(url => warmedPostUrls.has(url))).toBe(true);
 });
 
 test('a direct post URL returns server-rendered archive metadata and content', async ({ page, request }) => {
