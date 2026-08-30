@@ -200,29 +200,35 @@ const preconnectOrigins = [...new Set([
             if (!connection?.saveData) {
                 const primaryImage = root.querySelector<HTMLImageElement>('.images img');
                 const adjacentLinks = [...root.querySelectorAll<HTMLAnchorElement>('[data-adjacent-post]')];
-                let adjacentPostsWarmed = false;
+                const relatedLinks = moreTemplate
+                    ? [...moreTemplate.content.querySelectorAll<HTMLAnchorElement>('a')].slice(0, 4)
+                    : [];
+                const warmLinks = [...new Map(
+                    [...adjacentLinks, ...relatedLinks].map(link => [link.href, link])
+                ).values()];
+                let postDocumentsWarmed = false;
 
-                const warmAdjacentPosts = (): void => {
-                    if (adjacentPostsWarmed || adjacentLinks.length === 0) return;
-                    adjacentPostsWarmed = true;
-                    for (const link of adjacentLinks) {
+                const warmPostDocuments = (): void => {
+                    if (postDocumentsWarmed || warmLinks.length === 0) return;
+                    postDocumentsWarmed = true;
+                    for (const link of warmLinks) {
                         void fetch(link.href).catch(() => undefined);
                     }
                 };
 
-                const scheduleAdjacentWarm = (): void => {
+                const schedulePostDocumentWarm = (): void => {
                     if ('requestIdleCallback' in window) {
-                        window.requestIdleCallback(warmAdjacentPosts, { timeout: 2_000 });
+                        window.requestIdleCallback(warmPostDocuments, { timeout: 2_000 });
                         return;
                     }
-                    setTimeout(warmAdjacentPosts, 500);
+                    setTimeout(warmPostDocuments, 500);
                 };
 
                 if (!primaryImage || primaryImage.complete) {
-                    scheduleAdjacentWarm();
+                    schedulePostDocumentWarm();
                 } else {
-                    primaryImage.addEventListener('load', scheduleAdjacentWarm, { once: true });
-                    primaryImage.addEventListener('error', scheduleAdjacentWarm, { once: true });
+                    primaryImage.addEventListener('load', schedulePostDocumentWarm, { once: true });
+                    primaryImage.addEventListener('error', schedulePostDocumentWarm, { once: true });
                 }
             }
         }
