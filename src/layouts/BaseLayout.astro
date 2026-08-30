@@ -12,6 +12,7 @@ interface Props {
     ogImage?: string;
     currentSection?: 'home' | 'characters' | 'artists' | 'gallery' | 'post';
     noindex?: boolean;
+    preconnectOrigins?: string[];
 }
 
 const {
@@ -22,7 +23,8 @@ const {
     ogType = 'website',
     ogImage,
     currentSection,
-    noindex = false
+    noindex = false,
+    preconnectOrigins
 } = Astro.props;
 
 const links = [
@@ -47,6 +49,17 @@ const websiteSchema = {
     url: 'https://aenigmatrices.github.io/touhou-translations/',
     description: DEFAULT_DESCRIPTION
 };
+
+const resolvedPreconnectOrigins = preconnectOrigins ?? (
+    currentSection === 'home' || currentSection === 'gallery'
+        ? ['https://i.redd.it', 'https://preview.redd.it']
+        : []
+);
+const postIdsUrl = assetPath('post-ids.json');
+const postsBaseUrl = pagePath('posts');
+const serviceWorkerUrl = assetPath('service-worker.js');
+const serviceWorkerScope = pagePath();
+const isProduction = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -65,8 +78,7 @@ const websiteSchema = {
         <link rel="manifest" href={assetPath('manifest.webmanifest')} />
         <link rel="icon" href={assetPath('favicon.ico')} type="image/x-icon" />
         <link rel="apple-touch-icon" href={assetPath('icons/pwa/pwa-icon-192x192.png')} />
-        <link rel="preconnect" href="https://i.redd.it" />
-        <link rel="preconnect" href="https://preview.redd.it" />
+        {resolvedPreconnectOrigins.map(origin => <link rel="preconnect" href={origin} />)}
         <meta property="og:site_name" content={SITE_NAME} />
         <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={description} />
@@ -154,68 +166,64 @@ const websiteSchema = {
             </footer>
         </div>
 
-        <script>
-            import { assetPath, pagePath } from '../utils/paths';
+        <script is:inline define:vars={{ postIdsUrl, postsBaseUrl, serviceWorkerUrl, serviceWorkerScope, isProduction }}>
+            (() => {
+                let postIdRequest;
+                let randomPostLoading = false;
+                const randomPostButtons = [...document.querySelectorAll('[data-random-post]')];
 
-            let postIdRequest: Promise<string[]> | undefined;
-            let randomPostLoading = false;
+                const setRandomPostState = (label, busy) => {
+                    for (const button of randomPostButtons) {
+                        button.textContent = label;
+                        button.disabled = busy;
+                        button.setAttribute('aria-busy', String(busy));
+                    }
+                };
 
-            const randomPostButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-random-post]')];
+                const fetchRandomPostIds = () => {
+                    postIdRequest ??= fetch(postIdsUrl)
+                        .then(async response => {
+                            if (!response.ok) throw new Error(`Post index request failed with ${response.status}.`);
+                            const value = await response.json();
+                            if (!Array.isArray(value) || !value.every(id => typeof id === 'string')) {
+                                throw new TypeError('Post index response was invalid.');
+                            }
+                            return value;
+                        })
+                        .catch(error => {
+                            postIdRequest = undefined;
+                            throw error;
+                        });
+                    return postIdRequest;
+                };
 
-            const setRandomPostState = (label: string, busy: boolean): void => {
+                const goToRandomPost = async () => {
+                    if (randomPostLoading) return;
+                    randomPostLoading = true;
+                    setRandomPostState('Loading…', true);
+
+                    try {
+                        const postIds = await fetchRandomPostIds();
+                        if (postIds.length === 0) throw new Error('No posts are available.');
+                        const id = postIds[Math.floor(Math.random() * postIds.length)];
+                        window.location.assign(`${postsBaseUrl}${encodeURIComponent(id)}/`);
+                    } catch (error) {
+                        console.error('Unable to open a random post.', error);
+                        randomPostLoading = false;
+                        setRandomPostState('Retry', false);
+                    }
+                };
+
                 for (const button of randomPostButtons) {
-                    button.textContent = label;
-                    button.disabled = busy;
-                    button.setAttribute('aria-busy', String(busy));
+                    button.addEventListener('click', () => void goToRandomPost());
                 }
-            };
 
-            const fetchRandomPostIds = (): Promise<string[]> => {
-                postIdRequest ??= fetch(assetPath('post-ids.json'))
-                    .then(async response => {
-                        if (!response.ok) throw new Error(`Post index request failed with ${response.status}.`);
-                        const value: unknown = await response.json();
-                        if (!Array.isArray(value) || !value.every(id => typeof id === 'string')) {
-                            throw new TypeError('Post index response was invalid.');
-                        }
-                        return value;
-                    })
-                    .catch(error => {
-                        postIdRequest = undefined;
-                        throw error;
-                    });
-
-                return postIdRequest;
-            };
-
-            const goToRandomPost = async (): Promise<void> => {
-                if (randomPostLoading) return;
-                randomPostLoading = true;
-                setRandomPostState('Loading…', true);
-
-                try {
-                    const postIds = await fetchRandomPostIds();
-                    if (postIds.length === 0) throw new Error('No posts are available.');
-                    const id = postIds[Math.floor(Math.random() * postIds.length)];
-                    window.location.assign(pagePath(`posts/${id}`));
-                } catch (error) {
-                    console.error('Unable to open a random post.', error);
-                    randomPostLoading = false;
-                    setRandomPostState('Retry', false);
+                if (isProduction && 'serviceWorker' in navigator) {
+                    window.addEventListener('load', () => {
+                        void navigator.serviceWorker.register(serviceWorkerUrl, { scope: serviceWorkerScope });
+                    }, { once: true });
                 }
-            };
-
-            for (const button of randomPostButtons) {
-                button.addEventListener('click', () => void goToRandomPost());
-            }
-
-            if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    void navigator.serviceWorker.register(assetPath('service-worker.js'), {
-                        scope: pagePath()
-                    });
-                }, { once: true });
-            }
+            })();
         </script>
     </body>
 </html>
