@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import type { Artist, Character } from '../../types/data';
-import { getPortraitImages } from '../../lib/server/portraitImages';
-import { serializeForScript } from '../../utils/serializeForScript';
+import { getPortraitImages, PORTRAIT_SIZES } from '../../lib/server/portraitImages';
 import { absoluteSiteUrl } from '../../utils/siteMetadata';
 import ProfileCard from './ProfileCard.astro';
 
@@ -65,12 +64,24 @@ const portraitImages = await getPortraitImages(items.map(item => item.portrait))
         </ul>
 
         <button class="load-more" type="button" data-load-more hidden={initialItems.length <= pageSize}>Load More</button>
-        <script
-            is:inline
-            type="application/json"
-            data-portrait-images
-            set:html={serializeForScript(portraitImages)}
-        ></script>
+        <template data-portrait-images>
+            {items.map(item => {
+                const portraitImage = portraitImages[item.portrait];
+                return (
+                    <img
+                        data-portrait-key={item.portrait}
+                        src={portraitImage.src}
+                        srcset={portraitImage.srcset || undefined}
+                        sizes={PORTRAIT_SIZES}
+                        width={portraitImage.width}
+                        height={portraitImage.height}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                    />
+                );
+            })}
+        </template>
     </section>
     <script src="../../scripts/listPage.ts"></script>
 </BaseLayout>
