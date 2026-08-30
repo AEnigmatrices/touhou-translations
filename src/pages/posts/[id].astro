@@ -2,7 +2,8 @@
 import type { GetStaticPaths } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPostIds, getPostPageData } from '../../lib/server/postPageData';
-import { assetPath, pagePath, pagePathWithQuery } from '../../utils/paths';
+import { AVATAR_SIZES, getAvatarPortraitImages } from '../../lib/server/portraitImages';
+import { pagePath, pagePathWithQuery } from '../../utils/paths';
 import { responsiveSrcset } from '../../utils/responsiveImage';
 import { absoluteSiteUrl } from '../../utils/siteMetadata';
 
@@ -35,6 +36,7 @@ const preconnectOrigins = [...new Set([
         return [];
     }
 }).filter(origin => origin === 'https://i.redd.it' || origin === 'https://preview.redd.it'))];
+const characterPortraitImages = await getAvatarPortraitImages(data.characters.map(character => character.portrait));
 ---
 
 <BaseLayout
@@ -97,18 +99,25 @@ const preconnectOrigins = [...new Set([
                 <div class="panel">
                     <p class="eyebrow">Characters</p>
                     <div class="chips">
-                        {data.characters.map(character => (
-                            <a href={pagePathWithQuery('gallery', `characters=${encodeURIComponent(character.id)}`)}>
-                                <img
-                                    class="character-avatar"
-                                    src={assetPath(character.portrait)}
-                                    alt=""
-                                    loading="lazy"
-                                    decoding="async"
-                                />
-                                <span>{character.name}</span>
-                            </a>
-                        ))}
+                        {data.characters.map(character => {
+                            const portraitImage = characterPortraitImages[character.portrait];
+                            return (
+                                <a href={pagePathWithQuery('gallery', `characters=${encodeURIComponent(character.id)}`)}>
+                                    <img
+                                        class="character-avatar"
+                                        src={portraitImage.src}
+                                        srcset={portraitImage.srcset || undefined}
+                                        sizes={AVATAR_SIZES}
+                                        width={portraitImage.width}
+                                        height={portraitImage.height}
+                                        alt=""
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                    <span>{character.name}</span>
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
             )}
