@@ -32,13 +32,13 @@ const collectFiles = (directory: string): string[] => {
     return files;
 };
 
-const assertBuildFile = (relativePath: string): PrecacheEntry => {
+const buildFileEntry = (relativePath: string, url = `${basePath}${relativePath}`): PrecacheEntry => {
     const filePath = path.join(buildDir, ...relativePath.split('/'));
     if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
         throw new Error(`Required build asset is missing: ${relativePath}`);
     }
 
-    return { filePath, url: `${basePath}${relativePath}` };
+    return { filePath, url };
 };
 
 if (!fs.existsSync(buildDir) || !fs.statSync(buildDir).isDirectory()) {
@@ -51,6 +51,12 @@ if (!fs.existsSync(appShellPath) || !fs.statSync(appShellPath).isFile()) {
 }
 
 const metadataAssetPaths = ['favicon.ico', 'robots.txt', 'manifest.webmanifest'];
+const primaryNavigationEntries = [
+    buildFileEntry('characters/index.html', `${basePath}characters/`),
+    buildFileEntry('artists/index.html', `${basePath}artists/`),
+    buildFileEntry('gallery/index.html', `${basePath}gallery/`),
+    buildFileEntry('post-ids.json')
+];
 const pwaIconPaths = collectFiles(path.join(publicDir, 'icons', 'pwa'))
     .filter(filePath => /\.png$/i.test(filePath))
     .map(filePath => toPortablePath(path.relative(publicDir, filePath)));
@@ -64,7 +70,10 @@ const runtimeDataPaths = collectFiles(path.join(buildDir, 'runtime-data'))
 const entriesByUrl = new Map<string, PrecacheEntry>();
 entriesByUrl.set(basePath, { filePath: appShellPath, url: basePath });
 for (const relativePath of [...metadataAssetPaths, ...pwaIconPaths]) {
-    const entry = assertBuildFile(relativePath);
+    const entry = buildFileEntry(relativePath);
+    entriesByUrl.set(entry.url, entry);
+}
+for (const entry of primaryNavigationEntries) {
     entriesByUrl.set(entry.url, entry);
 }
 
@@ -117,21 +126,17 @@ async function matchCachedNavigation(request) {
         ?? await cache.match(request, { ignoreSearch: true });
 }
 
-function navigationCacheFirst(event) {
-    const networkResponse = (async () => {
-        const preloaded = await event.preloadResponse;
-        return preloaded ?? await fetch(event.request);
-    })();
+async function navigationCacheFirst(event) {
+    try {
+        const cachedResponse = await matchCachedNavigation(event.request);
+        if (cachedResponse) return cachedResponse;
+    } catch {
+        // A cache lookup failure should fall through to the network.
+    }
 
-    event.waitUntil(
-        networkResponse
-            .then(response => updateCache(event.request, response))
-            .catch(() => undefined)
-    );
-
-    return matchCachedNavigation(event.request)
-        .then(cachedResponse => cachedResponse ?? networkResponse)
-        .catch(() => networkResponse);
+    const response = await fetch(event.request);
+    event.waitUntil(updateCache(event.request, response));
+    return response;
 }
 
 function cacheFirst(event) {
@@ -162,8 +167,11 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
     event.waitUntil((async () => {
+        // Documents are deployment-versioned by CACHE_NAME, so a warm navigation
+        // is already fresh for this build. Disable navigation preload to avoid a
+        // redundant HTML request racing the cached response and its subresources.
         if (self.registration.navigationPreload) {
-            await self.registration.navigationPreload.enable();
+            await self.registration.navigationPreload.disable();
         }
 
         const keys = await caches.keys();
