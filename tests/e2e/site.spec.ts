@@ -61,6 +61,23 @@ test('mobile visitors retain access to primary navigation', async ({ page }) => 
     await expect(page).toHaveURL(/\/touhou-translations\/posts\/[^/]+\/$/);
 });
 
+test('the Post button reuses the random post document warmed after idle', async ({ page }) => {
+    await makeIdleCallbacksImmediate(page);
+
+    const warmedRandomPost = page.waitForRequest(request =>
+        request.resourceType() === 'fetch'
+        && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)
+    );
+
+    await page.goto('./', { waitUntil: 'domcontentloaded' });
+    const warmedUrl = (await warmedRandomPost).url();
+
+    await page.getByRole('navigation', { name: 'Primary navigation' })
+        .getByRole('button', { name: 'Post' })
+        .click();
+    await expect(page).toHaveURL(warmedUrl);
+});
+
 test('gallery exposes canonical metadata and interactive filtering', async ({ page }) => {
     await page.goto('gallery/', { waitUntil: 'domcontentloaded' });
 
@@ -114,7 +131,9 @@ test('gallery warms all twelve visible post documents on each page', async ({ pa
     expect(secondPageUrls).toHaveLength(12);
     expect(secondPageUrls).not.toEqual(firstPageUrls);
     await expect.poll(() => secondPageUrls.every(url => warmedPostUrls.has(url))).toBe(true);
-    expect(warmedPostUrls.size).toBe(24);
+
+    const visiblePageUrls = new Set([...firstPageUrls, ...secondPageUrls]);
+    expect([...visiblePageUrls].filter(url => warmedPostUrls.has(url))).toHaveLength(24);
 });
 
 test('post pages warm related artist documents after primary artwork settles', async ({ page }) => {
@@ -197,6 +216,12 @@ test.describe.serial('service worker runtime caching', () => {
         const missingPath = new URL(missingUrl).pathname;
         const postsPath = new URL('posts/', baseURL).pathname;
         const context = await browser.newContext({ serviceWorkers: 'allow' });
+        await context.addInitScript(() => {
+            Object.defineProperty(navigator, 'connection', {
+                configurable: true,
+                value: { saveData: true }
+            });
+        });
         const page = await context.newPage();
 
         const cachedPostPaths = () => page.evaluate(async pathPrefix => {

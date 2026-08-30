@@ -162,6 +162,12 @@ const resolvedPreconnectOrigins = preconnectOrigins ?? (
         </div>
 
         <script>
+            type NavigatorWithConnection = Navigator & {
+                connection?: {
+                    saveData?: boolean;
+                };
+            };
+
             const baseUrl = import.meta.env.BASE_URL.endsWith('/')
                 ? import.meta.env.BASE_URL
                 : `${import.meta.env.BASE_URL}/`;
@@ -171,6 +177,7 @@ const resolvedPreconnectOrigins = preconnectOrigins ?? (
             const serviceWorkerScope = baseUrl;
 
             let postIdRequest: Promise<string[]> | undefined;
+            let nextRandomPostRequest: Promise<string> | undefined;
             let randomPostLoading = false;
             const randomPostButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-random-post]')];
 
@@ -200,16 +207,52 @@ const resolvedPreconnectOrigins = preconnectOrigins ?? (
                 return postIdRequest;
             };
 
+            const getNextRandomPostUrl = (): Promise<string> => {
+                nextRandomPostRequest ??= fetchRandomPostIds()
+                    .then(postIds => {
+                        if (postIds.length === 0) throw new Error('No posts are available.');
+
+                        const currentUrl = window.location.href;
+                        const candidateUrls = postIds
+                            .map(id => new URL(`${postsBaseUrl}${encodeURIComponent(id)}/`, window.location.origin).href)
+                            .filter(url => url !== currentUrl);
+                        const availableUrls = candidateUrls.length > 0
+                            ? candidateUrls
+                            : postIds.map(id => new URL(`${postsBaseUrl}${encodeURIComponent(id)}/`, window.location.origin).href);
+
+                        return availableUrls[Math.floor(Math.random() * availableUrls.length)];
+                    })
+                    .catch(error => {
+                        nextRandomPostRequest = undefined;
+                        throw error;
+                    });
+
+                return nextRandomPostRequest;
+            };
+
+            const warmNextRandomPost = (): void => {
+                if ((navigator as NavigatorWithConnection).connection?.saveData) return;
+
+                const warm = (): void => {
+                    void getNextRandomPostUrl()
+                        .then(url => fetch(url))
+                        .catch(() => undefined);
+                };
+
+                if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(warm, { timeout: 2_000 });
+                    return;
+                }
+                setTimeout(warm, 500);
+            };
+
             const goToRandomPost = async (): Promise<void> => {
                 if (randomPostLoading) return;
                 randomPostLoading = true;
                 setRandomPostState('Loading…', true);
 
                 try {
-                    const postIds = await fetchRandomPostIds();
-                    if (postIds.length === 0) throw new Error('No posts are available.');
-                    const id = postIds[Math.floor(Math.random() * postIds.length)];
-                    window.location.assign(`${postsBaseUrl}${encodeURIComponent(id)}/`);
+                    window.location.assign(await getNextRandomPostUrl());
                 } catch (error) {
                     console.error('Unable to open a random post.', error);
                     randomPostLoading = false;
@@ -220,6 +263,9 @@ const resolvedPreconnectOrigins = preconnectOrigins ?? (
             for (const button of randomPostButtons) {
                 button.addEventListener('click', () => void goToRandomPost());
             }
+
+            if (document.readyState === 'complete') warmNextRandomPost();
+            else window.addEventListener('load', warmNextRandomPost, { once: true });
 
             if (import.meta.env.PROD && 'serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
