@@ -6,25 +6,38 @@ type ListMode = 'character' | 'artist';
 
 const initializeListPage = (): void => {
     const root = document.querySelector<HTMLElement>('[data-list-page]');
-    const dataElement = root?.querySelector<HTMLScriptElement>('[data-list-data]');
-    if (!root || !dataElement || root.dataset.initialized === 'true') return;
-    root.dataset.initialized = 'true';
+    if (!root) return;
 
     const mode = root.dataset.mode as ListMode;
-    const items = JSON.parse(dataElement.textContent ?? '[]') as ListItem[];
     const searchInput = root.querySelector<HTMLInputElement>('[data-list-search]');
     const grid = root.querySelector<HTMLUListElement>('[data-list-grid]');
     const sortButton = root.querySelector<HTMLButtonElement>('[data-list-sort]');
     const selectModeButton = root.querySelector<HTMLButtonElement>('[data-select-mode]');
     const viewSelectedLink = root.querySelector<HTMLAnchorElement>('[data-view-selected]');
     const loadMoreButton = root.querySelector<HTMLButtonElement>('[data-load-more]');
-    const pageSize = 50;
+    const pageSize = Number(root.dataset.pageSize) || 24;
 
+    let itemsRequest: Promise<ListItem[]> | undefined;
     let searchValue = '';
     let isSelectMode = false;
     let selectedItems: string[] = [];
     let sortOrder: SortOrder = mode === 'artist' ? 'desc' : 'none';
     let visibleCount = pageSize;
+
+    const loadItems = (): Promise<ListItem[]> => {
+        itemsRequest ??= fetch(assetPath(`runtime-data/${mode === 'artist' ? 'artists' : 'characters'}.json`))
+            .then(async response => {
+                if (!response.ok) throw new Error(`List data request failed with ${response.status}.`);
+                const value: unknown = await response.json();
+                if (!Array.isArray(value)) throw new TypeError('List data response was invalid.');
+                return value as ListItem[];
+            })
+            .catch(error => {
+                itemsRequest = undefined;
+                throw error;
+            });
+        return itemsRequest;
+    };
 
     const compareItems = (left: ListItem, right: ListItem): number => {
         if (sortOrder === 'none') return mode === 'artist' ? left.id.localeCompare(right.id) : 0;
@@ -65,7 +78,7 @@ const initializeListPage = (): void => {
             box.setAttribute('aria-pressed', String(selected));
             box.addEventListener('click', () => {
                 selectedItems = selected ? selectedItems.filter(id => id !== item.id) : [...selectedItems, item.id];
-                render();
+                void renderLoadedItems();
             });
         } else {
             box.href = selectedGalleryUrl(item.id);
@@ -106,7 +119,7 @@ const initializeListPage = (): void => {
         return listItem;
     };
 
-    const render = (): void => {
+    const render = (items: ListItem[]): void => {
         if (!grid || !sortButton || !loadMoreButton) return;
         const query = searchValue.toLocaleLowerCase();
         const searchedItems = query
@@ -130,13 +143,27 @@ const initializeListPage = (): void => {
         }
     };
 
-    searchInput?.addEventListener('input', () => { searchValue = searchInput.value; render(); });
-    sortButton?.addEventListener('click', () => { sortOrder = sortOrder === 'none' ? 'desc' : sortOrder === 'desc' ? 'asc' : 'none'; render(); });
-    selectModeButton?.addEventListener('click', () => { isSelectMode = !isSelectMode; render(); });
-    loadMoreButton?.addEventListener('click', () => { visibleCount += pageSize; render(); });
+    const reportLoadError = (error: unknown): void => console.error('Unable to load list data.', error);
+    const renderLoadedItems = async (): Promise<void> => render(await loadItems());
 
-    render();
+    searchInput?.addEventListener('input', () => {
+        searchValue = searchInput.value;
+        visibleCount = pageSize;
+        void renderLoadedItems().catch(reportLoadError);
+    });
+    sortButton?.addEventListener('click', () => {
+        sortOrder = sortOrder === 'none' ? 'desc' : sortOrder === 'desc' ? 'asc' : 'none';
+        visibleCount = pageSize;
+        void renderLoadedItems().catch(reportLoadError);
+    });
+    selectModeButton?.addEventListener('click', () => {
+        isSelectMode = !isSelectMode;
+        void renderLoadedItems().catch(reportLoadError);
+    });
+    loadMoreButton?.addEventListener('click', () => {
+        visibleCount += pageSize;
+        void renderLoadedItems().catch(reportLoadError);
+    });
 };
 
-document.addEventListener('astro:page-load', initializeListPage);
 initializeListPage();

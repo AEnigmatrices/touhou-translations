@@ -18,6 +18,8 @@ fs.rmSync(runtimeDir, { recursive: true, force: true });
 fs.mkdirSync(dailyPostsDir, { recursive: true });
 
 copyGeneratedFile('gallery-posts.json', path.join(runtimeDir, 'gallery-posts.json'));
+copyGeneratedFile('artists.json', path.join(runtimeDir, 'artists.json'));
+copyGeneratedFile('characters.json', path.join(runtimeDir, 'characters.json'));
 copyGeneratedFile('post-ids.json', path.join(publicDir, 'post-ids.json'));
 
 const homePosts = JSON.parse(

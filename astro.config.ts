@@ -10,7 +10,10 @@ export default defineConfig({
     cacheDir: './.astro',
     output: 'static',
     trailingSlash: 'always',
-    prefetch: false,
+    prefetch: {
+        prefetchAll: true,
+        defaultStrategy: 'hover'
+    },
     build: {
         format: 'directory'
     },
