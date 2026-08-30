@@ -14,6 +14,13 @@ export interface ResponsiveImageSource {
     width: number;
 }
 
+export interface PortraitImage {
+    src: string;
+    srcset: string;
+    width: number;
+    height: number;
+}
+
 export interface HomePost {
     id: string;
     img: string;
