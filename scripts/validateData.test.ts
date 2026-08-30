@@ -10,9 +10,9 @@ const createTempRoot = (): string => {
     const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'touhou-validation-'));
     tempRoots.push(rootDir);
     fs.mkdirSync(path.join(rootDir, 'data', 'posts'), { recursive: true });
-    fs.mkdirSync(path.join(rootDir, 'public', 'portraits'), { recursive: true });
-    fs.writeFileSync(path.join(rootDir, 'public', 'portraits', 'artist.webp'), '');
-    fs.writeFileSync(path.join(rootDir, 'public', 'portraits', 'character.webp'), '');
+    fs.mkdirSync(path.join(rootDir, 'src', 'assets', 'portraits'), { recursive: true });
+    fs.writeFileSync(path.join(rootDir, 'src', 'assets', 'portraits', 'artist.webp'), '');
+    fs.writeFileSync(path.join(rootDir, 'src', 'assets', 'portraits', 'character.webp'), '');
     return rootDir;
 };
 
