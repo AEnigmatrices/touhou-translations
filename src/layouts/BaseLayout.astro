@@ -26,6 +26,8 @@ const {
     noindex = false
 } = Astro.props;
 
+const enableClientRouter = currentSection === 'post';
+
 const links = [
     { label: 'Home', href: pagePath(), section: 'home' },
     { label: 'Characters', href: pagePath('characters'), section: 'characters' },
@@ -75,7 +77,7 @@ const websiteSchema = {
         {ogImage && <meta property="og:image" content={ogImage} />}
         <meta name="twitter:card" content="summary_large_image" />
         <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
-        <ClientRouter fallback="swap" />
+        {enableClientRouter && <ClientRouter fallback="swap" />}
     </head>
     <body transition:animate="none">
         <div class="layout">
@@ -156,7 +158,6 @@ const websiteSchema = {
         </div>
 
         <script>
-            import { navigate } from 'astro:transitions/client';
             import { assetPath, pagePath } from '../utils/paths';
 
             let postIdRequest: Promise<string[]> | undefined;
@@ -200,7 +201,7 @@ const websiteSchema = {
                     const postIds = await fetchRandomPostIds();
                     if (postIds.length === 0) throw new Error('No posts are available.');
                     const id = postIds[Math.floor(Math.random() * postIds.length)];
-                    navigate(pagePath(`posts/${id}`));
+                    window.location.assign(pagePath(`posts/${id}`));
                 } catch (error) {
                     console.error('Unable to open a random post.', error);
                     randomPostLoading = false;
