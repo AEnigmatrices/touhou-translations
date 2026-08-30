@@ -19,6 +19,28 @@ const artists = JSON.parse(
     fs.readFileSync(new URL('../../data/artists.json', import.meta.url), 'utf8')
 ) as Array<{ id: string; name: string }>;
 
+const makeIdleCallbacksImmediate = async (page: import('@playwright/test').Page): Promise<void> => {
+    await page.addInitScript(() => {
+        window.requestIdleCallback = callback => {
+            window.setTimeout(() => callback({
+                didTimeout: false,
+                timeRemaining: () => 50
+            }), 0);
+            return 1;
+        };
+    });
+};
+
+const stubRedditImages = async (page: import('@playwright/test').Page): Promise<void> => {
+    await page.route(/https:\/\/(?:i|preview)\.redd\.it\/.*/, async route => {
+        await route.fulfill({
+            status: 200,
+            contentType: 'image/png',
+            body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=', 'base64')
+        });
+    });
+};
+
 test('mobile visitors retain access to primary navigation', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('./');
@@ -46,6 +68,43 @@ test('gallery exposes canonical metadata and interactive filtering', async ({ pa
     await contentFilter.click();
     await expect(page.getByRole('button', { name: 'SFW Only' })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('.grid img.nsfw')).toHaveCount(0);
+});
+
+test('character browsing warms gallery runtime data after idle', async ({ page }) => {
+    await makeIdleCallbacksImmediate(page);
+    const warmedData = page.waitForRequest(request =>
+        new URL(request.url()).pathname.endsWith('/runtime-data/gallery-posts.json')
+    );
+
+    await page.goto('characters/', { waitUntil: 'domcontentloaded' });
+    await warmedData;
+});
+
+test('gallery warms a bounded set of visible post documents after primary artwork', async ({ page }) => {
+    await makeIdleCallbacksImmediate(page);
+    await stubRedditImages(page);
+    const warmedPost = page.waitForRequest(request =>
+        request.resourceType() === 'fetch'
+        && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)
+    );
+
+    await page.goto('gallery/', { waitUntil: 'domcontentloaded' });
+    await warmedPost;
+});
+
+test('post pages warm adjacent documents only after primary artwork settles', async ({ page }) => {
+    await makeIdleCallbacksImmediate(page);
+    await stubRedditImages(page);
+    const postId = extractRedditId(posts[0].reddit);
+    expect(postId).not.toBe('');
+    const warmedAdjacent = page.waitForRequest(request =>
+        request.resourceType() === 'fetch'
+        && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)
+    );
+
+    await page.goto(`posts/${postId}/`, { waitUntil: 'domcontentloaded' });
+    await warmedAdjacent;
+    await expect(page.locator('[data-adjacent-post]')).not.toHaveCount(0);
 });
 
 test('a direct post URL returns server-rendered archive metadata and content', async ({ page, request }) => {
