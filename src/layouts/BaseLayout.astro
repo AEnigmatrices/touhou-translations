@@ -74,7 +74,6 @@ const resolvedPreconnectOrigins = preconnectOrigins ?? (
         <link rel="icon" href={assetPath('favicon.ico')} type="image/x-icon" />
         <link rel="apple-touch-icon" href={assetPath('icons/pwa/pwa-icon-192x192.png')} />
         {resolvedPreconnectOrigins.map(origin => <link rel="preconnect" href={origin} />)}
-        <slot name="head" />
         <meta property="og:site_name" content={SITE_NAME} />
         <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={description} />
