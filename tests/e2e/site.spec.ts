@@ -86,16 +86,35 @@ test('character browsing warms gallery runtime data after idle', async ({ page }
     await warmedData;
 });
 
-test('gallery warms a bounded set of visible post documents after primary artwork', async ({ page }) => {
+test('gallery warms all twelve visible post documents on each page', async ({ page }) => {
     await makeIdleCallbacksImmediate(page);
     await stubRedditImages(page);
-    const warmedPost = page.waitForRequest(request =>
-        request.resourceType() === 'fetch'
-        && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)
-    );
+
+    const warmedPostUrls = new Set<string>();
+    page.on('request', request => {
+        if (request.resourceType() === 'fetch' && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)) {
+            warmedPostUrls.add(request.url());
+        }
+    });
 
     await page.goto('gallery/', { waitUntil: 'domcontentloaded' });
-    await warmedPost;
+
+    const firstPageUrls = await page.locator('[data-gallery-grid] a.tile').evaluateAll(links =>
+        links.map(link => (link as HTMLAnchorElement).href)
+    );
+    expect(firstPageUrls).toHaveLength(12);
+    await expect.poll(() => firstPageUrls.every(url => warmedPostUrls.has(url))).toBe(true);
+
+    await page.getByRole('button', { name: '2', exact: true }).click();
+    await expect(page.getByRole('button', { name: '2', exact: true })).toHaveAttribute('aria-current', 'page');
+
+    const secondPageUrls = await page.locator('[data-gallery-grid] a.tile').evaluateAll(links =>
+        links.map(link => (link as HTMLAnchorElement).href)
+    );
+    expect(secondPageUrls).toHaveLength(12);
+    expect(secondPageUrls).not.toEqual(firstPageUrls);
+    await expect.poll(() => secondPageUrls.every(url => warmedPostUrls.has(url))).toBe(true);
+    expect(warmedPostUrls.size).toBe(24);
 });
 
 test('post pages warm related artist documents after primary artwork settles', async ({ page }) => {
@@ -145,8 +164,8 @@ test('a direct post URL returns server-rendered archive metadata and content', a
     expect(rawHtml).toContain(`<title>${artistName} | Touhou Translations</title>`);
     expect(rawHtml).toContain(`<link rel="canonical" href="${canonicalUrl}"`);
     expect(rawHtml).toContain('<meta property="og:type" content="article"');
-    expect(rawHtml).toMatch(/class="[^"]*\bartist-pill\b[^"]*"/);
-    expect(rawHtml).toMatch(/class="[^"]*\bpanel\b[^"]*\bprose\b[^"]*"/);
+    expect(rawHtml).toMatch(/class="[^\"]*\bartist-pill\b[^\"]*"/);
+    expect(rawHtml).toMatch(/class="[^\"]*\bpanel\b[^\"]*\bprose\b[^\"]*"/);
     expect(rawHtml).toContain(post.reddit);
     expect(rawHtml).toContain(post.src);
     expect(rawHtml).toContain(post.url[0]);
