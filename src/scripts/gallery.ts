@@ -4,8 +4,53 @@ import { responsiveSrcset } from '../utils/responsiveImage';
 
 type JumpItem = 'ellipsis-start' | 'ellipsis-end';
 type PaginationItem = number | JumpItem;
+type NavigatorWithConnection = Navigator & {
+    connection?: {
+        saveData?: boolean;
+    };
+};
 
 let postsRequest: Promise<GalleryPost[]> | undefined;
+const warmedPostUrls = new Set<string>();
+
+const shouldAvoidSpeculativeFetch = (): boolean =>
+    Boolean((navigator as NavigatorWithConnection).connection?.saveData);
+
+const scheduleIdleTask = (task: () => void): void => {
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(task, { timeout: 2_000 });
+        return;
+    }
+    window.setTimeout(task, 500);
+};
+
+const warmVisiblePostDocuments = (grid: HTMLElement | null): void => {
+    if (!grid || shouldAvoidSpeculativeFetch()) return;
+
+    scheduleIdleTask(() => {
+        const urls = [...grid.querySelectorAll<HTMLAnchorElement>('a.tile')]
+            .slice(0, 4)
+            .map(link => link.href)
+            .filter(url => !warmedPostUrls.has(url));
+
+        for (const url of urls) {
+            warmedPostUrls.add(url);
+            void fetch(url).catch(() => warmedPostUrls.delete(url));
+        }
+    });
+};
+
+const warmInitialPostDocuments = (grid: HTMLElement | null): void => {
+    const firstImage = grid?.querySelector<HTMLImageElement>('a.tile img');
+    if (!firstImage) {
+        warmVisiblePostDocuments(grid);
+        return;
+    }
+
+    const scheduleWarm = (): void => warmVisiblePostDocuments(grid);
+    if (firstImage.complete) scheduleWarm();
+    else firstImage.addEventListener('load', scheduleWarm, { once: true });
+};
 
 const loadPosts = (): Promise<GalleryPost[]> => {
     postsRequest ??= fetch(assetPath('runtime-data/gallery-posts.json'))
@@ -176,6 +221,7 @@ const initializeGallery = (): void => {
         }
         if (dateSortButton) dateSortButton.textContent = dateSort === 'desc' ? 'Newest First' : 'Oldest First';
         renderPagination(totalPages);
+        warmInitialPostDocuments(grid);
     };
 
     const reportLoadError = (error: unknown): void => console.error('Unable to load gallery data.', error);
@@ -202,7 +248,11 @@ const initializeGallery = (): void => {
         }).catch(reportLoadError);
     });
 
-    if (characterQueries.length > 0 || artistQueries.length > 0 || search.has('mode')) void render().catch(reportLoadError);
+    if (characterQueries.length > 0 || artistQueries.length > 0 || search.has('mode')) {
+        void render().catch(reportLoadError);
+    } else {
+        warmInitialPostDocuments(grid);
+    }
 };
 
 initializeGallery();
