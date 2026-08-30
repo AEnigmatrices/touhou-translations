@@ -1,4 +1,4 @@
-import type { Artist, Character, PortraitImage, SortOrder } from '../types/data';
+import type { Artist, Character, SortOrder } from '../types/data';
 import { assetPath, pagePathWithQuery } from '../utils/paths';
 
 type ListItem = Artist | Character;
@@ -9,8 +9,6 @@ type NavigatorWithConnection = Navigator & {
         saveData?: boolean;
     };
 };
-
-const portraitSizes = '(max-width: 640px) 88px, 160px';
 
 const shouldAvoidSpeculativeFetch = (): boolean =>
     Boolean((navigator as NavigatorWithConnection).connection?.saveData);
@@ -39,9 +37,14 @@ const initializeListPage = (): void => {
     const selectModeButton = root.querySelector<HTMLButtonElement>('[data-select-mode]');
     const viewSelectedLink = root.querySelector<HTMLAnchorElement>('[data-view-selected]');
     const loadMoreButton = root.querySelector<HTMLButtonElement>('[data-load-more]');
-    const portraitImagesElement = root.querySelector<HTMLScriptElement>('[data-portrait-images]');
+    const portraitImagesTemplate = root.querySelector<HTMLTemplateElement>('[data-portrait-images]');
     const pageSize = Number(root.dataset.pageSize) || 24;
-    const portraitImages = JSON.parse(portraitImagesElement?.textContent || '{}') as Record<string, PortraitImage>;
+    const portraitImages = new Map<string, HTMLImageElement>();
+
+    for (const image of portraitImagesTemplate?.content.querySelectorAll<HTMLImageElement>('[data-portrait-key]') ?? []) {
+        const key = image.dataset.portraitKey;
+        if (key) portraitImages.set(key, image);
+    }
 
     let itemsRequest: Promise<ListItem[]> | undefined;
     let searchValue = '';
@@ -92,8 +95,8 @@ const initializeListPage = (): void => {
 
     const renderItem = (item: ListItem): HTMLLIElement => {
         const selected = selectedItems.includes(item.id);
-        const portraitImage = portraitImages[item.portrait];
-        if (!portraitImage) throw new Error(`Optimized portrait data is missing for ${item.portrait}.`);
+        const portraitImage = portraitImages.get(item.portrait);
+        if (!portraitImage) throw new Error(`Optimized portrait template is missing for ${item.portrait}.`);
 
         const listItem = document.createElement('li');
         listItem.className = `profile-item large${selected ? ' selected' : ''}`;
@@ -117,15 +120,9 @@ const initializeListPage = (): void => {
         content.className = 'content large-content';
         const imageFrame = document.createElement('div');
         imageFrame.className = 'image-frame large-image';
-        const image = document.createElement('img');
-        image.src = portraitImage.src;
-        if (portraitImage.srcset) image.srcset = portraitImage.srcset;
-        image.sizes = portraitSizes;
-        image.width = portraitImage.width;
-        image.height = portraitImage.height;
+        const image = portraitImage.cloneNode(true) as HTMLImageElement;
+        image.removeAttribute('data-portrait-key');
         image.alt = item.name;
-        image.loading = 'lazy';
-        image.decoding = 'async';
         imageFrame.append(image);
 
         const text = document.createElement('div');
