@@ -52,12 +52,13 @@ pnpm run typecheck
 pnpm run validate:data
 pnpm run test
 pnpm run build
+pnpm run generate:data:responsive-images
 pnpm exec playwright install chromium
 pnpm run test:e2e
 pnpm run clean
 ```
 
-`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, Astro/TypeScript checks, and unit tests. `build` generates and verifies every static post artifact, while `test:e2e` checks the production site in Chromium, including prerendered post metadata and offline caching. `clean` removes generated data, Astro caches, and build output.
+`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, Astro/TypeScript checks, and unit tests. `build` resolves original image dimensions, generates the site, and verifies every static post artifact without depending on Reddit's API. The optional `generate:data:responsive-images` command also attempts to discover Reddit-hosted responsive image variants; the site falls back to the original image URLs when Reddit does not expose them. `test:e2e` checks the production site in Chromium, including prerendered post metadata and offline caching. `clean` removes generated data, Astro caches, and build output.
 
 ## Content Data
 

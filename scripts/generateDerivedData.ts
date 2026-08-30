@@ -25,6 +25,7 @@ interface PostIndexEntry {
 
 interface GenerateOptions {
     includeImageDimensions?: boolean;
+    includeResponsiveImageSources?: boolean;
 }
 
 interface RedditPreviewSource {
@@ -330,16 +331,27 @@ const resolveResponsiveImageSources = async (posts: Post[]): Promise<Map<string,
     );
 
     let failedBatches = 0;
+    const failureCounts = new Map<string, number>();
     const metadataBatches = await mapConcurrent(batches, redditMetadataConcurrency, async batch => {
         try {
             return await fetchRedditMetadataBatch(batch);
         } catch (error) {
             failedBatches += 1;
             const message = error instanceof Error ? error.message : String(error);
-            console.warn(`Could not resolve Reddit responsive metadata for a batch of ${batch.length} posts: ${message}`);
+            failureCounts.set(message, (failureCounts.get(message) ?? 0) + 1);
             return [];
         }
     });
+
+    if (failedBatches > 0) {
+        const failures = [...failureCounts]
+            .map(([message, count]) => `${message} for ${count} batch${count === 1 ? '' : 'es'}`)
+            .join(', ');
+        console.warn(
+            `Reddit responsive metadata was unavailable for ${failedBatches}/${batches.length} batches`
+            + ` (${failures}); continuing with original image URLs.`
+        );
+    }
 
     const result = new Map<string, ResponsiveImageSource[]>();
     for (const metadata of metadataBatches.flat()) {
@@ -388,12 +400,15 @@ export const generateDerivedData = async (
     const artistsRaw = readJson<ArtistRaw[]>(path.join(rootDir, 'data', 'artists.json'));
     const charactersRaw = readJson<CharacterRaw[]>(path.join(rootDir, 'data', 'characters.json'));
     const derived = buildDerivedData(posts, artistsRaw, charactersRaw);
-    const [imageDimensions, responsiveImageSources] = options.includeImageDimensions
-        ? await Promise.all([
-            resolveImageDimensions(posts),
-            resolveResponsiveImageSources(posts)
-        ])
-        : [new Map<string, ImageDimensions>(), new Map<string, ResponsiveImageSource[]>()];
+    const includeImageMetadata = options.includeImageDimensions || options.includeResponsiveImageSources;
+    const [imageDimensions, responsiveImageSources] = await Promise.all([
+        options.includeImageDimensions
+            ? resolveImageDimensions(posts)
+            : Promise.resolve(new Map<string, ImageDimensions>()),
+        options.includeResponsiveImageSources
+            ? resolveResponsiveImageSources(posts)
+            : Promise.resolve(new Map<string, ResponsiveImageSource[]>())
+    ]);
 
     fs.rmSync(generatedDir, { recursive: true, force: true });
     fs.mkdirSync(generatedPostsDir, { recursive: true });
@@ -417,7 +432,7 @@ export const generateDerivedData = async (
         const imageSources = post.url.map(url => responsiveImageSources.get(url) ?? []);
         chunkPosts.push({
             ...postWithoutDescription,
-            ...(options.includeImageDimensions ? { imageDimensions: dimensions, imageSources } : {}),
+            ...(includeImageMetadata ? { imageDimensions: dimensions, imageSources } : {}),
             htmlDescription: renderMarkdown(desc),
             metadataDescription: markdownExcerpt(desc)
         });
@@ -465,7 +480,9 @@ export const generateDerivedData = async (
 
 const isCliRun = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isCliRun) {
+    const legacyImageMetadata = process.argv.includes('--image-metadata');
     await generateDerivedData(process.cwd(), {
-        includeImageDimensions: process.argv.includes('--image-metadata')
+        includeImageDimensions: legacyImageMetadata || process.argv.includes('--image-dimensions'),
+        includeResponsiveImageSources: legacyImageMetadata || process.argv.includes('--reddit-responsive-images')
     });
 }
