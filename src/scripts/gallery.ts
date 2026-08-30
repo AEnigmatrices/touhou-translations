@@ -184,6 +184,25 @@ const initializeGallery = (): void => {
     galleryOnlyButton?.addEventListener('click', () => { galleryOnly = !galleryOnly; currentPage = 1; void render().catch(reportLoadError); });
     dateSortButton?.addEventListener('click', () => { dateSort = dateSort === 'desc' ? 'asc' : 'desc'; currentPage = 1; void render().catch(reportLoadError); });
 
+    pagination?.addEventListener('click', event => {
+        const button = (event.target as Element | null)?.closest<HTMLButtonElement>('button');
+        if (!button || button.disabled || postsRequest) return;
+
+        const label = button.textContent?.trim() ?? '';
+        void loadPosts().then(() => {
+            if (label === 'Next') currentPage += 1;
+            else if (label === 'Previous') currentPage = Math.max(1, currentPage - 1);
+            else if (/^\d+$/.test(label)) currentPage = Number(label);
+            else if (label === '...') {
+                openJump = 'ellipsis-start';
+                jumpPage = String(currentPage);
+            }
+            return render();
+        }).then(() => {
+            if (label === '...') pagination.querySelector<HTMLInputElement>('.jump-form input')?.focus();
+        }).catch(reportLoadError);
+    });
+
     if (characterQueries.length > 0 || artistQueries.length > 0 || search.has('mode')) void render().catch(reportLoadError);
 };
 
