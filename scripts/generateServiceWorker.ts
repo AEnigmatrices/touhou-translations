@@ -54,6 +54,9 @@ const metadataAssetPaths = ['favicon.ico', 'robots.txt', 'manifest.webmanifest']
 const pwaIconPaths = collectFiles(path.join(publicDir, 'icons', 'pwa'))
     .filter(filePath => /\.png$/i.test(filePath))
     .map(filePath => toPortablePath(path.relative(publicDir, filePath)));
+const postDocumentPaths = collectFiles(path.join(buildDir, 'posts'))
+    .filter(filePath => path.basename(filePath) === 'index.html')
+    .sort();
 
 const entriesByUrl = new Map<string, PrecacheEntry>();
 entriesByUrl.set(basePath, { filePath: appShellPath, url: basePath });
@@ -71,11 +74,21 @@ for (const entry of precacheEntries) {
     contentHash.update('\0');
 }
 
+// Post pages are runtime-cached. Include their contents in the cache version so a
+// deployment that edits an existing post cannot leave an older cached document behind.
+for (const filePath of postDocumentPaths) {
+    contentHash.update(toPortablePath(path.relative(buildDir, filePath)));
+    contentHash.update('\0');
+    contentHash.update(fs.readFileSync(filePath));
+    contentHash.update('\0');
+}
+
 const cacheName = `${cachePrefix}${contentHash.digest('hex').slice(0, 16)}`;
 const precacheUrls = precacheEntries.map(entry => entry.url);
 const workerSource = `'use strict';
 
 const BASE_PATH = ${JSON.stringify(basePath)};
+const POST_PATH_PREFIX = BASE_PATH + 'posts/';
 const CACHE_PREFIX = ${JSON.stringify(cachePrefix)};
 const CACHE_NAME = ${JSON.stringify(cacheName)};
 const PRECACHE_URLS = ${JSON.stringify(precacheUrls, null, 4)};
@@ -117,6 +130,74 @@ function networkFirst(event) {
     return networkResult
         .then(result => result.response)
         .catch(async () => await matchCachedNavigation(event.request) ?? Response.error());
+}
+
+async function cacheAdjacentPostDocuments(response) {
+    if (!canCache(response)) return;
+
+    let html;
+    try {
+        html = await response.clone().text();
+    } catch {
+        return;
+    }
+
+    const adjacentUrls = new Set();
+    const adjacentLinkPattern = /<a\b[^>]*href=(['\"])([^'\"]+)\1[^>]*>\s*(?:Previous|Next)\s*<\/a>/gi;
+    for (const match of html.matchAll(adjacentLinkPattern)) {
+        try {
+            const url = new URL(match[2], self.location.origin);
+            if (url.origin === self.location.origin && url.pathname.startsWith(POST_PATH_PREFIX)) {
+                adjacentUrls.add(url.href);
+            }
+        } catch {
+            // Ignore malformed links rather than affecting the current navigation.
+        }
+    }
+
+    if (adjacentUrls.size === 0) return;
+
+    const cache = await caches.open(CACHE_NAME);
+    await Promise.all([...adjacentUrls].map(async url => {
+        const request = new Request(url, { credentials: 'same-origin' });
+        if (await cache.match(request, { ignoreSearch: true })) return;
+
+        try {
+            const adjacentResponse = await fetch(request);
+            await updateCache(request, adjacentResponse);
+        } catch {
+            // Adjacent warming is opportunistic and must never affect the current page.
+        }
+    }));
+}
+
+function postNavigationCacheFirst(event) {
+    const result = caches.open(CACHE_NAME).then(async cache => {
+        const cachedResponse = await cache.match(event.request, { ignoreSearch: true });
+        if (cachedResponse) {
+            return {
+                response: cachedResponse,
+                backgroundUpdate: cacheAdjacentPostDocuments(cachedResponse)
+            };
+        }
+
+        const response = await fetch(event.request);
+        return {
+            response,
+            backgroundUpdate: Promise.all([
+                updateCache(event.request, response),
+                cacheAdjacentPostDocuments(response)
+            ]).then(() => undefined)
+        };
+    });
+
+    event.waitUntil(
+        result
+            .then(value => value.backgroundUpdate)
+            .catch(() => undefined)
+    );
+
+    return result.then(value => value.response);
 }
 
 function cacheFirst(event) {
@@ -165,7 +246,11 @@ self.addEventListener('fetch', event => {
     if (url.origin !== self.location.origin || !url.pathname.startsWith(BASE_PATH)) return;
 
     if (request.mode === 'navigate') {
-        event.respondWith(networkFirst(event));
+        event.respondWith(
+            url.pathname.startsWith(POST_PATH_PREFIX)
+                ? postNavigationCacheFirst(event)
+                : networkFirst(event)
+        );
         return;
     }
 
