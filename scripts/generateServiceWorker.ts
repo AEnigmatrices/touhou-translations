@@ -54,8 +54,11 @@ const metadataAssetPaths = ['favicon.ico', 'robots.txt', 'manifest.webmanifest']
 const pwaIconPaths = collectFiles(path.join(publicDir, 'icons', 'pwa'))
     .filter(filePath => /\.png$/i.test(filePath))
     .map(filePath => toPortablePath(path.relative(publicDir, filePath)));
-const postDocumentPaths = collectFiles(path.join(buildDir, 'posts'))
-    .filter(filePath => path.basename(filePath) === 'index.html')
+const documentPaths = collectFiles(buildDir)
+    .filter(filePath => /\.html$/i.test(filePath))
+    .sort();
+const runtimeDataPaths = collectFiles(path.join(buildDir, 'runtime-data'))
+    .filter(filePath => /\.json$/i.test(filePath))
     .sort();
 
 const entriesByUrl = new Map<string, PrecacheEntry>();
@@ -74,9 +77,9 @@ for (const entry of precacheEntries) {
     contentHash.update('\0');
 }
 
-// Post pages are runtime-cached. Include their contents in the cache version so a
-// deployment that edits an existing post cannot leave an older cached document behind.
-for (const filePath of postDocumentPaths) {
+// Runtime-cached documents and JSON must rotate with a deployment even though they
+// are intentionally not all downloaded during service-worker installation.
+for (const filePath of [...documentPaths, ...runtimeDataPaths]) {
     contentHash.update(toPortablePath(path.relative(buildDir, filePath)));
     contentHash.update('\0');
     contentHash.update(fs.readFileSync(filePath));
@@ -88,7 +91,6 @@ const precacheUrls = precacheEntries.map(entry => entry.url);
 const workerSource = `'use strict';
 
 const BASE_PATH = ${JSON.stringify(basePath)};
-const POST_PATH_PREFIX = BASE_PATH + 'posts/';
 const CACHE_PREFIX = ${JSON.stringify(cachePrefix)};
 const CACHE_NAME = ${JSON.stringify(cacheName)};
 const PRECACHE_URLS = ${JSON.stringify(precacheUrls, null, 4)};
@@ -105,7 +107,7 @@ async function updateCache(request, response) {
         const cache = await caches.open(CACHE_NAME);
         await cache.put(request, cachedResponse);
     } catch {
-        // A cache write failure must not turn a successful network request into a failure.
+        // Cache writes are opportunistic and must never affect a successful request.
     }
 }
 
@@ -115,97 +117,27 @@ async function matchCachedNavigation(request) {
         ?? await cache.match(request, { ignoreSearch: true });
 }
 
-function networkFirst(event) {
-    const networkResult = fetch(event.request).then(response => ({
-        response,
-        cacheUpdate: updateCache(event.request, response)
-    }));
+function navigationCacheFirst(event) {
+    const networkResponse = (async () => {
+        const preloaded = await event.preloadResponse;
+        return preloaded ?? await fetch(event.request);
+    })();
 
     event.waitUntil(
-        networkResult
-            .then(result => result.cacheUpdate)
+        networkResponse
+            .then(response => updateCache(event.request, response))
             .catch(() => undefined)
     );
 
-    return networkResult
-        .then(result => result.response)
-        .catch(async () => await matchCachedNavigation(event.request) ?? Response.error());
-}
-
-async function cacheAdjacentPostDocuments(response) {
-    if (!canCache(response)) return;
-
-    let html;
-    try {
-        html = await response.clone().text();
-    } catch {
-        return;
-    }
-
-    const adjacentUrls = new Set();
-    const adjacentLinkPattern = /<a[^>]*href=(["'])([^"']+)["'][^>]*>[^<]*(?:Previous|Next)[^<]*<[/]a>/gi;
-    for (const match of html.matchAll(adjacentLinkPattern)) {
-        try {
-            const url = new URL(match[2], self.location.origin);
-            if (url.origin === self.location.origin && url.pathname.startsWith(POST_PATH_PREFIX)) {
-                adjacentUrls.add(url.href);
-            }
-        } catch {
-            // Ignore malformed links rather than affecting the current navigation.
-        }
-    }
-
-    if (adjacentUrls.size === 0) return;
-
-    const cache = await caches.open(CACHE_NAME);
-    await Promise.all([...adjacentUrls].map(async url => {
-        const request = new Request(url, { credentials: 'same-origin' });
-        if (await cache.match(request, { ignoreSearch: true })) return;
-
-        try {
-            const adjacentResponse = await fetch(request);
-            await updateCache(request, adjacentResponse);
-        } catch {
-            // Adjacent warming is opportunistic and must never affect the current page.
-        }
-    }));
-}
-
-function postNavigationCacheFirst(event) {
-    const result = caches.open(CACHE_NAME).then(async cache => {
-        const cachedResponse = await cache.match(event.request, { ignoreSearch: true });
-        if (cachedResponse) {
-            return {
-                response: cachedResponse,
-                backgroundUpdate: cacheAdjacentPostDocuments(cachedResponse)
-            };
-        }
-
-        const response = await fetch(event.request);
-        return {
-            response,
-            backgroundUpdate: Promise.all([
-                updateCache(event.request, response),
-                cacheAdjacentPostDocuments(response)
-            ]).then(() => undefined)
-        };
-    });
-
-    event.waitUntil(
-        result
-            .then(value => value.backgroundUpdate)
-            .catch(() => undefined)
-    );
-
-    return result.then(value => value.response);
+    return matchCachedNavigation(event.request)
+        .then(cachedResponse => cachedResponse ?? networkResponse)
+        .catch(() => networkResponse);
 }
 
 function cacheFirst(event) {
     const result = caches.open(CACHE_NAME).then(async cache => {
         const cachedResponse = await cache.match(event.request);
-        if (cachedResponse) {
-            return { response: cachedResponse, cacheUpdate: Promise.resolve() };
-        }
+        if (cachedResponse) return { response: cachedResponse, cacheUpdate: Promise.resolve() };
 
         const response = await fetch(event.request);
         return { response, cacheUpdate: updateCache(event.request, response) };
@@ -229,13 +161,17 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.keys()
-            .then(keys => Promise.all(keys
-                .filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
-                .map(key => caches.delete(key))))
-            .then(() => self.clients.claim())
-    );
+    event.waitUntil((async () => {
+        if (self.registration.navigationPreload) {
+            await self.registration.navigationPreload.enable();
+        }
+
+        const keys = await caches.keys();
+        await Promise.all(keys
+            .filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
+            .map(key => caches.delete(key)));
+        await self.clients.claim();
+    })());
 });
 
 self.addEventListener('fetch', event => {
@@ -246,11 +182,7 @@ self.addEventListener('fetch', event => {
     if (url.origin !== self.location.origin || !url.pathname.startsWith(BASE_PATH)) return;
 
     if (request.mode === 'navigate') {
-        event.respondWith(
-            url.pathname.startsWith(POST_PATH_PREFIX)
-                ? postNavigationCacheFirst(event)
-                : networkFirst(event)
-        );
+        event.respondWith(navigationCacheFirst(event));
         return;
     }
 
