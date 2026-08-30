@@ -1,16 +1,21 @@
 import { expect, test } from '@playwright/test';
 
-test('adjacent post browsing stays in the Astro client router', async ({ page }) => {
+test('archive routes use native document navigation consistently', async ({ page }) => {
     await page.goto('gallery/', { waitUntil: 'domcontentloaded' });
 
-    // Gallery intentionally stays a plain static page. Entering a post may replace
-    // the document; only sequential post-to-post browsing needs SPA semantics.
+    await page.evaluate(() => {
+        (window as Window & { __documentMarker?: string }).__documentMarker = 'gallery';
+    });
+
     await page.locator('[data-gallery-grid] a.tile').first().click();
     await expect(page).toHaveURL(/\/touhou-translations\/posts\/[^/]+\/$/);
     await expect(page.locator('.artist-pill')).toBeVisible();
+    expect(await page.evaluate(() =>
+        (window as Window & { __documentMarker?: string }).__documentMarker
+    )).toBeUndefined();
 
     await page.evaluate(() => {
-        (window as Window & { __spaNavigationMarker?: string }).__spaNavigationMarker = 'alive';
+        (window as Window & { __documentMarker?: string }).__documentMarker = 'post';
     });
 
     const adjacent = page.locator('.links a').filter({ hasText: /^(Previous|Next)$/ }).first();
@@ -20,15 +25,11 @@ test('adjacent post browsing stays in the Astro client router', async ({ page })
     await expect(page).not.toHaveURL(firstPostUrl);
     await expect(page.locator('.artist-pill')).toBeVisible();
     expect(await page.evaluate(() =>
-        (window as Window & { __spaNavigationMarker?: string }).__spaNavigationMarker
-    )).toBe('alive');
+        (window as Window & { __documentMarker?: string }).__documentMarker
+    )).toBeUndefined();
 
-    // Leaving the post section intentionally returns to ordinary document navigation.
     await page.getByRole('link', { name: 'Gallery', exact: true }).first().click();
     await expect(page).toHaveURL(/\/touhou-translations\/gallery\/$/);
-    expect(await page.evaluate(() =>
-        (window as Window & { __spaNavigationMarker?: string }).__spaNavigationMarker
-    )).toBeUndefined();
 
     const contentFilter = page.getByRole('button', { name: 'All Posts' });
     await contentFilter.click();
