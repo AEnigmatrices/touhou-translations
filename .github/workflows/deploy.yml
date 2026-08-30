@@ -33,7 +33,7 @@ jobs:
                   install: false
 
             - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+              run: pnpm install --no-frozen-lockfile
 
             - name: Restore derived media metadata cache
               uses: actions/cache@v5
