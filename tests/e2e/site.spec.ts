@@ -18,11 +18,12 @@ const posts = fs.readdirSync(postsDirectory)
 const artists = JSON.parse(
     fs.readFileSync(new URL('../../data/artists.json', import.meta.url), 'utf8')
 ) as Array<{ id: string; name: string }>;
-const artistPostCounts = posts.reduce((counts, post) => {
+const generatedPosts = posts.filter(post => extractRedditId(post.reddit) !== '');
+const artistPostCounts = generatedPosts.reduce((counts, post) => {
     counts.set(post.artistId, (counts.get(post.artistId) ?? 0) + 1);
     return counts;
 }, new Map<string, number>());
-const postWithRelatedWork = posts.find(post => (artistPostCounts.get(post.artistId) ?? 0) > 1);
+const postWithRelatedWork = generatedPosts.find(post => (artistPostCounts.get(post.artistId) ?? 0) > 1);
 
 const makeIdleCallbacksImmediate = async (page: import('@playwright/test').Page): Promise<void> => {
     await page.addInitScript(() => {
@@ -98,7 +99,7 @@ test('gallery warms a bounded set of visible post documents after primary artwor
 });
 
 test('post pages warm related artist documents after primary artwork settles', async ({ page }) => {
-    if (!postWithRelatedWork) throw new Error('Expected at least one artist with multiple posts.');
+    if (!postWithRelatedWork) throw new Error('Expected at least one artist with multiple generated posts.');
 
     await makeIdleCallbacksImmediate(page);
     await stubRedditImages(page);
