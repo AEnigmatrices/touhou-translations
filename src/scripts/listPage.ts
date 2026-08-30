@@ -1,4 +1,4 @@
-import type { Artist, Character, SortOrder } from '../types/data';
+import type { Artist, Character, PortraitImage, SortOrder } from '../types/data';
 import { assetPath, pagePathWithQuery } from '../utils/paths';
 
 type ListItem = Artist | Character;
@@ -9,6 +9,8 @@ type NavigatorWithConnection = Navigator & {
         saveData?: boolean;
     };
 };
+
+const portraitSizes = '(max-width: 640px) 88px, 160px';
 
 const shouldAvoidSpeculativeFetch = (): boolean =>
     Boolean((navigator as NavigatorWithConnection).connection?.saveData);
@@ -37,7 +39,9 @@ const initializeListPage = (): void => {
     const selectModeButton = root.querySelector<HTMLButtonElement>('[data-select-mode]');
     const viewSelectedLink = root.querySelector<HTMLAnchorElement>('[data-view-selected]');
     const loadMoreButton = root.querySelector<HTMLButtonElement>('[data-load-more]');
+    const portraitImagesElement = root.querySelector<HTMLScriptElement>('[data-portrait-images]');
     const pageSize = Number(root.dataset.pageSize) || 24;
+    const portraitImages = JSON.parse(portraitImagesElement?.textContent || '{}') as Record<string, PortraitImage>;
 
     let itemsRequest: Promise<ListItem[]> | undefined;
     let searchValue = '';
@@ -88,6 +92,9 @@ const initializeListPage = (): void => {
 
     const renderItem = (item: ListItem): HTMLLIElement => {
         const selected = selectedItems.includes(item.id);
+        const portraitImage = portraitImages[item.portrait];
+        if (!portraitImage) throw new Error(`Optimized portrait data is missing for ${item.portrait}.`);
+
         const listItem = document.createElement('li');
         listItem.className = `profile-item large${selected ? ' selected' : ''}`;
         listItem.dataset.itemId = item.id;
@@ -111,7 +118,11 @@ const initializeListPage = (): void => {
         const imageFrame = document.createElement('div');
         imageFrame.className = 'image-frame large-image';
         const image = document.createElement('img');
-        image.src = assetPath(item.portrait);
+        image.src = portraitImage.src;
+        if (portraitImage.srcset) image.srcset = portraitImage.srcset;
+        image.sizes = portraitSizes;
+        image.width = portraitImage.width;
+        image.height = portraitImage.height;
         image.alt = item.name;
         image.loading = 'lazy';
         image.decoding = 'async';
