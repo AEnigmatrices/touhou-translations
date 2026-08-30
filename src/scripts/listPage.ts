@@ -19,7 +19,7 @@ const scheduleIdleTask = (task: () => void): void => {
             window.requestIdleCallback(task, { timeout: 2_000 });
             return;
         }
-        window.setTimeout(task, 1_000);
+        setTimeout(task, 1_000);
     };
 
     if (document.readyState === 'complete') schedule();
