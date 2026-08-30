@@ -199,20 +199,26 @@ const preconnectOrigins = [...new Set([
             const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
             if (!connection?.saveData) {
                 const primaryImage = root.querySelector<HTMLImageElement>('.images img');
-                const adjacentLinks = [...root.querySelectorAll<HTMLAnchorElement>('[data-adjacent-post]')];
-                const relatedLinks = moreTemplate
-                    ? [...moreTemplate.content.querySelectorAll<HTMLAnchorElement>('a')].slice(0, 4)
+                const adjacentUrls = [...root.querySelectorAll<HTMLAnchorElement>('[data-adjacent-post]')]
+                    .map(link => link.href);
+                const relatedUrls = moreTemplate
+                    ? [...moreTemplate.content.querySelectorAll<HTMLAnchorElement>('a')]
+                        .slice(0, 4)
+                        .flatMap(link => {
+                            // Template descendants live in an inert owner document, so resolve the raw
+                            // href against the live page rather than relying on link.href here.
+                            const href = link.getAttribute('href');
+                            return href ? [new URL(href, document.baseURI).href] : [];
+                        })
                     : [];
-                const warmLinks = [...new Map(
-                    [...adjacentLinks, ...relatedLinks].map(link => [link.href, link])
-                ).values()];
+                const warmUrls = [...new Set([...adjacentUrls, ...relatedUrls])];
                 let postDocumentsWarmed = false;
 
                 const warmPostDocuments = (): void => {
-                    if (postDocumentsWarmed || warmLinks.length === 0) return;
+                    if (postDocumentsWarmed || warmUrls.length === 0) return;
                     postDocumentsWarmed = true;
-                    for (const link of warmLinks) {
-                        void fetch(link.href).catch(() => undefined);
+                    for (const url of warmUrls) {
+                        void fetch(url).catch(() => undefined);
                     }
                 };
 
