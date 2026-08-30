@@ -215,7 +215,7 @@ const preconnectOrigins = [...new Set([
                         window.requestIdleCallback(warmAdjacentPosts, { timeout: 2_000 });
                         return;
                     }
-                    window.setTimeout(warmAdjacentPosts, 500);
+                    setTimeout(warmAdjacentPosts, 500);
                 };
 
                 if (!primaryImage || primaryImage.complete) {
