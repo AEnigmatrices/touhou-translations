@@ -66,6 +66,7 @@ const portraitImages = await getPortraitImages(items.map(item => item.portrait))
 
         <button class="load-more" type="button" data-load-more hidden={initialItems.length <= pageSize}>Load More</button>
         <script
+            is:inline
             type="application/json"
             data-portrait-images
             set:html={serializeForScript(portraitImages)}
