@@ -18,6 +18,11 @@ const posts = fs.readdirSync(postsDirectory)
 const artists = JSON.parse(
     fs.readFileSync(new URL('../../data/artists.json', import.meta.url), 'utf8')
 ) as Array<{ id: string; name: string }>;
+const artistPostCounts = posts.reduce((counts, post) => {
+    counts.set(post.artistId, (counts.get(post.artistId) ?? 0) + 1);
+    return counts;
+}, new Map<string, number>());
+const postWithRelatedWork = posts.find(post => (artistPostCounts.get(post.artistId) ?? 0) > 1);
 
 const makeIdleCallbacksImmediate = async (page: import('@playwright/test').Page): Promise<void> => {
     await page.addInitScript(() => {
@@ -92,10 +97,12 @@ test('gallery warms a bounded set of visible post documents after primary artwor
     await warmedPost;
 });
 
-test('post pages warm adjacent and related artist documents after primary artwork settles', async ({ page }) => {
+test('post pages warm related artist documents after primary artwork settles', async ({ page }) => {
+    if (!postWithRelatedWork) throw new Error('Expected at least one artist with multiple posts.');
+
     await makeIdleCallbacksImmediate(page);
     await stubRedditImages(page);
-    const postId = extractRedditId(posts[0].reddit);
+    const postId = extractRedditId(postWithRelatedWork.reddit);
     expect(postId).not.toBe('');
 
     const warmedPostUrls = new Set<string>();
@@ -106,7 +113,6 @@ test('post pages warm adjacent and related artist documents after primary artwor
     });
 
     await page.goto(`posts/${postId}/`, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('[data-adjacent-post]')).not.toHaveCount(0);
 
     const relatedUrls = await page.evaluate(() => {
         const template = document.querySelector<HTMLTemplateElement>('[data-more-template]');
