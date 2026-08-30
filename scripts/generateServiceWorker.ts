@@ -117,21 +117,17 @@ async function matchCachedNavigation(request) {
         ?? await cache.match(request, { ignoreSearch: true });
 }
 
-function navigationCacheFirst(event) {
-    const networkResponse = (async () => {
-        const preloaded = await event.preloadResponse;
-        return preloaded ?? await fetch(event.request);
-    })();
+async function navigationCacheFirst(event) {
+    try {
+        const cachedResponse = await matchCachedNavigation(event.request);
+        if (cachedResponse) return cachedResponse;
+    } catch {
+        // A cache lookup failure should fall through to the network.
+    }
 
-    event.waitUntil(
-        networkResponse
-            .then(response => updateCache(event.request, response))
-            .catch(() => undefined)
-    );
-
-    return matchCachedNavigation(event.request)
-        .then(cachedResponse => cachedResponse ?? networkResponse)
-        .catch(() => networkResponse);
+    const response = await fetch(event.request);
+    event.waitUntil(updateCache(event.request, response));
+    return response;
 }
 
 function cacheFirst(event) {
@@ -162,8 +158,11 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
     event.waitUntil((async () => {
+        // Documents are deployment-versioned by CACHE_NAME, so a warm navigation
+        // is already fresh for this build. Disable navigation preload to avoid a
+        // redundant HTML request racing the cached response and its subresources.
         if (self.registration.navigationPreload) {
-            await self.registration.navigationPreload.enable();
+            await self.registration.navigationPreload.disable();
         }
 
         const keys = await caches.keys();
