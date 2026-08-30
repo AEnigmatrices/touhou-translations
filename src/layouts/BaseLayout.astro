@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import { assetPath, pagePath } from '../utils/paths';
 import { DEFAULT_DESCRIPTION, SITE_NAME } from '../utils/siteMetadata';
@@ -74,8 +75,9 @@ const websiteSchema = {
         {ogImage && <meta property="og:image" content={ogImage} />}
         <meta name="twitter:card" content="summary_large_image" />
         <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
+        <ClientRouter fallback="swap" />
     </head>
-    <body>
+    <body transition:animate="none">
         <div class="layout">
             <header class="app-bar">
                 <nav class="toolbar" aria-label="Primary navigation">
@@ -154,14 +156,17 @@ const websiteSchema = {
         </div>
 
         <script>
+            import { navigate } from 'astro:transitions/client';
             import { assetPath, pagePath } from '../utils/paths';
 
-            const randomPostButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-random-post]')];
             let postIdRequest: Promise<string[]> | undefined;
             let randomPostLoading = false;
 
+            const currentRandomPostButtons = (): HTMLButtonElement[] =>
+                [...document.querySelectorAll<HTMLButtonElement>('[data-random-post]')];
+
             const setRandomPostState = (label: string, busy: boolean): void => {
-                for (const button of randomPostButtons) {
+                for (const button of currentRandomPostButtons()) {
                     button.textContent = label;
                     button.disabled = busy;
                     button.setAttribute('aria-busy', String(busy));
@@ -195,7 +200,7 @@ const websiteSchema = {
                     const postIds = await fetchRandomPostIds();
                     if (postIds.length === 0) throw new Error('No posts are available.');
                     const id = postIds[Math.floor(Math.random() * postIds.length)];
-                    window.location.assign(pagePath(`posts/${id}`));
+                    navigate(pagePath(`posts/${id}`));
                 } catch (error) {
                     console.error('Unable to open a random post.', error);
                     randomPostLoading = false;
@@ -203,16 +208,21 @@ const websiteSchema = {
                 }
             };
 
-            for (const button of randomPostButtons) {
-                button.addEventListener('click', () => void goToRandomPost());
-            }
+            document.addEventListener('click', event => {
+                const button = (event.target as Element | null)?.closest<HTMLButtonElement>('[data-random-post]');
+                if (button) void goToRandomPost();
+            });
+
+            document.addEventListener('astro:page-load', () => {
+                randomPostLoading = false;
+            });
 
             if (import.meta.env.PROD && 'serviceWorker' in navigator) {
                 window.addEventListener('load', () => {
                     void navigator.serviceWorker.register(assetPath('service-worker.js'), {
                         scope: pagePath()
                     });
-                });
+                }, { once: true });
             }
         </script>
     </body>
