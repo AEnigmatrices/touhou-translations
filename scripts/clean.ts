@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const rootDir = path.resolve(import.meta.dirname, '..');
 const generatedDirectories = [
-    '.svelte-kit',
+    '.astro',
     'build',
     'dist',
     'generated',

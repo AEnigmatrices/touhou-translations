@@ -196,14 +196,12 @@ const postDataPlugin: Plugin = {
 
                     sendJson(res, 200, { success: true, file: path.relative(rootDir, filePath).replaceAll('\\', '/') });
                     setTimeout(() => {
-                        try {
-                            suppressDataHotUpdates();
-                            generateDerivedData(rootDir);
-                        } catch (error) {
+                        suppressDataHotUpdates();
+                        void generateDerivedData(rootDir).catch(error => {
                             server.config.logger.error(
                                 error instanceof Error ? error.message : 'Failed to regenerate derived data.'
                             );
-                        }
+                        });
                     }, 100);
                     return;
                 }
@@ -225,14 +223,12 @@ const postDataPlugin: Plugin = {
                     writeJsonFile(artistsPath, artists);
                     sendJson(res, 200, { success: true, file: 'data/artists.json' });
                     setTimeout(() => {
-                        try {
-                            suppressDataHotUpdates();
-                            generateDerivedData(rootDir);
-                        } catch (error) {
+                        suppressDataHotUpdates();
+                        void generateDerivedData(rootDir).catch(error => {
                             server.config.logger.error(
                                 error instanceof Error ? error.message : 'Failed to regenerate derived data.'
                             );
-                        }
+                        });
                     }, 100);
                     return;
                 }

@@ -1,0 +1,214 @@
+---
+import type { GalleryPost } from '../../types/data';
+import GalleryTile from './GalleryTile.astro';
+
+interface Props {
+    posts: GalleryPost[];
+}
+
+const { posts } = Astro.props;
+const postsPerPage = 12;
+const sortedPosts = [...posts].sort((left, right) => right.date - left.date);
+const totalPages = Math.max(1, Math.ceil(sortedPosts.length / postsPerPage));
+const initialPagination: Array<number | 'ellipsis-start' | 'ellipsis-end'> = totalPages <= 7
+    ? Array.from({ length: totalPages }, (_, index) => index + 1)
+    : [1, 2, 'ellipsis-start', totalPages];
+---
+
+<section class="gallery-page" data-gallery-page>
+    <div class="gallery-toolbar">
+        <div>
+            <h1>Gallery</h1>
+            <p data-post-count>{posts.length} post{posts.length === 1 ? '' : 's'}</p>
+        </div>
+        <div class="controls">
+            <button type="button" aria-pressed="false" data-gallery-only>All Posts</button>
+            <button type="button" data-date-sort>Newest First</button>
+        </div>
+    </div>
+
+    <div class="grid gallery-grid" data-gallery-grid>
+        {sortedPosts.slice(0, postsPerPage).map(post => <GalleryTile {post} />)}
+    </div>
+
+    <nav class="pagination" aria-label="Gallery pages" data-pagination hidden={totalPages <= 1}>
+        <button type="button" disabled>Previous</button>
+        {initialPagination.map(item => typeof item === 'number' ? (
+            <button type="button" class:list={{ active: item === 1 }} aria-current={item === 1 ? 'page' : undefined}>{item}</button>
+        ) : (
+            <button class="ellipsis" type="button" aria-label={`Jump to page between 1 and ${totalPages}`}>...</button>
+        ))}
+        <button type="button" disabled={totalPages === 1}>Next</button>
+    </nav>
+    <script src="../../scripts/gallery.ts"></script>
+</section>
+
+<style is:global>
+    .gallery-page {
+        width: min(1500px, 100%);
+        margin: 0 auto;
+    }
+
+    .gallery-page .gallery-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        text-align: left;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+    }
+
+    .gallery-page .gallery-toolbar h1,
+    .gallery-page .gallery-toolbar p {
+        margin: 0;
+    }
+
+    .gallery-page .gallery-toolbar h1 {
+        color: var(--color-ink);
+    }
+
+    .gallery-page .gallery-toolbar p {
+        color: var(--color-muted);
+    }
+
+    .gallery-page .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .gallery-page button {
+        min-height: 38px;
+        padding: 0 0.8rem;
+        color: var(--color-muted);
+        cursor: pointer;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+    }
+
+    .gallery-page button[aria-pressed="true"],
+    .gallery-page button.active {
+        color: var(--color-primary);
+        background: var(--color-primary-soft);
+        border-color: rgba(180, 35, 59, 0.24);
+    }
+
+    .gallery-page button:disabled {
+        color: var(--color-faint, var(--color-muted));
+        cursor: not-allowed;
+        background: var(--color-bg-soft);
+    }
+
+    .gallery-page .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 0.9rem;
+    }
+
+    .gallery-page .tile {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        aspect-ratio: 1;
+        background: var(--color-bg-soft);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .gallery-page .tile img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s ease;
+    }
+
+    .gallery-page .tile img.nsfw {
+        filter: blur(10px);
+    }
+
+    .gallery-page .tile:hover img {
+        transform: scale(1.04);
+    }
+
+    .gallery-page .tile span {
+        position: absolute;
+        right: 0.5rem;
+        bottom: 0.5rem;
+        padding: 0.2rem 0.45rem;
+        color: white;
+        font-size: 0.72rem;
+        font-weight: 800;
+        background: rgba(24, 33, 47, 0.78);
+        border-radius: 999px;
+    }
+
+    .gallery-page .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35rem;
+        margin-top: 1.25rem;
+    }
+
+    .gallery-page .pagination[hidden] {
+        display: none;
+    }
+
+    .gallery-page .pagination button {
+        min-width: 42px;
+    }
+
+    .gallery-page .pagination .ellipsis {
+        display: inline-flex;
+        min-width: 28px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-muted);
+        font-weight: 700;
+    }
+
+    .gallery-page .jump-form {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .gallery-page .jump-form input {
+        width: 84px;
+        height: 38px;
+        padding: 0 0.55rem;
+        color: var(--color-ink);
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+    }
+
+    @media (max-width: 1180px) {
+        .gallery-page .gallery-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 700px) {
+        .gallery-page {
+            padding: 1rem;
+        }
+
+        .gallery-page .gallery-toolbar {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .gallery-page .gallery-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+</style>

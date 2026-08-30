@@ -1,0 +1,328 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPostIds, getPostPageData } from '../../lib/server/postPageData';
+import { assetPath, pagePath, pagePathWithQuery } from '../../utils/paths';
+import { responsiveSrcset } from '../../utils/responsiveImage';
+import { absoluteSiteUrl } from '../../utils/siteMetadata';
+
+export const getStaticPaths = (async () => (
+    (await getPostIds()).map(id => ({ params: { id }, props: { id } }))
+)) satisfies GetStaticPaths;
+
+interface Props {
+    id: string;
+}
+
+const { id } = Astro.props;
+const data = await getPostPageData(id);
+if (!data) throw new Error(`Generated post data is missing for ${id}.`);
+
+const artistName = data.artist?.name ?? data.post.artistId;
+const metadataDescription = data.post.metadataDescription || `A translated Touhou Project work by ${artistName}.`;
+const metadataTitle = `${artistName} | Touhou Translations`;
+const canonicalUrl = absoluteSiteUrl(`posts/${data.id}`);
+const socialImage = !data.post.nsfw
+    ? data.post.url[0]
+    : absoluteSiteUrl('icons/touhou-translations-profile-icon.png');
+---
+
+<BaseLayout
+    title={metadataTitle}
+    description={metadataDescription}
+    canonical={canonicalUrl}
+    ogTitle={metadataTitle}
+    ogType="article"
+    ogImage={socialImage}
+    currentSection="post"
+>
+    <section class="post-page">
+        <div class="images">
+            {data.post.url.map((url, index) => {
+                const dimensions = data.post.imageDimensions?.[index];
+                const sources = data.post.imageSources?.[index];
+                return (
+                    <figure>
+                        <img
+                            class:list={{ nsfw: data.post.nsfw }}
+                            src={url}
+                            srcset={responsiveSrcset(sources, url, dimensions?.width)}
+                            sizes="(max-width: 900px) calc(100vw - 2rem), min(1050px, calc(100vw - 490px))"
+                            alt={`Translated artwork page ${index + 1}`}
+                            width={dimensions?.width}
+                            height={dimensions?.height}
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            fetchpriority={index === 0 ? 'high' : 'auto'}
+                            decoding="async"
+                            data-nsfw-image={data.post.nsfw ? '' : undefined}
+                        />
+                    </figure>
+                );
+            })}
+        </div>
+
+        <aside class="info">
+            <div class="panel">
+                <p class="eyebrow">Artist</p>
+                <h1>
+                    <a class="artist-pill" href={pagePathWithQuery('gallery', `artist=${encodeURIComponent(data.post.artistId)}`)}>
+                        {artistName}
+                    </a>
+                </h1>
+                <div class="links">
+                    <a href={data.post.reddit} target="_blank" rel="noopener noreferrer">Reddit</a>
+                    <a href={data.post.src} target="_blank" rel="noopener noreferrer">Source</a>
+                    {data.prevPostId && <a href={pagePath(`posts/${data.prevPostId}`)}>Previous</a>}
+                    {data.nextPostId && <a href={pagePath(`posts/${data.nextPostId}`)}>Next</a>}
+                </div>
+                {data.post.nsfw && (
+                    <button class="uncensor-button" type="button" aria-pressed="false" data-nsfw-toggle>
+                        Uncensor images
+                    </button>
+                )}
+            </div>
+
+            {data.characters.length > 0 && (
+                <div class="panel">
+                    <p class="eyebrow">Characters</p>
+                    <div class="chips">
+                        {data.characters.map(character => (
+                            <a href={pagePathWithQuery('gallery', `characters=${encodeURIComponent(character.id)}`)}>
+                                <img
+                                    class="character-avatar"
+                                    src={assetPath(character.portrait)}
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <span>{character.name}</span>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            <div class="panel prose" set:html={data.post.htmlDescription}></div>
+
+            {data.relatedPosts.length > 0 && (
+                <div class="panel">
+                    <p class="eyebrow">More by this artist</p>
+                    <div class="more-grid">
+                        {data.relatedPosts.map(item => (
+                            <a
+                                href={pagePath(`posts/${item.id}`)}
+                                aria-label={`View another translated work by ${artistName}`}
+                            >
+                                <img
+                                    class:list={{ nsfw: item.nsfw }}
+                                    src={item.img}
+                                    srcset={responsiveSrcset(item.imgSources, item.img)}
+                                    sizes="210px"
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async"
+                                    data-nsfw-image={item.nsfw ? '' : undefined}
+                                />
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </aside>
+    </section>
+
+    <script>
+        const toggle = document.querySelector<HTMLButtonElement>('[data-nsfw-toggle]');
+        let revealed = false;
+
+        toggle?.addEventListener('click', () => {
+            revealed = !revealed;
+            for (const image of document.querySelectorAll<HTMLElement>('[data-nsfw-image]')) {
+                image.classList.toggle('nsfw', !revealed);
+            }
+            toggle.setAttribute('aria-pressed', String(revealed));
+            toggle.textContent = revealed ? 'Censor images' : 'Uncensor images';
+        });
+    </script>
+</BaseLayout>
+
+<style>
+    .post-page {
+        display: grid;
+        width: min(1500px, 100%);
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+        gap: 1.5rem;
+        margin: 0 auto;
+    }
+
+    .images {
+        display: grid;
+        gap: 1rem;
+    }
+
+    figure {
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+    }
+
+    figure img {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        margin-inline: auto;
+    }
+
+    figure img.nsfw {
+        filter: blur(10px);
+    }
+
+    .info {
+        position: sticky;
+        top: 88px;
+        display: grid;
+        align-self: start;
+        gap: 1rem;
+    }
+
+    .panel {
+        padding: 1rem;
+        text-align: left;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .eyebrow {
+        margin: 0 0 0.35rem;
+        color: var(--color-muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        margin: 0;
+        color: var(--color-ink);
+        font-size: 1.35rem;
+    }
+
+    .artist-pill {
+        display: inline-flex;
+        max-width: 100%;
+        align-items: center;
+        padding: 0.45rem 0.8rem;
+        color: var(--color-primary);
+        line-height: 1.2;
+        text-decoration: none;
+        overflow-wrap: anywhere;
+        background: var(--color-primary-soft);
+        border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+        border-radius: 999px;
+    }
+
+    .artist-pill:hover {
+        color: var(--color-surface);
+        background: var(--color-primary);
+    }
+
+    .links,
+    .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.85rem;
+    }
+
+    .links a,
+    .chips a {
+        padding: 0.4rem 0.65rem;
+        color: var(--color-primary);
+        font-size: 0.86rem;
+        font-weight: 800;
+        text-decoration: none;
+        background: var(--color-primary-soft);
+        border-radius: 999px;
+    }
+
+    .chips a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+    }
+
+    .character-avatar {
+        width: 26px;
+        height: 26px;
+        object-fit: cover;
+        border-radius: var(--radius-sm);
+    }
+
+    .uncensor-button {
+        width: 100%;
+        padding: 0.65rem 0.8rem;
+        margin-top: 0.85rem;
+        color: var(--color-surface);
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 800;
+        cursor: pointer;
+        background: var(--color-primary);
+        border: 0;
+        border-radius: 999px;
+    }
+
+    .uncensor-button:hover {
+        background: var(--color-primary-hover);
+    }
+
+    .more-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.55rem;
+    }
+
+    .more-grid a {
+        overflow: hidden;
+        aspect-ratio: 1;
+        border-radius: var(--radius-md);
+    }
+
+    .more-grid img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .more-grid img.nsfw {
+        filter: blur(10px);
+    }
+
+    @media (max-width: 900px) {
+        .post-page {
+            grid-template-columns: 1fr;
+            padding: 1rem;
+        }
+
+        .info {
+            position: static;
+        }
+    }
+</style>
+
+<style is:global>
+    .post-page .prose p:first-child {
+        margin-top: 0;
+    }
+
+    .post-page .prose p:last-child {
+        margin-bottom: 0;
+    }
+</style>

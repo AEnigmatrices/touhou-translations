@@ -8,10 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-.svelte-kit
+.astro
 build
 generated
-.production-routes
 dist
 dist-ssr
 playwright-report

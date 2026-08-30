@@ -4,7 +4,7 @@
     "version": "0.0.0",
     "type": "module",
     "homepage": "https://aenigmatrices.github.io/touhou-translations/",
-    "description": "A viewer for English-translated Touhou Project fan comics and illustrations built with SvelteKit",
+    "description": "An Astro viewer for English-translated Touhou Project fan comics and illustrations",
     "repository": {
         "type": "git",
         "url": "https://github.com/AEnigmatrices/touhou-translations.git"
@@ -15,34 +15,31 @@
         "clean": "tsx scripts/clean.ts",
         "generate:data": "tsx scripts/generateDerivedData.ts",
         "generate:data:images": "tsx scripts/generateDerivedData.ts --image-metadata",
-        "dev": "pnpm run generate:data && vite dev --mode development",
-        "build": "pnpm run generate:data:images && tsx scripts/buildProduction.ts && tsx scripts/generateSitemap.ts && pnpm run verify:build",
+        "dev": "pnpm run generate:data && astro dev --open",
+        "build": "pnpm run generate:data:images && astro build && tsx scripts/generateServiceWorker.ts && tsx scripts/generateSitemap.ts && pnpm run verify:build",
         "verify:build": "tsx scripts/verifyBuild.ts",
         "validate:data": "tsx scripts/validateData.ts",
-        "typecheck": "pnpm run generate:data && svelte-kit sync && tsc --noEmit",
+        "typecheck": "pnpm run generate:data && astro check",
         "test:unit": "pnpm run generate:data && vitest run",
         "test:unit:watch": "vitest",
         "test:e2e": "playwright test",
         "test": "pnpm run validate:data && pnpm run typecheck && pnpm run test:unit",
-        "preview": "vite preview",
-        "deploy": "gh-pages -d build --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git"
+        "preview": "tsx scripts/preview.ts",
+        "deploy": "gh-pages -d build --nojekyll --repo https://x-access-token:${GITHUB_TOKEN}@github.com/AEnigmatrices/touhou-translations.git"
     },
     "dependencies": {
-        "@sveltejs/adapter-static": "3.0.10",
-        "@sveltejs/kit": "2.70.3",
-        "@sveltejs/vite-plugin-svelte": "7.3.0",
-        "svelte": "5.56.10"
+        "astro": "7.2.9"
     },
     "devDependencies": {
+        "@astrojs/check": "0.9.10",
         "@playwright/test": "^1.62.1",
         "@types/node": "26.4.0",
         "@types/sanitize-html": "^2.16.1",
         "gh-pages": "6.3.0",
-        "glob": "13.0.6",
         "marked": "18.0.11",
         "sanitize-html": "2.17.7",
         "tsx": "4.23.12",
-        "typescript": "7.0.2",
+        "typescript": "6.0.3",
         "vite": "8.2.2",
         "vitest": "^4.1.11"
     },

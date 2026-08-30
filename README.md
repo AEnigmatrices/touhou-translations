@@ -1,6 +1,6 @@
 # Touhou Translations
 
-Touhou Translations is a personal archive and viewer for English-translated Touhou Project fan comics and illustrations. It is built with SvelteKit, TypeScript, and Vite, then deployed as a static site for GitHub Pages.
+Touhou Translations is a personal archive and viewer for English-translated Touhou Project fan comics and illustrations. It is built with Astro and TypeScript, then deployed as a static site to GitHub Pages.
 
 ## Purpose
 
@@ -8,17 +8,21 @@ The project collects manually translated Touhou fan art and comics while preserv
 
 ## Tech Stack
 
-- **SvelteKit** - File-based routing, static generation, and client-side routes.
-- **Vite** - Development server and production build tooling.
+- **Astro** - File-based routing, components, and static generation with no client framework runtime.
+- **Vite** - Astro's development server and the local authoring API integration.
 - **TypeScript** - Static checking for route modules, build tooling, and plugin code.
 - **PNPM** - Package management.
-- **SvelteKit service worker** - Manual app-shell caching and web app manifest.
+- **Service worker** - Generated app-shell and runtime caching with a hand-authored web app manifest.
 - **GitHub Pages** - Static hosting through GitHub Actions.
 
 ## Repository Structure
 
-- `src/routes/` - SvelteKit routes and route-level styles.
-- `src/lib/` - Shared Svelte components and server-only post data assembly.
+- `src/pages/` - Astro pages, dynamic post routes, the 404 page, and static JSON endpoints.
+- `src/layouts/` - The shared Astro document and site shell.
+- `src/components/` - Server-rendered Astro UI components.
+- `src/scripts/` - Small browser-side TypeScript controllers for interactive controls.
+- `src/dev/` - The development-only archive authoring page.
+- `src/lib/server/` - Framework-neutral post data assembly used during static generation.
 - `src/styles/` - Global CSS and design tokens.
 - `src/utils/` - Shared data-loading, filtering, and URL helpers.
 - `src/types/` - Shared TypeScript data models.
@@ -53,15 +57,15 @@ pnpm run test:e2e
 pnpm run clean
 ```
 
-`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, TypeScript checks, and unit tests. `build` generates and verifies every static post artifact, while `test:e2e` checks the production site in Chromium, including server-rendered post metadata and offline caching. `clean` removes generated data, framework caches, and build output.
+`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, Astro/TypeScript checks, and unit tests. `build` generates and verifies every static post artifact, while `test:e2e` checks the production site in Chromium, including prerendered post metadata and offline caching. `clean` removes generated data, Astro caches, and build output.
 
 ## Content Data
 
 Posts, artists, and characters are stored as JSON under `data/`. The application imports this data at build time, derives artist and character counts, and prerenders the index, gallery, artist, character, and individual post pages.
 
-Each `/posts/[id]` URL is emitted as a real static page with its content and social metadata in the initial HTML. Post details are assembled by server-only build code, and the random-post control fetches the shared ID index only when it is used. The service worker precaches the application shell and shared build assets, then caches successful post visits at runtime instead of downloading the entire archive during installation.
+Each `/posts/[id]` URL is emitted by Astro's `getStaticPaths()` as a real static page with its content and social metadata in the initial HTML. Post details are assembled by build-only code, and the random-post control fetches the shared ID index only when it is used. A post-build service-worker generator precaches the application shell and shared build assets, then caches successful post visits at runtime instead of downloading the entire archive during installation.
 
-The `/admin` route is a local development helper for adding posts and artists through the Vite dev server middleware. The production build uses a route tree that omits `/admin`, so neither the route nor its client code is included in the deployed artifact.
+The `/admin` route is a local development helper for adding posts and artists through Vite middleware. A local Astro integration injects this route only for `astro dev`, so neither the route nor its client code is included in the production artifact.
 
 ## Deployment
 
@@ -71,7 +75,7 @@ The site is deployed to:
 https://aenigmatrices.github.io/touhou-translations/
 ```
 
-The production build uses the `/touhou-translations/` base path configured in `svelte.config.ts`. The GitHub Actions workflow installs dependencies with PNPM, runs the production build, and uploads the generated `build` directory as a GitHub Pages artifact.
+The production build uses the `/touhou-translations/` base path configured in `astro.config.ts`. The GitHub Actions workflow installs dependencies with PNPM, runs the production build, and uploads the generated `build` directory as a GitHub Pages artifact.
 
 Manual deployment is also available:
 

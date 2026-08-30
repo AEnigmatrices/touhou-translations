@@ -1,0 +1,61 @@
+---
+import AboutCard from '../components/home/AboutCard.astro';
+import DailyPost from '../components/home/DailyPost.astro';
+import FeaturedVideo from '../components/home/FeaturedVideo.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { fetchHomePosts } from '../utils/generatedData';
+import { selectDailyPost } from '../utils/dailyPost';
+import { absoluteSiteUrl, DEFAULT_DESCRIPTION, SITE_NAME } from '../utils/siteMetadata';
+
+const dailyPostCandidates = await fetchHomePosts();
+const dailyPost = selectDailyPost(dailyPostCandidates);
+---
+
+<BaseLayout
+    title="Home | Touhou Translations"
+    description={DEFAULT_DESCRIPTION}
+    canonical={absoluteSiteUrl()}
+    ogTitle={SITE_NAME}
+    ogImage={absoluteSiteUrl('icons/touhou-translations-profile-icon.png')}
+    currentSection="home"
+>
+    <section class="container">
+        <div class="grid">
+            <div class="stack">
+                <AboutCard />
+                <FeaturedVideo />
+            </div>
+            <DailyPost post={dailyPost} />
+        </div>
+    </section>
+    <script src="../scripts/dailyPost.ts"></script>
+</BaseLayout>
+
+<style>
+    .container {
+        width: min(1280px, 100%);
+        padding: 0.25rem 0 1rem;
+        margin: 0 auto;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(280px, 5fr);
+        gap: 1.25rem;
+    }
+
+    .stack {
+        display: grid;
+        gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+        .container {
+            padding: 1rem;
+        }
+
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

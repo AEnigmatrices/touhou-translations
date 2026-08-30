@@ -1,0 +1,460 @@
+---
+import '../styles/global.css';
+import { assetPath, pagePath } from '../utils/paths';
+import { DEFAULT_DESCRIPTION, SITE_NAME } from '../utils/siteMetadata';
+
+interface Props {
+    title: string;
+    description?: string;
+    canonical?: string;
+    ogTitle?: string;
+    ogType?: 'website' | 'article';
+    ogImage?: string;
+    currentSection?: 'home' | 'characters' | 'artists' | 'gallery' | 'post';
+    noindex?: boolean;
+}
+
+const {
+    title,
+    description = DEFAULT_DESCRIPTION,
+    canonical,
+    ogTitle = title,
+    ogType = 'website',
+    ogImage,
+    currentSection,
+    noindex = false
+} = Astro.props;
+
+const links = [
+    { label: 'Home', href: pagePath(), section: 'home' },
+    { label: 'Characters', href: pagePath('characters'), section: 'characters' },
+    { label: 'Artists', href: pagePath('artists'), section: 'artists' },
+    { label: 'Gallery', href: pagePath('gallery'), section: 'gallery' }
+] as const;
+
+const socialLinks = [
+    { label: 'Reddit', href: 'https://www.reddit.com/user/Aenigmatrix/' },
+    { label: 'Twitter', href: 'https://twitter.com/AEnigmatrices' },
+    { label: 'YouTube', href: 'https://www.youtube.com/@Aenigmatrices' },
+    { label: 'Pixiv', href: 'https://www.pixiv.net/en/users/4920496' }
+];
+
+const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    alternateName: 'Touhou TL',
+    url: 'https://aenigmatrices.github.io/touhou-translations/',
+    description: DEFAULT_DESCRIPTION
+};
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-site-verification" content="0HESLIqydO91EGI_Nz10xq3aAxhdqBAfCHes6Q6oXrE" />
+        <meta name="referrer" content="strict-origin" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="apple-mobile-web-app-title" content="Touhou TL" />
+        {noindex && <meta name="robots" content="noindex" />}
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {canonical && <link rel="canonical" href={canonical} />}
+        <link rel="manifest" href={assetPath('manifest.webmanifest')} />
+        <link rel="icon" href={assetPath('favicon.ico')} type="image/x-icon" />
+        <link rel="apple-touch-icon" href={assetPath('icons/pwa/pwa-icon-192x192.png')} />
+        <link rel="preconnect" href="https://i.redd.it" />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:title" content={ogTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content={ogType} />
+        {canonical && <meta property="og:url" content={canonical} />}
+        {ogImage && <meta property="og:image" content={ogImage} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
+    </head>
+    <body>
+        <div class="layout">
+            <header class="app-bar">
+                <nav class="toolbar" aria-label="Primary navigation">
+                    <a class="brand" href={pagePath()}>Touhou Translations</a>
+                    <div class="tabs" aria-label="Navigation tabs">
+                        {links.map(link => (
+                            <a
+                                class:list={{ active: currentSection === link.section }}
+                                aria-current={currentSection === link.section ? 'page' : undefined}
+                                href={link.href}
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                        <button
+                            type="button"
+                            class:list={{ active: currentSection === 'post' }}
+                            aria-current={currentSection === 'post' ? 'page' : undefined}
+                            data-random-post
+                        >Post</button>
+                    </div>
+                </nav>
+            </header>
+
+            <nav class="mobile-tabs" aria-label="Mobile navigation">
+                {links.map(link => (
+                    <a
+                        class:list={{ active: currentSection === link.section }}
+                        aria-current={currentSection === link.section ? 'page' : undefined}
+                        href={link.href}
+                    >
+                        {link.label}
+                    </a>
+                ))}
+                <button
+                    type="button"
+                    class:list={{ active: currentSection === 'post' }}
+                    aria-current={currentSection === 'post' ? 'page' : undefined}
+                    data-random-post
+                >Post</button>
+            </nav>
+
+            <main class="main">
+                <slot />
+            </main>
+
+            <footer class="footer">
+                <div class="footer-inner">
+                    <section>
+                        <h2>Touhou Translations</h2>
+                        <p>A fan-driven archive featuring English translations of Touhou illustrations and comics.</p>
+                        <p>
+                            Character portraits by
+                            {' '}<a href="https://www.pixiv.net/en/users/4920496" target="_blank" rel="noopener noreferrer">dairi</a>
+                            {' '}and{' '}
+                            <a href="https://www.nicovideo.jp/user/3494232" target="_blank" rel="noopener noreferrer">haruka</a>,
+                            used under their stated permissions.
+                        </p>
+                    </section>
+                    <section class="project">
+                        <h2>Project</h2>
+                        <a href="https://github.com/AEnigmatrices/touhou-translations" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                        <a href="https://github.com/AEnigmatrices/touhou-translations/issues" target="_blank" rel="noopener noreferrer">Submit an Issue</a>
+                        <a href="https://touhou-project.news/guidelines_en/" target="_blank" rel="noopener noreferrer">Fan Content Guidelines</a>
+                    </section>
+                </div>
+                <div class="footer-bottom">
+                    <div class="socials">
+                        {socialLinks.map(link => (
+                            <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>{link.label}</a>
+                        ))}
+                    </div>
+                    <small>© Touhou Translations</small>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            import { assetPath, pagePath } from '../utils/paths';
+
+            const randomPostButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-random-post]')];
+            let postIdRequest: Promise<string[]> | undefined;
+            let randomPostLoading = false;
+
+            const setRandomPostState = (label: string, busy: boolean): void => {
+                for (const button of randomPostButtons) {
+                    button.textContent = label;
+                    button.disabled = busy;
+                    button.setAttribute('aria-busy', String(busy));
+                }
+            };
+
+            const fetchRandomPostIds = (): Promise<string[]> => {
+                postIdRequest ??= fetch(assetPath('post-ids.json'))
+                    .then(async response => {
+                        if (!response.ok) throw new Error(`Post index request failed with ${response.status}.`);
+                        const value: unknown = await response.json();
+                        if (!Array.isArray(value) || !value.every(id => typeof id === 'string')) {
+                            throw new TypeError('Post index response was invalid.');
+                        }
+                        return value;
+                    })
+                    .catch(error => {
+                        postIdRequest = undefined;
+                        throw error;
+                    });
+
+                return postIdRequest;
+            };
+
+            const goToRandomPost = async (): Promise<void> => {
+                if (randomPostLoading) return;
+                randomPostLoading = true;
+                setRandomPostState('Loading…', true);
+
+                try {
+                    const postIds = await fetchRandomPostIds();
+                    if (postIds.length === 0) throw new Error('No posts are available.');
+                    const id = postIds[Math.floor(Math.random() * postIds.length)];
+                    window.location.assign(pagePath(`posts/${id}`));
+                } catch (error) {
+                    console.error('Unable to open a random post.', error);
+                    randomPostLoading = false;
+                    setRandomPostState('Retry', false);
+                }
+            };
+
+            for (const button of randomPostButtons) {
+                button.addEventListener('click', () => void goToRandomPost());
+            }
+
+            if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    void navigator.serviceWorker.register(assetPath('service-worker.js'), {
+                        scope: pagePath()
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+    .layout {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    .app-bar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        color: var(--color-ink);
+        background: rgba(255, 255, 255, 0.86);
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: var(--shadow-sm);
+        backdrop-filter: blur(12px);
+    }
+
+    .toolbar {
+        display: flex;
+        min-height: 68px;
+        width: min(1280px, 100%);
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.5rem;
+        margin: 0 auto;
+    }
+
+    .brand {
+        color: var(--color-ink);
+        font-size: 1.12rem;
+        font-weight: 800;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .tabs {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem;
+        background: rgba(238, 242, 247, 0.72);
+        border: 1px solid rgba(42, 55, 76, 0.08);
+        border-radius: 999px;
+    }
+
+    .tabs a,
+    .tabs button {
+        display: inline-flex;
+        min-height: 38px;
+        align-items: center;
+        padding: 0 0.95rem;
+        color: var(--color-muted);
+        font-size: 0.93rem;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        border-radius: 999px;
+    }
+
+    .tabs a:hover,
+    .tabs button:hover,
+    .tabs a.active,
+    .tabs button.active {
+        color: var(--color-primary);
+        background: var(--color-surface);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .tabs button:disabled {
+        cursor: wait;
+    }
+
+    .main {
+        flex: 1;
+        padding: var(--space-page);
+    }
+
+    .mobile-tabs {
+        display: none;
+    }
+
+    .footer {
+        margin-top: 4rem;
+        padding: 2.5rem 1.5rem 5rem;
+        color: var(--color-text);
+        background: var(--color-surface);
+        border-top: 1px solid var(--color-border);
+    }
+
+    .footer-inner {
+        display: grid;
+        width: min(1280px, 100%);
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 0.6fr);
+        gap: 3rem;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .footer h2 {
+        margin: 0 0 0.75rem;
+        color: var(--color-ink);
+        font-size: 1.05rem;
+    }
+
+    .footer p {
+        max-width: 68ch;
+        margin: 0.5rem 0 0;
+        color: var(--color-muted);
+        font-size: 0.92rem;
+    }
+
+    .project {
+        display: grid;
+        justify-items: end;
+        gap: 0.45rem;
+        text-align: right;
+    }
+
+    .project a,
+    .footer p a {
+        color: var(--color-primary);
+        font-weight: 700;
+    }
+
+    .footer-bottom {
+        display: flex;
+        width: min(1280px, 100%);
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 1.25rem;
+        margin: 2rem auto 0;
+        color: var(--color-muted);
+        border-top: 1px solid var(--color-border);
+    }
+
+    .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .socials a {
+        display: inline-flex;
+        min-height: 36px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0.75rem;
+        color: var(--color-muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-decoration: none;
+        border: 1px solid var(--color-border);
+        border-radius: 999px;
+    }
+
+    .socials a:hover {
+        color: var(--color-primary);
+        background: var(--color-primary-soft);
+        border-color: var(--color-primary);
+    }
+
+    @media (max-width: 900px) {
+        .main {
+            padding: 0 0 4.75rem;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .tabs {
+            display: none;
+        }
+
+        .toolbar {
+            justify-content: center;
+            min-height: 56px;
+            padding: 0 1rem;
+        }
+
+        .mobile-tabs {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 110;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            padding: 0.35rem max(0.35rem, env(safe-area-inset-right)) max(0.35rem, env(safe-area-inset-bottom)) max(0.35rem, env(safe-area-inset-left));
+            background: rgba(255, 255, 255, 0.94);
+            border-top: 1px solid var(--color-border);
+            box-shadow: 0 -3px 18px rgba(24, 33, 47, 0.12);
+            backdrop-filter: blur(12px);
+        }
+
+        .mobile-tabs a,
+        .mobile-tabs button {
+            display: inline-flex;
+            min-width: 0;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 0.25rem;
+            color: var(--color-muted);
+            font-size: 0.72rem;
+            font-weight: 750;
+            text-decoration: none;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            border-radius: var(--radius-md);
+        }
+
+        .mobile-tabs .active {
+            color: var(--color-primary);
+            background: var(--color-primary-soft);
+        }
+
+        .mobile-tabs button:disabled {
+            cursor: wait;
+        }
+
+        .footer-inner {
+            grid-template-columns: 1fr;
+        }
+
+        .project,
+        .footer-bottom {
+            justify-items: start;
+            text-align: left;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+</style>

@@ -2,7 +2,7 @@ import {
     extractBaseRedditUrl,
     parseRedditData,
     type RedditFormData
-} from '../../src/routes/admin/postForm.ts';
+} from '../../src/utils/admin/postForm.ts';
 import sanitizeHtml from 'sanitize-html';
 
 export { extractBaseRedditUrl };

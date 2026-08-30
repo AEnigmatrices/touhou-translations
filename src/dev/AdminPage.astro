@@ -1,0 +1,404 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Admin | Touhou Translations" description="Local archive authoring tools." noindex>
+    <section class="admin-page">
+        <form novalidate data-post-form>
+            <h1>Add Reddit Post</h1>
+            <p class="intro">Fetch Reddit metadata, review the entry, then save it to the matching yearly data file.</p>
+            <label>
+                <span>Reddit URL</span>
+                <input
+                    type="url"
+                    placeholder="https://www.reddit.com/r/touhou/comments/..."
+                    data-post-reddit
+                />
+            </label>
+            <div class="reddit-actions">
+                <button type="button" data-fetch-reddit>Fetch Reddit Data</button>
+            </div>
+            <label>
+                <span>UNIX timestamp (milliseconds)</span>
+                <input type="number" value={Date.now()} data-post-date />
+            </label>
+            <label>
+                <span>Image URLs (comma separated)</span>
+                <textarea data-post-urls></textarea>
+            </label>
+            <div class="previews" aria-label="Image previews" data-image-previews hidden></div>
+            <label>
+                <span>Source URL</span>
+                <input type="url" data-post-source />
+            </label>
+            <label>
+                <span>Markdown description</span>
+                <textarea data-post-description></textarea>
+            </label>
+
+            <div class="artist-field">
+                <label for="artist-search">Artist</label>
+                <div class="artist-picker" data-artist-picker>
+                    <input
+                        id="artist-search"
+                        type="search"
+                        role="combobox"
+                        aria-autocomplete="list"
+                        aria-controls="artist-options"
+                        aria-expanded="false"
+                        autocomplete="off"
+                        placeholder="Type an artist name or ID"
+                        data-artist-search
+                    />
+                    <ul id="artist-options" class="artist-options" role="listbox" data-artist-options hidden></ul>
+                </div>
+                <div class="selected-artist" data-selected-artist hidden></div>
+                <small>Choose a suggestion or press Enter.</small>
+                <small class="error" data-artist-search-error hidden></small>
+            </div>
+
+            <div class="character-field">
+                <label for="character-search">Character tags</label>
+                <div class="character-picker" data-character-picker>
+                    <input
+                        id="character-search"
+                        type="search"
+                        role="combobox"
+                        aria-autocomplete="list"
+                        aria-controls="character-options"
+                        aria-expanded="false"
+                        autocomplete="off"
+                        placeholder="Type a character name or ID"
+                        data-character-search
+                    />
+                    <ul id="character-options" class="character-options" role="listbox" data-character-options hidden></ul>
+                </div>
+                <small>Choose a suggestion or press Enter. Backspace removes the last tag.</small>
+                <small class="error" data-character-error hidden></small>
+            </div>
+            <div class="chips" aria-label="Selected characters" data-character-chips hidden></div>
+            <label class="checkbox">
+                <input type="checkbox" data-post-nsfw />
+                <span>Mark post as NSFW</span>
+            </label>
+            <button type="submit" data-submit-post>Add Post</button>
+            <p class="status" role="status" data-post-status hidden></p>
+            <p class="error" role="alert" data-post-error hidden></p>
+        </form>
+
+        <form class="artist-form" novalidate data-artist-form>
+            <h1>Add Artist</h1>
+            <p class="intro">
+                Add an artist to the shared artist list. A random placeholder portrait will be assigned automatically.
+            </p>
+            <div class="artist-fields">
+                <label>
+                    <span>Artist ID</span>
+                    <input autocomplete="off" placeholder="lowercase_id" data-new-artist-id />
+                    <small>Use lowercase letters, numbers, and underscores.</small>
+                </label>
+                <label>
+                    <span>Display name</span>
+                    <input autocomplete="off" data-new-artist-name />
+                </label>
+                <label>
+                    <span>X / Twitter URL</span>
+                    <input type="url" placeholder="https://x.com/username" data-new-artist-twitter />
+                </label>
+                <label>
+                    <span>Pixiv URL</span>
+                    <input type="url" placeholder="https://www.pixiv.net/en/users/123456" data-new-artist-pixiv />
+                </label>
+            </div>
+            <button type="submit" data-submit-artist>Add Artist</button>
+            <p class="status" role="status" data-artist-status hidden></p>
+            <p class="error" role="alert" data-artist-error hidden></p>
+        </form>
+    </section>
+    <script src="../scripts/admin.ts"></script>
+</BaseLayout>
+
+<style is:global>
+    .admin-page {
+        display: grid;
+        gap: 1rem;
+        width: min(760px, 100%);
+        margin: 0 auto;
+    }
+
+    .admin-page form {
+        display: grid;
+        gap: 0.9rem;
+        padding: 1rem;
+        text-align: left;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .admin-page h1 {
+        margin: 0;
+        color: var(--color-ink);
+    }
+
+    .admin-page .intro,
+    .admin-page .status,
+    .admin-page .error {
+        margin: 0;
+    }
+
+    .admin-page .intro,
+    .admin-page .status,
+    .admin-page label small,
+    .admin-page .artist-field > small,
+    .admin-page .character-field > small {
+        color: var(--color-muted);
+    }
+
+    .admin-page .error {
+        color: var(--color-primary);
+        font-weight: 700;
+    }
+
+    .admin-page label,
+    .admin-page .artist-field,
+    .admin-page .character-field {
+        display: grid;
+        gap: 0.35rem;
+        color: var(--color-muted);
+        font-weight: 700;
+    }
+
+    .admin-page input,
+    .admin-page textarea {
+        width: 100%;
+        min-height: 42px;
+        padding: 0.6rem 0.75rem;
+        color: var(--color-ink);
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-strong);
+        border-radius: var(--radius-md);
+    }
+
+    .admin-page textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    .admin-page button {
+        min-height: 42px;
+        padding: 0.6rem 1rem;
+        color: var(--color-on-primary);
+        font-weight: 800;
+        cursor: pointer;
+        background: var(--color-primary);
+        border: 1px solid var(--color-primary);
+        border-radius: var(--radius-md);
+    }
+
+    .admin-page button:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+    }
+
+    .admin-page .reddit-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+    }
+
+    .admin-page .reddit-actions button {
+        flex: 1 1 180px;
+    }
+
+    .admin-page .previews {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .admin-page .previews figure {
+        display: grid;
+        gap: 0.35rem;
+        margin: 0;
+    }
+
+    .admin-page .previews img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        background: var(--color-bg-soft);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .admin-page .previews figcaption {
+        color: var(--color-muted);
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    .admin-page .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .admin-page .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.3rem 0.35rem 0.3rem 0.6rem;
+        color: var(--color-text);
+        font-weight: 700;
+        background: var(--color-secondary-soft);
+        border-radius: 999px;
+    }
+
+    .admin-page .chips img {
+        width: 28px;
+        height: 28px;
+        object-fit: cover;
+        border-radius: var(--radius-sm);
+    }
+
+    .admin-page .chip .chip-remove,
+    .admin-page .selected-artist button {
+        width: 28px;
+        min-height: 28px;
+        padding: 0;
+        color: var(--color-text);
+        font-size: 1.15rem;
+        line-height: 1;
+        background: transparent;
+        border: 0;
+        border-radius: 999px;
+    }
+
+    .admin-page .chip .chip-remove:hover,
+    .admin-page .selected-artist button:hover {
+        background: var(--color-surface);
+    }
+
+    .admin-page .artist-picker,
+    .admin-page .character-picker {
+        position: relative;
+    }
+
+    .admin-page .artist-options,
+    .admin-page .character-options {
+        position: absolute;
+        z-index: 10;
+        top: calc(100% + 0.25rem);
+        right: 0;
+        left: 0;
+        max-height: 320px;
+        padding: 0.3rem;
+        margin: 0;
+        overflow-y: auto;
+        list-style: none;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border-strong);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .admin-page .artist-options button,
+    .admin-page .character-options button {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 0.6rem;
+        width: 100%;
+        min-height: 44px;
+        padding: 0.4rem 0.6rem;
+        color: var(--color-text);
+        text-align: left;
+        background: transparent;
+        border: 0;
+    }
+
+    .admin-page .artist-options button:hover,
+    .admin-page .artist-options button.highlighted,
+    .admin-page .character-options button:hover,
+    .admin-page .character-options button.highlighted {
+        background: var(--color-secondary-soft);
+    }
+
+    .admin-page .artist-options img,
+    .admin-page .character-options img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: var(--radius-sm);
+    }
+
+    .admin-page .artist-options small,
+    .admin-page .character-options small {
+        color: var(--color-muted);
+    }
+
+    .admin-page .selected-artist {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr) 28px;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.4rem 0.6rem;
+        color: var(--color-text);
+        background: var(--color-secondary-soft);
+        border-radius: var(--radius-md);
+    }
+
+    .admin-page .selected-artist img {
+        width: 36px;
+        height: 36px;
+        object-fit: cover;
+        border-radius: var(--radius-sm);
+    }
+
+    .admin-page .selected-artist span {
+        display: grid;
+    }
+
+    .admin-page .selected-artist small {
+        color: var(--color-muted);
+    }
+
+    .admin-page .no-options {
+        padding: 0.75rem;
+        color: var(--color-muted);
+        text-align: center;
+    }
+
+    .admin-page .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+    }
+
+    .admin-page .checkbox input {
+        width: 18px;
+        min-height: 18px;
+    }
+
+    .admin-page .artist-fields {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+    }
+
+    .admin-page [hidden] {
+        display: none !important;
+    }
+
+    @media (max-width: 600px) {
+        .admin-page {
+            padding: 1rem;
+        }
+
+        .admin-page .artist-fields {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

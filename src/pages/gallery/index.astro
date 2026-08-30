@@ -1,0 +1,19 @@
+---
+import GalleryBrowser from '../../components/gallery/GalleryBrowser.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { fetchGalleryData } from '../../utils/generatedData';
+import { absoluteSiteUrl } from '../../utils/siteMetadata';
+
+const { posts } = await fetchGalleryData();
+const description = 'Browse English-translated Touhou Project comics and illustrations by artist and character.';
+---
+
+<BaseLayout
+    title="Gallery | Touhou Translations"
+    {description}
+    canonical={absoluteSiteUrl('gallery')}
+    ogTitle="Gallery | Touhou Translations"
+    currentSection="gallery"
+>
+    <GalleryBrowser {posts} />
+</BaseLayout>

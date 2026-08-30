@@ -1,0 +1,8 @@
+---
+import ListPage from '../../components/list/ListPage.astro';
+import { fetchArtistsData } from '../../utils/generatedData';
+
+const { artists } = await fetchArtistsData();
+---
+
+<ListPage mode="artist" items={artists} />

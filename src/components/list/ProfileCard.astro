@@ -1,0 +1,30 @@
+---
+import type { Artist, Character } from '../../types/data';
+import { assetPath, pagePathWithQuery } from '../../utils/paths';
+
+interface Props {
+    item: Artist | Character;
+    mode: 'character' | 'artist';
+}
+
+const { item, mode } = Astro.props;
+const description2 = mode === 'character'
+    ? `${(item as Character).artistCount} artist${(item as Character).artistCount === 1 ? '' : 's'}`
+    : `${(item as Artist).characterCount} character${(item as Artist).characterCount === 1 ? '' : 's'}`;
+const href = pagePathWithQuery('gallery', `${mode === 'character' ? 'characters' : 'artist'}=${encodeURIComponent(item.id)}`);
+---
+
+<li class="profile-item large" aria-label={`Profile: ${item.name}`} data-item-id={item.id}>
+    <a class="box" href={href}>
+        <div class="content large-content">
+            <div class="image-frame large-image">
+                <img src={assetPath(item.portrait)} alt={item.name} loading="lazy" decoding="async" />
+            </div>
+            <div class="text large-text">
+                <p class="name large-name">{item.name}</p>
+                <p class="desc">{item.artworkCount} artwork{item.artworkCount === 1 ? '' : 's'}</p>
+                <p class="desc">{description2}</p>
+            </div>
+        </div>
+    </a>
+</li>
