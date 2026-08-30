@@ -92,19 +92,31 @@ test('gallery warms a bounded set of visible post documents after primary artwor
     await warmedPost;
 });
 
-test('post pages warm adjacent documents only after primary artwork settles', async ({ page }) => {
+test('post pages warm adjacent and related artist documents after primary artwork settles', async ({ page }) => {
     await makeIdleCallbacksImmediate(page);
     await stubRedditImages(page);
     const postId = extractRedditId(posts[0].reddit);
     expect(postId).not.toBe('');
-    const warmedAdjacent = page.waitForRequest(request =>
-        request.resourceType() === 'fetch'
-        && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)
-    );
+
+    const warmedPostUrls = new Set<string>();
+    page.on('request', request => {
+        if (request.resourceType() === 'fetch' && /\/posts\/[^/]+\/$/.test(new URL(request.url()).pathname)) {
+            warmedPostUrls.add(request.url());
+        }
+    });
 
     await page.goto(`posts/${postId}/`, { waitUntil: 'domcontentloaded' });
-    await warmedAdjacent;
     await expect(page.locator('[data-adjacent-post]')).not.toHaveCount(0);
+
+    const relatedUrls = await page.evaluate(() => {
+        const template = document.querySelector<HTMLTemplateElement>('[data-more-template]');
+        return template
+            ? [...template.content.querySelectorAll<HTMLAnchorElement>('a')].slice(0, 4).map(link => link.href)
+            : [];
+    });
+    expect(relatedUrls.length).toBeGreaterThan(0);
+
+    await expect.poll(() => relatedUrls.some(url => warmedPostUrls.has(url))).toBe(true);
 });
 
 test('a direct post URL returns server-rendered archive metadata and content', async ({ page, request }) => {
