@@ -9,27 +9,19 @@
 </section>
 
 <script>
-    const initializeFeaturedVideo = (): void => {
-        const root = document.querySelector<HTMLElement>('[data-featured-video]');
-        if (!root || root.dataset.initialized === 'true') return;
-        root.dataset.initialized = 'true';
+    const root = document.querySelector<HTMLElement>('[data-featured-video]');
+    const poster = root?.querySelector<HTMLButtonElement>('[data-video-poster]');
+    const frame = root?.querySelector<HTMLElement>('.video-frame');
 
-        const poster = root.querySelector<HTMLButtonElement>('[data-video-poster]');
-        const frame = root.querySelector<HTMLElement>('.video-frame');
-
-        poster?.addEventListener('click', () => {
-            if (!frame) return;
-            const iframe = document.createElement('iframe');
-            iframe.src = 'https://www.youtube-nocookie.com/embed/Gfev_ZEBRNk?autoplay=1';
-            iframe.title = 'Featured Video';
-            iframe.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
-            iframe.allowFullscreen = true;
-            frame.replaceChildren(iframe);
-        }, { once: true });
-    };
-
-    document.addEventListener('astro:page-load', initializeFeaturedVideo);
-    initializeFeaturedVideo();
+    poster?.addEventListener('click', () => {
+        if (!frame) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/Gfev_ZEBRNk?autoplay=1';
+        iframe.title = 'Featured Video';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        frame.replaceChildren(iframe);
+    }, { once: true });
 </script>
 
 <style is:global>
