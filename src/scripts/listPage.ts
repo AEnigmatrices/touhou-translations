@@ -4,10 +4,12 @@ import { assetPath, pagePathWithQuery } from '../utils/paths';
 type ListItem = Artist | Character;
 type ListMode = 'character' | 'artist';
 
-const root = document.querySelector<HTMLElement>('[data-list-page]');
-const dataElement = root?.querySelector<HTMLScriptElement>('[data-list-data]');
+const initializeListPage = (): void => {
+    const root = document.querySelector<HTMLElement>('[data-list-page]');
+    const dataElement = root?.querySelector<HTMLScriptElement>('[data-list-data]');
+    if (!root || !dataElement || root.dataset.initialized === 'true') return;
+    root.dataset.initialized = 'true';
 
-if (root && dataElement) {
     const mode = root.dataset.mode as ListMode;
     const items = JSON.parse(dataElement.textContent ?? '[]') as ListItem[];
     const searchInput = root.querySelector<HTMLInputElement>('[data-list-search]');
@@ -31,15 +33,9 @@ if (root && dataElement) {
             : right.artworkCount - left.artworkCount;
         if (primaryDifference !== 0) return primaryDifference;
 
-        const leftSecondary = mode === 'character'
-            ? (left as Character).artistCount
-            : (left as Artist).characterCount;
-        const rightSecondary = mode === 'character'
-            ? (right as Character).artistCount
-            : (right as Artist).characterCount;
-        return sortOrder === 'asc'
-            ? leftSecondary - rightSecondary
-            : rightSecondary - leftSecondary;
+        const leftSecondary = mode === 'character' ? (left as Character).artistCount : (left as Artist).characterCount;
+        const rightSecondary = mode === 'character' ? (right as Character).artistCount : (right as Artist).characterCount;
+        return sortOrder === 'asc' ? leftSecondary - rightSecondary : rightSecondary - leftSecondary;
     };
 
     const selectedGalleryUrl = (id: string): string => {
@@ -68,9 +64,7 @@ if (root && dataElement) {
             box.type = 'button';
             box.setAttribute('aria-pressed', String(selected));
             box.addEventListener('click', () => {
-                selectedItems = selected
-                    ? selectedItems.filter(id => id !== item.id)
-                    : [...selectedItems, item.id];
+                selectedItems = selected ? selectedItems.filter(id => id !== item.id) : [...selectedItems, item.id];
                 render();
             });
         } else {
@@ -102,9 +96,7 @@ if (root && dataElement) {
         }
         text.append(makeText('name large-name', item.name));
         text.append(makeText('desc', `${item.artworkCount} artwork${item.artworkCount === 1 ? '' : 's'}`));
-        const secondaryCount = mode === 'character'
-            ? (item as Character).artistCount
-            : (item as Artist).characterCount;
+        const secondaryCount = mode === 'character' ? (item as Character).artistCount : (item as Artist).characterCount;
         const secondaryLabel = mode === 'character' ? 'artist' : 'character';
         text.append(makeText('desc', `${secondaryCount} ${secondaryLabel}${secondaryCount === 1 ? '' : 's'}`));
 
@@ -118,8 +110,7 @@ if (root && dataElement) {
         if (!grid || !sortButton || !loadMoreButton) return;
         const query = searchValue.toLocaleLowerCase();
         const searchedItems = query
-            ? items.filter(item => [item.id, item.name]
-                .some(value => value.toLocaleLowerCase().includes(query)))
+            ? items.filter(item => [item.id, item.name].some(value => value.toLocaleLowerCase().includes(query)))
             : items;
         const sortedItems = [...searchedItems].sort(compareItems);
         grid.replaceChildren(...sortedItems.slice(0, visibleCount).map(renderItem));
@@ -131,9 +122,7 @@ if (root && dataElement) {
         if (selectModeButton) {
             selectModeButton.classList.toggle('active', isSelectMode);
             selectModeButton.setAttribute('aria-pressed', String(isSelectMode));
-            selectModeButton.textContent = isSelectMode
-                ? `${selectedItems.length || 'Multi'} Selected`
-                : 'Multi-Select OFF';
+            selectModeButton.textContent = isSelectMode ? `${selectedItems.length || 'Multi'} Selected` : 'Multi-Select OFF';
         }
         if (viewSelectedLink) {
             viewSelectedLink.hidden = !isSelectMode || selectedItems.length === 0;
@@ -141,22 +130,13 @@ if (root && dataElement) {
         }
     };
 
-    searchInput?.addEventListener('input', () => {
-        searchValue = searchInput.value;
-        render();
-    });
-    sortButton?.addEventListener('click', () => {
-        sortOrder = sortOrder === 'none' ? 'desc' : sortOrder === 'desc' ? 'asc' : 'none';
-        render();
-    });
-    selectModeButton?.addEventListener('click', () => {
-        isSelectMode = !isSelectMode;
-        render();
-    });
-    loadMoreButton?.addEventListener('click', () => {
-        visibleCount += pageSize;
-        render();
-    });
+    searchInput?.addEventListener('input', () => { searchValue = searchInput.value; render(); });
+    sortButton?.addEventListener('click', () => { sortOrder = sortOrder === 'none' ? 'desc' : sortOrder === 'desc' ? 'asc' : 'none'; render(); });
+    selectModeButton?.addEventListener('click', () => { isSelectMode = !isSelectMode; render(); });
+    loadMoreButton?.addEventListener('click', () => { visibleCount += pageSize; render(); });
 
     render();
-}
+};
+
+document.addEventListener('astro:page-load', initializeListPage);
+initializeListPage();
