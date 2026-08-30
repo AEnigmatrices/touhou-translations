@@ -15,8 +15,7 @@ const isHomePost = (value: unknown): value is HomePost => {
 
 const initializeDailyPost = (): void => {
     const root = document.querySelector<HTMLElement>('[data-daily-post]');
-    if (!root || root.dataset.initialized === 'true') return;
-    root.dataset.initialized = 'true';
+    if (!root) return;
 
     const link = root.querySelector<HTMLAnchorElement>('[data-daily-link]');
     const image = root.querySelector<HTMLImageElement>('[data-daily-image]');
@@ -47,5 +46,4 @@ const initializeDailyPost = (): void => {
         });
 };
 
-document.addEventListener('astro:page-load', initializeDailyPost);
 initializeDailyPost();
