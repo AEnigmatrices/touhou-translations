@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
     buildPostEntry,
     extractBaseRedditUrl,
+    normalizeHttpUrl,
     parseRedditData,
+    splitClean,
     validateRedditUrl
 } from './postForm';
 
@@ -11,6 +13,19 @@ describe('admin post form helpers', () => {
         expect(extractBaseRedditUrl('https://old.reddit.com/r/touhou/comments/abc123/title/?share_id=1'))
             .toBe('https://www.reddit.com/r/touhou/comments/abc123');
         expect(extractBaseRedditUrl('https://example.com/r/touhou/comments/abc123')).toBe('');
+    });
+
+    it('accepts only absolute HTTP(S) media URLs', () => {
+        expect(normalizeHttpUrl(' https://example.com/image.png ')).toBe('https://example.com/image.png');
+        expect(normalizeHttpUrl('http://example.com/image.png')).toBe('http://example.com/image.png');
+        expect(normalizeHttpUrl('javascript:alert(1)')).toBe('');
+        expect(normalizeHttpUrl('data:image/png;base64,AAAA')).toBe('');
+        expect(normalizeHttpUrl('/relative/image.png')).toBe('');
+        expect(normalizeHttpUrl('not a URL')).toBe('');
+        expect(splitClean('https://a.test/1.png, javascript:alert(1), https://a.test/2.png')).toEqual([
+            'https://a.test/1.png',
+            'https://a.test/2.png'
+        ]);
     });
 
     it('rejects malformed and duplicate Reddit posts', () => {
@@ -54,7 +69,7 @@ describe('admin post form helpers', () => {
             date: 100,
             reddit: 'https://www.reddit.com/r/touhou/comments/abc123',
             url: ['https://a.test/1.png', 'https://a.test/2.png'],
-            src: 'https://source.test',
+            src: 'https://source.test/',
             desc: 'Description',
             artistId: 'artist',
             characterIds: ['reimu'],
