@@ -22,8 +22,17 @@ export interface RedditFormData {
     imageUrls: string[];
 }
 
+export const normalizeHttpUrl = (value: string): string => {
+    try {
+        const url = new URL(value.trim());
+        return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : '';
+    } catch {
+        return '';
+    }
+};
+
 export const splitClean = (input: string): string[] => (
-    input.split(',').map(value => value.trim()).filter(Boolean)
+    input.split(',').map(normalizeHttpUrl).filter(Boolean)
 );
 
 export const extractBaseRedditUrl = (value = ''): string => {
@@ -75,9 +84,10 @@ export const parseRedditData = (response: unknown): RedditFormData | null => {
     const imageUrls = post.media_metadata
         ? Object.entries(post.media_metadata)
             .map(([id, media]) => imageUrlFromMedia(id, media))
+            .map(normalizeHttpUrl)
             .filter(Boolean)
         : post.url
-            ? [decodeRedditUrl(post.url)]
+            ? [normalizeHttpUrl(decodeRedditUrl(post.url))].filter(Boolean)
             : [];
 
     return {
@@ -94,7 +104,7 @@ export const buildPostEntry = (
     date: form.date,
     reddit: extractBaseRedditUrl(form.reddit),
     url: splitClean(form.urls),
-    src: form.src.trim(),
+    src: normalizeHttpUrl(form.src),
     desc: form.desc.trim(),
     artistId: form.artistId.trim(),
     characterIds: form.characterIds,
