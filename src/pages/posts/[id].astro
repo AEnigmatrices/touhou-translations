@@ -144,34 +144,32 @@ const preconnectOrigins = [...new Set([
         </aside>
     </section>
 
-    <script is:inline>
-        (() => {
-            const root = document.querySelector('[data-post-page]');
-            if (!root) return;
-
-            const toggle = root.querySelector('[data-nsfw-toggle]');
-            const morePanel = root.querySelector('[data-more-panel]');
-            const moreGrid = morePanel?.querySelector('[data-more-grid]');
-            const moreTemplate = morePanel?.querySelector('[data-more-template]');
-            const moreAction = morePanel?.querySelector('[data-more-action]');
-            const moreSummary = morePanel?.querySelector('summary');
+    <script>
+        const root = document.querySelector<HTMLElement>('[data-post-page]');
+        if (root) {
+            const toggle = root.querySelector<HTMLButtonElement>('[data-nsfw-toggle]');
+            const morePanel = root.querySelector<HTMLDetailsElement>('[data-more-panel]');
+            const moreGrid = morePanel?.querySelector<HTMLElement>('[data-more-grid]');
+            const moreTemplate = morePanel?.querySelector<HTMLTemplateElement>('[data-more-template]');
+            const moreAction = morePanel?.querySelector<HTMLElement>('[data-more-action]');
+            const moreSummary = morePanel?.querySelector<HTMLElement>('summary');
             const mobileLayout = window.matchMedia('(max-width: 900px)');
             let revealed = false;
             let moreImagesLoaded = false;
 
-            const loadMoreImages = () => {
+            const loadMoreImages = (): void => {
                 if (moreImagesLoaded || !moreGrid || !moreTemplate) return;
                 moreGrid.append(moreTemplate.content.cloneNode(true));
                 moreImagesLoaded = true;
 
                 if (revealed) {
-                    for (const image of moreGrid.querySelectorAll('[data-nsfw-image]')) {
+                    for (const image of moreGrid.querySelectorAll<HTMLElement>('[data-nsfw-image]')) {
                         image.classList.remove('nsfw');
                     }
                 }
             };
 
-            const updateMorePanel = () => {
+            const updateMorePanel = (): void => {
                 if (!morePanel) return;
                 if (!mobileLayout.matches) {
                     morePanel.open = true;
@@ -190,14 +188,14 @@ const preconnectOrigins = [...new Set([
             mobileLayout.addEventListener('change', updateMorePanel);
             toggle?.addEventListener('click', () => {
                 revealed = !revealed;
-                for (const image of root.querySelectorAll('[data-nsfw-image]')) {
+                for (const image of root.querySelectorAll<HTMLElement>('[data-nsfw-image]')) {
                     image.classList.toggle('nsfw', !revealed);
                 }
                 toggle.setAttribute('aria-pressed', String(revealed));
                 toggle.textContent = revealed ? 'Censor images' : 'Uncensor images';
             });
             updateMorePanel();
-        })();
+        }
     </script>
 </BaseLayout>
 
