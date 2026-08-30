@@ -23,6 +23,24 @@ interface ApiResult {
     file?: string;
 }
 
+const readApiResult = async (response: Response): Promise<ApiResult> => {
+    const contentType = response.headers.get('content-type')?.toLowerCase() ?? '';
+    const body = await response.text();
+
+    if (!contentType.includes('application/json')) {
+        const status = `${response.status}${response.statusText ? ` ${response.statusText}` : ''}`;
+        throw new Error(
+            `Admin API returned ${status} instead of JSON. Restart the Astro development server and try again.`
+        );
+    }
+
+    try {
+        return JSON.parse(body) as ApiResult;
+    } catch {
+        throw new Error('Admin API returned malformed JSON.');
+    }
+};
+
 const root = document.querySelector<HTMLElement>('.admin-page');
 
 if (root) {
@@ -142,6 +160,17 @@ if (root) {
         return item;
     };
 
+    const highlightPickerOption = (
+        search: HTMLInputElement,
+        options: HTMLUListElement,
+        optionId: string
+    ): void => {
+        search.setAttribute('aria-activedescendant', optionId);
+        options.querySelectorAll<HTMLButtonElement>('[role="option"]').forEach(option => {
+            option.classList.toggle('highlighted', option.id === optionId);
+        });
+    };
+
     const filteredArtists = (): ArtistRaw[] => filterArtistOptions(artists, artistSearch.value);
 
     const renderArtistOptions = (): void => {
@@ -173,7 +202,7 @@ if (root) {
             () => selectArtist(artist),
             () => {
                 highlightedArtistIndex = index;
-                renderArtistOptions();
+                highlightPickerOption(artistSearch, artistOptions, `artist-option-${artist.id}`);
             }
         )));
     };
@@ -264,7 +293,11 @@ if (root) {
             () => addCharacter(character),
             () => {
                 highlightedCharacterIndex = index;
-                renderCharacterOptions();
+                highlightPickerOption(
+                    characterSearch,
+                    characterOptions,
+                    `character-option-${character.id}`
+                );
             }
         )));
     };
@@ -351,8 +384,8 @@ if (root) {
         setRedditBusy(true);
         setMessage(postStatus, 'Loading Reddit data…');
         try {
-            const response = await fetch(`/api/reddit-data?url=${encodeURIComponent(redditUrl)}`);
-            const result = await response.json() as ApiResult;
+            const response = await fetch(`/api/reddit-data/?url=${encodeURIComponent(redditUrl)}`);
+            const result = await readApiResult(response);
             if (!response.ok || !result.data) throw new Error(result.error || 'Failed to load Reddit data.');
             applyRedditData(result.data);
             setMessage(postStatus, 'Reddit data imported.');
@@ -398,12 +431,12 @@ if (root) {
         setMessage(postStatus, 'Saving...');
         try {
             const entry = buildPostEntry(form, nsfwInput.checked);
-            const response = await fetch('/api/posts', {
+            const response = await fetch('/api/posts/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(entry)
             });
-            const result = await response.json() as ApiResult;
+            const result = await readApiResult(response);
             if (!response.ok) throw new Error(result.error || 'Failed to add post.');
             const id = entry.reddit.split('/').at(-1);
             if (id) existingPostIds.add(id);
@@ -444,12 +477,12 @@ if (root) {
         setArtistFormBusy(true);
         try {
             const entry = buildArtistEntry(form);
-            const response = await fetch('/api/artists', {
+            const response = await fetch('/api/artists/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(entry)
             });
-            const result = await response.json() as ApiResult;
+            const result = await readApiResult(response);
             if (!response.ok) throw new Error(result.error || 'Failed to add artist.');
             artistIds.add(entry.id);
             artists = [...artists, entry].sort((left, right) => left.id.localeCompare(right.id));
