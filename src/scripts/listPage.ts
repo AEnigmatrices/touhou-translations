@@ -4,6 +4,28 @@ import { assetPath, pagePathWithQuery } from '../utils/paths';
 type ListItem = Artist | Character;
 type ListMode = 'character' | 'artist';
 
+type NavigatorWithConnection = Navigator & {
+    connection?: {
+        saveData?: boolean;
+    };
+};
+
+const shouldAvoidSpeculativeFetch = (): boolean =>
+    Boolean((navigator as NavigatorWithConnection).connection?.saveData);
+
+const scheduleIdleTask = (task: () => void): void => {
+    const schedule = (): void => {
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(task, { timeout: 2_000 });
+            return;
+        }
+        window.setTimeout(task, 1_000);
+    };
+
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule, { once: true });
+};
+
 const initializeListPage = (): void => {
     const root = document.querySelector<HTMLElement>('[data-list-page]');
     if (!root) return;
@@ -164,6 +186,12 @@ const initializeListPage = (): void => {
         visibleCount += pageSize;
         void renderLoadedItems().catch(reportLoadError);
     });
+
+    if (!shouldAvoidSpeculativeFetch()) {
+        scheduleIdleTask(() => {
+            void fetch(assetPath('runtime-data/gallery-posts.json')).catch(() => undefined);
+        });
+    }
 };
 
 initializeListPage();
