@@ -1,0 +1,35 @@
+---
+import GalleryBrowser from '../../../components/gallery/GalleryBrowser.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { fetchCharactersData, fetchGalleryData } from '../../../utils/generatedData';
+import { absoluteSiteUrl } from '../../../utils/siteMetadata';
+
+export async function getStaticPaths() {
+    const [{ characters }, { posts }] = await Promise.all([
+        fetchCharactersData(),
+        fetchGalleryData()
+    ]);
+
+    return characters.map(character => ({
+        params: { id: character.id },
+        props: {
+            character,
+            posts: posts.filter(post => post.characterIds.includes(character.id))
+        }
+    }));
+}
+
+const { character, posts } = Astro.props;
+const title = `${character.name} Gallery | Touhou Translations`;
+const description = `Browse English-translated Touhou Project comics and illustrations featuring ${character.name}.`;
+---
+
+<BaseLayout
+    {title}
+    {description}
+    canonical={absoluteSiteUrl(`gallery/characters/${character.id}`)}
+    ogTitle={title}
+    currentSection="gallery"
+>
+    <GalleryBrowser {posts} />
+</BaseLayout>
