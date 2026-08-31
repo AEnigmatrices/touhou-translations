@@ -93,14 +93,27 @@ test('gallery exposes canonical metadata and interactive filtering', async ({ pa
     await expect(page.locator('.grid img.nsfw')).toHaveCount(0);
 });
 
-test('character browsing warms gallery runtime data after idle', async ({ page }) => {
-    await makeIdleCallbacksImmediate(page);
-    const warmedData = page.waitForRequest(request =>
-        new URL(request.url()).pathname.endsWith('/runtime-data/gallery-posts.json')
-    );
+test('profile browsing navigates directly to static filtered galleries', async ({ page }) => {
+    const galleryDataRequests: string[] = [];
+    page.on('request', request => {
+        if (new URL(request.url()).pathname.endsWith('/runtime-data/gallery-posts.json')) {
+            galleryDataRequests.push(request.url());
+        }
+    });
 
     await page.goto('characters/', { waitUntil: 'domcontentloaded' });
-    await warmedData;
+    const characterLink = page.locator('[data-list-grid] a.box').first();
+    await expect(characterLink).toHaveAttribute('href', /\/gallery\/characters\/[^/]+\/$/);
+    await characterLink.click();
+    await expect(page).toHaveURL(/\/touhou-translations\/gallery\/characters\/[^/]+\/$/);
+    expect(galleryDataRequests).toEqual([]);
+
+    await page.goto('artists/', { waitUntil: 'domcontentloaded' });
+    const artistLink = page.locator('[data-list-grid] a.box').first();
+    await expect(artistLink).toHaveAttribute('href', /\/gallery\/artists\/[^/]+\/$/);
+    await artistLink.click();
+    await expect(page).toHaveURL(/\/touhou-translations\/gallery\/artists\/[^/]+\/$/);
+    expect(galleryDataRequests).toEqual([]);
 });
 
 test('gallery warms all twelve visible post documents on each page', async ({ page }) => {

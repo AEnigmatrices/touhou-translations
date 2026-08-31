@@ -1,6 +1,6 @@
 ---
 import type { Artist, Character, PortraitImage } from '../../types/data';
-import { pagePathWithQuery } from '../../utils/paths';
+import { pagePath } from '../../utils/paths';
 import { PORTRAIT_SIZES } from '../../lib/server/portraitImages';
 
 interface Props {
@@ -13,7 +13,7 @@ const { item, mode, portraitImage } = Astro.props;
 const description2 = mode === 'character'
     ? `${(item as Character).artistCount} artist${(item as Character).artistCount === 1 ? '' : 's'}`
     : `${(item as Artist).characterCount} character${(item as Artist).characterCount === 1 ? '' : 's'}`;
-const href = pagePathWithQuery('gallery', `${mode === 'character' ? 'characters' : 'artist'}=${encodeURIComponent(item.id)}`);
+const href = pagePath(`gallery/${mode === 'character' ? 'characters' : 'artists'}/${item.id}`);
 ---
 
 <li class="profile-item large" aria-label={`Profile: ${item.name}`} data-item-id={item.id}>
