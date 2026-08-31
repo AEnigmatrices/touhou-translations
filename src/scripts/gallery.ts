@@ -68,6 +68,21 @@ const loadPosts = (): Promise<GalleryPost[]> => {
     return postsRequest;
 };
 
+const staticGalleryFilter = (): { characterIds: string[]; artistIds: string[] } => {
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    const galleryIndex = segments.lastIndexOf('gallery');
+    if (galleryIndex < 0) return { characterIds: [], artistIds: [] };
+
+    const kind = segments[galleryIndex + 1];
+    const id = segments[galleryIndex + 2];
+    if (!id) return { characterIds: [], artistIds: [] };
+
+    const decodedId = decodeURIComponent(id);
+    if (kind === 'characters') return { characterIds: [decodedId], artistIds: [] };
+    if (kind === 'artists') return { characterIds: [], artistIds: [decodedId] };
+    return { characterIds: [], artistIds: [] };
+};
+
 const initializeGallery = (): void => {
     const root = document.querySelector<HTMLElement>('[data-gallery-page]');
     if (!root) return;
@@ -79,12 +94,15 @@ const initializeGallery = (): void => {
     const dateSortButton = root.querySelector<HTMLButtonElement>('[data-date-sort]');
     const pagination = root.querySelector<HTMLElement>('[data-pagination]');
     const search = new URLSearchParams(window.location.search);
+    const staticFilter = staticGalleryFilter();
 
     let currentPage = 1;
     let dateSort: SortOrder = 'desc';
     let galleryOnly = false;
     const characterQueries = (search.get('characters') || '').split(',').map(value => value.trim()).filter(Boolean);
     const artistQueries = (search.get('artist') || search.get('artists') || '').split(',').map(value => value.trim()).filter(Boolean);
+    if (characterQueries.length === 0) characterQueries.push(...staticFilter.characterIds);
+    if (artistQueries.length === 0) artistQueries.push(...staticFilter.artistIds);
     const mode: 'and' | 'or' = search.get('mode') === 'or' ? 'or' : 'and';
     let openJump: JumpItem | null = null;
     let jumpPage = '';
@@ -249,7 +267,8 @@ const initializeGallery = (): void => {
         }).catch(reportLoadError);
     });
 
-    if (characterQueries.length > 0 || artistQueries.length > 0 || search.has('mode')) {
+    const hasQueryFilter = search.has('characters') || search.has('artist') || search.has('artists') || search.has('mode');
+    if (hasQueryFilter) {
         void render().catch(reportLoadError);
     } else {
         warmInitialPostDocuments(grid);
