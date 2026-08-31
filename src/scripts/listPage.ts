@@ -1,30 +1,8 @@
 import type { Artist, Character, SortOrder } from '../types/data';
-import { assetPath, pagePathWithQuery } from '../utils/paths';
+import { assetPath, pagePath, pagePathWithQuery } from '../utils/paths';
 
 type ListItem = Artist | Character;
 type ListMode = 'character' | 'artist';
-
-type NavigatorWithConnection = Navigator & {
-    connection?: {
-        saveData?: boolean;
-    };
-};
-
-const shouldAvoidSpeculativeFetch = (): boolean =>
-    Boolean((navigator as NavigatorWithConnection).connection?.saveData);
-
-const scheduleIdleTask = (task: () => void): void => {
-    const schedule = (): void => {
-        if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(task, { timeout: 2_000 });
-            return;
-        }
-        setTimeout(task, 1_000);
-    };
-
-    if (document.readyState === 'complete') schedule();
-    else window.addEventListener('load', schedule, { once: true });
-};
 
 const initializeListPage = (): void => {
     const root = document.querySelector<HTMLElement>('[data-list-page]');
@@ -80,11 +58,9 @@ const initializeListPage = (): void => {
         return sortOrder === 'asc' ? leftSecondary - rightSecondary : rightSecondary - leftSecondary;
     };
 
-    const selectedGalleryUrl = (id: string): string => {
-        const key = mode === 'character' ? 'characters' : 'artist';
-        const value = mode === 'character' ? selectedItems.join(',') || id : id;
-        return pagePathWithQuery('gallery', `${key}=${encodeURIComponent(value)}`);
-    };
+    const selectedGalleryUrl = (id: string): string => (
+        pagePath(`gallery/${mode === 'character' ? 'characters' : 'artists'}/${id}`)
+    );
 
     const makeText = (className: string, value: string): HTMLParagraphElement => {
         const paragraph = document.createElement('p');
@@ -194,12 +170,6 @@ const initializeListPage = (): void => {
         visibleCount += pageSize;
         void renderLoadedItems().catch(reportLoadError);
     });
-
-    if (!shouldAvoidSpeculativeFetch()) {
-        scheduleIdleTask(() => {
-            void fetch(assetPath('runtime-data/gallery-posts.json')).catch(() => undefined);
-        });
-    }
 };
 
 initializeListPage();
