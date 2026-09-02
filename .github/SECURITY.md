@@ -19,4 +19,4 @@ Please include:
 - Steps to reproduce, if applicable
 - Your recommendation, if any
 
-Responses to valid reports will typically occur within 5–7 days. Critical issues will be addressed as promptly as possible.
+Reports will be reviewed as availability permits. Critical issues will be prioritized and addressed as promptly as possible.
