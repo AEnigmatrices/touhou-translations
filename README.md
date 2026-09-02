@@ -80,12 +80,6 @@ https://aenigmatrices.github.io/touhou-translations/
 
 The production build uses the `/touhou-translations/` base path configured in `astro.config.ts`. The GitHub Actions workflow installs dependencies with PNPM, runs the production build, and uploads the generated `build` directory as a GitHub Pages artifact.
 
-Manual deployment is also available:
-
-```sh
-pnpm run deploy
-```
-
 ## License and Attribution
 
 The website code is licensed under the MIT License.
