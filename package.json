@@ -11,6 +11,9 @@
     },
     "license": "MIT",
     "author": "AEnigmatrices",
+    "engines": {
+        "node": ">=24 <25"
+    },
     "scripts": {
         "clean": "tsx scripts/clean.ts",
         "generate:data": "tsx scripts/generateDerivedData.ts && tsx scripts/publishRuntimeData.ts",
