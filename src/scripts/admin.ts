@@ -1,6 +1,3 @@
-import artistsData from '../../data/artists.json';
-import charactersData from '../../data/characters.json';
-import postIndex from '../../generated/post-index.json';
 import type { ArtistRaw, CharacterRaw, PostEntryForm } from '../types/data';
 import {
     buildArtistEntry,
@@ -16,6 +13,26 @@ import {
     type RedditFormData
 } from '../utils/admin/postForm';
 import { assetPath } from '../utils/paths';
+
+type ArtistFile = Omit<ArtistRaw, 'id'> & { sortOrder: number };
+type CharacterFile = Omit<CharacterRaw, 'id'> & { sortOrder: number };
+
+const artistModules = import.meta.glob<{ default: ArtistFile }>('../data/artists/*.json', { eager: true });
+const characterModules = import.meta.glob<{ default: CharacterFile }>('../data/characters/*.json', { eager: true });
+const postModules = import.meta.glob('../data/posts/**/*.json', { eager: true });
+const entryId = (filePath: string): string => filePath.replaceAll('\\', '/').split('/').at(-1)?.replace(/\.json$/, '') ?? '';
+const initialArtists: ArtistRaw[] = Object.entries(artistModules)
+    .sort(([, left], [, right]) => left.default.sortOrder - right.default.sortOrder)
+    .map(([filePath, module]) => {
+        const { sortOrder: _sortOrder, ...artist } = module.default;
+        return { id: entryId(filePath), ...artist };
+    });
+const initialCharacters: CharacterRaw[] = Object.entries(characterModules)
+    .sort(([, left], [, right]) => left.default.sortOrder - right.default.sortOrder)
+    .map(([filePath, module]) => {
+        const { sortOrder: _sortOrder, ...character } = module.default;
+        return { id: entryId(filePath), ...character };
+    });
 
 interface ApiResult {
     data?: RedditFormData;
@@ -84,10 +101,10 @@ if (root) {
     const artistStatus = required<HTMLElement>('[data-artist-status]');
     const artistError = required<HTMLElement>('[data-artist-error]');
 
-    let artists = [...(artistsData as ArtistRaw[])];
-    const characters = charactersData as CharacterRaw[];
+    let artists = [...initialArtists];
+    const characters = initialCharacters;
     const artistIds = new Set(artists.map(artist => artist.id));
-    const existingPostIds = new Set(Object.keys(postIndex));
+    const existingPostIds = new Set(Object.keys(postModules).map(entryId));
     let selectedArtistId = '';
     let selectedCharacterIds: string[] = [];
     let artistMenuOpen = false;
@@ -491,7 +508,7 @@ if (root) {
             newArtistName.value = '';
             newArtistTwitter.value = '';
             newArtistPixiv.value = '';
-            setMessage(artistStatus, `Saved to ${result.file ?? 'data/artists.json'}.`);
+            setMessage(artistStatus, `Saved to ${result.file ?? `src/data/artists/${entry.id}.json`}.`);
             scrollToTop();
         } catch (cause) {
             setMessage(artistError, cause instanceof Error ? cause.message : 'Failed to add artist.');

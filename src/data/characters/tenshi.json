@@ -1,0 +1,9 @@
+{
+    "name": "Hinanawi Tenshi",
+    "short_name": "Tenshi",
+    "work": [
+        "swr"
+    ],
+    "portrait": "portraits/characters/tenshi.webp",
+    "sortOrder": 64
+}

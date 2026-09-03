@@ -1,0 +1,10 @@
+{
+    "name": "Yakumo Ran",
+    "short_name": "Ran",
+    "work": [
+        "pcb",
+        "udoalg"
+    ],
+    "portrait": "portraits/characters/ran.webp",
+    "sortOrder": 21
+}

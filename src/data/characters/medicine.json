@@ -1,0 +1,9 @@
+{
+    "name": "Medicine Melancholy",
+    "short_name": "Medicine",
+    "work": [
+        "pofv"
+    ],
+    "portrait": "portraits/characters/medicine.webp",
+    "sortOrder": 40
+}

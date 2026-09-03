@@ -1,0 +1,9 @@
+{
+    "name": "Letty Whiterock",
+    "short_name": "Letty",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/letty.webp",
+    "sortOrder": 12
+}

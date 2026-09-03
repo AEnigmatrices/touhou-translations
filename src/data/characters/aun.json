@@ -1,0 +1,9 @@
+{
+    "name": "Komano Aun",
+    "short_name": "Aun",
+    "work": [
+        "hsifs"
+    ],
+    "portrait": "portraits/characters/aun.webp",
+    "sortOrder": 111
+}

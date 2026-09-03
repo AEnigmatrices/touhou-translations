@@ -8,8 +8,6 @@ const generatedPaths = [
     'build',
     'dist',
     'generated',
-    'public/post-ids.json',
-    'public/runtime-data',
     'playwright-report',
     'test-results'
 ];

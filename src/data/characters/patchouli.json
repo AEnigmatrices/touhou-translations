@@ -1,0 +1,9 @@
+{
+    "name": "Patchouli Knowledge",
+    "short_name": "Patchouli",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/patchouli.webp",
+    "sortOrder": 8
+}

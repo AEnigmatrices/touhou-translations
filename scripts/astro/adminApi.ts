@@ -1,9 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { APIRoute } from 'astro';
-import type { ArtistRaw, Post } from '../../src/types/data.ts';
-import { generateDerivedData } from '../generateDerivedData.ts';
-import { suppressDataHotUpdates } from '../vite/postDataHotUpdatePlugin.ts';
+import { z } from 'astro/zod';
+import {
+    artistDataSchema,
+    characterDataSchema,
+    portraitPathSchema,
+    postDataSchema
+} from '../../src/lib/content/schemas.ts';
 import {
     extractBaseRedditUrl,
     fetchRedditData,
@@ -13,76 +17,48 @@ import {
 export const prerender = false;
 
 const rootDir = path.resolve(import.meta.dirname, '../..');
-const postsDir = path.join(rootDir, 'data/posts');
-const artistsPath = path.join(rootDir, 'data/artists.json');
-const charactersPath = path.join(rootDir, 'data/characters.json');
+const dataDir = path.join(rootDir, 'src', 'data');
+const postsDir = path.join(dataDir, 'posts');
+const artistsDir = path.join(dataDir, 'artists');
+const charactersDir = path.join(dataDir, 'characters');
 const redditDataCache = new Map<string, { expiresAt: number; result: RedditDataResponse }>();
 
-const isRecord = (entry: unknown): entry is Record<string, unknown> => (
-    entry !== null && typeof entry === 'object'
-);
+const newArtistSchema = artistDataSchema.omit({ sortOrder: true }).extend({
+    id: z.string().regex(/^[a-z0-9_]+$/),
+    portrait: portraitPathSchema.refine(
+        value => /^portraits\/placeholders\/(?:demoman|engineer|heavy|medic|pyro|scout|sniper|soldier|spy)\.webp$/.test(value),
+        { message: 'Expected one of the admin placeholder portraits.' }
+    )
+});
 
-const isStringArray = (value: unknown): value is string[] => (
-    Array.isArray(value) && value.every(item => typeof item === 'string')
-);
+const collectJsonFiles = (directory: string): string[] => fs.readdirSync(directory, { withFileTypes: true })
+    .flatMap(entry => entry.isDirectory()
+        ? collectJsonFiles(path.join(directory, entry.name))
+        : entry.name.endsWith('.json') ? [path.join(directory, entry.name)] : []
+    );
 
-const isValidPost = (entry: unknown): entry is Post => (
-    isRecord(entry)
-    && typeof entry.date === 'number'
-    && typeof entry.reddit === 'string'
-    && isStringArray(entry.url)
-    && typeof entry.src === 'string'
-    && typeof entry.desc === 'string'
-    && typeof entry.artistId === 'string'
-    && isStringArray(entry.characterIds)
-    && entry.characterIds.length > 0
-    && typeof entry.nsfw === 'boolean'
-);
+const entryId = (filePath: string): string => path.basename(filePath, '.json');
 
-const isStoredArtist = (entry: unknown): entry is ArtistRaw => (
-    isRecord(entry)
-    && typeof entry.id === 'string'
-    && typeof entry.name === 'string'
-    && typeof entry.portrait === 'string'
-);
+const readRecords = <T>(directory: string, parse: (value: unknown) => T): Array<{ id: string; data: T }> =>
+    collectJsonFiles(directory).map(filePath => ({
+        id: entryId(filePath),
+        data: parse(JSON.parse(fs.readFileSync(filePath, 'utf8')) as unknown)
+    }));
 
-const isValidOptionalUrl = (value: unknown, pattern: RegExp): value is string | undefined => (
-    value === undefined || (typeof value === 'string' && pattern.test(value))
-);
-
-const isValidNewArtist = (entry: unknown): entry is ArtistRaw => (
-    isStoredArtist(entry)
-    && /^[a-z0-9_]+$/.test(entry.id)
-    && entry.name.trim().length > 0
-    && /^portraits\/placeholders\/(?:demoman|engineer|heavy|medic|pyro|scout|sniper|soldier|spy)\.webp$/.test(entry.portrait)
-    && isValidOptionalUrl(entry.linkTwitter, /^https:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/?$/i)
-    && isValidOptionalUrl(entry.linkPixiv, /^https:\/\/(?:www\.)?pixiv\.net\/(?:en\/)?users\/\d+\/?$/i)
-);
-
-const readJsonFile = (filePath: string): unknown[] => {
-    try {
-        const data: unknown = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        return Array.isArray(data) ? data : [];
-    } catch {
-        return [];
-    }
+const writeJsonExclusive = (filePath: string, value: unknown): void => {
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, `${JSON.stringify(value, null, 4)}\n`, { encoding: 'utf8', flag: 'wx' });
 };
 
-const writeJsonFile = (filePath: string, data: unknown[]): void => {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 4), 'utf8');
+const getPostPath = (date: number, id: string): string => {
+    const postDate = new Date(date);
+    return path.join(
+        postsDir,
+        String(postDate.getUTCFullYear()),
+        String(postDate.getUTCMonth() + 1).padStart(2, '0'),
+        `${id}.json`
+    );
 };
-
-const getPostsPath = (date: number): string => {
-    const year = new Date(date).getUTCFullYear();
-    return path.join(postsDir, `posts-${year}.json`);
-};
-
-const readAllPosts = (): Post[] => (
-    fs.readdirSync(postsDir)
-        .filter(file => file.endsWith('.json'))
-        .flatMap(file => readJsonFile(path.join(postsDir, file)))
-        .filter(isValidPost)
-);
 
 const redditPostId = (url: string): string => url.match(/\/comments\/([a-zA-Z0-9]+)/)?.[1] ?? '';
 const endpointPath = (pathname: string): string => pathname.replace(/\/+$/, '');
@@ -91,15 +67,6 @@ const json = (status: number, data: unknown): Response => new Response(JSON.stri
     status,
     headers: { 'Content-Type': 'application/json; charset=utf-8' }
 });
-
-const scheduleDerivedData = (): void => {
-    setTimeout(() => {
-        suppressDataHotUpdates();
-        void generateDerivedData(rootDir).catch(error => {
-            console.error(error instanceof Error ? error.message : 'Failed to regenerate derived data.');
-        });
-    }, 100);
-};
 
 export const GET: APIRoute = async ({ url }) => {
     if (endpointPath(url.pathname) !== '/api/reddit-data') {
@@ -129,45 +96,45 @@ export const GET: APIRoute = async ({ url }) => {
 };
 
 export const POST: APIRoute = async ({ request, url }) => {
-    let entry: unknown;
-    const rawBody = await request.text();
+    let input: unknown;
     try {
-        entry = JSON.parse(rawBody) as unknown;
+        input = JSON.parse(await request.text()) as unknown;
     } catch {
         return json(400, { error: 'Request body must be valid JSON.' });
     }
 
     const endpoint = endpointPath(url.pathname);
     if (endpoint === '/api/posts') {
-        if (!isValidPost(entry)) return json(400, { error: 'Invalid post data format.' });
+        const parsed = postDataSchema.safeParse(input);
+        if (!parsed.success) return json(400, { error: 'Invalid post data format.' });
 
+        const entry = parsed.data;
         const id = redditPostId(entry.reddit);
-        if (!id || readAllPosts().some(post => redditPostId(post.reddit) === id)) {
-            return json(409, { error: 'This Reddit post already exists.' });
-        }
+        const filePath = getPostPath(entry.date, id);
+        const existingPostIds = new Set(collectJsonFiles(postsDir).map(entryId));
+        if (!id || existingPostIds.has(id)) return json(409, { error: 'This Reddit post already exists.' });
 
-        const artists = readJsonFile(artistsPath).filter(isStoredArtist);
+        const artists = readRecords(artistsDir, value => artistDataSchema.parse(value));
         if (!artists.some(artist => artist.id === entry.artistId)) {
             return json(400, { error: 'Artist ID does not exist.' });
         }
 
         const validCharacterIds = new Set(
-            readJsonFile(charactersPath)
-                .filter(isRecord)
+            readRecords(charactersDir, value => characterDataSchema.parse(value))
                 .map(character => character.id)
-                .filter((id): id is string => typeof id === 'string')
         );
         if (entry.characterIds.some(id => !validCharacterIds.has(id))) {
             return json(400, { error: 'One or more character IDs do not exist.' });
         }
 
-        const filePath = getPostsPath(entry.date);
-        const posts = readJsonFile(filePath).filter(isValidPost);
-        posts.push(entry);
-        posts.sort((left, right) => left.date - right.date);
-        suppressDataHotUpdates();
-        writeJsonFile(filePath, posts);
-        scheduleDerivedData();
+        try {
+            writeJsonExclusive(filePath, entry);
+        } catch (error) {
+            if ((error as NodeJS.ErrnoException).code === 'EEXIST') {
+                return json(409, { error: 'This Reddit post already exists.' });
+            }
+            throw error;
+        }
         return json(200, {
             success: true,
             file: path.relative(rootDir, filePath).replaceAll('\\', '/')
@@ -175,18 +142,27 @@ export const POST: APIRoute = async ({ request, url }) => {
     }
 
     if (endpoint === '/api/artists') {
-        if (!isValidNewArtist(entry)) return json(400, { error: 'Invalid artist data format.' });
+        const parsed = newArtistSchema.safeParse(input);
+        if (!parsed.success) return json(400, { error: 'Invalid artist data format.' });
 
-        const artists = readJsonFile(artistsPath);
-        if (artists.some(artist => isRecord(artist) && artist.id === entry.id)) {
-            return json(409, { error: 'This artist ID already exists.' });
+        const { id, ...artist } = parsed.data;
+        const filePath = path.join(artistsDir, `${id}.json`);
+        if (fs.existsSync(filePath)) return json(409, { error: 'This artist ID already exists.' });
+        const artists = readRecords(artistsDir, value => artistDataSchema.parse(value));
+        const sortOrder = artists.reduce((maximum, entry) => Math.max(maximum, entry.data.sortOrder), -1) + 1;
+
+        try {
+            writeJsonExclusive(filePath, { ...artist, sortOrder });
+        } catch (error) {
+            if ((error as NodeJS.ErrnoException).code === 'EEXIST') {
+                return json(409, { error: 'This artist ID already exists.' });
+            }
+            throw error;
         }
-
-        artists.push(entry);
-        suppressDataHotUpdates();
-        writeJsonFile(artistsPath, artists);
-        scheduleDerivedData();
-        return json(200, { success: true, file: 'data/artists.json' });
+        return json(200, {
+            success: true,
+            file: path.relative(rootDir, filePath).replaceAll('\\', '/')
+        });
     }
 
     return json(404, { error: 'Admin API endpoint not found.' });

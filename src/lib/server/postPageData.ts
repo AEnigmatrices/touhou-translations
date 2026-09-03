@@ -1,18 +1,7 @@
 import type { Artist, Character, GeneratedPost, RelatedPost } from '../../types/data';
+import { getArchive } from '../content/archive';
 import { extractRedditId } from '../../utils/extractRedditId';
-
-interface PostIndexEntry {
-    chunk: string;
-    prevPostId: string | null;
-    nextPostId: string | null;
-}
-
-interface SharedPostData {
-    postIndex: Record<string, PostIndexEntry>;
-    artists: Artist[];
-    characters: Character[];
-    artistPosts: Record<string, RelatedPost[]>;
-}
+import { markdownExcerpt, renderMarkdown } from '../../utils/renderMarkdown';
 
 export interface PostPageData {
     id: string;
@@ -24,27 +13,8 @@ export interface PostPageData {
     nextPostId: string | null;
 }
 
-const postChunkModules = import.meta.glob<{ default: GeneratedPost[] }>('../../../generated/posts/*.json');
-let sharedPostDataPromise: Promise<SharedPostData> | undefined;
-
 export const getPostIds = async (): Promise<string[]> =>
-    (await import('../../../generated/post-ids.json')).default;
-
-const getSharedPostData = (): Promise<SharedPostData> => {
-    sharedPostDataPromise ??= Promise.all([
-        import('../../../generated/post-index.json'),
-        import('../../../generated/artists.json'),
-        import('../../../generated/characters.json'),
-        import('../../../generated/artist-posts.json')
-    ]).then(([postIndexModule, artistsModule, charactersModule, artistPostsModule]) => ({
-        postIndex: postIndexModule.default as Record<string, PostIndexEntry>,
-        artists: artistsModule.default as Artist[],
-        characters: charactersModule.default as Character[],
-        artistPosts: artistPostsModule.default as Record<string, RelatedPost[]>
-    }));
-
-    return sharedPostDataPromise;
-};
+    (await getArchive()).postIds;
 
 const selectRelatedPosts = (posts: RelatedPost[], currentPostId: string, limit = 4): RelatedPost[] => {
     if (posts.length <= 1 || limit <= 0) return [];
@@ -62,26 +32,44 @@ const selectRelatedPosts = (posts: RelatedPost[], currentPostId: string, limit =
 };
 
 export const getPostPageData = async (postId: string): Promise<PostPageData | null> => {
-    const sharedData = await getSharedPostData();
-    const entry = sharedData.postIndex[postId];
-    if (!entry) return null;
+    const archive = await getArchive();
+    const sourcePost = archive.postByRedditId.get(postId);
+    if (!sourcePost) return null;
 
-    const chunkLoader = postChunkModules[`../../../generated/posts/${entry.chunk}.json`];
-    if (!chunkLoader) return null;
-
-    const postModule = await chunkLoader();
-    const post = postModule.default.find(candidate => extractRedditId(candidate.reddit) === postId);
-    if (!post) return null;
+    const { desc, ...postWithoutDescription } = sourcePost;
+    const imageDimensions = sourcePost.url.map(url => archive.mediaByArtworkUrl[url]?.imageDimensions ?? null);
+    const imageSources = sourcePost.url.map(url => archive.mediaByArtworkUrl[url]?.imageSources ?? []);
+    const post: GeneratedPost = {
+        ...postWithoutDescription,
+        ...(archive.hasMediaMetadata ? { imageDimensions, imageSources } : {}),
+        htmlDescription: renderMarkdown(desc),
+        metadataDescription: markdownExcerpt(desc)
+    };
 
     const characterIds = new Set(post.characterIds);
+    const adjacent = archive.adjacentPostIdsByPostId.get(postId) ?? {
+        prevPostId: null,
+        nextPostId: null
+    };
+    const artistPosts = archive.artistPostsByArtistId.get(post.artistId) ?? [];
+    const relatedPosts = artistPosts.map(candidate => {
+        const id = extractRedditId(candidate.reddit);
+        const media = archive.mediaByArtworkUrl[candidate.url[0]];
+        return {
+            id,
+            img: candidate.url[0],
+            ...(media?.imageSources.length ? { imgSources: media.imageSources } : {}),
+            nsfw: candidate.nsfw
+        };
+    });
 
     return {
         id: postId,
         post,
-        artist: sharedData.artists.find(artist => artist.id === post.artistId) ?? null,
-        characters: sharedData.characters.filter(character => characterIds.has(character.id)),
-        relatedPosts: selectRelatedPosts(sharedData.artistPosts[post.artistId] ?? [], postId),
-        prevPostId: entry.prevPostId,
-        nextPostId: entry.nextPostId
+        artist: archive.artistById.get(post.artistId) ?? null,
+        characters: archive.characters.filter(character => characterIds.has(character.id)),
+        relatedPosts: selectRelatedPosts(relatedPosts, postId),
+        prevPostId: adjacent.prevPostId,
+        nextPostId: adjacent.nextPostId
     };
 };

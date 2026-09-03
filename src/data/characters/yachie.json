@@ -1,0 +1,10 @@
+{
+    "name": "Kitchō Yachie",
+    "short_name": "Yachie",
+    "work": [
+        "wbawc",
+        "udoalg"
+    ],
+    "portrait": "portraits/characters/yachie.webp",
+    "sortOrder": 119
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Satsuki Rin",
+    "short_name": "Rin",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/rin.webp",
+    "sortOrder": 2
+}

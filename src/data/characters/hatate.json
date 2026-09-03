@@ -1,0 +1,9 @@
+{
+    "name": "Himekaidō Hatate",
+    "short_name": "Hatate",
+    "work": [
+        "ds"
+    ],
+    "portrait": "portraits/characters/hatate.webp",
+    "sortOrder": 80
+}

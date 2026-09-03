@@ -1,0 +1,9 @@
+{
+    "name": "Nagae Iku",
+    "short_name": "Iku",
+    "work": [
+        "swr"
+    ],
+    "portrait": "portraits/characters/iku.webp",
+    "sortOrder": 63
+}

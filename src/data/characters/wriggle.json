@@ -1,0 +1,9 @@
+{
+    "name": "Wriggle Nightbug",
+    "short_name": "Wriggle",
+    "work": [
+        "in"
+    ],
+    "portrait": "portraits/characters/wriggle.webp",
+    "sortOrder": 28
+}

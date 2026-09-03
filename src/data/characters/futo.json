@@ -1,0 +1,9 @@
+{
+    "name": "Mononobe no Futo",
+    "short_name": "Futo",
+    "work": [
+        "td"
+    ],
+    "portrait": "portraits/characters/futo.webp",
+    "sortOrder": 86
+}

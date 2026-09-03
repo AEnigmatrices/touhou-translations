@@ -1,0 +1,9 @@
+{
+    "name": "Kaku Seiga",
+    "short_name": "Seiga",
+    "work": [
+        "td"
+    ],
+    "portrait": "portraits/characters/seiga.webp",
+    "sortOrder": 84
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Sunny Milk",
+    "short_name": "Sunny",
+    "work": [
+        "sgs"
+    ],
+    "portrait": "portraits/characters/sunny.webp",
+    "sortOrder": 36
+}

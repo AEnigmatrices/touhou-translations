@@ -1,0 +1,9 @@
+{
+    "name": "Toyosatomimi no Miko",
+    "short_name": "Miko",
+    "work": [
+        "td"
+    ],
+    "portrait": "portraits/characters/miko.webp",
+    "sortOrder": 87
+}

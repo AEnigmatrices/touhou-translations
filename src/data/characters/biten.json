@@ -1,0 +1,9 @@
+{
+    "name": "Son Biten",
+    "short_name": "Biten",
+    "work": [
+        "udoalg"
+    ],
+    "portrait": "portraits/characters/biten.webp",
+    "sortOrder": 134
+}

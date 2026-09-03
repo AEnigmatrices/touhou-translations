@@ -16,22 +16,22 @@
     },
     "scripts": {
         "clean": "tsx scripts/clean.ts",
-        "generate:data": "tsx scripts/generateDerivedData.ts && tsx scripts/publishRuntimeData.ts",
-        "generate:data:images": "tsx scripts/generateDerivedDataCached.ts --image-dimensions && tsx scripts/publishRuntimeData.ts",
-        "generate:data:responsive-images": "tsx scripts/generateDerivedDataCached.ts --image-dimensions --reddit-responsive-images && tsx scripts/publishRuntimeData.ts",
-        "dev": "pnpm run generate:data && astro dev --open",
-        "build": "pnpm run generate:data:responsive-images && astro build && tsx scripts/generateServiceWorker.ts && tsx scripts/generateSitemap.ts && pnpm run verify:build",
+        "generate:data": "tsx scripts/prepareMediaMetadata.ts --image-dimensions",
+        "generate:data:images": "tsx scripts/prepareMediaMetadataCached.ts --image-dimensions",
+        "generate:data:responsive-images": "tsx scripts/prepareMediaMetadataCached.ts --image-dimensions --reddit-responsive-images",
+        "dev": "astro dev --open",
+        "build": "pnpm run generate:data:responsive-images && astro build && tsx scripts/generateServiceWorker.ts && pnpm run verify:build",
         "verify:build": "tsx scripts/verifyBuild.ts",
-        "validate:data": "tsx scripts/validateData.ts",
-        "typecheck": "pnpm run generate:data && astro check",
-        "test:unit": "pnpm run generate:data && vitest run",
+        "validate:data": "astro sync && tsx scripts/validateContentData.ts",
+        "typecheck": "astro check",
+        "test:unit": "vitest run",
         "test:unit:watch": "vitest",
         "test:e2e": "playwright test",
         "test": "pnpm run validate:data && pnpm run typecheck && pnpm run test:unit",
         "preview": "tsx scripts/preview.ts"
     },
     "dependencies": {
-        "astro": "7.2.9"
+        "astro": "7.3.1"
     },
     "devDependencies": {
         "@astrojs/check": "0.9.10",
@@ -46,5 +46,5 @@
         "vite": "8.2.2",
         "vitest": "^4.1.11"
     },
-    "packageManager": "pnpm@11.24.0+sha512.bd27e345e976dcb0be0b7a1228217b049a817e21b1f355c90dbe7dc46671895a8bc1e6d06c24554505ea93ea0b45f489a27ec1bfbc8de6a9659fca0f16fa0000"
+    "packageManager": "pnpm@11.25.0+sha512.5cde925b4f075f725eb71fbae18a42ffe784524789f19b61c731cb8721ec28aaee160e01a8d5af4fedb2a42cdbf300efe23db356b0d4a17b4d63e11f8ab7c956"
 }

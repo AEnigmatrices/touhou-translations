@@ -1,0 +1,13 @@
+{
+    "name": "Ibuki Suika",
+    "short_name": "Suika",
+    "work": [
+        "iamp",
+        "swr",
+        "sa",
+        "soku",
+        "udoalg"
+    ],
+    "portrait": "portraits/characters/suika.webp",
+    "sortOrder": 27
+}

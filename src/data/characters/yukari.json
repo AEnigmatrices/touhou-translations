@@ -1,0 +1,15 @@
+{
+    "name": "Yakumo Yukari",
+    "short_name": "Yukari",
+    "work": [
+        "pcb",
+        "iamp",
+        "in",
+        "swr",
+        "sa",
+        "soku",
+        "aocf"
+    ],
+    "portrait": "portraits/characters/yukari.webp",
+    "sortOrder": 22
+}

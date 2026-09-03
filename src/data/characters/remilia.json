@@ -1,0 +1,9 @@
+{
+    "name": "Remilia Scarlet",
+    "short_name": "Remilia",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/remilia.webp",
+    "sortOrder": 10
+}

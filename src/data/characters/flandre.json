@@ -1,0 +1,9 @@
+{
+    "name": "Flandre Scarlet",
+    "short_name": "Flandre",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/flandre.webp",
+    "sortOrder": 11
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Sakata Nemuno",
+    "short_name": "Nemuno",
+    "work": [
+        "hsifs"
+    ],
+    "portrait": "portraits/characters/nemuno.webp",
+    "sortOrder": 110
+}

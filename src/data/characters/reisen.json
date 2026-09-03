@@ -1,0 +1,9 @@
+{
+    "name": "Reisen Udongein Inaba",
+    "short_name": "Reisen",
+    "work": [
+        "in"
+    ],
+    "portrait": "portraits/characters/reisen.webp",
+    "sortOrder": 32
+}

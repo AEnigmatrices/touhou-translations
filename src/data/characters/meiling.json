@@ -1,0 +1,9 @@
+{
+    "name": "Hong Meiling",
+    "short_name": "Meiling",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/meiling.webp",
+    "sortOrder": 6
+}

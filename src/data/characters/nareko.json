@@ -1,0 +1,9 @@
+{
+    "name": "Michigami Nareko",
+    "short_name": "Nareko",
+    "work": [
+        "fw"
+    ],
+    "portrait": "portraits/characters/nareko.webp",
+    "sortOrder": 141
+}

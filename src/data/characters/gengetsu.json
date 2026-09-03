@@ -1,0 +1,9 @@
+{
+    "name": "Gengetsu",
+    "short_name": "Gengetsu",
+    "work": [
+        "lls"
+    ],
+    "portrait": "portraits/placeholders/demoman.webp",
+    "sortOrder": 51
+}

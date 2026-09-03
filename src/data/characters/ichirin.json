@@ -1,0 +1,9 @@
+{
+    "name": "Kumoi Ichirin",
+    "short_name": "Ichirin",
+    "work": [
+        "ufo"
+    ],
+    "portrait": "portraits/characters/ichirin.webp",
+    "sortOrder": 75
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Cirno",
+    "short_name": "Cirno",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/cirno.webp",
+    "sortOrder": 5
+}

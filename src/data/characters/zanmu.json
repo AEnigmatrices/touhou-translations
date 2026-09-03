@@ -1,0 +1,9 @@
+{
+    "name": "Nippaku Zanmu",
+    "short_name": "Zanmu",
+    "work": [
+        "udoalg"
+    ],
+    "portrait": "portraits/characters/zanmu.webp",
+    "sortOrder": 138
+}

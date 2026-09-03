@@ -1,0 +1,9 @@
+{
+    "name": "Merlin Prismriver",
+    "short_name": "Merlin",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/merlin.webp",
+    "sortOrder": 17
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Usami Renko",
+    "short_name": "Renko",
+    "work": [
+        "hifuu"
+    ],
+    "portrait": "portraits/characters/renko.webp",
+    "sortOrder": 23
+}

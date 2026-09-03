@@ -1,0 +1,9 @@
+{
+    "name": "Komakusa Sannyo",
+    "short_name": "Sannyo",
+    "work": [
+        "um"
+    ],
+    "portrait": "portraits/characters/sannyo.webp",
+    "sortOrder": 128
+}

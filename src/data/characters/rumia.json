@@ -1,0 +1,9 @@
+{
+    "name": "Rumia",
+    "short_name": "Rumia",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/rumia.webp",
+    "sortOrder": 3
+}

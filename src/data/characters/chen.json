@@ -1,0 +1,9 @@
+{
+    "name": "Chen",
+    "short_name": "Chen",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/chen.webp",
+    "sortOrder": 13
+}

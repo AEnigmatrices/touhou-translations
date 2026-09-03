@@ -1,0 +1,9 @@
+{
+    "name": "Matara Okina",
+    "short_name": "Okina",
+    "work": [
+        "hsifs"
+    ],
+    "portrait": "portraits/characters/okina.webp",
+    "sortOrder": 115
+}

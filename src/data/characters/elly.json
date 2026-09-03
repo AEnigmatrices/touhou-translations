@@ -1,0 +1,9 @@
+{
+    "name": "Elly",
+    "short_name": "Elly",
+    "work": [
+        "lls"
+    ],
+    "portrait": "portraits/placeholders/sniper.webp",
+    "sortOrder": 49
+}

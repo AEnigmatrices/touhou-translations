@@ -1,0 +1,9 @@
+{
+    "name": "Lyrica Prismriver",
+    "short_name": "Lyrica",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/lyrica.webp",
+    "sortOrder": 18
+}

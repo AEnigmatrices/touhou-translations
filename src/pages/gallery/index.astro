@@ -1,7 +1,7 @@
 ---
 import GalleryBrowser from '../../components/gallery/GalleryBrowser.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { fetchGalleryData } from '../../utils/generatedData';
+import { fetchGalleryData } from '../../utils/contentData';
 import { absoluteSiteUrl } from '../../utils/siteMetadata';
 
 const { posts } = await fetchGalleryData();

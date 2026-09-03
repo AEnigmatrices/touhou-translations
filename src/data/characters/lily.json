@@ -1,0 +1,9 @@
+{
+    "name": "Lily White",
+    "short_name": "Lily",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/lily.webp",
+    "sortOrder": 15
+}

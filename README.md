@@ -22,13 +22,15 @@ The project collects manually translated Touhou fan art and comics while preserv
 - `src/components/` - Server-rendered Astro UI components.
 - `src/scripts/` - Small browser-side TypeScript controllers for interactive controls.
 - `src/dev/` - The development-only archive authoring page.
-- `src/lib/server/` - Framework-neutral post data assembly used during static generation.
+- `src/lib/content/` - Zod schemas, collection loading, integrity checks, and browser projections.
+- `src/lib/server/` - Post-page data assembly used during static generation.
+- `src/data/` - Astro content collections with one JSON record per file.
+- `src/assets/` - Source-controlled portraits optimized by Astro at build time.
 - `src/styles/` - Global CSS and design tokens.
 - `src/utils/` - Shared data-loading, filtering, and URL helpers.
 - `src/types/` - Shared TypeScript data models.
-- `data/` - JSON source data for posts, artists, and characters.
-- `public/` - Static assets such as icons and portraits.
-- `scripts/` - Build tooling, data validation, and sitemap generation helpers.
+- `public/` - Static assets such as icons and the web app manifest.
+- `scripts/` - Content validation, media metadata, build verification, and maintenance tooling.
 - `.github/workflows/` - GitHub Pages deployment workflow.
 
 ## Development
@@ -60,15 +62,17 @@ pnpm run test:e2e
 pnpm run clean
 ```
 
-`validate:data` checks the JSON archive for duplicate IDs, missing references, missing portrait files, and malformed URLs. `test` runs data validation, Astro/TypeScript checks, and unit tests. `build` resolves original image dimensions, generates the site, and verifies every static post artifact without depending on Reddit's API. The optional `generate:data:responsive-images` command also attempts to discover Reddit-hosted responsive image variants; the site falls back to the original image URLs when Reddit does not expose them. `test:e2e` checks the production site in Chromium, including prerendered post metadata and offline caching. `clean` removes generated data, Astro caches, and build output.
+`validate:data` runs Astro's collection sync and checks exact IDs, references, UTC post folders, portrait files, and sort-order integrity. `test` runs content validation, Astro/TypeScript checks, and unit tests. `build` resolves original image dimensions, generates the site, and verifies every static post artifact without depending on Reddit's API. The optional `generate:data:responsive-images` command also attempts to discover Reddit-hosted responsive image variants; the site falls back to the original image URLs when Reddit does not expose them. `test:e2e` checks the production site in Chromium, including prerendered post metadata and offline caching. `clean` removes generated media metadata, Astro caches, and build output.
 
 ## Content Data
 
-Posts, artists, and characters are stored as JSON under `data/`. The application imports this data at build time, derives artist and character counts, and prerenders the index, gallery, artist, character, and individual post pages.
+Posts, artists, and characters are Astro content collections under `src/data/`. Every artist, character, and post is its own JSON file; the filename is the stable record ID. Post files are grouped as `posts/YYYY/MM/<reddit-id>.json`. Shared strict Zod schemas live in `src/lib/content/schemas.ts`, while archive-wide checks enforce references and filesystem invariants that a single-record schema cannot express.
+
+Astro loads and validates the records at build time. A central archive module derives counts, adjacency, related posts, and the small browser-facing JSON projections used by the gallery and daily-post controls. Those projections and the sitemaps are prerendered Astro endpoints, so source content is never copied into `public/` or maintained as a second generated data model.
 
 Each `/posts/[id]` URL is emitted by Astro's `getStaticPaths()` as a real static page with its content and social metadata in the initial HTML. Post details are assembled by build-only code, and the random-post control fetches the shared ID index only when it is used. A post-build service-worker generator precaches the application shell and shared build assets, then caches successful post visits at runtime instead of downloading the entire archive during installation.
 
-The `/admin` route is a local development helper for adding posts and artists through Vite middleware. A local Astro integration injects this route only for `astro dev`, so neither the route nor its client code is included in the production artifact.
+The `/admin` route is a local development helper for adding posts and artists through Vite middleware. It validates submissions with the same schemas and creates one new JSON file per record. A local Astro integration injects this route only for `astro dev`, so neither the route nor its client code is included in the production artifact.
 
 ## Deployment
 

@@ -1,0 +1,9 @@
+{
+    "name": "Clownpiece",
+    "short_name": "Clownpiece",
+    "work": [
+        "lolk"
+    ],
+    "portrait": "portraits/characters/clownpiece.webp",
+    "sortOrder": 104
+}

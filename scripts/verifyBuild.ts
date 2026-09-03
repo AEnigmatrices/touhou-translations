@@ -10,7 +10,7 @@ interface BuildFile {
 
 const rootDir = path.resolve(import.meta.dirname, '..');
 const buildDir = path.join(rootDir, 'build');
-const generatedPostIdsPath = path.join(rootDir, 'generated', 'post-ids.json');
+const generatedPostIdsPath = path.join(buildDir, 'post-ids.json');
 const postsBuildDir = path.join(buildDir, 'posts');
 const unknownPostSentinel = '__build-verifier-unknown-post__';
 const serializedLayoutKey = 'randomPostIds';
@@ -54,7 +54,7 @@ const summarizeValues = (values: string[], limit = 20): string => {
 
 const readPostIds = (): string[] => {
     if (!fs.existsSync(generatedPostIdsPath)) {
-        throw new Error(`Generated post ID list not found: ${generatedPostIdsPath}`);
+        throw new Error(`Built post ID list not found: ${generatedPostIdsPath}`);
     }
 
     let parsed: unknown;

@@ -1,0 +1,9 @@
+{
+    "name": "Ibaraki Kasen",
+    "short_name": "Kasen",
+    "work": [
+        "aocf"
+    ],
+    "portrait": "portraits/characters/kasen.webp",
+    "sortOrder": 81
+}

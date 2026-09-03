@@ -1,0 +1,9 @@
+{
+    "name": "Mugetsu",
+    "short_name": "Mugetsu",
+    "work": [
+        "lls"
+    ],
+    "portrait": "portraits/placeholders/soldier.webp",
+    "sortOrder": 50
+}

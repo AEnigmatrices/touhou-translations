@@ -1,0 +1,9 @@
+{
+    "name": "Soga no Tojiko",
+    "short_name": "Tojiko",
+    "work": [
+        "td"
+    ],
+    "portrait": "portraits/characters/tojiko.webp",
+    "sortOrder": 85
+}

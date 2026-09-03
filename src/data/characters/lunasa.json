@@ -1,0 +1,9 @@
+{
+    "name": "Lunasa Prismriver",
+    "short_name": "Lunasa",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/lunasa.webp",
+    "sortOrder": 16
+}

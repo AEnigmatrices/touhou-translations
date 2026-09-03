@@ -1,0 +1,9 @@
+{
+    "name": "Kirisame Marisa",
+    "short_name": "Marisa",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/marisa.webp",
+    "sortOrder": 1
+}

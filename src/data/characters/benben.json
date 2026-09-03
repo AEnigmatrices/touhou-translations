@@ -1,0 +1,9 @@
+{
+    "name": "Tsukumo Benben",
+    "short_name": "Benben",
+    "work": [
+        "ddc"
+    ],
+    "portrait": "portraits/characters/benben.webp",
+    "sortOrder": 94
+}

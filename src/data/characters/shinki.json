@@ -1,0 +1,9 @@
+{
+    "name": "Shinki",
+    "short_name": "Shinki",
+    "work": [
+        "ms"
+    ],
+    "portrait": "portraits/characters/shinki.webp",
+    "sortOrder": 54
+}

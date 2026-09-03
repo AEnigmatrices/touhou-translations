@@ -1,0 +1,10 @@
+{
+    "name": "Watasuki no Toyohime",
+    "short_name": "Toyohime",
+    "work": [
+        "ssib",
+        "fw"
+    ],
+    "portrait": "portraits/characters/toyohime.webp",
+    "sortOrder": 45
+}

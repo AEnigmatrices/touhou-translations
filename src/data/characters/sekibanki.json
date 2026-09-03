@@ -1,0 +1,9 @@
+{
+    "name": "Sekibanki",
+    "short_name": "Sekibanki",
+    "work": [
+        "ddc"
+    ],
+    "portrait": "portraits/characters/sekibanki.webp",
+    "sortOrder": 92
+}

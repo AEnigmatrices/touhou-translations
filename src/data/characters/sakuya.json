@@ -1,0 +1,9 @@
+{
+    "name": "Izayoi Sakuya",
+    "short_name": "Sakuya",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/sakuya.webp",
+    "sortOrder": 9
+}

@@ -1,0 +1,10 @@
+{
+    "name": "Kurokoma Saki",
+    "short_name": "Saki",
+    "work": [
+        "wbawc",
+        "udoalg"
+    ],
+    "portrait": "portraits/characters/saki.webp",
+    "sortOrder": 122
+}

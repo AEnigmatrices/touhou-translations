@@ -1,0 +1,9 @@
+{
+    "name": "Eternity Larva",
+    "short_name": "Larva",
+    "work": [
+        "hsifs"
+    ],
+    "portrait": "portraits/characters/larva.webp",
+    "sortOrder": 109
+}

@@ -2,7 +2,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { AstroIntegration } from 'astro';
 import type { Plugin } from 'vite';
-import postDataHotUpdatePlugin from '../vite/postDataHotUpdatePlugin.ts';
 
 const adminApiEntrypoint = new URL('./adminApi.ts', import.meta.url);
 const portraitDirectory = path.resolve(process.cwd(), 'src/assets/portraits');
@@ -50,7 +49,7 @@ const localAdminIntegration = (): AstroIntegration => ({
             }
             updateConfig({
                 vite: {
-                    plugins: [postDataHotUpdatePlugin, localPortraitAssetsPlugin]
+                    plugins: [localPortraitAssetsPlugin]
                 }
             });
         }

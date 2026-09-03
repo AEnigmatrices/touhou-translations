@@ -1,0 +1,9 @@
+{
+    "name": "Hakurei Reimu",
+    "short_name": "Reimu",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/reimu.webp",
+    "sortOrder": 0
+}

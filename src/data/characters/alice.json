@@ -1,0 +1,9 @@
+{
+    "name": "Alice Margatroid",
+    "short_name": "Alice",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/alice.webp",
+    "sortOrder": 14
+}

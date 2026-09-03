@@ -1,0 +1,9 @@
+{
+    "name": "Wakasagihime",
+    "short_name": "Wakasagihime",
+    "work": [
+        "ddc"
+    ],
+    "portrait": "portraits/characters/wakasagihime.webp",
+    "sortOrder": 91
+}

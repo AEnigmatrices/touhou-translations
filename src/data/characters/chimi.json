@@ -1,0 +1,9 @@
+{
+    "name": "Hōjū Chimi",
+    "short_name": "Chimi",
+    "work": [
+        "fw"
+    ],
+    "portrait": "portraits/characters/chimi.webp",
+    "sortOrder": 140
+}

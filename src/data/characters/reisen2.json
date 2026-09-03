@@ -1,0 +1,9 @@
+{
+    "name": "Reisen",
+    "short_name": "Reisen",
+    "work": [
+        "ssib"
+    ],
+    "portrait": "portraits/characters/reisen2.webp",
+    "sortOrder": 44
+}

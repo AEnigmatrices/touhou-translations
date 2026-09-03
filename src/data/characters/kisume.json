@@ -1,0 +1,9 @@
+{
+    "name": "Kisume",
+    "short_name": "Kisume",
+    "work": [
+        "sa"
+    ],
+    "portrait": "portraits/characters/kisume.webp",
+    "sortOrder": 65
+}

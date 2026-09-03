@@ -1,0 +1,9 @@
+{
+    "name": "Hōjū Nue",
+    "short_name": "Nue",
+    "work": [
+        "ufo"
+    ],
+    "portrait": "portraits/characters/nue.webp",
+    "sortOrder": 79
+}

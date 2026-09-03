@@ -1,0 +1,9 @@
+{
+    "name": "Tokiko",
+    "short_name": "Tokiko",
+    "work": [
+        "cola"
+    ],
+    "portrait": "portraits/characters/tokiko.webp",
+    "sortOrder": 26
+}

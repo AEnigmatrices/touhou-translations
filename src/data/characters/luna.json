@@ -1,0 +1,9 @@
+{
+    "name": "Luna Child",
+    "short_name": "Luna",
+    "work": [
+        "sgs"
+    ],
+    "portrait": "portraits/characters/luna.webp",
+    "sortOrder": 37
+}

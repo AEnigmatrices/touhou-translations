@@ -1,0 +1,9 @@
+{
+    "name": "Ringo",
+    "short_name": "Ringo",
+    "work": [
+        "lolk"
+    ],
+    "portrait": "portraits/characters/ringo.webp",
+    "sortOrder": 101
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Saigyōji Yuyuko",
+    "short_name": "Yuyuko",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/yuyuko.webp",
+    "sortOrder": 20
+}

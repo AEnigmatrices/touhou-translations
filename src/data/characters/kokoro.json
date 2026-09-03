@@ -1,0 +1,9 @@
+{
+    "name": "Hata no Kokoro",
+    "short_name": "Kokoro",
+    "work": [
+        "td"
+    ],
+    "portrait": "portraits/characters/kokoro.webp",
+    "sortOrder": 90
+}

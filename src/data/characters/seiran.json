@@ -1,0 +1,9 @@
+{
+    "name": "Seiran",
+    "short_name": "Seiran",
+    "work": [
+        "lolk"
+    ],
+    "portrait": "portraits/characters/seiran.webp",
+    "sortOrder": 100
+}

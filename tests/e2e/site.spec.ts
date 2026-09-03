@@ -3,21 +3,25 @@ import fs from 'node:fs';
 import { extractRedditId } from '../../src/utils/extractRedditId';
 
 interface RawPost {
+    date: number;
     reddit: string;
     url: string[];
     src: string;
     artistId: string;
 }
 
-const postsDirectory = new URL('../../data/posts/', import.meta.url);
-const posts = fs.readdirSync(postsDirectory)
-    .filter(file => file.endsWith('.json'))
-    .sort()
-    .reverse()
-    .flatMap(file => JSON.parse(fs.readFileSync(new URL(file, postsDirectory), 'utf8')) as RawPost[]);
-const artists = JSON.parse(
-    fs.readFileSync(new URL('../../data/artists.json', import.meta.url), 'utf8')
-) as Array<{ id: string; name: string }>;
+const collectJsonFiles = (directory: URL): URL[] => fs.readdirSync(directory, { withFileTypes: true })
+    .flatMap(entry => entry.isDirectory()
+        ? collectJsonFiles(new URL(`${entry.name}/`, directory))
+        : entry.name.endsWith('.json') ? [new URL(entry.name, directory)] : []
+    );
+const recordId = (file: URL): string => decodeURIComponent(file.pathname.split('/').at(-1) ?? '').replace(/\.json$/, '');
+const postsDirectory = new URL('../../src/data/posts/', import.meta.url);
+const posts = collectJsonFiles(postsDirectory)
+    .map(file => JSON.parse(fs.readFileSync(file, 'utf8')) as RawPost)
+    .sort((a, b) => b.date - a.date);
+const artists = collectJsonFiles(new URL('../../src/data/artists/', import.meta.url))
+    .map(file => ({ id: recordId(file), ...JSON.parse(fs.readFileSync(file, 'utf8')) as { name: string } }));
 const generatedPosts = posts.filter(post => extractRedditId(post.reddit) !== '');
 const artistPostCounts = generatedPosts.reduce((counts, post) => {
     counts.set(post.artistId, (counts.get(post.artistId) ?? 0) + 1);
@@ -55,6 +59,7 @@ test('mobile visitors retain access to primary navigation', async ({ page }) => 
     await expect(navigation).toBeVisible();
     await navigation.getByRole('link', { name: 'Gallery' }).click();
     await expect(page).toHaveURL(/\/touhou-translations\/gallery\/$/);
+    await page.waitForLoadState('domcontentloaded');
     await expect(navigation.getByRole('link', { name: 'Gallery' })).toHaveAttribute('aria-current', 'page');
 
     await navigation.getByRole('button', { name: 'Post' }).click();

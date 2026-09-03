@@ -1,0 +1,9 @@
+{
+    "name": "Konpaku Yōmu",
+    "short_name": "Yōmu",
+    "work": [
+        "pcb"
+    ],
+    "portrait": "portraits/characters/youmu.webp",
+    "sortOrder": 19
+}

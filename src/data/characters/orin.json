@@ -1,0 +1,10 @@
+{
+    "name": "Kaenbyō Rin",
+    "short_name": "Orin",
+    "work": [
+        "sa",
+        "udoalg"
+    ],
+    "portrait": "portraits/characters/orin.webp",
+    "sortOrder": 70
+}

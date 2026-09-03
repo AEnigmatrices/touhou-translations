@@ -1,0 +1,9 @@
+{
+    "name": "Koakuma",
+    "short_name": "Koa",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/koakuma.webp",
+    "sortOrder": 7
+}

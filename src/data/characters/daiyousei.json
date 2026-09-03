@@ -1,0 +1,9 @@
+{
+    "name": "Daiyōsei",
+    "short_name": "Dai",
+    "work": [
+        "eosd"
+    ],
+    "portrait": "portraits/characters/daiyousei.webp",
+    "sortOrder": 4
+}

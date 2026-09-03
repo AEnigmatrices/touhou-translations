@@ -1,0 +1,9 @@
+{
+    "name": "Star Sapphire",
+    "short_name": "Star",
+    "work": [
+        "sgs"
+    ],
+    "portrait": "portraits/characters/star.webp",
+    "sortOrder": 38
+}
