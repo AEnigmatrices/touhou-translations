@@ -35,7 +35,7 @@ The project collects manually translated Touhou fan art and comics while preserv
 
 ## Development
 
-Node.js 24 and PNPM 11 are the supported development runtime and package manager versions.
+Node.js 24 and pnpm 12.7.0 are the supported development runtime and package manager versions. The pnpm version is pinned in `package.json`.
 
 Install dependencies:
 

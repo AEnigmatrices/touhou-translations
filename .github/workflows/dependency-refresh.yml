@@ -1,0 +1,48 @@
+name: One-time dependency refresh
+on:
+  push:
+    branches: [chore/dependency-refresh-2026-09]
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout upgrade branch
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: true
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12.7.0
+          run_install: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - name: Refresh manifest and lockfile
+        run: |
+          pnpm install --no-frozen-lockfile
+          pnpm update --latest
+          # Remain within Astro/Vite's current major versions.
+          pnpm add 'astro@^7' 
+          pnpm add -D 'vite@^8' 'typescript@~6.0.3' '@types/node@^24' '@playwright/test@1.63.0'
+          pnpm install --frozen-lockfile
+      - name: Verify data, types and unit tests
+        run: pnpm run test
+      - name: Verify production build
+        run: pnpm run build
+      - name: Commit regenerated dependencies
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json pnpm-lock.yaml pnpm-workspace.yaml
+          if git diff --cached --quiet; then
+            echo "Dependencies were already up to date"
+          else
+            git commit -m "chore: update Touhou libraries and regenerate pnpm lockfile"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
