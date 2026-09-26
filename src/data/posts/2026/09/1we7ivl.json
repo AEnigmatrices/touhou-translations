@@ -8,7 +8,8 @@
     "desc": "Yeah... Prince Shōtoku died at 48, so Miko should also qualify as an old woman(man?) too.",
     "artistId": "takana",
     "characterIds": [
-        "miko"
+        "miko",
+        "tojiko"
     ],
     "nsfw": false
 }
