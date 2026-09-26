@@ -29,9 +29,10 @@ decisions from Reddit flags or from similar earlier records.
    Reuse their existing artist ID even if their current display name, the
    source post's credit, or the social handle differs. Distinct people with
    identical names must remain separate records; do not merge on name alone.
-   For example, `@campagne_9` is already `kanpa` and `@tktgm0703`
-   already has the `kakunohito` record. Do not create parallel IDs for
-   accounts already present in the archive.
+   For example, `@campagne_9` is already `kanpa`, and `@tktgm0703`
+   explicitly identifies itself as a secondary account of `@meltedsnow59`
+   (`kakunohito`, preferred name `角の人`). Do not create parallel IDs for
+   already represented artists or their verified alternate accounts.
 5. For the artist record's **`name`**, prefer the artist's self-chosen name
    on their X/Twitter and/or Pixiv profile, **not the spelling supplied in
    a Reddit submission's illustrator credit or a romanization invented from
