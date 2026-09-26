@@ -23,17 +23,40 @@ decisions from Reddit flags or from similar earlier records.
    - `desc`: the translator's original commentary, retaining relevant
      formatting and links; keep routine illustrator credits in `artistId`.
    - `artistId`, `characterIds`, `nsfw`: use the policies below.
-4. Match artists to existing files under `src/data/artists/` by their
-   **actual source account**, not their display name alone. For a genuinely
-   new artist, add one record with verified social links, a valid portrait or
-   existing placeholder, and a unique unused `sortOrder`. Do not invent a
-   Pixiv account or artist identity.
-5. Check `src/data/characters/` for exact character IDs; examine all
+4. Identify artists **before creating new records**. Search all existing files
+   under `src/data/artists/` for matching verified X/Twitter and Pixiv
+   account URLs, including a person's primary and secondary accounts.
+   Reuse their existing artist ID even if their current display name, the
+   source post's credit, or the social handle differs. Distinct people with
+   identical names must remain separate records; do not merge on name alone.
+   For example, `@campagne_9` is already `kanpa`, and the `@tktgm0703`
+   secondary account belongs to the existing `kakunohito` artist.
+5. For the artist record's **`name`**, prefer the artist's self-chosen name
+   on their X/Twitter and/or Pixiv profile, **not the spelling supplied in
+   a Reddit submission's illustrator credit or a romanization invented from
+   the artist ID**. Compare available profiles and choose the short,
+   distinctive preferred name, preserving its native writing system;
+   omit temporary event notices, emoji, follower counts, and descriptive
+   suffixes. If a profile provides both a native name and a reading (for
+   example, X `民（tami)` and Pixiv `民`), use `民`. If profiles conflict,
+   an alias/secondary-account relationship is unclear, or the preferred
+   name is otherwise ambiguous, ask the owner to decide before changing
+   or adding the artist. Never invent an identity or account.
+6. Only when an artist is truly new, add
+   `src/data/artists/<stable-artist-id>.json`, with their verified
+   name, X/Twitter and/or Pixiv profile links, and a valid portrait or
+   an existing placeholder. One verified social account is sufficient;
+   Pixiv is optional and must never be invented. Assign `sortOrder`
+   as **the current maximum artist sort order + 1**, allocating
+   consecutive ascending numbers when adding several artists together;
+   avoid reusing gaps. Keep existing IDs and sort orders stable when
+   correcting display names or consolidating accidental duplicates.
+7. Check `src/data/characters/` for exact character IDs; examine all
    supplied images, including background appearances, when assigning tags.
    Honor every explicit addition or removal requested by the owner. Create
    a character record only when needed, with valid work code, portrait and
    unique sort order. Never duplicate IDs in `characterIds`.
-6. Respect one-off editorial instructions over third-party metadata.
+8. Respect one-off editorial instructions over third-party metadata.
    For example, the Tokyo Tower food/drinks menu post `1wpx0k4` is
    credited to **Ayumi**, not baba, by the owner's explicit instruction.
 
