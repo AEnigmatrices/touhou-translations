@@ -1,0 +1,22 @@
+{
+    "date": 1790344583000,
+    "reddit": "https://www.reddit.com/r/touhou/comments/1wpx0k4",
+    "url": [
+        "https://i.redd.it/uv1rmzg59orh1.png"
+    ],
+    "src": "https://tt.tokyocomix.com/touhou-project/#cafe",
+    "desc": "Context — A month-long collab event at [Tokyo Tower](https://tt.tokyocomix.com/touhou-project/#cafe).",
+    "artistId": "ayumi",
+    "characterIds": [
+        "reimu",
+        "marisa",
+        "remilia",
+        "yuyuko",
+        "kaguya",
+        "flandre",
+        "sakuya",
+        "eirin",
+        "youmu"
+    ],
+    "nsfw": false
+}
