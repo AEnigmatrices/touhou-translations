@@ -1,68 +1,36 @@
-name: Temporary Reddit metadata intake
+name: Temporary dependency refresh
 on:
   push:
     branches:
       - chore/gallery-and-dependencies-2026-10
+    paths:
+      - .github/workflows/content-intake-audit.yml
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  audit:
+  update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v4
         with:
-          node-version: '24'
-      - name: Fetch source metadata for selected Reddit posts
-        run: |
-          node --input-type=module <<'JS'
-          import { mkdirSync, writeFileSync } from 'node:fs';
-          const ids = ['1wre0x9', '1wsjoyb', '1xcmapw'];
-          const headers = {
-            'User-Agent': 'TouhouTranslationsArchive/1.0 (personal archive; content attribution audit)',
-            'Accept': 'application/json, application/atom+xml, text/html'
-          };
-          const data = [];
-          for (const id of ids) {
-            const attempts = [];
-            let post = null;
-            for (const url of [
-              `https://www.reddit.com/r/touhou/comments/${id}.json?raw_json=1`,
-              `https://api.reddit.com/comments/${id}?raw_json=1`
-            ]) {
-              try {
-                const response = await fetch(url, {headers, signal: AbortSignal.timeout(12000)});
-                attempts.push({url, status: response.status, type: response.headers.get('content-type')});
-                if (!response.ok) continue;
-                const body = await response.json();
-                const submission = body?.[0]?.data?.children?.[0]?.data;
-                if (!submission || submission.id !== id) continue;
-                const images = [];
-                if (submission.is_gallery && submission.gallery_data?.items) {
-                  for (const entry of submission.gallery_data.items) {
-                    const media = submission.media_metadata?.[entry.media_id];
-                    if (media?.s?.u) images.push(media.s.u.replaceAll('&amp;', '&'));
-                  }
-                } else if (submission.url_overridden_by_dest?.startsWith('https://i.redd.it/')) {
-                  images.push(submission.url_overridden_by_dest);
-                }
-                const comments = body?.[1]?.data?.children?.filter(x => x.kind==='t1').map(x=>x.data).filter(x=>x.author===submission.author).slice(0,10).map(x=>({body:x.body,created_utc:x.created_utc})) ?? [];
-                post = {id, title:submission.title, author:submission.author, created_utc:submission.created_utc, permalink:submission.permalink, source:submission.url_overridden_by_dest, is_gallery:submission.is_gallery, images, selftext:submission.selftext, comments};
-                break;
-              } catch (e) { attempts.push({url, error:String(e)}); }
-            }
-            data.push({id, attempts, post});
-          }
-          mkdirSync('research', {recursive: true});
-          writeFileSync('research/reddit-audit.json', JSON.stringify(data,null,2)+'\n');
-          JS
-      - name: Commit temporary research output to working branch
+          ref: chore/gallery-and-dependencies-2026-10
+      - uses: pnpm/setup@v3
+        with:
+          runtime: node@24
+          install: false
+      - name: Update dependencies within supported version ranges
+        run: pnpm update
+      - name: Run validation suite
+        run: pnpm run test
+      - name: Build site
+        run: pnpm run build
+      - name: Commit dependency lockfile if verified
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/reddit-audit.json
-          git diff --cached --quiet || git commit -m "chore: record Reddit intake audit results"
+          git add pnpm-lock.yaml
+          git diff --cached --quiet || git commit -m "deps: refresh resolved dependencies"
           git push
