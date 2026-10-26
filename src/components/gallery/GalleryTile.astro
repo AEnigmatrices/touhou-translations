@@ -11,7 +11,7 @@ interface Props {
 const { post, priority = false } = Astro.props;
 ---
 
-<a class="tile" href={pagePath(`posts/${post.id}`)} aria-label={`View post ${post.id}`}>
+<a class="tile" href={pagePath(`posts/${post.id}`)} aria-label={`View post ${post.id}`} data-image-skeleton>
     <img
         class:list={{ nsfw: post.nsfw }}
         src={post.img}

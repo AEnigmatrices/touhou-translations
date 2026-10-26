@@ -131,6 +131,7 @@ const initializeGallery = (): void => {
     const makeTile = (post: GalleryPost): HTMLAnchorElement => {
         const link = document.createElement('a');
         link.className = 'tile';
+        link.dataset.imageSkeleton = '';
         link.href = pagePath(`posts/${post.id}`);
         link.setAttribute('aria-label', `View post ${post.id}`);
         const image = document.createElement('img');

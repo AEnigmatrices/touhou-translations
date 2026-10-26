@@ -74,3 +74,46 @@ i,
 [style*="font-style: italic"] {
     font-style: italic;
 }
+
+/* Image placeholders only appear while a real image is loading. Text and links stay usable. */
+[data-image-skeleton] {
+    position: relative;
+}
+
+[data-image-skeleton][data-image-state="loading"]::before,
+[data-image-skeleton][data-image-state="error"]::before {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+[data-image-skeleton][data-image-state="loading"]::before {
+    content: "";
+    background: linear-gradient(105deg, #e9edf4 25%, #f8f9fc 45%, #e9edf4 65%);
+    background-size: 220% 100%;
+    animation: image-skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+[data-image-skeleton][data-image-state="error"]::before {
+    content: "Image unavailable";
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    background: var(--color-bg-soft);
+}
+
+@keyframes image-skeleton-shimmer {
+    from { background-position: 100% 0; }
+    to { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-image-skeleton][data-image-state="loading"]::before {
+        animation: none;
+    }
+}

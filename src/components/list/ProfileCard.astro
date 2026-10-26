@@ -19,7 +19,7 @@ const href = pagePath(`gallery/${mode === 'character' ? 'characters' : 'artists'
 <li class="profile-item large" aria-label={`Profile: ${item.name}`} data-item-id={item.id}>
     <a class="box" href={href}>
         <div class="content large-content">
-            <div class="image-frame large-image">
+            <div class="image-frame large-image" data-image-skeleton>
                 <img
                     src={portraitImage.src}
                     srcset={portraitImage.srcset || undefined}
