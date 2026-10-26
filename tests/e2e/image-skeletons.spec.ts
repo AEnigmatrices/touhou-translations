@@ -6,26 +6,38 @@ const smallImage = Buffer.from(
 );
 
 test('gallery skeleton settles after a delayed image and after an image failure', async ({ page }) => {
-    const delayedUrl = 'https://example.test/skeleton-delayed.png';
-    const failedUrl = 'https://example.test/skeleton-failed.png';
+    const delayedPath = '**/skeleton-delayed.png';
+    const failedPath = '**/skeleton-failed.png';
     let resumeImage: () => void = () => undefined;
     const imageGate = new Promise<void>(resolve => { resumeImage = resolve; });
 
-    await page.route(delayedUrl, async route => {
+    await page.route(delayedPath, async route => {
         await imageGate;
         await route.fulfill({ status: 200, contentType: 'image/png', body: smallImage });
     });
-    await page.route(failedUrl, route => route.abort());
+    await page.route(failedPath, route => route.abort());
 
     try {
         await page.goto('gallery/', { waitUntil: 'domcontentloaded' });
         const tile = page.locator('[data-gallery-grid] [data-image-skeleton]').first();
         await expect(tile).toBeVisible();
 
+        const delayedUrl = new URL('skeleton-delayed.png', page.url()).href;
+        const failedUrl = new URL('skeleton-failed.png', page.url()).href;
+
+        // First fail an image to reproduce the stale complete=true state.
         await tile.locator('img').evaluate((image: HTMLImageElement, url) => {
             image.removeAttribute('srcset');
             image.src = url;
+        }, failedUrl);
+        await expect(tile).toHaveAttribute('data-image-state', 'error');
+
+        // Hold the next request open. The failed image must return to loading.
+        const delayedRequest = page.waitForRequest(request => request.url() === delayedUrl);
+        await tile.locator('img').evaluate((image: HTMLImageElement, url) => {
+            image.src = url;
         }, delayedUrl);
+        await delayedRequest;
         await expect(tile).toHaveAttribute('data-image-state', 'loading');
 
         resumeImage();
