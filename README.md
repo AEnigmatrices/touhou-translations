@@ -13,6 +13,7 @@ The project collects manually translated Touhou fan art and comics while preserv
 - **TypeScript** - Static checking for route modules, build tooling, and plugin code.
 - **PNPM** - Package management.
 - **Service worker** - Generated app-shell and runtime caching with a hand-authored web app manifest.
+- **Image loading skeletons** - A shared progressive enhancement for gallery thumbnails, portraits, daily posts, featured video posters, and artwork pages. Placeholders stop on success or failure and respect reduced-motion settings.
 - **GitHub Pages** - Static hosting through GitHub Actions.
 
 ## Repository Structure

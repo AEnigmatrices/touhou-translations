@@ -96,6 +96,7 @@ const initializeListPage = (): void => {
         content.className = 'content large-content';
         const imageFrame = document.createElement('div');
         imageFrame.className = 'image-frame large-image';
+        imageFrame.dataset.imageSkeleton = '';
         const image = portraitImage.cloneNode(true) as HTMLImageElement;
         image.removeAttribute('data-portrait-key');
         image.alt = item.name;

@@ -55,7 +55,7 @@ const characterPortraitImages = await getAvatarPortraitImages(data.characters.ma
                 const dimensions = data.post.imageDimensions?.[index];
                 const sources = data.post.imageSources?.[index];
                 return (
-                    <figure>
+                    <figure data-image-skeleton>
                         <img
                             class:list={{ nsfw: data.post.nsfw }}
                             src={url}
@@ -133,7 +133,7 @@ const characterPortraitImages = await getAvatarPortraitImages(data.characters.ma
                     <div class="more-grid" data-more-grid></div>
                     <template data-more-template>
                         {data.relatedPosts.map(item => (
-                            <a href={pagePath(`posts/${item.id}`)} aria-label={`View another translated work by ${artistName}`}>
+                            <a href={pagePath(`posts/${item.id}`)} aria-label={`View another translated work by ${artistName}`} data-image-skeleton>
                                 <img
                                     class:list={{ nsfw: item.nsfw }}
                                     src={item.img}

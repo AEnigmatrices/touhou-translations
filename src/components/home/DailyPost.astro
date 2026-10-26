@@ -14,7 +14,7 @@ const { post, postCount } = Astro.props;
 <section class="card daily" data-daily-post data-daily-count={postCount}>
     <h2>Post of the Day</h2>
     {post && (
-        <a class="daily-link" href={pagePath(`posts/${post.id}`)} data-daily-link>
+        <a class="daily-link" href={pagePath(`posts/${post.id}`)} data-daily-link data-image-skeleton>
             <img
                 class:list={{ nsfw: post.nsfw }}
                 src={post.img}
