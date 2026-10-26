@@ -19,6 +19,20 @@ const updateImageSkeleton = (frame: HTMLElement): void => {
 const frameForImage = (image: HTMLImageElement): HTMLElement | null =>
     image.closest<HTMLElement>(skeletonSelector);
 
+/**
+ * A newly assigned src/srcset can still report complete=true and naturalWidth=0
+ * from the previous (failed) request before the browser starts fetching it.
+ * Treat source changes as loading until their own load/error event arrives.
+ */
+const markImageSourceChanged = (image: HTMLImageElement): void => {
+    const frame = frameForImage(image);
+    if (!frame) return;
+
+    frame.dataset.imageState = image.complete && image.naturalWidth > 0
+        ? 'ready'
+        : 'loading';
+};
+
 const scanImageSkeletons = (node: Node): void => {
     if (!(node instanceof Element)) return;
 
@@ -49,8 +63,7 @@ const initializeImageSkeletons = (): void => {
     const observer = new MutationObserver(records => {
         for (const record of records) {
             if (record.type === 'attributes' && record.target instanceof HTMLImageElement) {
-                const frame = frameForImage(record.target);
-                if (frame) updateImageSkeleton(frame);
+                markImageSourceChanged(record.target);
                 continue;
             }
 
