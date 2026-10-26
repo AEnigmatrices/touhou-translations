@@ -48,7 +48,9 @@ test('skeletons cover home media and newly rendered artist and gallery cards', a
     await page.goto('artists/', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('[data-list-grid] .image-frame').first())
         .toHaveAttribute('data-image-state', /^(loading|ready|error)$/);
-    await page.locator('[data-list-search]').fill('reimu');
+    const artistName = await page.locator('[data-list-grid] .name').first().textContent();
+    if (!artistName) throw new Error('Expected at least one artist.');
+    await page.locator('[data-list-search]').fill(artistName);
     await expect(page.locator('[data-list-grid] .image-frame').first())
         .toHaveAttribute('data-image-state', /^(loading|ready|error)$/);
 
