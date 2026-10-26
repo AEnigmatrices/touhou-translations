@@ -92,7 +92,7 @@ The hosted Touhou fan comics, illustrations, and translated content are non-comm
 
 Third-party assets are used under their respective permissions:
 
-- Touhou character portraits are by [dairi](https://www.pixiv.net/en/users/4920496) / [haruka](https://www.nicovideo.jp/user/3494232).
+- Touhou character portraits are by [dairi](https://www.pixiv.net/en/users/4920496) (Pixiv and Twitter), also known as [haruka](https://www.nicovideo.jp/user/3494232) (Niconico).
 - The project aims to follow the [Touhou Project fan work guidelines](https://touhou-project.news/guidelines_en/).
 
 If you are an artist and want work removed or credited differently, please open an issue or contact the maintainer.
