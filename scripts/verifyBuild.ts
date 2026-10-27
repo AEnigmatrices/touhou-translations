@@ -261,6 +261,61 @@ const main = async (): Promise<void> => {
         errors.push(`${missingIndex.length} post director${missingIndex.length === 1 ? 'y is' : 'ies are'} missing index.html: ${summarizeValues(missingIndex)}`);
     }
 
+    // Verify every catalog route against its build-time JSON projection.
+    // This prevents silently publishing incomplete or duplicate static pages.
+    const catalogs = [
+        { route: 'gallery', data: 'gallery-posts', pageSize: 12, cardPattern: /class="[^"]*\\btile\\b[^"]*"/g },
+        { route: 'artists', data: 'artists', pageSize: 24, cardPattern: /class="[^"]*\\bprofile-item\\b[^"]*"/g },
+        { route: 'characters', data: 'characters', pageSize: 24, cardPattern: /class="[^"]*\\bprofile-item\\b[^"]*"/g }
+    ] as const;
+    for (const catalog of catalogs) {
+        const dataPath = path.join(buildDir, 'runtime-data', `${catalog.data}.json`);
+        if (!fs.existsSync(dataPath)) {
+            errors.push(`Missing prerendered catalog: ${catalog.data}.json`);
+            continue;
+        }
+        let entries: unknown;
+        try {
+            entries = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+        } catch {
+            errors.push(`Invalid catalog JSON: ${catalog.data}.json`);
+            continue;
+        }
+        if (!Array.isArray(entries)) {
+            errors.push(`Catalog is not an array: ${catalog.data}.json`);
+            continue;
+        }
+        const pageCount = Math.max(1, Math.ceil(entries.length / catalog.pageSize));
+        for (let page = 1; page <= pageCount; page += 1) {
+            const route = page === 1 ? catalog.route : `${catalog.route}/page/${page}`;
+            const filename = `${route}/index.html`;
+            if (!buildFilePaths.has(filename)) {
+                errors.push(`Missing catalog page: ${filename}`);
+                continue;
+            }
+            const html = fs.readFileSync(path.join(buildDir, filename), 'utf8');
+            const expectedCards = Math.min(catalog.pageSize, entries.length - (page - 1) * catalog.pageSize);
+            const actualCards = [...html.matchAll(catalog.cardPattern)].length;
+            if (actualCards !== expectedCards) {
+                errors.push(`${filename} renders ${actualCards} cards; expected ${expectedCards}.`);
+            }
+            const canonicals = findCanonicalUrls(html);
+            const expectedCanonical = absoluteSiteUrl(route);
+            if (canonicals.length !== 1 || canonicals[0] !== expectedCanonical) {
+                errors.push(`${filename} has incorrect canonical URL.`);
+            }
+            if (!html.includes('data-catalog-pagination')) {
+                errors.push(`${filename} is missing static catalog navigation.`);
+            }
+        }
+        const paginatedFiles = buildFiles.map(file => file.relativePath)
+            .filter(filename => filename.startsWith(`${catalog.route}/page/`) && filename.endsWith('/index.html'));
+        if (paginatedFiles.length !== pageCount - 1) {
+            errors.push(`${catalog.route} emitted ${paginatedFiles.length} secondary pages; expected ${pageCount - 1}.`);
+        }
+        console.log(`Verified ${catalog.route} catalog: ${entries.length} entries across ${pageCount} static pages.`);
+    }
+
     const postFileIds = new Map<string, string>();
     for (const id of postIds) {
         postFileIds.set(`posts/${id}/index.html`, id);
