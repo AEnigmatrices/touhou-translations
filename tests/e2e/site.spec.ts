@@ -904,7 +904,7 @@ test.describe.serial('service worker runtime caching', () => {
 ));
             await expect(page.locator(selector)).toHaveCount(pageSize);
             await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-                'href', new URL(`${route}/page/2/`, baseURL).href.replace('127.0.0.1:4173', 'aenigmatrices.github.io')
+                'href', `https://aenigmatrices.github.io/touhou-translations/${route}/page/2/`
             );
 
             await page.goto(new URL(`${route}/page/${lastPage}/`, baseURL).href);
