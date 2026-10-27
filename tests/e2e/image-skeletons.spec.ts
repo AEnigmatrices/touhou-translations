@@ -1,5 +1,9 @@
 import { expect, test } from '@playwright/test';
 
+// Image requests must reach Playwright's route handlers. A service worker can
+// otherwise intercept them first, turning the deliberate delay into a 404.
+test.use({ serviceWorkers: 'block' });
+
 const smallImage = Buffer.from(
     'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=',
     'base64'
@@ -10,8 +14,11 @@ test('gallery skeleton settles after a delayed image and after an image failure'
     const failedPath = '**/skeleton-failed.png';
     let resumeImage: () => void = () => undefined;
     const imageGate = new Promise<void>(resolve => { resumeImage = resolve; });
+    let signalDelayedRoute: () => void = () => undefined;
+    const delayedRouteStarted = new Promise<void>(resolve => { signalDelayedRoute = resolve; });
 
     await page.route(delayedPath, async route => {
+        signalDelayedRoute();
         await imageGate;
         await route.fulfill({ status: 200, contentType: 'image/png', body: smallImage });
     });
@@ -33,11 +40,12 @@ test('gallery skeleton settles after a delayed image and after an image failure'
         await expect(tile).toHaveAttribute('data-image-state', 'error');
 
         // Hold the next request open. The failed image must return to loading.
-        const delayedRequest = page.waitForRequest(request => request.url() === delayedUrl);
         await tile.locator('img').evaluate((image: HTMLImageElement, url) => {
             image.src = url;
         }, delayedUrl);
-        await delayedRequest;
+        // An emitted request alone is insufficient: confirm our held route
+        // actually intercepted it before checking the loading state.
+        await delayedRouteStarted;
         await expect(tile).toHaveAttribute('data-image-state', 'loading');
 
         resumeImage();
