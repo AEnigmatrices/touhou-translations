@@ -1,25 +1,29 @@
 ---
 import type { GalleryPost } from '../../types/data';
+import CatalogPagination from '../common/CatalogPagination.astro';
+import { catalogPageCount, CATALOG_PAGE_SIZES, paginationItems } from '../../utils/catalogPagination';
 import GalleryTile from './GalleryTile.astro';
 
 interface Props {
     posts: GalleryPost[];
+    currentPage?: number;
+    totalPosts?: number;
+    catalogRoute?: 'gallery';
 }
 
-const { posts } = Astro.props;
-const postsPerPage = 12;
+const { posts, currentPage = 1, totalPosts = posts.length, catalogRoute } = Astro.props;
+const postsPerPage = CATALOG_PAGE_SIZES.gallery;
 const sortedPosts = [...posts].sort((left, right) => right.date - left.date);
-const totalPages = Math.max(1, Math.ceil(sortedPosts.length / postsPerPage));
-const initialPagination: Array<number | 'ellipsis-start' | 'ellipsis-end'> = totalPages <= 7
-    ? Array.from({ length: totalPages }, (_, index) => index + 1)
-    : [1, 2, 'ellipsis-start', totalPages];
+const totalPages = catalogPageCount(totalPosts, postsPerPage);
+const initialPosts = catalogRoute && currentPage > 1 ? sortedPosts : sortedPosts.slice(0, postsPerPage);
+const initialPagination = paginationItems(currentPage, totalPages);
 ---
 
-<section class="gallery-page" data-gallery-page>
+<section class="gallery-page" data-gallery-page data-page={currentPage}>
     <div class="gallery-toolbar">
         <div>
             <h1>Gallery</h1>
-            <p data-post-count>{posts.length} post{posts.length === 1 ? '' : 's'}</p>
+            <p data-post-count>{totalPosts} post{totalPosts === 1 ? '' : 's'}</p>
         </div>
         <div class="controls">
             <button type="button" aria-pressed="false" data-gallery-only>All Posts</button>
@@ -28,20 +32,24 @@ const initialPagination: Array<number | 'ellipsis-start' | 'ellipsis-end'> = tot
     </div>
 
     <div class="grid gallery-grid" data-gallery-grid>
-        {sortedPosts.slice(0, postsPerPage).map((post, index) => (
+        {initialPosts.map((post, index) => (
             <GalleryTile {post} priority={index === 0} />
         ))}
     </div>
 
-    <nav class="pagination" aria-label="Gallery pages" data-pagination hidden={totalPages <= 1}>
-        <button type="button" disabled>Previous</button>
-        {initialPagination.map(item => typeof item === 'number' ? (
-            <button type="button" class:list={{ active: item === 1 }} aria-current={item === 1 ? 'page' : undefined}>{item}</button>
-        ) : (
-            <button class="ellipsis" type="button" aria-label={`Jump to page between 1 and ${totalPages}`}>...</button>
-        ))}
-        <button type="button" disabled={totalPages === 1}>Next</button>
-    </nav>
+    {catalogRoute ? (
+        <CatalogPagination route={catalogRoute} {currentPage} {totalPages} label="Gallery pages" galleryInteractive />
+    ) : (
+        <nav class="pagination" aria-label="Gallery pages" data-pagination hidden={totalPages <= 1}>
+            <button type="button" disabled>Previous</button>
+            {initialPagination.map(item => typeof item === 'number' ? (
+                <button type="button" class:list={{ active: item === 1 }} aria-current={item === 1 ? 'page' : undefined}>{item}</button>
+            ) : (
+                <button class="ellipsis" type="button" aria-label={`Jump to page between 1 and ${totalPages}`}>...</button>
+            ))}
+            <button type="button" disabled={totalPages === 1}>Next</button>
+        </nav>
+    )}
     <script src="../../scripts/gallery.ts"></script>
 </section>
 

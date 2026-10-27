@@ -67,7 +67,7 @@ test('skeletons cover home media and newly rendered artist and gallery cards', a
         .toHaveAttribute('data-image-state', /^(loading|ready|error)$/);
 
     await page.goto('gallery/', { waitUntil: 'domcontentloaded' });
-    await page.getByRole('button', { name: '2', exact: true }).click();
+    await page.getByRole('link', { name: '2', exact: true }).click();
     await expect(page.locator('[data-gallery-grid] a.tile').first())
         .toHaveAttribute('data-image-state', /^(loading|ready|error)$/);
 });

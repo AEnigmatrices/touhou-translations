@@ -15,5 +15,5 @@ const description = 'Browse English-translated Touhou Project comics and illustr
     ogTitle="Gallery | Touhou Translations"
     currentSection="gallery"
 >
-    <GalleryBrowser {posts} />
+    <GalleryBrowser {posts} totalPosts={posts.length} catalogRoute="gallery" />
 </BaseLayout>

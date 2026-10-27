@@ -1,16 +1,16 @@
 import type { GalleryPost, SortOrder } from '../types/data';
 import { assetPath, pagePath } from '../utils/paths';
 import { responsiveSrcset } from '../utils/responsiveImage';
+import { CATALOG_PAGE_SIZES, paginationItems, type PaginationItem } from '../utils/catalogPagination';
 
-type JumpItem = 'ellipsis-start' | 'ellipsis-end';
-type PaginationItem = number | JumpItem;
+type JumpItem = Exclude<PaginationItem, number>;
 type NavigatorWithConnection = Navigator & {
     connection?: {
         saveData?: boolean;
     };
 };
 
-const GALLERY_POSTS_PER_PAGE = 12;
+const GALLERY_POSTS_PER_PAGE = CATALOG_PAGE_SIZES.gallery;
 let postsRequest: Promise<GalleryPost[]> | undefined;
 const warmedPostUrls = new Set<string>();
 
@@ -96,7 +96,7 @@ const initializeGallery = (): void => {
     const search = new URLSearchParams(window.location.search);
     const staticFilter = staticGalleryFilter();
 
-    let currentPage = 1;
+    let currentPage = Number(root.dataset.page) || 1;
     let dateSort: SortOrder = 'desc';
     let galleryOnly = false;
     const characterQueries = (search.get('characters') || '').split(',').map(value => value.trim()).filter(Boolean);
@@ -106,19 +106,6 @@ const initializeGallery = (): void => {
     const mode: 'and' | 'or' = search.get('mode') === 'or' ? 'or' : 'and';
     let openJump: JumpItem | null = null;
     let jumpPage = '';
-
-    const getPaginationItems = (page: number, pageCount: number): PaginationItem[] => {
-        if (pageCount <= 7) return Array.from({ length: pageCount }, (_, index) => index + 1);
-        const pages = new Set([1, pageCount, page - 1, page, page + 1]);
-        const validPages = [...pages].filter(pageNumber => pageNumber >= 1 && pageNumber <= pageCount).sort((a, b) => a - b);
-        const items: PaginationItem[] = [];
-        validPages.forEach((pageNumber, index) => {
-            const previous = validPages[index - 1];
-            if (previous && pageNumber - previous > 1) items.push(previous === 1 ? 'ellipsis-start' : 'ellipsis-end');
-            items.push(pageNumber);
-        });
-        return items;
-    };
 
     const createButton = (label: string, onClick: () => void): HTMLButtonElement => {
         const button = document.createElement('button');
@@ -168,7 +155,7 @@ const initializeGallery = (): void => {
         previous.disabled = currentPage === 1;
         children.push(previous);
 
-        for (const item of getPaginationItems(currentPage, totalPages)) {
+        for (const item of paginationItems(currentPage, totalPages)) {
             if (typeof item === 'number') {
                 const button = createButton(String(item), () => { currentPage = item; openJump = null; void render(); });
                 button.classList.toggle('active', item === currentPage);
@@ -270,6 +257,7 @@ const initializeGallery = (): void => {
 
     const hasQueryFilter = search.has('characters') || search.has('artist') || search.has('artists') || search.has('mode');
     if (hasQueryFilter) {
+        currentPage = 1;
         void render().catch(reportLoadError);
     } else {
         warmInitialPostDocuments(grid);

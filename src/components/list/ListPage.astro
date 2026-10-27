@@ -4,19 +4,22 @@ import type { Artist, Character } from '../../types/data';
 import { getPortraitImages, PORTRAIT_SIZES } from '../../lib/server/portraitImages';
 import { absoluteSiteUrl } from '../../utils/siteMetadata';
 import ProfileCard from './ProfileCard.astro';
+import CatalogPagination from '../common/CatalogPagination.astro';
+import { catalogPageCount, CATALOG_PAGE_SIZES } from '../../utils/catalogPagination';
 
 interface Props {
     mode: 'character' | 'artist';
     items: Array<Character | Artist>;
+    currentPage?: number;
 }
 
-const { mode, items } = Astro.props;
-const pageSize = 24;
+const { mode, items, currentPage = 1 } = Astro.props;
+const pageSize = CATALOG_PAGE_SIZES[mode === 'character' ? 'characters' : 'artists'];
 const title = mode === 'character' ? 'Character List' : 'Artist List';
 const description = mode === 'character'
     ? 'Browse Touhou Project characters featured in the translated archive.'
     : 'Browse artists featured in the Touhou Translations archive.';
-const route = mode === 'character' ? 'characters' : 'artists';
+const route: 'characters' | 'artists' = mode === 'character' ? 'characters' : 'artists';
 const initialItems = mode === 'artist'
     ? [...items].sort((left, right) => {
         const artworkDifference = right.artworkCount - left.artworkCount;
@@ -24,17 +27,19 @@ const initialItems = mode === 'artist'
         return (right as Artist).characterCount - (left as Artist).characterCount;
     })
     : items;
+const totalPages = catalogPageCount(initialItems.length, pageSize);
+const pageStart = (currentPage - 1) * pageSize;
 const portraitImages = await getPortraitImages(items.map(item => item.portrait));
 ---
 
 <BaseLayout
     title={`${title} | Touhou Translations`}
     {description}
-    canonical={absoluteSiteUrl(route)}
+    canonical={absoluteSiteUrl(currentPage === 1 ? route : `${route}/page/${currentPage}`)}
     ogTitle={`${title} | Touhou Translations`}
     currentSection={mode === 'character' ? 'characters' : 'artists'}
 >
-    <section class="list-page" data-list-page data-mode={mode} data-page-size={pageSize}>
+    <section class="list-page" data-list-page data-mode={mode} data-page-size={pageSize} data-page={currentPage}>
         <div class="list-toolbar">
             <h1>{title}</h1>
             <label>
@@ -58,12 +63,13 @@ const portraitImages = await getPortraitImages(items.map(item => item.portrait))
         </div>
 
         <ul class="profile-grid" data-list-grid>
-            {initialItems.slice(0, pageSize).map(item => (
+            {initialItems.slice(pageStart, pageStart + pageSize).map(item => (
                 <ProfileCard {item} {mode} portraitImage={portraitImages[item.portrait]} />
             ))}
         </ul>
 
-        <button class="load-more" type="button" data-load-more hidden={initialItems.length <= pageSize}>Load More</button>
+        <button class="load-more" type="button" data-load-more hidden={pageStart + pageSize >= initialItems.length}>Load More</button>
+        <CatalogPagination route={route} {currentPage} {totalPages} label={`${title} pages`} />
         <template data-portrait-images>
             {items.map(item => {
                 const portraitImage = portraitImages[item.portrait];
