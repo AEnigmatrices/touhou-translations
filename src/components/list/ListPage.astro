@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { mode, items, currentPage = 1 } = Astro.props;
-const pageSize = CATALOG_PAGE_SIZES[mode];
+const pageSize = CATALOG_PAGE_SIZES[mode === 'character' ? 'characters' : 'artists'];
 const title = mode === 'character' ? 'Character List' : 'Artist List';
 const description = mode === 'character'
     ? 'Browse Touhou Project characters featured in the translated archive.'
