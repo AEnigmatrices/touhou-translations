@@ -19,7 +19,7 @@ const title = mode === 'character' ? 'Character List' : 'Artist List';
 const description = mode === 'character'
     ? 'Browse Touhou Project characters featured in the translated archive.'
     : 'Browse artists featured in the Touhou Translations archive.';
-const route = mode === 'character' ? 'characters' : 'artists';
+const route: 'characters' | 'artists' = mode === 'character' ? 'characters' : 'artists';
 const initialItems = mode === 'artist'
     ? [...items].sort((left, right) => {
         const artworkDifference = right.artworkCount - left.artworkCount;
