@@ -264,9 +264,9 @@ const main = async (): Promise<void> => {
     // Verify every catalog route against its build-time JSON projection.
     // This prevents silently publishing incomplete or duplicate static pages.
     const catalogs = [
-        { route: 'gallery', data: 'gallery-posts', pageSize: 12, cardPattern: /class="[^"]*\\btile\\b[^"]*"/g },
-        { route: 'artists', data: 'artists', pageSize: 24, cardPattern: /class="[^"]*\\bprofile-item\\b[^"]*"/g },
-        { route: 'characters', data: 'characters', pageSize: 24, cardPattern: /class="[^"]*\\bprofile-item\\b[^"]*"/g }
+        { route: 'gallery', data: 'gallery-posts', pageSize: 12, cardPattern: /class="[^"]*\btile\b[^"]*"/g },
+        { route: 'artists', data: 'artists', pageSize: 24, cardPattern: /class="[^"]*\bprofile-item\b[^"]*"/g },
+        { route: 'characters', data: 'characters', pageSize: 24, cardPattern: /class="[^"]*\bprofile-item\b[^"]*"/g }
     ] as const;
     for (const catalog of catalogs) {
         const dataPath = path.join(buildDir, 'runtime-data', `${catalog.data}.json`);
