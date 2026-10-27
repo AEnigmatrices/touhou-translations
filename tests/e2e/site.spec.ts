@@ -140,8 +140,8 @@ test('gallery warms all twelve visible post documents on each page', async ({ pa
     expect(firstPageUrls).toHaveLength(12);
     await expect.poll(() => firstPageUrls.every(url => warmedPostUrls.has(url))).toBe(true);
 
-    await page.getByRole('button', { name: '2', exact: true }).click();
-    await expect(page.getByRole('button', { name: '2', exact: true })).toHaveAttribute('aria-current', 'page');
+    await page.getByRole('link', { name: '2', exact: true }).click();
+    await expect(page.getByRole('link', { name: '2', exact: true })).toHaveAttribute('aria-current', 'page');
 
     const secondPageUrls = await page.locator('[data-gallery-grid] a.tile').evaluateAll(links =>
         links.map(link => (link as HTMLAnchorElement).href)

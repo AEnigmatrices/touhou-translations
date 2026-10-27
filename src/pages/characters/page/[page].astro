@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from 'astro';
+import ListPage from '../../../components/list/ListPage.astro';
+import { getCharacters } from '../../../lib/content/projections';
+import { catalogPageCount, CATALOG_PAGE_SIZES } from '../../../utils/catalogPagination';
+import type { Character } from '../../../types/data';
+
+interface Props {
+    items: Character[];
+    currentPage: number;
+}
+
+export const getStaticPaths = (async () => {
+    const items = await getCharacters();
+    const count = catalogPageCount(items.length, CATALOG_PAGE_SIZES.characters);
+    return Array.from({ length: count - 1 }, (_, index) => ({
+        params: { page: String(index + 2) },
+        props: { items, currentPage: index + 2 }
+    }));
+}) satisfies GetStaticPaths;
+
+const { items, currentPage } = Astro.props as Props;
+---
+
+<ListPage mode="character" {items} {currentPage} />

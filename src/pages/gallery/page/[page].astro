@@ -1,0 +1,41 @@
+---
+import type { GetStaticPaths } from 'astro';
+import GalleryBrowser from '../../../components/gallery/GalleryBrowser.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getGalleryPosts } from '../../../lib/content/projections';
+import { catalogPageCount, CATALOG_PAGE_SIZES } from '../../../utils/catalogPagination';
+import { absoluteSiteUrl } from '../../../utils/siteMetadata';
+import type { GalleryPost } from '../../../types/data';
+
+interface Props {
+    posts: GalleryPost[];
+    currentPage: number;
+    totalPosts: number;
+}
+
+export const getStaticPaths = (async () => {
+    const posts = [...await getGalleryPosts()].sort((a, b) => b.date - a.date);
+    const totalPages = catalogPageCount(posts.length, CATALOG_PAGE_SIZES.gallery);
+
+    return Array.from({ length: totalPages - 1 }, (_, index) => {
+        const currentPage = index + 2;
+        const start = (currentPage - 1) * CATALOG_PAGE_SIZES.gallery;
+        return {
+            params: { page: String(currentPage) },
+            props: {
+                posts: posts.slice(start, start + CATALOG_PAGE_SIZES.gallery),
+                currentPage,
+                totalPosts: posts.length
+            }
+        };
+    });
+}) satisfies GetStaticPaths;
+
+const { posts, currentPage, totalPosts } = Astro.props as Props;
+const title = `Gallery – Page ${currentPage} | Touhou Translations`;
+const description = 'Browse English-translated Touhou Project comics and illustrations by artist and character.';
+---
+
+<BaseLayout {title} {description} canonical={absoluteSiteUrl(`gallery/page/${currentPage}`)} ogTitle={title} currentSection="gallery">
+    <GalleryBrowser {posts} {currentPage} {totalPosts} catalogRoute="gallery" />
+</BaseLayout>

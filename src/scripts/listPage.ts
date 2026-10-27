@@ -17,6 +17,8 @@ const initializeListPage = (): void => {
     const loadMoreButton = root.querySelector<HTMLButtonElement>('[data-load-more]');
     const portraitImagesTemplate = root.querySelector<HTMLTemplateElement>('[data-portrait-images]');
     const pageSize = Number(root.dataset.pageSize) || 24;
+    const catalogPagination = root.querySelector<HTMLElement>('[data-catalog-pagination]');
+    let currentPage = Number(root.dataset.page) || 1;
     const portraitImages = new Map<string, HTMLImageElement>();
 
     for (const image of portraitImagesTemplate?.content.querySelectorAll<HTMLImageElement>('[data-portrait-key]') ?? []) {
@@ -133,11 +135,13 @@ const initializeListPage = (): void => {
             ? items.filter(item => [item.id, item.name].some(value => value.toLocaleLowerCase().includes(query)))
             : items;
         const sortedItems = [...searchedItems].sort(compareItems);
-        grid.replaceChildren(...sortedItems.slice(0, visibleCount).map(renderItem));
+        const start = (currentPage - 1) * pageSize;
+        grid.replaceChildren(...sortedItems.slice(start, start + visibleCount).map(renderItem));
+        if (catalogPagination) catalogPagination.hidden = true;
 
         sortButton.textContent = sortOrder === 'none' ? 'Sort' : sortOrder === 'desc' ? 'Count ↓' : 'Count ↑';
         sortButton.setAttribute('aria-pressed', String(sortOrder !== 'none'));
-        loadMoreButton.hidden = visibleCount >= sortedItems.length;
+        loadMoreButton.hidden = start + visibleCount >= sortedItems.length;
 
         if (selectModeButton) {
             selectModeButton.classList.toggle('active', isSelectMode);
@@ -155,16 +159,19 @@ const initializeListPage = (): void => {
 
     searchInput?.addEventListener('input', () => {
         searchValue = searchInput.value;
+        currentPage = 1;
         visibleCount = pageSize;
         void renderLoadedItems().catch(reportLoadError);
     });
     sortButton?.addEventListener('click', () => {
         sortOrder = sortOrder === 'none' ? 'desc' : sortOrder === 'desc' ? 'asc' : 'none';
+        currentPage = 1;
         visibleCount = pageSize;
         void renderLoadedItems().catch(reportLoadError);
     });
     selectModeButton?.addEventListener('click', () => {
         isSelectMode = !isSelectMode;
+        currentPage = 1;
         void renderLoadedItems().catch(reportLoadError);
     });
     loadMoreButton?.addEventListener('click', () => {

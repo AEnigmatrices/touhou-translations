@@ -1,0 +1,119 @@
+---
+import {
+    catalogPagePath,
+    paginationItems,
+    type CatalogRoute
+} from '../../utils/catalogPagination';
+
+interface Props {
+    route: CatalogRoute;
+    currentPage: number;
+    totalPages: number;
+    label: string;
+    galleryInteractive?: boolean;
+}
+
+const { route, currentPage, totalPages, label, galleryInteractive = false } = Astro.props;
+---
+
+<nav
+    class="catalog-pagination"
+    aria-label={label}
+    data-catalog-pagination
+    data-pagination={galleryInteractive ? '' : undefined}
+    hidden={totalPages <= 1}
+>
+    {currentPage > 1 ? (
+        <a href={catalogPagePath(route, currentPage - 1)}>Previous</a>
+    ) : (
+        <span class="disabled" aria-disabled="true">Previous</span>
+    )}
+    {paginationItems(currentPage, totalPages).map(item => typeof item === 'number' ? (
+        <a
+            href={catalogPagePath(route, item)}
+            class:list={{ active: item === currentPage }}
+            aria-current={item === currentPage ? 'page' : undefined}
+        >{item}</a>
+    ) : (
+        <span class="ellipsis" aria-hidden="true">…</span>
+    ))}
+    {currentPage < totalPages ? (
+        <a href={catalogPagePath(route, currentPage + 1)}>Next</a>
+    ) : (
+        <span class="disabled" aria-disabled="true">Next</span>
+    )}
+</nav>
+
+<style is:global>
+    .catalog-pagination {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35rem;
+        margin-top: 1.25rem;
+    }
+
+    .catalog-pagination[hidden] {
+        display: none;
+    }
+
+    .catalog-pagination a,
+    .catalog-pagination button,
+    .catalog-pagination .disabled {
+        display: inline-flex;
+        min-width: 42px;
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0.8rem;
+        color: var(--color-muted);
+        font: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+    }
+
+    .catalog-pagination a.active,
+    .catalog-pagination button.active {
+        color: var(--color-primary);
+        background: var(--color-primary-soft);
+        border-color: rgba(180, 35, 59, 0.24);
+    }
+
+    .catalog-pagination .disabled,
+    .catalog-pagination button:disabled {
+        color: var(--color-muted);
+        cursor: default;
+        background: var(--color-bg-soft);
+        opacity: 0.6;
+    }
+
+    .catalog-pagination .ellipsis {
+        display: inline-flex;
+        min-width: 28px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-muted);
+        font-weight: 700;
+    }
+
+    .catalog-pagination .jump-form {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .catalog-pagination .jump-form input {
+        width: 84px;
+        height: 38px;
+        padding: 0 0.55rem;
+        color: var(--color-ink);
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+    }
+</style>
